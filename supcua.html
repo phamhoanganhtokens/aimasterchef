@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Súp Cua Óc Heo - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .display-font {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            letter-spacing: -0.02em;
+        }
+
+        p, li, .just```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Súp Cua Óc Heo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .header-gradient {
+            background: linear-gradient(to bottom, #fcfafa 0%, #f5f2f2 100%);
+        }
+        .border-gold {
+            border-color: #C5A059;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            margin: 0 1rem;
+        }
+        .ornament span {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            opacity: 0.15;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            font-weight: bold;
+        }
+        .meta-card {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        @media (min-width: 768px) {
+            .meta-card {
+                border-bottom: none;
+                border-right: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-card:last-child {
+                border-right: none;
+            }
+        }
+        .ingredient-item:hover {
+            padding-left: 8px;
+            color: #E23D28;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 pt-8 header-gradient border-b border-gold pb-12">
+        <p class="uppercase tracking-[0.3em] text-cinnabar text-sm font-bold mb-4">AI Vua Đầu Bếp • Premium Collection</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">SÚP CUA ÓC HEO</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Crab and Pig Brain Soup</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-10 px-4">
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Difficulty</p>
+                <p class="text-xl">Intermediate</p>
+            </div>
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Time</p>
+                <p class="text-xl">60 - 75 Mins</p>
+            </div>
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Servings</p>
+                <p class="text-xl">4 - 6 People</p>
+            </div>
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Origin</p>
+                <p class="text-lg">South Vietnam</p>
+            </div>
+        </div>
+        <p class="mt-8 max-w-2xl mx-auto justified-text italic text-gray-700 px-4">
+            A quintessential Vietnamese street food and banquet starter, particularly celebrated in Southern Vietnam for its rich texture and restorative properties.
+        </p>
+    </header>
+
+    <main>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-6 border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-tighter text-sm mb-3">Thành phần chính</h4>
+                        <ul class="space-y-2 justified-text">
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Óc heo: 2 bộ (khoảng 200g)</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Thịt cua: 200g (tươi hoặc đóng hộp cao cấp)</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Xương ống heo hoặc gà: 500g</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Trứng cút: 12-15 quả, đã luộc bóc vỏ</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Bắp mỹ: 100g (hạt)</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Nấm đông cô khô: 5-6 tai, ngâm nở xắt sợi</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-tighter text-sm mb-3">Chất tạo độ sánh & Trứng</h4>
+                        <ul class="space-y-2 justified-text">
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Bột năng hoặc bột khoai tây: 100g</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Trứng gà: 2 quả lớn (tạo vân mây)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-tighter text-sm mb-3">Gia vị & Khử mùi</h4>
+                        <ul class="space-y-2 justified-text">
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Gừng, hành tím, ngò rí, hành lá</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Muối, đường, hạt nêm, tiêu trắng</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Dầu mè thơm</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Rượu trắng hoặc rượu Mai Quế Lộ: 50ml</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold mb-2">Sơ chế óc heo (Bí quyết Chuyên gia)</h4>
+                        <p class="justified-text text-gray-700">
+                            Đây là bước quan trọng nhất. Ngâm óc heo trong nước lạnh pha muối và rượu trắng trong 10 phút. Dùng tăm khéo léo lấy sạch lớp màng mỏng và các gân máu đỏ. Việc này giúp loại bỏ hoàn toàn mùi tanh và giữ được vị béo thanh. Rửa nhẹ tay và để ráo.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold mb-2">Nấu nước dùng</h4>
+                        <p class="justified-text text-gray-700">
+                            Hầm xương với hành tím nướng và gừng trong khoảng 45 phút. Thường xuyên hớt bọt để nước dùng trong vắt. Lọc bỏ xương và cặn để lấy phần nước cốt tinh túy nhất.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold mb-2">Hấp cách thủy óc heo</h4>
+                        <p class="justified-text text-gray-700">
+                            Để óc heo không bị nát và làm đục súp, hãy đặt óc heo vào bát cùng vài lát gừng và rượu. Hấp cách thủy 15 phút đến khi vừa chín tới. Khi nguội, xắt miếng vừa ăn.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold mb-2">Chế biến nguyên liệu phụ</h4>
+                        <p class="justified-text text-gray-700">
+                            Đun sôi lại nước dùng, cho bắp và nấm đông cô vào. Khi bắp chín mềm, tiếp tục cho thịt cua và trứng cút vào. Nêm nếm muối, đường, hạt nêm cho vừa miệng.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-bold mb-2">Tạo độ sánh "Nhung Lụa"</h4>
+                        <p class="justified-text text-gray-700">
+                            Pha bột năng với nước theo tỉ lệ 1:2. Hạ lửa nhỏ để súp sôi lăn tăn. Rót từ từ nước bột năng vào, một tay rót một tay khuấy súp theo một chiều nhất định. Điều này tạo độ trong suốt, bóng mượt và không bị vón cục.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">06</span>
+                        <h4 class="text-xl font-bold mb-2">Kỹ thuật vân mây</h4>
+                        <p class="justified-text text-gray-700">
+                            Đánh tan trứng gà, rót qua rây vào nồi súp đang xoáy nhẹ để tạo thành những sợi trứng mỏng manh, mượt mà như mây.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">07</span>
+                        <h4 class="text-xl font-bold mb-2">Hoàn thiện</h4>
+                        <p class="justified-text text-gray-700">
+                            Nhẹ nhàng cho óc heo đã hấp vào nồi. Đun thêm 2 phút để hương vị hòa quyện. Lưu ý không khuấy mạnh tay ở bước này để tránh làm nát óc heo.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament">
+            <span>✧</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 border-2 border-double border-gold rounded-sm mb-12 relative">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-parchment px-4 text-gold font-bold tracking-widest uppercase">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+                <div class="justified-text">
+                    <h5 class="font-bold text-cinnabar mb-2 italic">Kiểm soát độ sánh</h5>
+                    <p class="text-sm">Súp sẽ có xu hướng loãng dần khi nguội. Vì vậy, hãy nấu độ đặc hơi cao hơn mong muốn một chút khi còn trên bếp.</p>
+                </div>
+                <div class="justified-text">
+                    <h5 class="font-bold text-cinnabar mb-2 italic">Bí mật của độ trong</h5>
+                    <p class="text-sm">Tuyệt đối không dùng nước mắm trong nước dùng súp vì sẽ làm nước bị sậm màu và có vị chua nhẹ không mong muốn.</p>
+                </div>
+                <div class="justified-text">
+                    <h5 class="font-bold text-cinnabar mb-2 italic">Giữ kết cấu súp</h5>
+                    <p class="text-sm">Nếu súp bị "vữa" (chảy nước) sau khi để lâu, thường là do enzym trong nước bọt. Luôn dùng muỗng sạch để múc súp từ nồi ra bát.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 class="text-cinnabar font-bold mb-2 italic uppercase text-sm">Luxury Version</h4>
+                    <p class="justified-text text-sm">Thêm trứng bắc thảo xắt lựu để tạo độ béo ngậy và sự tương phản màu sắc đầy tinh tế.</p>
+                </div>
+                <div class="p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 class="text-cinnabar font-bold mb-2 italic uppercase text-sm">Quick Home Version</h4>
+                    <p class="justified-text text-sm">Sử dụng nước cốt gà đóng hộp loại không muối và thanh cua surimi nếu không có cua tươi.</p>
+                </div>
+                <div class="p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 class="text-cinnabar font-bold mb-2 italic uppercase text-sm">Texture Swap</h4>
+                    <p class="justified-text text-sm">Bổ sung nấm mèo xắt sợi nhỏ để tăng độ giòn sần sật cho từng miếng súp.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">
+            <span>✧</span>
+        </div>
+
+        <!-- Footer Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div class="p-8 bg-charcoal text-white rounded-sm">
+                <h3 class="text-2xl font-bold mb-6 text-gold border-b border-gold pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 justified-text">
+                    <p><strong class="text-gold">Lợi ích:</strong> Chứa hàm lượng Omega-3 và DHA cực cao, hỗ trợ sức khỏe não bộ và hệ thần kinh. Giàu đạm từ cua và trứng.</p>
+                    <p><strong class="text-gold">Lưu ý:</strong> Óc heo có hàm lượng cholesterol rất cao (khoảng 2500mg/100g). Cần thưởng thức điều độ, đặc biệt với người có vấn đề về tim mạch.</p>
+                </div>
+            </div>
+            <div class="p-8 border border-gray-200 rounded-sm">
+                <h3 class="text-2xl font-bold mb-6 text-cinnabar border-b border-cinnabar pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm justified-text">
+                    <li><strong class="italic">Plating:</strong> Phục vụ trong bát sứ trắng sâu lòng hoặc bát thủy tinh trong suốt để phô diễn sự rực rỡ của nguyên liệu.</li>
+                    <li><strong class="italic">Garnishing:</strong> Thêm một giọt dầu mè, tiêu trắng xay mịn và một nhành ngò rí tươi ở tâm bát.</li>
+                    <li><strong class="italic">Styling:</strong> Đặt một miếng óc heo còn nguyên khối và trứng cút lên trên bề mặt để khẳng định đẳng cấp của món ăn.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Adding dynamic year or interactive elements if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Premium Recipe Page Loaded');
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Súp Cua Óc Heo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .header-gradient {
+            background: linear-gradient(to bottom, #fcfafa 0%, #f5f2f2 100%);
+        }
+        .border-gold {
+            border-color: #C5A059;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            margin: 0 1rem;
+        }
+        .ornament span {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            opacity: 0.15;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            font-weight: bold;
+        }
+        .meta-card {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        @media (min-width: 768px) {
+            .meta-card {
+                border-bottom: none;
+                border-right: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-card:last-child {
+                border-right: none;
+            }
+        }
+        .ingredient-item:hover {
+            padding-left: 8px;
+            color: #E23D28;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 pt-8 header-gradient border-b border-gold pb-12">
+        <p class="uppercase tracking-[0.3em] text-cinnabar text-sm font-bold mb-4">AI Vua Đầu Bếp • Premium Collection</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">SÚP CUA ÓC HEO</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Crab and Pig Brain Soup</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-10 px-4">
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Difficulty</p>
+                <p class="text-xl">Intermediate</p>
+            </div>
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Time</p>
+                <p class="text-xl">60 - 75 Mins</p>
+            </div>
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Servings</p>
+                <p class="text-xl">4 - 6 People</p>
+            </div>
+            <div class="meta-card py-4">
+                <p class="text-xs uppercase tracking-widest text-gold font-bold">Origin</p>
+                <p class="text-lg">South Vietnam</p>
+            </div>
+        </div>
+        <p class="mt-8 max-w-2xl mx-auto justified-text italic text-gray-700 px-4">
+            A quintessential Vietnamese street food and banquet starter, particularly celebrated in Southern Vietnam for its rich texture and restorative properties.
+        </p>
+    </header>
+
+    <main>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-6 border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-tighter text-sm mb-3">Thành phần chính</h4>
+                        <ul class="space-y-2 justified-text">
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Óc heo: 2 bộ (khoảng 200g)</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Thịt cua: 200g (tươi hoặc đóng hộp cao cấp)</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Xương ống heo hoặc gà: 500g</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Trứng cút: 12-15 quả, đã luộc bóc vỏ</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Bắp mỹ: 100g (hạt)</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Nấm đông cô khô: 5-6 tai, ngâm nở xắt sợi</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-tighter text-sm mb-3">Chất tạo độ sánh & Trứng</h4>
+                        <ul class="space-y-2 justified-text">
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Bột năng hoặc bột khoai tây: 100g</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Trứng gà: 2 quả lớn (tạo vân mây)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-tighter text-sm mb-3">Gia vị & Khử mùi</h4>
+                        <ul class="space-y-2 justified-text">
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Gừng, hành tím, ngò rí, hành lá</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Muối, đường, hạt nêm, tiêu trắng</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Dầu mè thơm</li>
+                            <li class="ingredient-item border-b border-gray-100 pb-1">Rượu trắng hoặc rượu Mai Quế Lộ: 50ml</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold mb-2">Sơ chế óc heo (Bí quyết Chuyên gia)</h4>
+                        <p class="justified-text text-gray-700">
+                            Đây là bước quan trọng nhất. Ngâm óc heo trong nước lạnh pha muối và rượu trắng trong 10 phút. Dùng tăm khéo léo lấy sạch lớp màng mỏng và các gân máu đỏ. Việc này giúp loại bỏ hoàn toàn mùi tanh và giữ được vị béo thanh. Rửa nhẹ tay và để ráo.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold mb-2">Nấu nước dùng</h4>
+                        <p class="justified-text text-gray-700">
+                            Hầm xương với hành tím nướng và gừng trong khoảng 45 phút. Thường xuyên hớt bọt để nước dùng trong vắt. Lọc bỏ xương và cặn để lấy phần nước cốt tinh túy nhất.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold mb-2">Hấp cách thủy óc heo</h4>
+                        <p class="justified-text text-gray-700">
+                            Để óc heo không bị nát và làm đục súp, hãy đặt óc heo vào bát cùng vài lát gừng và rượu. Hấp cách thủy 15 phút đến khi vừa chín tới. Khi nguội, xắt miếng vừa ăn.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold mb-2">Chế biến nguyên liệu phụ</h4>
+                        <p class="justified-text text-gray-700">
+                            Đun sôi lại nước dùng, cho bắp và nấm đông cô vào. Khi bắp chín mềm, tiếp tục cho thịt cua và trứng cút vào. Nêm nếm muối, đường, hạt nêm cho vừa miệng.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-bold mb-2">Tạo độ sánh "Nhung Lụa"</h4>
+                        <p class="justified-text text-gray-700">
+                            Pha bột năng với nước theo tỉ lệ 1:2. Hạ lửa nhỏ để súp sôi lăn tăn. Rót từ từ nước bột năng vào, một tay rót một tay khuấy súp theo một chiều nhất định. Điều này tạo độ trong suốt, bóng mượt và không bị vón cục.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">06</span>
+                        <h4 class="text-xl font-bold mb-2">Kỹ thuật vân mây</h4>
+                        <p class="justified-text text-gray-700">
+                            Đánh tan trứng gà, rót qua rây vào nồi súp đang xoáy nhẹ để tạo thành những sợi trứng mỏng manh, mượt mà như mây.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">07</span>
+                        <h4 class="text-xl font-bold mb-2">Hoàn thiện</h4>
+                        <p class="justified-text text-gray-700">
+                            Nhẹ nhàng cho óc heo đã hấp vào nồi. Đun thêm 2 phút để hương vị hòa quyện. Lưu ý không khuấy mạnh tay ở bước này để tránh làm nát óc heo.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament">
+            <span>✧</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 border-2 border-double border-gold rounded-sm mb-12 relative">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-parchment px-4 text-gold font-bold tracking-widest uppercase">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+                <div class="justified-text">
+                    <h5 class="font-bold text-cinnabar mb-2 italic">Kiểm soát độ sánh</h5>
+                    <p class="text-sm">Súp sẽ có xu hướng loãng dần khi nguội. Vì vậy, hãy nấu độ đặc hơi cao hơn mong muốn một chút khi còn trên bếp.</p>
+                </div>
+                <div class="justified-text">
+                    <h5 class="font-bold text-cinnabar mb-2 italic">Bí mật của độ trong</h5>
+                    <p class="text-sm">Tuyệt đối không dùng nước mắm trong nước dùng súp vì sẽ làm nước bị sậm màu và có vị chua nhẹ không mong muốn.</p>
+                </div>
+                <div class="justified-text">
+                    <h5 class="font-bold text-cinnabar mb-2 italic">Giữ kết cấu súp</h5>
+                    <p class="text-sm">Nếu súp bị "vữa" (chảy nước) sau khi để lâu, thường là do enzym trong nước bọt. Luôn dùng muỗng sạch để múc súp từ nồi ra bát.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 class="text-cinnabar font-bold mb-2 italic uppercase text-sm">Luxury Version</h4>
+                    <p class="justified-text text-sm">Thêm trứng bắc thảo xắt lựu để tạo độ béo ngậy và sự tương phản màu sắc đầy tinh tế.</p>
+                </div>
+                <div class="p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 class="text-cinnabar font-bold mb-2 italic uppercase text-sm">Quick Home Version</h4>
+                    <p class="justified-text text-sm">Sử dụng nước cốt gà đóng hộp loại không muối và thanh cua surimi nếu không có cua tươi.</p>
+                </div>
+                <div class="p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 class="text-cinnabar font-bold mb-2 italic uppercase text-sm">Texture Swap</h4>
+                    <p class="justified-text text-sm">Bổ sung nấm mèo xắt sợi nhỏ để tăng độ giòn sần sật cho từng miếng súp.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">
+            <span>✧</span>
+        </div>
+
+        <!-- Footer Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div class="p-8 bg-charcoal text-white rounded-sm">
+                <h3 class="text-2xl font-bold mb-6 text-gold border-b border-gold pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 justified-text">
+                    <p><strong class="text-gold">Lợi ích:</strong> Chứa hàm lượng Omega-3 và DHA cực cao, hỗ trợ sức khỏe não bộ và hệ thần kinh. Giàu đạm từ cua và trứng.</p>
+                    <p><strong class="text-gold">Lưu ý:</strong> Óc heo có hàm lượng cholesterol rất cao (khoảng 2500mg/100g). Cần thưởng thức điều độ, đặc biệt với người có vấn đề về tim mạch.</p>
+                </div>
+            </div>
+            <div class="p-8 border border-gray-200 rounded-sm">
+                <h3 class="text-2xl font-bold mb-6 text-cinnabar border-b border-cinnabar pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm justified-text">
+                    <li><strong class="italic">Plating:</strong> Phục vụ trong bát sứ trắng sâu lòng hoặc bát thủy tinh trong suốt để phô diễn sự rực rỡ của nguyên liệu.</li>
+                    <li><strong class="italic">Garnishing:</strong> Thêm một giọt dầu mè, tiêu trắng xay mịn và một nhành ngò rí tươi ở tâm bát.</li>
+                    <li><strong class="italic">Styling:</strong> Đặt một miếng óc heo còn nguyên khối và trứng cút lên trên bề mặt để khẳng định đẳng cấp của món ăn.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Adding dynamic year or interactive elements if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Premium Recipe Page Loaded');
+        });
+    </script>
+</body>
+</html>
