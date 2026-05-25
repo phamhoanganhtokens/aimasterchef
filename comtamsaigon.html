@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cơm Tấm Sài Gòn - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+
+        .meta-card {
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .meta-card:hover {
+            border-color: #C5A059;
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .ingredient-group {
+            border-left: 2px solid #C5A059;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            position: relative;
+        }
+
+        .pro-tip-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FCFAFA;
+            padding: 0 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #C5A059;
+        }
+
+        /* Tabs logic */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-bottom: 2px solid #E23D28; color: #E23D28; }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="mb-4">
+            <span class="text-xs uppercase tracking-widest text-gold font-bold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase text-charcoal">Cơm Tấm Sài Gòn</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">Saigon Broken Rice</h2>
+        
+        <p class="max-w-3xl mx-auto justified-text italic text-gray-700 mb-10 leading-relaxed">
+            Originally a "frugal" dish created by farmers in the Mekong Delta using fractured rice grains (tấm) that were unsellable, Cơm Tấm migrated to Saigon and evolved into a culinary icon. It represents the intersection of French influence and Vietnamese agricultural heritage.
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="meta-card p-4 flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-[10px] uppercase tracking-tighter text-gray-500">Độ Khó / Difficulty</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="meta-card p-4 flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◴</span>
+                <span class="text-[10px] uppercase tracking-tighter text-gray-500">Thời gian / Time</span>
+                <span class="font-bold text-sm">Chuẩn bị: 45m | Nấu: 45m</span>
+            </div>
+            <div class="meta-card p-4 flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">♨</span>
+                <span class="text-[10px] uppercase tracking-tighter text-gray-500">Khẩu phần / Servings</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="meta-card p-4 flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">☖</span>
+                <span class="text-[10px] uppercase tracking-tighter text-gray-500">Nguồn gốc / Origin</span>
+                <span class="font-bold">Sài Gòn, Việt Nam</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="text-cinnabar mr-3">1.</span> Nguyên liệu
+            </h3>
+            
+            <div class="ingredient-group">
+                <h4 class="font-bold uppercase text-xs tracking-widest text-gold mb-3">Phần Cơm / The Rice</h4>
+                <ul class="space-y-1 text-sm">
+                    <li>• 2 cups Gạo Tấm (broken rice)</li>
+                    <li>• 2 Lá dứa (Pandan leaves)</li>
+                </ul>
+            </div>
+
+            <div class="ingredient-group">
+                <h4 class="font-bold uppercase text-xs tracking-widest text-gold mb-3">Sườn Nướng / Pork Chop</h4>
+                <ul class="space-y-1 text-sm">
+                    <li>• 4 miếng sườn cốt lết (có xương)</li>
+                    <li>• 3 tbsp sả băm</li>
+                    <li>• 2 tbsp hành tím băm</li>
+                    <li>• 1 tbsp tỏi băm</li>
+                    <li>• 3 tbsp nước mắm</li>
+                    <li>• 2 tbsp mật ong/sữa đặc</li>
+                    <li>• 1 tbsp hắc xì dầu</li>
+                    <li>• 1 tsp tiêu đen</li>
+                    <li>• 2 tbsp dầu ăn</li>
+                </ul>
+            </div>
+
+            <div class="ingredient-group">
+                <h4 class="font-bold uppercase text-xs tracking-widest text-gold mb-3">Chả Trứng & Bì / Meatloaf & Skin</h4>
+                <ul class="space-y-1 text-sm">
+                    <li>• 200g thịt heo xay</li>
+                    <li>• 4 quả trứng gà (2 lòng đỏ để riêng)</li>
+                    <li>• 30g mộc nhĩ (ngâm nở, băm)</li>
+                    <li>• 30g bún tàu (ngâm nở, cắt ngắn)</li>
+                    <li>• 150g da heo luộc thái sợi</li>
+                    <li>• 100g thịt thăn heo luộc xé</li>
+                    <li>• 3 tbsp Thính gạo</li>
+                </ul>
+            </div>
+
+            <div class="ingredient-group">
+                <h4 class="font-bold uppercase text-xs tracking-widest text-gold mb-3">Gia vị & Kèm / Extras</h4>
+                <ul class="space-y-1 text-sm">
+                    <li>• Mỡ hành: Hành lá, dầu ăn</li>
+                    <li>• Nước mắm chua ngọt: Nước mắm, đường, chanh, tỏi, ớt</li>
+                    <li>• Đồ chua: Cà rốt, củ cải trắng ngâm giấm</li>
+                    <li>• Dưa leo, cà chua thái lát</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="text-cinnabar mr-3">2.</span> Các bước thực hiện
+            </h3>
+
+            <div class="space-y-10">
+                <div class="flex gap-6">
+                    <div class="hidden md:block">
+                        <span class="step-number text-2xl">01</span>
+                    </div>
+                    <div>
+                        <h5 class="font-bold uppercase text-sm tracking-widest text-gray-500 mb-1">Sơ chế & Ướp thịt <span class="ml-2 font-normal lowercase italic text-gold">(4h - 12h)</span></h5>
+                        <p class="justified-text">Dùng búa dần nhẹ miếng sườn để thịt mềm. Trộn đều sả, hành tím, tỏi, nước mắm, mật ong, hắc xì dầu và dầu ăn. Ướp sườn ít nhất 4 tiếng (ngon nhất là qua đêm) để gia vị thấm sâu vào từng thớ thịt.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="hidden md:block">
+                        <span class="step-number text-2xl">02</span>
+                    </div>
+                    <div>
+                        <h5 class="font-bold uppercase text-sm tracking-widest text-gray-500 mb-1">Nấu Cơm Tấm <span class="ml-2 font-normal lowercase italic text-gold">(45 phút)</span></h5>
+                        <p class="justified-text">Vo gạo tấm 3-4 lần cho đến khi nước trong. Hấp cách thủy là cách truyền thống, nhưng có thể dùng nồi cơm điện với tỷ lệ nước 1:1 hoặc 1:1.2. Thêm lá dứa vào nồi để tạo mùi thơm đặc trưng của cơm tấm Sài Gòn.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="hidden md:block">
+                        <span class="step-number text-2xl">03</span>
+                    </div>
+                    <div>
+                        <h5 class="font-bold uppercase text-sm tracking-widest text-gray-500 mb-1">Chế biến Chả Trứng & Bì</h5>
+                        <p class="justified-text">Trộn thịt xay, mộc nhĩ, bún tàu và 2 quả trứng. Hấp trong khuôn đã thoa dầu khoảng 20 phút. Sau đó, phết 2 lòng đỏ trứng lên mặt, tiếp tục hấp 5 phút không đậy nắp để mặt chả có màu vàng rực rỡ. Với phần Bì, trộn đều da heo, thịt xé với thính gạo cho đến khi tơi và thơm.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="hidden md:block">
+                        <span class="step-number text-2xl">04</span>
+                    </div>
+                    <div>
+                        <h5 class="font-bold uppercase text-sm tracking-widest text-gray-500 mb-1">Nướng Sườn</h5>
+                        <p class="justified-text">Nướng sườn trên than hồng là tuyệt nhất. Áp chảo hoặc dùng nồi chiên không dầu ở 190°C trong 15-18 phút, lật mặt giữa chừng. Chú ý tạo lớp vỏ cháy xém nhẹ (Maillard reaction) để dậy mùi thơm.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="hidden md:block">
+                        <span class="step-number text-2xl">05</span>
+                    </div>
+                    <div>
+                        <h5 class="font-bold uppercase text-sm tracking-widest text-gray-500 mb-1">Hoàn thiện Nước chấm & Mỡ hành</h5>
+                        <p class="justified-text">Đun nóng dầu rồi đổ trực tiếp vào hành lá thái nhỏ để giữ màu xanh. Nước mắm pha theo tỷ lệ: đường hòa tan trong nước ấm trước, sau đó mới thêm nước mắm và chanh. Cuối cùng cho tỏi ớt băm để chúng nổi lên mặt đẹp mắt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="my-16">
+        <div class="pro-tip-box p-8 md:p-12 bg-white shadow-sm">
+            <span class="pro-tip-label">3. Mẹo hay từ Vua Đầu Bếp</span>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h6 class="font-bold text-cinnabar mb-2 italic">The Glaze (Nước sốt bóng)</h6>
+                    <p class="text-sm justified-text">Khi nướng được một nửa thời gian, hãy phết thêm hỗn hợp nước ướp pha chút dầu ăn lên miếng sườn. Điều này giúp thịt không bị khô và có màu nâu đỏ óng ả.</p>
+                </div>
+                <div>
+                    <h6 class="font-bold text-cinnabar mb-2 italic">Rice Texture (Cấu trúc cơm)</h6>
+                    <p class="text-sm justified-text">Cơm tấm phải rời và tơi, không được bết dính. Sau khi nồi bật nút chín, hãy để chế độ "Keep Warm" ít nhất 10 phút trước khi xới cơm.</p>
+                </div>
+                <div>
+                    <h6 class="font-bold text-cinnabar mb-2 italic">The Soul (Linh hồn món ăn)</h6>
+                    <p class="text-sm justified-text">Nước mắm cơm tấm phải có độ sánh đặc (nhiều đường hơn nước mắm bún chả) để có thể bám đều trên từng hạt gạo tấm nhỏ li ti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h3 class="text-3xl font-bold mb-6 flex items-center">
+            <span class="text-cinnabar mr-3">4.</span> Biến tấu & Phiên bản nâng cao
+        </h3>
+        <div class="flex border-b border-gray-200 mb-6">
+            <button onclick="switchTab('classic')" id="btn-classic" class="tab-btn active px-6 py-2 font-bold transition-all">Classic Protein</button>
+            <button onclick="switchTab('veggie')" id="btn-veggie" class="tab-btn px-6 py-2 font-bold transition-all">Vegetarian</button>
+        </div>
+        
+        <div id="classic" class="tab-content active p-6 bg-white rounded-lg border border-gray-100 shadow-sm">
+            <p class="justified-text italic text-gray-600">
+                Nếu không có sườn cốt lết, bạn có thể thay thế bằng thịt ba chỉ thái mỏng hoặc đùi gà nướng sả. Cách ướp vẫn giữ nguyên để đảm bảo hương vị truyền thống.
+            </p>
+        </div>
+        <div id="veggie" class="tab-content p-6 bg-white rounded-lg border border-gray-100 shadow-sm">
+            <p class="justified-text italic text-gray-600">
+                Phiên bản chay: Thay thịt bằng đậu hũ trắng nướng sả. Sử dụng nước mắm chay (làm từ nước cốt thơm và nước tương). Phần Bì có thể thay bằng miến trộn thính và nấm đùi gà xé sợi.
+            </p>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✺</span>
+    </div>
+
+    <!-- Technical Info -->
+    <footer class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-gold border-b border-gold pb-2 inline-block">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-3 mt-4">
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                    <span>Năng lượng / Calories</span>
+                    <span class="font-bold">750–850 kcal</span>
+                </div>
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                    <span>Chất đạm / Protein</span>
+                    <span class="font-bold">40g</span>
+                </div>
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                    <span>Tinh bột / Carbs</span>
+                    <span class="font-bold">85g</span>
+                </div>
+                <p class="text-xs italic text-gray-500 mt-4 justified-text">
+                    * Mẹo sức khỏe: Tăng thêm phần đồ chua và dưa leo để giảm chỉ số đường huyết. Sử dụng mật ong thay cho sữa đặc khi ướp thịt.
+                </p>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-gold border-b border-gold pb-2 inline-block">6. Gợi ý trình bày</h3>
+            <ul class="text-sm space-y-2 justified-text italic text-gray-700">
+                <li>• Sử dụng đĩa sứ trắng phẳng để tôn vinh màu sắc của các nguyên liệu.</li>
+                <li>• Nén cơm vào bát nhỏ rồi úp ngược vào giữa đĩa để tạo hình vòm hoàn hảo.</li>
+                <li>• Đặt sườn nướng, chả trứng và bì xung quanh "đảo cơm".</li>
+                <li>• Rưới mỡ hành lên đỉnh vòm cơm. Trang trí đồ chua, dưa leo ở mép đĩa.</li>
+                <li>• Nước mắm phục vụ trong bát nhỏ riêng bên cạnh. Tổng thể là một "vũ điệu sắc màu có kiểm soát".</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Simple Fade-in animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transition = 'opacity 1s ease-in-out';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
