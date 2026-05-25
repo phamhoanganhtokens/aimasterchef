@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Phở Thìn Lò Đúc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                        display: ["'Playfair Display'", "serif"],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament span {
+            padding: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        .timeline-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+        }
+        .pro-tip-border {
+            border: 3px double #C5A059;
+            padding: 2rem;
+            position: relative;
+        }
+        .pro-tip-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FCFAFA;
+            padding: 0 1rem;
+            color: #C5A059;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold/30">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center border-b border-gold/20">
+        <div class="mb-4 text-cinnabar font-serif tracking-[0.3em] uppercase text-sm">AI Vua Đầu Bếp Presents</div>
+        <h1 class="font-display text-5xl md:text-7xl mb-2 text-charcoal">Phở Thìn Lò Đúc</h1>
+        <p class="font-display italic text-2xl md:text-3xl text-gold/80 mb-8">Phở Tái Lăn</p>
+        
+        <div class="max-w-3xl mx-auto mt-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Độ khó / Difficulty</span>
+                    <span class="font-bold">Nâng cao / Advanced</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Thời gian / Time</span>
+                    <span class="font-bold">8 – 12 Giờ / Hours</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Khẩu phần / Servings</span>
+                    <span class="font-bold">6 Bát / Bowls</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Nguồn gốc / Origin</span>
+                    <span class="font-bold italic">Hà Nội (1979)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-12">
+            <p class="justified-text text-lg italic text-charcoal/80 leading-relaxed">
+                Ra đời vào năm 1979 bởi ông Nguyễn Trọng Thìn tại số 13 Lò Đúc, Hà Nội. Khác với phở truyền thống nước trong, phiên bản này định danh bằng kỹ thuật "tái lăn" - thịt bò được xào nhanh trên lửa lớn với gừng tỏi trước khi cho vào bát, tạo nên nước dùng đục nhẹ, béo ngậy và dậy mùi khói đặc trưng.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h2 class="font-display text-3xl border-b-2 border-charcoal pb-2 mb-8 uppercase tracking-tighter">1. Nguyên liệu</h2>
+                
+                <div class="space-y-8">
+                    <section>
+                        <h3 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Cốt Nước Dùng (The Broth Base)</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1 hover:text-cinnabar transition-colors duration-200">
+                                <span>Xương ống & xương bò</span><span class="font-bold">3kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Nạm bò / Brisket</span><span class="font-bold">500g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Gừng & Hành tím nướng</span><span class="font-bold">150g/3 củ</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Đại hồi & Quế chi</span><span class="font-bold">5 cánh/2 thanh</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Thảo quả & Đinh hương</span><span class="font-bold">3 quả/5 nụ</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Gia vị (Nước mắm, Muối, Đường phèn)</span><span class="font-bold">vừa đủ</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Thịt Bò Tái Lăn (The Beef)</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Thịt thăn hoặc bắp bò</span><span class="font-bold">800g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Gừng sợi & Tỏi băm</span><span class="font-bold">100g/50g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Mỡ bò hoặc dầu ăn</span><span class="font-bold">4 tbsp</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Rau & Ăn kèm (Greenery & Sides)</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Hành lá (thái khúc 2cm)</span><span class="font-bold">500g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Rau mùi & Bánh phở tươi</span><span class="font-bold">1.5kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-charcoal/20 pb-1">
+                                <span>Quẩy, Chanh, Ớt, Dấm tỏi</span><span class="font-bold">Tùy chọn</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h2 class="font-display text-3xl border-b-2 border-charcoal pb-2 mb-8 uppercase tracking-tighter">2. Các bước thực hiện</h2>
+                
+                <div class="space-y-4">
+                    <div class="timeline-step" data-step="1">
+                        <h4 class="font-display text-xl mb-2">Ninh Cốt Nước Dùng <span class="text-gold italic text-sm ml-2">— 8-12 Giờ</span></h4>
+                        <p class="justified-text text-charcoal/90">
+                            Ngâm xương trong nước muối 2 tiếng. Chần xương 15 phút, vớt ra cọ rửa thật sạch màng xám. Cho xương vào nồi với 6 lít nước cùng gừng và hành tím đã nướng cháy vỏ. Ninh liu riu ít nhất 8 tiếng. Rang thơm các loại gia vị khô (hồi, quế, thảo quả) và cho vào túi vải thả vào nồi 2 tiếng cuối. Nêm nếm với đường phèn, muối và nước mắm cốt.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="2">
+                        <h4 class="font-display text-xl mb-2">Sơ Chế Thịt Bò <span class="text-gold italic text-sm ml-2">— 15 Phút</span></h4>
+                        <p class="justified-text text-charcoal/90">
+                            Thái thịt bò thật mỏng, ngang thớ. Tuyệt đối không ướp muối trước để tránh ra nước; thay vào đó, trộn nhẹ với một chút dầu và gừng thái sợi. Điều này giúp thịt giữ được độ mọng nước khi gặp lửa lớn.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="3">
+                        <h4 class="font-display text-xl mb-2">Kỹ Thuật Xào Tái Lăn <span class="text-gold italic text-sm ml-2">— 1 Phút</span></h4>
+                        <p class="justified-text text-charcoal/90">
+                            Sử dụng chảo gang hoặc thép sâu lòng. Đun thật nóng cho đến khi bốc khói nhẹ. Cho mỡ bò, tỏi và gừng vào phi thơm rồi trút ngay thịt bò vào. Đảo thật nhanh tay trên lửa cực lớn trong vòng 30-45 giây. Thịt chỉ cần chín tái, cháy cạnh và dậy mùi "Wok hei" (hơi thở của chảo).
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="4">
+                        <h4 class="font-display text-xl mb-2">Trình Bày & "Biển Hành" <span class="text-gold italic text-sm ml-2">— 5 Phút</span></h4>
+                        <p class="justified-text text-charcoal/90">
+                            Chần bánh phở qua nước sôi rồi cho vào bát sâu lòng. Chia đều lượng thịt bò vừa xào kèm cả nước tiết ra từ thịt. Phủ kín mặt bát bằng một lớp hành lá và rau mùi dày khoảng 2cm - đúng chất "đại dương xanh" của phở Lò Đúc.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="5">
+                        <h4 class="font-display text-xl mb-2">Hoàn Tất <span class="text-gold italic text-sm ml-2">— Ngay lập tức</span></h4>
+                        <p class="justified-text text-charcoal/90">
+                            Múc nước dùng đang sôi sùng sục dội trực tiếp lên lớp hành. Nhiệt độ cao sẽ làm chín tái hành ngay lập tức, giải phóng tinh dầu thơm phức hòa quyện vào nước dùng béo ngậy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ornament Divider -->
+        <div class="ornament">
+            <span>✧ 👨‍🍳 ✧</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <div class="pro-tip-border">
+                <span class="pro-tip-tag font-display">3. Mẹo hay từ Vua Đầu Bếp</span>
+                <div class="grid md:grid-cols-3 gap-8 mt-4">
+                    <div class="text-center md:text-left">
+                        <h5 class="text-cinnabar font-bold uppercase text-[10px] tracking-widest mb-2">Nhiệt Độ Nước</h5>
+                        <p class="text-sm justified-text">Nước dùng phải đạt độ sôi lăn tăn khi chan. Nếu nước nguội, hành sẽ hăng và mỡ bò sẽ gây cảm giác ngấy thay vì mượt mà.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="text-cinnabar font-bold uppercase text-[10px] tracking-widest mb-2">Kỹ Thuật Chảo</h5>
+                        <p class="text-sm justified-text">Không nên xào quá nhiều thịt cùng lúc. Nếu nấu 6 bát, hãy chia thịt xào làm 3 mẻ để đảm bảo nhiệt độ chảo luôn cao nhất.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="text-cinnabar font-bold uppercase text-[10px] tracking-widest mb-2">Độ Trong & Béo</h5>
+                        <p class="text-sm justified-text">Không cần hớt bỏ hoàn toàn váng mỡ. Lớp mỡ nhũ hóa từ quá trình xào chính là linh hồn tạo nên hương vị Lò Đúc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-20">
+            <h2 class="font-display text-3xl border-b-2 border-charcoal pb-2 mb-8 uppercase tracking-tighter text-center">4. Biến tấu & Phiên bản</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-lg shadow-sm border-l-4 border-l-gold">
+                    <h4 class="font-display text-xl mb-4 text-cinnabar italic">Thêm Trứng Chần (Traditional Plus)</h4>
+                    <p class="justified-text text-charcoal/80">
+                        Nhiều thực khách sành ăn thường gọi thêm một bát trứng chần riêng. Lòng đỏ trứng béo ngậy khi ăn cùng nước dùng đậm đà của phở Thìn tạo nên một trải nghiệm vị giác cực kỳ bùng nổ.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-lg shadow-sm border-l-4 border-l-charcoal">
+                    <h4 class="font-display text-xl mb-4 text-cinnabar italic">Phiên Bản Tại Gia (Modern Home)</h4>
+                    <p class="justified-text text-charcoal/80">
+                        Nếu không có thời gian ninh xương 12 tiếng, bạn có thể dùng nước dùng xương đóng hộp chất lượng cao làm nền, nhưng bắt buộc phải thực hiện bước "tái lăn" tươi tại chỗ để giữ đúng tinh thần món ăn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Technical Info -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t-2 border-charcoal pt-12">
+            <section>
+                <h3 class="font-display text-2xl mb-6 uppercase tracking-tighter">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-charcoal text-parchment p-8 rounded-sm">
+                    <div class="flex justify-between items-center mb-4 border-b border-parchment/20 pb-2">
+                        <span class="uppercase tracking-widest text-xs">Năng lượng / Calories</span>
+                        <span class="text-xl font-bold">580 kcal</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-gold text-lg font-bold">42g</div>
+                            <div class="text-[10px] uppercase opacity-60">Protein</div>
+                        </div>
+                        <div>
+                            <div class="text-gold text-lg font-bold">18g</div>
+                            <div class="text-[10px] uppercase opacity-60">Fats</div>
+                        </div>
+                        <div>
+                            <div class="text-gold text-lg font-bold">62g</div>
+                            <div class="text-[10px] uppercase opacity-60">Carbs</div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-xs italic opacity-80 justified-text">
+                        *Lưu ý: Phở Thìn có hàm lượng chất béo cao hơn phở truyền thống do kỹ thuật xào. Giàu sắt và kẽm. Có thể giảm calo bằng cách dùng dầu hạt nho và thịt thăn ngoại.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="font-display text-2xl mb-6 uppercase tracking-tighter">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="w-2 h-2 rounded-full bg-cinnabar mt-2 shrink-0"></div>
+                        <p class="justified-text"><strong>Thị giác:</strong> Sử dụng bát gốm sâu lòng, miệng rộng. Lớp hành phải tạo thành một "mái vòm" xanh mướt. Khi đưa thìa xuống mới lộ ra lớp thịt cháy cạnh và nước dùng màu hổ phách nhẹ.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-2 h-2 rounded-full bg-cinnabar mt-2 shrink-0"></div>
+                        <p class="justified-text"><strong>Đồ kèm:</strong> Phục vụ cùng 3-4 chiếc quẩy giòn để chấm nước béo. Một bát dấm tỏi tự làm là yếu tố bắt buộc để cân bằng vị béo đặc trưng của phở Lò Đúc.</p>
+                    </div>
+                    <div class="mt-4 p-4 bg-gold/10 italic text-sm border-l-2 border-gold">
+                        "Phở Thìn không dành cho những người tìm kiếm sự thanh đạm. Nó là một bản giao hưởng của lửa, mỡ và hành lá."
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Subtle scroll animation for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition = "all 0.6s ease-out";
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
+
