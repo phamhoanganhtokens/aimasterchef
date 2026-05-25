@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lẩu Cá Thác Lác Khổ Qua - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #D4AF37;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--burnished-gold), transparent);
+        }
+
+        .ornament-icon {
+            margin: 0 1.5rem;
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--cinnabar-red);
+            font-size: 2.5rem;
+            line-height: 1;
+            opacity: 0.3;
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--burnished-gold);
+            position: relative;
+            background-color: #fffdf5;
+        }
+
+        .chef-seal {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: var(--cinnabar-red);
+            color: white;
+            padding: 5px 15px;
+            transform: rotate(2deg);
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .ingredient-group h4 {
+            border-bottom: 1px solid var(--burnished-gold);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-btn.active {
+            color: var(--cinnabar-red);
+            border-bottom: 2px solid var(--cinnabar-red);
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+                padding: 1rem 0;
+            }
+            .meta-item:nth-child(even) {
+                border-left: 1px solid rgba(44, 44, 44, 0.1);
+            }
+            .meta-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-12 px-6 text-center">
+        <p class="uppercase tracking-widest text-xs mb-4 text-red-700 font-bold">Tạp chí Ẩm thực số - AI Vua Đầu Bếp</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight">LẨU CÁ THÁC LÁC KHỔ QUA</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-light">Bronze Featherback Fish Hotpot with Bitter Melon</h2>
+        
+        <div class="max-w-4xl mx-auto border-y border-gray-200 py-6 my-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="meta-item">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Mức độ</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold text-lg">60 Phút</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Phục vụ</span>
+                <span class="font-bold text-lg">4–6 Người</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Phong cách</span>
+                <span class="font-bold text-lg">Miền Tây</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-8">
+            <p class="justified-text italic text-gray-700 leading-relaxed text-lg px-4 border-l-4 border-red-800">
+                "Món lẩu này là viên ngọc quý của di sản ẩm thực miền Tây Nam Bộ, đại diện cho triết lý 'Thanh Đạm'. Nó không chỉ là món ăn mà còn là phương thuốc dân gian giúp thanh nhiệt, cân bằng giữa vị đắng đặc trưng của khổ qua và vị ngọt thanh của cá sông."
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament max-w-6xl mx-auto">
+        <span class="ornament-icon">★</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-black pb-2 flex items-center">
+                    <span class="mr-3">1.</span> NGUYÊN LIỆU
+                </h3>
+                
+                <div class="space-y-8">
+                    <div class="ingredient-group">
+                        <h4 class="font-bold text-sm uppercase tracking-widest text-red-800">Phần Chả Cá</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Cá thác lác nạo</span>
+                                <span class="font-bold">500g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Hành tím băm</span>
+                                <span class="font-bold">2 tbsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Đầu hành lá băm</span>
+                                <span class="font-bold">1 tbsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 text-sm italic">
+                                <span>Gia vị (Tiêu, nước mắm, đường, muối)</span>
+                                <span class="font-bold">Vừa đủ</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="ingredient-group">
+                        <h4 class="font-bold text-sm uppercase tracking-widest text-red-800">Nước Dùng</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Xương ống heo</span>
+                                <span class="font-bold">1.5kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 text-sm italic">
+                                <span>Hành tím, gừng (nướng)</span>
+                                <span class="font-bold">3-4 củ</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Nước mắm, đường phèn</span>
+                                <span class="font-bold">Tùy chọn</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="ingredient-group">
+                        <h4 class="font-bold text-sm uppercase tracking-widest text-red-800">Rau Củ & Ăn Kèm</h4>
+                        <ul class="mt-4 space-y-3">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Khổ qua (mướp đắng)</span>
+                                <span class="font-bold">4-5 quả</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Rau tần ô (cải cúc)</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Bún tươi</span>
+                                <span class="font-bold">1kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Ớt hiểm, nước mắm ngon</span>
+                                <span class="font-bold">—</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-black pb-2 flex items-center">
+                    <span class="mr-3">2.</span> CÁC BƯỚC THỰC HIỆN
+                </h3>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex gap-6">
+                        <div class="step-number shrink-0">01</div>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-tight">Chuẩn bị nước dùng trong</h5>
+                            <p class="justified-text text-gray-700">
+                                Chần xương ống heo trong nước sôi 5 phút để loại bỏ tạp chất, sau đó rửa sạch. Ninh xương với 2.5L nước cùng hành tím và gừng đã nướng thơm trong 45–60 phút. <span class="italic text-red-800 font-semibold">Bí quyết: Luôn hớt bọt liên tục để nước dùng đạt độ trong vắt như pha lê.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-6">
+                        <div class="step-number shrink-0">02</div>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-tight">Kỹ thuật Quết (Tạo độ dai)</h5>
+                            <p class="justified-text text-gray-700">
+                                Đặt tô cá vào một thau đá lạnh để giữ nhiệt độ thấp. Thêm hành tím, đầu hành, tiêu, muối, đường và nước mắm. Dùng muỗng lớn hoặc chày quết mạnh tay theo một chiều duy nhất trong 10-15 phút. Cá đạt chuẩn khi hỗn hợp dẻo quánh, nặng tay và có độ đàn hồi cao khi chạm vào.
+                            </p>
+                            <div class="mt-4 p-4 bg-gray-100 rounded-sm italic text-sm border-l-2 border-gray-400">
+                                <strong>Lối tắt:</strong> Bạn có thể dùng máy đánh bột (stand mixer) với đầu bẹt ở tốc độ trung bình trong 5 phút để đạt kết quả tương đương.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-6">
+                        <div class="step-number shrink-0">03</div>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-tight">Sơ chế rau củ</h5>
+                            <p class="justified-text text-gray-700">
+                                Khổ qua rửa sạch, bào mỏng khoảng 2mm để nhanh chín hoặc cắt khúc 3cm bỏ ruột nếu muốn nhồi cá. Ngâm khổ qua trong nước đá 10 phút để giảm vị đắng và tăng độ giòn cho món ăn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-6">
+                        <div class="step-number shrink-0">04</div>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-tight">Hoàn thiện & Thưởng thức</h5>
+                            <p class="justified-text text-gray-700">
+                                Nêm nước dùng với đường phèn và nước mắm cho vừa miệng. Viên chả cá thành từng viên tròn nhỏ. Khi nước sôi, thả cá vào, cá nổi lên là đã chín. Thả khổ qua vào sau cùng, chỉ cần 1-2 phút để giữ màu xanh mướt và độ giòn đặc trưng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament max-w-6xl mx-auto">
+            <span class="ornament-icon">⬥</span>
+        </div>
+
+        <!-- Special Insights Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+            <!-- Chef's Corner -->
+            <div class="pro-tip-box p-8">
+                <div class="chef-seal text-xs uppercase tracking-widest">Master Chef Advice</div>
+                <h3 class="text-2xl font-bold mb-6 text-red-900">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-6">
+                    <li class="flex gap-4">
+                        <span class="text-gold-600 font-bold text-2xl">※</span>
+                        <p class="justified-text"><strong>Kiểm soát nhiệt độ:</strong> Luôn giữ thịt cá ở mức 0-2°C khi quết. Nhiệt độ cơ thể từ tay hoặc môi trường nóng sẽ làm đứt gãy cấu trúc protein, khiến chả cá bị bở thay vì dai giòn.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-gold-600 font-bold text-2xl">※</span>
+                        <p class="justified-text"><strong>Độ trong của nước:</strong> Tuyệt đối không để nước dùng sôi bùng sau khi cho xương vào; chỉ để sôi lăn tăn để tránh mỡ bị nhũ hóa làm đục nước.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-gold-600 font-bold text-2xl">※</span>
+                        <p class="justified-text"><strong>Cân bằng vị đắng:</strong> Nếu thực khách không quen vị đắng, hãy xát nhẹ khổ qua với một chút muối rồi rửa sạch trước khi dọn ra bàn.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div class="bg-white p-8 shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-bold mb-6">4. Biến tấu & Nâng cao</h3>
+                <div class="flex border-b mb-6 overflow-x-auto">
+                    <button onclick="switchTab('tab1')" class="tab-btn px-4 py-2 font-bold uppercase tracking-widest text-xs active" id="btn-tab1">Truyền thống</button>
+                    <button onclick="switchTab('tab2')" class="tab-btn px-4 py-2 font-bold uppercase tracking-widest text-xs" id="btn-tab2">Nâng tầm</button>
+                    <button onclick="switchTab('tab3')" class="tab-btn px-4 py-2 font-bold uppercase tracking-widest text-xs" id="btn-tab3">Hải sản</button>
+                </div>
+                <div id="tab1" class="tab-content active">
+                    <h5 class="font-bold mb-2">Khổ qua nhồi chả cá</h5>
+                    <p class="justified-text text-sm text-gray-600">Thay vì viên tròn, hãy nhồi chặt chả cá vào các khoanh khổ qua đã bỏ ruột. Cách này giúp cá thấm vị đắng thanh của khổ qua sâu hơn, tạo nên sự hòa quyện hoàn hảo.</p>
+                </div>
+                <div id="tab2" class="tab-content" id="tab2">
+                    <h5 class="font-bold mb-2">Thêm tầng hương vị Nấm</h5>
+                    <p class="justified-text text-sm text-gray-600">Bổ sung nấm linh chi trắng hoặc nấm rơm vào nồi lẩu để tăng thêm vị ngọt tự nhiên (umami) và độ đậm đà cho nước dùng.</p>
+                </div>
+                <div id="tab3" class="tab-content" id="tab3">
+                    <h5 class="font-bold mb-2">Biến tấu Hải sản (Seafood Infusion)</h5>
+                    <p class="justified-text text-sm text-gray-600">Thêm mực khô hoặc tôm khô nướng thơm vào ninh cùng nước dùng xương heo để tạo ra một tầng hương vị biển cả sâu lắng và sang trọng hơn.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ornament max-w-6xl mx-auto">
+            <span class="ornament-icon">❖</span>
+        </div>
+
+        <!-- Technical/Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-zinc-900 text-white p-12 rounded-lg">
+            <div class="border-l-2 border-red-600 pl-6">
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-red-500">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 text-sm text-zinc-300">
+                    <p class="justified-text">
+                        <strong>Khổ qua:</strong> Giàu Vitamin C, A và polypeptide-p (insulin thực vật), nổi tiếng với khả năng hạ đường huyết và giải độc gan hiệu quả.
+                    </p>
+                    <p class="justified-text">
+                        <strong>Cá Thác Lác:</strong> Nguồn đạm chất lượng cao, ít béo, giàu axit béo Omega-3 tốt cho tim mạch.
+                    </p>
+                    <div class="pt-4 border-t border-zinc-700">
+                        <span class="text-white font-bold">Tổng Calo:</span> ~250–300 kcal / khẩu phần (chưa bao gồm bún).
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-l-2 border-yellow-600 pl-6">
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-yellow-500">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm text-zinc-300">
+                    <p class="justified-text">
+                        <strong>Tương phản màu sắc:</strong> Sử dụng nồi lẩu nông, miệng rộng để phô diễn nguyên liệu. Xếp khổ qua xanh mướt thành hình bông hoa trên đĩa sứ trắng bên cạnh.
+                    </p>
+                    <p class="justified-text">
+                        <strong>Hiệu ứng "Jewel":</strong> Những viên chả cá phải trắng ngần, bóng bẩy. Điểm xuyết vài cọng ngò rí và ớt đỏ cắt lát để tạo điểm nhấn thị giác rực rỡ trên nền nước dùng trong.
+                    </p>
+                    <p class="justified-text italic text-zinc-400">
+                        Dùng kèm một chén nước mắm nguyên chất cùng vài lát ớt hiểm để đúng điệu phong cách phương Nam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Activate selected button
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
