@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Canh Trảng Bàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                        'muted-gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .meta-item {
+            border-right: 1px solid #e5e7eb;
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .meta-item:nth-child(even) {
+                border-left: 1px solid #e5e7eb;
+            }
+            .meta-item:nth-child(n+3) {
+                border-bottom: none;
+            }
+        }
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-16 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="mb-4">
+            <span class="text-cinnabar tracking-widest uppercase font-bold text-sm">AI Vua Đầu Bếp — Tạp Chí Ẩm Thực Cao Cấp</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">BÁNH CANH TRẢNG BÀNG</h1>
+        <p class="text-2xl md:text-3xl italic text-gray-600 mb-8">Trang Bang Dew-Wetted Rice Noodle Soup</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold py-6 gap-4">
+            <div class="meta-item flex flex-col items-center justify-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="meta-item flex flex-col items-center justify-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest">Thời gian</span>
+                <span class="text-lg">3 Giờ</span>
+            </div>
+            <div class="meta-item flex flex-col items-center justify-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest">Khẩu phần</span>
+                <span class="text-lg">4-6 Người</span>
+            </div>
+            <div class="meta-item flex flex-col items-center justify-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest">Xuất xứ</span>
+                <span class="text-lg">Tây Ninh, VN</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto">
+            <p class="justified-text italic text-gray-700 leading-relaxed">
+                Nguồn gốc từ huyện Trảng Bàng, tỉnh Tây Ninh. Theo truyền thống, những sợi bánh canh mang tính biểu tượng này được chế biến tỉ mỉ từ gạo địa phương thơm ngon ngâm qua đêm, tạo nên sợi bánh hơi đục, dai và mềm. Món ăn nổi tiếng với nước dùng heo ngọt tự nhiên, thanh khiết và đi kèm với một mảng thảo mộc hoang dã bản địa sôi động được thu hái từ các bờ sông lân cận.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider"><span class="ornament">◈</span></div>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <div class="lg:col-span-5">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block uppercase tracking-tighter">1. Nguyên liệu</h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-gold italic underline">Nước dùng & Thịt</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Xương cổ hoặc xương sống heo</span>
+                            <span class="font-bold">1 kg</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Giò heo (cắt khoanh 1 inch)</span>
+                            <span class="font-bold">500g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Bắp giò hoặc ba chỉ heo</span>
+                            <span class="font-bold">400g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Củ cải trắng (cắt khúc)</span>
+                            <span class="font-bold">1 củ lớn</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Hành tây vàng (nướng sơ)</span>
+                            <span class="font-bold">1 củ</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Hành tím (nướng sơ)</span>
+                            <span class="font-bold">4-5 củ</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Khô mực (nướng) hoặc tôm khô</span>
+                            <span class="font-bold">25g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Gia vị (Đường phèn, Muối biển, Nước mắm)</span>
+                            <span class="font-bold">Vừa đủ</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-gold italic underline">Bánh Canh</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-gray-100 pb-1 hover-lift">
+                            <span>Bánh canh tươi (gạo & lọc)</span>
+                            <span class="font-bold">600g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-gold italic underline">Rau sống & Gia vị kèm</h3>
+                    <p class="text-sm italic mb-3 text-gray-500">Mâm rau rừng Tây Ninh đặc trưng:</p>
+                    <ul class="space-y-2 justified-text text-sm">
+                        <li class="hover-lift">• Xà lách, diếp cá, tía tô, húng quế, húng lủi.</li>
+                        <li class="hover-lift">• Rau rừng: Quế vị, sao nhái, lá cóc, lá nhái.</li>
+                        <li class="hover-lift">• Hành lá, ngò rí, hành phi, tiêu đen.</li>
+                        <li class="hover-lift">• Nước mắm cốt, ớt hiểm, chanh tươi.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Steps -->
+        <div class="lg:col-span-7">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block uppercase tracking-tighter">2. Các bước thực hiện</h2>
+            <div class="space-y-8 relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 top-0 bottom-0 w-px bg-gold hidden md:block"></div>
+
+                <div class="relative md:pl-12">
+                    <div class="hidden md:block absolute left-2.5 top-2 w-3 h-3 rounded-full bg-cinnabar"></div>
+                    <h4 class="font-bold text-xl mb-2 uppercase">Sơ chế & Chần thịt <span class="text-gray-400 text-sm italic ml-2">(15 phút)</span></h4>
+                    <p class="justified-text">Cho xương heo, giò và bắp giò vào nồi nước lạnh với một chút muối. Đun sôi bùng trong 5 phút. Đổ bỏ nước và rửa sạch thịt dưới vòi nước lạnh để loại bỏ hoàn toàn tạp chất và bọt bẩn.</p>
+                </div>
+
+                <div class="relative md:pl-12">
+                    <div class="hidden md:block absolute left-2.5 top-2 w-3 h-3 rounded-full bg-cinnabar"></div>
+                    <h4 class="font-bold text-xl mb-2 uppercase">Nấu nước dùng <span class="text-gray-400 text-sm italic ml-2">(2-3 giờ)</span></h4>
+                    <p class="justified-text">Cho thịt và xương đã sạch vào nồi với 4 lít nước lọc. Thêm hành tây, hành tím, khô mực nướng, củ cải trắng, muối và đường phèn. Đun sôi lăn tăn ở nhiệt độ khoảng 85-90°C. Liên tục hớt bọt để nước dùng luôn trong vắt.</p>
+                </div>
+
+                <div class="relative md:pl-12">
+                    <div class="hidden md:block absolute left-2.5 top-2 w-3 h-3 rounded-full bg-cinnabar"></div>
+                    <h4 class="font-bold text-xl mb-2 uppercase">Kỹ thuật làm nguội thịt <span class="text-gray-400 text-sm italic ml-2">(5 phút)</span></h4>
+                    <p class="justified-text">Kiểm tra bắp giò sau 45-50 phút. Khi thịt vừa chín tới, vớt ra và ngâm ngay vào bát nước đá. Kỹ thuật này giúp thịt săn chắc, không bị thâm và dễ dàng thái lát mỏng. Giò heo vớt ra sau khoảng 1.5 giờ khi đã mềm.</p>
+                </div>
+
+                <div class="relative md:pl-12">
+                    <div class="hidden md:block absolute left-2.5 top-2 w-3 h-3 rounded-full bg-cinnabar"></div>
+                    <h4 class="font-bold text-xl mb-2 uppercase">Hoàn thiện nước dùng</h4>
+                    <p class="justified-text">Lọc nước dùng qua rây mịn để loại bỏ các nguyên liệu tạo mùi. Nêm nếm lại với nước mắm cao cấp sao cho có vị ngọt thanh từ củ cải, mực và vị đậm đà từ xương thịt.</p>
+                </div>
+
+                <div class="relative md:pl-12">
+                    <div class="hidden md:block absolute left-2.5 top-2 w-3 h-3 rounded-full bg-cinnabar"></div>
+                    <h4 class="font-bold text-xl mb-2 uppercase">Trình bày & Thưởng thức</h4>
+                    <p class="justified-text">Chần bánh canh qua nước sôi rồi cho vào bát. Xếp thịt bắp giò thái mỏng và giò heo lên trên. Chan nước dùng nóng hổi, rắc hành ngò, hành phi và tiêu. Thưởng thức cùng mâm rau rừng và nước mắm ớt.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="section-divider"><span class="ornament">◈</span></div>
+
+    <!-- Chef's Corner -->
+    <section class="bg-parchment border-double border-4 border-gold p-8 my-12 shadow-inner">
+        <h2 class="text-2xl font-bold text-cinnabar italic mb-4 flex items-center">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
+            3. Mẹo hay từ Vua Đầu Bếp
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-white/50 border border-gold/20">
+                <h5 class="font-bold underline mb-2">Độ trong của nước</h5>
+                <p class="text-sm justified-text">Tuyệt đối không để nước dùng sôi bùng sau lần chần đầu tiên. Sự xáo trộn mạnh sẽ làm nhũ hóa chất béo, khiến nước bị đục.</p>
+            </div>
+            <div class="p-4 bg-white/50 border border-gold/20">
+                <h5 class="font-bold underline mb-2">Tối ưu quy trình</h5>
+                <p class="text-sm justified-text">Nướng hành tím, hành tây và khô mực trong lúc chờ xương chần để tiết kiệm thời gian mà vẫn đảm bảo hương vị sâu sắc.</p>
+            </div>
+            <div class="p-4 bg-white/50 border border-gold/20">
+                <h5 class="font-bold underline mb-2">Cấu trúc thịt</h5>
+                <p class="text-sm justified-text">Việc ngâm nước đá cho bắp giò là bắt buộc để đạt được trình độ trình bày chuyên nghiệp, cho phép thái lát mỏng 2mm mà không bị vụn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations & Pro Versions -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block uppercase tracking-tighter">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-6 bg-charcoal text-white rounded-sm hover-lift">
+                <span class="text-gold font-bold uppercase text-xs block mb-2">Quick Version</span>
+                <h4 class="text-xl font-bold mb-3">Nấu bằng Nồi áp suất</h4>
+                <p class="text-sm justified-text opacity-90">Sử dụng nồi áp suất trong 35 phút để tiết kiệm thời gian. Nhớ vớt thịt bắp giò ra sớm để tránh bị quá nhừ.</p>
+            </div>
+            <div class="p-6 bg-white border border-gray-200 rounded-sm hover-lift">
+                <span class="text-cinnabar font-bold uppercase text-xs block mb-2">Traditional Plus</span>
+                <h4 class="text-xl font-bold mb-3">Thêm topping truyền thống</h4>
+                <p class="text-sm justified-text">Bổ sung huyết heo và trứng cút luộc vào nước dùng 10 phút trước khi phục vụ để bát bánh canh thêm phần phong phú.</p>
+            </div>
+            <div class="p-6 bg-white border border-gray-200 rounded-sm hover-lift">
+                <span class="text-gray-500 font-bold uppercase text-xs block mb-2">Alternative</span>
+                <h4 class="text-xl font-bold mb-3">Thay thế sợi bánh</h4>
+                <p class="text-sm justified-text">Nếu không có bánh canh Trảng Bàng, mì Udon Nhật Bản là một lựa chọn thay thế tuyệt vời nhờ độ dai tương đồng.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="ornament">◈</span></div>
+
+    <!-- Nutrition & Presentation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <section>
+            <h2 class="text-2xl font-bold mb-6 text-cinnabar flex items-center">
+                5. Giá trị dinh dưỡng
+            </h2>
+            <div class="bg-gray-50 p-6 rounded border-l-4 border-cinnabar">
+                <div class="mb-4">
+                    <span class="text-3xl font-bold">550</span> <span class="text-gray-500">kcal / bát</span>
+                </div>
+                <div class="flex space-x-4 mb-6">
+                    <div class="flex-1 text-center bg-white p-2 border border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase">Protein</div>
+                        <div class="font-bold">35g</div>
+                    </div>
+                    <div class="flex-1 text-center bg-white p-2 border border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase">Carbs</div>
+                        <div class="font-bold">65g</div>
+                    </div>
+                    <div class="flex-1 text-center bg-white p-2 border border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase">Fat</div>
+                        <div class="font-bold">18g</div>
+                    </div>
+                </div>
+                <p class="text-sm justified-text italic text-gray-600">
+                    Nước dùng chứa nhiều collagen từ giò heo tốt cho khớp và da. Hàm lượng natri khá cao nên được cân bằng bằng cách ăn kèm nhiều rau rừng tươi chứa enzym tiêu hóa và chất xơ.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-6 text-cinnabar flex items-center">
+                6. Gợi ý trình bày
+            </h2>
+            <ul class="space-y-4 text-sm justified-text">
+                <li class="flex items-start">
+                    <span class="text-gold mr-3 mt-1">✦</span>
+                    <span><strong>Độ tương phản:</strong> Sự trong vắt của nước dùng nổi bật trên nền sợi bánh trắng đục, dày dặn là yếu tố then chốt.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold mr-3 mt-1">✦</span>
+                    <span><strong>Sắp xếp:</strong> Xếp thịt bắp giò thành hình nan quạt ở một bên bát, giò heo ở bên còn lại để tạo độ cao đa dạng.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold mr-3 mt-1">✦</span>
+                    <span><strong>Màu sắc:</strong> Tập trung hành ngò ở giữa thay vì rắc lộn xộn. Rau rừng bày trên khay tre để tôn vinh vẻ đẹp dân dã.</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Final Brand Signature -->
+    <div class="text-center pb-12 opacity-50">
+        <div class="inline-block border-t border-gold px-12 pt-4 italic">
+            Nghệ thuật ẩm thực đỉnh cao — Master Agent Cuisine Series
+        </div>
+    </div>
+
+</body>
+</html>
+
