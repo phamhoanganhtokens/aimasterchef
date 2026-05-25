@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bún Măng Vịt - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .ornament-divider::before, .ornament-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .ornament-divider:not(:empty)::before { margin-right: 1rem; }
+        .ornament-divider:not(:empty)::after { margin-left: 1rem; }
+        
+        .chef-card {
+            border: 1px solid #C5A059;
+            box-shadow: inset 0 0 10px rgba(197, 160, 89, 0.1);
+        }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .tab-btn.active {
+            color: #E23E28;
+            border-bottom: 2px solid #E23E28;
+        }
+
+        .step-number {
+            font-variant-numeric: oldstyle-nums;
+            font-weight: bold;
+        }
+
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <div class="mb-4 text-sm tracking-[0.2em] uppercase text-cinnabar-red font-bold">AI Vua Đầu Bếp Exclusive</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">BÚN MĂNG VỊT</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Vietnamese Duck and Bamboo Shoot Vermicelli Soup</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-6 md:gap-12 border-y border-burnished-gold py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h12M6 6h12M6 12h12"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">2 giờ 15 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Phục vụ</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Việt Nam</span>
+            </div>
+        </div>
+
+        <p class="mt-8 justified-text max-w-3xl mx-auto italic text-gray-700 leading-relaxed">
+            A quintessential Vietnamese comfort dish rooted in Northern and Southern traditions. Authentically, it utilizes "vịt cỏ" (lean, small-framed grass ducks) known for their firm, fragrant meat and low fat content. The dish celebrates the harmony between the rich, gamy essence of duck and the earthy, fibrous crunch of bamboo shoots.
+        </p>
+    </header>
+
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4 bg-white p-8 shadow-sm border-t-4 border-cinnabar-red h-fit">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <section>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-burnished-gold mb-3">Thành phần chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Vịt (nguyên con)</span>
+                                <span class="font-bold">~2kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Măng khô/tươi</span>
+                                <span class="font-bold">300g - 500g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Bún tươi</span>
+                                <span class="font-bold">1kg</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-burnished-gold mb-3">Sơ chế & Làm sạch</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Gừng (giã nát)</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Rượu trắng</span>
+                                <span class="font-bold">1/2 chén</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Muối hột</span>
+                                <span class="font-bold">3 tbsp</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-burnished-gold mb-3">Gia vị & Tạo hương</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Hành tím & Hành tây</span>
+                                <span class="font-bold">Nướng cháy</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Tiêu đen nguyên hạt</span>
+                                <span class="font-bold">1 tsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Nước mắm, đường phèn</span>
+                                <span class="font-bold">Tùy khẩu vị</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-burnished-gold mb-3">Rau ăn kèm & Dipping</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>Hành lá, ngò rí, ngò gai, kinh giới.</li>
+                            <li>Nước mắm gừng: gừng, tỏi, ớt, chanh, đường.</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="mr-4 text-cinnabar-red">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 relative before:content-[''] before:absolute before:left-4 before:top-4 before:bottom-4 before:w-px before:bg-gray-200">
+                    
+                    <!-- Step 1 -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-primary-charcoal text-white flex items-center justify-center rounded-full z-10 font-bold group-hover:bg-cinnabar-red transition-colors">1</div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold">Sơ chế Măng</h4>
+                            <span class="italic text-burnished-gold text-sm font-bold">~30 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Nếu dùng măng khô, ngâm nước ít nhất 24 giờ, thay nước thường xuyên, sau đó luộc 30 phút cho đến khi mềm rồi xé sợi. Nếu dùng măng tươi hoặc đóng lon, luộc với nước muối 10–15 phút để loại bỏ vị đắng và độc tố, sau đó rửa sạch.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-primary-charcoal text-white flex items-center justify-center rounded-full z-10 font-bold group-hover:bg-cinnabar-red transition-colors">2</div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold">Làm sạch Vịt (Kỹ thuật chuyên nghiệp)</h4>
+                            <span class="italic text-burnished-gold text-sm font-bold">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Chà xát vịt thật kỹ với hỗn hợp gừng giã nát, muối và rượu trắng. Để nghỉ 15 phút trước khi rửa sạch dưới vòi nước lạnh nhằm loại bỏ mùi "hôi lông". Chần vịt qua nước sôi 3 phút, sau đó bỏ nước này để đảm bảo nước dùng trong vắt.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-primary-charcoal text-white flex items-center justify-center rounded-full z-10 font-bold group-hover:bg-cinnabar-red transition-colors">3</div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold">Hầm Nước Dùng</h4>
+                            <span class="italic text-burnished-gold text-sm font-bold">60 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cho vịt vào nồi với 4 lít nước. Thêm gừng, hành tím, hành tây đã nướng và tiêu hạt. Đun sôi rồi ngay lập tức hạ lửa nhỏ liu riu. Thường xuyên hớt bọt để giữ nước dùng luôn trong.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-primary-charcoal text-white flex items-center justify-center rounded-full z-10 font-bold group-hover:bg-cinnabar-red transition-colors">4</div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold">Xào Măng</h4>
+                            <span class="italic text-burnished-gold text-sm font-bold">5 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Trong khi hầm vịt, xào măng đã sơ chế với một chút dầu ăn, nước mắm và muối trong 5 phút. Việc này giúp măng thấm gia vị đậm đà trước khi cho vào nồi nước dùng.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-primary-charcoal text-white flex items-center justify-center rounded-full z-10 font-bold group-hover:bg-cinnabar-red transition-colors">5</div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold">Hoàn tất Vịt & Nước Dùng</h4>
+                            <span class="italic text-burnished-gold text-sm font-bold">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Khi vịt chín, vớt ra và ngâm ngay vào thau nước đá 5 phút để da vịt không bị thâm và giữ độ giòn. Sau khi nguội, chặt hoặc thái miếng vừa ăn. Cho măng đã xào vào nồi nước dùng, nêm nếm lại với đường phèn, muối và nước mắm.
+                        </p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-primary-charcoal text-white flex items-center justify-center rounded-full z-10 font-bold group-hover:bg-cinnabar-red transition-colors">6</div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold">Nước Chấm & Trình Bày</h4>
+                            <span class="italic text-burnished-gold text-sm font-bold">Hoàn tất</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Pha nước mắm gừng: khuấy tan nước mắm, đường, nước cốt chanh, sau đó thêm gừng, tỏi và ớt băm. Xếp bún ra bát, đặt thịt vịt và măng lên trên, chan nước dùng nóng hổi và rắc hành ngò, hành phi.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Ornament Divider -->
+        <div class="ornament-divider">
+            <svg class="text-burnished-gold w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z" />
+            </svg>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Chef’s Corner -->
+            <div class="chef-card p-8 bg-[#FDFBF7] relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 opacity-5">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12,15C15.87,15 19,11.87 19,8C19,4.13 15.87,1 12,1C8.13,1 5,4.13 5,8C5,11.87 8.13,15 12,15M12,17C7.58,17 4,13.42 4,9C4,4.58 7.58,1 12,1C16.42,1 20,4.58 20,9C20,13.42 16.42,17 12,17Z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-burnished-gold italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-3">★</span>
+                        <p class="justified-text"><strong>Độ trong của nước dùng:</strong> Đừng bao giờ để nước dùng sôi sùng sục; chỉ giữ lửa "cười" (sủi tăm nhẹ) để mỡ không bị nhũ hóa làm đục nước.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-3">★</span>
+                        <p class="justified-text"><strong>Xử lý da vịt:</strong> Để có lớp da bóng mượt như nhà hàng, hãy phết một chút dầu mè lên da vịt sau khi luộc và để nguội.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-3">★</span>
+                        <p class="justified-text"><strong>Kết cấu măng:</strong> Nếu dùng măng khô, hãy nhớ cắt bỏ phần gốc già, cứng trước khi xé sợi để đảm bảo độ giòn mềm hoàn hảo.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations & Pro Versions -->
+            <div class="bg-white p-8 shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-bold mb-6">4. Biến tấu & Nâng cao</h3>
+                <div class="flex border-b border-gray-200 mb-6">
+                    <button onclick="showTab('ver1')" id="btn-ver1" class="tab-btn active px-4 py-2 text-sm font-bold uppercase tracking-wider">Gia đình</button>
+                    <button onclick="showTab('ver2')" id="btn-ver2" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-wider">Hiện đại</button>
+                    <button onclick="showTab('ver3')" id="btn-ver3" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-wider">Cao cấp</button>
+                </div>
+                
+                <div id="ver1" class="tab-content active transition-opacity duration-300">
+                    <p class="justified-text italic text-gray-600 mb-4">"Lối tắt cho bữa cơm nhà ấm cúng."</p>
+                    <p class="justified-text">Sử dụng nước dùng gà đóng hộp làm nền và chỉ cần hầm đùi vịt thay vì cả con để tiết kiệm thời gian chuẩn bị mà vẫn giữ được hương vị đặc trưng.</p>
+                </div>
+                <div id="ver2" class="tab-content transition-opacity duration-300">
+                    <p class="justified-text italic text-gray-600 mb-4">"Biến tấu Măng Gà nhẹ nhàng."</p>
+                    <p class="justified-text">Thay thế vịt bằng gà ta thả vườn cho một phiên bản nước dùng thanh hơn, ít béo hơn, phù hợp cho những ai ưa thích sự nhẹ nhàng.</p>
+                </div>
+                <div id="ver3" class="tab-content transition-opacity duration-300">
+                    <p class="justified-text italic text-gray-600 mb-4">"Phong vị miền Bắc truyền thống."</p>
+                    <p class="justified-text">Sử dụng "măng chua" (măng lên men) để tạo vị chua thanh đặc trưng của ẩm thực phía Bắc, giúp trung hòa độ béo của thịt vịt một cách tinh tế.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-burnished-gold">
+            <section>
+                <h4 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="w-2 h-2 bg-cinnabar-red rounded-full mr-2"></span> 5. Giá trị dinh dưỡng
+                </h4>
+                <div class="space-y-2 text-gray-700">
+                    <p><strong>Calo:</strong> 550 - 650 kcal mỗi phần ăn.</p>
+                    <p class="justified-text"><strong>Thành phần:</strong> Giàu protein từ vịt, carbohydrate phức hợp từ bún gạo và nhiều chất xơ từ măng. Măng hỗ trợ tiêu hóa tốt nhưng nên dùng chừng mực cho người có dạ dày nhạy cảm.</p>
+                </div>
+            </section>
+
+            <section>
+                <h4 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="w-2 h-2 bg-cinnabar-red rounded-full mr-2"></span> 6. Gợi ý trình bày
+                </h4>
+                <div class="space-y-2 text-gray-700">
+                    <p class="justified-text">Sử dụng bát sứ trắng sâu lòng để làm nổi bật lớp da vịt vàng óng và màu xanh của thảo mộc. Xếp thịt vịt rẻ quạt một bên, măng một bên. Rắc hành phi và ngò gai băm nhỏ vào giữa. Phục vụ kèm chén nước mắm gừng đỏ tươi bắt mắt.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active style from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show current tab
+            document.getElementById(tabId).classList.add('active');
+            // Add active style to current button
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
