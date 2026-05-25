@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bún Riêu Miền Nam - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23E28',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, #f3f0e9 0%, #FCFAFA 100%);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #D4AF37;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            font-size: 1.5rem;
+        }
+        
+        .step-number {
+            font-style: italic;
+            color: #E23E28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .meta-card {
+            border-right: 1px solid #e5e7eb;
+        }
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .meta-card:nth-child(even) {
+                border-right: none;
+            }
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .ingredient-item {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 0.5rem 0;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23E28;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .variation-card {
+            transition: transform 0.3s ease;
+        }
+        .variation-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="hero-gradient pt-16 pb-12 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-cinnabar tracking-[0.2em] uppercase text-sm font-bold mb-4 block">Tinh Hoa Ẩm Thực Việt</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal">BÚN RIÊU MIỀN NAM</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Southern Vietnamese Crab Noodle Soup</h2>
+            
+            <div class="meta-grid border-y border-gold/30 py-6 flex flex-wrap justify-center items-center gap-y-4">
+                <div class="meta-card px-8 text-center flex-1 min-w-[140px]">
+                    <span class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
+                    <span class="text-lg font-bold">Trung bình - Khó</span>
+                </div>
+                <div class="meta-card px-8 text-center flex-1 min-w-[140px]">
+                    <span class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                    <span class="text-lg font-bold">2 Giờ 45 Phút</span>
+                </div>
+                <div class="meta-card px-8 text-center flex-1 min-w-[140px]">
+                    <span class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                    <span class="text-lg font-bold">6 - 8 Người</span>
+                </div>
+                <div class="meta-card px-8 text-center flex-1 min-w-[140px]">
+                    <span class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Nguồn gốc</span>
+                    <span class="text-lg font-bold">Miền Nam</span>
+                </div>
+            </div>
+
+            <div class="mt-10 max-w-3xl mx-auto italic justified-text text-gray-700 leading-relaxed">
+                "Originally a humble dish from the flooded rice paddies of the Red River Delta in Northern Vietnam, bún riêu migrated South and evolved into a richer, heartier, and sweeter variation. The Southern style (Miền Nam) uniquely incorporates robust additions like pork hocks, congealed pork blood (huyết), daikon for natural sweetness, and occasionally snails (ốc), reflecting the agricultural abundance of the Mekong Delta."
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar pb-2 inline-block">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 italic">Nước Dùng (Broth)</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item">2 lbs xương cổ hoặc giò heo</li>
+                                <li class="ingredient-item">1 củ củ cải trắng lớn</li>
+                                <li class="ingredient-item">1 củ hành tây nướng</li>
+                                <li class="ingredient-item">3 lít nước lọc</li>
+                                <li class="ingredient-item">2 muỗng canh dầu màu điều</li>
+                                <li class="ingredient-item">4 quả cà chua chín</li>
+                                <li class="ingredient-item">1 muỗng canh mắm tôm</li>
+                                <li class="ingredient-item">1 muỗng canh đường phèn</li>
+                                <li class="ingredient-item">Nước mắm vừa ăn</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 italic">Riêu Cua (Meatballs)</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item">1 lb thịt cua đồng (hoặc gia vị đóng lon)</li>
+                                <li class="ingredient-item">1/2 lb thịt heo xay</li>
+                                <li class="ingredient-item">2 quả trứng gà lớn</li>
+                                <li class="ingredient-item">2 muỗng canh tôm khô băm nhỏ</li>
+                                <li class="ingredient-item">1 củ hành tím băm</li>
+                                <li class="ingredient-item">1 muỗng cà phê tiêu đen</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 italic">Đồ Ăn Kèm & Bún</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item">1 lb đậu hũ chiên</li>
+                                <li class="ingredient-item">1/2 lb huyết heo luộc</li>
+                                <li class="ingredient-item">2 lbs bún tươi</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 italic">Rau Sống (Garnishes)</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item">Bắp chuối bào, rau muống chẻ</li>
+                                <li class="ingredient-item">Tía tô, húng quế, húng lủi</li>
+                                <li class="ingredient-item">Chanh, ớt hiểm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar pb-2 inline-block">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="flex gap-4">
+                        <span class="step-number">01</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Chuẩn bị nước dùng</h4>
+                            <p class="justified-text text-gray-700">
+                                Chần xương heo trong nước sôi muối 5 phút. Rửa sạch dưới nước lạnh. Cho xương, hành tây nướng, củ cải vào nồi với 3 lít nước. Hầm lửa nhỏ trong 1.5 giờ, thường xuyên hớt bọt để nước trong vắt.
+                            </p>
+                            <span class="text-xs italic text-cinnabar mt-2 block">Ước tính: 90 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="step-number">02</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Trộn Riêu</h4>
+                            <p class="justified-text text-gray-700">
+                                Trộn nhẹ tay thịt cua, thịt heo xay, trứng, tôm khô, hành tím và tiêu. Nên trộn đều nhưng không quá kỹ để giữ cho miếng riêu có độ xốp nhẹ và bông mịn khi chín.
+                            </p>
+                            <span class="text-xs italic text-cinnabar mt-2 block">Ước tính: 10 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="step-number">03</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Nấu Riêu</h4>
+                            <p class="justified-text text-gray-700">
+                                Khi nước dùng sôi lăn tăn, dùng muỗng múc từng phần riêu cho vào nồi. Không khuấy. Để riêu tự nổi lên bề mặt (khoảng 5-7 phút) là đã chín hoàn toàn.
+                            </p>
+                            <span class="text-xs italic text-cinnabar mt-2 block">Ước tính: 10 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="step-number">04</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Tạo màu và Hương vị</h4>
+                            <p class="justified-text text-gray-700">
+                                Đun nóng dầu màu điều, xào một nửa lượng cà chua cho đến khi mềm để tạo màu đỏ tự nhiên đẹp mắt. Đổ hỗn hợp này vào nồi cùng phần cà chua còn lại, đậu hũ chiên và huyết heo.
+                            </p>
+                            <span class="text-xs italic text-cinnabar mt-2 block">Ước tính: 15 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="step-number">05</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Nêm nếm</h4>
+                            <p class="justified-text text-gray-700">
+                                Hòa mắm tôm với một ít nước dùng nóng, khuấy tan rồi mới đổ vào nồi. Thêm đường phèn và nước mắm cho vừa khẩu vị. Để lửa nhỏ thêm 10 phút cho các nguyên liệu thấm vị.
+                            </p>
+                            <span class="text-xs italic text-cinnabar mt-2 block">Ước tính: 10 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="step-number">06</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Trình bày</h4>
+                            <p class="justified-text text-gray-700">
+                                Cho bún ra tô. Múc nước dùng nóng hổi rưới lên, đảm bảo mỗi tô đều có đủ xương giò, riêu cua, đậu hũ, huyết và cà chua. Phục vụ cùng đĩa rau sống tươi ngon.
+                            </p>
+                            <span class="text-xs italic text-cinnabar mt-2 block">Sẵn sàng thưởng thức</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">◈ Chef's Wisdom ◈</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="bg-charcoal text-white p-8 md:p-12 border-l-8 border-gold relative overflow-hidden">
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold mb-6 text-gold flex items-center gap-3">
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-8 italic">
+                        <div>
+                            <h5 class="text-gold mb-2 not-italic font-bold tracking-widest text-xs uppercase">Kiểm soát nhiệt độ</h5>
+                            <p class="text-sm justified-text text-gray-300">Tuyệt đối không để nước dùng sôi bùng khi đã cho riêu cua vào, vì sự xáo động mạnh sẽ làm nát riêu và làm đục nước dùng đã dày công chăm chút.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-gold mb-2 not-italic font-bold tracking-widest text-xs uppercase">Xử lý mắm tôm</h5>
+                            <p class="text-sm justified-text text-gray-300">Pha loãng mắm tôm trong chất lỏng nóng trước khi cho vào nồi chính giúp ngăn chặn hiện tượng vón cục và làm dịu bớt mùi nồng gắt của mắm lên men.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-gold mb-2 not-italic font-bold tracking-widest text-xs uppercase">Mise-en-place</h5>
+                            <p class="text-sm justified-text text-gray-300">Hãy chuẩn bị sẵn bún, rau sống rửa sạch và bày biện ra đĩa trước khi bắt đầu múc nước dùng. Món bún riêu sẽ mất đi linh hồn nếu được phục vụ lúc nguội.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar pb-2 inline-block">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="variation-card bg-white p-6 shadow-sm border border-gray-100 flex flex-col">
+                    <span class="text-gold font-bold mb-2 uppercase text-xs tracking-widest">Home Cook Shortcut</span>
+                    <h4 class="text-lg font-bold mb-4">Lối tắt gia đình</h4>
+                    <p class="justified-text text-sm text-gray-600">Sử dụng nước dùng gà đóng hộp hầm cùng củ cải và hành nướng trong 20 phút. Riêu cua đóng lon và đậu hũ chiên sẵn sẽ giúp tiết kiệm tối đa thời gian chuẩn bị.</p>
+                </div>
+                <div class="variation-card bg-white p-6 shadow-sm border border-gray-100 flex flex-col">
+                    <span class="text-gold font-bold mb-2 uppercase text-xs tracking-widest">Gourmet Edition</span>
+                    <h4 class="text-lg font-bold mb-4">Bún Riêu Ốc</h4>
+                    <p class="justified-text text-sm text-gray-600">Xào ốc bươu với tỏi, hành tím và một chút bột nghệ cho đến khi săn lại. Thêm ốc vào tô bún như một điểm nhấn về kết cấu giòn sần sật, tương phản hoàn hảo với riêu cua mềm mại.</p>
+                </div>
+                <div class="variation-card bg-white p-6 shadow-sm border border-gray-100 flex flex-col">
+                    <span class="text-gold font-bold mb-2 uppercase text-xs tracking-widest">Lifestyle Choice</span>
+                    <h4 class="text-lg font-bold mb-4">Phiên bản Pescetarian</h4>
+                    <p class="justified-text text-sm text-gray-600">Bỏ qua xương heo và huyết. Sử dụng nước dùng rau củ và nấm. Tăng gấp đôi lượng tôm khô và cua tươi, thay thế nước mắm truyền thống bằng nước mắm chay nếu muốn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <div class="grid md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6">5. Giá trị dinh dưỡng</h3>
+                <div class="glass-panel p-6 rounded-lg">
+                    <div class="flex justify-between mb-4 border-b border-gray-200 pb-2">
+                        <span class="font-bold">Calories</span>
+                        <span class="text-cinnabar font-bold">~480 kcal / tô</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 text-center mb-6">
+                        <div>
+                            <span class="block text-xs uppercase text-gray-500">Protein</span>
+                            <span class="font-bold">28g</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase text-gray-500">Carbs</span>
+                            <span class="font-bold">58g</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase text-gray-500">Fat</span>
+                            <span class="font-bold">16g</span>
+                        </div>
+                    </div>
+                    <p class="justified-text text-sm italic text-gray-600">
+                        * Món ăn này có hàm lượng natri cao do mắm tôm. Để cân bằng, nên dùng nhiều rau sống đi kèm như bắp chuối và tía tô để bổ sung kali và chất xơ. Có thể dùng thịt heo nạc để giảm chất béo bão hòa.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Presentation Tips -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm justified-text text-gray-700">
+                    <p>
+                        <strong>Tạo hình:</strong> Sử dụng tô sứ trắng lòng sâu để làm nổi bật màu sắc rực rỡ của nước dùng đỏ cam. Đặt bún thành một khối gọn gàng giữa tô làm bệ đỡ cho các nguyên liệu khác.
+                    </p>
+                    <p>
+                        <strong>Bố cục:</strong> Sắp xếp riêu cua vàng óng làm trung tâm, xung quanh là huyết heo đỏ thẫm, đậu hũ vàng rộm và những miếng cà chua đỏ tươi. Rưới thêm vài giọt dầu màu điều trực tiếp lên phần bún trắng ngay trước khi bưng ra.
+                    </p>
+                    <p>
+                        <strong>Nhiếp ảnh:</strong> Đặt tô bún cạnh mẹt rau sống lót lá chuối hoặc khay tre. Một vài lát ớt hiểm đỏ và miếng chanh xanh mướt sẽ tạo nên câu chuyện thị giác sống động và đầy cảm hứng cho người thưởng thức.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <div class="pb-20 text-center">
+        <span class="text-gold ornament">✧ ✧ ✧</span>
+    </div>
+
+</body>
+</html>
