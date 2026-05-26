@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bắc Kinh Khảo Nhạn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+
+        .ornament {
+            padding: 0 1.5rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            bottom: -32px;
+            width: 1px;
+            background: #C5A059;
+        }
+
+        .timeline-step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            background-color: #E23D28;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            left: -40px;
+            top: 0;
+            z-index: 10;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(even) {
+                border-right: none;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FCFAFA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 pt-8">
+        <div class="inline-block border-b-2 border-cinnabar-red mb-4 pb-2">
+            <span class="tracking-[0.3em] uppercase text-xs font-bold text-burnished-gold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-serif font-bold text-culinary-charcoal mb-4">
+            Bắc Kinh Khảo Nhạn
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic font-serif text-culinary-charcoal/70 mb-10">
+            北京烤鸭: Peking Duck
+        </h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 bg-white shadow-xl border border-burnished-gold/20 rounded-sm overflow-hidden">
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Nâng cao</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">24 - 48 Giờ</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 – 6 Người</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-center leading-tight">Triều đình nhà Minh</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto italic justified-text text-gray-600">
+            Là tâm điểm của ẩm thực Cung đình Trung Hoa từ thời nhà Minh, Vịt quay Bắc Kinh nổi tiếng với lớp da mỏng, giòn tan và phần thịt mềm ngọt. Theo truyền thống, vịt được quay trong lò "đóng" hoặc "treo" bằng gỗ cây ăn quả (như lê hoặc táo) để mang lại hương vị khói ngọt thanh tao.
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-3xl font-serif font-bold text-culinary-charcoal mb-8 border-b border-burnished-gold pb-2 inline-block">
+                1. Nguyên liệu
+            </h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-cinnabar-red font-bold uppercase tracking-widest text-xs mb-4 italic">Nguyên liệu chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">1 con vịt nguyên con (2.2kg - 2.5kg), ưu tiên còn nguyên đầu và cổ.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">Gia vị tẩm ướp khoang bụng: 2 hoa hồi, 1 thanh quế, 3 lát gừng, 2 nhánh hành lá, 1 muỗng cà phê muối, 1 muỗng cà phê bột ngũ vị hương.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-cinnabar-red font-bold uppercase tracking-widest text-xs mb-4 italic">Hỗn hợp xối da (Glaze)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">1/2 chén mạch nha (hoặc mật ong/siro ngô).</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">1/2 chén nước sôi, 1/4 chén giấm đỏ, 1/4 chén rượu Thiệu Hưng.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-cinnabar-red font-bold uppercase tracking-widest text-xs mb-4 italic">Ăn kèm & Trang trí</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">20-30 bánh tráng mỏng (Chunbing).</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">1/2 chén sốt Hoisin hoặc Tương ngọt (Tianmianjiang).</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-burnished-gold mr-3 mt-1 transform group-hover:scale-125 transition-transform">◈</span>
+                            <span class="justified-text">Dưa chuột (bỏ hạt, thái sợi), hành lá (phần trắng, thái sợi).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8 pl-0 lg:pl-12">
+            <h3 class="text-3xl font-serif font-bold text-culinary-charcoal mb-8 border-b border-burnished-gold pb-2 inline-block">
+                2. Các bước thực hiện
+            </h3>
+
+            <div class="space-y-12 relative ml-10">
+                <!-- Step 1 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">1</div>
+                    <h5 class="text-xl font-bold mb-2">Chuẩn bị và Tách da</h5>
+                    <p class="justified-text text-gray-700">
+                        Làm sạch vịt và thấm thật khô. Theo phương pháp truyền thống, một ống bơm được sử dụng để thổi khí vào giữa lớp da và thịt qua một vết cắt nhỏ ở cổ để tách lớp mỡ dưới da. Đối với bếp gia đình, hãy dùng một chiếc thìa cán dài hoặc ống hút để khéo léo làm lỏng lớp da khỏi ức và đùi mà không làm rách da.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">2</div>
+                    <h5 class="text-xl font-bold mb-2">Tẩm ướp và Khâu bụng</h5>
+                    <p class="justified-text text-gray-700">
+                        Xoa muối và ngũ vị hương vào bên trong. Cho các loại gia vị thơm vào. Sử dụng xiên thép hoặc chỉ thực phẩm để khâu kín khoang bụng, đảm bảo vịt được kín hơi để giữ độ ẩm bên trong khi quay.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">3</div>
+                    <h5 class="text-xl font-bold mb-2">Xối nước sôi (Scalding)</h5>
+                    <p class="justified-text text-gray-700">
+                        Đặt vịt lên giá treo phía trên bồn rửa. Dội 2 lít nước sôi lên toàn bộ con vịt. Da sẽ săn lại và chuyển sang màu trắng ngay lập tức. Bước này giúp "định hình" bề mặt da để có độ bóng mượt khi hoàn tất.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">4</div>
+                    <h5 class="text-xl font-bold mb-2">Quết hỗn hợp mạch nha</h5>
+                    <p class="justified-text text-gray-700">
+                        Khuấy đều các thành phần gia vị xối da cho đến khi mạch nha tan hết. Phết đều lên vịt nhiều lớp. Giấm giúp phá vỡ các protein để tạo độ giòn, trong khi mạch nha mang lại màu nâu cánh gián đặc trưng.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">5</div>
+                    <h5 class="text-xl font-bold mb-2">Hong khô (Air-Drying)</h5>
+                    <div class="text-xs italic text-cinnabar-red mb-2 uppercase tracking-widest font-bold">Thời gian: 24 – 48 giờ</div>
+                    <p class="justified-text text-gray-700">
+                        Treo vịt ở nơi thoáng mát hoặc đặt trên giá trong tủ lạnh từ 24–48 giờ. Da phải có cảm giác khô và cứng như giấy nến trước khi đem quay. Các đầu bếp chuyên nghiệp lưu ý rằng độ ẩm bề mặt là kẻ thù của sự giòn tan.
+                    </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">6</div>
+                    <h5 class="text-xl font-bold mb-2">Quay vịt</h5>
+                    <div class="text-xs italic text-cinnabar-red mb-2 uppercase tracking-widest font-bold">Nhiệt độ: 200°C giảm xuống 170°C</div>
+                    <p class="justified-text text-gray-700">
+                        Làm nóng lò ở 200°C (390°F). Đặt vịt ngửa phần ức trên giá, phía dưới đặt khay chứa một ít nước (để hứng mỡ và tránh khói). Quay trong 20 phút, sau đó giảm nhiệt xuống 170°C (340°F) và tiếp tục quay trong 50–60 phút nữa.
+                    </p>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="timeline-step relative">
+                    <div class="step-number">7</div>
+                    <h5 class="text-xl font-bold mb-2">Nghỉ thịt</h5>
+                    <p class="justified-text text-gray-700">
+                        Để vịt nghỉ trong 15 phút. Điều này cho phép nước thịt phân bổ lại giúp thịt vẫn mọng nước khi lọc da.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Insight Sections -->
+    <section class="mt-20">
+        <div class="glass-card p-8 md:p-12 border-2 border-double border-burnished-gold rounded-sm relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-culinary-cream px-6 py-2 border border-burnished-gold text-burnished-gold font-bold uppercase tracking-[0.3em] text-sm">
+                Chef’s Corner
+            </div>
+            <h4 class="text-2xl font-serif font-bold text-center mb-8 italic">3. Mẹo hay từ Vua Đầu Bếp</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 italic text-gray-700">
+                <div class="justified-text">
+                    <strong class="text-cinnabar-red block mb-2 font-bold not-italic">Kỹ thuật Render mỡ:</strong> Nhiệt độ ban đầu cao là yếu tố sống còn để làm tan lớp mỡ dưới da, sau đó chính lớp mỡ này sẽ "chiên" da vịt từ trong ra ngoài.
+                </div>
+                <div class="justified-text">
+                    <strong class="text-cinnabar-red block mb-2 font-bold not-italic">Độ hoàn hảo của da:</strong> Nếu dùng lò nướng gia đình, hãy xoay vịt giữa quá trình quay để da lên màu đều. Tránh mở cửa lò thường xuyên vì mất nhiệt sẽ khiến da không phồng được.
+                </div>
+                <div class="justified-text">
+                    <strong class="text-cinnabar-red block mb-2 font-bold not-italic">Phương pháp thổi khô nhanh:</strong> Nếu thiếu thời gian, bạn có thể dùng máy sấy tóc ở chế độ gió mát để đẩy nhanh quá trình làm khô da, dù hiệu quả không bằng việc treo vịt 24 giờ.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Variations Section -->
+    <section class="mb-20">
+        <h4 class="text-3xl font-serif font-bold text-culinary-charcoal mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 border border-burnished-gold/30 hover:border-cinnabar-red transition-colors group">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-cinnabar-red">Home Cook Edition</span>
+                <h5 class="text-xl font-bold my-2">Sốt mạch nha đơn giản</h5>
+                <p class="justified-text text-sm text-gray-600">Thay thế mạch nha bằng 1/2 chén mật ong và 1 muỗng canh nước tương để có phiên bản dễ tiếp cận hơn mà vẫn đảm bảo màu sắc đẹp mắt.</p>
+            </div>
+            <div class="p-6 border border-burnished-gold/30 hover:border-cinnabar-red transition-colors group bg-white shadow-sm">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-cinnabar-red">Regional Style</span>
+                <h5 class="text-xl font-bold my-2">Phong cách Quảng Đông</h5>
+                <p class="justified-text text-sm text-gray-600">Khác với phiên bản Bắc Kinh tập trung vào độ giòn của da, vịt quay Quảng Đông thường có phần sốt ướp ướt bên trong bụng để thịt đậm đà hơn.</p>
+            </div>
+            <div class="p-6 border border-burnished-gold/30 hover:border-cinnabar-red transition-colors group">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-cinnabar-red">Modern Fusion</span>
+                <h5 class="text-xl font-bold my-2">Món kèm hiện đại</h5>
+                <p class="justified-text text-sm text-gray-600">Phá cách khi phục vụ cùng dưa lưới thái mỏng hoặc củ cải để tạo độ giòn tươi mát, cân bằng vị béo của vịt quay truyền thống.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Footer -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-burnished-gold/40">
+        <!-- Nutrition -->
+        <div class="space-y-4">
+            <h4 class="text-xl font-serif font-bold text-culinary-charcoal uppercase tracking-wider italic">5. Giá trị dinh dưỡng</h4>
+            <div class="bg-white p-6 border-l-4 border-cinnabar-red">
+                <ul class="space-y-4 text-sm">
+                    <li class="flex justify-between border-b border-gray-100 pb-2">
+                        <span>Lượng Calo (mỗi khẩu phần):</span>
+                        <span class="font-bold">450 – 600 kcal</span>
+                    </li>
+                    <li class="justified-text">
+                        <span class="font-bold text-cinnabar-red">Chất béo:</span> Hàm lượng chất béo không bão hòa đơn cao. Hầu hết mỡ được làm tan trong khi quay, nhưng phần da vẫn chứa nhiều calo.
+                    </li>
+                    <li class="justified-text italic text-gray-600">
+                        <span class="font-bold not-italic text-culinary-charcoal">Lời khuyên:</span> Để cân bằng bữa ăn, chuyên gia khuyên dùng tỷ lệ 3:1 giữa rau xanh và vịt. Dùng kèm trà mận nóng để hỗ trợ tiêu hóa và giảm cảm giác ngấy mỡ.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="space-y-4">
+            <h4 class="text-xl font-serif font-bold text-culinary-charcoal uppercase tracking-wider italic">6. Gợi ý trình bày</h4>
+            <div class="bg-white p-6 border-l-4 border-burnished-gold">
+                <ul class="space-y-4 text-sm">
+                    <li class="justified-text">
+                        <span class="font-bold">Kỹ thuật Carving:</span> Lọc phần da giòn ra trước, cắt thành những miếng chữ nhật nhỏ để chấm đường. Sau đó lọc thịt và da cắt lát mỏng đồng đều (truyền thống là 108 lát).
+                    </li>
+                    <li class="justified-text">
+                        <span class="font-bold">Trình bày đĩa:</span> Xếp thịt theo hình rẻ quạt hoặc hình hoa mẫu đơn trên đĩa lớn. Đặt bánh tráng trong xửng tre để giữ độ ấm và mềm.
+                    </li>
+                    <li class="justified-text italic text-gray-600">
+                        <span class="font-bold not-italic text-culinary-charcoal">Food Stylist:</span> Sử dụng "chổi hành lá" (phần đầu hành cắt tua rua ngâm nước đá) để phết nước sốt lên bánh tráng trước khi xếp vịt và rau củ.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle micro-interactions
+        document.querySelectorAll('.glass-card, .timeline-step').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+        });
+    </script>
+</body>
+</html>
+
