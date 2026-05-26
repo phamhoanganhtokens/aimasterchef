@@ -1,1 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Hoa điêu túy kê</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldMuted: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .header-title {
+            letter-spacing: -0.02em;
+            border-bottom: 2px solid #E23D28;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .step-number {
+            font-size: 2rem;
+            color: #E23D28;
+            opacity: 0.3;
+            font-weight: bold;
+            position: absolute;
+            left: -1.5rem;
+            top: -0.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            border-bottom: 1px solid #E23D28;
+        }
+        .meta-icon {
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
 
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12 animate-fade-in">
+            <p class="uppercase tracking-widest text-gold font-bold mb-2">Hành trình Ẩm thực Thượng hạng</p>
+            <h1 class="text-4xl md:text-6xl font-bold header-title">Hoa điêu túy kê</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 mt-2 font-light">花雕醉鸡 - Drunken Chicken with Shaoxing Wine</h2>
+            
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-goldMuted/30 py-6 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center border-r border-goldMuted/20">
+                    <span class="text-xs uppercase tracking-tighter text-gray-500 mb-1">Độ khó</span>
+                    <span class="font-bold flex items-center"><span class="meta-icon mr-1">✦</span> Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center md:border-r border-goldMuted/20">
+                    <span class="text-xs uppercase tracking-tighter text-gray-500 mb-1">Thời gian</span>
+                    <span class="font-bold flex items-center"><span class="meta-icon mr-1">🕒</span> 45p chuẩn bị</span>
+                </div>
+                <div class="flex flex-col items-center border-r border-goldMuted/20">
+                    <span class="text-xs uppercase tracking-tighter text-gray-500 mb-1">Khẩu phần</span>
+                    <span class="font-bold flex items-center"><span class="meta-icon mr-1">🍽️</span> 4-6 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-tighter text-gray-500 mb-1">Xuất xứ</span>
+                    <span class="font-bold flex items-center"><span class="meta-icon mr-1">🌏</span> Giang Nam</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto mt-8">
+                <p class="justified italic text-gray-700 leading-relaxed">
+                    Món ăn này có nguồn gốc từ vùng Giang Nam, Trung Quốc, cụ thể là Thiệu Hưng thuộc tỉnh Chiết Giang. Thường được phục vụ như một món khai vị lạnh trong các bữa tiệc hoặc dịp Tết Nguyên Đán, nó tôn vinh sự phức tạp nồng nàn của "Hoa Điêu" - một loại rượu gạo Thiệu Hưng lâu năm cao cấp. Món ăn thể hiện triết lý ẩm thực "ngâm lạnh", nơi thịt được ướp hương thơm nồng nàn sau khi đã được làm chín.
+                </p>
+            </div>
+        </header>
+
+        <div class="section-divider">
+            <span class="ornament">◈ ★ ◈</span>
+        </div>
+
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold text-cinnabar border-l-4 border-cinnabar pl-4 mb-6 uppercase">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <section>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Thành phần chính</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item py-1 flex justify-between">
+                                    <span>Đùi gà (không xương, còn da)</span>
+                                    <span class="italic text-gray-500">3-4 cái lớn</span>
+                                </li>
+                                <li class="ingredient-item py-1 flex justify-between">
+                                    <span>Gà ta thả vườn (nguyên con)</span>
+                                    <span class="italic text-gray-500">~1kg</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Gia vị luộc</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item py-1">Gừng (3 lát)</li>
+                                <li class="ingredient-item py-1">Hành lá (2 nhánh, đập dập)</li>
+                                <li class="ingredient-item py-1">Muối (1 tsp) & Rượu Thiệu Hưng (1 tbsp)</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Nước ngâm "Túy Kê"</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item py-1">Rượu Hoa Điêu lâu năm (300ml)</li>
+                                <li class="ingredient-item py-1">Nước luộc gà (250ml lọc sạch)</li>
+                                <li class="ingredient-item py-1">Muối (15g) & Đường phèn (10g)</li>
+                                <li class="ingredient-item py-1">Kỷ tử (1 tbsp) & Táo đỏ (4 quả)</li>
+                                <li class="ingredient-item py-1">Hoa hồi (1 cái) & Quế (1 thanh nhỏ)</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Khác</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item py-1">Đá viên (lượng lớn để ngâm lạnh)</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold text-cinnabar border-l-4 border-cinnabar pl-4 mb-6 uppercase">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12 relative">
+                    <!-- Step 1 -->
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold mb-2">Sơ chế thịt gà</h4>
+                        <p class="justified text-gray-700">
+                            Xát một ít muối lên phần da gà. Cuộn chặt từng miếng đùi gà thành hình trụ tròn với phần da ở bên ngoài và cố định bằng chỉ thực phẩm. Điều này đảm bảo gà có hình dáng đồng đều, đẹp mắt khi thái lát sau này.
+                        </p>
+                        <span class="inline-block mt-2 text-xs font-bold text-goldMuted bg-gold/5 px-2 py-1 rounded">5-10 phút</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold mb-2">Phương pháp hấp/luộc chín tới (Steeping)</h4>
+                        <p class="justified text-gray-700">
+                            Cho gà vào nồi, đổ nước lạnh ngập mặt thịt cùng các gia vị luộc. Đun sôi, sau đó ngay lập tức hạ lửa xuống mức thấp nhất (không để sôi sùng sục). Đậy nắp và ngâm trong 15-20 phút tùy độ dày. Các đầu bếp chuyên nghiệp sử dụng kỹ thuật "steeping" này để đảm bảo thịt vẫn mềm mượt và mọng nước thay vì bị khô cứng.
+                        </p>
+                        <span class="inline-block mt-2 text-xs font-bold text-goldMuted bg-gold/5 px-2 py-1 rounded">20 phút</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold mb-2">Cú sốc nhiệt (Ice Bath)</h4>
+                        <p class="justified text-gray-700">
+                            Lập tức chuyển gà đã chín vào bát nước đá lớn. Quá trình làm lạnh nhanh này làm dừng việc nấu chín và làm da gà co lại, tạo nên kết cấu giòn dai, sần sật cực kỳ bắt miệng. Ngâm trong khoảng 10 phút.
+                        </p>
+                        <span class="inline-block mt-2 text-xs font-bold text-goldMuted bg-gold/5 px-2 py-1 rounded">10 phút</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold mb-2">Chuẩn bị nước cốt ngâm</h4>
+                        <p class="justified text-gray-700">
+                            Trong một nồi nhỏ, kết hợp 250ml nước luộc gà, muối, đường phèn, kỷ tử và táo đỏ. Đun sôi nhẹ trong 5 phút để chiết xuất hương thơm từ thảo mộc. Tắt bếp và để nguội hoàn toàn. Khi đã nguội, mới khuấy rượu Hoa Điêu vào. <strong class="text-cinnabar">Lưu ý:</strong> Tuyệt đối không đun sôi rượu vì sẽ làm bay hơi hương hoa tinh tế - linh hồn của món ăn.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-bold mb-2">Ủ rượu (Marination)</h4>
+                        <p class="justified text-gray-700">
+                            Cho thịt gà đã nguội (đã cắt bỏ chỉ buộc) vào hộp sâu lòng hoặc túi zip. Đổ nước ngâm lên cho đến khi ngập hoàn toàn thịt. Đậy kín và để trong tủ lạnh ít nhất 12 giờ, lý tưởng nhất là 24 giờ để rượu thấm sâu vào từng thớ thịt.
+                        </p>
+                        <span class="inline-block mt-2 text-xs font-bold text-goldMuted bg-gold/5 px-2 py-1 rounded">12-24 giờ</span>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative pl-8 border-l border-gray-200">
+                        <span class="step-number">06</span>
+                        <h4 class="text-xl font-bold mb-2">Thái lát và trình bày</h4>
+                        <p class="justified text-gray-700">
+                            Lấy gà ra khỏi nước ngâm. Sử dụng một con dao thật sắc, thái gà thành các khoanh tròn dày khoảng 1cm.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">◈ ★ ◈</span>
+        </div>
+
+        <!-- Special Insights -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="pro-box p-8 rounded-sm shadow-sm">
+                <h3 class="text-xl font-bold text-gold mb-4 flex items-center">
+                    <span class="mr-2">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 text-sm justified">
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span><strong>Độ trong của nước ngâm:</strong> Luôn lọc nước luộc gà qua phin cà phê hoặc vải mịn trước khi pha với rượu để thành phẩm trong vắt, không bị vẩn đục.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span><strong>Kiểm soát nhiệt độ:</strong> Sử dụng nhiệt kế thực phẩm để đảm bảo gà đạt nhiệt độ tâm 74°C (165°F). Nấu quá lửa sẽ làm thịt khô và mất khả năng hấp thụ rượu.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span><strong>Lựa chọn rượu:</strong> Đừng dùng "Rượu nấu ăn" thông thường có pha muối. Hãy tìm loại Hoa Điêu 3 năm hoặc 5 năm tuổi để có hương thơm nồng nàn nhất.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-cinnabar mb-4 uppercase">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-4 bg-white border border-gray-200 rounded shadow-sm hover:border-gold transition-colors">
+                        <h5 class="font-bold text-gold mb-1 italic underline">Hải sản Túy Kê (Drunken Shrimp)</h5>
+                        <p class="text-sm justified">Sử dụng cùng công thức nước ngâm này cho tôm lớn. Chỉ cần chần chín tôm và ngâm trong nước cốt lạnh từ 3-5 giờ.</p>
+                    </div>
+                    <div class="p-4 bg-white border border-gray-200 rounded shadow-sm hover:border-gold transition-colors">
+                        <h5 class="font-bold text-gold mb-1 italic underline">Phiên bản đậm vị thảo mộc</h5>
+                        <p class="text-sm justified">Thêm vài lát Đương Quy (Angelica Sinensis) vào nước ngâm để tạo nên hương vị dược liệu truyền thống kiểu Quảng Đông.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer / Technical Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gray-200">
+            <section>
+                <h3 class="text-lg font-bold text-charcoal mb-4 uppercase tracking-wider">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-gray-100 p-6 rounded-sm text-sm">
+                    <p class="justified mb-3"><strong>Protein nạc:</strong> Đùi gà cung cấp protein chất lượng cao cần thiết cho việc phục hồi cơ bắp.</p>
+                    <p class="justified mb-3"><strong>Thành phần chức năng:</strong> Kỷ tử và táo đỏ giàu chất chống oxy hóa và Vitamin A.</p>
+                    <p class="justified mb-3 italic">Lưu ý: Món ăn có hàm lượng natri tương đối cao do nước ngâm. Dù cồn đã bay hơi một phần, người kiêng rượu vẫn nên cân nhắc.</p>
+                    <p class="mt-4 text-center font-bold text-cinnabar">Ước tính: 210 kcal / khẩu phần (150g gà)</p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold text-charcoal mb-4 uppercase tracking-wider">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm justified">
+                    <p><strong>Xếp lớp (Shingling):</strong> Xếp các lát gà chồng lên nhau theo hình vảy cá trong một chiếc bát thủy tinh hoặc gốm sứ rộng và nông.</p>
+                    <p><strong>Tương phản màu sắc:</strong> Đặt các hạt kỷ tử và táo đỏ đã ngâm lên trên phần thịt gà màu trắng ngà để tạo sự đối lập thị giác rực rỡ.</p>
+                    <p><strong>Ánh vàng hổ phách:</strong> Rưới một ít nước ngâm màu vàng hổ phách lên gà ngay trước khi phục vụ để miếng thịt bóng bẩy dưới ánh đèn. Trang trí bằng một nhánh ngò rí tươi để thêm sắc xanh.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Optional Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            });
+
+            document.querySelectorAll('section, aside, main > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
