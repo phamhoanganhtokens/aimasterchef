@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Hoành Thánh Lá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23E28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.4;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background: #fdfaf3;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .active-tab {
+            border-bottom: 2px solid #E23E28;
+            color: #E23E28;
+        }
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-12 pb-8 px-6 md:px-12 max-w-6xl mx-auto text-center">
+        <div class="mb-4">
+            <span class="uppercase tracking-widest text-cinnabar font-bold text-sm">AI VUA ĐẦU BẾP • Tạp Chí Ẩm Thực Digital</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">HOÀNH THÁNH LÁ</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Vietnamese Wonton Sheet Soup</h2>
+        
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-6 md:gap-12 py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5.07 19.07l13.86-13.86M18.93 19.07L5.07 5.07"/></svg>
+                </span>
+                <span class="uppercase text-xs tracking-tighter">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="uppercase text-xs tracking-tighter">Thời gian</span>
+                <span class="font-bold text-center">Chuẩn bị: 30' | Nấu: 1.5h</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="uppercase text-xs tracking-tighter">Phục vụ</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
+                <span class="uppercase text-xs tracking-tighter">Nguồn gốc</span>
+                <span class="font-bold">Sài Gòn / Chợ Lớn</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto justified italic text-gray-700 leading-relaxed">
+            Hoành Thánh Lá is a regional variation of the Cantonese wonton soup, popularized in the vibrant culinary hubs of Saigon and Cholon. Unlike the traditional folded dumplings, this dish celebrates the "lá" (leaf/sheet), focusing on the silky, slippery texture of the dough itself. Historically, it emerged as a clever way to enjoy the flavors of wontons using leftover dough scraps, eventually evolving into a beloved street food staple defined by its clear, seafood-infused pork broth.
+        </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main class="max-w-6xl mx-auto px-6 md:px-12 pb-12">
+        
+        <div class="ornament">
+            <span class="ornament-icon">✦</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <div class="md:col-span-4">
+                <h3 class="text-2xl font-bold mb-6 border-b border-gold/30 pb-2 flex items-center">
+                    <span class="text-cinnabar mr-2">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold uppercase text-sm tracking-widest text-gold mb-3">Nước Dùng (The Broth)</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 700g xương cổ heo hoặc sườn non
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 30g tôm khô (ngâm mềm)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 1 con mực khô nhỏ (nướng thơm)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 1 củ củ cải trắng (cắt khúc)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> Hành tím & Gừng nướng
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> Gia vị: Đường phèn, muối, nước mắm
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase text-sm tracking-widest text-gold mb-3">Lá Hoành Thánh</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 400g da hoành thánh tươi (cắt vuông hoặc tam giác)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase text-sm tracking-widest text-gold mb-3">Phần Đạm & Toppings</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 200g thịt heo xay
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 200g xá xíu (thái lát)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> 12 con tôm tươi (bóc vỏ, bỏ chỉ đen)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> Hẹ cắt khúc, hành lá, ngò rí
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase text-sm tracking-widest text-gold mb-3">Gia Vị Ăn Kèm</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> Hành phi, tóp mỡ, tiêu trắng
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-200">
+                                <span class="text-cinnabar mr-2">◈</span> Ớt tươi, nước tương (xì dầu)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Preparation Steps -->
+            <div class="md:col-span-8">
+                <h3 class="text-2xl font-bold mb-6 border-b border-gold/30 pb-2 flex items-center">
+                    <span class="text-cinnabar mr-2">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-8 relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-4 top-4 bottom-4 w-px bg-gold/20 hidden md:block"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-2 top-2 w-4 h-4 bg-cream border-2 border-gold rounded-full z-10"></div>
+                        <div class="mb-2 flex items-baseline justify-between">
+                            <span class="font-bold text-lg">Nấu Nước Dùng Cốt (Master Stock)</span>
+                            <span class="text-xs italic text-gold uppercase tracking-widest">Bước 1 • 15 Phút</span>
+                        </div>
+                        <p class="justified text-gray-700">Chần xương heo trong nước sôi khoảng 5 phút để loại bỏ tạp chất. Rửa sạch dưới vòi nước lạnh. Cho xương vào nồi sạch cùng 2.5 lít nước, tôm khô, mực khô nướng, củ cải trắng, hành tím và gừng nướng.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-2 top-2 w-4 h-4 bg-cream border-2 border-gold rounded-full z-10"></div>
+                        <div class="mb-2 flex items-baseline justify-between">
+                            <span class="font-bold text-lg">Ninh Nước Dùng Trong</span>
+                            <span class="text-xs italic text-gold uppercase tracking-widest">Bước 2 • 60 Phút</span>
+                        </div>
+                        <p class="justified text-gray-700">Đun sôi sau đó hạ lửa nhỏ liu riu. Thường xuyên vớt bọt để nước dùng luôn trong vắt. Ninh không đậy nắp trong 1 giờ. Nêm nếm với đường phèn, muối và nước mắm cho vừa vị.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-2 top-2 w-4 h-4 bg-cream border-2 border-gold rounded-full z-10"></div>
+                        <div class="mb-2 flex items-baseline justify-between">
+                            <span class="font-bold text-lg">Chế Biến Nhân Thịt & Hải Sản</span>
+                            <span class="text-xs italic text-gold uppercase tracking-widest">Bước 3-4 • 15 Phút</span>
+                        </div>
+                        <p class="justified text-gray-700 mb-2">Ướp thịt heo xay với tiêu và hành tím băm. Xào chín trên chảo cho đến khi thịt hơi cháy cạnh thơm lừng.</p>
+                        <p class="justified text-gray-700">Luộc tôm trực tiếp trong nồi nước dùng đang sôi khoảng 2 phút cho đến khi tôm cuộn tròn và chuyển màu hồng. Vớt ra để riêng.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-2 top-2 w-4 h-4 bg-cream border-2 border-gold rounded-full z-10"></div>
+                        <div class="mb-2 flex items-baseline justify-between">
+                            <span class="font-bold text-lg">Kỹ Thuật Trụng "Lá"</span>
+                            <span class="text-xs italic text-gold uppercase tracking-widest">Bước 5 • 5 Phút</span>
+                        </div>
+                        <p class="justified text-gray-700">Đun sôi một nồi nước riêng, thêm 1 muỗng dầu ăn. Trụng lá hoành thánh từng đợt nhỏ trong 1-2 phút cho đến khi lá trở nên trong suốt và nổi lên. Vớt ngay ra tô nước lạnh để dừng quá trình chín và loại bỏ bột thừa. Để ráo.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-2 top-2 w-4 h-4 bg-cream border-2 border-gold rounded-full z-10"></div>
+                        <div class="mb-2 flex items-baseline justify-between">
+                            <span class="font-bold text-lg">Trình Bày Hoàn Tất</span>
+                            <span class="text-xs italic text-gold uppercase tracking-widest">Bước 6-7 • 5 Phút</span>
+                        </div>
+                        <p class="justified text-gray-700">Cho lá hoành thánh đã trụng vào tô. Xếp thịt xá xíu, thịt băm và tôm lên trên. Thêm một nắm hẹ cắt khúc. Chan nước dùng thật nóng vào tô để làm tái hẹ và làm nóng lại lá hoành thánh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="mt-16">
+            <div class="pro-tip-box p-8 relative">
+                <div class="absolute -top-4 left-8 bg-cream px-4 text-cinnabar font-bold uppercase tracking-widest text-sm">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="justified">
+                        <h5 class="font-bold mb-2 flex items-center"><span class="text-gold mr-2">✦</span> Độ Trong Của Nước</h5>
+                        <p class="text-sm italic">Đừng bao giờ để nước dùng sôi bùng khi đã cho xương vào; nhiệt độ quá cao sẽ làm nhũ hóa chất béo và khoáng chất, khiến nước bị đục.</p>
+                    </div>
+                    <div class="justified">
+                        <h5 class="font-bold mb-2 flex items-center"><span class="text-gold mr-2">✦</span> Vị Kiềm Đặc Trưng</h5>
+                        <p class="text-sm italic">Vỏ hoành thánh chất lượng thường có "nước tro tàu" tạo độ dẻo và màu vàng. Nếu mùi quá nồng, hãy xả thật kỹ với nước sau khi trụng.</p>
+                    </div>
+                    <div class="justified">
+                        <h5 class="font-bold mb-2 flex items-center"><span class="text-gold mr-2">✦</span> Cấu Trúc Al Dente</h5>
+                        <p class="text-sm italic">Tuyệt đối không luộc lá trực tiếp trong nồi nước dùng chính. Lớp bột phủ ngoài lá sẽ làm đục và đặc nước dùng quý giá của bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variations -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold mb-6 border-b border-gold/30 pb-2 flex items-center">
+                <span class="text-cinnabar mr-2">4.</span> Biến tấu & Phiên bản nâng cao
+            </h3>
+            
+            <div class="flex gap-4 mb-6 border-b border-gray-200 overflow-x-auto pb-px">
+                <button onclick="showTab('home')" id="tab-home" class="tab-btn px-6 py-2 uppercase text-xs tracking-widest font-bold transition-all active-tab whitespace-nowrap">Bếp Gia Đình</button>
+                <button onclick="showTab('veg')" id="tab-veg" class="tab-btn px-6 py-2 uppercase text-xs tracking-widest font-bold transition-all whitespace-nowrap">Phiên Bản Chay</button>
+                <button onclick="showTab('chef')" id="tab-chef" class="tab-btn px-6 py-2 uppercase text-xs tracking-widest font-bold transition-all whitespace-nowrap">Đẳng Cấp Nhà Hàng</button>
+            </div>
+
+            <div id="home" class="tab-content active glass-card p-6 rounded-sm">
+                <h5 class="font-bold text-cinnabar mb-2 uppercase text-sm">Home Cook's Shortcut</h5>
+                <p class="justified italic">Sử dụng nước dùng gà hoặc heo đóng hộp chất lượng cao. Thay thế xá xíu bằng gà quay xé sợi mua sẵn để có phiên bản ngon lành chỉ trong 30 phút.</p>
+            </div>
+            <div id="veg" class="tab-content glass-card p-6 rounded-sm">
+                <h5 class="font-bold text-cinnabar mb-2 uppercase text-sm">Vegetarian Version</h5>
+                <p class="justified italic">Thay nước dùng heo bằng nước ninh từ củ sắn, cà rốt và nấm đông cô khô. Sử dụng đậu hũ chiên thái mỏng và lá hoành thánh chay (không trứng).</p>
+            </div>
+            <div id="chef" class="tab-content glass-card p-6 rounded-sm">
+                <h5 class="font-bold text-cinnabar mb-2 uppercase text-sm">Seafood Forward (Hải Sản)</h5>
+                <p class="justified italic">Nâng cấp với mực tươi cắt khoanh, chả cá thát lát và bào ngư nhỏ. Nước dùng tăng thêm tỷ lệ tôm khô và mực nướng để đạt độ umami tối đa.</p>
+            </div>
+        </div>
+
+        <div class="ornament">
+            <span class="ornament-icon">✦</span>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8 py-8 border-t border-gold/20">
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="text-cinnabar mr-2">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                        <span>Năng lượng</span>
+                        <span class="font-bold">~450 kcal / phần</span>
+                    </div>
+                    <div class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                        <span>Thành phần chính</span>
+                        <span class="font-bold">Đạm (Heo, Tôm), Carb (Mì)</span>
+                    </div>
+                    <p class="justified text-sm italic mt-4 text-gray-600">
+                        Phân tích: Để giảm lượng natri, hãy giảm bớt nước mắm và tăng lượng củ cải trắng, gừng nướng để tăng vị ngọt tự nhiên. Thêm nhiều hẹ giúp bổ sung chất xơ và hỗ trợ tiêu hóa.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="text-cinnabar mr-2">6.</span> Gợi ý trình bày
+                </h3>
+                <p class="justified text-sm italic text-gray-600 mb-4">
+                    Để tạo ấn tượng thị giác mạnh mẽ nhất, hãy sử dụng tô sứ miệng rộng. Màu vàng nhạt của lá hoành thánh trong suốt nên được tương phản với màu xanh rực rỡ của hẹ và màu đỏ đậm của xá xíu. 
+                </p>
+                <p class="justified text-sm italic text-gray-600">
+                    Đặt tôm ở vị trí trung tâm. Rắc hành phi và tiêu trắng ngay trước khi phục vụ để tạo độ giòn và kích thích khứu giác. Phục vụ kèm một chén nước tương ớt thái lát để tạo điểm nhấn về màu sắc và vị giác.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Add active class to clicked button
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
+        }
+    </script>
+</body>
+</html>
