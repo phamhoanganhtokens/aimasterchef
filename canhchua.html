@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canh Chua Cá Lóc Nam Bộ - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EFE6',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.4;
+        }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #C5A059;
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FCFAFA; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 max-w-6xl mx-auto text-center border-b border-gold/20">
+        <div class="mb-4">
+            <span class="text-cinnabar font-sans tracking-[0.2em] text-xs font-semibold uppercase">Tạp chí Ẩm thực số • AI Vua Đầu Bếp</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-display font-bold mb-2 tracking-tight">Canh Chua Cá Lóc Nam Bộ</h1>
+        <h2 class="text-2xl md:text-3xl font-serif italic text-gold mb-8 italic">Southern Vietnamese Sour Soup with Snakehead Fish</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-sans">Độ khó</span>
+                <span class="font-serif font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-sans">Thời gian</span>
+                <span class="font-serif font-bold">45 - 60 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-sans">Khẩu phần</span>
+                <span class="font-serif font-bold">4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-sans">Nguồn gốc</span>
+                <span class="font-serif font-bold">Nam Bộ</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto">
+            <p class="justified-text italic text-charcoal/80 leading-relaxed font-serif">
+                Món ăn đặc trưng mang linh hồn của vùng sông nước Cửu Long (miền Tây Nam Bộ). Đây là sự kết hợp tinh tế giữa sản vật địa phương với triết lý cân bằng âm dương thông qua các vị chua, cay, mặn, ngọt.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-12">
+                <section>
+                    <h3 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-8">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-sans text-xs font-bold uppercase tracking-widest text-gold mb-4 italic">Nguyên liệu chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">1 con cá lóc đồng (600g - 800g), chọn cá còn sống, thân thon dài, thịt chắc.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">50g me chín (me vắt) hoặc me tươi.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-sans text-xs font-bold uppercase tracking-widest text-gold mb-4 italic">Rau củ kèm theo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">1/4 quả thơm (dứa) chín vừa.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">2 quả cà chua chín.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">5-7 quả đậu bắp.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">2 nhánh bạc hà (dọc mùng).</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">100g giá đỗ sạch.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-sans text-xs font-bold uppercase tracking-widest text-gold mb-4 italic">Gia vị & Rau nêm</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">Rau om (ngò ôm), ngò gai (răng cưa).</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">Hành tím băm, tỏi băm, ớt sừng.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="mr-3 text-cinnabar text-xs mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text">Nước mắm ngon, đường phèn, muối, hạt nêm, dầu ăn.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chef's Corner -->
+                <section class="p-8 border-4 border-double border-gold/40 bg-goldLight/30 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-parchment px-4 py-1 text-gold font-display italic text-lg font-bold">
+                        Chef's Corner
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-6 text-center text-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                    <div class="space-y-4 text-sm font-serif italic text-charcoal/90">
+                        <p class="justified-text"><strong class="text-cinnabar">Khử tanh:</strong> Luôn cho cá vào khi nước đang sôi sùng sục để protein không biến tính chậm gây mùi.</p>
+                        <p class="justified-text"><strong class="text-cinnabar">Độ trong:</strong> Đừng đậy nắp nồi khi nấu để giữ nước trong và rau xanh màu.</p>
+                        <p class="justified-text"><strong class="text-cinnabar">Bạc hà:</strong> Chần sơ sau khi bóp muối để tránh gây kích ứng họng.</p>
+                        <p class="justified-text"><strong class="text-cinnabar">Tỏi phi:</strong> Rắc vào bát lúc trình bày thay vì cho vào nồi để giữ hương thơm tối đa.</p>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <section>
+                    <h3 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-10">2. Các bước thực hiện</h3>
+                    
+                    <div class="relative pl-12 space-y-12 before:absolute before:left-4 before:top-2 before:bottom-2 before:w-[1px] before:bg-gold/30">
+                        <!-- Step 1 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[44px] top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                                <span class="step-number text-sm group-hover:text-white">01</span>
+                            </div>
+                            <div class="mb-2 flex items-baseline justify-between">
+                                <h4 class="font-display text-xl font-bold uppercase tracking-tight">Sơ chế cá</h4>
+                                <span class="font-sans text-[10px] text-gold font-bold uppercase tracking-widest bg-goldLight px-2 py-0.5 rounded">10 Phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/80">
+                                <span class="italic font-bold text-cinnabar">Kỹ thuật chuyên nghiệp:</span> Đánh vảy, mang cá và loại bỏ sợi gân máu dọc xương sống để khử mùi tanh. Chà xát cá với muối và chanh trong 5 phút, rửa sạch dưới vòi nước lạnh. Cắt cá thành từng khoanh dày khoảng 2-3cm. Để ráo.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[44px] top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                                <span class="step-number text-sm group-hover:text-white">02</span>
+                            </div>
+                            <div class="mb-2 flex items-baseline justify-between">
+                                <h4 class="font-display text-xl font-bold uppercase tracking-tight">Chuẩn bị rau củ</h4>
+                                <span class="font-sans text-[10px] text-gold font-bold uppercase tracking-widest bg-goldLight px-2 py-0.5 rounded">10 Phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/80">
+                                <span class="italic font-bold text-cinnabar">Mẹo nội trợ:</span> Bạc hà tước vỏ, thái vát, bóp nhẹ với chút muối rồi rửa sạch. Thơm gọt vỏ, bỏ mắt, cắt miếng tam giác. Cà chua bổ múi cau. Đậu bắp thái vát. Giá đỗ rửa sạch.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[44px] top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                                <span class="step-number text-sm group-hover:text-white">03</span>
+                            </div>
+                            <div class="mb-2 flex items-baseline justify-between">
+                                <h4 class="font-display text-xl font-bold uppercase tracking-tight">Chiết xuất cốt me</h4>
+                                <span class="font-sans text-[10px] text-gold font-bold uppercase tracking-widest bg-goldLight px-2 py-0.5 rounded">5 Phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/80">
+                                Ngâm me vào 100ml nước nóng, dầm nát và lọc qua rây để lấy nước cốt đậm đặc, bỏ hạt.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[44px] top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                                <span class="step-number text-sm group-hover:text-white">04</span>
+                            </div>
+                            <div class="mb-2 flex items-baseline justify-between">
+                                <h4 class="font-display text-xl font-bold uppercase tracking-tight">Nấu nước dùng</h4>
+                                <span class="font-sans text-[10px] text-gold font-bold uppercase tracking-widest bg-goldLight px-2 py-0.5 rounded">15 Phút</span>
+                            </div>
+                            <div class="space-y-3">
+                                <p class="justified-text text-charcoal/80 italic font-bold text-cinnabar underline decoration-gold/50 underline-offset-4">Kỹ thuật tầng vị:</p>
+                                <p class="justified-text text-charcoal/80">
+                                    Phi thơm hành tỏi băm, cho 1/2 lượng cà chua và thơm vào xào sơ. Đổ khoảng 1.2 - 1.5 lít nước vào đun sôi, cho nước cốt me vào. Thả từng miếng cá vào khi nước sôi sùng sục. Hớt bọt thường xuyên để nước trong vắt.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[44px] top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                                <span class="step-number text-sm group-hover:text-white">05</span>
+                            </div>
+                            <div class="mb-2 flex items-baseline justify-between">
+                                <h4 class="font-display text-xl font-bold uppercase tracking-tight">Hoàn thiện & Nêm nếm</h4>
+                                <span class="font-sans text-[10px] text-gold font-bold uppercase tracking-widest bg-goldLight px-2 py-0.5 rounded">10 Phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/80">
+                                Vớt cá ra dĩa riêng khi chín tới. Nêm đường, nước mắm, một chút muối (vị thiên ngọt thanh). Cho đậu bắp và thơm vào trước, sau đó là bạc hà, cà chua. Cuối cùng cho giá đỗ và tắt bếp ngay.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="ornament">
+                    <span class="ornament-icon">⬥</span>
+                </div>
+
+                <!-- Variations -->
+                <section class="mt-12">
+                    <h3 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-8">4. Biến tấu & Phiên bản nâng cao</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 glass-card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-cinnabar mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.642.316a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.823.362l-1.17.976a1 1 0 00.122 1.688l5.413 2.656a2 2 0 001.68 0l5.414-2.656a1 1 0 00.122-1.688l-1.17-.976z" />
+                                </svg>
+                            </div>
+                            <h5 class="font-display font-bold mb-2">Thay thế đạm</h5>
+                            <p class="text-sm justified-text text-charcoal/70">Thay cá lóc bằng cá hú, cá diêu hồng, tôm sú hoặc lườn cá hồi để đa dạng vị.</p>
+                        </div>
+                        <div class="p-6 glass-card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-cinnabar mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
+                                </svg>
+                            </div>
+                            <h5 class="font-display font-bold mb-2">Phiên bản chay</h5>
+                            <p class="text-sm justified-text text-charcoal/70">Dùng nấm kim châm, đậu phụ non và nước dùng từ củ quả (su su, cà rốt) đậm đà.</p>
+                        </div>
+                        <div class="p-6 glass-card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="text-cinnabar mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h5 class="font-display font-bold mb-2">Vị chua khác biệt</h5>
+                            <p class="text-sm justified-text text-charcoal/70">Thử dùng trái sấu (Bắc), lá giang (Trung) hoặc cơm mẻ để biến tấu hương vị vùng miền.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="ornament mt-20">
+            <span class="ornament-icon">❈</span>
+        </div>
+
+        <!-- Technical/Footer Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 pb-20">
+            <!-- Nutrition -->
+            <div class="bg-charcoal text-parchment p-10 rounded-sm">
+                <h3 class="text-2xl font-display font-bold border-b border-gold/40 pb-4 mb-6">5. Giá trị dinh dưỡng</h3>
+                <ul class="space-y-4 font-serif text-sm opacity-90">
+                    <li class="justified-text flex items-start">
+                        <span class="text-gold mr-3 mt-1">●</span>
+                        <span>Giàu Protein chất lượng cao từ cá lóc, ít chất béo bão hòa.</span>
+                    </li>
+                    <li class="justified-text flex items-start">
+                        <span class="text-gold mr-3 mt-1">●</span>
+                        <span>Cung cấp chất xơ, Vitamin C từ dứa, cà chua và rau xanh hỗ trợ tiêu hóa.</span>
+                    </li>
+                    <li class="justified-text flex items-start">
+                        <span class="text-gold mr-3 mt-1">●</span>
+                        <span>Kali trong đậu bắp và bạc hà hỗ trợ tốt cho tim mạch.</span>
+                    </li>
+                    <li class="justified-text italic text-cinnabar/80 mt-6 block p-3 border border-gold/20">
+                        * Lưu ý: Người bị gout hoặc sỏi thận nên điều chỉnh lượng bạc hà và giá đỗ do purin và oxalate.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Presentation -->
+            <div class="border-2 border-charcoal p-10 rounded-sm">
+                <h3 class="text-2xl font-display font-bold border-b border-charcoal/20 pb-4 mb-6">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 font-serif text-charcoal/80">
+                    <p class="justified-text italic">Sử dụng tô sứ trắng sâu lòng hoặc nồi đất để giữ nhiệt lâu, tạo cảm giác dân dã mà sang trọng.</p>
+                    <div class="space-y-2">
+                        <p class="text-sm"><strong>Sắp xếp:</strong> Giá đỗ lót dưới, đậu bắp, bạc hà, cà chua xung quanh, đặt khoanh cá lóc ở tâm điểm.</p>
+                        <p class="text-sm"><strong>Trang trí:</strong> Rắc ngò gai thái nhỏ, vài lát ớt đỏ và tỏi phi vàng rộm lên trên cùng.</p>
+                        <p class="text-sm"><strong>Đồ chấm:</strong> Nhất thiết phải có bát nước mắm nguyên chất kèm ớt hiểm để tạo sự cộng hưởng hoàn hảo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Small decorative float for interactivity -->
+    <div class="fixed bottom-8 right-8 hidden md:block group">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-cinnabar text-white shadow-2xl flex items-center justify-center transform group-hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // Simple micro-interaction for hover states
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(226, 61, 40, 0.4)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
+
