@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bún Mắm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23E28',
+                        'gold': '#B8860B',
+                        'accent-soft': '#F5F1E9'
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #B8860B, transparent);
+            margin: 4rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-divider::after {
+            content: "✧";
+            background: #FCFAFA;
+            padding: 0 1rem;
+            color: #B8860B;
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23E28;
+            font-weight: bold;
+        }
+        .meta-item {
+            border-right: 1px solid rgba(44, 44, 44, 0.1);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            }
+            .meta-item:nth-child(even) {
+                border-left: 1px solid rgba(44, 44, 44, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 text-center max-w-6xl mx-auto">
+        <div class="mb-4 text-cinnabar tracking-[0.3em] uppercase text-sm font-bold">Tinh Hoa Ẩm Thực Việt</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">BÚN MẮM</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Vietnamese Fermented Fish Noodle Soup</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-primary py-6 max-w-4xl mx-auto">
+            <div class="meta-item px-4 py-2 flex flex-col items-center">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Mức Độ</span>
+                <span class="font-bold text-lg">Nâng Cao</span>
+            </div>
+            <div class="meta-item px-4 py-2 flex flex-col items-center">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Thời Gian</span>
+                <span class="font-bold text-lg">2 Giờ</span>
+            </div>
+            <div class="meta-item px-4 py-2 flex flex-col items-center">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Khẩu Phần</span>
+                <span class="font-bold text-lg">6 Người</span>
+            </div>
+            <div class="meta-item px-4 py-2 flex flex-col items-center">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Nguồn Gốc</span>
+                <span class="font-bold text-lg">Miền Tây</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto italic justified-text text-gray-700">
+            Món ăn đặc sản của vùng Đồng bằng sông Cửu Long, được biến tấu từ món "mắm bò hóc" của người Khmer, kết hợp với các loại sản vật trù phú từ tôm, cá, mực và các loại rau đặc trưng của vùng sông nước Việt Nam.
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        
+        <div class="section-divider"></div>
+
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold uppercase tracking-wider text-sm mb-3">Cốt Nước Dùng</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>150g Mắm cá linh & 150g Mắm cá sặc</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm italic text-gray-500">
+                                    <span>(Có thể thay bằng 300g cốt bún mắm đóng sẵn)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase tracking-wider text-sm mb-3">Gia Vị Thảo Mộc</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>5 cây sả (3 đập dập, 2 băm nhỏ)</span>
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>3 tép tỏi, 2 củ hành tím, 1 nhánh gừng</span>
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>3 lít nước (Nước dùng heo + 1 lít nước dừa tươi)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase tracking-wider text-sm mb-3">Đồ Ăn Kèm (Toppings)</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>400g Thịt quay thái miếng</span>
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>300g Tôm tươi & 300g Mực ống</span>
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>300g Phi-lê cá lóc hoặc cá diêu hồng</span>
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>2 quả cà tím, 1/2 quả thơm (dứa)</span>
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-1">
+                                    <span class="text-cinnabar">◈</span>
+                                    <span>1kg Bún tươi sợi to</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase tracking-wider text-sm mb-3">Rau Sống</h4>
+                            <p class="text-sm italic justified-text leading-relaxed">
+                                Bắp chuối bào, rau muống chẻ, hẹ lá, húng quế, húng lủi, chanh và ớt hiểm.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10 relative">
+                    <!-- Step 1 -->
+                    <div class="flex gap-6 group">
+                        <div class="flex-none">
+                            <span class="step-number text-2xl">01</span>
+                        </div>
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-bold mb-3 group-hover:text-cinnabar transition-colors italic">Trích xuất tinh túy (Kỹ thuật chuyên gia)</h4>
+                            <p class="justified-text text-gray-800 leading-relaxed">
+                                Cho mắm cá linh và mắm cá sặc vào nồi nhỏ cùng 500ml nước. Đun sôi cho đến khi thịt cá tan hoàn toàn khỏi xương. Lọc hỗn hợp qua rây lưới mịn, ép kỹ phần bã để lấy hết nước cốt đậm đà. Bỏ phần xương và vảy.
+                            </p>
+                            <span class="inline-block mt-3 px-3 py-1 bg-accent-soft text-xs font-bold rounded uppercase tracking-tighter">Thời gian: 20 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-6 group">
+                        <div class="flex-none">
+                            <span class="step-number text-2xl">02</span>
+                        </div>
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-bold mb-3 group-hover:text-cinnabar transition-colors italic">Khởi tạo hương thơm</h4>
+                            <p class="justified-text text-gray-800 leading-relaxed">
+                                Trong một nồi lớn, đun nóng dầu và phi thơm sả băm, tỏi và hành tím cho đến khi vàng đều. Bước này tạo ra một lớp màng hương thơm giúp làm dịu đi mùi nồng của mắm mà vẫn giữ được độ đậm đà.
+                            </p>
+                            <span class="inline-block mt-3 px-3 py-1 bg-accent-soft text-xs font-bold rounded uppercase tracking-tighter">Thời gian: 10 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-6 group">
+                        <div class="flex-none">
+                            <span class="step-number text-2xl">03</span>
+                        </div>
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-bold mb-3 group-hover:text-cinnabar transition-colors italic">Ninh nước dùng</h4>
+                            <p class="justified-text text-gray-800 leading-relaxed">
+                                Thêm nước dùng heo và nước dừa vào nồi. Trút phần nước cốt mắm đã lọc và thơm (dứa) cắt miếng vào. Ninh nhỏ lửa trong 30 phút, thường xuyên hớt bọt để nước dùng có màu nâu đỏ hổ phách trong trẻo. (Người nội trợ có thể dùng cốt đóng sẵn ở bước này).
+                            </p>
+                            <span class="inline-block mt-3 px-3 py-1 bg-accent-soft text-xs font-bold rounded uppercase tracking-tighter">Thời gian: 40 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-6 group">
+                        <div class="flex-none">
+                            <span class="step-number text-2xl">04</span>
+                        </div>
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-bold mb-3 group-hover:text-cinnabar transition-colors italic">Xử lý cà tím</h4>
+                            <p class="justified-text text-gray-800 leading-relaxed">
+                                Áp chảo cà tím với một ít sả băm trước khi cho vào nồi nước dùng chính. Cách này giúp miếng cà không bị nát, giữ được hình dáng mà vẫn thấm đẫm gia vị từ bên trong.
+                            </p>
+                            <span class="inline-block mt-3 px-3 py-1 bg-accent-soft text-xs font-bold rounded uppercase tracking-tighter">Thời gian: 15 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-6 group">
+                        <div class="flex-none">
+                            <span class="step-number text-2xl">05</span>
+                        </div>
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-bold mb-3 group-hover:text-cinnabar transition-colors italic">Làm chín hải sản</h4>
+                            <p class="justified-text text-gray-800 leading-relaxed">
+                                Không nấu hải sản trực tiếp trong nồi quá lâu. Hãy chần tôm, mực và phi-lê cá trong nước dùng đang sôi khoảng 2-3 phút cho vừa chín tới. Vớt ra để riêng để giữ độ giòn, dai và ngọt tự nhiên.
+                            </p>
+                            <span class="inline-block mt-3 px-3 py-1 bg-accent-soft text-xs font-bold rounded uppercase tracking-tighter">Thời gian: 5 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="flex gap-6 group">
+                        <div class="flex-none">
+                            <span class="step-number text-2xl">06</span>
+                        </div>
+                        <div class="pb-8">
+                            <h4 class="text-xl font-bold mb-3 group-hover:text-cinnabar transition-colors italic">Hoàn thiện hương vị</h4>
+                            <p class="justified-text text-gray-800 leading-relaxed">
+                                Nêm nếm lại với đường phèn và một chút nước cốt me nếu cần. Nước dùng phải có vị mặn đặc trưng, ngọt thanh từ nước dừa và chua nhẹ từ thơm. Lưu ý không thêm muối hay nước mắm vì mắm cá đã có độ mặn rất cao.
+                            </p>
+                            <span class="inline-block mt-3 px-3 py-1 bg-accent-soft text-xs font-bold rounded uppercase tracking-tighter">Thời gian: 5 phút</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Chef's Corner -->
+            <div class="p-8 border-2 border-gold relative bg-white shadow-xl">
+                <div class="absolute -top-4 left-6 bg-gold text-white px-4 py-1 text-sm font-bold uppercase tracking-widest">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <ul class="space-y-4 mt-4 text-gray-700 italic justified-text">
+                    <li class="flex gap-3">
+                        <span class="text-gold">★</span>
+                        <span>Sử dụng nước dừa tươi làm nền nước dùng giúp cân bằng độ mặn gắt của mắm tốt hơn bất kỳ loại đường cát nào.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-gold">★</span>
+                        <span>Để nước dùng đạt chuẩn "nhà hàng", tuyệt đối không để nước sôi sùng sục sau khi đã cho cốt mắm vào; chỉ giữ ở mức sôi lăn tăn.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-gold">★</span>
+                        <span>Nếu mùi mắm quá nồng trong không gian bếp, hãy thả một miếng gừng đập dập vào nồi để trung hòa bớt mùi lan tỏa.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations & Pro Versions -->
+            <div class="p-8 bg-primary text-parchment rounded-sm shadow-xl">
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-gray-700 pb-2">4. Biến tấu & Nâng cao</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-cinnabar font-bold italic mb-2">Bún Mắm Chay</h4>
+                        <p class="text-sm text-gray-300 justified-text">Thay thế mắm cá bằng tương hột hoặc mắm đậu nành kết hợp với các loại nấm, sử dụng nước dùng rau củ quả để giữ vị thanh đạm.</p>
+                    </div>
+                    <div class="border-t border-gray-700 pt-4">
+                        <h4 class="text-cinnabar font-bold italic mb-2">Phiên bản "Tiện lợi"</h4>
+                        <p class="text-sm text-gray-300 justified-text">Sử dụng nồi nấu chậm (slow cooker) để ninh nước dùng qua đêm giúp đạt độ sâu hương vị, và mua thịt heo quay sẵn từ cửa hàng uy tín để tiết kiệm 45 phút chuẩn bị.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t-2 border-primary pt-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 italic tracking-tight uppercase">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-6 text-gray-700">
+                    <div class="bg-accent-soft p-4 rounded">
+                        <h4 class="font-bold mb-1 text-primary">Kiểm soát Natri</h4>
+                        <p class="text-sm justified-text">Món này tự nhiên có hàm lượng muối cao. Chuyên gia khuyên dùng tỷ lệ 1:1 giữa rau sống và bún để bổ sung Kali và chất xơ, giúp cân bằng lượng muối nạp vào.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="border-l-4 border-cinnabar pl-4">
+                            <h4 class="font-bold text-xs uppercase text-gray-500">Protein</h4>
+                            <p class="text-xl font-bold">35-40g</p>
+                            <p class="text-[10px] italic">Mỗi khẩu phần</p>
+                        </div>
+                        <div class="border-l-4 border-gold pl-4">
+                            <h4 class="font-bold text-xs uppercase text-gray-500">Ghi chú</h4>
+                            <p class="text-sm italic">Lượng lợi khuẩn bị triệt tiêu khi đun sôi; món ăn giàu khoáng chất.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-6 italic tracking-tight uppercase">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-gray-700">
+                    <p class="justified-text"><strong class="text-primary italic">Nền tảng:</strong> Cho một nắm bún tươi đã chần nóng vào tô sứ mộc mạc.</p>
+                    <p class="justified-text"><strong class="text-primary italic">Sắp xếp:</strong> Đặt 2 con tôm, 2 khoanh mực, 1 miếng cá và 2 lát thịt quay theo hình vòng cung. Cắm thêm 2 miếng cà tím tím sẫm bên cạnh.</p>
+                    <p class="justified-text"><strong class="text-primary italic">Trang trí:</strong> Chan nước dùng đang sôi ngập bún. Rắc thêm hẹ cắt khúc tươi rói lên trên.</p>
+                    <p class="justified-text"><strong class="text-primary italic">Mẹt rau:</strong> Bày rau sống ra đĩa lớn riêng biệt, sắp xếp theo màu sắc (tím bắp chuối, xanh rau muống, trắng giá đỗ) để tạo sự bắt mắt. Kèm theo một chén nước mắm me ớt để chấm hải sản.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Interactive Layer for Hover Effects -->
+    <script>
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.step-number').style.transform = 'scale(1.2)';
+                item.querySelector('.step-number').style.transition = 'all 0.3s ease';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.step-number').style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
+
