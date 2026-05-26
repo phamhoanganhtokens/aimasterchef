@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông thiêu liêu sâm - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E28',
+                        'burnished-gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .step-number {
+            font-style: italic;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+            opacity: 0.5;
+        }
+        .divider-ornament:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .divider-ornament:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .chef-hat-icon {
+            font-size: 1.5rem;
+            color: #D4AF37;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .pro-tip-box {
+            border: 3px double #D4AF37;
+            background-color: #fffdf5;
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 max-w-6xl mx-auto text-center border-b-2 border-burnished-gold mb-12">
+        <div class="mb-4 text-cinnabar-red tracking-[0.2em] uppercase text-sm font-bold">AI Vua Đầu Bếp • Premium Selection</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">THÔNG THIÊU LIÊU SÂM</h1>
+        <h2 class="text-2xl md:text-3xl italic font-normal text-gray-600 mb-8">Hải sâm om hành (葱烧辽参)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-6 md:gap-12 border-t border-b border-gray-200 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xl mb-1">◈</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Advanced</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xl mb-1">⏱</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">45m + Prep</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xl mb-1">🍽</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xl mb-1">⚖</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Lu Cuisine</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-700 justified-text">
+            Historically celebrated in imperial banquets, this dish relies on the prized "Liao Can" (Liaoning sea cucumber), renowned for its thick meat, pronounced spikes, and resilient texture. The dish exemplifies the traditional Shandong mastery of controlling heat and extracting intense aromatics from alliums to elevate marine delicacies.
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold mb-6 border-b border-cinnabar-red pb-2 flex items-center">
+                        <span class="mr-2 italic text-cinnabar-red">1.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest font-bold text-burnished-gold mb-4 underline decoration-1 underline-offset-4">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">4 con hải sâm Liêu Ninh (Liao Can) thượng hạng, loại khô hoặc đã ngâm sẵn.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">500g hành lá loại lớn (chỉ lấy phần gốc trắng, cắt khúc 5cm).</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest font-bold text-burnished-gold mb-4 underline decoration-1 underline-offset-4">Gia vị & Hương liệu</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">3 lát gừng tươi, 2 tép tỏi đập dập.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">3 tbsp nước tương thượng hạng, 1 tbsp hắc xì dầu.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">2 tbsp rượu Thiệu Hưng, 1 tbsp đường phèn.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">1 tsp tiêu trắng, 3 tbsp mỡ gà hoặc mỡ lợn tinh luyện.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest font-bold text-burnished-gold mb-4 underline decoration-1 underline-offset-4">Nước dùng & Chất làm sánh</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">500ml nước dùng Cao Thang (xương gà và lợn).</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar-red mr-2 mt-1 transition-transform group-hover:scale-125">✦</span>
+                                    <span class="justified-text text-sm">2 tbsp bột khoai tây pha với 2 tbsp nước lạnh.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 border-b border-cinnabar-red pb-2 flex items-center">
+                    <span class="mr-2 italic text-cinnabar-red">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-10 relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-[15px] top-4 bottom-4 w-[1px] bg-burnished-gold opacity-30 hidden md:block"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-culinary-cream border-2 border-burnished-gold hidden md:flex items-center justify-center z-10">
+                            <span class="text-xs font-bold text-burnished-gold">01</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-tight">Sơ chế & Hồi nước (Rehydration) <span class="text-sm font-normal italic text-gray-400 ml-2">4-5 ngày</span></h4>
+                        <p class="justified-text text-gray-700">Nếu dùng hải sâm khô, ngâm trong nước cất tinh khiết, đựng trong dụng cụ hoàn toàn không dính dầu mỡ, để ngăn mát tủ lạnh 48 giờ (thay nước mỗi ngày). Đun sôi 45 phút, để nguội tự nhiên trong nước. Làm sạch nội tạng và răng cát. Ngâm tiếp 48 giờ cho đến khi kích thước tăng gấp đôi và có độ đàn hồi.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-culinary-cream border-2 border-burnished-gold hidden md:flex items-center justify-center z-10">
+                            <span class="text-xs font-bold text-burnished-gold">02</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-tight">Chần khử mùi (Blanching) <span class="text-sm font-normal italic text-gray-400 ml-2">2 phút</span></h4>
+                        <p class="justified-text text-gray-700">Chần nhanh hải sâm đã ngâm nở qua nước sôi có pha vài lát gừng và một chút rượu Thiệu Hưng để loại bỏ mùi tanh của biển. Vớt ra để ráo.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-culinary-cream border-2 border-burnished-gold hidden md:flex items-center justify-center z-10">
+                            <span class="text-xs font-bold text-burnished-gold">03</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-tight">Chế biến dầu hành (Cong You) <span class="text-sm font-normal italic text-gray-400 ml-2">10 phút</span></h4>
+                        <p class="justified-text text-gray-700">Đun nóng mỡ gà hoặc mỡ lợn trong chảo trên lửa vừa-nhỏ. Cho các đoạn hành trắng vào, chiên chậm rãi cho đến khi hành chuyển màu vàng nâu bóng và tỏa hương thơm nồng. Vớt hành ra để riêng, giữ lại phần dầu hành trong chảo.</p>
+                    </div>
+
+                    <!-- Step 4 & 5 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-culinary-cream border-2 border-burnished-gold hidden md:flex items-center justify-center z-10">
+                            <span class="text-xs font-bold text-burnished-gold">04</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-tight">Om hải sâm (Braising & Infusing) <span class="text-sm font-normal italic text-gray-400 ml-2">20 phút</span></h4>
+                        <p class="justified-text text-gray-700">Để lại 2 muỗng canh dầu hành trong chảo. Phi thơm gừng tỏi còn lại, khử rượu Thiệu Hưng, sau đó đổ nước dùng Cao Thang vào. Thêm nước tương, hắc xì dầu, đường phèn và tiêu trắng. Đưa lên mức sôi nhẹ, sau đó thả hải sâm vào. Hạ lửa nhỏ, đậy nắp và om trong 15-20 phút để hải sâm thấm đẫm tinh hoa nước dùng.</p>
+                    </div>
+
+                    <!-- Step 6 & 7 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-culinary-cream border-2 border-burnished-gold hidden md:flex items-center justify-center z-10">
+                            <span class="text-xs font-bold text-burnished-gold">05</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-tight">Lên sốt & Hoàn thiện (Zhi) <span class="text-sm font-normal italic text-gray-400 ml-2">5 phút</span></h4>
+                        <p class="justified-text text-gray-700">Vớt hải sâm ra đĩa. Tăng lửa lớn để cô đặc nước sốt. Từ từ rưới hỗn hợp bột khoai tây vào, khuấy đều cho đến khi sốt đạt độ sánh bóng (nappe consistency). Cho hành đã chiên vào lại để làm nóng. Cuối cùng, rưới một muỗng dầu hành lên mặt để tạo độ bóng gương hoàn hảo rồi đổ sốt trùm lên đĩa hải sâm.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ornament -->
+        <div class="divider-ornament">
+            <span class="chef-hat-icon">🜚</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="pro-tip-box p-8 mb-16 shadow-lg">
+            <h3 class="text-xl font-bold mb-4 flex items-center text-burnished-gold">
+                <span class="mr-3">🏆</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 italic text-gray-800">
+                <p class="justified-text">Sự sạch sẽ tuyệt đối là bắt buộc trong quá trình ngâm hải sâm; chỉ một giọt dầu hoặc mỡ nhỏ trong hộp ngâm sẽ khiến các enzyme của hải sâm tự phân hủy thịt của chính nó.</p>
+                <p class="justified-text">Dầu Hành (Cong You) là linh hồn của món ăn; đừng vội vàng trong quá trình chiên. Hãy chiết xuất tối đa tinh dầu mà không làm cháy hành. Việc làm sánh sốt (Zhi) phải được thực hiện từng bước để đảm bảo nước sốt bám hoàn hảo vào bề mặt trơn nhẵn của hải sâm.</p>
+            </div>
+        </section>
+
+        <!-- Variations & Pro Versions -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 border-b border-cinnabar-red pb-2 flex items-center">
+                <span class="mr-2 italic text-cinnabar-red">4.</span> Biến tấu & Phiên bản nâng cao
+            </h3>
+            
+            <div class="flex space-x-2 mb-6">
+                <button onclick="switchTab('home')" class="tab-btn px-6 py-2 border border-burnished-gold text-sm font-bold active bg-burnished-gold text-white" id="btn-home">PHIÊN BẢN GIA ĐÌNH</button>
+                <button onclick="switchTab('chef')" class="tab-btn px-6 py-2 border border-burnished-gold text-sm font-bold text-burnished-gold hover:bg-burnished-gold hover:text-white" id="btn-chef">BÍ QUYẾT CHUYÊN NGHIỆP</button>
+            </div>
+
+            <div id="tab-home" class="tab-content active p-6 bg-white border border-gray-100 shadow-sm rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="justified-text text-sm">
+                        <strong class="text-cinnabar-red">Rút ngắn thời gian:</strong> Để bỏ qua quá trình ngâm 5 ngày tỉ mỉ, người nội trợ có thể mua hải sâm đông lạnh đã ngâm sẵn chất lượng cao từ các cửa hàng thực phẩm Á Đông uy tín.
+                    </div>
+                    <div class="justified-text text-sm">
+                        <strong class="text-cinnabar-red">Thay thế nguyên liệu:</strong> Nếu không có mỡ gà, có thể dùng dầu ăn trung tính pha chút dầu mè. Hạt nêm gà chất lượng cao có thể thay thế cho Cao Thang nếu không có thời gian ninh xương.
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-chef" class="tab-content p-6 bg-white border border-gray-100 shadow-sm rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="justified-text text-sm">
+                        <strong class="text-cinnabar-red">Kỹ thuật 'Zhi':</strong> Độ bóng của nước sốt phải đạt đến mức "gương soi". Kỹ thuật lắc chảo (Wok Toss) khi rưới bột năng là then chốt để sốt mịn, không vón cục và phủ đều mọi gai nhỏ trên hải sâm.
+                    </div>
+                    <div class="justified-text text-sm">
+                        <strong class="text-cinnabar-red">Nhiệt độ:</strong> Việc om hải sâm ở nhiệt độ thấp giúp collagen trong hải sâm mềm ra mà không làm mất đi độ giòn dai (springy texture) đặc trưng của giống hải sâm Liêu Ninh.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Grid: Nutrition & Presentation -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b border-cinnabar-red pb-2 flex items-center">
+                    <span class="mr-2 italic text-cinnabar-red">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="p-6 bg-stone-100 border-l-4 border-cinnabar-red">
+                    <p class="justified-text text-sm mb-4">Hải sâm được đánh giá cao trong chế độ ăn uống chức năng nhờ hàm lượng chất béo cực thấp và không chứa cholesterol. Đây là nguồn protein biển chất lượng cao, cực kỳ giàu mucopolysaccharides và collagen.</p>
+                    <ul class="text-xs space-y-2 uppercase font-bold text-gray-600">
+                        <li>• Hỗ trợ sức khỏe xương khớp</li>
+                        <li>• Thúc đẩy tái tạo mô và độ đàn hồi của da</li>
+                        <li>• Kháng khuẩn & Hỗ trợ tiêu hóa (từ hành lá)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b border-cinnabar-red pb-2 flex items-center">
+                    <span class="mr-2 italic text-cinnabar-red">6.</span> Gợi ý trình bày
+                </h3>
+                <div class="p-6 bg-stone-100 border-l-4 border-burnished-gold">
+                    <p class="justified-text text-sm italic">"Sử dụng đĩa sứ trắng tinh khiết, lòng nông để làm nổi bật màu nâu cánh gián sâu thẳm của hải sâm. Sắp xếp hải sâm song song ở trung tâm đĩa. Phủ những đoạn hành vàng óng lên trên và bên cạnh. Rưới nước sốt bóng loáng như gương sao cho sốt đọng lại một cách thanh lịch dưới chân món ăn."</p>
+                    <p class="mt-4 text-xs font-bold text-gray-500 uppercase tracking-widest text-right">— Presentation & Photography Tip</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(type) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active classes from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-burnished-gold', 'text-white');
+                btn.classList.add('text-burnished-gold');
+            });
+
+            // Show current tab
+            document.getElementById('tab-' + type).classList.add('active');
+            // Style active button
+            const activeBtn = document.getElementById('btn-' + type);
+            activeBtn.classList.remove('text-burnished-gold');
+            activeBtn.classList.add('bg-burnished-gold', 'text-white');
+        }
+
+        // Animation on scroll logic (Simple)
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, aside').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
