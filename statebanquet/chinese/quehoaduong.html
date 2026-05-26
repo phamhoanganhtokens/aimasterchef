@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Quế Hoa Đường</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'parchment-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", "serif"],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            -webkit-font-smoothing: antialiased;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .ornament-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .section-header {
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-left: 4px solid #E23D28;
+            padding-left: 1rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="mb-4 text-burnished-gold uppercase tracking-widest text-sm font-bold">AI Vua Đầu Bếp Présente</div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2">QUẾ HOA ĐƯỜNG</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">桂花糖藕: Osmanthus Glazed Lotus Root Stuffed with Sticky Rice</h2>
+            
+            <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-y border-burnished-gold py-6 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </span>
+                    <span class="text-xs uppercase font-bold tracking-tighter">Time</span>
+                    <span class="text-sm italic">45m - 4h</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6.5 4 4 0 0 1 13 6c.75 0 1.5.19 2.18.5a4 4 0 0 1 4.41 7.37"/><path d="m9 22 3-3 3 3"/><path d="M12 13v6"/></svg>
+                    </span>
+                    <span class="text-xs uppercase font-bold tracking-tighter">Difficulty</span>
+                    <span class="text-sm italic">Intermediate</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="text-xs uppercase font-bold tracking-tighter">Servings</span>
+                    <span class="text-sm italic">4-6 People</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20"/></svg>
+                    </span>
+                    <span class="text-xs uppercase font-bold tracking-tighter">Origin</span>
+                    <span class="text-sm italic">Jiangnan</span>
+                </div>
+            </div>
+
+            <p class="mt-8 max-w-3xl mx-auto justified-text italic text-gray-700 leading-relaxed">
+                A quintessential dish of Jiangnan cuisine (East China, specifically Suzhou and Hangzhou), this "Su-style" delicacy represents the region’s preference for refined sweetness. Traditionally served during the Mid-Autumn Festival, the round slices symbolize reunion.
+            </p>
+        </header>
+
+        <div class="ornament-divider">
+            <span class="text-burnished-gold text-2xl">✧</span>
+        </div>
+
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="section-header text-2xl font-bold mb-6">1. Nguyên liệu</h3>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-burnished-gold uppercase text-sm font-bold mb-3 border-b border-gray-200">Main Components</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">2-3 củ sen lớn, già (hình dáng đều đặn, đầu còn nguyên vẹn)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">200g gạo nếp (nếp hạt dài hoặc hạt tròn)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-burnished-gold uppercase text-sm font-bold mb-3 border-b border-gray-200">Sweeteners & Aromatics</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">150g đường phèn vàng (cho vị ngọt thanh và nước sốt trong)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">80g đường nâu đậm hoặc Muscovado (bí quyết để tạo màu hồng ngọc đậm)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">10-15 quả táo đỏ (đã bỏ hạt)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">2 muỗng canh hoa quế khô</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">1 muỗng canh mật ong quế hoặc mứt quế</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2 transition-transform group-hover:scale-125">◈</span>
+                                <span class="justified-text">1 nhúm muối (để cân bằng hương vị)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="section-header text-2xl font-bold mb-6">2. Các bước thực hiện</h3>
+                <div class="space-y-8 relative">
+                    <div class="absolute left-[11px] top-4 bottom-4 w-px bg-burnished-gold opacity-30 hidden md:block"></div>
+                    
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">01</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Chuẩn bị gạo</h4>
+                        </div>
+                        <p class="justified-text leading-relaxed">Vo sạch gạo nếp và ngâm trong nước từ 3 đến 12 tiếng. Việc này giúp gạo nở đều mà không làm nứt củ sen khi nấu.</p>
+                    </div>
+
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">02</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Sơ chế củ sen</h4>
+                        </div>
+                        <p class="justified-text leading-relaxed">Chà rửa sạch và gọt vỏ củ sen. Cắt rời một đầu (khoảng 2-3 cm) để làm "nắp". Giữ lại phần nắp này.</p>
+                    </div>
+
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">03</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Nhồi nếp</h4>
+                        </div>
+                        <p class="justified-text leading-relaxed mb-2">Nhồi gạo nếp đã ngâm vào các lỗ của củ sen. Dùng đũa để đẩy gạo xuống sâu bên trong.</p>
+                        <div class="text-sm italic border-l-2 border-burnished-gold pl-4 py-1 text-gray-600">
+                            <strong>Home Cook Tip:</strong> Chừa khoảng 10% không gian ở phía trên để gạo nở, tránh làm vỡ củ sen.
+                        </div>
+                    </div>
+
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">04</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Đậy nắp</h4>
+                        </div>
+                        <p class="justified-text leading-relaxed">Đặt nắp củ sen trở lại vị trí cũ và cố định bằng 5-6 chiếc tăm xỉa răng, xiên theo góc chéo để tạo độ bám chắc chắn.</p>
+                    </div>
+
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">05</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Nấu sơ bộ</h4>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white/50 p-4 border border-gray-100 italic">
+                                <strong class="text-cinnabar-red block not-italic mb-1">Cách truyền thống:</strong> 
+                                Ninh nhỏ lửa trong nồi gang khoảng 3-4 tiếng cùng với đường và táo đỏ cho đến khi sen mềm và có màu đỏ đậm.
+                            </div>
+                            <div class="bg-white/50 p-4 border border-gray-100 italic">
+                                <strong class="text-cinnabar-red block not-italic mb-1">Cách chuyên nghiệp:</strong> 
+                                Sử dụng nồi áp suất trong 45-50 phút để đẩy đường vào sâu trong từng sợi sen, giúp đạt màu sắc rực rỡ nhanh chóng.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">06</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Tạo độ bóng (Glazing)</h4>
+                        </div>
+                        <p class="justified-text leading-relaxed">Lấy củ sen ra. Cô đặc nước dùng ở lửa vừa cho đến khi sánh lại thành siro. Cuối cùng thêm hoa quế và mật ong quế vào để giữ trọn hương thơm.</p>
+                    </div>
+
+                    <div class="relative md:pl-10">
+                        <div class="flex items-center mb-2">
+                            <span class="step-number">07</span>
+                            <h4 class="font-bold text-lg uppercase tracking-wide">Làm nguội & Thái lát</h4>
+                        </div>
+                        <p class="justified-text leading-relaxed">
+                            <strong class="text-burnished-gold italic">Kỹ thuật chuyên nghiệp:</strong> Để củ sen nguội hoàn toàn trong nước siro (hoặc để trong tủ lạnh qua đêm) trước khi thái để tinh bột nếp ổn định, giúp đường cắt sắc nét và sạch.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Chef's Corner -->
+        <div class="my-16 p-8 border-double border-4 border-burnished-gold bg-[#F9F4E8] relative overflow-hidden">
+            <div class="absolute -right-8 -bottom-8 opacity-10 pointer-events-none">
+                 <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-3">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8 italic">
+                <p class="justified-text">• Độ sâu của màu sắc đến từ phản ứng Maillard; nếu thời gian hạn chế, một lượng nhỏ gạo men đỏ có thể giúp tăng sắc ruby tự nhiên.</p>
+                <p class="justified-text">• Sử dụng dao thật sắc, nhúng vào nước ấm giữa các lần cắt để ngăn gạo nếp dính vào lưỡi dao hoặc làm nát khoanh sen.</p>
+                <p class="justified-text">• Tránh dùng củ sen "non"; những củ sen già, nặng hơn sẽ cung cấp kết cấu dẻo mịn, tan trong miệng cần thiết cho món ăn này.</p>
+            </div>
+        </div>
+
+        <!-- Variations Tabbed Section -->
+        <section class="mb-16">
+            <h3 class="section-header text-2xl font-bold mb-8">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex border-b border-gray-200 mb-6">
+                <button onclick="openTab(event, 'vari-1')" class="tab-btn active px-6 py-3 font-bold uppercase tracking-widest text-xs">Nutritional Swap</button>
+                <button onclick="openTab(event, 'vari-2')" class="tab-btn px-6 py-3 font-bold uppercase tracking-widest text-xs">Sugar Alternative</button>
+                <button onclick="openTab(event, 'vari-3')" class="tab-btn px-6 py-3 font-bold uppercase tracking-widest text-xs">Quick Version</button>
+            </div>
+            
+            <div id="vari-1" class="tab-content active glass-card p-6 rounded-sm">
+                <p class="justified-text italic">Sử dụng gạo nếp than (nếp cẩm) để tăng hàm lượng chất chống oxy hóa và tạo ra sự tương phản thị giác ấn tượng với màu trắng của củ sen.</p>
+            </div>
+            <div id="vari-2" class="tab-content glass-card p-6 rounded-sm">
+                <p class="justified-text italic">Sử dụng Stevia hoặc Erythritol để tạo độ ngọt chính, mặc dù có thể cần thêm một chút xanthan gum để đạt được độ sánh đặc đặc trưng của siro.</p>
+            </div>
+            <div id="vari-3" class="tab-content glass-card p-6 rounded-sm">
+                <p class="justified-text italic">Củ sen đóng lon nguyên củ có thể được sử dụng để tiết kiệm thời gian, mặc dù kết cấu thường mềm hơn so với củ sen tươi.</p>
+            </div>
+        </section>
+
+        <!-- Technical Footer -->
+        <div class="grid md:grid-cols-2 gap-8 border-t border-burnished-gold pt-12 pb-20">
+            <div>
+                <h3 class="text-xl font-bold mb-4 uppercase flex items-center">
+                    <span class="text-cinnabar-red mr-2">📊</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-white p-6 shadow-sm border border-gray-100">
+                    <ul class="space-y-2 italic text-sm text-gray-700">
+                        <li>• Ước tính 280-350 calo mỗi khẩu phần.</li>
+                        <li>• Hàm lượng chất xơ, Vitamin C và kali cao từ củ sen.</li>
+                        <li class="text-cinnabar-red not-italic font-bold mt-4 uppercase text-xs">Lưu ý:</li>
+                        <li class="text-xs">Hàm lượng carbohydrate và đường cao; nên tiêu thụ có chừng mực đối với những người đang theo dõi chỉ số đường huyết.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4 uppercase flex items-center">
+                    <span class="text-cinnabar-red mr-2">📸</span> 6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-3 justified-text text-sm italic leading-relaxed text-gray-700">
+                    <p>• Thái thành các khoanh dày 1cm để khoe hoa văn "ren" đẹp mắt chứa đầy gạo nếp bên trong.</p>
+                    <p>• Xếp chồng lên nhau theo kiểu "mái ngói" hoặc hình quạt tròn trên đĩa sứ trắng để làm nổi bật màu sắc đỏ ruby.</p>
+                    <p>• Rưới siro đã cô đặc lên trên—nước sốt nên bóng bẩy như thủy tinh lỏng.</p>
+                    <p>• Rắc thêm một nhúm hoa quế khô vàng tươi ngay trước khi phục vụ để tạo điểm nhấn thị giác và hương thơm tinh tế.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
