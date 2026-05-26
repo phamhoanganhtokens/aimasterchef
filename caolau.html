@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cao Lầu Hội An - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .section-divider {
+            position: relative;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+            z-index: 1;
+        }
+        .section-divider span {
+            position: relative;
+            background-color: #FCFAFA;
+            padding: 0 15px;
+            z-index: 2;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(44, 44, 44, 0.05) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            padding: 2rem;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .step-number {
+            font-size: 2.5rem;
+            color: rgba(226, 61, 40, 0.1);
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-weight: bold;
+            z-index: 0;
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="hero-gradient pt-16 pb-12 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-cinnabar tracking-[0.3em] uppercase text-sm mb-4 font-bold">Tinh Hoa Ẩm Thực Việt</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal italic">Cao Lầu Hội An</h1>
+            <h2 class="text-2xl md:text-3xl text-gold italic font-light mb-8">Hoi An Roasted Pork Noodles</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-gold/30 py-6 mt-8">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16Z"/><path d="M7 18v-6a5 5 0 0 1 10 0v6"/><path d="M12 12v6"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Độ khó</p>
+                    <p class="font-bold">Khó</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Thời gian</p>
+                    <p class="font-bold">4 - 6 giờ</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Phục vụ</p>
+                    <p class="font-bold">4 - 5 người</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</p>
+                    <p class="font-bold">Hội An, Quảng Nam</p>
+                </div>
+            </div>
+
+            <div class="mt-8 max-w-2xl mx-auto italic justified-text text-gray-600 leading-relaxed">
+                "Cao Lầu là món ăn biểu tượng của phố cổ Hội An, Quảng Nam. Món ăn này xuất hiện từ khoảng thế kỷ 17, chịu ảnh hưởng từ văn hóa ẩm thực Trung Hoa và Nhật Bản, nhưng được biến tấu hoàn toàn theo phong vị Việt Nam."
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-gold uppercase tracking-tighter font-bold mb-4 flex items-center">
+                                <span class="mr-2">✦</span> Phần mì Cao Lầu
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>500g gạo cũ (gạo khô)</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>1 bát nước tro (tro củi tràm)</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Nước giếng Bá Lễ (hoặc nước tinh khiết)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold uppercase tracking-tighter font-bold mb-4 flex items-center">
+                                <span class="mr-2">✦</span> Phần thịt xá xíu
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>1kg thịt heo (nạc vai/ba chỉ)</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Gia vị: Tỏi, hành tím, ngũ vị hương</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>100ml nước tương, mật ong, đường phèn</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Rượu mai quế lộ, muối, tiêu</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold uppercase tracking-tighter font-bold mb-4 flex items-center">
+                                <span class="mr-2">✦</span> Rau & Khác
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Rau đắng, húng lủi, giá đỗ</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Rau quế Trà Quế</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Da heo khô/Ram chiên giòn</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-gold/10 pb-2 hover:bg-gold/5 transition-colors">
+                                    <span>Ớt rim Hội An, chanh</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-10 border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12 relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-px bg-gold/20 ml-[21px] hidden md:block"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="hidden md:block absolute left-4 top-2 w-3 h-3 rounded-full bg-cinnabar ring-4 ring-parchment z-10"></div>
+                        <span class="step-number">01</span>
+                        <div class="bg-white p-8 shadow-sm border border-gold/10 rounded-sm relative z-1 group-hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-xl font-bold text-charcoal uppercase italic">Chế biến sợi mì</h4>
+                                <span class="text-xs font-serif italic text-gold">Thực hiện: 2 - 3 giờ</span>
+                            </div>
+                            <div class="space-y-4 justified-text">
+                                <p><strong class="text-cinnabar">Truyền thống:</strong> Ngâm gạo với nước tro củi tràm để tạo màu vàng nhạt và độ dai đặc trưng. Sau đó xay gạo thành bột, lọc bỏ nước chua, nhào bột cho dẻo mịn. Cán bột mỏng, hấp chín rồi mới thái sợi.</p>
+                                <p><strong class="text-cinnabar">Tại gia:</strong> Nếu không có nước tro tràm, có thể thay thế bằng nước tro tàu hoặc mua sẵn sợi mì khô/tươi. Nếu dùng mì khô, cần ngâm nước ấm và luộc lại cho mềm nhưng vẫn giữ độ sần sật.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="hidden md:block absolute left-4 top-2 w-3 h-3 rounded-full bg-cinnabar ring-4 ring-parchment z-10"></div>
+                        <span class="step-number">02</span>
+                        <div class="bg-white p-8 shadow-sm border border-gold/10 rounded-sm relative z-1 group-hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-xl font-bold text-charcoal uppercase italic">Chế biến thịt xá xíu</h4>
+                                <span class="text-xs font-serif italic text-gold">Thực hiện: 2 giờ ướp + 45p nấu</span>
+                            </div>
+                            <div class="space-y-3 justified-text">
+                                <p>Thịt heo để nguyên khối lớn, rửa sạch bằng nước muối và rượu. Ướp thịt với nước tương, ngũ vị hương, đường phèn, mật ong, hành tỏi băm và tiêu trong ít nhất 2 giờ.</p>
+                                <p class="bg-gold/5 p-3 italic border-l-2 border-gold text-sm">Mẹo chuyên nghiệp: Ướp qua đêm trong tủ lạnh để gia vị thấm sâu vào lõi thịt.</p>
+                                <p>Áp chảo khối thịt cho vàng đều các mặt để khóa nước bên trong. Sau đó đổ nước ướp thịt và một ít nước dùng vào rim nhỏ lửa cho đến khi nước sệt lại. Khi thịt chín, vớt ra để nguội rồi thái lát mỏng.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="hidden md:block absolute left-4 top-2 w-3 h-3 rounded-full bg-cinnabar ring-4 ring-parchment z-10"></div>
+                        <span class="step-number">03</span>
+                        <div class="bg-white p-8 shadow-sm border border-gold/10 rounded-sm relative z-1 group-hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-xl font-bold text-charcoal uppercase italic">Làm nước sốt (Nước lèo)</h4>
+                                <span class="text-xs font-serif italic text-gold">Thực hiện: 15 phút</span>
+                            </div>
+                            <p class="justified-text">Nước rim thịt xá xíu chính là "linh hồn" của món ăn. Sau khi vớt thịt, giữ lại phần nước trong nồi, nêm nếm lại cho đậm đà (vị mặn ngọt hài hòa). Cao Lầu không ăn với nhiều nước dùng như phở mà chỉ cần vài thìa nước sốt đậm đặc.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-0 md:pl-12 group">
+                        <div class="hidden md:block absolute left-4 top-2 w-3 h-3 rounded-full bg-cinnabar ring-4 ring-parchment z-10"></div>
+                        <span class="step-number">04</span>
+                        <div class="bg-white p-8 shadow-sm border border-gold/10 rounded-sm relative z-1 group-hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-xl font-bold text-charcoal uppercase italic">Chuẩn bị & Hoàn thiện</h4>
+                                <span class="text-xs font-serif italic text-gold">Thực hiện: 10 phút</span>
+                            </div>
+                            <div class="space-y-4 justified-text">
+                                <p>Chiên phồng da heo hoặc miếng bột mì cho đến khi vàng giòn. Giá đỗ trần qua nước sôi nhưng giữ độ giòn.</p>
+                                <p>Cho giá vào bát, xếp sợi mì Cao Lầu lên trên. Xếp thịt xá xíu thành vòng tròn, thêm vài miếng ram giòn. Rưới 2-3 thìa nước sốt xá xíu nóng hổi lên trên mì.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chef's Corner Section -->
+        <div class="section-divider">
+            <span>✧ ✦ ✧</span>
+        </div>
+
+        <section class="max-w-4xl mx-auto">
+            <div class="pro-tip-box">
+                <h3 class="text-2xl font-bold mb-6 text-cinnabar italic text-center uppercase tracking-widest">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <h5 class="font-bold text-gold mb-2 uppercase text-xs tracking-widest">Kỹ thuật thịt</h5>
+                        <p class="text-sm justified-text italic">Khi rim thịt, không nên để lửa quá lớn làm cháy đường và mật ong. Việc áp chảo trước giúp thịt có màu nâu cánh gián đẹp mắt và không bị bở.</p>
+                    </div>
+                    <div class="text-center">
+                        <h5 class="font-bold text-gold mb-2 uppercase text-xs tracking-widest">Xử lý sợi mì</h5>
+                        <p class="text-sm justified-text italic">Sợi mì đạt chuẩn phải có độ dai, hơi cứng và bề mặt hơi nhám. Khi hấp, cần canh thời gian vừa đủ để bột chín tới, tránh làm bột quá nát.</p>
+                    </div>
+                    <div class="text-center">
+                        <h5 class="font-bold text-gold mb-2 uppercase text-xs tracking-widest">Lỗi cần tránh</h5>
+                        <p class="text-sm justified-text italic">Đừng cho quá nhiều nước dùng vào bát, điều này sẽ làm mất đi đặc trưng của Cao Lầu và khiến món ăn bị nhạt nhẽo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <div class="section-divider">
+            <span>✧ ✦ ✧</span>
+        </div>
+
+        <section class="max-w-4xl mx-auto mb-20">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 border border-gold/20 shadow-sm hover:border-cinnabar transition-colors">
+                    <h4 class="text-cinnabar font-bold uppercase mb-4 text-sm tracking-widest">Phiên bản nội trợ</h4>
+                    <p class="justified-text text-sm italic">Thay thế sợi mì Cao Lầu bằng mì Udon khô hoặc mì sợi lớn nếu không tìm được hàng chuẩn. Thay nước tro bằng một chút baking soda khi ngâm gạo để tạo độ dai.</p>
+                </div>
+                <div class="bg-white p-6 border border-gold/20 shadow-sm hover:border-cinnabar transition-colors">
+                    <h4 class="text-cinnabar font-bold uppercase mb-4 text-sm tracking-widest">Phiên bản chay</h4>
+                    <p class="justified-text text-sm italic">Thay thịt heo bằng nấm đùi gà và đậu phụ chiên, dùng nước tương và dầu hào chay để làm nước sốt rim đậm đà.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical/Footer Info -->
+        <div class="grid md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-charcoal">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-cinnabar/5 p-6 rounded-sm">
+                    <p class="justified-text mb-4">Cao Lầu là món ăn cân bằng với đầy đủ tinh bột, protein và chất xơ từ rau sống dồi dào.</p>
+                    <div class="space-y-2 text-sm italic border-l-2 border-cinnabar pl-4">
+                        <p><strong>Năng lượng:</strong> 450-600 calo / bát.</p>
+                        <p><strong>Lời khuyên:</strong> Do nước sốt có hàm lượng natri cao, người bị cao huyết áp nên hạn chế rưới quá nhiều nước sốt. Nên ăn kèm nhiều rau sống Trà Quế.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-charcoal">6. Gợi ý trình bày</h3>
+                <div class="bg-gold/5 p-6 rounded-sm">
+                    <ul class="space-y-3 text-sm italic list-disc pl-4">
+                        <li class="justified-text">Sử dụng bát sứ cổ điển hoặc bát đất nung để tăng cảm giác hoài cổ của phố Hội.</li>
+                        <li class="justified-text">Đặt lát thịt xá xíu xen kẽ, phía trên là miếng ram vàng và ớt rim đỏ thắm tạo sự tương phản màu sắc.</li>
+                        <li class="justified-text">Trình bày rau sống ở một đĩa riêng hoặc đặt dưới đáy bát để tạo độ phồng cho món ăn.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Smooth scroll or simple interactions if needed
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
