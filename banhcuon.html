@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh cuốn Thanh Trì - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(to bottom, #f3f1ed, #FCFAFA);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #D4AF37;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .step-number {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #E23D28;
+            margin-right: 10px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pro-tip-box {
+            border: 4px double #D4AF37;
+            background-color: #fffdf5;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed #ddd;
+            padding: 8px 0;
+            transition: all 0.2s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 10px;
+            color: #E23D28;
+        }
+
+        .meta-icon {
+            color: #D4AF37;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="header-gradient pt-16 pb-12 px-6 text-center border-b border-gold/20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-cinnabar uppercase tracking-[0.3em] text-sm font-bold mb-4">AI Vua Đầu Bếp — Digital Edition</h2>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2">Bánh cuốn Thanh Trì Hà Nội</h1>
+            <p class="text-xl md:text-2xl italic text-gray-600 mb-10">Tinh hoa ẩm thực đất Kinh Kỳ — The Essence of Royal Capital Cuisine</p>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 max-w-3xl mx-auto uppercase text-xs tracking-widest font-bold">
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon">◈</span>
+                    <span class="text-gray-500">Độ khó</span>
+                    <span class="mt-1">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="meta-icon">◔</span>
+                    <span class="text-gray-500">Thời gian</span>
+                    <span class="mt-1">60 phút</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="meta-icon">⚖</span>
+                    <span class="text-gray-500">Khẩu phần</span>
+                    <span class="mt-1">4 Người</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="meta-icon">⟐</span>
+                    <span class="text-gray-500">Nguồn gốc</span>
+                    <span class="mt-1 text-center">Làng cổ Thanh Trì</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 pb-1">1. Nguyên liệu</h3>
+                
+                <div class="mb-8">
+                    <h4 class="font-bold text-lg mb-4 italic text-gold">Phần bột bánh</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>250g bột gạo tẻ (gạo Khang Dân cũ)</span></li>
+                        <li class="ingredient-item flex justify-between"><span>50g bột năng</span></li>
+                        <li class="ingredient-item flex justify-between"><span>700ml nước lọc</span></li>
+                        <li class="ingredient-item flex justify-between"><span>1/2 muỗng cà phê muối</span></li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-lg mb-4 italic text-gold">Hành phi & Mỡ hành</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>200g hành tím ta</span></li>
+                        <li class="ingredient-item flex justify-between"><span>150ml dầu ăn hoặc mỡ lợn</span></li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-lg mb-4 italic text-gold">Nước chấm</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Nước mắm ngon, đường, giấm nếp</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Nước lọc ấm</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Tinh dầu cà cuống (Cốt lõi)</span></li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-lg mb-4 italic text-gold">Đồ ăn kèm</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Chả quế nướng thơm</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Rau thơm: Húng Láng, kinh giới</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Giá đỗ chần</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 pb-1">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10 relative before:absolute before:left-4 before:top-2 before:bottom-0 before:w-px before:bg-gold/20">
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center text-cinnabar font-bold z-10 group-hover:bg-gold group-hover:text-white transition-colors">1</div>
+                        <h4 class="font-bold text-xl mb-2">Pha bột và ủ</h4>
+                        <p class="text-gray-700">Trộn bột gạo, bột năng và muối với nước. Để bột nghỉ ít nhất <span class="italic font-semibold">2-4 tiếng</span>. Trước khi tráng, gạn bỏ lớp nước trong phía trên và bù lại lượng nước sạch tương đương để bánh không bị mùi chua và trắng trong hơn.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center text-cinnabar font-bold z-10 group-hover:bg-gold group-hover:text-white transition-colors">2</div>
+                        <h4 class="font-bold text-xl mb-2">Làm hành phi</h4>
+                        <p class="text-gray-700">Đun nóng dầu, cho hành tím vào phi ở lửa nhỏ cho đến khi chuyển màu vàng nhạt. Tắt bếp, vớt hành ra giấy thấm dầu. Phần dầu còn lại dùng để thoa lên mặt bánh.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center text-cinnabar font-bold z-10 group-hover:bg-gold group-hover:text-white transition-colors">3</div>
+                        <h4 class="font-bold text-xl mb-2">Tráng bánh</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="p-4 border-l-2 border-gold/30 bg-white/50 italic">
+                                <strong>Cách chuyên nghiệp:</strong> Dùng nồi hơi căng vải chuyên dụng. Múc một muôi bột nhỏ, xoa đều thật mỏng trên mặt vải. Đậy vung 30-45 giây.
+                            </div>
+                            <div class="p-4 border-l-2 border-gold/30 bg-white/50 italic">
+                                <strong>Cách tại gia:</strong> Phết lớp dầu mỏng lên chảo không dính, đổ bột mỏng, xoay đều chảo. Đậy nắp 30 giây.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center text-cinnabar font-bold z-10 group-hover:bg-gold group-hover:text-white transition-colors">4</div>
+                        <h4 class="font-bold text-xl mb-2">Hoàn thiện lá bánh</h4>
+                        <p class="text-gray-700">Thoa một lớp mỡ hành mỏng lên lá bánh vừa tráng. Gấp bánh theo hình chữ nhật. Đặc trưng bánh Thanh Trì là không có nhân thịt bên trong, giữ trọn vị bột gạo.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold flex items-center justify-center text-cinnabar font-bold z-10 group-hover:bg-gold group-hover:text-white transition-colors">5</div>
+                        <h4 class="font-bold text-xl mb-2">Pha nước chấm</h4>
+                        <p class="text-gray-700">Pha mắm, đường, nước lọc và giấm theo vị thanh nhạt. Nước chấm phải ấm. Cuối cùng, nhỏ 1-2 giọt tinh dầu cà cuống vào bát để tạo nên hương thơm đặc trưng của Hà Nội cũ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">✦</div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Chef’s Corner -->
+            <div class="pro-tip-box p-8 shadow-sm">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-4">👨‍🍳</span>
+                    <h3 class="text-2xl font-bold text-primary">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <span class="text-gold font-bold">●</span>
+                        <p><span class="font-bold">Kỹ thuật chọn gạo:</span> Để bánh dai tự nhiên mà không cần phụ gia, việc chọn gạo cũ (gạo khô) là quan trọng nhất. Gạo mới sẽ làm bánh bị nát.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold font-bold">●</span>
+                        <p><span class="font-bold">Kiểm soát hơi nước:</span> Khi tráng bằng hơi nước, phải đảm bảo nước sôi mạnh để hơi nước làm chín bột nhanh, giúp lá bánh mỏng mà không bị rách.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold font-bold">●</span>
+                        <p><span class="font-bold">Mẹo cho người nội trợ:</span> Nếu dùng chảo, hãy thêm 1 muỗng canh dầu ăn vào hỗn hợp bột để bánh mượt mà và dễ bóc hơn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variations -->
+            <div class="flex flex-col">
+                <h3 class="text-2xl font-bold mb-6">4. Biến tấu & Nâng cao</h3>
+                <div class="flex gap-2 mb-4 border-b border-gold/20">
+                    <button onclick="showTab('egg')" id="btn-egg" class="tab-btn px-4 py-2 font-bold border-b-2 border-cinnabar">Bánh cuốn Trứng</button>
+                    <button onclick="showTab('veg')" id="btn-veg" class="tab-btn px-4 py-2 font-bold text-gray-400">Phiên bản Chay</button>
+                </div>
+                <div id="tab-egg" class="tab-content active p-6 bg-white border border-gold/10 shadow-lg h-full">
+                    <p class="italic text-gray-600 mb-4">Một sự kết hợp béo ngậy giữa bột gạo và lòng đỏ trứng.</p>
+                    <p>Đập thêm một quả trứng gà lên lá bánh đang tráng, xoa nhẹ rồi đậy vung cho trứng chín tới. Bánh sẽ có màu vàng đẹp mắt và vị thơm ngậy đặc trưng.</p>
+                </div>
+                <div id="tab-veg" class="tab-content p-6 bg-white border border-gold/10 shadow-lg h-full">
+                    <p class="italic text-gray-600 mb-4">Thanh tịnh và nhẹ nhàng cho những ngày ăn chay.</p>
+                    <p>Sử dụng nước mắm chay và bỏ qua tinh dầu cà cuống, tập trung vào độ giòn của hành phi và tươi mát của rau thơm. Có thể ăn kèm với đậu phụ chiên giòn thái mỏng.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">✦</div>
+
+        <!-- Technical Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-primary text-parchment p-10 rounded-sm">
+            <div>
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <p class="mb-4">Một đĩa bánh cuốn Thanh Trì kèm chả quế cung cấp khoảng <span class="text-gold font-bold">400-500 kcal</span>.</p>
+                <ul class="space-y-2 opacity-90">
+                    <li>— <strong>Carbohydrate:</strong> Từ bột gạo cung cấp năng lượng bền bỉ.</li>
+                    <li>— <strong>Chất béo:</strong> Từ mỡ hành giúp hấp thụ vitamin tốt hơn.</li>
+                    <li>— <strong>Protein:</strong> Cung cấp từ chả quế đi kèm.</li>
+                </ul>
+                <p class="mt-4 italic text-sm text-gray-400">Đây là món ăn thanh đạm, ít dầu mỡ hơn các loại bánh cuốn có nhân thịt.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-gold/30 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <p>Xếp bánh chồng nhẹ lên nhau trên đĩa sứ trắng để lộ độ trong suốt của lá bánh. Rắc hành phi vàng óng đều trên mặt.</p>
+                    <p>Chả quế thái miếng đặt cạnh đĩa cùng các loại rau thơm tươi mát. Nước chấm đặt trong bát nhỏ, dậy mùi thơm của tinh dầu cà cuống.</p>
+                    <p class="text-cinnabar italic">Vẻ đẹp thanh lịch đúng chất Hà thành.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // Update button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-b-2', 'border-cinnabar', 'text-primary');
+                btn.classList.add('text-gray-400');
+            });
+            document.getElementById('btn-' + tabId).classList.add('border-b-2', 'border-cinnabar', 'text-primary');
+            document.getElementById('btn-' + tabId).classList.remove('text-gray-400');
+        }
+
+        // Simple animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.glass-card, .pro-tip-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
