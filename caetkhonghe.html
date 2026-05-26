@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Cá Ét Kho Nghệ Tươi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --parchment: #FCFAFA;
+            --cinnabar: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--parchment);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .serif-display {
+            font-family: 'Cinzel', serif;
+        }
+
+        .gold-border {
+            border: 1px solid var(--burnished-gold);
+        }
+
+        .cinnabar-text {
+            color: var(--cinnabar);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: var(--burnished-gold);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--burnished-gold);
+        }
+
+        .meta-icon {
+            color: var(--cinnabar);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 2.5rem;
+            border-left: 2px solid var(--burnished-gold);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: var(--cinnabar);
+            border-radius: 50%;
+        }
+
+        .variation-tab {
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .variation-tab:hover {
+            border-color: var(--cinnabar);
+            color: var(--cinnabar);
+        }
+
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <div class="mb-4">
+            <span class="serif-display uppercase tracking-widest text-sm text-gray-500">AI Vua Đầu Bếp Presents</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Cá Ét Kho Nghệ Tươi</h1>
+        <h2 class="text-xl md:text-2xl italic font-normal text-gray-600 mb-8">River Fish Braised with Fresh Turmeric</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 md:gap-16 border-y border-gray-200 py-6 my-8">
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest font-bold">Độ khó</span>
+                <span class="italic">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">🕒</span>
+                <span class="text-xs uppercase tracking-widest font-bold">Thời gian</span>
+                <span class="italic">90 - 120 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">🍽</span>
+                <span class="text-xs uppercase tracking-widest font-bold">Khẩu phần</span>
+                <span class="italic">3 - 4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">📍</span>
+                <span class="text-xs uppercase tracking-widest font-bold">Xuất xứ</span>
+                <span class="italic">Tây Nam Bộ</span>
+            </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto italic text-justify text-gray-700 leading-relaxed">
+            Món ăn dân dã đặc trưng của vùng sông nước Cửu Long, nơi cá ét sinh sống nhiều ở các bến sông, kết hợp cùng nghệ tươi để khử mùi bùn và tạo màu sắc đặc trưng.
+        </p>
+    </header>
+
+    <div class="section-divider max-w-6xl mx-auto">
+        <span class="ornament">🜚</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="serif-display text-2xl font-bold mb-6 border-b-2 border-red-800 pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-3">Thành phần chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Cá ét tươi</span>
+                                <span class="italic">500g - 700g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Thịt ba chỉ</span>
+                                <span class="italic">100g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Nghệ tươi (củ già)</span>
+                                <span class="italic">50g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-3">Gia vị & Nước dùng</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Nước dừa xiêm</span>
+                                <span class="italic">300ml</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Đường phèn, Nước mắm</span>
+                                <span class="italic">Vừa đủ</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Hành tím, Tỏi, Ớt</span>
+                                <span class="italic">Băm nhỏ</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-3">Sơ chế & Rau kèm</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Rượu trắng, Gừng</span>
+                                <span class="italic">Khử tanh</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Chuối chát, Khế chua</span>
+                                <span class="italic">Ăn kèm</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="serif-display text-2xl font-bold mb-8 border-b-2 border-red-800 pb-2 inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-2">
+                <div class="timeline-step">
+                    <h4 class="font-bold text-lg mb-2">Sơ chế cá (Kỹ thuật khử mùi & Xử lý xương dăm)</h4>
+                    <p class="text-justify text-gray-700">Làm sạch vảy, mang và màng đen trong bụng cá. Ngâm cá trong nước muối loãng pha chút rượu trắng và gừng giã dập trong 10 phút. Để xử lý xương dăm đặc trưng của cá ét, dùng dao sắc khứa những đường ngang thân cá cách nhau 2-3mm để cắt đứt sợi xương li ti và giúp gia vị thấm sâu.</p>
+                    <span class="text-xs italic text-red-700 font-bold mt-2 block uppercase tracking-widest">⏱ 20 phút</span>
+                </div>
+
+                <div class="timeline-step">
+                    <h4 class="font-bold text-lg mb-2">Chuẩn bị nghệ và gia vị</h4>
+                    <p class="text-justify text-gray-700">Nghệ tươi giã nhuyễn, chia làm hai phần: lấy cốt để ướp và phần bã để kho. Hành, tỏi, ớt băm nhỏ.</p>
+                    <span class="text-xs italic text-red-700 font-bold mt-2 block uppercase tracking-widest">⏱ 10 phút</span>
+                </div>
+
+                <div class="timeline-step">
+                    <h4 class="font-bold text-lg mb-2">Ướp cá</h4>
+                    <p class="text-justify text-gray-700">Ướp cá với nước cốt nghệ, nước mắm, đường phèn, tiêu và hành tỏi trong ít nhất 30 phút. Đường phèn giúp vị ngọt thanh và màu cá trong hơn.</p>
+                    <span class="text-xs italic text-red-700 font-bold mt-2 block uppercase tracking-widest">⏱ 30 phút (Nghỉ)</span>
+                </div>
+
+                <div class="timeline-step">
+                    <h4 class="font-bold text-lg mb-2">Kỹ thuật kho tầng bậc</h4>
+                    <p class="text-justify text-gray-700">Sử dụng nồi đất, lót dưới đáy một lớp thịt ba chỉ thái mỏng và bã nghệ để ngăn cháy dính và tạo độ béo. Xếp cá lên trên, đun lửa lớn cho thịt cá săn lại rồi mới châm nước dừa xiêm vào xấp mặt cá.</p>
+                    <span class="text-xs italic text-red-700 font-bold mt-2 block uppercase tracking-widest">⏱ 10 phút</span>
+                </div>
+
+                <div class="timeline-step border-none pb-0">
+                    <h4 class="font-bold text-lg mb-2">Ninh nhỏ lửa</h4>
+                    <p class="text-justify text-gray-700">Khi nước sôi lại, hạ lửa xuống mức nhỏ nhất (liu riu), kho trong 60-90 phút. Việc kho lâu với nước dừa giúp xương dăm mủn ra, có thể ăn được cả xương mà không lo bị hóc.</p>
+                    <span class="text-xs italic text-red-700 font-bold mt-2 block uppercase tracking-widest">⏱ 60-90 phút</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Insights -->
+    <section class="max-w-6xl mx-auto px-6 mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Chef's Corner -->
+            <div class="bg-[#F4F1EA] p-8 border-double border-4 border-[#C5A059] relative">
+                <div class="absolute -top-4 left-6 bg-[#C5A059] text-white px-4 py-1 text-xs font-bold uppercase tracking-widest">
+                    Master Class
+                </div>
+                <h3 class="serif-display text-xl font-bold mb-4">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="cinnabar-text mr-3 italic">01.</span>
+                        <p class="text-sm italic text-justify">Tuyệt đối không cho nước lạnh vào nồi khi đang kho để tránh cá bị tanh; chỉ dùng nước dừa hoặc nước sôi.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="cinnabar-text mr-3 italic">02.</span>
+                        <p class="text-sm italic text-justify">Hạn she lật trở cá quá nhiều vì thịt cá ét rất mềm, dễ nát. Thay vào đó hãy dùng thìa rưới nước sốt lên mặt cá.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="cinnabar-text mr-3 italic">03.</span>
+                        <p class="text-sm italic text-justify">Khi chọn mua, nên ưu tiên cá còn bơi, mắt trong, vảy có độ bóng bạc đồng nhất.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div class="p-8 gold-border">
+                <h3 class="serif-display text-xl font-bold mb-4">4. Biến tấu & Nâng cao</h3>
+                <div class="space-y-6">
+                    <div class="glass-card p-4 rounded">
+                        <h5 class="font-bold text-xs uppercase tracking-widest cinnabar-text mb-2">Phiên bản Nội trợ bận rộn</h5>
+                        <p class="text-sm text-justify">Sử dụng nồi áp suất kho trong 20 phút để làm mềm xương nhanh, sau đó chuyển sang nồi đất đun cạn nước sốt để tạo độ sánh.</p>
+                    </div>
+                    <div class="glass-card p-4 rounded">
+                        <h5 class="font-bold text-xs uppercase tracking-widest cinnabar-text mb-2">Biến tấu hương vị</h5>
+                        <p class="text-sm text-justify">Có thể thêm sả băm hoặc một ít tương hột để tăng hương thơm và độ đậm đà theo gu thực khách miền Đông.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-6xl mx-auto">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Technical Info -->
+    <section class="max-w-6xl mx-auto px-6 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 pt-12">
+            <div>
+                <h3 class="serif-display text-xl font-bold mb-4 flex items-center">
+                    <span class="w-8 h-px bg-red-800 mr-3"></span> 5. Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-white p-6 shadow-sm border border-gray-100">
+                    <ul class="space-y-3 text-sm italic text-gray-600">
+                        <li class="flex justify-between"><span>Đạm chất lượng cao & Omega-3</span> <span class="font-bold text-gray-800">Cá ét</span></li>
+                        <li class="flex justify-between"><span>Kháng viêm & Tiêu hóa</span> <span class="font-bold text-gray-800">Curcumin (Nghệ)</span></li>
+                        <li class="flex justify-between"><span>Khoáng chất tự nhiên</span> <span class="font-bold text-gray-800">Nước dừa</span></li>
+                    </ul>
+                    <p class="mt-4 text-xs text-justify text-gray-500">Tổng thể món ăn cân bằng dinh dưỡng, hỗ trợ sức khỏe tim mạch và hệ miễn dịch.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="serif-display text-xl font-bold mb-4 flex items-center">
+                    <span class="w-8 h-px bg-red-800 mr-3"></span> 6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-3 text-sm text-justify text-gray-700 italic">
+                    <p>• Đặt nồi đất lên mẹt tre lót lá chuối để tôn vinh vẻ đẹp dân dã truyền thống.</p>
+                    <p>• Rắc tiêu hạt giã dập, hành lá cắt khúc và vài lát ớt đỏ lên bề mặt để tạo điểm nhấn màu sắc rực rỡ.</p>
+                    <p>• Màu vàng óng ả của nghệ bao phủ thân cá quyện cùng nước kho sền sệt như mật ong là tiêu chuẩn cao nhất về thẩm mỹ.</p>
+                    <p>• Thưởng thức cùng cơm trắng nóng hổi và đĩa rau dân dã như bông súng, chuối chát.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Script -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-[#2C2C2C] text-white w-12 h-12 flex items-center justify-center rounded-full shadow-2xl hover:bg-[#E23D28] transition-colors duration-300">
+        ↑
+    </button>
+
+</body>
+</html>
