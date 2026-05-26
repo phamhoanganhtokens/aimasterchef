@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bún Đậu Mắm Tôm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'parchment': '#FCFAFA',
+                        'charcoal': '#2C2C2C',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(2n) {
+                border-right: none;
+            }
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            padding: 2rem;
+            background-color: #fff;
+            position: relative;
+        }
+        .pro-tip-box::before {
+            content: '★';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FCFAFA;
+            padding: 0 10px;
+            color: #C5A059;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-16">
+
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-16 fade-in">
+            <div class="mb-4 text-cinnabar tracking-[0.2em] uppercase text-sm font-bold">AI VUA ĐẦU BẾP PRESENT</div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight text-charcoal">BÚN ĐẬU MẮM TÔM</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gold font-light mb-10">The Essence of Hanoi Street Food</h2>
+            
+            <p class="max-w-3xl mx-auto mb-12 italic text-lg leading-relaxed text-gray-600">
+                "Hà Nội, Việt Nam. Đây là món ăn bình dân mang đậm hơi thở của phố cổ, kết hợp hài hòa giữa các nguyên liệu mộc mạc của vùng đồng bằng Bắc Bộ."
+            </p>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold/30 py-6 text-charcoal bg-white/30">
+                <div class="meta-item p-4 flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1 font-bold">Độ khó</span>
+                    <span class="text-xl">Trung bình</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1 font-bold">Thời gian</span>
+                    <span class="text-xl">60 - 75 phút</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1 font-bold">Khẩu phần</span>
+                    <span class="text-xl">2 - 4 người</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1 font-bold">Vùng miền</span>
+                    <span class="text-xl">Hà Nội</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="section-divider">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M11,9H13V7H11M11,20H13V18H11M4,5V19H20V5M20,3A2,2 0 0,1 22,5V19A2,2 0 0,1 20,21H4A2,2 0 0,1 2,19V5A2,2 0 0,1 4,3H20Z"/></svg>
+        </div>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="glass-card p-8 rounded-sm">
+                    <h3 class="text-3xl font-bold mb-8 border-b border-gold/30 pb-2">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-cinnabar text-sm uppercase tracking-tighter mb-3">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Bún: 500g bún lá</li>
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Đậu phụ: 4 - 6 bìa đậu mơ</li>
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Thịt: 300g chân giò hoặc ba chỉ</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-cinnabar text-sm uppercase tracking-tighter mb-3">Linh hồn món ăn</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Mắm tôm Hậu Lộc nguyên chất</li>
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Rau kinh giới, tía tô, húng quế</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-cinnabar text-sm uppercase tracking-tighter mb-3">Gia vị & Đồ kèm</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Chả cốm, nem chua rán</li>
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Chanh, ớt, đường, rượu trắng</li>
+                                <li class="flex items-start"><span class="mr-2 text-gold">◈</span> Mỡ heo, hành khô, gừng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8">2. Các bước thực hiện</h3>
+                <div class="space-y-10 relative">
+                    <!-- Step 1 -->
+                    <div class="flex">
+                        <span class="step-number">01.</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Sơ chế & Cuộn thịt</h4>
+                            <p class="text-gray-700 italic text-sm mb-2 text-gold">Thời gian ước tính: 10 phút</p>
+                            <p class="description">Thịt chân giò rửa sạch với muối và giấm. Dùng chỉ thực phẩm cuộn chặt thịt để khi thái miếng thịt tròn đẹp, thớ chắc và giữ được độ ngọt tự nhiên.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex">
+                        <span class="step-number">02.</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Kỹ thuật luộc đạt chuẩn</h4>
+                            <p class="text-gray-700 italic text-sm mb-2 text-gold">Thời gian ước tính: 25 phút</p>
+                            <p class="description">Cho thịt vào nồi cùng hành khô và gừng đập dập. Luộc lửa vừa đến khi chín tới. Vớt ngay ra bát nước đá lạnh để phần bì trắng giòn, sau đó để ráo và thái lát mỏng vừa ăn.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex">
+                        <span class="step-number">03.</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Rán đậu "Ngoài giòn trong mướt"</h4>
+                            <p class="text-gray-700 italic text-sm mb-2 text-gold">Thời gian ước tính: 15 phút</p>
+                            <p class="description">Cắt đậu phụ thành miếng vuông. Đun dầu thật nóng (ngập dầu), thả đậu vào chiên ở lửa lớn. Khi lớp vỏ chuyển màu vàng ruộm, giòn rụm thì vớt ra ngay để giữ bên trong vẫn mướt mềm.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex">
+                        <span class="step-number">04.</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Nghệ thuật đánh mắm tôm</h4>
+                            <p class="text-gray-700 italic text-sm mb-2 text-gold">Thời gian ước tính: 5 phút</p>
+                            <p class="description">Lấy lượng mắm vừa đủ, thêm đường, rượu trắng, nước cốt quất. Đổ một thìa mỡ nóng vào và đánh liên tục theo một chiều đến khi mắm sủi bọt mịn, trắng xóa và dậy mùi thơm đặc trưng.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex">
+                        <span class="step-number">05.</span>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Hoàn thiện đồ kèm</h4>
+                            <p class="text-gray-700 italic text-sm mb-2 text-gold">Thời gian ước tính: 10 phút</p>
+                            <p class="description">Chả cốm rán vàng, dưa chuột thái lát, rau sống nhặt sạch và ngâm nước muối loãng. Mọi thứ đã sẵn sàng để lên mẹt.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-16">
+            <div class="pro-tip-box mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-center text-gold">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-4 border-r border-gold/10 last:border-0">
+                        <h4 class="font-bold mb-2 italic">Ngoài giòn trong mướt</h4>
+                        <p class="text-sm opacity-80">Bí quyết là để đậu phụ thật ráo nước và dầu phải sôi già trước khi thả đậu. Chiên lửa lớn giúp giữ nước bên trong.</p>
+                    </div>
+                    <div class="text-center p-4 border-r border-gold/10 last:border-0">
+                        <h4 class="font-bold mb-2 italic">Bí quyết Mắm Tôm</h4>
+                        <p class="text-sm opacity-80">Một giọt rượu trắng giúp khử hoàn toàn mùi tanh nồng và hỗ trợ quá trình tạo bọt nhanh hơn, mịn hơn.</p>
+                    </div>
+                    <div class="text-center p-4 last:border-0">
+                        <h4 class="font-bold mb-2 italic">Bún Lá Hà Thành</h4>
+                        <p class="text-sm opacity-80">Nên chọn bún lá bánh nhỏ, cắt thành từng miếng vừa miệng để giữ đúng phong vị dân dã phố cổ.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-charcoal text-parchment p-8 rounded-sm">
+                        <h4 class="text-gold font-bold mb-4 flex items-center">
+                            <span class="mr-2">⚡</span> Dành cho nội trợ bận rộn
+                        </h4>
+                        <p class="text-sm description">Có thể dùng Nồi chiên không dầu để rán đậu và chả cốm. Xịt một lớp dầu mỏng lên bề mặt, set nhiệt 200°C trong 10-12 phút mỗi mặt. Đậu vẫn sẽ vàng nhưng ít dầu mỡ hơn.</p>
+                    </div>
+                    <div class="bg-white border-2 border-charcoal p-8 rounded-sm">
+                        <h4 class="text-cinnabar font-bold mb-4 flex items-center">
+                            <span class="mr-2">👑</span> Phiên bản Master
+                        </h4>
+                        <p class="text-sm description">Bổ sung thêm dồi trường, gan, cuống họng luộc để mẹt bún thêm đa dạng. Sử dụng mỡ heo thay cho dầu ăn khi rán đậu sẽ tạo nên mùi thơm béo ngậy truyền thống.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="px-4 text-gold font-bold tracking-widest uppercase text-xs">Phần Cuối</span>
+        </div>
+
+        <!-- Footer/Technical Info -->
+        <footer class="grid md:grid-cols-2 gap-12 mb-16 border-t border-gold/20 pt-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-gold mr-4"></span> 5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <p class="description"><strong>Sự cân bằng:</strong> Món ăn cung cấp đủ ba nhóm chất chính: Đạm thực vật (đậu phụ), Đạm động vật (thịt, chả cốm) và Chất xơ (rau kinh giới, dưa chuột).</p>
+                    <p class="description bg-cinnabar/5 p-4 border-l-4 border-cinnabar italic text-sm">
+                        <strong>Lưu ý:</strong> Mắm tôm có hàm lượng natri cao. Người có tiền sử cao huyết áp nên tiết chế. Đảm bảo mắm tôm được "làm chín" bằng mỡ nóng nếu có hệ tiêu hóa nhạy cảm.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-gold mr-4"></span> 6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-gold font-bold mr-2">◦</span> Sử dụng mẹt tre tròn, lót lá chuối tươi đã hơ lửa mềm xanh.</li>
+                        <li class="flex items-start"><span class="text-gold font-bold mr-2">◦</span> Đặt bát mắm tôm đánh bọt với vài lát ớt đỏ ở tâm điểm.</li>
+                        <li class="flex items-start"><span class="text-gold font-bold mr-2">◦</span> Xếp bún, đậu, thịt theo vòng tròn, xen kẽ rau kinh giới để màu xanh nổi bật sắc vàng của đậu.</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scroll to Top (Subtle Interaction) -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-charcoal text-gold rounded-full flex items-center justify-center hover:bg-gold hover:text-charcoal transition-colors shadow-lg z-50">
+        ↑
+    </button>
+
+</body>
+</html>
