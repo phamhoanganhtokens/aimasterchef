@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hắc tiêu ngưu liễu hạt - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#E5D1A0',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #C5A059;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .ornament:not(:empty)::before { margin-right: 1rem; }
+        .ornament:not(:empty)::after { margin-left: 1rem; }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -2rem;
+            width: 1px;
+            background: #E5D1A0;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(197, 160, 89, 0.5);
+            transform: translateY(-2px);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="mb-4 text-gold tracking-[0.3em] uppercase text-sm font-bold">AI Vua Đầu Bếp • Premium Collection</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-charcoal">Hắc tiêu ngưu liễu hạt (黑椒牛柳粒)</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Black Pepper Beef Cubes</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-y border-goldLight py-6 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M20 20v-4a2 20 0 0 0-2-2H6a2 20 0 0 0-2 2v4"/><path d="M4 8h16"/><path d="m4 8 2-4h12l2 4"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">60 Phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Quảng Đông</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-8 justified text-gray-700 italic">
+            Bắt nguồn sâu xa từ truyền thống ẩm thực Quảng Đông, đặc biệt là khung cảnh ẩm thực nhộn nhịp của Hồng Kông, món ăn này đại diện cho sự kết hợp bậc thầy giữa kỹ thuật xào chảo (Wok) của Trung Hoa và các nguyên liệu phương Tây. Sự ra đời của thăn bò và tiêu đen thô trong bếp ăn truyền thống Trung Hoa đã tạo nên một món ăn chủ đạo có mặt khắp nơi, từ các quán trà chanh (Cha Chaan Teng) địa phương đến các sảnh tiệc cao cấp.
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b-2 border-gold pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-cinnabar uppercase text-sm tracking-widest mb-3">Thịt bò & Ướp</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 500g thăn bò hoặc thăn lưng</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tbsp nước tương nhạt</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tsp hắc xì dầu</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tbsp dầu hào</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tsp đường cát</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1/2 tsp baking soda (bí quyết mềm thịt)</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tbsp bột bắp</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tbsp dầu thực vật trung tính</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar uppercase text-sm tracking-widest mb-3">Gia vị & Rau củ</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 quả ớt chuông đỏ (cắt khối 1-inch)</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 quả ớt chuông xanh (cắt khối 1-inch)</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 củ hành tây trắng (cắt khối 1-inch)</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 3 tép tỏi băm nhỏ</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 lóng gừng băm</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1-1.5 tbsp tiêu đen nguyên hạt</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar uppercase text-sm tracking-widest mb-3">Phần Xốt</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 2 tbsp dầu hào & 1 tbsp nước tương</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1 tbsp rượu Thiệu Hưng</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> 1/2 chén nước dùng bò</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded"><span class="text-gold">✦</span> Hỗn hợp bột bắp (slurry)</li>
+                            <li class="flex items-center gap-2 glass-card p-2 rounded font-bold italic border-gold border-l-4 pl-3">Bí mật: 1 tbsp bơ lạt</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Preparation Steps -->
+        <main class="lg:col-span-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-gold pb-2 inline-block">2. Các bước thực hiện</h3>
+                
+                <div class="relative">
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <h5 class="font-bold mb-2">Chuẩn bị và Ướp thịt (Velvetting)</h5>
+                            <p class="justified text-gray-700">Cắt thịt bò thành các khối vuông 1-inch đồng nhất. Trong một bát trộn, kết hợp thịt bò với nước tương, dầu hào, đường, baking soda và bột bắp. Massage cho đến khi chất lỏng thấm hết vào thịt. Thêm dầu ăn sau cùng để khóa ẩm. Để thấm ít nhất 30 phút.</p>
+                            <span class="inline-block mt-3 text-xs italic text-gold font-bold">Thời gian: 30 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <h5 class="font-bold mb-2">Rang và Giã tiêu</h5>
+                            <p class="justified text-gray-700">Rang hạt tiêu đen nguyên hạt trên chảo khô khoảng 1 phút cho đến khi dậy mùi thơm, sau đó giã dập bằng cối và chày. Tiêu mới giã mang lại hương hoa phức hợp mà tiêu xay sẵn không có.</p>
+                            <span class="inline-block mt-3 text-xs italic text-gold font-bold">Thời gian: 3 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <h5 class="font-bold mb-2">Áp chảo thịt bò</h5>
+                            <p class="justified text-gray-700">Đun nóng chảo hoặc wok ở nhiệt độ cao cho đến khi bốc khói. Thêm 2 thìa dầu. Xếp thịt bò thành một lớp duy nhất. Giữ nguyên 1-2 phút để tạo lớp vỏ caramen đậm đà. Đảo nhanh thêm 1 phút cho đến khi chín tái (medium-rare). Lấy thịt ra và để nghỉ.</p>
+                            <span class="inline-block mt-3 text-xs italic text-gold font-bold">Thời gian: 5 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <h5 class="font-bold mb-2">Phi thơm gia vị & Làm rau củ</h5>
+                            <p class="justified text-gray-700">Trong cùng một chiếc chảo, thêm tiêu đã giã, tỏi và gừng. Xào trong 30 giây. Cho hành tây và ớt chuông vào. Đảo liên tục ở lửa lớn trong 2 phút cho đến khi rau củ hơi xém cạnh nhưng vẫn giữ được độ giòn.</p>
+                            <span class="inline-block mt-3 text-xs italic text-gold font-bold">Thời gian: 3 phút</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">5</div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <h5 class="font-bold mb-2">Hoàn thiện nước xốt</h5>
+                            <p class="justified text-gray-700">Đổ rượu Thiệu Hưng vào chảo để lấy hết phần cháy vàng thơm ngon. Đổ nước dùng bò, các loại nước tương và đường vào. Đun sôi nhanh. Khuấy đều hỗn hợp bột bắp và nấu cho đến khi nước xốt trở nên đặc và bóng.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">6</div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 border-l-4 border-l-cinnabar">
+                            <h5 class="font-bold mb-2 text-cinnabar">Kết thúc và Nhũ hóa (Chef's Finish)</h5>
+                            <p class="justified text-gray-700">Cho thịt bò và phần nước thịt tiết ra trở lại chảo. Đảo mạnh tay trong 30 giây để nước xốt phủ đều. Tắt bếp. Cho bơ lạt vào khuấy cho đến khi tan chảy—điều này làm dịu vị cay nồng của tiêu và mang lại cảm giác mượt mà, sang trọng cho nước xốt.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="ornament"><span class="px-4">✦ ✦ ✦</span></div>
+
+    <!-- Special Insight Sections -->
+    <section class="mb-12">
+        <div class="bg-charcoal text-parchment p-8 rounded-xl shadow-2xl relative overflow-hidden border-2 border-gold">
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border-l border-goldLight pl-4">
+                    <h5 class="font-bold text-gold mb-2 uppercase text-xs tracking-widest">Sự đồng nhất</h5>
+                    <p class="text-sm justified">Cắt thịt bò và rau củ với kích thước chính xác bằng nhau giúp đảm bảo chín đều và tạo vẻ ngoài chuyên nghiệp, tinh tế.</p>
+                </div>
+                <div class="border-l border-goldLight pl-4">
+                    <h5 class="font-bold text-gold mb-2 uppercase text-xs tracking-widest">Kiểm soát nhiệt</h5>
+                    <p class="text-sm justified">Để đạt được "Wok Hei" (hơi thở của chảo) mà không cần bếp công nghiệp, tránh để quá nhiều thức ăn vào chảo cùng lúc. Chia thịt thành nhiều mẻ để áp chảo nếu cần.</p>
+                </div>
+                <div class="border-l border-goldLight pl-4">
+                    <h5 class="font-bold text-gold mb-2 uppercase text-xs tracking-widest">Lưu ý Baking Soda</h5>
+                    <p class="text-sm justified">Không dùng quá lượng baking soda khuyến nghị. Dù nó làm mềm thịt hiệu quả, quá nhiều sẽ để lại hậu vị kim loại khó chịu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 border-b-2 border-gold pb-2 inline-block">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="flex gap-4 mb-6 border-b border-gray-200 overflow-x-auto">
+            <button onclick="showTab('tab-forest')" class="tab-btn active px-6 py-2 font-bold whitespace-nowrap">Mushroom Medley</button>
+            <button onclick="showTab('tab-diet')" class="tab-btn px-6 py-2 font-bold whitespace-nowrap">Gluten-Free</button>
+            <button onclick="showTab('tab-family')" class="tab-btn px-6 py-2 font-bold whitespace-nowrap">Family Friendly</button>
+        </div>
+        
+        <div id="tab-forest" class="tab-content active glass-card p-6 rounded-lg">
+            <h5 class="font-bold text-lg mb-2">Phiên bản Nấm Rừng</h5>
+            <p class="justified">Thêm các lát nấm đùi gà (King Oyster) hoặc nấm mỡ dày trong giai đoạn nấu rau củ để hấp thụ nước xốt và tăng cường chất xơ cho món ăn.</p>
+        </div>
+        <div id="tab-diet" class="tab-content glass-card p-6 rounded-lg">
+            <h5 class="font-bold text-lg mb-2">Chế độ không Gluten</h5>
+            <p class="justified">Thay thế nước tương bằng Tamari, sử dụng dầu hào không chứa gluten và thay rượu Thiệu Hưng bằng rượu sherry khô. Dùng bột củ dong (arrowroot) thay cho bột bắp.</p>
+        </div>
+        <div id="tab-family" class="tab-content glass-card p-6 rounded-lg">
+            <h5 class="font-bold text-lg mb-2">Dành cho Gia đình</h5>
+            <p class="justified">Để giảm vị cay, hãy giảm lượng tiêu đen xuống còn 1 muỗng cà phê và thêm 1 muỗng canh mật ong vào nước xốt để cân bằng nhiệt độ cho trẻ nhỏ.</p>
+        </div>
+    </section>
+
+    <div class="ornament"><span class="px-4">✦ ✦ ✦</span></div>
+
+    <!-- Nutrition & Presentation -->
+    <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <section>
+            <h3 class="text-2xl font-bold mb-6 border-b-2 border-gold pb-2 inline-block">5. Giá trị dinh dưỡng</h3>
+            <div class="bg-white border border-goldLight rounded-lg p-6">
+                <div class="flex justify-between items-center mb-4 border-b pb-2">
+                    <span class="font-bold">Ước tính mỗi phần:</span>
+                    <span class="text-cinnabar font-bold">340 kcal</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="flex justify-between border-b border-dotted pb-1"><span>Protein:</span><span class="font-bold">32g</span></div>
+                    <div class="flex justify-between border-b border-dotted pb-1"><span>Chất béo:</span><span class="font-bold">18g</span></div>
+                    <div class="flex justify-between border-b border-dotted pb-1"><span>Carbs:</span><span class="font-bold">14g</span></div>
+                    <div class="flex justify-between border-b border-dotted pb-1"><span>Chất xơ:</span><span class="font-bold">2g</span></div>
+                    <div class="flex justify-between border-b border-dotted pb-1 col-span-2"><span>Natri:</span><span class="font-bold">850mg</span></div>
+                </div>
+                <p class="mt-4 text-xs italic justified text-gray-600">Nguồn cung cấp sắt và kẽm sinh học tuyệt vời. Sử dụng nước tương ít natri và giảm dầu có thể giúp món ăn này tốt hơn cho tim mạch.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-2xl font-bold mb-6 border-b-2 border-gold pb-2 inline-block">6. Gợi ý trình bày</h3>
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start">
+                    <div class="bg-gold p-2 rounded text-white font-bold">01</div>
+                    <p class="text-sm justified"><strong>Đĩa đựng:</strong> Phục vụ trên đĩa gốm đen mờ hoặc trắng phẳng để làm nổi bật nước xốt sẫm màu bóng loáng. Xếp thịt bò vào trung tâm, kéo các miếng ớt chuông đỏ xanh lên trên để tạo độ tương phản màu sắc.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="bg-gold p-2 rounded text-white font-bold">02</div>
+                    <p class="text-sm justified"><strong>Trang trí:</strong> Hoàn thiện với một ít hạt mè trắng rang hoặc hành lá cắt xéo cực mỏng.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="bg-cinnabar p-2 rounded text-white font-bold">★</div>
+                    <p class="text-sm justified italic"><strong>Mẹo chụp ảnh:</strong> Ngay trước khi dọn ra, hãy dùng cọ phết nhẹ một giọt dầu mè lên các miếng thịt bò phía trên để đảm bảo độ bóng bắt mắt và bền lâu.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show target tab
+            document.getElementById(tabId).classList.add('active');
+            // Activate target button
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
