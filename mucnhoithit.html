@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Mực Nhồi Thịt Sốt Cà Chua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'culinary-red': '#E23D28',
+                        'culinary-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            text-rendering: optimizeLegibility;
+        }
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="selection:bg-culinary-gold selection:text-white">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 max-w-5xl mx-auto text-center border-b border-culinary-gold/20">
+        <div class="mb-4 text-culinary-gold tracking-widest uppercase text-sm font-bold">AI Vua Đầu Bếp Presentation</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">Mực Nhồi Thịt Sốt Cà Chua</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-500 font-normal">Squid Stuffed with Pork in Tomato Sauce</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="mt-10 grid grid-cols-2 md:flex md:justify-center items-center gap-6 md:gap-12 border-y border-culinary-gold/30 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-culinary-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a100,100,0,1,1-100-100A100,100,0,0,1,228,128Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Thời gian</span>
+                <span class="font-bold">50 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-culinary-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M240,104a56,56,0,0,1-95.56,39.56L128,127.12,111.56,143.56A56,56,0,1,1,111.56,64.44L128,80.88l16.44-16.44A56,56,0,0,1,240,104Z" opacity="0.2"></path><path d="M248,104a63.85,63.85,0,0,1-18.75,45.25L133.66,244.83a8,8,0,0,1-11.32,0L26.75,149.25a64,64,0,1,1,90.5,90.5L128,229.07l10.75-10.75a8,8,0,0,1,11.32,11.32L128,241.83,21.09,134.92a79.8,79.8,0,0,1,0-113.13,80.22,80.22,0,0,1,113.13,0L128,15.52l-6.22,6.22a8,8,0,1,1-11.32-11.32l11.89-11.89a8,8,0,0,1,11.3,0l11.89,11.89a8,8,0,0,1-11.32,11.32L128,15.52l6.22,6.22a80.22,80.22,0,0,1,113.13,0A79.52,79.52,0,0,1,248,104Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-culinary-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V216a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V64Z" opacity="0.2"></path><path d="M200,56H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40V56H56A16,16,0,0,0,40,72V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V72A16,16,0,0,0,200,56ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8V56H96ZM200,216H56V72H200V216Zm-24-88a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,128Zm0,40a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,168Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Khẩu phần</span>
+                <span class="font-bold">3-4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-culinary-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM130,72a30,30,0,1,0,30,30A30,30,0,0,0,130,72Zm0,44a14,14,0,1,1,14-14A14,14,0,0,1,130,116Zm50,68c0,16.57-22.39,30-50,30s-50-13.43-50-30,22.39-30,50-30S180,167.43,180,184Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Xuất xứ</span>
+                <span class="font-bold">Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="mt-8 justify-text italic leading-relaxed text-gray-600">
+            Mực nhồi thịt sốt cà chua là một món ăn phổ biến trong ẩm thực gia đình Việt Nam, đặc biệt là ở các vùng duyên hải. Món ăn này là sự kết hợp hài hòa giữa hải sản tươi sống và thịt heo từ đồng bằng, thể hiện sự tinh tế trong việc cân bằng hương vị đất liền và biển cả của người Việt. Nước mắm cốt truyền thống là "linh hồn" giúp nâng tầm hương vị đặc trưng của món ăn này.
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <section>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-culinary-red"></span>
+                        1. Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 rounded-sm shadow-sm">
+                            <h4 class="text-culinary-red font-bold uppercase text-xs tracking-widest mb-4 border-b border-culinary-red/10 pb-2">Nguyên liệu chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Mực ống tươi: <span class="font-bold">500g</span> <span class="text-xs italic block text-gray-500">(chọn con vừa, thân dày, màu sáng bóng)</span></span>
+                                </li>
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Thịt heo xay: <span class="font-bold">200g</span> <span class="text-xs italic block text-gray-500">(nạc vai có chút mỡ để nhân không khô)</span></span>
+                                </li>
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Cà chua chín: <span class="font-bold">3-4 quả lớn</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-sm shadow-sm">
+                            <h4 class="text-culinary-red font-bold uppercase text-xs tracking-widest mb-4 border-b border-culinary-red/10 pb-2">Phụ gia & Herb</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Mộc nhĩ (nấm mèo): <span class="font-bold">3 tai lớn</span></span>
+                                </li>
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Miến dong: <span class="font-bold">1 nạm nhỏ (~20g)</span></span>
+                                </li>
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Hành tím, tỏi, hành lá, ngò rí, gừng</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-sm shadow-sm bg-culinary-red/[0.02]">
+                            <h4 class="text-culinary-red font-bold uppercase text-xs tracking-widest mb-4 border-b border-culinary-red/10 pb-2">Gia vị</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Nước mắm cốt, hạt nêm</span>
+                                </li>
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Tiêu đen xay, đường, dầu hào</span>
+                                </li>
+                                <li class="flex items-start gap-2 group cursor-default">
+                                    <span class="text-culinary-gold group-hover:scale-125 transition-transform">✦</span>
+                                    <span class="text-sm">Rượu trắng <span class="text-xs italic">(để sơ chế)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <section>
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-culinary-red"></span>
+                        2. Các bước thực hiện
+                    </h3>
+                    
+                    <div class="relative space-y-12 before:absolute before:left-4 md:before:left-6 before:top-4 before:bottom-4 before:w-[1px] before:bg-culinary-gold/30">
+                        
+                        <!-- Step 1 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <span class="absolute left-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-culinary-cream border-2 border-culinary-gold flex items-center justify-center font-bold z-10 hover:bg-culinary-gold hover:text-white transition-colors">1</span>
+                            <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                <h4 class="font-bold text-lg">Sơ chế mực</h4>
+                                <span class="text-xs px-2 py-1 bg-culinary-charcoal text-white rounded-full w-fit">Professional Chef</span>
+                            </div>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Rửa mực với hỗn hợp rượu trắng và gừng giã nát để khử mùi tanh. Tách phần đầu mực ra khỏi thân, loại bỏ túi mực, mắt và răng. Giữ lại phần đầu để băm nhỏ trộn vào nhân. Để thân mực thật ráo nước.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <span class="absolute left-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-culinary-cream border-2 border-culinary-gold flex items-center justify-center font-bold z-10 hover:bg-culinary-gold hover:text-white transition-colors">2</span>
+                            <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                <h4 class="font-bold text-lg">Chuẩn bị nhân</h4>
+                                <span class="text-xs px-2 py-1 bg-culinary-charcoal text-white rounded-full w-fit">Traditional & Prof.</span>
+                            </div>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Ngâm mộc nhĩ và miến cho nở mềm, băm nhỏ. Trộn thịt xay, đầu mực băm, mộc nhĩ, miến với 1 thìa nước mắm ngon, 1/2 thìa tiêu, hành tím băm. Để nhân thấm trong 15 phút. Nước mắm giúp nhân có độ kết dính và mùi thơm đặc trưng.
+                            </p>
+                            <span class="text-xs italic text-culinary-gold font-bold mt-2 block uppercase tracking-wide">Time: 15 mins marination</span>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <span class="absolute left-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-culinary-cream border-2 border-culinary-gold flex items-center justify-center font-bold z-10 hover:bg-culinary-gold hover:text-white transition-colors">3</span>
+                            <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                <h4 class="font-bold text-lg">Nhồi mực</h4>
+                                <span class="text-xs px-2 py-1 bg-culinary-charcoal text-white rounded-full w-fit">Master Technique</span>
+                            </div>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Dùng thìa nhỏ nhồi nhân vào thân mực. <strong class="text-culinary-red">Lưu ý:</strong> Không nhồi quá chặt vì khi chín mực sẽ co lại dễ làm bục nhân. Dùng tăm tre ghim cố định miệng mực. Để tiết kiệm thời gian, bạn có thể nhồi sẵn và bảo quản trong ngăn mát.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <span class="absolute left-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-culinary-cream border-2 border-culinary-gold flex items-center justify-center font-bold z-10 hover:bg-culinary-gold hover:text-white transition-colors">4</span>
+                            <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                <h4 class="font-bold text-lg">Hấp sơ</h4>
+                                <span class="text-xs px-2 py-1 bg-culinary-charcoal text-white rounded-full w-fit">Chef's Secret</span>
+                            </div>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Hấp mực khoảng 5-7 phút trước khi sốt. Bước này giúp mực định hình tốt hơn và giữ được vị ngọt tự nhiên, không bị ra nước làm loãng sốt cà chua.
+                            </p>
+                        </div>
+
+                        <!-- Step 5 & 6 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <span class="absolute left-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-culinary-cream border-2 border-culinary-gold flex items-center justify-center font-bold z-10 hover:bg-culinary-gold hover:text-white transition-colors">5</span>
+                            <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                <h4 class="font-bold text-lg">Làm sốt & Rim mực</h4>
+                            </div>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Phi thơm hành tỏi băm, cho cà chua thái lựu vào xào nhừ. Thêm dầu hào và đường. Cho mực vào chảo sốt, để lửa nhỏ cho nước sốt sánh lại và bám đều quanh thân mực. Nêm nếm lại bằng nước mắm truyền thống.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Section Ornament -->
+        <div class="ornament">
+            <span class="ornament-icon">✦ ✦ ✦</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="max-w-4xl mx-auto mb-20">
+            <div class="relative p-8 md:p-12 border-double border-4 border-culinary-gold bg-culinary-gold/5 rounded-lg">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-culinary-cream px-6 py-2 border border-culinary-gold font-bold text-lg italic text-culinary-gold uppercase tracking-widest">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 pt-6">
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-culinary-red mb-2 uppercase text-xs tracking-wider">Kỹ thuật stuffing</h5>
+                        <p class="text-sm justify-text leading-snug">Để nhân không bị rời rạc, hãy quết thịt thật kỹ trước khi nhồi. Khi nhồi đến 2/3 thân mực thì dừng lại để chừa khoảng trống cho mực co giãn.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-culinary-red mb-2 uppercase text-xs tracking-wider">Kiểm soát nhiệt độ</h5>
+                        <p class="text-sm justify-text leading-snug">Tránh nấu mực quá lâu trong nước sốt vì mực sẽ bị dai và mất đi độ giòn ngọt. Nhiệt độ thấp, thời gian ngắn là chìa khóa.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-culinary-red mb-2 uppercase text-xs tracking-wider">Xử lý cà chua</h5>
+                        <p class="text-sm justify-text leading-snug">Để nước sốt mịn màng như nhà hàng, hãy chần cà chua qua nước sôi, bóc vỏ và bỏ hạt trước khi xào nhừ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-20">
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-8 h-[1px] bg-culinary-red"></span>
+                4. Biến tấu & Phiên bản nâng cao
+            </h3>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="showTab('healthy')" class="tab-btn active px-6 py-2 font-bold uppercase text-xs tracking-widest transition-all">Healthy</button>
+                <button onclick="showTab('home')" class="tab-btn px-6 py-2 font-bold uppercase text-xs tracking-widest transition-all">Home Cook</button>
+                <button onclick="showTab('seafood')" class="tab-btn px-6 py-2 font-bold uppercase text-xs tracking-widest transition-all">Seafood Plus</button>
+            </div>
+
+            <div id="healthy" class="tab-content active glass-card p-10 max-w-3xl mx-auto text-center hover-lift rounded-lg">
+                <h4 class="text-xl font-bold mb-4 italic text-culinary-gold">Phiên bản Healthy (Nutritionist)</h4>
+                <p class="justify-text text-gray-700 leading-relaxed italic">
+                    Thay thịt nạc vai bằng ức gà xay hoặc tôm băm, giảm lượng nước mắm và dùng đường ăn kiêng. Phương pháp này giúp giảm thiểu lượng mỡ bão hòa mà vẫn giữ được vị ngọt tự nhiên của biển cả.
+                </p>
+            </div>
+            <div id="home" class="tab-content glass-card p-10 max-w-3xl mx-auto text-center hover-lift rounded-lg">
+                <h4 class="text-xl font-bold mb-4 italic text-culinary-gold">Phiên bản Tiện lợi (Home Cook)</h4>
+                <p class="justify-text text-gray-700 leading-relaxed italic">
+                    Sử dụng nồi chiên không dầu để nướng sơ mực nhồi trước khi cho vào sốt cà chua để tăng mùi thơm và tiết kiệm thời gian đứng bếp. Mực sẽ có lớp vỏ săn chắc và màu sắc bắt mắt hơn.
+                </p>
+            </div>
+            <div id="seafood" class="tab-content glass-card p-10 max-w-3xl mx-auto text-center hover-lift rounded-lg">
+                <h4 class="text-xl font-bold mb-4 italic text-culinary-gold">Phiên bản Hải sản (Gourmet)</h4>
+                <p class="justify-text text-gray-700 leading-relaxed italic">
+                    Thêm trứng muối vào giữa nhân thịt để tạo sự bất ngờ và tăng vị bùi béo. Sự kết hợp giữa vị mặn mòi của trứng muối và vị ngọt của mực tạo nên một trải nghiệm vị giác đẳng cấp nhà hàng.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Footer Info -->
+        <section class="grid md:grid-cols-2 gap-12 pt-16 border-t border-culinary-gold/30">
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-4 h-4 border border-culinary-red rotate-45"></span>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-gray-100 pb-2">
+                        <span class="text-gray-500 italic">Calo</span>
+                        <span class="font-bold">250-300 kcal / khẩu phần</span>
+                    </div>
+                    <p class="text-sm justify-text text-gray-600 leading-relaxed">
+                        Mực cung cấp lượng Protein cao và Omega-3 tốt cho tim mạch. Cà chua giàu Lycopene giúp chống oxy hóa. Món ăn có sự cân bằng giữa đạm, chất xơ từ nấm và vi chất từ cà chua. Nên ăn kèm rau sống hoặc dưa leo để bổ sung chất xơ hoàn hảo.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-4 h-4 border border-culinary-red rotate-45"></span>
+                    6. Gợi ý trình bày
+                </h3>
+                <ul class="text-sm space-y-3 text-gray-600 italic">
+                    <li class="flex items-start gap-2">
+                        <span class="text-culinary-red">•</span>
+                        <span>Sắp xếp các khoanh mực theo hình dáng con mực ban đầu trên đĩa dài.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-culinary-red">•</span>
+                        <span>Rưới nước sốt cà chua đỏ mọng lên dọc thân mực để tạo hiệu ứng thị giác.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-culinary-red">•</span>
+                        <span>Trang trí bằng ngò rí và một vài lát ớt tỉa hoa. Sử dụng đĩa trắng sứ để làm nổi bật màu đỏ của sốt.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show current tab content
+            document.getElementById(tabId).classList.add('active');
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
