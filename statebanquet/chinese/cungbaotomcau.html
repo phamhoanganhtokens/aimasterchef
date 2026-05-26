@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cung Bảo Tôm Cầu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'culinary-red': '#E23D28',
+                        'culinary-gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1rem; }
+        .section-divider:not(:empty)::after { margin-left: 1rem; }
+        
+        .ornament {
+            color: #D4AF37;
+            font-size: 1.5rem;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-12">
+        <div class="mb-4 text-culinary-gold uppercase tracking-[0.3em] text-sm font-bold">AI Vua Đầu Bếp • Premium Collection</div>
+        <h1 class="text-4xl md:text-6xl font-bold text-culinary-charcoal mb-2">CUNG BẢO TÔM CẦU</h1>
+        <h2 class="text-2xl md:text-3xl italic text-culinary-red mb-8">Kung Pao Shrimp Balls (宫保虾球)</h2>
+        
+        <div class="max-w-3xl mx-auto justified-text italic text-gray-600 mb-8 px-4 border-l-4 border-culinary-gold py-2">
+            A Sichuanese classic originating from the Qing Dynasty, named after Ding Baozhen (Gongbao). The "shrimp ball" variation is a refined banquet version of the original chicken dish, emphasizing the "Xiao Litchi" (Small Lychee) flavor profile—a delicate balance of sweet and sour with a numbing, spicy finish.
+        </div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-culinary-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-culinary-gold text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-culinary-gold/20">
+                <span class="text-culinary-gold text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">30 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-culinary-gold/20">
+                <span class="text-culinary-gold text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">2–4 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-culinary-gold/20">
+                <span class="text-culinary-gold text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Vùng miền</span>
+                <span class="font-bold">Tứ Xuyên</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider"><span class="ornament">✦</span></div>
+
+    <!-- MAIN RECIPE BODY -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- LEFT COLUMN: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-2xl font-bold mb-6 border-b-2 border-culinary-red inline-block uppercase tracking-wider">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="font-bold italic text-culinary-gold mb-3">Thành phần chính</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span><strong>Tôm:</strong> 450g tôm lớn (size 16/20), lột vỏ và bỏ chỉ lưng.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold italic text-culinary-gold mb-3">Xốt Cung Bảo (Vị Vải)</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>1.5 tbsp giấm đen Chinkiang</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>1.5 tbsp đường</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>1 tbsp nước tương nhạt</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>½ tsp hắc xì dầu (tạo màu)</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>1 tsp bột năng & 2 tbsp nước dùng gà</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold italic text-culinary-gold mb-3">Gia vị bổ trợ & Độ giòn</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>15-20 trái ớt khô Nhị Kinh Điều</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>1 tsp tiêu Tứ Xuyên</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>Tỏi, gừng thái lát, đầu hành lá</span>
+                        </li>
+                        <li class="flex items-start hover:translate-x-1 transition-transform">
+                            <span class="text-culinary-red mr-2">◦</span>
+                            <span>50g đậu phộng rang (bóc vỏ)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN: Steps -->
+        <main class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-6 border-b-2 border-culinary-red inline-block uppercase tracking-wider">2. Các bước thực hiện</h3>
+            
+            <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-culinary-gold before:via-culinary-red before:to-transparent">
+                
+                <!-- Step 1 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-culinary-cream border-2 border-culinary-gold rounded-full flex items-center justify-center z-10 group-hover:bg-culinary-gold transition-colors">
+                        <span class="step-number group-hover:text-white">1</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Sơ chế tạo hình (The Ball Shape)</h4>
+                        <p class="justified-text text-gray-700">Cắt sâu dọc theo lưng tôm, gần như đứt hẳn. Kỹ thuật này giúp tôm cuộn tròn lại thành hình "cầu" hoàn hảo khi gặp nhiệt độ cao.</p>
+                        <span class="text-xs italic text-culinary-red mt-1 inline-block">Thời gian: 5 phút</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-culinary-cream border-2 border-culinary-gold rounded-full flex items-center justify-center z-10 group-hover:bg-culinary-gold transition-colors">
+                        <span class="step-number group-hover:text-white">2</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Kỹ thuật Velveting</h4>
+                        <p class="justified-text text-gray-700">Ướp tôm với rượu Thiệu Hưng, muối, bột năng và lòng trắng trứng trong 15 phút. Lớp màng mỏng này bảo vệ tôm, giúp tôm mọng nước và có độ "giòn sần sật" thay vì bị khô dai.</p>
+                        <span class="text-xs italic text-culinary-red mt-1 inline-block">Thời gian: 15 phút (ướp)</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-culinary-cream border-2 border-culinary-gold rounded-full flex items-center justify-center z-10 group-hover:bg-culinary-gold transition-colors">
+                        <span class="step-number group-hover:text-white">3</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Pha chế nước xốt</h4>
+                        <p class="justified-text text-gray-700">Trộn đều tất cả nguyên liệu làm xốt cho đến khi đường và bột năng tan hoàn toàn. Việc chuẩn bị trước giúp xốt không bị vón cục trong chảo nóng.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-culinary-cream border-2 border-culinary-gold rounded-full flex items-center justify-center z-10 group-hover:bg-culinary-gold transition-colors">
+                        <span class="step-number group-hover:text-white">4</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Áp chảo tạo hình (Wok Hei)</h4>
+                        <p class="justified-text text-gray-700">Đun nóng chảo đến khi bốc khói. Cho dầu và tôm vào dàn đều. Áp chảo trong 45-60 giây cho đến khi tôm cuộn thành hình cầu và chuyển sang màu trắng đục. Lấy tôm ra để riêng.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-culinary-cream border-2 border-culinary-gold rounded-full flex items-center justify-center z-10 group-hover:bg-culinary-gold transition-colors">
+                        <span class="step-number group-hover:text-white">5</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Khai thác hương vị (Blooming Spices)</h4>
+                        <p class="justified-text text-gray-700">Hạ nhiệt trung bình. Cho ớt khô và tiêu Tứ Xuyên vào phi đến khi ớt chuyển màu đỏ gạch sẫm và tỏa mùi thơm nồng. Thêm gừng, tỏi, đầu hành vào đảo trong 20 giây.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-culinary-cream border-2 border-culinary-gold rounded-full flex items-center justify-center z-10 group-hover:bg-culinary-gold transition-colors">
+                        <span class="step-number group-hover:text-white">6</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Kỹ thuật Nhũ hóa (Emulsification)</h4>
+                        <p class="justified-text text-gray-700">Cho tôm trở lại chảo, tăng lửa lớn. Khuấy lại xốt và đổ vào. Đảo nhanh tay để bột năng chín trong suốt, tạo lớp màng bóng loáng ôm sát lấy từng viên tôm.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="section-divider"><span class="ornament">✦</span></div>
+
+    <!-- SPECIAL INSIGHTS -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Chef's Corner -->
+        <div class="bg-stone-100 p-8 rounded-sm border-double border-4 border-culinary-gold relative">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-culinary-gold text-white px-4 py-1 text-sm uppercase tracking-widest font-bold">
+                Chef's Corner
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-center border-b border-culinary-gold pb-2 uppercase tracking-wide">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="space-y-4 text-sm justified-text">
+                <li><strong class="text-culinary-red tracking-wide">Cân bằng vị Vải:</strong> Vị "Lychee flavor" đặc trưng đạt được khi giấm và đường bay hơi nhẹ, để lại hậu vị chua thanh, ngọt dịu. Nếu quá nồng vị giấm, cần nấu thêm một chút; nếu quá đặc, hãy thêm một thìa nước dùng.</li>
+                <li><strong class="text-culinary-red tracking-wide">Tránh vị đắng:</strong> Đừng làm cháy tiêu Tứ Xuyên. Nếu tiêu chuyển sang màu đen, món ăn sẽ bị ám vị đắng khó chịu.</li>
+                <li><strong class="text-culinary-red tracking-wide">Mẹo tại gia:</strong> Nếu không tìm được ớt Nhị Kinh Điều, có thể dùng ớt khô thường nhưng hãy giảm số lượng vì chúng cay hơn nhiều.</li>
+            </ul>
+        </div>
+
+        <!-- Variations -->
+        <div class="flex flex-col">
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-wide border-b border-culinary-gold pb-2">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex border-b border-gray-200 mb-4">
+                <button onclick="switchTab('nut')" class="tab-btn active px-4 py-2 font-bold text-sm uppercase tracking-wider">Hạt thay thế</button>
+                <button onclick="switchTab('veg')" class="tab-btn px-4 py-2 font-bold text-sm uppercase tracking-wider">Thêm rau củ</button>
+                <button onclick="switchTab('heat')" class="tab-btn px-4 py-2 font-bold text-sm uppercase tracking-wider">Giảm cay</button>
+            </div>
+            <div id="nut" class="tab-content active glass-card p-6 rounded-lg italic">
+                Sử dụng hạt điều rang hoặc hạt mắc-ca để tạo kết cấu béo ngậy và sang trọng hơn cho món ăn.
+            </div>
+            <div id="veg" class="tab-content glass-card p-6 rounded-lg italic">
+                Dù không truyền thống, bạn có thể thêm cần tây cắt lựu hoặc củ năng để tăng thêm độ giòn và chất xơ.
+            </div>
+            <div id="heat" class="tab-content glass-card p-6 rounded-lg italic">
+                Thay thế một nửa lượng ớt khô bằng ớt chuông đỏ cắt khối để giữ màu sắc rực rỡ mà không làm món ăn quá cay.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER TECHNICAL INFO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-culinary-gold/30">
+        <!-- Nutrition -->
+        <section>
+            <h3 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-px bg-culinary-red mr-3"></span>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border-l-2 border-culinary-gold pl-4 py-2">
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">Calories</div>
+                    <div class="text-xl font-bold">~280 kcal</div>
+                </div>
+                <div class="border-l-2 border-culinary-gold pl-4 py-2">
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">Protein</div>
+                    <div class="text-xl font-bold">25g</div>
+                </div>
+                <div class="border-l-2 border-culinary-gold pl-4 py-2">
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">Chất béo</div>
+                    <div class="text-xl font-bold">14g</div>
+                </div>
+                <div class="border-l-2 border-culinary-gold pl-4 py-2">
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">Natri</div>
+                    <div class="text-xl font-bold">650mg</div>
+                </div>
+            </div>
+            <p class="mt-4 text-xs italic text-gray-600 justified-text">
+                Lưu ý: Sử dụng nước tương ít muối để giảm 30% lượng natri. Món ăn giàu protein nạc. Nên dùng kèm cải thìa hoặc bông cải xanh hấp để cân bằng dinh dưỡng.
+            </p>
+        </section>
+
+        <!-- Presentation -->
+        <section>
+            <h3 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-px bg-culinary-red mr-3"></span>
+                6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-4 text-sm justified-text">
+                <p>
+                    <strong class="text-culinary-gold uppercase">Độ bóng:</strong> Nước xốt phải có độ bóng như gương. Nếu xốt trông xỉn màu, hãy rưới một ít dầu mè hoặc tăng nhiệt cao vào giây cuối cùng.
+                </p>
+                <p>
+                    <strong class="text-culinary-gold uppercase">Tương phản:</strong> Sử dụng đĩa sứ trắng nông lòng hoặc đĩa đá đen sang trọng. Màu đỏ rực của ớt và màu trắng hồng của tôm sẽ nổi bật nhất trên các nền này.
+                </p>
+                <p>
+                    <strong class="text-culinary-gold uppercase">Trang trí:</strong> Đảm bảo đầu hành trắng còn tươi và đứng dáng. Tránh lạm dụng rau mùi; vẻ đẹp của Cung bảo tôm cầu nằm ở sắc thái mộc mạc của gia vị khô và lớp xốt bóng bẩy.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab and activate button
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
