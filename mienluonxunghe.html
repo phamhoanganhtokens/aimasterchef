@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miến Lươn Xứ Nghệ - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EBD0',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1rem; }
+        .section-divider:not(:empty)::after { margin-left: 1rem; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        .btn-tab {
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .btn-tab.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.5rem !important; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-16 animate-fade-in">
+            <p class="text-gold tracking-[0.3em] uppercase text-sm mb-4">AI Vua Đầu Bếp • Premium Recipe</p>
+            <h1 class="hero-title text-5xl md:text-7xl font-bold text-charcoal mb-2">Miến Lươn Xứ Nghệ</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gold font-light mb-10">Eel Glass Noodles - Nghe An Province</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-gold/30 py-6">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16Z"/><path d="M7 10h10"/><path d="M7 14h10"/><path d="M7 18h10"/></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                    <span class="font-bold">Trung bình - Khó</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                    <span class="font-bold">90 - 120 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                    <span class="font-bold">4 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                    <span class="font-bold">Nghệ An</span>
+                </div>
+            </div>
+            <div class="mt-8 max-w-3xl mx-auto italic justified-text px-4 text-gray-600">
+                Miến lươn là niềm tự hào của ẩm thực xứ Nghệ (Nghệ An), đặc trưng bởi sự kết hợp giữa vị ngọt thanh của lươn đồng, mùi thơm nồng của hành tăm (củ nén) và màu vàng óng ả của nghệ tươi.
+            </div>
+        </header>
+
+        <div class="section-divider">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+        </div>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                    <span class="w-8 h-px bg-cinnabar"></span>
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-wider text-sm mb-4">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal"><strong>Lươn:</strong> 500g - 700g lươn đồng (chọn con mình thon, hai màu rõ rệt: bụng vàng, lưng đen).</span>
+                            </li>
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal"><strong>Miến:</strong> 200g miến dong sợi nhỏ, dai ngon.</span>
+                            </li>
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal"><strong>Nước dùng:</strong> 500g xương ống lợn (hoặc xương gà), gừng, hành tím nướng.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-wider text-sm mb-4">Gia vị & Hương liệu</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal"><strong>Hành tăm (củ nén):</strong> 50g</span>
+                            </li>
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal"><strong>Nghệ:</strong> 1 củ nghệ tươi (giã lấy nước) hoặc bột nghệ nguyên chất.</span>
+                            </li>
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal">Nước mắm ngon, hạt tiêu, muối, chanh, ớt, dầu màu điều.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-wider text-sm mb-4">Rau ăn kèm</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 group cursor-default">
+                                <span class="text-cinnabar transition-transform group-hover:scale-125">•</span>
+                                <span class="justified-text text-charcoal">Rau răm, hành lá, giá đỗ, hoa chuối thái mỏng.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                    <span class="w-8 h-px bg-cinnabar"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="relative pl-8 border-l border-gold/20 space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[41px] top-0 bg-parchment p-1 rounded-full border border-gold/40">
+                            <span class="step-number">01</span>
+                        </span>
+                        <h4 class="font-bold text-lg mb-2">Sơ chế lươn (Kỹ thuật Truyền thống)</h4>
+                        <p class="justified-text text-charcoal">Cho lươn vào nồi với một nắm muối hoặc tro bếp, đậy nắp để lươn ra hết nhớt. Sau đó rửa sạch với nước cốt chanh hoặc nước vo gạo cho đến khi da lươn sạch bóng.</p>
+                        <span class="text-xs text-gold font-bold uppercase mt-2 block tracking-widest italic">— Ước tính: 15 phút</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[41px] top-0 bg-parchment p-1 rounded-full border border-gold/40">
+                            <span class="step-number">02</span>
+                        </span>
+                        <h4 class="font-bold text-lg mb-2">Luộc và lọc thịt (Kỹ năng Đầu bếp)</h4>
+                        <p class="justified-text text-charcoal">Cho lươn vào nồi nước lạnh với chút gừng và muối, đun sôi vừa chín tới thì vớt ra. Dùng tay hoặc thanh tre mỏng lọc lấy thịt, giữ nguyên phần xương và đầu lươn để ninh nước dùng.</p>
+                        <span class="text-xs text-gold font-bold uppercase mt-2 block tracking-widest italic">— Ước tính: 20 phút</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[41px] top-0 bg-parchment p-1 rounded-full border border-gold/40">
+                            <span class="step-number">03</span>
+                        </span>
+                        <h4 class="font-bold text-lg mb-2">Chế biến nước dùng</h4>
+                        <p class="justified-text text-charcoal">Ninh xương ống cùng xương lươn đã giã nhỏ (lọc lấy nước cốt) trong ít nhất 1 giờ. Thêm hành tím và gừng nướng vào để khử tanh và tạo độ trong. Vớt bọt liên tục để nước dùng đạt độ trong vắt theo tiêu chuẩn chuyên nghiệp.</p>
+                        <span class="text-xs text-gold font-bold uppercase mt-2 block tracking-widest italic">— Ước tính: 60 - 90 phút</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[41px] top-0 bg-parchment p-1 rounded-full border border-gold/40">
+                            <span class="step-number">04</span>
+                        </span>
+                        <h4 class="font-bold text-lg mb-2">Chế biến thịt lươn</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                            <div class="p-4 bg-white/50 border border-gold/10 rounded">
+                                <h5 class="font-bold text-cinnabar text-sm uppercase mb-1">Lươn mềm</h5>
+                                <p class="text-sm justified-text">Phi thơm hành tăm với dầu màu điều, cho thịt lươn vào xào nhanh tay cùng nước cốt nghệ, nước mắm, hạt tiêu.</p>
+                            </div>
+                            <div class="p-4 bg-white/50 border border-gold/10 rounded">
+                                <h5 class="font-bold text-cinnabar text-sm uppercase mb-1">Lươn giòn</h5>
+                                <p class="text-sm justified-text">Tẩm thịt lươn với chút gia vị và bột năng, đem chiên ngập dầu cho đến khi vàng ruộm, vớt ra để ráo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 & 6 Combined -->
+                    <div class="relative">
+                        <span class="absolute -left-[41px] top-0 bg-parchment p-1 rounded-full border border-gold/40">
+                            <span class="step-number">05</span>
+                        </span>
+                        <h4 class="font-bold text-lg mb-2">Chuẩn bị & Hoàn thiện</h4>
+                        <p class="justified-text text-charcoal">Ngâm miến trong nước ấm khoảng 10-15 phút. Chần miến và giá đỗ qua nước sôi rồi cho vào bát. Xếp thịt lươn lên trên, thêm hành lá và thật nhiều rau răm (linh hồn của món ăn). Chan nước dùng thật nóng vào bát.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-16">
+            <div class="glass-card p-8 md:p-12 border-2 border-double border-gold rounded-lg bg-goldLight/10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M6 13.87A4 4 0 0 1 7.41 6.13 4 4 0 0 1 12 2a4 4 0 0 1 4.59 4.13 4 4 0 0 1 1.41 7.74"/><path d="m9 11 3 3 3-3"/><path d="M12 22V14"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-6 text-cinnabar flex items-center gap-2 italic">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 11V5a3 3 0 0 1 6 0v6"/><path d="M12 22a8 8 0 0 0 8-8V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a8 8 0 0 0 8 8Z"/></svg>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-gold uppercase text-xs">Hành tăm & Nghệ</h5>
+                        <p class="text-sm justified-text">Đây là bộ đôi bắt buộc. Không có hành tăm sẽ không ra vị xứ Nghệ. Nghệ tươi giúp khử tanh và tạo màu tự nhiên đẹp hơn bột nghệ.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-gold uppercase text-xs">Độ trong nước dùng</h5>
+                        <p class="text-sm justified-text">Lọc nước dùng qua rây dày hoặc vải lọc để loại bỏ hoàn toàn vụn xương nhỏ, đảm bảo nước dùng trong và thanh theo đúng chuẩn.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-gold uppercase text-xs">Lửa xào lươn</h5>
+                        <p class="text-sm justified-text">Khi xào lươn mềm, hãy để lửa thật lớn và thao tác nhanh để thịt lươn săn lại mà không bị chảy nước hay nát thịt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex justify-center gap-4 mb-8">
+                <button onclick="showTab('tron')" class="btn-tab active px-6 py-2 uppercase text-xs tracking-widest font-bold" id="btn-tron">Miến lươn trộn</button>
+                <button onclick="showTab('sup')" class="btn-tab px-6 py-2 uppercase text-xs tracking-widest font-bold" id="btn-sup">Súp lươn</button>
+            </div>
+            
+            <div id="tab-tron" class="tab-content active animate-fade-in">
+                <div class="glass-card p-8 rounded-lg text-center max-w-2xl mx-auto">
+                    <h4 class="text-xl font-bold mb-4 italic">Miến lươn trộn (Giao thoa hiện đại)</h4>
+                    <p class="justified-text text-charcoal">Thay vì chan nước dùng, hãy trộn miến với nước sốt chua ngọt đặc trưng, thêm xì dầu, hành phi giòn rụm và lạc rang giã dập. Một trải nghiệm ẩm thực đa tầng cấu trúc và đậm đà hơn cho những ngày hè oi ả.</p>
+                </div>
+            </div>
+            <div id="tab-sup" class="tab-content animate-fade-in">
+                <div class="glass-card p-8 rounded-lg text-center max-w-2xl mx-auto">
+                    <h4 class="text-xl font-bold mb-4 italic">Súp lươn (Đặc sản chính gốc)</h4>
+                    <p class="justified-text text-charcoal">Bỏ qua phần miến, chỉ tập trung vào phần lươn xào đậm đà trong bát nước dùng sóng sánh. Súp lươn thường được thưởng thức cùng bánh mì giòn tan hoặc bánh mướt mềm mịn, mang đậm hồn cốt Nghệ An.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+        </div>
+
+        <!-- Footer / Technical Info -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <section>
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-cinnabar rounded-full"></span>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-charcoal text-parchment p-8 rounded-lg">
+                    <p class="justified-text mb-4 opacity-90 italic">
+                        Lươn là thực phẩm giàu giá trị dinh dưỡng (được ví là "sâm động vật"), chứa nhiều Vitamin A, B1, B6 và các khoáng chất như sắt, canxi, kẽm.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-parchment/20 pt-4">
+                        <span class="text-sm tracking-widest uppercase opacity-70">Calo mỗi bát</span>
+                        <span class="text-2xl font-bold text-gold">350 - 450 kcal</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-cinnabar rounded-full"></span>
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-xs mb-2">Phong cách truyền thống</h4>
+                        <p class="justified-text text-sm">Sử dụng bát chiết yêu hoặc bát sứ trắng. Đặt màu xanh của rau răm, hành lá cạnh màu vàng của lươn, điểm xuyết vài lát ớt đỏ lên trên để tạo sự tương phản sống động.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-xs mb-2">Phong cách hiện đại</h4>
+                        <p class="justified-text text-sm">Sử dụng bát tô sâu lòng, xếp lươn giòn thành một khối cao ở giữa bát để tạo chiều sâu. Nước dùng chỉ chan sâm sấp để giữ độ giòn của lươn lâu hơn. Rắc tiêu xay thô lên đỉnh.</p>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.btn-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
