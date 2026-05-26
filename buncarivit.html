@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bún Cà Ri Vịt | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23E28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justified {
+            text-align: justify;
+        }
+
+        .premium-border {
+            border: 1px solid var(--burnished-gold);
+        }
+
+        .double-border {
+            border: 4px double var(--burnished-gold);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: var(--burnished-gold);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--burnished-gold);
+            font-weight: bold;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--cinnabar-red);
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-right: 1rem;
+        }
+
+        .ingredient-group h4 {
+            border-left: 3px solid var(--cinnabar-red);
+            padding-left: 0.75rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .variation-card {
+            transition: transform 0.3s ease;
+        }
+
+        .variation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--burnished-gold);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-2xl p-6 md:p-16 border border-gray-100">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <p class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">— AI Vua Đầu Bếp —</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2">BÚN CÀ RI VỊT</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 font-normal mb-8">Duck Curry Noodle Soup</h2>
+            
+            <div class="premium-border grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 border-collapse">
+                <div class="meta-item">
+                    <span class="meta-label">Độ khó</span>
+                    <span class="meta-value">Trung bình</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Thời gian</span>
+                    <span class="meta-value">90 - 120 phút</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Khẩu phần</span>
+                    <span class="meta-value">4 - 6 người</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Nguồn gốc</span>
+                    <span class="meta-value">Miền Tây Nam Bộ</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Origin Section -->
+        <section class="mb-12 max-w-3xl mx-auto">
+            <p class="justified italic text-lg leading-relaxed text-gray-700 first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-cinnabar-red">
+                Bún cà ri vịt là món ăn giao thoa văn hóa độc đáo tại miền Tây Nam Bộ, Việt Nam. Món ăn này kết hợp kỹ thuật sử dụng gia vị cà ri đặc trưng của người Ấn và người Khmer với nguyên liệu bản địa là vịt chạy đồng và nước cốt dừa béo ngậy. Hương vị cốt lõi phải đạt được sự cân bằng giữa vị cay nhẹ của bột cà ri, vị ngọt tự nhiên từ thịt vịt và độ béo thanh của dừa.
+            </p>
+        </section>
+
+        <div class="section-divider">
+            <span class="ornament">◈</span>
+        </div>
+
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-cinnabar-red mr-3"></span>
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div class="ingredient-group">
+                        <h4 class="font-bold text-gray-800">Thành phần chính</h4>
+                        <ul class="space-y-2 text-sm md:text-base">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2 transition-colors">
+                                <span>Vịt xiêm/vịt cỏ</span>
+                                <span class="font-bold">1.5 - 2kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2 transition-colors">
+                                <span>Khoai môn/khoai lang</span>
+                                <span class="font-bold">500g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2 transition-colors">
+                                <span>Nước dừa tươi</span>
+                                <span class="font-bold">1 lít</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2 transition-colors">
+                                <span>Nước cốt dừa</span>
+                                <span class="font-bold">500ml</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2 transition-colors">
+                                <span>Sữa tươi không đường</span>
+                                <span class="font-bold">100ml</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="ingredient-group">
+                        <h4 class="font-bold text-gray-800">Gia vị & Aromatics</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2">
+                                <span>Bột cà ri & Cà ri dầu</span>
+                                <span class="italic">Hòa quyện</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2">
+                                <span>Sả, hành, tỏi, gừng</span>
+                                <span class="italic">Băm nhuyễn</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2">
+                                <span>Đường phèn, muối, nêm</span>
+                                <span class="italic">Vừa vị</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 px-2">
+                                <span>Dầu màu điều</span>
+                                <span class="italic">Tạo màu</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="ingredient-group">
+                        <h4 class="font-bold text-gray-800">Sơ chế & Đồ kèm</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start border-b border-dotted border-gray-300 pb-1 px-2">
+                                <span class="mr-2">◈</span>
+                                <span>Rượu trắng & Gừng (Khử mùi)</span>
+                            </li>
+                            <li class="flex items-start border-b border-dotted border-gray-300 pb-1 px-2">
+                                <span class="mr-2">◈</span>
+                                <span>Bún tươi, rau quế, ngò gai, giá đỗ</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="w-8 h-px bg-cinnabar-red mr-3"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex gap-4 group">
+                        <span class="step-number">01</span>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Sơ chế và khử mùi vịt</h5>
+                            <p class="justified text-gray-700 mb-2">Vịt sau khi làm sạch, chà xát kỹ với hỗn hợp muối, gừng giã nát và rượu trắng trong 10 phút để loại bỏ hoàn toàn mùi hôi đặc trưng. Rửa sạch, để ráo và chặt miếng vừa ăn (khoảng 4-5cm).</p>
+                            <span class="text-xs font-bold text-burnished-gold uppercase tracking-tighter">Thời gian: 15 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-4 group">
+                        <span class="step-number">02</span>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Ướp thịt đậm đà</h5>
+                            <p class="justified text-gray-700 mb-2">Ướp vịt với 1/2 lượng hành, tỏi, sả băm, bột cà ri, cà ri dầu, đường, hạt nêm và một ít dầu màu điều. Để thịt thấm ít nhất 45 phút (hoặc 2 tiếng trong ngăn mát tủ lạnh để thấm sâu hơn).</p>
+                            <span class="text-xs font-bold text-burnished-gold uppercase tracking-tighter">Thời gian: 45 - 120 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-4 group">
+                        <span class="step-number">03</span>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Chuẩn bị khoai</h5>
+                            <p class="justified text-gray-700 mb-2">Khoai môn/khoai lang gọt vỏ, cắt khối vừa ăn. Ngâm nước muối loãng để không bị thâm. Vớt ra để ráo rồi chiên sơ lớp vỏ ngoài giúp khoai thơm hơn và không bị nát khi hầm trong nước dùng.</p>
+                            <span class="text-xs font-bold text-burnished-gold uppercase tracking-tighter">Thời gian: 10 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-4 group">
+                        <span class="step-number">04</span>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Áp chảo và nấu nước dùng</h5>
+                            <div class="justified text-gray-700 mb-2 space-y-2">
+                                <p>• Phi thơm hành, tỏi, sả với dầu điều.</p>
+                                <p>• Xào săn vịt lửa lớn để da tiết mỡ và thấm vị.</p>
+                                <p>• Thêm nước dừa tươi và nước dão. Hầm lửa nhỏ 40-50 phút cho đến khi vịt gần mềm.</p>
+                            </div>
+                            <span class="text-xs font-bold text-burnished-gold uppercase tracking-tighter">Thời gian: 60 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-4 group">
+                        <span class="step-number">05</span>
+                        <div>
+                            <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Hoàn thiện hương vị</h5>
+                            <p class="justified text-gray-700 mb-2">Cho khoai đã chiên vào nồi. Khi khoai chín tới, đổ sữa tươi và nước cốt dừa đặc vào. Nêm nếm lại bằng đường phèn. Đợi nước sôi lăn tăn trở lại thì tắt bếp ngay để nước cốt dừa không bị tách dầu.</p>
+                            <span class="text-xs font-bold text-burnished-gold uppercase tracking-tighter">Thời gian: 10 phút</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">◈</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-12">
+            <div class="double-border p-8 bg-neutral-50 relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white px-4">
+                    <h3 class="text-2xl font-bold uppercase tracking-widest text-burnished-gold">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                    <div class="space-y-4">
+                        <div>
+                            <h6 class="font-bold text-cinnabar-red mb-1">Kỹ thuật áp chảo:</h6>
+                            <p class="justified text-sm italic">Khi xào vịt, hãy để da vịt tiếp xúc với mặt chảo nóng trước để mỡ vịt tan chảy, tạo độ giòn nhẹ và màu sắc đẹp mắt.</p>
+                        </div>
+                        <div>
+                            <h6 class="font-bold text-cinnabar-red mb-1">Kết cấu nước dùng:</h6>
+                            <p class="justified text-sm italic">Độ sánh tự nhiên nên đến từ một phần khoai môn nấu chín kỹ tan vào nước và độ béo của nước cốt dừa.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h6 class="font-bold text-cinnabar-red mb-1">Lỗi cần tránh:</h6>
+                            <p class="justified text-sm italic">Không đun nước cốt dừa quá lâu ở lửa lớn vì sẽ làm mất mùi thơm và gây hiện tượng kết tủa (lợn cợn).</p>
+                        </div>
+                        <div>
+                            <h6 class="font-bold text-cinnabar-red mb-1">Mẹo nội trợ:</h6>
+                            <p class="justified text-sm italic">Nếu thiếu thời gian, bạn có thể dùng xốt cà ri sẵn nhưng đừng quên sả tươi để giữ đúng hồn cốt món ăn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="variation-card premium-border p-6 text-center hover:bg-neutral-50 cursor-default">
+                    <h5 class="font-bold mb-2 uppercase text-cinnabar-red">Vịt Xiêm Cao Cấp</h5>
+                    <p class="text-sm justified">Sử dụng vịt xiêm thay cho vịt cỏ để cảm nhận thớ thịt chắc hơn, ít mỡ và đậm vị hơn, phù hợp cho các bữa tiệc sang trọng.</p>
+                </div>
+                <div class="variation-card premium-border p-6 text-center hover:bg-neutral-50 cursor-default">
+                    <h5 class="font-bold mb-2 uppercase text-cinnabar-red">Phiên bản It Béo</h5>
+                    <p class="text-sm justified">Thay nước cốt dừa bằng sữa đậu nành hoặc sữa tươi tách béo. Tăng lượng sả để bù đắp hương thơm mà không gây ngấy.</p>
+                </div>
+                <div class="variation-card premium-border p-6 text-center hover:bg-neutral-50 cursor-default">
+                    <h5 class="font-bold mb-2 uppercase text-cinnabar-red">Tinh Bột Đi Kèm</h5>
+                    <p class="text-sm justified">Ngoài bún, bạn có thể phục vụ cùng bánh mì baguette nướng giòn hoặc cơm trắng lá dứa để đa dạng trải nghiệm vị giác.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="ornament">◈</span>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 uppercase flex items-center">
+                    <span class="mr-2">✦</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-gray-100 p-6 rounded-sm">
+                    <p class="justified text-sm mb-4">
+                        Một bát bún cung cấp <strong>600-750 calo</strong>. Giàu protein, tinh bột và chất béo bão hòa từ cốt dừa.
+                    </p>
+                    <div class="border-t border-gray-300 pt-4">
+                        <p class="text-xs italic text-gray-600 justified">
+                            <strong>Lời khuyên:</strong> Thịt vịt tính hàn, giúp giải nhiệt. Nên lọc bỏ mỡ thừa hoặc hớt bớt mỡ nổi. Ăn kèm nhiều rau sống để bổ sung chất xơ và hỗ trợ tiêu hóa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 uppercase flex items-center">
+                    <span class="mr-2">✦</span> 6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-3 text-sm justified">
+                    <p>• Dùng tô sứ sâu lòng. Cho bún vào trước, xếp thịt và khoai lên trên để tạo độ khối.</p>
+                    <p>• Rưới nước dùng vàng ươm sao cho vừa ngập mặt bún, tạo sự kích thích thị giác.</p>
+                    <p>• Trang trí với húng quế xanh, ngò gai và vài lát ớt đỏ (Bộ ba: Vàng - Xanh - Đỏ).</p>
+                    <p>• Phục vụ cùng <strong>muối tiêu chanh</strong> hoặc muối ớt tắc để chấm thịt vịt.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script for subtle interactivity if needed -->
+    <script>
+        // Placeholder for any interactive features
+        document.querySelectorAll('.variation-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#E23E28'; // Cinnabar Red on hover
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#C5A059'; // Back to Burnished Gold
+            });
+        });
+    </script>
+</body>
+</html>
