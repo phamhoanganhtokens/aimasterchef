@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cơm Chiên Dương Châu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23636;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justify-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .premium-border {
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .gold-accent {
+            color: var(--burnished-gold);
+        }
+
+        .red-accent {
+            color: var(--cinnabar-red);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.4;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .chef-hat-icon {
+            font-size: 1.5rem;
+            color: var(--burnished-gold);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--burnished-gold);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--burnished-gold);
+            opacity: 0.3;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -36px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-charcoal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.1);
+            padding: 8px 0;
+            transition: padding-left 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 10px;
+            color: var(--cinnabar-red);
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--burnished-gold);
+            position: relative;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Tab styling */
+        .tab-btn.active {
+            border-bottom: 2px solid var(--cinnabar-red);
+            color: var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto text-center mb-12 animate-fade">
+        <p class="uppercase tracking-widest text-xs mb-4 gold-accent font-bold">Tinh Hoa Ẩm Thực Á Đông</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-2 uppercase" style="font-family: 'Playfair Display', serif;">
+            Dương Châu Sao Phạn
+        </h1>
+        <h2 class="text-xl md:text-3xl italic font-light mb-8 opacity-80">
+            扬州炒饭 — Cơm Chiên Dương Châu
+        </h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 border-y border-stone-200 py-6 max-w-4xl mx-auto">
+            <div class="text-center">
+                <span class="block text-[10px] uppercase tracking-tighter opacity-60">Độ khó</span>
+                <span class="font-bold uppercase tracking-widest text-sm red-accent">Trung Bình</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-[10px] uppercase tracking-tighter opacity-60">Thời gian</span>
+                <span class="font-bold uppercase tracking-widest text-sm">30 Phút</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-[10px] uppercase tracking-tighter opacity-60">Khẩu phần</span>
+                <span class="font-bold uppercase tracking-widest text-sm">4 Người</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-[10px] uppercase tracking-tighter opacity-60">Nguồn gốc</span>
+                <span class="font-bold uppercase tracking-widest text-sm">Dương Châu, TQ</span>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto mt-8 justify-text italic text-stone-600 leading-relaxed">
+            "Xuất phát từ thành phố Dương Châu, tỉnh Giang Tô thời nhà Thanh, món ăn này là chuẩn mực toàn cầu của cơm chiên. Kỹ thuật 'Toái Kim Phạn' (Cơm vụn vàng) đòi hỏi lòng đỏ trứng bao phủ từng hạt gạo, tạo nên sắc thái vàng óng rực rỡ."
+        </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-red-600"></span>
+                        1. Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest gold-accent font-bold mb-3">Nền tảng chính</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex justify-between"><span>Gạo Jasmine (nấu để qua đêm)</span> <span>4 bát</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Trứng gà lớn (đánh tan)</span> <span>3 quả</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Xá xíu (thái hạt lựu 5mm)</span> <span>150g</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Tôm tươi (lột vỏ, bỏ chỉ)</span> <span>150g</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest gold-accent font-bold mb-3">Thành phần truyền thống</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex justify-between"><span>Hải sâm/Sò điệp khô</span> <span>50g</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Đậu Hà Lan (chần sơ)</span> <span>1/2 bát</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Cà rốt (thái hạt lựu)</span> <span>1/2 bát</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest gold-accent font-bold mb-3">Gia vị & Hương liệu</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex justify-between"><span>Hành lá (phần trắng/xanh)</span> <span>3 nhánh</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Rượu Thiệu Hưng</span> <span>1 tbsp</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Dầu vừng thơm</span> <span>1/2 tsp</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Nước tương nhạt</span> <span>1 tsp</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Muối & Tiêu trắng</span> <span>Vừa đủ</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-red-600"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 ml-8">
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step">
+                        <div class="step-number">1</div>
+                        <h4 class="text-xl font-bold mb-2">Chuẩn bị hạt cơm</h4>
+                        <p class="justify-text text-stone-700">
+                            Dùng tay ẩm bóp nhẹ để các hạt cơm nguội rời nhau. Nếu không có cơm nguội, dàn mỏng cơm nóng ra khay và để trong ngăn đá 20 phút để rút bớt độ ẩm, đảm bảo hạt cơm săn chắc khi chiên.
+                        </p>
+                        <span class="text-xs italic gold-accent mt-2 block">Thời gian: 5 phút</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step">
+                        <div class="step-number">2</div>
+                        <h4 class="text-xl font-bold mb-2">Áp chảo Protein</h4>
+                        <p class="justify-text text-stone-700">
+                            Làm nóng chảo (Wok) đến khi bốc khói. Thêm 1 muỗng dầu, xào nhanh tôm và hải sâm trong 60 giây. Rưới rượu Thiệu Hưng để khử mùi và lấy hết hương vị áp chảo, sau đó lấy ra để riêng.
+                        </p>
+                        <span class="text-xs italic gold-accent mt-2 block">Thời gian: 3 phút</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step">
+                        <div class="step-number">3</div>
+                        <h4 class="text-xl font-bold mb-2">Kỹ thuật "Toái Kim Phạn"</h4>
+                        <p class="justify-text text-stone-700">
+                            Đun nóng chảo với dầu còn lại, đổ trứng vào. Khi trứng còn đang lỏng, lập tức đổ cơm vào. Đảo nhanh và liên tục. Trứng sẽ bao quanh từng hạt cơm trước khi đông lại, tạo nên màu vàng đặc trưng của "vàng bọc bạc".
+                        </p>
+                        <span class="text-xs italic gold-accent mt-2 block">Thời gian: 4 phút</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step">
+                        <div class="step-number">4</div>
+                        <h4 class="text-xl font-bold mb-2">Kết hợp nguyên liệu</h4>
+                        <p class="justify-text text-stone-700">
+                            Khi hạt cơm đã khô và tơi, thêm xá xíu, tôm, đậu Hà Lan, cà rốt và phần đầu hành trắng vào. Nếu dùng bếp gia đình, hãy chia nhỏ mẻ chiên để giữ nhiệt độ cao, tránh làm cơm bị hấp hơi.
+                        </p>
+                        <span class="text-xs italic gold-accent mt-2 block">Thời gian: 2 phút</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative timeline-step">
+                        <div class="step-number">5</div>
+                        <h4 class="text-xl font-bold mb-2">Gia vị & Wok Hei</h4>
+                        <p class="justify-text text-stone-700">
+                            Rắc muối và tiêu trắng. Dưới nước tương vào mép chảo đang nóng (không đổ trực tiếp lên cơm) để tạo mùi thơm cháy xém. Đảo liên tục ở lửa cực đại để tạo "Wok Hei" (hơi thở của chảo).
+                        </p>
+                        <span class="text-xs italic gold-accent mt-2 block">Thời gian: 1 phút</span>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative timeline-step">
+                        <div class="step-number">6</div>
+                        <h4 class="text-xl font-bold mb-2">Hoàn thiện</h4>
+                        <p class="justify-text text-stone-700">
+                            Tắt bếp. Thêm dầu vừng và hành lá xanh vào đảo nhẹ. Trình bày ra đĩa ngay khi còn nóng hổi để giữ trọn vẹn hương vị.
+                        </p>
+                        <span class="text-xs italic gold-accent mt-2 block">Thời gian: 1 phút</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="chef-hat-icon">★</span>
+        </div>
+
+        <!-- Special Insights -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <!-- Chef's Corner -->
+            <div class="pro-tip-box p-8">
+                <h3 class="text-xl font-bold mb-4 red-accent italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-4">
+                        <span class="gold-accent font-bold">●</span>
+                        <p class="text-sm justify-text"><strong>Kiểm soát nhiệt:</strong> Wok hei đòi hỏi nhiệt cực lớn. Đừng cho quá nhiều cơm vào chảo cùng lúc; nếu nấu cho 4 người, hãy chia làm hai lần chiên.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="gold-accent font-bold">●</span>
+                        <p class="text-sm justify-text"><strong>Kỷ luật về màu sắc:</strong> Đừng dùng nước tương đen. Cơm chiên Dương Châu chuẩn vị dựa vào muối và mỡ lợn để giữ màu sắc các thành phần tươi sáng.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="gold-accent font-bold">●</span>
+                        <p class="text-sm justify-text"><strong>Kỹ thuật muôi:</strong> Dùng mặt lưng của muôi ấn nhẹ để tách hạt cơm thay vì dùng cạnh sắc chặt xuống, điều này giúp hạt cơm không bị nát.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div class="glass-card p-8 rounded-sm">
+                <h3 class="text-xl font-bold mb-6">4. Biến tấu & Phiên bản nâng cao</h3>
+                
+                <div class="space-y-6">
+                    <div class="border-l-2 border-red-600 pl-4">
+                        <h4 class="font-bold text-sm uppercase mb-1">Phiên bản Tiết kiệm</h4>
+                        <p class="text-sm justify-text italic opacity-80">Thay hải sâm bằng nấm hương hoặc nấm đùi gà để giữ độ dai và vị umami. Xá xíu có thể thay bằng thịt xông khói hoặc lạp xưởng.</p>
+                    </div>
+                    <div class="border-l-2 border-stone-400 pl-4">
+                        <h4 class="font-bold text-sm uppercase mb-1">Phiên bản Chay</h4>
+                        <p class="text-sm justify-text italic opacity-80">Bỏ thịt và hải sản. Sử dụng đậu phụ xông khói ngũ vị, đậu nành Nhật (edamame) và ngô ngọt để duy trì sự đa dạng về kết cấu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-stone-200 pt-12">
+            <div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-stone-100 p-6 rounded-sm">
+                    <p class="mb-4 font-bold text-lg">~450 kcal <span class="text-sm font-normal opacity-60">/ khẩu phần</span></p>
+                    <div class="grid grid-cols-3 gap-2 text-xs uppercase font-bold text-center">
+                        <div class="p-2 border border-stone-300">Carbs: 48g</div>
+                        <div class="p-2 border border-stone-300">Protein: 22g</div>
+                        <div class="p-2 border border-stone-300">Fat: 17g</div>
+                    </div>
+                    <p class="mt-4 text-xs italic justify-text opacity-70">
+                        * Mẹo sức khỏe: Tăng 50% lượng đậu và cà rốt để bổ sung chất xơ. Sử dụng chảo chống dính cao cấp để giảm lượng dầu xuống còn 1 muỗng canh duy nhất.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm justify-text">
+                    <p>
+                        <strong>Nguyên tắc 5 màu:</strong> Món ăn phải thể hiện sự tương phản của 5 yếu tố: Vàng (trứng), Đỏ/Hồng (xá xíu/tôm), Xanh (đậu/hành), Trắng (lõi gạo) và Đen/Nâu (hải sâm).
+                    </p>
+                    <p>
+                        <strong>Hình khối:</strong> Nén cơm chặt vào một bát tròn nhỏ, sau đó úp ngược nhanh tay lên đĩa phẳng lớn để tạo hình vòm hoàn hảo. 
+                    </p>
+                    <p>
+                        <strong>Trang trí:</strong> Đặt một con tôm hồng hào nhất lên đỉnh vòm cơm. Rắc thêm một ít hành lá xanh xung quanh chân đĩa để tạo sự sống động cho thị giác.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for minor interactions -->
+    <script>
+        // Simple scroll reveal effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, div, aside').forEach(el => {
+            // Adding a small delay logic could be done here if needed
+        });
+    </script>
+</body>
+</html>
