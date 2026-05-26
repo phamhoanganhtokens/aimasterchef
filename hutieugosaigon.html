@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Hủ Tiếu Gõ Sài Gòn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 2rem 0;
+            color: #C5A059;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .ornament:not(:empty)::before {
+            margin-right: .5em;
+        }
+        .ornament:not(:empty)::after {
+            margin-left: .5em;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #C5A059;
+        }
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 10px;
+            width: 9px;
+            height: 9px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        .tab-trigger:checked + label {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .pro-box {
+            border: 3px double #C5A059;
+            padding: 1.5rem;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 animate-fade-in">
+        <div class="inline-block border-y-2 border-gold py-2 mb-6">
+            <span class="tracking-[0.3em] text-sm uppercase text-gold">Digital Culinary Magazine</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-charcoal tracking-tight">HỦ TIẾU GÕ SÀI GÒN</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-8 font-serif">Saigon Street "Knock" Noodles – Flavors of Urban Memory</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-b border-gray-200 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">🕒</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">120 - 150 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">🍽</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">📍</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Sài Gòn, Việt Nam</span>
+            </div>
+        </div>
+        
+        <p class="max-w-3xl mx-auto mt-8 text-lg italic justified-text text-gray-700 leading-relaxed">
+            "Xuất thân từ những xe đẩy lưu động trên các con hẻm nhỏ Sài Gòn, hủ tiếu gõ là biểu tượng của ẩm thực bình dân. Điểm đặc trưng là âm thanh 'lốc cốc' từ thanh tre và nồi nước dùng ngọt thanh, nghi ngút khói giữa đêm khuya."
+        </p>
+    </header>
+
+    <div class="ornament">✦</div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-[1px] bg-cinnabar mr-3"></span>
+                    1. Nguyên liệu
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="glass-card p-4 rounded-sm">
+                        <h3 class="font-bold text-cinnabar border-b border-gold/30 pb-2 mb-3 uppercase text-sm tracking-widest">Nước Dùng</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Xương ống heo</span> <span>1kg</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Tôm khô</span> <span>50g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Mực khô nhỏ</span> <span>2 con</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Củ cải trắng</span> <span>1 củ lớn</span></li>
+                            <li class="italic text-gray-500 pt-1">Gia vị: Muối, đường phèn, hạt nêm, nước mắm.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-sm">
+                        <h3 class="font-bold text-cinnabar border-b border-gold/30 pb-2 mb-3 uppercase text-sm tracking-widest">Phần Nhân (Topping)</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Thịt thăn heo</span> <span>300g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Gan heo</span> <span>200g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Trứng cút</span> <span>20 quả</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Da heo / Bò viên</span> <span>Tùy chọn</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-sm">
+                        <h3 class="font-bold text-cinnabar border-b border-gold/30 pb-2 mb-3 uppercase text-sm tracking-widest">Rau & Đồ Kèm</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Hủ tiếu dai (khô)</span> <span>500g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Giá, hẹ, hành, cần</span> <span>Đủ dùng</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Tỏi băm, hành tím</span> <span>50g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1"><span>Mỡ heo (tóp mỡ)</span> <span>100g</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special Chef's Corner -->
+            <section class="pro-box mt-12">
+                <h3 class="text-xl font-bold mb-4 text-center text-gold italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-4 text-sm justified-text">
+                    <li class="relative pl-4">
+                        <span class="absolute left-0 text-gold font-bold">◈</span>
+                        <strong class="text-charcoal block mb-1">Độ trong của nước dùng:</strong> Luôn duy trì lửa liu riu. Nếu bị đục, dùng lòng trắng trứng đánh tan cho vào nồi, khuấy nhẹ để hút cặn rồi vớt bỏ.
+                    </li>
+                    <li class="relative pl-4">
+                        <span class="absolute left-0 text-gold font-bold">◈</span>
+                        <strong class="text-charcoal block mb-1">Thái thịt xá xíu:</strong> Phải thái "mỏng như lá lúa" để thấm vị nước dùng và đúng phong cách truyền thống.
+                    </li>
+                    <li class="relative pl-4">
+                        <span class="absolute left-0 text-gold font-bold">◈</span>
+                        <strong class="text-charcoal block mb-1">Bí quyết nêm:</strong> Sử dụng đường phèn thay vì đường cát để có vị ngọt hậu thanh tao.
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h2 class="text-2xl font-bold mb-8 flex items-center">
+                <span class="w-8 h-[1px] bg-cinnabar mr-3"></span>
+                2. Các bước thực hiện
+            </h2>
+
+            <div class="space-y-12">
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold uppercase tracking-tight text-charcoal">BƯỚC 1: Sơ chế xương và nấu nước dùng</h4>
+                        <span class="text-sm font-serif italic text-gold border border-gold px-2 py-1 rounded">60-90 phút</span>
+                    </div>
+                    <div class="justified-text text-gray-700 space-y-3">
+                        <p>Xương heo ngâm nước muối, chần qua nước sôi 5 phút rồi rửa sạch. Nướng sơ mực khô và tôm khô cho thơm, sau đó rửa sạch bụi bẩn.</p>
+                        <p>Ninh xương với 3 lít nước ở lửa nhỏ. Khi nước bắt đầu sôi, hớt bọt liên tục và không đậy nắp để nước dùng trong vắt. Cho củ cải trắng cắt khúc, tôm khô và mực nướng vào. Đây là "bí thuật" tạo nên vị ngọt thanh thanh, nồng nàn đặc trưng của vỉa hè Sài Gòn.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold uppercase tracking-tight text-charcoal">BƯỚC 2: Chế biến thịt xá xíu và gan</h4>
+                        <span class="text-sm font-serif italic text-gold border border-gold px-2 py-1 rounded">30 phút</span>
+                    </div>
+                    <div class="justified-text text-gray-700 space-y-3">
+                        <p><strong>Thịt xá xíu:</strong> Ướp thịt thăn với ngũ vị hương, mật ong, dầu hào và màu điều. Áp chảo cho săn rồi rim nhỏ lửa với ít nước dùng đến khi chín, thái lát thật mỏng.</p>
+                        <p><strong>Gan heo:</strong> Ngâm sữa tươi 15 phút để khử độc. Luộc vừa chín tới trong nước pha hành tím và muối, vớt ra ngâm ngay vào nước đá lạnh để gan trắng hồng, không thâm.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold uppercase tracking-tight text-charcoal">BƯỚC 3: Chuẩn bị đồ phụ trợ</h4>
+                        <span class="text-sm font-serif italic text-gold border border-gold px-2 py-1 rounded">20 phút</span>
+                    </div>
+                    <div class="justified-text text-gray-700 space-y-3">
+                        <p>Trứng cút luộc chín, bóc vỏ. Hủ tiếu khô ngâm nước lạnh 10 phút, sau đó trụng nhanh qua nước sôi rồi xả lại nước lạnh để sợi bánh dai, không dính.</p>
+                        <p>Làm tóp mỡ tỏi phi: Thắng mỡ heo lấy tóp, sau đó dùng chính mỡ đó phi vàng tỏi băm thơm lừng.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold uppercase tracking-tight text-charcoal">BƯỚC 4: Hoàn thiện bát hủ tiếu</h4>
+                        <span class="text-sm font-serif italic text-gold border border-gold px-2 py-1 rounded">5 phút</span>
+                    </div>
+                    <div class="justified-text text-gray-700 space-y-3">
+                        <p>Cho giá và hẹ xuống đáy tô, xếp hủ tiếu lên trên. Xếp thịt xá xíu, gan heo, trứng cút, tóp mỡ và hành phi. Chan nước dùng thật nóng vào tô sao cho ngập các nguyên liệu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variations Section -->
+            <section class="mt-16 bg-gray-100 p-8 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-bold mb-6 text-center tracking-widest text-charcoal">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 shadow-sm border-t-4 border-gray-400">
+                        <span class="block text-xs uppercase font-bold text-gray-400 mb-2">Home Style</span>
+                        <h5 class="font-bold mb-2">Truyền Thống</h5>
+                        <p class="text-sm justified-text text-gray-600">Thay xá xíu bằng thịt heo luộc đơn giản nếu không có nhiều thời gian chuẩn bị.</p>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border-t-4 border-cinnabar">
+                        <span class="block text-xs uppercase font-bold text-cinnabar mb-2">Fusion Style</span>
+                        <h5 class="font-bold mb-2">Hủ Tiếu Mì</h5>
+                        <p class="text-sm justified-text text-gray-600">Thêm hoành thánh hoặc sợi mì trứng để tạo sự đa dạng về kết cấu và hương vị.</p>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border-t-4 border-gold">
+                        <span class="block text-xs uppercase font-bold text-gold mb-2">Professional</span>
+                        <h5 class="font-bold mb-2">Hương Vị Xưa</h5>
+                        <p class="text-sm justified-text text-gray-600">Sử dụng củ cải muối (xá bấu) ninh cùng nước dùng nếu không tìm được mực khô chất lượng.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div class="ornament">✺</div>
+
+    <!-- Technical/Footer Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 pb-20 border-t border-gold/20 pt-12">
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold flex items-center text-charcoal">
+                <span class="text-cinnabar mr-2">✚</span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="justified-text text-gray-700 bg-white p-6 rounded border border-gray-100 italic">
+                <p class="mb-4">Một bát hủ tiếu gõ cung cấp khoảng <strong>450 - 550 kcal</strong>.</p>
+                <p><strong>Lời khuyên:</strong> Món ăn này thường nhiều tinh bột và béo (từ tóp mỡ). Để cân bằng, nên ăn kèm gấp đôi lượng giá đỗ và hẹ. Hẹ không chỉ tạo mùi thơm mà còn hỗ trợ tiêu hóa rất tốt. Hạn chế húp quá nhiều nước dùng nếu bạn đang cần kiểm soát lượng muối.</p>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold flex items-center text-charcoal">
+                <span class="text-cinnabar mr-2">📷</span> 6. Gợi ý trình bày
+            </h3>
+            <div class="justified-text text-gray-700 bg-white p-6 rounded border border-gray-100">
+                <ul class="space-y-2 text-sm italic">
+                    <li><strong class="not-italic text-charcoal">Xếp tầng:</strong> Đáy tô là màu trắng của giá, xanh của hẹ; thân là sợi hủ tiếu; trên cùng là thịt hồng, gan xám và trứng cút trắng xinh.</li>
+                    <li><strong class="not-italic text-charcoal">Điểm nhấn:</strong> Rắc thêm hành lá xanh mướt, tiêu đen và một thìa tỏi phi vàng óng lên trên cùng.</li>
+                    <li><strong class="not-italic text-charcoal">Phụ kiện:</strong> Đặt cạnh đĩa rau sống tươi, kèm chén nước mắm ớt đỏ. Nên dùng bát sứ trắng để làm nổi bật màu sắc thực phẩm.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Flourish: Script for smooth appearance -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const elements = document.querySelectorAll('main, aside, article, section, header');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `opacity 0.8s ease-out ${index * 0.15}s, transform 0.8s ease-out ${index * 0.15}s`;
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
