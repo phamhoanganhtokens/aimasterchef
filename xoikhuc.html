@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Xôi Khúc Hà Nội</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E28',
+                        'burnished-gold': '#C5A059',
+                        'paper-light': '#FDFCF7',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        p, .description-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background-color: #C5A059;
+        }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23E28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: 0;
+            width: 1px;
+            background: #C5A059;
+            opacity: 0.3;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-12 pb-8 px-6 md:px-12 text-center max-w-5xl mx-auto">
+        <div class="mb-4">
+            <span class="text-cinnabar-red uppercase tracking-widest text-sm font-bold">AI Vua Đầu Bếp | Premium Recipes</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-primary-charcoal">Xôi Khúc (Bánh Khúc) Hà Nội</h1>
+        <h2 class="text-xl md:text-2xl italic text-burnished-gold mb-8">Hanoi Steamed Sticky Rice Balls with Cudweed</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-t border-b border-burnished-gold/30 mt-8">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter opacity-70">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter opacity-70">Thời gian</span>
+                <span class="font-bold">4 - 5 giờ</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter opacity-70">Khẩu phần</span>
+                <span class="font-bold">6 - 8 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter opacity-70">Nguồn gốc</span>
+                <span class="font-bold text-center">Bắc Bộ, VN</span>
+            </div>
+        </div>
+
+        <div class="mt-10 px-4">
+            <p class="description-text italic text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Món ăn dân dã đặc trưng của vùng đồng bằng Bắc Bộ, gắn liền với hình ảnh rau khúc mọc hoang ven bờ ruộng vào mùa xuân và tiếng rao đêm Hà Nội trầm mặc giữa lòng phố cổ.
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament max-w-3xl mx-auto">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-6 md:px-12 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="p-8 bg-paper-light border-l-4 border-burnished-gold shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="text-cinnabar-red mr-2">1.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-burnished-gold uppercase text-sm tracking-widest mb-3">Phần Vỏ & Gạo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Gạo nếp cái hoa vàng</span>
+                                    <span class="font-bold">500g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Bột gạo nếp</span>
+                                    <span class="font-bold">300g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Bột gạo tẻ</span>
+                                    <span class="font-bold">50g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Rau khúc tươi (hoặc bột)</span>
+                                    <span class="font-bold">300g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-burnished-gold uppercase text-sm tracking-widest mb-3">Phần Nhân</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Đỗ xanh cà vỏ</span>
+                                    <span class="font-bold">200g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Thịt ba chỉ (nhiều mỡ)</span>
+                                    <span class="font-bold">200g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Hành tím băm</span>
+                                    <span class="font-bold">50g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-burnished-gold uppercase text-sm tracking-widest mb-3">Gia vị & Khác</h4>
+                            <ul class="space-y-3 italic text-gray-700">
+                                <li>• Tiêu đen xay (rất quan trọng)</li>
+                                <li>• Nước mắm, hạt nêm, muối</li>
+                                <li>• Mỡ hành hoặc hành phi sẵn</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="p-8 border-2 border-double border-burnished-gold rounded-sm relative glass-card shadow-lg">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-bg-cream px-4 text-burnished-gold font-bold">
+                        CHEF'S CORNER
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex gap-3">
+                            <span class="text-cinnabar-red text-lg">✻</span>
+                            <p><strong>Kỹ thuật đồ xôi:</strong> Dùng khăn vải bao nắp vung để tránh nước nhỏ xuống làm nát bánh. Xả hơi nước định kỳ.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-cinnabar-red text-lg">✻</span>
+                            <p><strong>Xử lý thịt:</strong> Dùng thịt mỡ sa để khi hấp, mỡ tan ngấm vào đỗ xanh tạo độ ngậy đặc trưng.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-cinnabar-red text-lg">✻</span>
+                            <p><strong>Độ dẻo:</strong> Nếu bột quá dính, thêm chút dầu ăn khi nhào để vỏ bánh mịn màng hơn.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <article class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="text-cinnabar-red mr-3">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 relative">
+                    <!-- Step 1 -->
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 bg-cinnabar-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
+                        <div class="absolute left-4 top-8 bottom-[-48px] w-px bg-burnished-gold/20 hidden md:block"></div>
+                        <h4 class="text-xl font-bold mb-2">Sơ chế nhân</h4>
+                        <p class="text-gray-700 mb-2">Thịt ba chỉ xào săn với hành tím, nêm nước mắm và thật nhiều tiêu đen. Trộn đều thịt đã xào vào khối đỗ xanh giã nhuyễn. Viên thành các viên nhân tròn đồng nhất.</p>
+                        <span class="text-xs uppercase tracking-widest text-burnished-gold font-bold italic">Thời gian: 30 phút</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 bg-cinnabar-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
+                        <div class="absolute left-4 top-8 bottom-[-48px] w-px bg-burnished-gold/20 hidden md:block"></div>
+                        <h4 class="text-xl font-bold mb-2">Làm vỏ bánh</h4>
+                        <p class="text-gray-700 mb-2">Rau khúc rửa sạch, luộc sơ với chút muối, đem xay nhuyễn với một ít nước luộc. Đun nóng hỗn hợp rau khúc rồi đổ từ từ vào tô bột nếp và bột tẻ. Nhào bột đến khi mịn dẻo, không dính tay.</p>
+                        <span class="text-xs uppercase tracking-widest text-burnished-gold font-bold italic">Thời gian: 25 phút</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 bg-cinnabar-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
+                        <div class="absolute left-4 top-8 bottom-[-48px] w-px bg-burnished-gold/20 hidden md:block"></div>
+                        <h4 class="text-xl font-bold mb-2">Tạo hình</h4>
+                        <p class="text-gray-700 mb-2">Chia bột nếp thành các phần bằng nhau (lớn hơn viên nhân một chút). Ấn dẹt miếng bột, đặt nhân đỗ xanh thịt vào giữa, vo tròn sao cho bột bao kín nhân.</p>
+                        <span class="text-xs uppercase tracking-widest text-burnished-gold font-bold italic">Thời gian: 20 phút</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 bg-cinnabar-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
+                        <div class="absolute left-4 top-8 bottom-[-48px] w-px bg-burnished-gold/20 hidden md:block"></div>
+                        <h4 class="text-xl font-bold mb-2">Áo gạo nếp</h4>
+                        <p class="text-gray-700 mb-2">Lăn nhẹ viên bột qua lớp gạo nếp đã ngâm sao cho gạo bám đều một lớp mỏng bên ngoài. Đảm bảo nếp bám đều để bánh đẹp mắt khi chín.</p>
+                        <span class="text-xs uppercase tracking-widest text-burnished-gold font-bold italic">Thời gian: 15 phút</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 bg-cinnabar-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</div>
+                        <h4 class="text-xl font-bold mb-2">Hấp bánh</h4>
+                        <p class="text-gray-700 mb-2">Xếp bánh vào xửng hấp (lót lá chuối). Rắc thêm phần gạo nếp còn thừa vào các kẽ hở. Hấp ở lửa vừa trong khoảng 40 - 50 phút. Khi gạo nếp chín trong, hạt lựu bám chắc là được.</p>
+                        <span class="text-xs uppercase tracking-widest text-burnished-gold font-bold italic">Thời gian: 50 phút</span>
+                    </div>
+                </div>
+
+                <!-- Variations Section -->
+                <section class="mt-16">
+                    <h3 class="text-2xl font-bold mb-6 border-b border-burnished-gold pb-2 uppercase tracking-wide">4. Biến tấu & Phiên bản nâng cao</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white border border-gray-100 hover-lift shadow-sm">
+                            <h5 class="font-bold text-cinnabar-red mb-2">Phiên bản Nhanh (Homemaker)</h5>
+                            <p class="text-sm italic">Sử dụng nồi cơm điện có xửng hấp để tiết kiệm thời gian. Có thể thay rau khúc bằng lá dứa để lấy màu xanh và hương thơm nếu không có rau tươi.</p>
+                        </div>
+                        <div class="p-6 bg-white border border-gray-100 hover-lift shadow-sm">
+                            <h5 class="font-bold text-cinnabar-red mb-2">Phiên bản Chay (Plant-based)</h5>
+                            <p class="text-sm italic">Thay thịt bằng nấm hương băm nhỏ và bổ sung thêm hạt sen để tăng độ béo bùi, thanh đạm nhưng vẫn đủ đầy hương vị.</p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <div class="ornament max-w-lg mx-auto">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Bottom Section: Nutrition & Presentation -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-12 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-burnished-gold/20 pt-12">
+            
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="text-burnished-gold mr-3">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-primary-charcoal text-bg-cream p-8 rounded-sm">
+                    <div class="flex justify-between items-end mb-4 border-b border-white/20 pb-2">
+                        <span class="text-lg">Năng lượng / Phần</span>
+                        <span class="text-3xl font-bold text-burnished-gold">350-450 <span class="text-sm uppercase font-normal text-white">kcal</span></span>
+                    </div>
+                    <ul class="space-y-3 text-sm opacity-90">
+                        <li class="flex justify-between"><span>Carbohydrate (Nếp)</span><span>Cao</span></li>
+                        <li class="flex justify-between"><span>Protein (Đỗ, Thịt)</span><span>Vừa</span></li>
+                        <li class="flex justify-between"><span>Chất béo (Mỡ)</span><span>Đáng kể</span></li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-white/10 text-xs italic">
+                        Lưu ý: Món ăn có chỉ số đường huyết cao. Rau khúc có tính mát, giúp thanh nhiệt và giảm ho theo y học cổ truyền.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="text-burnished-gold mr-3">6.</span> Gợi ý trình bày
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-burnished-gold text-white min-w-[24px] h-6 flex items-center justify-center rounded-full text-xs">A</div>
+                        <p class="text-sm">Bày xôi ra đĩa hoặc gói trong lá chuối tươi để giữ nhiệt và tạo mùi thơm tự nhiên truyền thống.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-burnished-gold text-white min-w-[24px] h-6 flex items-center justify-center rounded-full text-xs">B</div>
+                        <p class="text-sm">Rắc nhiều hành phi vàng ruộm lên trên để tạo sự tương phản màu sắc giữa trắng của nếp và xanh của vỏ bánh.</p>
+                    </div>
+                    <div class="mt-6 p-6 border border-dashed border-burnished-gold bg-paper-light">
+                        <h5 class="font-bold text-xs uppercase tracking-widest mb-2 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-cinnabar-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Mẹo chụp ảnh (Photography Tip)
+                        </h5>
+                        <p class="text-sm italic">Cắt đôi một viên bánh để lộ rõ 5 lớp màu: lớp nếp trắng, vỏ xanh lá, đỗ xanh vàng, thịt mỡ trong và tiêu đen. Ánh sáng vàng nhẹ sẽ làm nổi bật độ bóng của hạt gạo nếp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
