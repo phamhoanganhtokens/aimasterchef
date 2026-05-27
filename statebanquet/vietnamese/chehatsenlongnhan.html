@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chè Hạt Sen Long Nhãn Hưng Yên</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23636;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Times New Roman', serif;
+            font-weight: 700;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .gold-border {
+            border: 1px solid var(--burnished-gold);
+        }
+
+        .double-border {
+            border: 4px double var(--burnished-gold);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: var(--burnished-gold);
+            font-size: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: var(--cinnabar-red);
+            border-radius: 50%;
+        }
+
+        .pro-tip-box {
+            background-color: #fcf6e8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pro-tip-box::before {
+            content: "MASTER CLASS";
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            transform: rotate(45deg);
+            background: var(--burnished-gold);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 40px;
+            font-weight: bold;
+        }
+
+        .nav-tab.active {
+            border-bottom: 2px solid var(--cinnabar-red);
+            color: var(--cinnabar-red);
+        }
+
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            transition: all 0.3s ease;
+            color: var(--cinnabar-red);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(252, 250, 250, 0.9), rgba(252, 250, 250, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23fcfafa" width="100" height="100"/><path fill="%23c5a059" opacity="0.05" d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm63 31c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM34 90c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 32c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57 43c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM16 32c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"/></svg>');
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 max-w-6xl mx-auto">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-16 hero-gradient p-8 rounded-sm">
+        <div class="inline-block border-y border-[#C5A059] py-2 px-6 mb-6">
+            <span class="tracking-[0.3em] text-sm uppercase text-[#C5A059]">Kỹ nghệ Ẩm thực Cung đình</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-[#2C2C2C]">Chè Hạt Sen Long Nhãn</h1>
+        <h2 class="text-2xl md:text-3xl italic text-[#C5A059] font-light mb-8">Lotus Seed in Longan Sweet Soup (Hung Yen Style)</h2>
+        
+        <p class="max-w-3xl mx-auto justified-text italic text-gray-700 mb-10 leading-relaxed">
+            Món chè sen long nhãn khởi nguồn từ vùng đất Phố Hiến (Hưng Yên), vốn là sản vật tinh túy dùng để tiến vua. 
+            Đây không chỉ là một món tráng miệng mà còn đại diện cho sự thanh tao, cầu kỳ trong cốt cách ẩm thực của người Tràng An và người dân xứ nhãn.
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border border-[#C5A059] rounded-sm bg-white shadow-sm overflow-hidden">
+            <div class="meta-item">
+                <span class="text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
+                <span class="font-bold text-lg text-[#2C2C2C]">Trung bình</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold text-lg text-[#2C2C2C]">60 - 75 phút</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg text-[#2C2C2C]">4 - 5 người</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1">Xuất xứ</span>
+                <span class="font-bold text-lg text-[#2C2C2C]">Hưng Yên</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ❦ ✦</span>
+    </div>
+
+    <!-- MAIN RECIPE BODY -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <aside class="lg:col-span-4 space-y-8">
+            <div class="sticky top-8">
+                <h3 class="text-3xl border-b-2 border-[#E23636] inline-block mb-6 pr-4">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="uppercase tracking-widest text-xs font-bold text-[#C5A059] mb-3">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-[#E23636] mr-2">◈</span>
+                                <span class="flex-grow">Hạt sen tươi (Bắc)</span>
+                                <span class="font-bold">200g</span>
+                            </li>
+                            <li class="ingredient-item flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-[#E23636] mr-2">◈</span>
+                                <span class="flex-grow">Nhãn lồng Hưng Yên</span>
+                                <span class="font-bold">1kg</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="uppercase tracking-widest text-xs font-bold text-[#C5A059] mb-3">Gia vị & Hương liệu</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-[#E23636] mr-2">◈</span>
+                                <span class="flex-grow">Đường phèn kim cương</span>
+                                <span class="font-bold">150g-200g</span>
+                            </li>
+                            <li class="ingredient-item flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-[#E23636] mr-2">◈</span>
+                                <span class="flex-grow">Lá dứa (lá nếp)</span>
+                                <span class="font-bold">2-3 lá</span>
+                            </li>
+                            <li class="ingredient-item flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-[#E23636] mr-2">◈</span>
+                                <span class="flex-grow">Muối tinh</span>
+                                <span class="font-bold">1 muỗng</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 border-l-2 border-[#C5A059]">
+                        <h4 class="uppercase tracking-widest text-xs font-bold text-[#C5A059] mb-2 italic">Ướp hương (Tùy chọn)</h4>
+                        <p class="text-sm italic">Hoa nhài tươi hoặc cánh sen để tạo tầng hương tinh tế sau cùng.</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <article class="lg:col-span-8 space-y-8">
+            <h3 class="text-3xl border-b-2 border-[#E23636] inline-block mb-6 pr-4">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12 relative border-l border-gray-200 ml-4 pl-8">
+                <!-- Step 1 -->
+                <div class="timeline-step relative">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-[#E23636] bg-red-50 px-2 py-1 rounded mr-3">Bước 01</span>
+                        <span class="text-xs italic text-gray-500">Kỹ thuật đầu bếp</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Sơ chế hạt sen</h4>
+                    <p class="justified-text text-gray-700">
+                        Rửa sạch hạt sen, dùng tăm loại bỏ tâm sen để không bị đắng. Đun sôi nước, cho hạt sen vào chần sơ với một chút muối rồi vớt ra xả nước lạnh ngay. Bước này giúp loại bỏ nhựa, giúp nước chè sau này trong veo và hạt sen không bị thâm.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step relative">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-[#E23636] bg-red-50 px-2 py-1 rounded mr-3">Bước 02</span>
+                        <span class="text-xs italic text-gray-500">Mẹo nội trợ</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Ninh sen & Rim đường</h4>
+                    <p class="justified-text text-gray-700">
+                        Cho hạt sen vào nồi với nước mới, thêm lá dứa cuộn lại để lấy mùi thơm. Ninh ở lửa nhỏ cho đến khi hạt sen chín mềm nhưng vẫn còn nguyên hạt, không bị nát. Khi sen đã chín, cho một phần đường phèn vào để hạt sen ngấm vị ngọt, sau đó vớt hạt sen ra bát riêng.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step relative">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-[#E23636] bg-red-50 px-2 py-1 rounded mr-3">Bước 03</span>
+                        <span class="text-xs italic text-gray-500">Kỹ thuật truyền thống</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Xử lý nhãn lồng</h4>
+                    <p class="justified-text text-gray-700">
+                        Nhãn bóc vỏ, dùng mũi dao nhỏ hoặc dụng cụ tách hạt khéo léo lách quanh cuống để lấy hạt ra sao cho phần cùi nhãn không bị rách, vẫn giữ được hình dáng nguyên vẹn.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step relative">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-[#E23636] bg-red-50 px-2 py-1 rounded mr-3">Bước 04</span>
+                        <span class="text-xs italic text-gray-500">Nghệ thuật trình bày</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Kỹ thuật "Lồng hạt sen"</h4>
+                    <p class="justified-text text-gray-700">
+                        Lấy hạt sen đã rim đường lồng nhẹ nhàng vào trong ruột quả nhãn. Sự tinh tế nằm ở chỗ hạt sen phải nằm gọn, vừa vặn bên trong lớp cùi nhãn trắng trong như hạt ngọc.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step relative">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-[#E23636] bg-red-50 px-2 py-1 rounded mr-3">Bước 05</span>
+                        <span class="text-xs italic text-gray-500">Kỹ thuật chuyên nghiệp</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Nấu nước dùng</h4>
+                    <p class="justified-text text-gray-700">
+                        Sử dụng nước ninh hạt sen lúc trước, lọc qua rây để loại bỏ cặn. Cho nốt phần đường phèn còn lại vào đun sôi, hớt bọt kỹ để nước trong tuyệt đối.
+                    </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="timeline-step relative">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-[#E23636] bg-red-50 px-2 py-1 rounded mr-3">Bước 06</span>
+                        <span class="text-xs italic text-gray-500">Hoàn thiện</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Kết thúc & Đóng vị</h4>
+                    <p class="justified-text text-gray-700">
+                        Khi nước đường đang sôi lăn tăn, cho toàn bộ nhãn đã lồng hạt sen vào. Đợi nước sôi bùng lên lại thì tắt bếp ngay lập tức. Đây là kỹ thuật quan trọng để nhãn giữ được độ giòn đặc trưng, không bị mềm nhũn hay chuyển màu đục.
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- CHEF'S CORNER -->
+    <section class="my-16">
+        <div class="pro-tip-box p-8 md:p-12 double-border">
+            <h3 class="text-2xl font-bold text-[#C5A059] mb-6 flex items-center">
+                <span class="mr-3">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <h5 class="font-bold border-b border-[#C5A059] pb-1 uppercase text-sm">Giữ độ trong</h5>
+                    <p class="text-sm justified-text italic text-gray-600">Tuyệt đối không nấu nhãn quá lâu. Nhiệt độ cao làm cùi nhãn tiết ra chất làm đục nước và mất mùi thơm.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold border-b border-[#C5A059] pb-1 uppercase text-sm">Xử lý sen khô</h5>
+                    <p class="text-sm justified-text italic text-gray-600">Ngâm nước ấm 2-3 tiếng. Không nấu với nước lạnh ngay từ đầu để tránh hạt sen bị sượng (chai).</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold border-b border-[#C5A059] pb-1 uppercase text-sm">Nghệ thuật ướp hương</h5>
+                    <p class="text-sm justified-text italic text-gray-600">Đợi chè nguội hẳn mới thả hoa nhài. Hương hoa sẽ thẩm thấu nhẹ nhàng mà không làm át mùi nhãn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATIONS -->
+    <section class="mb-16">
+        <h3 class="text-3xl border-b-2 border-[#E23636] inline-block mb-8 pr-4">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 bg-white shadow-md border-t-4 border-[#C5A059] hover:shadow-xl transition-shadow">
+                <h4 class="font-bold text-lg mb-2">Sen nhãn táo đỏ</h4>
+                <p class="text-sm text-gray-600 justified-text italic">Thêm táo đỏ và kỷ tử vào ninh cùng hạt sen để tăng tính bồi bổ và màu sắc rực rỡ cho bát chè.</p>
+            </div>
+            <div class="p-6 bg-white shadow-md border-t-4 border-[#2C2C2C] hover:shadow-xl transition-shadow">
+                <h4 class="font-bold text-lg mb-2">Sen nhãn cốt dừa</h4>
+                <p class="text-sm text-gray-600 justified-text italic">Dành cho người thích vị béo ngậy. Tuy nhiên, cách này sẽ làm giảm đi vị thanh khiết truyền thống của nhãn lồng.</p>
+            </div>
+            <div class="p-6 bg-white shadow-md border-t-4 border-[#E23636] hover:shadow-xl transition-shadow">
+                <h4 class="font-bold text-lg mb-2">Phiên bản Long nhãn</h4>
+                <p class="text-sm text-gray-600 justified-text italic">Sử dụng nhãn nhục (nhãn khô) ngâm nở. Hương vị sẽ thiên về sự đậm đà, nồng nàn hơn là thanh mát.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">❧ ✥ ❧</span>
+    </div>
+
+    <!-- TECHNICAL & NUTRITION -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <!-- Nutrition -->
+        <div class="bg-[#2C2C2C] text-white p-8 rounded-sm">
+            <h3 class="text-2xl font-bold mb-6 text-[#C5A059] border-b border-[#C5A059] pb-2">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-[#C5A059] font-bold uppercase text-xs tracking-widest mb-2">Hạt Sen</h4>
+                    <p class="text-sm opacity-80 justified-text">Chứa chất kiềm và các glucoside đặc biệt giúp an thần, cải thiện chất lượng giấc ngủ, trị chứng mất ngủ và suy nhược thần kinh.</p>
+                </div>
+                <div>
+                    <h4 class="text-[#C5A059] font-bold uppercase text-xs tracking-widest mb-2">Long Nhãn</h4>
+                    <p class="text-sm opacity-80 justified-text">Giàu vitamin C, sắt và magiê, giúp bổ máu, tăng cường hệ miễn dịch và chống lão hóa da.</p>
+                </div>
+                <div class="pt-4 border-t border-gray-600">
+                    <p class="text-xs italic opacity-60">Món chè cung cấp năng lượng nhanh, giúp giải nhiệt và phục hồi sức khỏe sau khi làm việc căng thẳng.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="p-8 border border-gray-200">
+            <h3 class="text-2xl font-bold mb-6 border-b border-[#E23636] pb-2">6. Gợi ý trình bày</h3>
+            <div class="space-y-4">
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center text-xl">🥣</div>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase">Lựa chọn bát</h4>
+                        <p class="text-sm text-gray-600 justified-text">Sử dụng bát thủy tinh trong suốt hoặc sứ men lam cổ điển để phô diễn sự tinh khôi của cùi nhãn và hạt sen.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center text-xl">🌸</div>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase">Trang trí (Food Stylist)</h4>
+                        <p class="text-sm text-gray-600 justified-text">Thả một vài cánh hoa sen hồng hoặc hoa nhài trắng. Đặt bát chè lên trên một lá sen xanh mướt để tăng phần sang trọng.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center text-xl">❄️</div>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase">Nhiệt độ thưởng thức</h4>
+                        <p class="text-sm text-gray-600 justified-text">Ngon nhất khi dùng lạnh sâu. Hạn chế cho đá trực tiếp vào bát để tránh làm loãng vị ngọt thanh tao.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple interactivity for tabs or interactions if needed
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.cursor = 'default';
+            });
+        });
+
+        // Add a subtle parallax-like effect to the hero or elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('header');
+            hero.style.backgroundPositionY = scrolled * 0.1 + 'px';
+        });
+    </script>
+</body>
+</html>
