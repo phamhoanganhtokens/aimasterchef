@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Tôm Hùm Nha Trang Xốt Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justify-text {
+            text-align: justify;
+        }
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .divider-ornament:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .divider-ornament:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-border {
+            border: 3px double #C5A059;
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <div class="mb-4 text-gold tracking-[0.3em] uppercase text-sm font-bold">AI Vua Đầu Bếp Premium</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase text-charcoal tracking-tight">Tôm Hùm Nha Trang Xốt Me</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-500 mb-10 font-normal">Nha Trang Lobster with Tamarind Sauce</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-6 md:gap-12 py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16Z"/><path d="M7 10h10"/><path d="M7 14h10"/><path d="M7 18h10"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-400">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-400">Thời gian</span>
+                <span class="font-bold">45 - 60 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-400">Khẩu phần</span>
+                <span class="font-bold">2 - 3 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-400">Nguồn gốc</span>
+                <span class="font-bold">Nha Trang</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic justify-text max-w-3xl mx-auto text-gray-700 leading-relaxed">
+            Nha Trang, Khánh Hòa – "Thủ phủ" tôm hùm của Việt Nam. Món ăn này là sự kết hợp tinh tế giữa nguồn hải sản tươi ngon bậc nhất miền Trung với phong vị đậm đà, dân dã của xốt me truyền thống.
+        </p>
+    </header>
+
+    <div class="divider-ornament max-w-5xl mx-auto">
+        <span class="text-gold text-2xl">★</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4 space-y-8">
+            <div class="sticky top-8">
+                <h3 class="text-2xl font-bold border-b border-gold pb-2 mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-3">Nguyên liệu chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">2 con tôm hùm Nha Trang (400g - 500g/con), chọn loại tôm bông hoặc tôm xanh tươi sống.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-3">Thành phần xốt me</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">100g me chín (me vắt) & 100ml nước ấm</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">3 muỗng canh đường phèn</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">2 muỗng canh nước mắm Nha Trang ngon</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">1 muỗng cà phê ớt bột hoặc ớt tươi băm</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-3">Gia vị & Phụ trợ</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">50g bột năng hoặc bột bắp</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">Hành tím, tỏi, gừng, hành lá, rau răm</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">Đậu phộng rang</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                <span class="justify-text">300ml dầu ăn (để chiên)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b border-gold pb-2 mb-6 uppercase tracking-wider">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative">
+                <!-- Vertical Line for Visual timeline -->
+                <div class="absolute left-4 top-0 bottom-0 w-px bg-gold/20 hidden md:block"></div>
+
+                <!-- Step 1 -->
+                <div class="relative md:pl-12 group">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold hidden md:flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">1</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-sm tracking-widest">Bước 1: Sơ chế tôm hùm</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500 underline decoration-gold/50">Thời gian: 15 phút</span>
+                    </div>
+                    <p class="justify-text leading-relaxed">
+                        Dùng kéo hoặc dao sắc chẻ đôi dọc thân tôm. Dùng một que nhọn đâm dọc phần đuôi để rút đường chỉ đen và xả bớt dịch tôm (giúp tôm không bị khai và giữ vị ngọt nguyên bản). Rửa sạch bằng nước muối loãng pha chút gừng, sau đó thấm thật khô bằng khăn giấy.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative md:pl-12 group">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold hidden md:flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">2</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-sm tracking-widest">Bước 2: Chuẩn bị nước cốt me</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500 underline decoration-gold/50">Thời gian: 10 phút</span>
+                    </div>
+                    <p class="justify-text leading-relaxed">
+                        Ngâm me vào nước ấm, dằm nát rồi lọc qua rây để lấy nước cốt đặc, bỏ hạt. Hòa tan nước cốt me với đường phèn, nước mắm và ớt theo tỉ lệ vàng: <span class="font-bold italic">3 chua - 2 ngọt - 1 mặn</span>.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative md:pl-12 group">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold hidden md:flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">3</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-sm tracking-widest">Bước 3: Chiên sơ tôm</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500 underline decoration-gold/50">Thời gian: 5 phút</span>
+                    </div>
+                    <p class="justify-text leading-relaxed">
+                        Phủ một lớp bột năng thật mỏng lên phần thịt tôm. Đun dầu nóng già (khoảng 180°C), cho tôm vào chiên nhanh trong 2-3 phút cho vỏ chuyển màu đỏ rực và thịt săn lại thì vớt ra ngay. 
+                        <br>
+                        <span class="text-sm italic text-gray-600 font-serif">Tip gia đình: Có thể hấp sơ trong 5 phút để giảm dầu mỡ.</span>
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative md:pl-12 group">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold hidden md:flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">4</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-sm tracking-widest">Bước 4: Chế biến xốt và áo vị</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500 underline decoration-gold/50">Thời gian: 10 phút</span>
+                    </div>
+                    <p class="justify-text leading-relaxed">
+                        Phi thơm hành tím, tỏi băm và một ít gừng sợi. Đổ hỗn hợp nước me vào đun sôi đến khi nước xốt bắt đầu sánh lại. Cho tôm hùm vào chảo, rưới nước xốt liên tục lên mình tôm trong khoảng 3-5 phút ở lửa nhỏ để vị chua cay mặn ngọt thấm sâu.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative md:pl-12 group">
+                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border border-gold hidden md:flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">5</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-sm tracking-widest">Bước 5: Hoàn thiện</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500 underline decoration-gold/50">Thời gian: 2 phút</span>
+                    </div>
+                    <p class="justify-text leading-relaxed">
+                        Khi nước xốt cô đặc lại thành lớp màng bóng mượt bao quanh vỏ tôm, rắc thêm hành lá cắt nhỏ rồi tắt bếp. Món ăn đã sẵn sàng để trình bày.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Insight Section -->
+    <section class="max-w-6xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Chef's Corner -->
+        <div class="pro-tip-border p-8 bg-white/50 backdrop-blur card-shadow relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-gold/10 text-8xl font-bold select-none italic">Chef</div>
+            <h3 class="text-xl font-bold text-charcoal mb-4 flex items-center">
+                <span class="bg-gold text-white p-1 rounded-sm mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+                </span>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="space-y-4 text-sm md:text-base">
+                <p class="justify-text"><strong class="text-cinnabar">Nhiệt độ là then chốt:</strong> Không nấu tôm quá lâu vì thịt sẽ bị bở. Tổng thời gian tác động nhiệt chỉ nên từ 8-10 phút.</p>
+                <p class="justify-text"><strong class="text-cinnabar">Xử lý mùi tanh:</strong> Gừng sợi giúp trung hòa tính hàn và bảo vệ hệ tiêu hóa.</p>
+                <p class="justify-text"><strong class="text-cinnabar">Lỗi cần tránh:</strong> Sử dụng đường phèn thay vì đường cát để có độ bóng mượt và vị ngọt thanh, không bị gắt.</p>
+            </div>
+        </div>
+
+        <!-- Variations -->
+        <div class="bg-charcoal text-parchment p-8 card-shadow rounded-sm relative">
+            <h3 class="text-xl font-bold text-gold mb-6 uppercase tracking-widest">4. Biến tấu Nâng cao</h3>
+            <div class="space-y-6">
+                <div class="border-l-2 border-gold pl-4">
+                    <h4 class="font-bold text-cinnabar text-sm uppercase mb-1">Xốt Me Bơ Tỏi</h4>
+                    <p class="text-sm justify-text text-gray-300">Thêm 20g bơ lạt vào giai đoạn phi thơm tỏi để món ăn có thêm độ béo ngậy kiểu Âu sang trọng.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-4">
+                    <h4 class="font-bold text-cinnabar text-sm uppercase mb-1">Phiên bản tiết kiệm</h4>
+                    <p class="text-sm justify-text text-gray-300">Thay thế tôm hùm bằng tôm tít (bề bề) hoặc tôm sú đại với cùng công thức xốt tuyệt đỉnh này.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Section -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gold/30 pt-12 pb-24">
+        <!-- Nutrition -->
+        <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center uppercase tracking-wider">
+                <svg class="mr-2 text-cinnabar" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M5 22h14"/><path d="M5 2h14"/><path d="M7 21a5 5 0 0 0 10 0"/><path d="M7 3a5 5 0 0 1 10 0"/></svg>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="bg-white p-6 rounded border border-gray-100 card-shadow text-sm space-y-3">
+                <p class="justify-text">Tôm hùm là nguồn cung cấp <strong>Protein dồi dào</strong>, ít chất béo bão hòa, giàu Vitamin B12, kẽm và Magie. Axit citric trong me hỗ trợ tiêu hóa hiệu quả.</p>
+                <div class="p-3 bg-red-50 text-red-900 italic text-[13px] rounded">
+                    <strong>Lưu ý:</strong> Người có tiền sử dị ứng hải sản hoặc bệnh Gout nên cân nhắc. Tránh uống trà hoặc ăn trái cây giàu Vitamin C ngay sau khi ăn để tránh đầy bụng.
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center uppercase tracking-wider">
+                <svg class="mr-2 text-cinnabar" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 1 0 10 10"/><path d="M12 22a7 7 0 1 0-10-10"/></svg>
+                6. Gợi ý trình bày
+            </h3>
+            <ul class="text-sm space-y-3 list-none">
+                <li class="flex items-start">
+                    <span class="text-gold mr-2">✦</span>
+                    <span class="justify-text">Đặt tôm hùm vào đĩa lớn, xếp theo hình dáng ban đầu để tạo sự sang trọng của món ăn cung đình.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold mr-2">✦</span>
+                    <span class="justify-text">Rưới nước xốt còn lại lên thân tôm để tạo độ bóng mượt, rắc thêm đậu phộng rang giã dập và rau răm.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold mr-2">✦</span>
+                    <span class="justify-text">Trang trí thêm ớt tỉa hoa hoặc cà rốt để tạo sự tương phản màu sắc rực rỡ (Đỏ - Nâu - Xanh).</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Navigation Scroll Hint (Mobile) -->
+    <div class="fixed bottom-4 right-4 md:hidden">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-charcoal text-white p-3 rounded-full shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+    </div>
+
+</body>
+</html>
+
