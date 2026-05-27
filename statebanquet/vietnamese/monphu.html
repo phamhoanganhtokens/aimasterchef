@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salad Cà Chua, Đậu Phụ và Rau Củ Hầm Ratatouille Hương Vị Việt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4E9D5'
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .recipe-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+            font-size: 1.5rem;
+            min-width: 40px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-12">
+        <div class="mb-4 inline-block px-4 py-1 border-y border-gold text-gold tracking-widest uppercase text-sm font-bold">
+            AI Vua Đầu Bếp Exclusive
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">
+            Salad Cà Chua, Đậu Phụ và Rau Củ Hầm Ratatouille Hương Vị Việt
+        </h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-8">
+            Vietnamese-Infused Ratatouille with Tofu & Tomato Salad
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-200 bg-white/50 backdrop-blur-sm">
+            <div class="flex flex-col items-center border-r border-gray-100 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-100 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Thời gian</span>
+                <span class="font-bold text-lg">50 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-100 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Khẩu phần</span>
+                <span class="font-bold text-lg">2-4 người</span>
+            </div>
+            <div class="flex flex-col items-center last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Phong cách</span>
+                <span class="font-bold text-lg uppercase">Fusion</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic justified text-gray-700 leading-relaxed px-4">
+            "Đây là một tác phẩm giao thoa văn hóa (Fusion), kết hợp kỹ thuật hầm rau củ Ratatouille kinh điển của vùng Provence (Pháp) với sự thanh đạm của đậu phụ và linh hồn gia vị Việt Nam (sả, nước mắm, húng quế). Món ăn đại diện cho sự cân bằng giữa kỹ nghệ Tây phương và hương vị nhiệt đới Đông Dương."
+        </div>
+    </header>
+
+    <div class="ornament max-w-5xl mx-auto">
+        <span class="ornament-icon">✦ ✦ ✦</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-gold pb-2 uppercase tracking-wide">1. Nguyên liệu</h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-bold text-cinnabar italic mb-3">Phần Rau củ hầm (Ratatouille)</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>1 quả cà tím</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>1 quả bí ngòi xanh</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>1 quả ớt chuông đỏ</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>200g cà chua chín mọng</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-cinnabar italic mb-3">Đạm & Gia vị Việt</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>3 miếng đậu phụ trắng (loại cứng)</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>2 củ hành tím, 1 củ tỏi</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>1 cây sả (phần lõi trắng)</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>Nước mắm (hoặc nước tương), đường phèn, tiêu</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-cinnabar italic mb-3">Salad Tươi & Decor</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>100g cà chua bi đa sắc</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>Chanh, húng quế, ngò rí, ớt sừng</span>
+                        </li>
+                        <li class="flex items-center space-x-2 border-b border-dashed border-gray-200 pb-1 hover:pl-2 transition-all">
+                            <span class="text-gold">◈</span> <span>Dầu ô liu nguyên chất</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-gold pb-2 uppercase tracking-wide">2. Các bước thực hiện</h2>
+            
+            <div class="space-y-10 relative">
+                <!-- Step 1 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <span class="step-number">01</span>
+                        <div class="w-px h-full bg-gold/30 mt-2"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 uppercase tracking-tight flex justify-between items-center">
+                            Sơ chế & Chuẩn bị
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded italic font-normal text-gray-500">Góc nhìn Home Cook</span>
+                        </h4>
+                        <p class="justified text-gray-800 leading-relaxed">
+                            Cắt cà tím, bí ngòi và ớt chuông thành khối vuông đều nhau (khoảng 1.5cm). Đậu phụ thấm khô nước, cắt khối tương đương rau củ. Để tiết kiệm thời gian, bạn có thể dùng nồi chiên không dầu để làm chín đậu phụ trước ở 190°C trong 15 phút cho đến khi vàng giòn lớp vỏ.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <span class="step-number">02</span>
+                        <div class="w-px h-full bg-gold/30 mt-2"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 uppercase tracking-tight flex justify-between items-center">
+                            Tạo nền hương vị
+                            <span class="text-xs bg-goldLight text-gold px-2 py-1 rounded italic font-normal">Expert View</span>
+                        </h4>
+                        <p class="justified text-gray-800 leading-relaxed">
+                            Băm nhỏ sả, hành tím và tỏi. Đun nóng dầu, phi thơm hỗn hợp này cho đến khi chuyển sang màu vàng nhạt và dậy mùi thơm đặc trưng của bếp Việt. Đây chính là "linh hồn" giúp món hầm Pháp trở nên gần gũi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <span class="step-number">03</span>
+                        <div class="w-px h-full bg-gold/30 mt-2"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 uppercase tracking-tight flex justify-between items-center">
+                            Kỹ thuật hầm Pháp
+                            <span class="text-xs bg-red-50 text-cinnabar px-2 py-1 rounded italic font-normal">Pro Chef Technique</span>
+                        </h4>
+                        <p class="justified text-gray-800 leading-relaxed">
+                            Cho cà tím và ớt chuông vào xào trước với lửa lớn để tạo lớp vỏ áp chảo (caramelization), sau đó mới cho bí ngòi và cà chua băm nhỏ vào. Thêm một chút nước mắm và đường phèn để cân bằng độ chua của cà chua. Hạ lửa nhỏ, đậy vung hầm trong 15-20 phút cho đến khi rau củ mềm nhưng không bị nát.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <span class="step-number">04</span>
+                        <div class="w-px h-full bg-gold/30 mt-2"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 uppercase tracking-tight">Kết hợp Đậu phụ</h4>
+                        <p class="justified text-gray-800 leading-relaxed">
+                            Cho phần đậu phụ đã chiên giòn vào nồi rau củ hầm, đảo nhẹ tay để nước sốt rau củ thấm vào đậu. Tắt bếp, rắc thêm tiêu đen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-6 group">
+                    <div class="flex flex-col items-center">
+                        <span class="step-number">05</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 uppercase tracking-tight">Chuẩn bị Salad cà chua tươi</h4>
+                        <p class="justified text-gray-800 leading-relaxed">
+                            Trong khi chờ rau củ hầm nguội bớt, cắt đôi cà chua bi, trộn với nước cốt chanh, một chút vỏ chanh bào và húng quế thái chỉ. Việc kết hợp salad tươi lên trên món hầm ấm nóng tạo nên sự tương phản nhiệt độ và kết cấu thú vị.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner Section -->
+    <section class="max-w-4xl mx-auto my-16">
+        <div class="relative p-8 border-double border-4 border-gold bg-goldLight/20 recipe-card rounded-sm overflow-hidden">
+            <div class="absolute top-0 right-0 p-2 opacity-10">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gold mb-6 uppercase tracking-widest text-center">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center md:text-left">
+                    <h5 class="font-bold mb-2 italic">Kỹ thuật cắt</h5>
+                    <p class="text-sm justified">Đảm bảo các loại rau củ có kích thước đồng đều để chín cùng lúc.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h5 class="font-bold mb-2 italic">Xử lý cà tím</h5>
+                    <p class="text-sm justified">Ngâm cà tím vào nước muối loãng 5 phút để loại bỏ vị đắng và ngăn thâm.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h5 class="font-bold mb-2 italic">Cân bằng Umami</h5>
+                    <p class="text-sm justified">Sử dụng nước tương lên men và nấm men dinh dưỡng nếu ăn chay để tạo độ sâu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-5xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold mb-8 border-b-2 border-gold pb-2 uppercase tracking-wide">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="recipe-card p-6 border-l-4 border-cinnabar hover-lift">
+                <h4 class="font-bold text-cinnabar mb-2 uppercase">Thay thế Protein</h4>
+                <p class="justified italic text-sm">Có thể thay đậu phụ bằng nấm đùi gà cắt khối hoặc tôm áp chảo sả ớt để tăng thêm hương vị hải sản.</p>
+            </div>
+            <div class="recipe-card p-6 border-l-4 border-gold hover-lift">
+                <h4 class="font-bold text-gold mb-2 uppercase">Tiết kiệm thời gian</h4>
+                <p class="justified italic text-sm">Sử dụng sốt cà chua đóng hộp nếu không có cà chua tươi chín mọng cho phần hầm, vẫn đảm bảo độ đậm đà.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Footer -->
+    <section class="max-w-6xl mx-auto border-t-2 border-gold pt-12 pb-20">
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Nutrition -->
+            <div class="p-8 bg-charcoal text-cream rounded-sm">
+                <h3 class="text-gold text-xl font-bold mb-6 uppercase tracking-widest">5. Giá trị dinh dưỡng</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold mt-1">✓</span>
+                        <div>
+                            <span class="font-bold block">Hàm lượng thực vật cao</span>
+                            <span class="text-sm opacity-80">Giàu chất xơ hỗ trợ hệ tiêu hóa khỏe mạnh.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold mt-1">✓</span>
+                        <div>
+                            <span class="font-bold block">Protein thực vật</span>
+                            <span class="text-sm opacity-80">Đậu phụ cung cấp đạm lành mạnh, không cholesterol.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold mt-1">✓</span>
+                        <div>
+                            <span class="font-bold block">Lycopene & Kháng viêm</span>
+                            <span class="text-sm opacity-80">Chất chống oxy hóa từ cà chua và tính kháng khuẩn của sả, tỏi.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Presentation -->
+            <div class="p-8 bg-white border border-gray-200 shadow-sm">
+                <h3 class="text-cinnabar text-xl font-bold mb-6 uppercase tracking-widest">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-gray-700 italic justified text-sm">
+                    <p>Sử dụng đĩa sâu lòng màu trắng hoặc gốm mộc để làm nổi bật màu sắc rực rỡ của rau củ.</p>
+                    <p>Múc phần rau củ hầm và đậu phụ vào tâm đĩa, vun cao tạo khối đầy đặn và sang trọng.</p>
+                    <p>Xếp salad cà chua tươi lên trên đỉnh để tạo chiều cao và sự tươi mát đầy sức sống.</p>
+                    <p>Rưới một vòng dầu ô liu nguyên chất xung quanh đĩa, trang trí bằng vài lá húng quế tươi và một vài lát ớt sừng cắt chéo để tạo điểm nhấn thị giác chuẩn phong cách gourmet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple interactivity for tabs or list items if needed
+        document.querySelectorAll('li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.color = '#E23D28';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.color = '';
+            });
+        });
+    </script>
+</body>
+</html>
