@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Nem cuốn hải sản với trứng cua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--accent-gold);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        .meta-icon {
+            color: var(--accent-cinnabar);
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--accent-gold);
+            padding: 2rem;
+            background-color: rgba(197, 160, 89, 0.05);
+            position: relative;
+        }
+
+        .pro-tip-box::before {
+            content: 'Expert Insight';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-cream);
+            padding: 0 10px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .tab-active {
+            border-bottom: 2px solid var(--accent-cinnabar);
+            color: var(--accent-cinnabar);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 pb-8 px-6 text-center">
+        <div class="mb-4">
+            <span class="text-xs tracking-[0.4em] uppercase text-gray-500 mb-2 block">— AI VUA ĐẦU BẾP —</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 tracking-tight">Nem cuốn hải sản với trứng cua</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 font-serif">Seafood Spring Rolls with Tobiko</h2>
+        </div>
+
+        <div class="w-24 h-1 bg-[#E23D28] mx-auto my-8"></div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-stone-200 mt-10">
+            <div class="flex flex-col items-center border-r border-stone-100 last:border-0">
+                <span class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Độ khó</span>
+                <span class="font-bold text-sm">TRUNG BÌNH</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-stone-100 last:border-0">
+                <span class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Thời gian</span>
+                <span class="font-bold text-sm">45 PHÚT</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-stone-100 last:border-0">
+                <span class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Phục vụ</span>
+                <span class="font-bold text-sm">4 NGƯỜI</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Nguồn gốc</span>
+                <span class="font-bold text-[11px] leading-tight px-2">FUSION VIỆT - NHẬT</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic text-stone-500 max-w-2xl mx-auto text-sm justified-text leading-relaxed">
+            Sự kết hợp hiện đại giữa Gỏi cuốn truyền thống Việt Nam và nguyên liệu cao cấp từ ẩm thực Nhật Bản (trứng cua Tobiko), mang đến trải nghiệm hương vị đa tầng và kết cấu tinh tế.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        
+        <div class="section-divider">
+            <span class="ornament">✦</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-stone-200 pb-2 flex items-center">
+                        <span class="mr-3 text-accent-cinnabar">I.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-stone-400 font-bold mb-4">Phần nhân chính</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>300g tôm sú tươi</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>200g mực ống / thanh cua</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1 font-bold text-[#E23D28]"><span>50g trứng cua (Tobiko)</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-stone-400 font-bold mb-4">Rau củ & Tươi sống</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Bánh tráng dẻo cao cấp</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>100g bún tươi</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Xà lách, húng quế, húng lủi</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Dưa chuột, cà rốt</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-stone-400 font-bold mb-4">Sốt chấm Fusion</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>4 muỗng Mayonnaise</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>1 muỗng tương ớt Sriracha</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Nước cốt chanh & tỏi băm</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-stone-400 font-bold mb-4">Sốt chấm Truyền thống</h4>
+                            <ul class="space-y-3 text-sm italic">
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Tương đen (Hoisin) & Bơ đậu phộng</span></li>
+                                <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Lạc rang giã nhỏ</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <article class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 border-b border-stone-200 pb-2 flex items-center">
+                    <span class="mr-3 text-accent-cinnabar">II.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-4xl opacity-50">01</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-lg font-bold uppercase tracking-tight mb-2">Sơ chế hải sản</h4>
+                            <p class="justified-text text-stone-700 leading-relaxed italic mb-2 text-sm">Thời gian ước tính: 15 phút</p>
+                            <p class="justified-text text-stone-700 leading-relaxed">
+                                Tôm rửa sạch, luộc cùng sả, gừng và rượu trắng để khử mùi tanh. Sau khi chín, ngâm ngay vào nước đá lạnh để giữ độ giòn và màu sắc rực rỡ. Sau đó bóc vỏ, chẻ đôi theo chiều dọc. Mực luộc tương tự và thái sợi vừa ăn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-4xl opacity-50">02</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-lg font-bold uppercase tracking-tight mb-2">Sơ chế rau củ</h4>
+                            <p class="justified-text text-stone-700 leading-relaxed">
+                                Cà rốt và dưa chuột gọt vỏ, thái sợi chỉ dài khoảng 5-7cm đồng đều. Xà lách và rau thơm rửa sạch, để thật ráo nước nhằm tránh làm nhão bánh tráng khi cuốn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-4xl opacity-50">03</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-lg font-bold uppercase tracking-tight mb-2">Chế biến sốt Fusion</h4>
+                            <p class="justified-text text-stone-700 leading-relaxed">
+                                Trộn đều Mayonnaise và tương ớt Sriracha cho đến khi hỗn hợp có màu cam nhạt mịn màng. Độ béo ngậy của sốt sẽ cân bằng với vị mặn nhẹ tự nhiên của hải sản và trứng cua.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-4xl opacity-50">04</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-lg font-bold uppercase tracking-tight mb-2">Kỹ thuật cuốn tinh tế</h4>
+                            <p class="justified-text text-stone-700 leading-relaxed mb-4">
+                                Làm ẩm bánh tráng bằng khăn ẩm thay vì nhúng nước để giữ độ dẻo mà không nát. 
+                            </p>
+                            <div class="bg-stone-50 p-6 rounded-sm border-l-4 border-[#C5A059]">
+                                <ul class="space-y-2 text-sm italic">
+                                    <li>• Lót xà lách và rau thơm xuống phía dưới cùng.</li>
+                                    <li>• Thêm bún, dưa chuột, cà rốt và hải sản vào giữa trung tâm.</li>
+                                    <li>• Phết một lớp trứng cua dọc theo chiều dài của cuốn.</li>
+                                    <li>• Gấp hai đầu và cuộn thật chặt tay để định hình khối.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-4xl opacity-50">05</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-lg font-bold uppercase tracking-tight mb-2">Hoàn thiện & Trình bày</h4>
+                            <p class="justified-text text-stone-700 leading-relaxed">
+                                Cắt đôi theo đường chéo để lộ phần nhân đa sắc bên trong hoặc giữ nguyên chiều dài tùy theo phong cách bày đĩa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="mt-16 pro-tip-box">
+                    <h3 class="text-xl font-bold mb-4 font-serif italic text-[#C5A059]">Mẹo hay từ Vua Đầu Bếp</h3>
+                    <div class="space-y-4 text-sm justified-text">
+                        <p><strong>Xử lý hải sản:</strong> Luôn luộc vừa chín tới. Việc ngâm nước đá ngay sau khi luộc là "hacks" bắt buộc để thịt tôm săn chắc và dễ bóc vỏ.</p>
+                        <p><strong>Độ ẩm bánh tráng:</strong> Chỉ làm ẩm mặt ngoài vừa đủ; nếu quá ướt, trứng cua sẽ bị bết và mất độ rời rạc đặc trưng.</p>
+                        <p><strong>Cố định trứng cua:</strong> Trộn trứng cua với một chút xíu sốt Mayonnaise trước khi cho vào cuốn để trứng không bị rơi ra khi thưởng thức.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">✦</span>
+        </div>
+
+        <!-- Variations & Pro Versions -->
+        <section class="mb-20">
+            <h3 class="text-center text-2xl font-bold mb-10 tracking-widest uppercase">Biến tấu & Nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 border-t-2 border-[#E23D28]">
+                    <h4 class="font-bold text-lg mb-4 text-[#E23D28]">Phiên bản Chiên xù (Crunchy)</h4>
+                    <p class="text-sm justified-text text-stone-600 italic">
+                        Cuốn nem với nhân hải sản và sốt mayo, sau đó lăn qua bột chiên xù và chiên vàng giòn. Trứng cua sẽ được trang trí lên trên sau khi chiên để giữ được kết cấu nổ lách tách đặc trưng khi nhai.
+                    </p>
+                </div>
+                <div class="glass-card p-8 border-t-2 border-[#C5A059]">
+                    <h4 class="font-bold text-lg mb-4 text-[#C5A059]">Phiên bản Low-carb (Healthy)</h4>
+                    <p class="text-sm justified-text text-stone-600 italic">
+                        Thay bánh tráng bằng lá cải kale tươi hoặc các lát dưa chuột thái mỏng dính và loại bỏ phần bún. Tăng cường lượng rau xanh để tối ưu hóa giá trị dinh dưỡng cho thực đơn ăn kiêng.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-stone-200">
+            <section>
+                <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-stone-400">Giá trị dinh dưỡng</h4>
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="text-center p-4 bg-stone-100">
+                        <span class="block text-xl font-bold">180</span>
+                        <span class="text-[10px] uppercase text-stone-500">Calo / Cuốn</span>
+                    </div>
+                    <div class="text-center p-4 bg-stone-100">
+                        <span class="block text-xl font-bold">Omega-3</span>
+                        <span class="text-[10px] uppercase text-stone-500">Hàm lượng cao</span>
+                    </div>
+                    <div class="text-center p-4 bg-stone-100">
+                        <span class="block text-xl font-bold">Protein</span>
+                        <span class="text-[10px] uppercase text-stone-500">Tối ưu</span>
+                    </div>
+                </div>
+                <p class="text-xs justified-text text-stone-600 leading-relaxed italic">
+                    Giàu Protein từ tôm và mực, cung cấp các khoáng chất quý như Iodine và Selenium từ trứng cua. Hỗ trợ tốt cho tim mạch và cung cấp nhiều chất xơ.
+                </p>
+            </section>
+
+            <section>
+                <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-stone-400">Gợi ý trình bày</h4>
+                <ul class="text-xs space-y-3 text-stone-600 justified-text">
+                    <li class="flex gap-2">
+                        <span class="text-[#C5A059]">•</span>
+                        <span>Sắp xếp theo hình nan quạt trên đĩa sứ màu trắng hoặc đen để làm nổi bật màu cam rực rỡ.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-[#C5A059]">•</span>
+                        <span>Sử dụng lá hẹ để thắt nút trang trí bên ngoài mỗi cuốn nem cho thêm phần tinh tế.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-[#C5A059]">•</span>
+                        <span>Rắc trứng cua trực tiếp lên vị trí tôm lộ ra dưới lớp bánh tráng để tạo hiệu ứng chiều sâu.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-[#C5A059]">•</span>
+                        <span>Chấm kèm bát sốt có điểm thêm vài hạt trứng cua trên bề mặt để tăng tính đồng bộ.</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        // Smooth hover interactions
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.6)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
