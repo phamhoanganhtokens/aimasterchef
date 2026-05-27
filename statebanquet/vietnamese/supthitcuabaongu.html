@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Súp Thịt Cua Bào Ngư Thượng Hạng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EBD0',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #C5A059;
+            transform: translateY(-2px);
+        }
+        .pro-box {
+            border: 3px double #C5A059;
+            background-color: #FDF9F0;
+        }
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(even) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="mb-4 inline-block px-4 py-1 border-y border-gold text-gold tracking-widest uppercase text-sm font-bold">
+            AI Vua Đầu Bếp • Premium Collection
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase leading-tight tracking-tight">
+            Súp Thịt Cua Bào Ngư Thượng Hạng
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic text-cinnabar font-medium mb-8">
+            Royal Abalone & Crab Soup
+        </h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border border-gold rounded-sm bg-white shadow-sm overflow-hidden">
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-gold text-xs uppercase tracking-widest font-bold mb-1">Độ khó</span>
+                <span class="font-bold text-lg">4/5 (Nâng cao)</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-gold text-xs uppercase tracking-widest font-bold mb-1">Thời gian</span>
+                <span class="font-bold text-lg">120 - 150 phút</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-gold text-xs uppercase tracking-widest font-bold mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">4 - 5 người</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center">
+                <span class="text-gold text-xs uppercase tracking-widest font-bold mb-1">Nguồn gốc</span>
+                <span class="font-bold text-lg">Quảng Đông</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic justified-text max-w-3xl mx-auto text-charcoal opacity-90 border-l-4 border-cinnabar pl-6">
+            "Có nguồn gốc từ ẩm thực Trung Hoa (Quảng Đông), món súp này đã trở thành biểu tượng của sự sang trọng trong các buổi tiệc hỷ và đại tiệc tại Việt Nam nhờ sự kết hợp tinh túy giữa hải sản cao cấp và nước dùng thanh tao."
+        </p>
+    </header>
+
+    <div class="ornament">
+        <span class="ornament-icon">✦ ★ ✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4 space-y-8">
+            <div class="sticky top-8">
+                <h3 class="text-2xl font-bold text-cinnabar border-b-2 border-cinnabar pb-2 mb-6 uppercase tracking-wider">
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gold italic mb-3 flex items-center">
+                            <span class="mr-2">◈</span> Hải sản chính
+                        </h4>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Bào ngư (tươi/đóng hộp)</span> <span class="font-bold italic">4-8 con</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Thịt cua tươi (đã bóc)</span> <span class="font-bold italic">200g</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Cồi sò điệp khô (Conpoy)</span> <span class="font-bold italic">4 hạt</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold italic mb-3 flex items-center">
+                            <span class="mr-2">◈</span> Nước dùng
+                        </h4>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Xương gà (hoặc gà già)</span> <span class="font-bold italic">1kg</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Gừng, hành tây, rượu trắng</span> <span class="font-bold italic">Vừa đủ</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold italic mb-3 flex items-center">
+                            <span class="mr-2">◈</span> Nguyên liệu phụ
+                        </h4>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Nấm đông cô (nấm hương)</span> <span class="font-bold italic">50g</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Bắp Mỹ (ngô hạt)</span> <span class="font-bold italic">100g</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Trứng gà & Trứng cút</span> <span class="font-bold italic">2-10 quả</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold italic mb-3 flex items-center">
+                            <span class="mr-2">◈</span> Chất tạo sánh & Gia vị
+                        </h4>
+                        <ul class="space-y-2 ml-4 text-sm">
+                            <li class="justified-text">Bột năng hoặc tinh bột khoai tây (tốt nhất).</li>
+                            <li class="justified-text">Đường phèn, muối, hạt nêm cao cấp, dầu mè, tiêu trắng.</li>
+                            <li class="justified-text italic text-gray-500">Trang trí: Ngò rí, hành lá.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8 space-y-8">
+            <h3 class="text-2xl font-bold text-cinnabar border-b-2 border-cinnabar pb-2 mb-6 uppercase tracking-wider">
+                2. Các bước thực hiện
+            </h3>
+
+            <div class="space-y-10 relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-6 top-4 bottom-0 w-px bg-gold opacity-30 hidden md:block"></div>
+
+                <div class="flex items-start group">
+                    <span class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-gold text-white font-bold z-10 shrink-0 shadow-lg">1</span>
+                    <div class="md:ml-8 bg-white p-6 rounded-sm shadow-sm glass-card w-full">
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="md:hidden step-number">1.</span>
+                            Chế biến nước dùng (Cốt lõi truyền thống)
+                            <span class="ml-auto text-xs font-serif italic text-gold">~ 120 phút</span>
+                        </h4>
+                        <div class="justified-text space-y-2">
+                            <p>Chần xương gà qua nước sôi có gừng và muối để khử mùi. Ninh xương gà với 2.5 lít nước cùng hành tây nướng và cồi sò điệp khô đã ngâm mềm. Ninh nhỏ lửa trong 2 tiếng, liên tục hớt bọt để nước trong vắt.</p>
+                            <p class="text-cinnabar font-bold italic text-sm italic">Mẹo Pro: Lọc nước dùng qua khăn vắt để loại bỏ hoàn toàn cặn xương.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-start group">
+                    <span class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-gold text-white font-bold z-10 shrink-0 shadow-lg">2</span>
+                    <div class="md:ml-8 bg-white p-6 rounded-sm shadow-sm glass-card w-full">
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="md:hidden step-number">2.</span>
+                            Sơ chế nguyên liệu cao cấp
+                            <span class="ml-auto text-xs font-serif italic text-gold">~ 15 phút</span>
+                        </h4>
+                        <div class="justified-text space-y-2">
+                            <p><strong>Bào ngư:</strong> Nếu dùng bào ngư tươi, chà sạch bằng bàn chải, ngâm nước muối gừng. Thái lát mỏng hoặc để nguyên con tùy sở thích.</p>
+                            <p><strong>Thịt cua:</strong> Áp chảo sơ với một ít hành tím phi thơm và rượu trắng để khử tanh, giữ vị ngọt.</p>
+                            <p><strong>Nấm:</strong> Thái sợi mỏng đồng nhất với kích thước thịt cua.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-start group">
+                    <span class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-gold text-white font-bold z-10 shrink-0 shadow-lg">3</span>
+                    <div class="md:ml-8 bg-white p-6 rounded-sm shadow-sm glass-card w-full">
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="md:hidden step-number">3.</span>
+                            Mô phỏng đa nhiệm (Nấu súp)
+                            <span class="ml-auto text-xs font-serif italic text-gold">~ 10 phút</span>
+                        </h4>
+                        <div class="justified-text space-y-2">
+                            <p>Đun sôi lại nước dùng đã lọc. Cho bắp Mỹ và nấm đông cô vào nấu chín. Cho bào ngư và trứng cút vào. Khi nước sôi lăn tăn, nêm nếm bằng đường phèn (tạo vị ngọt thanh) và muối.</p>
+                            <p><strong>Kỹ thuật Pro:</strong> Hòa tan bột năng với nước lạnh. Đổ từ từ vào nồi súp, vừa đổ vừa khuấy một chiều nhẹ nhàng cho đến khi đạt độ sánh mong muốn (trạng thái "đứng" súp, không quá đặc).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-start group">
+                    <span class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-gold text-white font-bold z-10 shrink-0 shadow-lg">4</span>
+                    <div class="md:ml-8 bg-white p-6 rounded-sm shadow-sm glass-card w-full">
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="md:hidden step-number">4.</span>
+                            Tạo vân trứng (Thẩm mỹ)
+                            <span class="ml-auto text-xs font-serif italic text-gold">~ 5 phút</span>
+                        </h4>
+                        <div class="justified-text space-y-2">
+                            <p>Đánh tan trứng gà, rây qua một chiếc muôi có lỗ vào nồi súp đang sôi nhẹ. Khuấy nhẹ để tạo thành những dải vân trứng mảnh, đẹp như mây. Cuối cùng, cho thịt cua vào để tránh làm cua bị nát. Thêm vài giọt dầu mè để dậy mùi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="ornament">
+        <span class="ornament-icon">✥</span>
+    </div>
+
+    <!-- Special Insight Sections -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="pro-box p-8 rounded-sm shadow-inner">
+            <h3 class="text-2xl font-bold text-cinnabar mb-4 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <ul class="space-y-4 justified-text">
+                <li class="flex items-start">
+                    <span class="text-gold mr-3">●</span>
+                    <span><strong>Kiểm soát nhiệt độ:</strong> Sau khi cho bột năng, tuyệt đối không đun sôi sùng sục quá lâu vì sẽ làm súp bị "vữa" (nhả nước).</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold mr-3">●</span>
+                    <span><strong>Xử lý bào ngư:</strong> Không nấu bào ngư quá lâu (trừ loại đóng hộp đã mềm) vì sẽ làm bào ngư bị dai, mất đi độ giòn sần sật đặc trưng.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold mr-3">●</span>
+                    <span><strong>Lựa chọn gia vị:</strong> Sử dụng tiêu trắng thay vì tiêu đen để giữ màu sắc súp tinh khôi và không làm lấn át mùi hương của hải sản.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-charcoal text-cream p-8 rounded-sm shadow-xl flex flex-col justify-between">
+            <div>
+                <h3 class="text-2xl font-bold text-gold mb-4 uppercase tracking-widest">4. Biến tấu</h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold text-cinnabar">Home Cook (Tiết kiệm thời gian)</h4>
+                        <p class="text-sm justified-text opacity-90 mt-1">Sử dụng nước dùng gà đóng hộp chất lượng cao. Thay bào ngư tươi bằng bào ngư đóng hộp (loại thái lát) để giảm công đoạn sơ chế.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold text-cinnabar">Phiên bản bổ dưỡng</h4>
+                        <p class="text-sm justified-text opacity-90 mt-1">Thêm hải sâm hoặc bóng cá để tăng tính bồi bổ (phù hợp cho người mới ốm dậy).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-4 border-t border-gold border-opacity-30 text-xs italic text-center">
+                Công thức được tinh chỉnh cho trải nghiệm ẩm thực cao cấp
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer/Technical Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t-4 border-charcoal">
+        <div class="p-8 bg-gray-50 border-r border-gray-200">
+            <h3 class="text-xl font-bold mb-4 uppercase text-cinnabar">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4 justified-text text-sm">
+                <p><strong>Giá trị:</strong> Giàu Protein, kẽm, sắt, và Vitamin B12 từ bào ngư và cua.</p>
+                <p><strong>Lợi ích:</strong> Hỗ trợ phục hồi cơ bắp, tăng cường hệ miễn dịch và cung cấp lượng lớn Collagen từ nước hầm xương.</p>
+                <div class="p-3 bg-red-50 border-l-2 border-red-400 italic text-red-800">
+                    <strong>Lưu ý:</strong> Người có nồng độ acid uric cao (bệnh Gout) nên điều tiết lượng hải sản trong khẩu phần.
+                </div>
+            </div>
+        </div>
+        <div class="p-8 bg-white">
+            <h3 class="text-xl font-bold mb-4 uppercase text-cinnabar">6. Gợi ý trình bày</h3>
+            <ul class="space-y-3 justified-text text-sm">
+                <li><strong>Dụng cụ:</strong> Phục vụ trong thố sứ trắng hoặc bát gốm có nắp đậy để giữ nhiệt lâu.</li>
+                <li><strong>Sắp đặt:</strong> Đặt một con bào ngư nguyên vẹn lên trên cùng, xung quanh là thịt cua và vân trứng.</li>
+                <li><strong>Trang trí:</strong> Một nhành ngò rí tươi giữa bát, rắc một ít tiêu trắng lên trên. Có thể thêm một vài giọt giấm đỏ để tăng thêm chiều sâu hương vị.</li>
+                <li><strong>Hiệu ứng:</strong> Súp phải có độ trong, không đục, các nguyên liệu phân bổ đều trong làn súp sánh mịn.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="text-center mt-12 mb-8">
+        <p class="text-gold font-bold italic">“Ẩm thực không chỉ là ăn uống, đó là một di sản của sự tận tâm.”</p>
+    </div>
+
+</body>
+</html>
+
