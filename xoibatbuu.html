@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xôi Bát Bửu - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#B8860B',
+                        'accent-gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #B8860B;
+            opacity: 0.3;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #B8860B;
+            font-size: 1.2rem;
+        }
+        
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            min-width: 2.5rem;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            background-color: rgba(226, 61, 40, 0.05);
+            padding-left: 0.5rem;
+        }
+
+        .gold-frame {
+            border: 3px double #B8860B;
+            padding: 2rem;
+            position: relative;
+        }
+
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 pt-8">
+        <div class="mb-4 flex justify-center items-center gap-4">
+            <div class="h-px w-12 bg-burnished-gold"></div>
+            <span class="text-burnished-gold tracking-[0.3em] uppercase text-sm font-bold">AI Vua Đầu Bếp</span>
+            <div class="h-px w-12 bg-burnished-gold"></div>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-culinary-charcoal">XÔI BÁT BỬU</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Eight-Treasure Sticky Rice</h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 py-6 border-y border-burnished-gold/20 bg-white/50 backdrop-blur-sm rounded-lg shadow-sm">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xs uppercase tracking-widest font-bold">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="hidden md:block h-8 w-px bg-burnished-gold/20"></div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xs uppercase tracking-widest font-bold">Thời gian</span>
+                <span class="text-lg">4-5 giờ</span>
+            </div>
+            <div class="hidden md:block h-8 w-px bg-burnished-gold/20"></div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xs uppercase tracking-widest font-bold">Khẩu phần</span>
+                <span class="text-lg">4-6 người</span>
+            </div>
+            <div class="hidden md:block h-8 w-px bg-burnished-gold/20"></div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red text-xs uppercase tracking-widest font-bold">Nguồn gốc</span>
+                <span class="text-lg">Quảng Đông - Việt Nam</span>
+            </div>
+        </div>
+        
+        <div class="mt-10 max-w-3xl mx-auto">
+            <p class="justified-text text-lg italic text-gray-700 leading-relaxed">
+                Món xôi có nguồn gốc từ ẩm thực Trung Hoa (Quảng Đông), du nhập vào Việt Nam và trở thành món ăn đặc trưng trong các dịp lễ tết, hỷ sự nhờ ý nghĩa tượng trưng cho sự sung túc và may mắn qua 8 loại nguyên liệu quý (Bát Bửu).
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar-red pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="mb-8">
+                    <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-sm mb-4">Phần chính</h4>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item py-2 flex justify-between">
+                            <span>Gạo nếp (Cái hoa vàng/Ngỗng)</span>
+                            <span class="font-bold">500g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-sm mb-4">8 Loại Bát Bửu</h4>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item py-2 flex justify-between"><span>Lạp xưởng (hạt lựu)</span> <span class="font-bold">2 cây</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Thịt xá xíu (hạt lựu)</span> <span class="font-bold">100g</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Tôm khô (ngâm mềm)</span> <span class="font-bold">30g</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Hạt sen (ninh mềm)</span> <span class="font-bold">50g</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Nấm đông cô (hạt lựu)</span> <span class="font-bold">5-7 tai</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Hạt điều/Đậu phộng</span> <span class="font-bold">30g</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Táo tàu/Kỷ tử</span> <span class="font-bold">20g</span></li>
+                        <li class="ingredient-item py-2 flex justify-between"><span>Xá bấu (băm nhỏ)</span> <span class="font-bold">20g</span></li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-sm mb-4">Gia vị & Sốt</h4>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item py-2 text-sm">Hành tím, tỏi băm, ngũ vị hương</li>
+                        <li class="ingredient-item py-2 text-sm">Nước tương, dầu hào, đường, tiêu</li>
+                        <li class="ingredient-item py-2 text-sm italic">Mỡ hành hoặc mỡ lợn tạo độ bóng</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-10 border-b-2 border-cinnabar-red pb-2 inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12">
+                <div class="flex gap-6">
+                    <span class="step-number">01.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Chuẩn bị gạo nếp</h5>
+                        <p class="justified-text text-gray-700">Gạo nếp vo sạch, ngâm nước ấm ít nhất 4 tiếng (hoặc qua đêm). Vớt ra để ráo, xóc với một chút muối để hạt xôi thêm đậm đà.</p>
+                        <span class="inline-block mt-2 text-xs font-bold text-burnished-gold uppercase tracking-widest">⏱ 4-8 Giờ</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="step-number">02.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Đồ xôi (Lần 1)</h5>
+                        <p class="justified-text text-gray-700">Cho gạo vào xửng hấp khi nước đã sôi. Hấp trong khoảng 20-25 phút đến khi hạt nếp vừa chín tới (chín khoảng 80%).</p>
+                        <span class="inline-block mt-2 text-xs font-bold text-burnished-gold uppercase tracking-widest">⏱ 25 Phút</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="step-number">03.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Sơ chế nhân</h5>
+                        <p class="justified-text text-gray-700">Phi thơm hành tỏi băm với mỡ lợn hoặc dầu ăn. Cho tôm khô, lạp xưởng, xá bấu, nấm đông cô vào xào săn. Tiếp theo cho hạt sen, táo tàu vào đảo nhẹ tay để không bị nát.</p>
+                        <span class="inline-block mt-2 text-xs font-bold text-burnished-gold uppercase tracking-widest">⏱ 15 Phút</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="step-number">04.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Thấm vị</h5>
+                        <p class="justified-text text-gray-700">Đổ hỗn hợp nước sốt trộn (nước tương, dầu hào, ngũ vị hương) vào chảo nhân, đảo đều cho gia vị thấm sâu. Cho thịt xá xíu vào sau cùng để giữ độ mềm mọng.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="step-number">05.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Phối trộn</h5>
+                        <p class="justified-text text-gray-700">Trút toàn bộ phần nhân xào vào xửng xôi đang nóng. Dùng đũa xới nhẹ nhàng để nhân và nước sốt bao quanh từng hạt nếp, giúp hạt nếp có màu nâu cánh gián đặc trưng.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="step-number">06.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Đồ xôi (Lần 2)</h5>
+                        <p class="justified-text text-gray-700">Đậy nắp xửng, hấp tiếp 10-15 phút. Việc hấp hai lần giúp hạt xôi dẻo lâu, ngấm đều hương vị của các nguyên liệu phụ trợ và không bị cứng khi nguội.</p>
+                        <span class="inline-block mt-2 text-xs font-bold text-burnished-gold uppercase tracking-widest">⏱ 15 Phút</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="step-number">07.</span>
+                    <div class="flex-1">
+                        <h5 class="text-xl font-bold mb-2 uppercase">Hoàn thiện</h5>
+                        <p class="justified-text text-gray-700">Khi xôi chín mềm hoàn toàn, rắc hạt điều/đậu phộng rang vào trộn đều. Rưới thêm một chút mỡ hành để tăng độ bóng bẩy và mùi thơm quyến rũ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="my-20">
+        <div class="section-divider">
+            <span class="ornament">★ ★ ★</span>
+        </div>
+        
+        <div class="gold-frame bg-white/40 shadow-xl">
+            <h3 class="text-2xl font-bold text-cinnabar-red mb-6 flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.364-6.364l-.707-.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5z" />
+                </svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-2 gap-8 text-sm">
+                <div class="border-l-2 border-burnished-gold/30 pl-4">
+                    <h6 class="font-bold mb-1">Kỹ thuật "Đồ xôi hai lửa"</h6>
+                    <p class="justified-text italic">Đây là bí quyết để hạt nếp dẻo từ trong ra ngoài và không bị cứng lại khi để nguội.</p>
+                </div>
+                <div class="border-l-2 border-burnished-gold/30 pl-4">
+                    <h6 class="font-bold mb-1">Xử lý hạt sen</h6>
+                    <p class="justified-text italic">Hạt sen khô phải ngâm và hầm riêng với chút đường trước khi xào để hạt bùi mà không bị chát.</p>
+                </div>
+                <div class="border-l-2 border-burnished-gold/30 pl-4">
+                    <h6 class="font-bold mb-1">Kiểm soát độ ẩm</h6>
+                    <p class="justified-text italic">Nếu nấu nồi cơm điện, bớt 20% lượng nước so với bình thường vì nước từ nấm và gia vị sẽ tiết ra thêm.</p>
+                </div>
+                <div class="border-l-2 border-burnished-gold/30 pl-4">
+                    <h6 class="font-bold mb-1">Tránh lỗi bết dính</h6>
+                    <p class="justified-text italic">Không trộn nhân quá sớm khi nếp còn quá sống, nước sốt sẽ làm hạt nếp bị sượng (lại gạo).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations -->
+    <section class="mb-20">
+        <h3 class="text-3xl font-bold mb-10 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow rounded-lg">
+                <h4 class="text-cinnabar-red font-bold mb-3 uppercase text-sm tracking-widest">Vị Thanh Nhẹ</h4>
+                <p class="text-sm justified-text italic">Thay thịt xá xíu bằng ức gà xé nếu bạn muốn một cảm giác nhẹ nhàng, ít béo hơn cho bữa sáng.</p>
+            </div>
+            <div class="p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow rounded-lg">
+                <h4 class="text-cinnabar-red font-bold mb-3 uppercase text-sm tracking-widest">Phiên Bản Chay</h4>
+                <p class="text-sm justified-text italic">Dùng lạp xưởng chay, nấm đùi gà, sườn non chay và nước tương thực vật để tạo nên món xôi chay đẳng cấp.</p>
+            </div>
+            <div class="p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow rounded-lg border-burnished-gold/40">
+                <h4 class="text-burnished-gold font-bold mb-3 uppercase text-sm tracking-widest">Thượng Hạng</h4>
+                <p class="text-sm justified-text italic">Thêm bạch quả hoặc hạt dẻ để tăng thêm sự sang trọng và chiều sâu hương vị cho các bữa tiệc hỷ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Info -->
+    <footer class="grid md:grid-cols-2 gap-12 pt-12 border-t border-burnished-gold/20 mb-20">
+        <div>
+            <h4 class="text-xl font-bold mb-6 text-culinary-charcoal">5. Giá trị dinh dưỡng</h4>
+            <div class="space-y-4 text-sm justified-text">
+                <p>Món ăn cung cấp năng lượng cao từ tinh bột nếp và chất béo. Hạt sen và táo tàu hỗ trợ an thần, bồi bổ cơ thể. Tôm khô và thịt cung cấp protein dồi dào.</p>
+                <div class="bg-cinnabar-red/5 p-4 border-l-4 border-cinnabar-red">
+                    <p class="font-bold text-cinnabar-red mb-1">Lưu ý sức khỏe:</p>
+                    <p class="italic text-gray-600">Do chỉ số đường huyết (GI) của gạo nếp cao, người bị tiểu đường hoặc béo phì nên kiểm soát khẩu phần. Kết hợp nhiều hạt giúp bổ sung chất xơ.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-xl font-bold mb-6 text-culinary-charcoal">6. Gợi ý trình bày</h4>
+            <div class="space-y-4 text-sm justified-text">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Sử dụng khuôn tròn hoặc vuông ép nhẹ để định hình xôi.</li>
+                    <li>Úp ngược ra đĩa phẳng lớn, xếp hạt sen, táo tàu lên bề mặt để phô diễn "Bát Bửu".</li>
+                    <li>Trang trí thêm ngò rí và ớt tỉa hoa tạo tương phản đỏ - xanh - nâu.</li>
+                    <li>Phục vụ kèm nước tương và vài lát ớt mỏng để tăng vị đậm đà.</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="text-center pb-8 opacity-50">
+        <span class="ornament">❦</span>
+    </div>
+
+</body>
+</html>
