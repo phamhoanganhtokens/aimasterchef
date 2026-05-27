@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Sườn Cừu Nướng Xốt Tiêu Đen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23E28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to var(--direction, right), transparent, var(--accent-gold), transparent);
+        }
+
+        .ornament-icon {
+            margin: 0 1rem;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pro-tip-box {
+            border: 4px double var(--accent-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+            position: relative;
+        }
+
+        .pro-tip-box::before {
+            content: "★";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 10px;
+            color: var(--accent-gold);
+        }
+
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: -25px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--accent-gold);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -29px;
+            top: 5px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+
+        .glass-tab {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .glass-tab.active {
+            border-bottom-color: var(--accent-cinnabar);
+            color: var(--accent-cinnabar);
+        }
+
+        .meta-icon {
+            color: var(--accent-cinnabar);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .justified-text {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="mb-4 text-xs tracking-[0.4em] uppercase text-gray-500 font-bold">AI Vua Đầu Bếp | Premium Edition</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-gray-900 leading-tight">
+            Sườn Cừu Nướng Xốt Tiêu Đen Thượng Hạng
+        </h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 font-serif mb-8">
+            Rack of Lamb with Velvety Black Pepper Sauce
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-200 bg-white/50 backdrop-blur-sm rounded-lg shadow-sm">
+            <div class="flex flex-col items-center">
+                <span class="meta-icon mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Độ khó</span>
+                <span class="font-bold text-sm">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Thời gian</span>
+                <span class="font-bold text-sm">65 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Khẩu phần</span>
+                <span class="font-bold text-sm">2 - 4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Nguồn gốc</span>
+                <span class="font-bold text-sm">Âu - Á Fusion</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-700 justified-text leading-relaxed px-4 border-l-2 border-cinnabar-500 italic">
+            "Món ăn là sự giao thoa tinh tế giữa kỹ thuật chế biến thịt đỏ chuẩn mực của nền ẩm thực Âu châu cổ điển và sự nồng ấm, bùng nổ hương vị từ các loại gia vị đặc trưng Á Đông. Sự kết hợp này nhằm tôn vinh nguyên bản cấu trúc mềm mọng của thịt cừu, hòa quyện cùng lớp xốt tiêu đen nhung mượt đầy lôi cuốn."
+        </div>
+    </header>
+
+    <div class="ornament">
+        <span class="ornament-icon">✧ ✦ ✧</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-5">
+            <h2 class="text-2xl font-bold mb-8 border-b border-gray-200 pb-2 flex items-center">
+                <span class="text-accent-cinnabar mr-3">1.</span> Nguyên Liệu
+            </h2>
+            
+            <div class="space-y-8">
+                <div class="recipe-card p-6 rounded-sm">
+                    <h3 class="text-lg font-bold mb-4 text-accent-gold italic border-b border-gold-100 inline-block">Phần thịt cừu</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Tảng sườn cừu nguyên giá (French-trimmed)</span>
+                            <span class="font-bold whitespace-nowrap ml-4">800g - 1kg</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Sơ chế: Rượu vang trắng, gừng, muối hạt</span>
+                            <span class="font-bold whitespace-nowrap ml-4 text-xs italic text-gray-500">Khử mùi</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Dầu oliu nguyên chất</span>
+                            <span class="font-bold whitespace-nowrap ml-4">2 muỗng canh</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Lá hương thảo (Rosemary) băm nhỏ</span>
+                            <span class="font-bold whitespace-nowrap ml-4">1 muỗng canh</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Cỏ xạ hương (Thyme) tươi</span>
+                            <span class="font-bold whitespace-nowrap ml-4">1 muỗng cà phê</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Tỏi băm nhuyễn</span>
+                            <span class="font-bold whitespace-nowrap ml-4">3 tép</span>
+                        </li>
+                        <li class="text-sm italic text-gray-600">Muối biển và tiêu đen xay thô</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-card p-6 rounded-sm">
+                    <h3 class="text-lg font-bold mb-4 text-accent-gold italic border-b border-gold-100 inline-block">Xốt tiêu đen Velvety</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Hạt tiêu đen (rang thơm, giã dập)</span>
+                            <span class="font-bold whitespace-nowrap ml-4">2 muỗng canh</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Hành tím & Tỏi băm nhuyễn</span>
+                            <span class="font-bold whitespace-nowrap ml-4">1 củ / 2 tép</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Rượu vang đỏ khô (Dry Red Wine)</span>
+                            <span class="font-bold whitespace-nowrap ml-4">60ml</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Nước dùng bò (Beef stock)</span>
+                            <span class="font-bold whitespace-nowrap ml-4">150ml</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Kem tươi (Heavy cream)</span>
+                            <span class="font-bold whitespace-nowrap ml-4">50ml</span>
+                        </li>
+                        <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                            <span>Bơ lạt (Cắt khối, giữ thật lạnh)</span>
+                            <span class="font-bold whitespace-nowrap ml-4">20g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="recipe-card p-6 rounded-sm bg-gray-50">
+                    <h3 class="text-lg font-bold mb-4 text-accent-gold italic border-b border-gold-100 inline-block">Phần ăn kèm</h3>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        <li>200g măng tây xanh (chần sơ)</li>
+                        <li>150g khoai tây baby hoặc khoai tây nghiền</li>
+                        <li>Salad rau đắng (Arugula/Rocket)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-7">
+            <h2 class="text-2xl font-bold mb-8 border-b border-gray-200 pb-2 flex items-center">
+                <span class="text-accent-cinnabar mr-3">2.</span> Các Bước Thực Hiện
+            </h2>
+
+            <div class="pl-8 space-y-12">
+                <!-- Step 1 -->
+                <div class="relative timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg uppercase tracking-wider text-gray-800">1. Sơ chế & Khử mùi</h4>
+                        <span class="text-xs font-serif italic text-accent-cinnabar bg-red-50 px-2 py-1 rounded">5 phút</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Làm sạch sườn cừu. Chà xát bề mặt thịt với gừng giã dập, rượu vang trắng và muối hạt trong 5 phút để khử hoàn toàn mùi gây đặc trưng. Rửa sạch lại bằng nước lạnh và dùng khăn giấy thấm thật khô bề mặt thịt.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg uppercase tracking-wider text-gray-800">2. Tẩm ướp</h4>
+                        <span class="text-xs font-serif italic text-accent-cinnabar bg-red-50 px-2 py-1 rounded">2 giờ + 30p nghỉ</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Trộn đều dầu oliu, tỏi băm, hương thảo, xạ hương, muối biển và tiêu xay thô. Massage đều hỗn hợp này lên toàn bộ khối thịt. Bọc kín, để trong ngăn mát tủ lạnh ít nhất 2 tiếng. Lấy thịt ra khỏi tủ lạnh, để ở nhiệt độ phòng 30 phút trước khi chế biến để thịt không bị sốc nhiệt.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg uppercase tracking-wider text-gray-800">3. Áp chảo (Searing)</h4>
+                        <span class="text-xs font-serif italic text-accent-cinnabar bg-red-50 px-2 py-1 rounded">5-7 phút</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Làm nóng chảo gang (Cast iron) trên lửa lớn. Thêm một chút dầu oliu. Đặt úp phần mỡ cừu xuống trước để mỡ tươm ra và áp chảo đến khi bề mặt xém vàng ruộm (phản ứng Maillard). Lật đều để áp chảo nhanh các mặt còn lại khóa nước thịt.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg uppercase tracking-wider text-gray-800">4. Nướng thịt</h4>
+                        <span class="text-xs font-serif italic text-accent-cinnabar bg-red-50 px-2 py-1 rounded">12-15 phút</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="pl-4 border-l-2 border-gray-100">
+                            <span class="font-bold text-sm block mb-1">Lò nướng chuyên dụng:</span>
+                            <p class="text-sm justified-text italic text-gray-600">Làm nóng lò ở 200°C. Đưa tảng cừu vào nướng trong 12-15 phút để đạt độ chín hoàn hảo (Medium Rare).</p>
+                        </div>
+                        <div class="pl-4 border-l-2 border-gray-100">
+                            <span class="font-bold text-sm block mb-1">Nồi chiên không dầu:</span>
+                            <p class="text-sm justified-text italic text-gray-600">Bọc giấy bạc phần xương sườn để không bị cháy. Set nhiệt 180°C nướng trong khoảng 10-12 phút.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 & 6 combined visual -->
+                <div class="relative timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg uppercase tracking-wider text-gray-800">5. Nghỉ thịt & Hoàn thiện Xốt</h4>
+                        <span class="text-xs font-serif italic text-accent-cinnabar bg-red-50 px-2 py-1 rounded">15 phút</span>
+                    </div>
+                    <p class="justified-text text-gray-700 mb-4">
+                        <strong class="text-accent-gold">Resting:</strong> Lấy sườn cừu ra khỏi lò, đặt lên rack lưới, lỏng tay bọc một lớp giấy bạc. Để thịt nghỉ bắt buộc trong 10-15 phút giúp nước thịt phân bổ lại đều.
+                    </p>
+                    <p class="justified-text text-gray-700">
+                        <strong class="text-accent-gold">Velvety Sauce:</strong> Tận dụng chảo vừa áp chảo. Hạ lửa vừa, phi thơm hành tím và tỏi. Cho tiêu đen giã dập vào. Deglaze bằng rượu vang đỏ. Đổ nước dùng bò vào, đun rút cạn còn một nửa. Thêm kem tươi, đun liu riu tới khi sánh. Tắt bếp, thả bơ lạnh vào khuấy đều (monter au beurre) tạo độ bóng.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner Section -->
+    <section class="max-w-4xl mx-auto my-20">
+        <div class="pro-tip-box p-8 md:p-12">
+            <h2 class="text-2xl font-bold text-center mb-8 uppercase tracking-[0.2em] text-accent-gold">3. Mẹo Hay Từ Vua Đầu Bếp</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl mb-4 text-accent-gold">🌡️</div>
+                    <h5 class="font-bold mb-2">Nhiệt độ cốt lõi</h5>
+                    <p class="text-sm justified-text text-gray-600">Sử dụng nhiệt kế nấu ăn. Chạm mốc 52°C - 54°C là độ chín Medium Rare lý tưởng, thịt sẽ mềm mọng nhất.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-4 text-accent-gold">🧈</div>
+                    <h5 class="font-bold mb-2">Kỹ thuật xốt</h5>
+                    <p class="text-sm justified-text text-gray-600">Tuyệt đối phải dùng bơ lạnh ở bước cuối và đã tắt bếp. Nếu đun sôi, xốt sẽ bị tách béo và mất cấu trúc mượt.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-4 text-accent-gold">🧻</div>
+                    <h5 class="font-bold mb-2">Lau khô thịt</h5>
+                    <p class="text-sm justified-text text-gray-600">Phải thấm thật khô thịt trước khi áp chảo để tạo lớp vỏ xém giòn, tránh tạo hơi nước làm thịt bị luộc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto mb-20">
+        <h2 class="text-2xl font-bold mb-8 border-b border-gray-200 pb-2 flex items-center">
+            <span class="text-accent-cinnabar mr-3">4.</span> Biến Tấu & Phiên Bản Nâng Cao
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 bg-white border border-gray-100 rounded-lg shadow-sm">
+                <h4 class="font-bold text-accent-cinnabar mb-2 italic">Xốt Thay Thế</h4>
+                <p class="text-sm text-gray-700 justified-text">
+                    Có thể thay thế xốt tiêu đen bằng xốt rượu vang đỏ mâm xôi (Red Wine & Raspberry Reduction) cho hương vị chua ngọt thanh tao, hoặc xốt bạc hà (Mint Sauce) theo phong cách Anh quốc truyền thống.
+                </p>
+            </div>
+            <div class="p-6 bg-white border border-gray-100 rounded-lg shadow-sm">
+                <h4 class="font-bold text-accent-cinnabar mb-2 italic">Cắt Lát Nướng Nhanh</h4>
+                <p class="text-sm text-gray-700 justified-text">
+                    Nếu không có thời gian nướng nguyên tảng, có thể cắt sườn thành từng dẻ riêng biệt và áp chảo nhanh mỗi mặt 2-3 phút, bỏ qua bước dùng lò nướng để tiết kiệm thời gian mà vẫn đảm bảo hương vị.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Section -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 pt-12 border-t border-gray-200">
+        <!-- Nutrition -->
+        <div>
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-px bg-accent-gold mr-3"></span> 5. Giá trị dinh dưỡng
+            </h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 bg-gray-50 rounded">
+                    <span class="block text-xs uppercase text-gray-400 font-bold">Năng lượng</span>
+                    <span class="text-lg font-bold">550 - 620 kcal</span>
+                </div>
+                <div class="p-4 bg-gray-50 rounded">
+                    <span class="block text-xs uppercase text-gray-400 font-bold">Đạm (Protein)</span>
+                    <span class="text-lg font-bold">~35g</span>
+                </div>
+                <div class="p-4 bg-gray-50 rounded">
+                    <span class="block text-xs uppercase text-gray-400 font-bold">Chất béo (Fat)</span>
+                    <span class="text-lg font-bold">~40g</span>
+                </div>
+                <div class="p-4 bg-gray-50 rounded">
+                    <span class="block text-xs uppercase text-gray-400 font-bold">Vi chất</span>
+                    <span class="text-sm font-bold">Sắt, Kẽm, B12</span>
+                </div>
+            </div>
+            <p class="mt-4 text-xs italic text-gray-500 justified-text">
+                Gợi ý cân bằng: Sự kết hợp của măng tây nướng và salad rau đắng giúp bổ sung chất xơ, Vitamin C, đồng thời vị nhẩn đắng nhẹ sẽ trung hòa hoàn hảo độ ngậy béo của thịt.
+            </p>
+        </div>
+
+        <!-- Presentation -->
+        <div>
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-px bg-accent-gold mr-3"></span> 6. Gợi ý trình bày
+            </h2>
+            <div class="space-y-4 text-sm text-gray-700 justified-text leading-relaxed">
+                <p>
+                    Sử dụng đĩa sứ trắng hoặc thạch bản đen nhám kích thước lớn để làm phông nền. Xếp các dẻ sườn gác chéo lên nhau tạo chiều cao, để lộ phần mặt cắt Medium Rare màu hồng ngọc.
+                </p>
+                <p>
+                    Dùng thìa múc xốt rưới một đường ziczac hoặc kéo một đường xốt (brush stroke) tinh tế dưới đáy đĩa. Tránh tưới đẫm xốt che khuất lớp vỏ xém vàng.
+                </p>
+                <p>
+                    Điểm xuyết bằng một nhánh hương thảo tươi đã khò lửa, rắc nhẹ vài hạt tiêu hồng hoặc muối biển tinh thể lên mặt cắt của thịt để tạo điểm nhấn thị giác đẳng cấp Fine Dining.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Flourish -->
+    <div class="ornament py-12">
+        <span class="ornament-icon">
+            <svg class="h-8 w-8 inline" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11,21H13V22H11V21M1,16V10A5,5 0 0,1 6,5C6.1,5 6.2,5 6.29,5.03C7.2,3.23 9,2 11,2C13.54,2 15.68,3.78 16.21,6.15C18.42,6.58 20,8.5 20,10.8V16H1V16M19,17H2V19H19V17M11,4A2,2 0 0,0 9,6A2,2 0 0,0 11,8A2,2 0 0,0 13,6A2,2 0 0,0 11,4Z" />
+            </svg>
+        </span>
+    </div>
+
+    <script>
+        // Subtle interactivity - fading in elements on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, .recipe-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
