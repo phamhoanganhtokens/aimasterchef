@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Xôi Xéo Hà Nội</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E28',
+                        'burnished-gold': '#C5A059',
+                        'gold-accent': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+            transform: rotate(45deg);
+        }
+
+        .step-card:hover {
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            background-color: rgba(197, 160, 89, 0.05);
+            padding-left: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .meta-box {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .meta-box {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-box:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FCFAFA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <main class="max-w-6xl mx-auto border-[1px] border-burnished-gold/20 shadow-2xl bg-white p-6 md:p-16 relative overflow-hidden">
+        
+        <!-- Background Flourish -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-burnished-gold/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-cinnabar-red/5 rounded-full -ml-32 -mb-32 blur-3xl"></div>
+
+        <!-- Header Section -->
+        <header class="text-center mb-16 relative z-10">
+            <div class="inline-block px-4 py-1 border-y border-burnished-gold text-xs tracking-widest text-burnished-gold mb-6 font-bold uppercase">
+                AI Vua Đầu Bếp • Premium Culinary Series
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-primary-charcoal mb-4 leading-tight">
+                Xôi Xéo Hà Nội
+            </h1>
+            <h2 class="text-2xl md:text-3xl italic text-burnished-gold font-light mb-10">
+                Hanoi Mung Bean Sticky Rice — The Essence of the Ancient Capital
+            </h2>
+
+            <!-- Meta Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border border-burnished-gold/30 rounded-sm overflow-hidden">
+                <div class="meta-box p-4 flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-tighter text-gray-500 mb-1">Mức độ / Difficulty</span>
+                    <span class="font-bold text-primary-charcoal">Trung bình - Khó</span>
+                </div>
+                <div class="meta-box p-4 flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-tighter text-gray-500 mb-1">Thời gian / Time</span>
+                    <span class="font-bold text-primary-charcoal">10 - 12 Tiếng</span>
+                </div>
+                <div class="meta-box p-4 flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-tighter text-gray-500 mb-1">Khẩu phần / Servings</span>
+                    <span class="font-bold text-primary-charcoal">4 - 6 Người</span>
+                </div>
+                <div class="meta-box p-4 flex flex-col items-center border-none">
+                    <span class="text-[10px] uppercase tracking-tighter text-gray-500 mb-1">Nguồn gốc / Origin</span>
+                    <span class="font-bold text-primary-charcoal text-center">Làng Tương Mai, HN</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="section-divider">
+            <div class="ornament">◆</div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-6 flex items-center">
+                        <span class="text-cinnabar-red mr-3">1.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-sm font-bold text-burnished-gold uppercase tracking-widest mb-3">Chính / Main</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Gạo nếp cái hoa vàng</span>
+                                    <span class="font-bold italic">500g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Đậu xanh hạt tiêu</span>
+                                    <span class="font-bold italic">300g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm font-bold text-burnished-gold uppercase tracking-widest mb-3">Gia vị & Phụ trợ</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Nghệ tươi / Bột nghệ</span>
+                                    <span class="font-bold italic">1 củ / 1 tsp</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Mỡ gà (bí quyết)</span>
+                                    <span class="font-bold italic">200g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Hành tím ta</span>
+                                    <span class="font-bold italic">200g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between border-b border-gray-100 pb-1">
+                                    <span>Gia vị (muối, đường, nêm)</span>
+                                    <span class="font-bold italic">vừa đủ</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm font-bold text-burnished-gold uppercase tracking-widest mb-3">Đồ kèm / Gói</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item flex items-center">
+                                    <span class="w-2 h-2 bg-burnished-gold rounded-full mr-2"></span>
+                                    <span>Lá sen hoặc lá chuối</span>
+                                </li>
+                                <li class="ingredient-item flex items-center">
+                                    <span class="w-2 h-2 bg-burnished-gold rounded-full mr-2"></span>
+                                    <span>Lạt tre truyền thống</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Nutrition Box in Sidebar for desktop, moved in mobile -->
+                <section class="p-6 bg-gray-50 border-l-4 border-burnished-gold hidden lg:block">
+                    <h3 class="text-lg font-bold mb-4 uppercase tracking-tighter">5. Giá trị dinh dưỡng</h3>
+                    <div class="text-sm space-y-3 justified-text italic text-gray-700">
+                        <p><strong>Năng lượng:</strong> 450-550 kcal/phần.</p>
+                        <p><strong>Giá trị:</strong> Đậu xanh cung cấp protein thực vật và chất xơ giải nhiệt. Mỡ gà cung cấp chất béo tạo năng lượng bền bỉ.</p>
+                        <p><strong>Cân bằng:</strong> Nên ăn kèm dưa chuột bóp chua ngọt để bổ sung vitamin và giảm độ ngấy.</p>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-8 flex items-center">
+                    <span class="text-cinnabar-red mr-3">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 relative">
+                    <!-- Vertical line for timeline -->
+                    <div class="absolute left-4 top-0 bottom-0 w-[1px] bg-burnished-gold/20 hidden md:block"></div>
+
+                    <!-- Step 1 -->
+                    <div class="step-card flex gap-6 relative">
+                        <div class="w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold text-sm z-10 shrink-0 shadow-lg mt-1">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary-charcoal mb-2">Chuẩn bị gạo và tạo màu</h4>
+                            <p class="justified-text leading-relaxed text-gray-700">
+                                Gạo nếp vo sạch, ngâm trong nước cốt nghệ tươi ít nhất <span class="font-bold text-burnished-gold">8-10 tiếng</span>. Việc ngâm lâu giúp màu vàng thấm sâu vào lõi hạt nếp và tạo mùi thơm thanh nhẹ tự nhiên.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card flex gap-6 relative">
+                        <div class="w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold text-sm z-10 shrink-0 shadow-lg mt-1">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary-charcoal mb-2">Chế biến đậu xanh và kỹ thuật nắm quả</h4>
+                            <p class="justified-text leading-relaxed text-gray-700">
+                                Đậu xanh ngâm nở, hấp chín mềm rồi giã nhuyễn khi còn nóng. Ngay lập tức dùng tay nắm thật chặt đậu thành những quả tròn cứng cáp. Kỹ thuật này giúp các lát đậu khi thái ra sẽ mịn màng như lụa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card flex gap-6 relative">
+                        <div class="w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold text-sm z-10 shrink-0 shadow-lg mt-1">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary-charcoal mb-2">Phi hành bằng mỡ gà</h4>
+                            <p class="justified-text leading-relaxed text-gray-700">
+                                Dùng mỡ gà áp chảo để lấy nước mỡ. Hành tím thái mỏng đều, chiên trong mỡ gà từ khi mỡ còn nguội. Khi hành đạt màu vàng nhạt, vớt ngay ra giấy thấm dầu để hành tiếp tục chín bằng nhiệt dư, đạt độ giòn tan và màu cánh gián đẹp mắt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card flex gap-6 relative">
+                        <div class="w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold text-sm z-10 shrink-0 shadow-lg mt-1">4</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary-charcoal mb-2">Đồ xôi hai lửa</h4>
+                            <p class="justified-text leading-relaxed text-gray-700">
+                                Hấp xôi lần một cho chín tới 80%, sau đó để nguội hẳn. Trước khi ăn, trộn xôi với mỡ gà rồi hấp lần hai. Cách này giúp hạt xôi căng bóng, dẻo mềm suốt cả ngày.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-card flex gap-6 relative">
+                        <div class="w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold text-sm z-10 shrink-0 shadow-lg mt-1">5</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary-charcoal mb-2">Hoàn thiện món ăn</h4>
+                            <p class="justified-text leading-relaxed text-gray-700">
+                                Xới xôi nóng ra lá sen, tay trái cầm quả đậu, tay phải dùng dao sắc thái từng lát mỏng phủ kín mặt xôi. Rưới mỡ gà và rắc hành phi lên trên cùng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="section-divider">
+            <div class="ornament">◆</div>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-16">
+            <div class="p-8 md:p-12 bg-cream border-double border-4 border-burnished-gold relative">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-4">
+                    <span class="text-burnished-gold font-bold uppercase tracking-widest text-sm">3. Mẹo hay từ Vua Đầu Bếp</span>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar-red italic uppercase text-xs">Thời gian</h5>
+                        <p class="text-sm justified-text">Tránh ngâm gạo quá 12 tiếng để không bị chua.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar-red italic uppercase text-xs">Bí quyết béo ngậy</h5>
+                        <p class="text-sm justified-text">Tuyệt đối không dùng dầu ăn thay mỡ gà nếu muốn giữ hương vị ngậy đặc trưng.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar-red italic uppercase text-xs">Kỹ thuật thái</h5>
+                        <p class="text-sm justified-text">Khi thái đậu, hãy xoay tròn quả đậu để lát thái bao phủ đều diện tích bát xôi mà không bị vụn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-8 flex items-center">
+                <span class="text-cinnabar-red mr-3">4.</span> Biến tấu & Phiên bản nâng cao
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass-panel p-6 rounded shadow-sm hover:shadow-md transition-shadow">
+                    <h5 class="font-bold text-burnished-gold mb-2 border-b border-burnished-gold/20 pb-2">Xôi xéo gà xé</h5>
+                    <p class="text-sm justified-text text-gray-600">Thêm lườn gà luộc xé phay trộn tiêu muối cho vị thanh đậm.</p>
+                </div>
+                <div class="glass-panel p-6 rounded shadow-sm hover:shadow-md transition-shadow">
+                    <h5 class="font-bold text-burnished-gold mb-2 border-b border-burnished-gold/20 pb-2">Xôi xéo chả quế</h5>
+                    <p class="text-sm justified-text text-gray-600">Ăn kèm vài lát chả quế nướng thơm nồng chuẩn vị kinh kỳ.</p>
+                </div>
+                <div class="glass-panel p-6 rounded shadow-sm hover:shadow-md transition-shadow">
+                    <h5 class="font-bold text-burnished-gold mb-2 border-b border-burnished-gold/20 pb-2">Biến tấu gia đình</h5>
+                    <p class="text-sm justified-text text-gray-600">Có thể ăn kèm thịt kho tàu hoặc trứng kho tăng thêm chất đạm cho bữa sáng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Presentation Section -->
+        <section class="mb-16">
+            <div class="grid lg:grid-cols-2 gap-12 bg-primary-charcoal text-white p-8 md:p-12 rounded-sm overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rotate-45 translate-x-16 -translate-y-16"></div>
+                <div>
+                    <h3 class="text-2xl font-bold border-l-4 border-burnished-gold pl-4 mb-6 uppercase tracking-widest text-burnished-gold">
+                        6. Gợi ý trình bày
+                    </h3>
+                    <div class="space-y-4 justified-text text-gray-300 leading-relaxed italic">
+                        <p>Sử dụng lá sen xanh để làm nổi bật sắc vàng óng của xôi và đậu. Lá sen không chỉ để trang trí mà còn ướp hương dịu mát vào từng hạt nếp.</p>
+                        <p>Sắp xếp lát đậu chồng lên nhau nhịp nhàng như cánh hoa, hành phi tập trung ở đỉnh để tạo khối vững chãi và thu hút thị giác.</p>
+                        <p>Hương thơm từ lá sen hòa quyện cùng mỡ gà và hành phi tạo nên một tác phẩm ẩm thực kích thích mọi giác quan ngay từ lần chạm mặt đầu tiên.</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="border border-burnished-gold/40 p-4 w-full h-full flex flex-col justify-center items-center text-center space-y-4">
+                        <span class="text-5xl opacity-50">✦</span>
+                        <p class="text-burnished-gold font-serif text-xl tracking-widest">ART OF PLATING</p>
+                        <p class="text-[10px] tracking-[0.2em] text-gray-400 uppercase">Hanoi Culinary Masterclass</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Nutrition (Visible only on mobile) -->
+        <section class="lg:hidden p-6 bg-gray-50 border-l-4 border-burnished-gold mb-12">
+            <h3 class="text-lg font-bold mb-4 uppercase tracking-tighter">5. Giá trị dinh dưỡng</h3>
+            <div class="text-sm space-y-3 justified-text italic text-gray-700">
+                <p><strong>Năng lượng:</strong> 450-550 kcal/phần.</p>
+                <p><strong>Giá trị:</strong> Đậu xanh cung cấp protein thực vật và chất xơ giải nhiệt.</p>
+                <p><strong>Cân bằng:</strong> Nên ăn kèm dưa chuột bóp chua ngọt để bổ sung vitamin.</p>
+            </div>
+        </section>
+
+        <!-- Final Signature Decoration -->
+        <div class="text-center pt-8 border-t border-burnished-gold/20">
+            <p class="text-burnished-gold italic text-sm tracking-widest">Chúc bạn thành công với món đặc sản Hà Nội!</p>
+        </div>
+
+    </main>
+
+    <script>
+        // Smooth hover effects and subtle interactions
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
