@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chạo Tôm Lụi Mía - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#E5C687',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-style: italic;
+            font-weight: bold;
+            color: #E23D28;
+            border-bottom: 2px solid #E23D28;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 10px;
+            color: #E23D28;
+        }
+
+        .chef-box {
+            border: 4px double #C5A059;
+            background-color: #fdfaf3;
+        }
+
+        .ornament {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Section -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="mb-4">
+            <span class="text-cinnabar tracking-[0.3em] uppercase text-sm font-bold">AI Vua Đầu Bếp • Premium Collection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight text-charcoal">Chạo Tôm Lụi Mía</h1>
+        <h2 class="text-2xl md:text-3xl italic font-light text-gold mb-8">Grilled Shrimp Mousse on Sugarcane</h2>
+        
+        <div class="description max-w-3xl mx-auto italic text-lg text-gray-600 mb-10 leading-relaxed">
+            "Bắt nguồn từ chốn cung đình Huế, món ăn là sự kết tinh của nghệ thuật ẩm thực truyền thống Việt Nam. Việc sử dụng thanh mía lau làm xiên nướng không chỉ giúp định hình cấu trúc món ăn mà còn mượn nhiệt lượng để tiết ra vị ngọt thanh tự nhiên, thấm sâu vào phần lõi thịt tôm, tạo nên sự giao thoa hương vị hoàn hảo, tinh tế."
+        </div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid border-y border-gold py-6 max-w-4xl mx-auto flex flex-wrap justify-around items-center gap-4">
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cinnabar" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <span class="font-bold">Trung bình - Khó</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cinnabar" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="font-bold">60 - 65 Phút</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cinnabar" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span class="font-bold">4 - 6 Người</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Nguồn gốc</span>
+                <div class="flex items-center gap-2">
+                    <span class="font-bold">Ẩm thực Huế</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="glass-card p-8 rounded-sm border-t-4 border-t-cinnabar">
+                    <h3 class="text-3xl font-bold mb-6 border-b border-gold pb-2">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-gold font-bold uppercase text-sm tracking-widest mb-3">Thành phần chính</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex justify-between"><span>Tôm sú tươi</span> <span>500g</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Mỡ gáy heo</span> <span>100g</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Giò sống (mọc)</span> <span>50g</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Mía lau</span> <span>2-3 khúc</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold font-bold uppercase text-sm tracking-widest mb-3">Gia vị & Phụ liệu</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex justify-between"><span>Lòng trắng trứng</span> <span>1 cái</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Hành tím, tỏi băm</span> <span>2 tbsp</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Nước mắm ngon</span> <span>1 tbsp</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Đường, Tiêu trắng</span> <span>Vừa đủ</span></li>
+                                <li class="ingredient-item flex justify-between"><span>Bột năng</span> <span>1 tbsp</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-gold font-bold uppercase text-sm tracking-widest mb-3">Ăn kèm & Nước chấm</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item">Bánh tráng, bún tươi</li>
+                                <li class="ingredient-item">Rau sống, khế, chuối chát</li>
+                                <li class="ingredient-item">Tương đậu phộng nếp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="chef-box p-6 rounded-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-gold p-2 rounded-full text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold uppercase tracking-tight">3. Mẹo từ Vua Đầu Bếp</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm italic">
+                        <li class="pl-4 border-l-2 border-gold">Bắt buộc phải thấm tôm thật khô trước khi quết để tránh bỡ.</li>
+                        <li class="pl-4 border-l-2 border-gold">Kỹ thuật "quết" là linh hồn để tạo độ dai giòn sần sật tự nhiên.</li>
+                        <li class="pl-4 border-l-2 border-gold">Tỷ lệ mỡ gáy lý tưởng là 15-20% để giữ độ mọng nước.</li>
+                        <li class="pl-4 border-l-2 border-gold">Dùng tiêu trắng để giữ màu hồng cam nguyên bản.</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <div class="mb-10">
+                    <h3 class="text-3xl font-bold mb-8 border-b border-gold pb-2 inline-block">2. Các bước thực hiện</h3>
+                    
+                    <div class="space-y-10 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-[1px] before:bg-gold/30">
+                        
+                        <!-- Step 1 -->
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-cinnabar flex items-center justify-center text-white font-bold z-10 shadow-lg">1</div>
+                            <h4 class="text-xl font-bold text-charcoal mb-2">Sơ chế tôm và mỡ</h4>
+                            <p class="text-gray-700">Tôm lột vỏ, bỏ đầu, rút chỉ lưng, rửa qua nước muối loãng rồi thấm thật khô bằng khăn giấy. Mỡ gáy luộc chín sơ, thái hạt lựu cực nhỏ, ướp với 1 thìa cà phê đường trong 15 phút để mỡ trong và giòn.</p>
+                            <span class="inline-block mt-2 text-sm text-gold font-bold italic">⏱ Dự kiến: 20 phút</span>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-cinnabar flex items-center justify-center text-white font-bold z-10 shadow-lg">2</div>
+                            <h4 class="text-xl font-bold text-charcoal mb-2">Xay và quết tôm</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="p-4 bg-gray-50 border-l-4 border-gray-300">
+                                    <span class="step-number">Dành cho gia đình</span>
+                                    <p class="text-sm">Sử dụng máy xay thực phẩm với chế độ nhấn nhả (pulse) để tôm nhuyễn mà không bị sinh nhiệt.</p>
+                                </div>
+                                <div class="p-4 bg-gold/5 border-l-4 border-gold">
+                                    <span class="step-number text-gold border-gold">Kỹ thuật chuyên nghiệp</span>
+                                    <p class="text-sm">Băm sơ tôm rồi cho vào cối đá. Giã và miết liên tục vào thành cối đến khi dẻo quánh, dính chặt.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-cinnabar flex items-center justify-center text-white font-bold z-10 shadow-lg">3</div>
+                            <h4 class="text-xl font-bold text-charcoal mb-2">Trộn hỗn hợp & Nghỉ thịt</h4>
+                            <p class="text-gray-700">Cho tôm đã quết ra âu, trộn mỡ gáy và giò sống. Bọc kín, để ngăn mát tủ lạnh 30 phút giúp hỗn hợp săn lại và thấm vị.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-cinnabar flex items-center justify-center text-white font-bold z-10 shadow-lg">4</div>
+                            <h4 class="text-xl font-bold text-charcoal mb-2">Định hình (Bọc mía)</h4>
+                            <p class="text-gray-700">Thoa dầu lên tay, vo viên chạo rồi ép dẹt quanh thanh mía lau. Để chừa khoảng 3cm đầu mía làm tay cầm lịch sự.</p>
+                        </div>
+
+                        <!-- Step 5 & 6 -->
+                        <div class="relative pl-12">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-cinnabar flex items-center justify-center text-white font-bold z-10 shadow-lg">5</div>
+                            <h4 class="text-xl font-bold text-charcoal mb-2">Chế biến nhiệt</h4>
+                            <p class="text-gray-700 mb-4">Hấp sơ 3 phút để định hình. Sau đó nướng trên than hoa đến khi vàng ruộm, mỡ tươm bóng bẩy. Hoặc dùng nồi chiên không dầu (180°C - 12 phút).</p>
+                            <span class="inline-block text-sm text-gold font-bold italic">⏱ Dự kiến: 15 phút</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Variations -->
+                <div class="mt-12">
+                    <div class="section-divider"><span class="ornament">✦ 4. Biến tấu & Nâng cao ✦</span></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-lg border-l-4 border-cinnabar">
+                            <h5 class="font-bold text-lg mb-2">Lụi Sả Thơm Nồng</h5>
+                            <p class="text-sm italic">Thay mía bằng sả tươi đập dập phần đầu. Sả khi gặp nhiệt tỏa tinh dầu ngấm vào tôm tạo hương thơm thảo mộc cực kỳ kích thích.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg border-l-4 border-gold">
+                            <h5 class="font-bold text-lg mb-2">Chạo Tôm Panko</h5>
+                            <p class="text-sm italic">Lăn chạo qua lớp vụn bánh mì mỏng và chiên ngập dầu. Phù hợp cho những bữa tiệc trẻ trung với lớp vỏ giòn tan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section: Nutrition & Presentation -->
+        <div class="section-divider"><span class="ornament">✧ ✧ ✧</span></div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <!-- Nutrition -->
+            <div class="p-8 bg-charcoal text-parchment rounded-sm">
+                <h3 class="text-2xl font-bold mb-6 text-goldLight flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <p class="text-gray-300">Một khẩu phần (2 lụi) cung cấp khoảng <span class="text-white font-bold">180-220 kcal</span> với 20-25g protein chất lượng cao.</p>
+                    <p class="text-gray-300">Sự kết hợp cùng rau sống, chuối chát, khế chua bổ sung vitamin C và chất xơ dồi dào, giúp cân bằng lượng béo từ mỡ gáy, hỗ trợ tiêu hóa và ổn định đường huyết.</p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div class="p-8 border-2 border-gold rounded-sm relative">
+                <div class="absolute -top-4 left-6 bg-parchment px-4 py-1 text-gold font-bold uppercase tracking-widest text-sm italic">Nghệ thuật trình bày</div>
+                <h3 class="text-2xl font-bold mb-6 text-charcoal flex items-center gap-3 mt-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    6. Gợi ý trình bày
+                </h3>
+                <ul class="space-y-3 text-gray-700 italic">
+                    <li>• Xếp chạo tôm đan chéo trên mẹt tre lót lá chuối xanh để tạo tương phản màu sắc.</li>
+                    <li>• Quét một lớp mỡ hành pha dầu màu điều ngay khi vừa nướng xong để tạo độ bóng (glaze) bắt sáng.</li>
+                    <li>• Bố trí cuộn bún nhỏ bên cạnh rổ rau xanh mướt và chén nước chấm hổ phách với ớt đỏ nổi trên mặt.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Smooth hover animations and micro-interactions
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.letterSpacing = '0.5px';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.letterSpacing = 'normal';
+            });
+        });
+    </script>
+</body>
+</html>
