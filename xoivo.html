@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Xôi Vò Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Essential Brand Styling */
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .premium-text {
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .cinnabar-text { color: #E23E28; }
+        .gold-border { border-color: #D4AF37; }
+        .gold-bg { background-color: #D4AF37; }
+        .cinnabar-bg { background-color: #E23E28; }
+
+        /* Typography Hierarchy */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+        }
+
+        /* Glassmorphism & Effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+
+        .ornament-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .ornament-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .star-icon {
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+
+        /* Timeline / Steps Styling */
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FCFAFA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23E28',
+                        gold: '#D4AF37',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="selection:bg-gold selection:text-white">
+
+    <!-- Header Section -->
+    <header class="relative pt-12 pb-8 px-6 text-center border-b-2 border-double border-gold/30">
+        <div class="max-w-4xl mx-auto animate-fade-in">
+            <span class="text-xs uppercase tracking-[0.3em] text-cinnabar font-bold mb-4 block">Gourmet Magazine — Issue No. 01</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight">Xôi Vò Truyền Thống</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-500 font-light mb-8">Glutinous Rice with Mung Bean</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 border-t border-b border-gold/20 py-6">
+                <div class="flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Độ khó</span>
+                    <span class="text-sm font-bold">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Thời gian</span>
+                    <span class="text-sm font-bold">10 Giờ (Ngâm) + 90 Phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Khẩu phần</span>
+                    <span class="text-sm font-bold">4 - 6 Người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Xuất xứ</span>
+                    <span class="text-sm font-bold">Miền Bắc, Việt Nam</span>
+                </div>
+            </div>
+            
+            <p class="mt-8 max-w-2xl mx-auto premium-text italic text-gray-600">
+                Một món xôi tinh tế đặc trưng của ẩm thực miền Bắc Việt Nam, thường xuất hiện trong các dịp lễ Tết, mâm cỗ cưới hỏi hoặc ăn kèm với chè đường (chè hoa cau).
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-12">
+                <section>
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <span class="cinnabar-text">01.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div class="glass-card p-6 rounded-sm border-l-4 border-gold">
+                            <h4 class="text-xs uppercase tracking-tighter text-gold font-bold mb-4">Thành phần chính</h4>
+                            <ul class="space-y-4">
+                                <li class="flex justify-between items-end border-b border-dotted border-gray-300 pb-1">
+                                    <span class="premium-text font-bold text-sm">Gạo nếp cái hoa vàng</span>
+                                    <span class="text-xs italic text-gray-500">500g</span>
+                                </li>
+                                <li class="flex justify-between items-end border-b border-dotted border-gray-300 pb-1">
+                                    <span class="premium-text font-bold text-sm">Đậu xanh lòng vàng</span>
+                                    <span class="text-xs italic text-gray-500">250g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-sm border-l-4 border-cinnabar">
+                            <h4 class="text-xs uppercase tracking-tighter text-cinnabar font-bold mb-4">Gia vị & Phụ gia</h4>
+                            <ul class="space-y-4">
+                                <li class="flex justify-between items-end border-b border-dotted border-gray-300 pb-1">
+                                    <span class="premium-text text-sm">Mỡ gà nguyên chất</span>
+                                    <span class="text-xs italic text-gray-500">50ml</span>
+                                </li>
+                                <li class="flex justify-between items-end border-b border-dotted border-gray-300 pb-1">
+                                    <span class="premium-text text-sm">Muối tinh</span>
+                                    <span class="text-xs italic text-gray-500">1/2 tsp</span>
+                                </li>
+                                <li class="flex justify-between items-end border-b border-dotted border-gray-300 pb-1">
+                                    <span class="premium-text text-sm">Đường cát trắng</span>
+                                    <span class="text-xs italic text-gray-500">2 tbsp</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chef's Corner Call-out -->
+                <section class="bg-[#F3EFE0] p-8 relative overflow-hidden group">
+                    <div class="absolute -right-4 -top-4 text-6xl opacity-10 group-hover:rotate-12 transition-transform duration-500">👨‍🍳</div>
+                    <h3 class="text-xl font-bold mb-4 border-b border-gold/50 pb-2">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                    <div class="space-y-4 text-sm premium-text italic text-charcoal/80">
+                        <p><strong>• Kỹ thuật chọn nguyên liệu:</strong> Nếp cái hoa vàng giúp xôi có độ dẻo bền, không bị cứng khi nguội. Đậu xanh lòng vàng tạo màu sắc vàng ươm tự nhiên.</p>
+                        <p><strong>• Kiểm soát nhiệt:</strong> Luôn giữ lửa ở mức trung bình lớn khi đồ xôi. Lau khô nắp vung thường xuyên để tránh nước nhỏ xuống làm xôi bị nát.</p>
+                        <p><strong>• Lỗi cần tránh:</strong> Không được trộn đường quá sớm. Gạo nếp phải để thật khô ráo trước khi trộn đậu xanh.</p>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span class="cinnabar-text">02.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-0 top-0 bottom-0 w-px bg-gold/20 hidden md:block"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative md:pl-10 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-gold hidden md:block group-hover:scale-150 transition-transform"></div>
+                        <span class="step-number">01</span>
+                        <h4 class="text-lg font-bold mb-2 uppercase tracking-wide">Sơ chế & Ngâm nguyên liệu</h4>
+                        <p class="premium-text text-gray-700">Gạo nếp và đậu xanh vo sạch, ngâm riêng biệt trong nước từ 6-8 tiếng (hoặc qua đêm). Sau khi ngâm, đãi sạch, để thật ráo nước. <strong>Đây là bước then chốt:</strong> nếu còn nước, xôi sẽ bị bết, không tơi.</p>
+                        <span class="inline-block mt-3 text-[10px] font-bold tracking-widest bg-gray-100 px-3 py-1 rounded">EST. 8 GIỜ</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative md:pl-10 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-gold hidden md:block group-hover:scale-150 transition-transform"></div>
+                        <span class="step-number">02</span>
+                        <h4 class="text-lg font-bold mb-2 uppercase tracking-wide">Xử lý đậu xanh & Tạo bột đậu</h4>
+                        <p class="premium-text text-gray-700">Cho đậu xanh vào xửng hấp chín mềm. Khi đậu còn nóng, xay nhuyễn hoặc giã nhuyễn, sau đó nắm thành nắm tròn lớn. Dùng dao gọt nhẹ nhàng cho đậu tơi mịn thành bột. Kỹ thuật này giúp đậu bám đều vào gạo hơn so với cách trộn thông thường.</p>
+                        <span class="inline-block mt-3 text-[10px] font-bold tracking-widest bg-gray-100 px-3 py-1 rounded">EST. 30 PHÚT</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative md:pl-10 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-gold hidden md:block group-hover:scale-150 transition-transform"></div>
+                        <span class="step-number">03</span>
+                        <h4 class="text-lg font-bold mb-2 uppercase tracking-wide">Kỹ thuật "Vò" thủ công</h4>
+                        <p class="premium-text text-gray-700">Trộn gạo nếp đã ráo nước với một chút muối và 1/2 lượng bột đậu xanh. Dùng hai lòng bàn tay xoa (vò) nhẹ nhàng để bột đậu bao quanh từng hạt nếp, tạo lớp áo màu vàng óng đẹp mắt.</p>
+                        <span class="inline-block mt-3 text-[10px] font-bold tracking-widest bg-gray-100 px-3 py-1 rounded">EST. 15 PHÚT</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative md:pl-10 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-gold hidden md:block group-hover:scale-150 transition-transform"></div>
+                        <span class="step-number">04</span>
+                        <h4 class="text-lg font-bold mb-2 uppercase tracking-wide">Đồ xôi lần 1 (Cấp nhiệt sơ bộ)</h4>
+                        <p class="premium-text text-gray-700">Đun nước sôi già, cho gạo đã trộn đậu vào xửng. Dùng đũa chọc vài lỗ thông hơi để nhiệt tỏa đều. Hấp trong khoảng 20-25 phút cho đến khi nếp chín khoảng 80%.</p>
+                        <span class="inline-block mt-3 text-[10px] font-bold tracking-widest bg-gray-100 px-3 py-1 rounded">EST. 25 PHÚT</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative md:pl-10 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-gold hidden md:block group-hover:scale-150 transition-transform"></div>
+                        <span class="step-number">05</span>
+                        <h4 class="text-lg font-bold mb-2 uppercase tracking-wide">Hoàn thiện độ dẻo (Đồ lần 2)</h4>
+                        <p class="premium-text text-gray-700">Đổ xôi ra mâm, để nguội bớt rồi trộn nốt 1/2 lượng bột đậu xanh còn lại và mỡ gà. Vò nhẹ để các hạt xôi tơi rời. Sau đó, cho xôi vào đồ lần thứ 2 trong 10-15 phút. Điều này giúp hạt xôi ngậm đủ nước, dẻo lâu mà vẫn tơi.</p>
+                        <span class="inline-block mt-3 text-[10px] font-bold tracking-widest bg-gray-100 px-3 py-1 rounded">EST. 20 PHÚT</span>
+                    </div>
+                </div>
+
+                <div class="ornament-divider">
+                    <span class="star-icon">✦ ✦ ✦</span>
+                </div>
+
+                <!-- Variations Section -->
+                <section>
+                    <h3 class="text-xl font-bold mb-6 italic border-b border-gray-200 pb-2">4. Biến tấu & Phiên bản nâng cao</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-gold/30 hover:bg-gold/5 transition-colors">
+                            <h5 class="font-bold text-xs uppercase mb-2 text-cinnabar">Xôi vò hạt sen</h5>
+                            <p class="text-xs premium-text">Thêm hạt sen tươi đã ninh nhừ vào trộn cùng xôi ở bước đồ lần 2.</p>
+                        </div>
+                        <div class="p-4 border border-gold/30 hover:bg-gold/5 transition-colors">
+                            <h5 class="font-bold text-xs uppercase mb-2 text-cinnabar">Xôi vò gấc</h5>
+                            <p class="text-xs premium-text">Sử dụng thịt gấc trộn vào gạo trước khi vò đậu để tạo màu đỏ cam bắt mắt.</p>
+                        </div>
+                        <div class="p-4 border border-gold/30 hover:bg-gold/5 transition-colors">
+                            <h5 class="font-bold text-xs uppercase mb-2 text-cinnabar">Phiên bản chay</h5>
+                            <p class="text-xs premium-text">Thay mỡ gà bằng dầu thực vật hoặc nước cốt dừa đặc để tăng độ béo.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Technical Section -->
+    <section class="bg-charcoal text-parchment py-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+            <!-- Nutrition -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="grid grid-cols-1 gap-4 opacity-90">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-[1px] bg-gold mt-3"></div>
+                        <p class="text-sm premium-text"><strong>Carbohydrate:</strong> Nguồn năng lượng dồi dào từ gạo nếp cái hoa vàng.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-[1px] bg-gold mt-3"></div>
+                        <p class="text-sm premium-text"><strong>Protein & Chất xơ:</strong> Từ đậu xanh, giúp giảm chỉ số đường huyết tổng thể.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-[1px] bg-gold mt-3"></div>
+                        <p class="text-sm premium-text"><strong>Vitamin:</strong> Mỡ gà cung cấp các axit béo và vitamin tan trong dầu thiết yếu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation Tips -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="bg-white/5 p-6 rounded border border-white/10 italic text-sm premium-text leading-relaxed">
+                    <p class="mb-4">• <strong>Cách truyền thống:</strong> Đơm xôi vào đĩa tròn, nén nhẹ tay để xôi có độ kết dính nhưng vẫn nhìn rõ từng hạt rời.</p>
+                    <p class="mb-4">• <strong>Cách hiện đại:</strong> Sử dụng khuôn ép (hình hoa sen, chữ Thọ) để tạo hình trang trọng cho mâm cỗ.</p>
+                    <p>• <strong>Kết hợp:</strong> Đặt xôi trên lá chuối xanh mướt. Tuyệt vời nhất khi ăn kèm với một bát chè hoa cau tạo nên sự cân bằng giữa độ khô và độ mướt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Layer: Simple Scroll Tracker -->
+    <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-cinnabar transition-all duration-300 z-50" style="width: 0%"></div>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-indicator").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
+
