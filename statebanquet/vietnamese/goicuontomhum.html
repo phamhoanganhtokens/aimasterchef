@@ -1,1 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gỏi Cuốn Tôm Hùm Nha Trang - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldDark: '#9E7E43',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: "Times New Roman", serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament-icon {
+            padding: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .recipe-meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-right: 1px solid #eee;
+        }
+        .recipe-meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 640px) {
+            .recipe-meta-item {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            .recipe-meta-item:nth-child(even) {
+                border-left: 1px solid #eee;
+            }
+            .recipe-meta-item:nth-child(n+3) {
+                border-bottom: none;
+            }
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            min-width: 2.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 text-center max-w-5xl mx-auto border-b-2 border-cinnabar">
+        <div class="mb-4">
+            <span class="text-gold tracking-[0.3em] uppercase text-sm font-bold">AI VUA ĐẦU BẾP PRESENTS</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight text-charcoal">
+            Gỏi Cuốn Tôm Hùm <span class="block md:inline italic font-normal text-cinnabar">Nha Trang</span>
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-8 font-normal">Nha Trang Lobster Fresh Spring Rolls</h2>
+        
+        <div class="max-w-3xl mx-auto mb-10">
+            <p class="justified-text text-lg italic text-gray-700 leading-relaxed px-4 border-l-4 border-gold bg-white/50 py-4">
+                "Nha Trang, Khánh Hòa – thủ phủ tôm hùm của Việt Nam. Món ăn là sự nâng tầm đẳng cấp từ gỏi cuốn truyền thống, kết hợp vị ngọt thanh của hải sản thượng hạng với nét mộc mạc của rau sống miền Trung."
+            </p>
+        </div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 bg-white shadow-sm border border-gray-100 rounded-lg overflow-hidden max-w-4xl mx-auto">
+            <div class="recipe-meta-item">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest mb-1">Mức độ</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest mb-1">Thời gian</span>
+                <span class="font-bold text-lg">45 - 60 phút</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">4 người ăn</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-widest mb-1">Vùng miền</span>
+                <span class="font-bold text-lg">Miền Trung</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="bg-white p-8 border border-gray-100 shadow-sm relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cinnabar text-white px-6 py-1 text-sm font-bold uppercase tracking-tighter">
+                        1. Nguyên liệu
+                    </div>
+                    
+                    <div class="space-y-6 pt-4">
+                        <section>
+                            <h4 class="text-gold font-bold uppercase text-xs mb-3 border-b border-gold/20 pb-1">Thành phần chính</h4>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between items-start border-b border-dotted border-gray-200 pb-1 hover:bg-parchment transition-colors">
+                                    <span class="font-bold">Tôm hùm xanh/bông</span>
+                                    <span class="italic text-gray-600">2 con (400-500g)</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-dotted border-gray-200 pb-1">
+                                    <span>Bánh tráng dẻo Nha Trang</span>
+                                    <span class="italic text-gray-600">1 xấp</span>
+                                </li>
+                                <li class="flex justify-between items-start border-b border-dotted border-gray-200 pb-1">
+                                    <span>Bún tươi</span>
+                                    <span class="italic text-gray-600">300g</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="text-gold font-bold uppercase text-xs mb-3 border-b border-gold/20 pb-1">Rau & Đồ kèm</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Xà lách, húng quế, húng lủi</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Tía tô, giá đỗ, hẹ lá</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Khế chua, chuối chát, xoài xanh</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Dưa leo</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="text-gold font-bold uppercase text-xs mb-3 border-b border-gold/20 pb-1">Gia vị & Nước chấm</h4>
+                            <ul class="space-y-2 text-sm italic text-gray-700">
+                                <li>Gừng, sả, rượu trắng, muối (hấp tôm)</li>
+                                <li>Tương hột, bơ đậu phộng, gan heo băm</li>
+                                <li>Mắm nêm, thơm, tỏi, ớt, đường, chanh</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="bg-amber-50 p-6 border-2 border-double border-gold relative">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-goldDark">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg>
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </h3>
+                    <div class="space-y-4 text-sm justified-text leading-relaxed">
+                        <p><strong>Kỹ thuật cắt tôm:</strong> Sử dụng dao cực sắc để cắt lát tôm hùm, tránh làm nát thớ thịt. Nếu muốn vị đậm đà hơn, có thể áp chảo nhanh lát tôm với bơ tỏi trước khi cuốn.</p>
+                        <p><strong>Xử lý chuối chát:</strong> Ngâm chuối chát ngay vào nước muối loãng pha chanh để không bị thâm đen.</p>
+                        <p class="text-cinnabar font-bold italic"><strong>Lỗi cần tránh:</strong> Không hấp tôm quá lâu làm thịt bị bở và mất vị ngọt tự nhiên. Không làm ướt bánh tráng quá nhiều khiến cuốn gỏi bị rách.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold uppercase tracking-tight">2. Các bước thực hiện</h3>
+                </div>
+
+                <div class="space-y-12 relative">
+                    <!-- Step 1 -->
+                    <div class="flex gap-6 group">
+                        <div class="step-number">01</div>
+                        <div class="pb-6 border-b border-gray-100 w-full group-hover:border-gold transition-colors">
+                            <h4 class="text-xl font-bold mb-2 uppercase">Sơ chế tôm hùm</h4>
+                            <p class="justified-text text-gray-700 leading-relaxed">
+                                Tôm hùm rửa sạch. Dùng tăm tre xiên dọc từ đuôi lên đầu để tôm thẳng khi chín, giúp lát cắt đẹp mắt. Kỹ thuật này đảm bảo tính thẩm mỹ cao nhất cho món gỏi cuốn thượng hạng.
+                            </p>
+                            <span class="inline-block mt-2 text-xs font-bold text-gold uppercase italic tracking-widest">Kỹ thuật chuyên nghiệp • 5 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-6 group">
+                        <div class="step-number">02</div>
+                        <div class="pb-6 border-b border-gray-100 w-full group-hover:border-gold transition-colors">
+                            <h4 class="text-xl font-bold mb-2 uppercase">Hấp tôm & Shock nhiệt</h4>
+                            <p class="justified-text text-gray-700 leading-relaxed">
+                                Hấp cách thủy tôm với sả đập dập, gừng lát và một chút rượu trắng trong khoảng 10-12 phút. Sau khi chín, vớt ngay vào âu nước đá lạnh để thịt tôm săn chắc và giữ trọn độ ngọt tự nhiên.
+                            </p>
+                            <span class="inline-block mt-2 text-xs font-bold text-gold uppercase italic tracking-widest">Giai đoạn quan trọng • 12 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-6 group">
+                        <div class="step-number">03</div>
+                        <div class="pb-6 border-b border-gray-100 w-full group-hover:border-gold transition-colors">
+                            <h4 class="text-xl font-bold mb-2 uppercase">Chuẩn bị Rau quả</h4>
+                            <p class="justified-text text-gray-700 leading-relaxed">
+                                Rau sống rửa sạch, để ráo. Khế, chuối chát, dưa leo thái lát mỏng dài dọc theo thớ. Xoài xanh bào sợi nhỏ. Sự đồng đều trong kích thước giúp cuốn gỏi đều và đẹp hơn.
+                            </p>
+                            <span class="inline-block mt-2 text-xs font-bold text-gold uppercase italic tracking-widest">Chuẩn bị • 10 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-6 group">
+                        <div class="step-number">04</div>
+                        <div class="pb-6 border-b border-gray-100 w-full group-hover:border-gold transition-colors">
+                            <h4 class="text-xl font-bold mb-2 uppercase">Tách vỏ & Thái lát</h4>
+                            <p class="justified-text text-gray-700 leading-relaxed">
+                                Tách vỏ tôm hùm nhẹ nhàng. Cắt phần thân tôm thành các lát mỏng vừa ăn (medallions). Phần thịt càng (nếu có) giữ nguyên hoặc chẻ đôi để phô diễn sự sang trọng của nguyên liệu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-6 group">
+                        <div class="step-number">05</div>
+                        <div class="pb-6 border-b border-gray-100 w-full group-hover:border-gold transition-colors">
+                            <h4 class="text-xl font-bold mb-2 uppercase">Chế biến nước chấm</h4>
+                            <p class="justified-text text-gray-700 leading-relaxed">
+                                Phi thơm tỏi, cho tương hột xay và bơ đậu phộng vào xào, thêm chút nước dùng tôm, nêm đường vừa vị. Đun đến khi hỗn hợp sệt lại, rắc thêm đậu phộng rang giã dập tạo độ béo bùi đặc trưng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="flex gap-6 group">
+                        <div class="step-number">06</div>
+                        <div class="pb-6 border-b-2 border-cinnabar w-full">
+                            <h4 class="text-xl font-bold mb-2 uppercase">Kỹ thuật cuốn gỏi</h4>
+                            <p class="justified-text text-gray-700 leading-relaxed">
+                                Làm ướt nhẹ bánh tráng. Xếp xà lách, bún, các loại rau và trái cây vào trước. Gấp mép hai bên, sau đó đặt 2-3 lát thịt tôm hùm (mặt đỏ hướng xuống dưới để lộ ra ngoài) và một cọng hẹ dài lộ ra ngoài. Cuốn tròn thật chặt tay.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Variations Section -->
+                <div class="mt-16 bg-white border border-gray-200 rounded-sm overflow-hidden shadow-sm">
+                    <div class="bg-charcoal text-white px-6 py-3 font-bold uppercase text-sm tracking-widest">
+                        4. Biến tấu & Phiên bản nâng cao
+                    </div>
+                    <div class="flex border-b border-gray-200 overflow-x-auto">
+                        <button onclick="switchTab('modern')" class="tab-btn active px-6 py-4 text-sm font-bold uppercase whitespace-nowrap">Hiện đại</button>
+                        <button onclick="switchTab('simple')" class="tab-btn px-6 py-4 text-sm font-bold uppercase whitespace-nowrap">Đơn giản</button>
+                        <button onclick="switchTab('sauce')" class="tab-btn px-6 py-4 text-sm font-bold uppercase whitespace-nowrap">Nước chấm</button>
+                    </div>
+                    <div class="p-8">
+                        <div id="modern" class="tab-content active animated fadeIn">
+                            <p class="justified-text italic">"Có thể thêm bơ sáp (avocado) cắt lát vào cuốn để tăng độ béo, rất hợp với tôm hùm. Một sự kết hợp mang hơi hướng Fusion đẳng cấp."</p>
+                        </div>
+                        <div id="simple" class="tab-content animated fadeIn">
+                            <p class="justified-text italic">"Thay tôm hùm tươi bằng đuôi tôm hùm đông lạnh để tiết kiệm chi phí và thời gian sơ chế mà vẫn giữ được hương vị cốt lõi."</p>
+                        </div>
+                        <div id="sauce" class="tab-content animated fadeIn">
+                            <p class="justified-text italic">"Có thể thay bằng nước mắm chua ngọt truyền thống nếu không ăn được mắm nêm hoặc tương đậu. Thêm một chút tinh dầu cà cuống để tăng phần tinh tế."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ornament">
+            <span class="ornament-icon">⬥ ⬥ ⬥</span>
+        </div>
+
+        <!-- Technical Footer Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 bg-white p-10 border border-gray-100 shadow-xl rounded-lg">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b-2 border-gold inline-block pb-1">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-2 h-2 rounded-full bg-cinnabar mt-2 shrink-0"></div>
+                        <div>
+                            <span class="font-bold block">Tôm hùm:</span>
+                            <p class="text-sm text-gray-600 justified-text">Cung cấp lượng lớn Protein, Omega-3, Vitamin B12 và Selen giúp hỗ trợ tim mạch và tăng cường miễn dịch.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-2 h-2 rounded-full bg-cinnabar mt-2 shrink-0"></div>
+                        <div>
+                            <span class="font-bold block">Rau sống & Quả:</span>
+                            <p class="text-sm text-gray-600 justified-text">Cung cấp chất xơ, Vitamin C và khoáng chất cần thiết.</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 p-4 bg-gray-50 italic text-sm border-l-2 border-gray-300">
+                        <strong>Tổng quan:</strong> Đây là món ăn có hàm lượng dinh dưỡng cao, ít chất béo xấu, phù hợp cho chế độ ăn lành mạnh (Clean Eating) và giàu đạm.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b-2 border-gold inline-block pb-1">6. Gợi ý trình bày</h3>
+                <ul class="space-y-3 text-sm text-gray-700">
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span>Sắp xếp gỏi lên đĩa gốm trắng hoặc mẹt tre lót lá chuối để làm nổi bật sắc đỏ của tôm.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span>Đặt <strong>đầu tôm hùm</strong> đã hấp chín ở giữa đĩa để tạo điểm nhấn sang trọng (Styling trung tâm).</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span>Chén nước chấm đặt cạnh, rắc thêm chút ớt băm và đậu phộng rang lên mặt cho sinh động.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">●</span>
+                        <span>Dùng thêm vài bông hoa bưởi hoặc hoa tỉa từ cà rốt để tăng tính thẩm mỹ hoàng gia.</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            // Activate clicked button
+            event.currentTarget.classList.add('active');
+        }
+
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.6s ease-out";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
 
