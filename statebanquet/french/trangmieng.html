@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Fraises de printemps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #E23D28;
+            font-size: 2.5rem;
+            opacity: 0.3;
+            line-height: 1;
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background: #fff;
+            padding: 2rem;
+            position: relative;
+        }
+        .pro-tip-box::before {
+            content: '★';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FCFAFA;
+            padding: 0 10px;
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .meta-icon {
+            color: #E23D28;
+            width: 20px;
+            height: 20px;
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16 pt-8">
+        <p class="uppercase tracking-widest text-gold font-bold mb-4">AI Vua Đầu Bếp | Premium Collection</p>
+        <h1 class="text-4xl md:text-6xl font-display font-bold mb-2 leading-tight">
+            Fraises de printemps, meringue craquante, Chantilly à la fleur de sureau
+        </h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-10">
+            Dâu xuân, meringue giòn, và kem Chantilly hương hoa cơm cháy
+        </h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 py-6 border-y border-gold border-opacity-30">
+            <div class="flex items-center gap-2">
+                <span class="meta-icon">◈</span>
+                <div class="text-left">
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Difficulty</p>
+                    <p class="font-bold">Intermediate</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="meta-icon">⌚</span>
+                <div class="text-left">
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Time</p>
+                    <p class="font-bold">2h 45m</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="meta-icon">👥</span>
+                <div class="text-left">
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Servings</p>
+                    <p class="font-bold">4 - 6 People</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="meta-icon">⚜</span>
+                <div class="text-left">
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Origin</p>
+                    <p class="font-bold">Contemporary French</p>
+                </div>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic max-w-2xl mx-auto justified-text text-gray-700">
+            "A contemporary French seasonal dessert, drawing inspiration from the classic Vacherin and the English Eton Mess, refined with the delicate floral notes of the French countryside."
+        </p>
+    </header>
+
+    <div class="section-divider"><span class="text-gold text-2xl">✧</span></div>
+
+    <!-- Main Recipe Body -->
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-12">
+            <section>
+                <h3 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-8">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <!-- Meringue -->
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs text-gold mb-3">Meringue (Lòng trắng trứng đánh đường)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">100g lòng trắng trứng (~3 quả lớn, nhiệt độ phòng)</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">100g đường cát siêu mịn</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">100g đường bột (sifted icing sugar)</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">1 tsp tinh bột ngô (cornstarch)</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">1/2 tsp giấm trắng hoặc nước cốt chanh</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Elderflower Chantilly -->
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs text-gold mb-3">Elderflower Chantilly (Kem hoa cơm cháy)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">300ml kem tươi lạnh (heavy cream, béo >35%)</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">50g phô mai mascarpone</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">30-40ml siro hoa cơm cháy (hoặc rượu St-Germain)</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">1/2 tsp tinh chất vani (vanilla bean paste)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Strawberries -->
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs text-gold mb-3">Strawberries (Dâu tây tươi)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">500g dâu tây mùa xuân (Gariguette hoặc Mara des Bois)</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">1 tbsp nước cốt chanh & 1 tsp vỏ chanh bào</span>
+                            </li>
+                            <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar">✦</span>
+                                <span class="justified-text">1 tbsp mật ong hoặc siro phong (tùy chọn)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Garnish -->
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs text-gold mb-3">Garnish (Trình bày)</h4>
+                        <ul class="space-y-2 text-sm italic">
+                            <li class="flex items-center gap-3">
+                                <span class="text-cinnabar">✦</span> Hoa cơm cháy tươi, lá bạc hà hoặc hoa thanh cúc.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-8">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12 relative">
+                <!-- Decorative Vertical Line -->
+                <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-gold opacity-20 hidden md:block"></div>
+
+                <!-- Step 1 -->
+                <div class="relative pl-0 md:pl-16 group">
+                    <div class="flex items-baseline gap-4 mb-2">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-display font-bold uppercase tracking-wide">Chuẩn bị Meringue</h4>
+                        <span class="text-xs italic text-gold font-bold ml-auto bg-gold bg-opacity-10 px-2 py-1 rounded">20 Mins Prep</span>
+                    </div>
+                    <div class="justified-text text-lg text-gray-700 leading-relaxed">
+                        Làm nóng lò ở 90°C. Trong bát đồng hoặc thủy tinh sạch, đánh lòng trắng trứng và giấm ở tốc độ trung bình cho đến khi tạo chóp mềm. Thêm dần đường cát từng muỗng một đến khi hỗn hợp bóng mượt và cứng. Nhẹ nhàng trộn đường bột và tinh bột ngô. <span class="italic text-cinnabar">Mẹo chuyên nghiệp: Tinh bột ngô tạo độ dẻo bên trong trong khi đường bột đảm bảo lớp vỏ ngoài giòn tan.</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-0 md:pl-16 group">
+                    <div class="flex items-baseline gap-4 mb-2">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-display font-bold uppercase tracking-wide">Nướng bánh</h4>
+                        <span class="text-xs italic text-gold font-bold ml-auto bg-gold bg-opacity-10 px-2 py-1 rounded">2 Hours Baking</span>
+                    </div>
+                    <div class="justified-text text-lg text-gray-700 leading-relaxed">
+                        Bắt kem hoặc dùng thìa tạo hình meringue thành các vòng tròn hoặc tổ chim 6-8cm. Nướng trong 90 đến 120 phút cho đến khi khô hoàn toàn khi chạm vào. Tắt lò và để cửa hé mở để bánh nguội hẳn; điều này ngăn việc nứt vỡ do thay đổi nhiệt độ đột ngột.
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-0 md:pl-16 group">
+                    <div class="flex items-baseline gap-4 mb-2">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-display font-bold uppercase tracking-wide">Sơ chế dâu tây</h4>
+                        <span class="text-xs italic text-gold font-bold ml-auto bg-gold bg-opacity-10 px-2 py-1 rounded">10 Mins</span>
+                    </div>
+                    <div class="justified-text text-lg text-gray-700 leading-relaxed">
+                        Rửa dâu nhanh với cả cuống để tránh ngấm nước. Bỏ cuống và thái lát một nửa, để lại những quả nhỏ nhất nguyên vẹn để trang trí. Trộn với nước cốt chanh và vỏ chanh. Để giữ giá trị dinh dưỡng, tránh thêm đường tinh luyện ở bước này.
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-0 md:pl-16 group">
+                    <div class="flex items-baseline gap-4 mb-2">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-display font-bold uppercase tracking-wide">Elderflower Chantilly</h4>
+                        <span class="text-xs italic text-gold font-bold ml-auto bg-gold bg-opacity-10 px-2 py-1 rounded">10 Mins</span>
+                    </div>
+                    <div class="justified-text text-lg text-gray-700 leading-relaxed">
+                        Đặt bát trộn và phới lồng vào ngăn đá 10 phút. Kết hợp kem tươi, mascarpone, siro hoa cơm cháy và vani. Đánh ở tốc độ trung bình cao đến khi tạo chóp cứng. Mascarpone giúp kem có độ "tenue" (giữ dáng) tuyệt vời, không bị chảy khi trình bày.
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-0 md:pl-16 group">
+                    <div class="flex items-baseline gap-4 mb-2">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-display font-bold uppercase tracking-wide">Trình bày món ăn</h4>
+                        <span class="text-xs italic text-gold font-bold ml-auto bg-gold bg-opacity-10 px-2 py-1 rounded">Final Assembly</span>
+                    </div>
+                    <div class="justified-text text-lg text-gray-700 leading-relaxed">
+                        Đặt một đĩa meringue hoặc các mảnh vỡ vào giữa đĩa. Thêm một lớp kem Chantilly hào phóng. Sắp xếp dâu tây một cách nghệ thuật xung quanh và lên trên. Trang trí thêm với các mảnh meringue vỡ để tạo độ cao và cấu trúc.
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Chef's Corner Section -->
+    <section class="max-w-4xl mx-auto my-20">
+        <div class="pro-tip-box">
+            <h3 class="text-2xl font-display font-bold text-center mb-6">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 italic text-sm text-gray-700">
+                <div class="space-y-2">
+                    <p class="font-bold text-charcoal not-italic uppercase tracking-tighter border-b border-gold pb-1">Độ ổn định của kem</p>
+                    <p class="justified-text">Luôn dùng kem có ít nhất 35% béo. Nếu kem quá loãng, nó sẽ không giữ được hương thơm tinh tế của siro hoa cơm cháy.</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-bold text-charcoal not-italic uppercase tracking-tighter border-b border-gold pb-1">Chống ẩm Meringue</p>
+                    <p class="justified-text">Để tránh meringue bị mềm, hãy ráp món ngay trước khi phục vụ. Đầu bếp thường quét một lớp socola trắng mỏng dưới đáy meringue để tạo màng ngăn ẩm.</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-bold text-charcoal not-italic uppercase tracking-tighter border-b border-gold pb-1">Chất lượng trứng</p>
+                    <p class="justified-text">Sử dụng lòng trắng trứng "già" (tách trước 24h và giữ trong tủ lạnh) để có cấu trúc protein ổn định hơn, nhưng phải đưa về nhiệt độ phòng trước khi đánh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto mb-20">
+        <h3 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-10">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-8 rounded-sm">
+                <span class="text-xs font-bold text-gold uppercase tracking-widest block mb-2">Lối sống xanh</span>
+                <h4 class="text-xl font-bold mb-4">Vegan / Health Conscious</h4>
+                <p class="justified-text text-sm text-gray-600">Thay thế lòng trắng trứng bằng aquafaba (nước đậu gà) cho meringue. Sử dụng kem dừa đánh bông thay cho Chantilly, làm ngọt bằng cỏ ngọt stevia.</p>
+            </div>
+            <div class="glass-card p-8 rounded-sm bg-cinnabar bg-opacity-5">
+                <span class="text-xs font-bold text-cinnabar uppercase tracking-widest block mb-2">Dành cho gia đình</span>
+                <h4 class="text-xl font-bold mb-4">The "Home Quick" Version</h4>
+                <p class="justified-text text-sm text-gray-600">Sử dụng bánh meringue mua sẵn chất lượng cao và trộn siro hoa cơm cháy vào kem tươi đánh sẵn để tiết kiệm 2 giờ nướng bánh mà vẫn giữ hương vị sang trọng.</p>
+            </div>
+            <div class="glass-card p-8 rounded-sm">
+                <span class="text-xs font-bold text-gold uppercase tracking-widest block mb-2">Điểm nhấn sáng tạo</span>
+                <h4 class="text-xl font-bold mb-4">Flavor Twist</h4>
+                <p class="justified-text text-sm text-gray-600">Thêm một chút tiêu đen xay hoặc húng tây (basil) thái sợi nhỏ vào dâu tây để làm nổi bật độ axit và tạo tầng hương vị bất ngờ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Details -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gold border-opacity-30 pt-12 mb-20">
+        <!-- Nutrition -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-display font-bold uppercase tracking-wider flex items-center gap-2">
+                <span class="w-2 h-2 bg-cinnabar rounded-full"></span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="border-b border-gray-100 pb-2 flex justify-between"><span>Calories</span> <span class="font-bold">320 kcal</span></div>
+                <div class="border-b border-gray-100 pb-2 flex justify-between"><span>Chất béo (Fat)</span> <span class="font-bold">22g</span></div>
+                <div class="border-b border-gray-100 pb-2 flex justify-between"><span>Tinh bột (Carbs)</span> <span class="font-bold">28g</span></div>
+                <div class="border-b border-gray-100 pb-2 flex justify-between"><span>Đạm (Protein)</span> <span class="font-bold">4g</span></div>
+                <div class="col-span-2 pt-2 italic text-gray-500 text-xs">
+                    * Vitamin C đạt 60% nhu cầu hàng ngày nhờ dâu tươi. Giảm kích thước meringue để hạ chỉ số đường huyết.
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-display font-bold uppercase tracking-wider flex items-center gap-2">
+                <span class="w-2 h-2 bg-cinnabar rounded-full"></span> 6. Gợi ý trình bày
+            </h3>
+            <ul class="text-sm space-y-3 italic text-gray-700">
+                <li class="justified-text">Sử dụng đĩa phẳng, rộng màu trắng để làm nổi bật sắc đỏ của dâu tây. Tận dụng "không gian âm" bằng cách đặt món hơi lệch tâm.</li>
+                <li class="justified-text">Bào một chút hạt macadamia hoặc socola trắng lên trên để giả làm phấn hoa, tạo kết cấu thị giác sống động.</li>
+                <li class="justified-text">Đặt ba lá bạc hà nhỏ theo hình tam giác để dẫn dắt ánh nhìn. Dùng ống nhỏ giọt tạo các chấm sốt dâu hoặc siro hoa cơm cháy quanh đế bánh cho phong cách chuẩn nhà hàng.</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Subtle animation for interaction
+        document.querySelectorAll('.glass-card, .pro-tip-box').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.borderColor = 'rgba(226, 61, 40, 0.4)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.borderColor = '';
+            });
+        });
+    </script>
+</body>
+</html>
