@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Galoche au thym</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23E28',
+                        gold: '#C5A059',
+                        goldDark: '#9A7B42',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            padding: 2rem;
+            position: relative;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .step-number {
+            font-size: 2.5rem;
+            color: #C5A059;
+            font-weight: bold;
+            opacity: 0.3;
+            line-height: 1;
+        }
+        .meta-card {
+            background: white;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .meta-card:hover {
+            border-color: #C5A059;
+            transform: translateY(-2px);
+        }
+        .ingredient-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+        }
+        .ingredient-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #E23E28;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #E23E28;
+            color: #E23E28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Header / Hero Section -->
+    <header class="max-w-5xl mx-auto mb-16 text-center">
+        <div class="mb-4 inline-block px-4 py-1 border-y-2 border-gold text-gold tracking-widest uppercase font-bold text-sm">
+            AI Vua Đầu Bếp • Premium Recipe
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Galoche au thym et petites pousses</h1>
+        <h2 class="text-2xl md:text-3xl italic text-charcoal/70 mb-8 font-normal">Phô mai dê Galoche với Cỏ xạ hương và Rau mầm</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="meta-card">
+                <div class="text-cinnabar text-xl mb-1">◈</div>
+                <p class="text-xs uppercase tracking-wider text-charcoal/60">Độ khó / Difficulty</p>
+                <p class="font-bold">Trung bình / Moderate</p>
+            </div>
+            <div class="meta-card">
+                <div class="text-cinnabar text-xl mb-1">⏱</div>
+                <p class="text-xs uppercase tracking-wider text-charcoal/60">Thời gian / Time</p>
+                <p class="font-bold">Chuẩn bị: 15' | Nghỉ: 2h</p>
+            </div>
+            <div class="meta-card">
+                <div class="text-cinnabar text-xl mb-1">🍽</div>
+                <p class="text-xs uppercase tracking-wider text-charcoal/60">Khẩu phần / Servings</p>
+                <p class="font-bold">4 người / 4 Persons</p>
+            </div>
+            <div class="meta-card">
+                <div class="text-cinnabar text-xl mb-1">⚖</div>
+                <p class="text-xs uppercase tracking-wider text-charcoal/60">Nguồn gốc / Origin</p>
+                <p class="font-bold">Lochois, Loire Valley</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Origin Introduction -->
+    <section class="max-w-3xl mx-auto mb-16">
+        <div class="p-8 bg-white border-l-4 border-gold shadow-sm">
+            <h3 class="text-xl font-bold mb-4 uppercase text-goldDark italic tracking-wider">Câu chuyện về món ăn / The Heritage</h3>
+            <p class="justified-text italic text-charcoal/80">
+                Rooted in the Lochois region of the Loire Valley, France, this elegant cheese course celebrates "La Galoche," a distinctively clog-shaped artisanal sheep's milk cheese. The "Brossauthym" variation, in which the cheese is delicately rolled in dried wild thyme, elevates its earthy, herbaceous terroir. It garnered international acclaim when featured on the menu at a 2024 French State Dinner at the Élysée Palace, representing the pinnacle of French artisanal craftsmanship.
+            </p>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✧ ❦ ✧</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-3xl font-bold mb-8 uppercase border-b-2 border-charcoal pb-2">1. Nguyên liệu</h3>
+            
+            <div class="mb-8">
+                <h4 class="text-goldDark font-bold uppercase text-sm tracking-widest mb-4">Thành phần chính / Main</h4>
+                <ul>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">1 viên phô mai Galoche (200g) - giống Brossauthym / 1 whole artisanal "Galoche" cheese</span>
+                    </li>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">2 muỗng cỏ xạ hương khô / 2 tbsp dried wild thyme</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-goldDark font-bold uppercase text-sm tracking-widest mb-4">Rau mầm & Gia vị / Herbs & Spices</h4>
+                <ul>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">2 chén rau mầm hữu cơ (arugula, cải bẹ, dền) / 2 cups mixed organic microgreens</span>
+                    </li>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">1 muỗng dầu ô liu nguyên chất / 1 tbsp extra virgin olive oil</span>
+                    </li>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">1 muỗng giấm balsamic hoặc verjus / 1 tsp aged balsamic vinegar</span>
+                    </li>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">Muối biển Fleur de sel & tiêu đen / Fleur de sel & cracked pepper</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-goldDark font-bold uppercase text-sm tracking-widest mb-4">Kèm theo / Sides</h4>
+                <ul>
+                    <li class="ingredient-item">
+                        <span class="ingredient-bullet"></span>
+                        <span class="justified-text">Bánh mì Sourdough nướng giòn / Toasted artisan sourdough baguette</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 uppercase border-b-2 border-charcoal pb-2">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12">
+                <div class="flex gap-6">
+                    <div class="step-number">01</div>
+                    <div class="flex-1">
+                        <p class="text-cinnabar font-bold uppercase text-xs mb-1 tracking-widest">Thời gian: 60-120 phút / Preparation</p>
+                        <p class="justified-text text-lg leading-relaxed">
+                            Lấy phô mai Galoche ra khỏi tủ lạnh ít nhất 1 đến 2 giờ trước khi dùng. Để phô mai đạt đến nhiệt độ phòng (khoảng 20°C/68°F) là điều cực kỳ quan trọng để giải phóng hương thơm và làm mềm chất béo sữa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="step-number">02</div>
+                    <div class="flex-1 border-l-2 border-gold/20 pl-6">
+                        <p class="text-cinnabar font-bold uppercase text-xs mb-1 tracking-widest">Thời gian: 1 phút / Crust Preparation</p>
+                        <p class="justified-text text-lg leading-relaxed">
+                            Nếu sử dụng phô mai Galoche trơn, hãy rang nhẹ cỏ xạ hương trên chảo khô trong 30 giây để tinh dầu toả hương. Để nguội, sau đó lăn nhẹ phô mai qua lớp thảo mộc để tạo lớp vỏ mộc mạc, đều đặn.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="step-number">03</div>
+                    <div class="flex-1">
+                        <p class="text-cinnabar font-bold uppercase text-xs mb-1 tracking-widest">Thời gian: 2 phút / Greenery</p>
+                        <p class="justified-text text-lg leading-relaxed">
+                            Rửa rau mầm nhẹ nhàng trong nước đá để tăng độ giòn, sau đó làm khô hoàn toàn bằng dụng cụ quay rau hoặc khăn giấy để tránh rau bị nát.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="step-number">04</div>
+                    <div class="flex-1 border-l-2 border-gold/20 pl-6">
+                        <p class="text-cinnabar font-bold uppercase text-xs mb-1 tracking-widest">Thời gian: 1 phút / Dressing</p>
+                        <p class="justified-text text-lg leading-relaxed">
+                            Trộn nhẹ rau mầm với dầu ô liu và vài giọt giấm balsamic. Nêm một chút muối biển. Thực hiện bước này ngay trước khi trình bày để rau không bị héo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="step-number">05</div>
+                    <div class="flex-1">
+                        <p class="text-cinnabar font-bold uppercase text-xs mb-1 tracking-widest">Thời gian: Vài giây / Portioning</p>
+                        <p class="justified-text text-lg leading-relaxed">
+                            Sử dụng dao cắt phô mai mỏng, ấm để cắt Galoche thành từng phần, giữ nguyên hình dạng đặc trưng của nó. Lau sạch lưỡi dao sau mỗi lần cắt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-4xl mx-auto mb-16">
+        <div class="pro-tip-box shadow-lg">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-4 text-goldDark">
+                <span class="bg-gold text-white px-3 py-1 text-sm">3</span> 
+                MẸO HAY TỪ VUA ĐẦU BẾP / Chef's Corner
+            </h3>
+            <div class="space-y-4 text-charcoal/90">
+                <p class="justified-text italic">
+                    "Độ chín (affinage) của phô mai quyết định cảm giác trong miệng. Phô mai non sẽ có vị sữa và hơi giống phấn, trong khi phô mai lâu năm sẽ tạo ra kết cấu kem phức tạp. Hãy luôn bọc phô mai trong giấy nến chuyên dụng để các lợi khuẩn có thể 'thở'; tránh dùng màng bọc thực phẩm vì nó sẽ gây tích tụ amoniac làm hỏng hương vị tinh tế của sữa cừu."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-4xl mx-auto mb-16">
+        <h3 class="text-center text-3xl font-bold mb-8 uppercase">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="bg-white border border-gold/20 shadow-xl overflow-hidden">
+            <div class="flex border-b border-gold/20 bg-stone-100">
+                <button onclick="switchTab('home')" id="btn-home" class="tab-btn active flex-1 py-4 font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors">Gia đình / Home</button>
+                <button onclick="switchTab('pro')" id="btn-pro" class="tab-btn flex-1 py-4 font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors">Đầu bếp / Chef Pro</button>
+            </div>
+            <div class="p-8">
+                <div id="tab-home" class="tab-content active">
+                    <p class="justified-text italic text-lg leading-relaxed">
+                        Nếu không tìm được phô mai Galoche từ Lochois, bạn có thể thay thế bằng phô mai sữa cừu thủ công chất lượng cao hoặc phô mai dê phủ tro (như Valençay hoặc Sainte-Maure de Touraine), tạo hình và lăn qua cỏ xạ hương khô.
+                    </p>
+                </div>
+                <div id="tab-pro" class="tab-content">
+                    <p class="justified-text italic text-lg leading-relaxed">
+                        Để tạo ra hương vị đa dạng, hãy kết hợp với quả sung tươi theo mùa hoặc một chút mứt sung để tạo sự tương phản ngọt ngào với vị mặn và thảo mộc của phô mai. Đây là cách cân bằng vị giác hoàn hảo cho những thực khách sành sỏi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✧ ❦ ✧</span>
+    </div>
+
+    <!-- Footer Technical Info -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-24">
+        <!-- Nutrition -->
+        <section class="bg-charcoal text-parchment p-10">
+            <h3 class="text-2xl font-bold mb-6 text-gold uppercase border-b border-gold/30 pb-4">5. Giá trị dinh dưỡng</h3>
+            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                <div>
+                    <p class="text-xs uppercase text-white/50 mb-1">Calories</p>
+                    <p class="text-xl font-bold">220 kcal</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-white/50 mb-1">Protein</p>
+                    <p class="text-xl font-bold">12g</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-white/50 mb-1">Fat</p>
+                    <p class="text-xl font-bold">17g</p>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-white/50 mb-1">Calcium</p>
+                    <p class="text-xl font-bold">200mg</p>
+                </div>
+            </div>
+            <p class="mt-8 text-sm italic text-white/70 justified-text">
+                Rau mầm cung cấp hàm lượng vitamin C, E và K tập trung cực cao, cùng với các chất chống oxy hóa mạnh mẽ giúp hỗ trợ sức khỏe xương và tiêu hóa.
+            </p>
+        </section>
+
+        <!-- Presentation -->
+        <section class="bg-white p-10 border border-charcoal/5">
+            <h3 class="text-2xl font-bold mb-6 text-cinnabar uppercase border-b border-cinnabar/30 pb-4">6. Gợi ý trình bày</h3>
+            <p class="justified-text italic text-charcoal/80 mb-6 leading-relaxed">
+                Để đạt được thẩm mỹ như "Bữa tiệc tối cấp Nhà nước tại Élysée", hãy hướng tới sự tối giản sang trọng. Sử dụng đĩa gốm mờ hoặc đá phiến tối màu để tạo độ tương phản sắc nét với màu trắng của phô mai và màu xanh rực rỡ của rau mầm.
+            </p>
+            <ul class="space-y-3 text-sm italic">
+                <li class="flex items-start gap-2">
+                    <span class="text-gold">★</span>
+                    <span>Đặt một miếng Galoche cắt sạch sẽ hơi lệch tâm đĩa.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-gold">★</span>
+                    <span>Sắp xếp một "ổ" rau mầm tơi xốp cạnh phô mai để tạo độ cao.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-gold">★</span>
+                    <span>Kết thúc bằng một vòng dầu ô liu tinh tế và một nhánh xạ hương tươi đang nở hoa.</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Remove active classes
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            // Add active classes to selected
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.getElementById('btn-' + tab).classList.add('active');
+        }
+    </script>
+</body>
+</html>
