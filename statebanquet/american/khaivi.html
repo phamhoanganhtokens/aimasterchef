@@ -1,1 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Garden Vegetable Velouté</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
+        :root {
+            --cinnabar: #E23D28;
+            --gold: #C5A059;
+            --charcoal: #2C2C2C;
+            --cream: #FCFAFA;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .serif-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--gold);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--gold);
+            opacity: 0.4;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--gold);
+            padding: 2rem;
+            background: rgba(197, 160, 89, 0.05);
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-item {
+            border-right: 1px solid rgba(44, 44, 44, 0.1);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            }
+            .meta-item:nth-child(even) {
+                border-right: none;
+            }
+        }
+
+        .tab-content {
+            display: none;
+        }
+        input:checked + label + .tab-content {
+            display: block;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="p-4 md:p-12 max-w-6xl mx-auto border-x border-gray-100 shadow-2xl">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 pt-8">
+        <div class="inline-block border-y-2 border-gold py-2 mb-6">
+            <span class="uppercase tracking-[0.3em] text-xs font-bold text-cinnabar">AI Vua Đầu Bếp • Premium Selection</span>
+        </div>
+        
+        <h1 class="serif-display text-5xl md:text-7xl font-bold mb-4 text-charcoal leading-tight">
+            Garden Vegetable Velouté
+        </h1>
+        <p class="italic text-2xl text-gray-600 mb-10">
+            Súp Kem Rau Củ Vườn Xuân: Củ Hũ Dừa – Hành Tím Phi – Bạc Hà
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border border-gold/30 bg-white/50 backdrop-blur-sm p-6 rounded-sm shadow-sm max-w-4xl mx-auto">
+            <div class="meta-item flex flex-col items-center p-4">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6.41a7 7 0 0 1 13.09 3.14 4.5 4.5 0 0 1-2 8.45H7a4 4 0 0 1-1-7.72Z"/><path d="M12 12v.01"/><path d="M8 16v.01"/><path d="M16 16v.01"/><path d="M12 16v.01"/><path d="M12 8v.01"/><path d="M8 12v.01"/><path d="M16 12v.01"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ Khó</span>
+                <span class="font-bold">Trung Bình</span>
+            </div>
+            <div class="meta-item flex flex-col items-center p-4">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời Gian</span>
+                <span class="font-bold">45 Phút</span>
+            </div>
+            <div class="meta-item flex flex-col items-center p-4">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu Phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="meta-item flex flex-col items-center p-4">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn Gốc</span>
+                <span class="font-bold">Pháp Hiện Đại</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Ingredients Column -->
+        <aside class="lg:col-span-4 space-y-8">
+            <h2 class="serif-display text-3xl font-bold border-b border-gold pb-2 text-charcoal">
+                1. Nguyên liệu
+            </h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-cinnabar font-bold uppercase tracking-tighter text-sm mb-4">Cốt Velouté Base</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">4 muỗng canh bơ lạt (unsalted butter)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1/4 chén bột mì đa dụng</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1 lít nước dùng rau củ chất lượng cao (để lạnh)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">2 chén tỏi tây (chỉ lấy phần trắng, rửa sạch và băm nhỏ)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1 chén bí ngòi (gọt vỏ và thái hạt lựu để giữ màu xanh nhạt)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1 chén măng tây trắng (cắt bỏ phần gốc già và thái nhỏ)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1/2 chén kem tươi (heavy cream - tùy chọn)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">Muối biển và tiêu trắng</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-cinnabar font-bold uppercase tracking-tighter text-sm mb-4">Phần Trang Trí</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1 chén củ hũ dừa, thái lát tròn dày 0.6cm</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">4 củ hành tím lớn, thái khoanh mỏng</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1/2 chén dầu trung tính (để chiên hành)</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">Lá bạc hà nhỏ (micro mint) hoặc bạc hà thái sợi cực nhỏ</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">1 muỗng cà phê nước cốt chanh</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-gold opacity-50 group-hover:opacity-100">✧</span>
+                            <span class="justified-text">Dầu ô liu nguyên chất để rưới trang trí</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Steps Column -->
+        <section class="lg:col-span-8 space-y-12">
+            <h2 class="serif-display text-3xl font-bold border-b border-gold pb-2 text-charcoal">
+                2. Các bước thực hiện
+            </h2>
+
+            <div class="space-y-10 relative">
+                <div class="absolute left-6 top-0 bottom-0 w-px bg-gold/20 -z-10 hidden md:block"></div>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">01</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Chuẩn bị các loại rau thơm</h4>
+                        <div class="justified-text mb-2 italic text-gray-500 text-sm">Thời gian: 8 phút</div>
+                        <p class="justified-text">Trong một chiếc nồi đáy dày ở lửa nhỏ vừa, đun chảy 1 muỗng canh bơ. Thêm tỏi tây, bí ngòi và măng tây trắng. Xào rau cho đến khi mềm nhưng không để rau bị ngả màu nâu.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">02</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Tạo hỗn hợp Roux</h4>
+                        <div class="justified-text mb-2 italic text-gray-500 text-sm">Thời gian: 3 phút</div>
+                        <p class="justified-text">Thêm phần bơ còn lại vào nồi. Sau khi bơ tan chảy hoàn toàn, rắc bột mì vào. Khuấy liên tục trong 2-3 phút để tạo thành "blonde roux" (hỗn hợp bột bơ vàng nhạt). Tuyệt đối không để bột cháy sang màu nâu.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">03</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Kết hợp nước dùng</h4>
+                        <div class="justified-text mb-2 italic text-gray-500 text-sm">Kỹ thuật chuyên nghiệp</div>
+                        <p class="justified-text">Từ từ rót nước dùng rau củ đã để lạnh vào nồi, mỗi lần một gáo nhỏ, vừa rót vừa đánh đều tay. Kỹ thuật truyền thống này đảm bảo nước sốt sánh mịn, không bị vón cục. Đun sôi nhẹ.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">04</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Ninh và làm mềm</h4>
+                        <div class="justified-text mb-2 italic text-gray-500 text-sm">Thời gian: 20 phút</div>
+                        <p class="justified-text">Nấu hỗn hợp cốt trong 15-20 phút cho đến khi rau củ hoàn toàn mềm và mùi bột mì chín hẳn.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">05</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Xay và lọc</h4>
+                        <p class="justified-text">Chuyển hỗn hợp sang máy xay sinh tố tốc độ cao. Xay cho đến khi thật mịn. Để đạt được kết cấu chuyên nghiệp, hãy lọc chất lỏng qua rây lưới mịn (chinois) vào một chiếc nồi sạch khác.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">06</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Hoàn thiện</h4>
+                        <p class="justified-text">Khuấy kem tươi vào (nếu dùng) và nêm muối biển, tiêu trắng, cùng một chút nước cốt chanh để làm nổi bật hương vị. Giữ ấm.</p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">07</span>
+                    </div>
+                    <div class="flex-1 pb-4 border-b border-gray-100">
+                        <h4 class="text-xl font-bold mb-2">Chuẩn bị phần trang trí</h4>
+                        <p class="justified-text">Trong khi chờ súp ninh, đun nóng dầu trong chảo nhỏ. Chiên hành tím cho đến khi vàng giòn. Để ráo trên giấy thấm dầu. Trộn nhẹ củ hũ dừa thái lát với một chút dầu ô liu và muối.</p>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-cream border border-gold shrink-0 z-10">
+                        <span class="text-gold font-bold">08</span>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2">Trình bày</h4>
+                        <p class="justified-text">Rót súp velouté nóng vào các đĩa sâu lòng và xếp các phần trang trí theo hướng dẫn ở phần trình bày bên dưới.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ✵ ✦</span>
+    </div>
+
+    <!-- Chef's Corner -->
+    <section class="mb-16">
+        <div class="pro-tip-box rounded-lg">
+            <h2 class="serif-display text-2xl font-bold mb-6 text-gold flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6.41a7 7 0 0 1 13.09 3.14 4.5 4.5 0 0 1-2 8.45H7a4 4 0 0 1-1-7.72Z"/><path d="M12 12v.01"/><path d="M8 16v.01"/><path d="M16 16v.01"/><path d="M12 16v.01"/><path d="M12 8v.01"/><path d="M8 12v.01"/><path d="M16 12v.01"/></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar">Kết Cấu Chuẩn:</h5>
+                    <p class="justified-text text-sm">Để đạt được độ mịn "nhung" (velouté) thực thụ, sự chênh lệch nhiệt độ giữa roux nóng và nước dùng lạnh là tối quan trọng để ngăn ngừa vón cục.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar">Bảo Tồn Màu Sắc:</h5>
+                    <p class="justified-text text-sm">Việc gọt vỏ bí ngòi và sử dụng măng tây trắng đảm bảo món súp giữ được tông màu celadon (xanh ngọc nhạt) sang trọng thay vì màu nâu xám.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar">Độ Chính Xác:</h5>
+                    <p class="justified-text text-sm">Nếu súp quá đặc, hãy pha loãng bằng từng muỗng canh nước dùng ấm; nếu quá loãng, hãy đun nhỏ lửa một lúc để súp cô đặc lại.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h2 class="serif-display text-3xl font-bold mb-8 text-center text-charcoal">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 border border-gray-100 shadow-sm hover-card">
+                <h4 class="font-bold text-lg mb-3 text-cinnabar italic">Phiên bản Thuần Chay</h4>
+                <p class="justified-text text-sm text-gray-600">Thay thế bơ bằng bơ thực vật chất lượng cao hoặc dầu dừa tinh luyện, và thay kem tươi bằng kem hạt điều.</p>
+            </div>
+            <div class="bg-white p-6 border border-gray-100 shadow-sm hover-card">
+                <h4 class="font-bold text-lg mb-3 text-cinnabar italic">Biến tấu Theo Mùa</h4>
+                <p class="justified-text text-sm text-gray-600">Vào mùa xuân, hãy thay măng tây trắng bằng đậu Hà Lan; vào mùa đông, sử dụng củ cải vàng hoặc sunchokes để có hương vị đậm đà hơn.</p>
+            </div>
+            <div class="bg-white p-6 border border-gray-100 shadow-sm hover-card">
+                <h4 class="font-bold text-lg mb-3 text-cinnabar italic">Nấu Tại Nhà</h4>
+                <p class="justified-text text-sm text-gray-600">Bỏ qua bước lọc qua rây nếu bạn sử dụng máy xay công suất lớn có khả năng làm nhuyễn hoàn toàn các sợi rau củ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition & Presentation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+        <section>
+            <h2 class="serif-display text-2xl font-bold mb-6 text-charcoal">5. Giá trị dinh dưỡng</h2>
+            <div class="bg-charcoal text-cream p-8 rounded-sm">
+                <ul class="space-y-4 text-sm">
+                    <li class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="opacity-70">Củ hũ dừa:</span>
+                        <span class="text-right">Ít calo, giàu chất xơ, kali và Vitamin C.</span>
+                    </li>
+                    <li class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="opacity-70">Cốt rau củ:</span>
+                        <span class="text-right">Cung cấp nồng độ cao dưỡng chất thực vật.</span>
+                    </li>
+                    <li class="flex justify-between border-b border-white/10 pb-2">
+                        <span class="opacity-70">Tỏi tây & Hành tím:</span>
+                        <span class="text-right">Chứa chất xơ prebiotic hỗ trợ tiêu hóa.</span>
+                    </li>
+                    <li class="pt-4 flex justify-between font-bold text-gold uppercase tracking-widest">
+                        <span>Mỗi khẩu phần:</span>
+                        <span>240 CAL / 18g FAT / 16g CARBS / 4g PRO</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="serif-display text-2xl font-bold mb-6 text-charcoal">6. Gợi ý trình bày</h2>
+            <div class="space-y-4 justified-text text-gray-700 italic">
+                <p>• Sử dụng đĩa sứ trắng, rộng và nông để làm nổi bật màu sắc tinh tế của súp.</p>
+                <p>• Đặt ba hoặc bốn lát củ hũ dừa vào giữa đĩa để tạo thành một "hòn đảo" vững chãi cho các phần trang trí khác.</p>
+                <p>• Đặt một nhúm nhỏ hành tím phi lên trên củ hũ dừa để tạo độ cao và độ giòn.</p>
+                <p>• Rắc lá bạc hà micro xung quanh trung tâm để tạo sự tương phản màu sắc rực rỡ và hương thơm sảng khoái.</p>
+                <p>• Hoàn thiện với ba giọt dầu ô liu nguyên chất được đặt đối xứng quanh phần trang trí để tạo độ bóng chuyên nghiệp.</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
