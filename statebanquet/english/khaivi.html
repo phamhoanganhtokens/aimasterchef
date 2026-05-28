@@ -1,1 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Panna Cotta de Cresson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23E28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        p, .description {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.4;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
 
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #C5A059;
+            transform: translateY(-2px);
+        }
+        .step-number {
+            font-style: italic;
+            font-weight: bold;
+            color: #E23E28;
+            font-size: 1.5rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ornament {
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-12">
+        <div class="mb-4 inline-block border-b-2 border-gold pb-2">
+            <span class="uppercase tracking-widest text-sm font-bold text-gold">AI Vua Đầu Bếp | Premium Collection</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-charcoal leading-tight">
+            Panna Cotta de Cresson et Œufs de Caille sur Sablé de Parmesan
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">
+            Panna Cotta rau cải xoong & Trứng cút trên bánh quy Parmesan
+        </h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 bg-white/50">
+            <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                <span class="text-cinnabar mb-1">◈ Mức độ ◈</span>
+                <span class="font-bold uppercase tracking-tight">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                <span class="text-cinnabar mb-1">◈ Thời gian ◈</span>
+                <span class="font-bold uppercase tracking-tight">4h 65p</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                <span class="text-cinnabar mb-1">◈ Khẩu phần ◈</span>
+                <span class="font-bold uppercase tracking-tight">6 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">◈ Nguồn gốc ◈</span>
+                <span class="font-bold uppercase tracking-tight">Pháp & Ý</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-700">
+            <p>"Đây là một bản diễn giải hiện đại của Pháp về truyền thống 'kem nấu' của Ý, được tái hiện như một món khai vị (entrée) mặn tinh tế. Sự kết hợp giữa di sản mộc mạc của Pâte Sablée Pháp và kỹ thuật đương đại của bánh custard mặn tẩm tinh chất rau củ."</p>
+        </div>
+    </header>
+
+    <div class="section-divider"><span class="ornament">✧ ❈ ✧</span></div>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <h3 class="text-2xl font-bold border-l-4 border-cinnabar pl-4 mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+            
+            <div class="space-y-6">
+                <div class="glass-card p-6 rounded-sm">
+                    <h4 class="font-bold text-cinnabar italic mb-3 border-b border-gold/20 pb-1">Cho bánh Parmesan Sablé:</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 150g Bột mì đa dụng</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 100g Bơ lạt lạnh, cắt khối</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 80g Phô mai Parmesan bào tươi</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 1 Lòng đỏ trứng</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 1/2 muỗng cà phê Muối biển</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 1/4 muỗng cà phê Tiêu đen xay</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 rounded-sm">
+                    <h4 class="font-bold text-cinnabar italic mb-3 border-b border-gold/20 pb-1">Cho Panna Cotta Cải Xoong:</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 200g Cải xoong tươi (bỏ thân)</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 250ml Kem béo (Heavy cream 35%)</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 100ml Sữa tươi nguyên kem</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 3 Lá Gelatin (6g) hoặc 2 tsp bột</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 1/2 muỗng cà phê Muối</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 1 Nhúm Nhục đậu khấu</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> Đá lạnh để làm nguội nhanh</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 rounded-sm">
+                    <h4 class="font-bold text-cinnabar italic mb-3 border-b border-gold/20 pb-1">Trình bày & Trang trí:</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> 6-12 Trứng cút</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> Muối Fleur de sel</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> Vi thảo mộc hoặc mầm cải đỏ</li>
+                        <li class="flex items-start"><span class="text-gold mr-2">✦</span> Dầu ô liu nguyên chất</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-l-4 border-cinnabar pl-4 mb-6 uppercase tracking-wider">2. Các bước thực hiện</h3>
+            <div class="space-y-8 relative before:absolute before:left-6 before:top-0 before:h-full before:w-px before:bg-gold/20">
+                
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-cream border-2 border-gold rounded-full flex items-center justify-center step-number group-hover:bg-gold group-hover:text-white transition-colors">1</div>
+                    <div class="mb-2 flex justify-between items-center">
+                        <h4 class="font-bold text-xl">Chuẩn bị đế Sablé</h4>
+                        <span class="text-sm font-serif italic text-gold bg-gold/5 px-2 py-1">30p chuẩn bị | 15p nướng</span>
+                    </div>
+                    <p>Trong một bát lớn hoặc máy xay thực phẩm, trộn bột mì, muối, tiêu và bơ lạnh. Trộn cho đến khi kết cấu giống như vụn bánh mì mịn (kỹ thuật "sablage"). Thêm phô mai Parmesan, sau đó thêm lòng đỏ trứng. Trộn cho đến khi bột vừa kết dính. Cán bột giữa hai tấm giấy nến đến độ dày 5mm. Để lạnh trong 30 phút. Cắt thành các vòng tròn lớn hơn một chút so với khuôn panna cotta. Nướng ở 180°C (350°F) trong 12-15 phút cho đến khi vàng nâu. Để nguội trên giá.</p>
+                </div>
+
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-cream border-2 border-gold rounded-full flex items-center justify-center step-number group-hover:bg-gold group-hover:text-white transition-colors">2</div>
+                    <div class="mb-2 flex justify-between items-center">
+                        <h4 class="font-bold text-xl">Chần Cải Xoong</h4>
+                        <span class="text-sm font-serif italic text-gold bg-gold/5 px-2 py-1">5 phút</span>
+                    </div>
+                    <p>Đun sôi một nồi nước muối. Chuẩn bị một bát nước đá. Nhúng lá cải xoong vào nước sôi trong 30 giây cho đến khi có màu xanh sáng. Ngay lập tức chuyển sang bát nước đá. Sau khi nguội, vắt kiệt từng giọt nước thừa. Quá trình "sốc nhiệt" này là cực kỳ quan trọng để duy trì màu xanh ngọc lục bảo rực rỡ.</p>
+                </div>
+
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-cream border-2 border-gold rounded-full flex items-center justify-center step-number group-hover:bg-gold group-hover:text-white transition-colors">3</div>
+                    <div class="mb-2 flex justify-between items-center">
+                        <h4 class="font-bold text-xl">Nấu Kem</h4>
+                        <span class="text-sm font-serif italic text-gold bg-gold/5 px-2 py-1">10 phút</span>
+                    </div>
+                    <p>Trong một cái chảo nhỏ, đun nóng sữa và kem béo với muối và nhục đậu khấu cho đến khi đạt đến độ sôi lăn tăn (không để sôi bùng). Trong khi đó, ngâm gelatin trong nước lạnh khoảng 5 phút để nở mềm.</p>
+                </div>
+
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-cream border-2 border-gold rounded-full flex items-center justify-center step-number group-hover:bg-gold group-hover:text-white transition-colors">4</div>
+                    <div class="mb-2 flex justify-between items-center">
+                        <h4 class="font-bold text-xl">Xay và Đổ Khuôn</h4>
+                        <span class="text-sm font-serif italic text-gold bg-gold/5 px-2 py-1">10p thực hiện | 4h lạnh</span>
+                    </div>
+                    <p>Cho cải xoong đã chần và hỗn hợp kem ấm vào máy xay sinh tố tốc độ cao. Xay cho đến khi hoàn toàn mịn. Vắt ráo nước gelatin và khuấy vào hỗn hợp ấm cho đến khi tan hết. Lọc hỗn hợp qua rây lưới mịn (chinois) vào ca để loại bỏ các xơ còn sót lại. Đổ vào khuôn silicon hoặc ramekin nhỏ. Để tủ lạnh ít nhất 4 giờ.</p>
+                </div>
+
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-cream border-2 border-gold rounded-full flex items-center justify-center step-number group-hover:bg-gold group-hover:text-white transition-colors">5</div>
+                    <div class="mb-2 flex justify-between items-center">
+                        <h4 class="font-bold text-xl">Luộc Trứng Cút</h4>
+                        <span class="text-sm font-serif italic text-gold bg-gold/5 px-2 py-1">5 phút</span>
+                    </div>
+                    <p>Đun sôi nước lăn tăn. Nhẹ nhàng thả trứng cút vào và luộc đúng 2 phút 15 giây để có lòng đỏ dẻo. Chuyển sang nước đá. Bóc vỏ cẩn thận dưới vòi nước lạnh đang chảy.</p>
+                </div>
+
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-cream border-2 border-gold rounded-full flex items-center justify-center step-number group-hover:bg-gold group-hover:text-white transition-colors">6</div>
+                    <div class="mb-2 flex justify-between items-center">
+                        <h4 class="font-bold text-xl">Trình Bày</h4>
+                        <span class="text-sm font-serif italic text-gold bg-gold/5 px-2 py-1">Lắp ráp</span>
+                    </div>
+                    <p>Đặt một chiếc bánh quy Parmesan sablé lên đĩa. Cẩn thận lấy panna cotta cải xoong ra khỏi khuôn và đặt vào giữa bánh quy. Cắt đôi quả trứng cút và đặt lên trên. Đối với người nấu tại gia, nếu khó lấy ra khỏi khuôn, có thể phục vụ panna cotta trong các ly thủy tinh nhỏ (verrines) với bánh sablé bẻ vụn lên trên.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider"><span class="ornament">✧ ❈ ✧</span></div>
+
+    <!-- Chef's Corner Section -->
+    <section class="max-w-6xl mx-auto mb-12">
+        <div class="bg-gold/5 border-2 border-double border-gold p-8 rounded-lg relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-charcoal mb-6 uppercase tracking-widest flex items-center italic">
+                <span class="mr-3">✦</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar">Độ Mịn Tuyệt Đối</h5>
+                    <p class="text-sm">Để đảm bảo cảm giác miệng "mượt như lụa" chuẩn chuyên nghiệp, hãy luôn lọc hỗn hợp panna cotta hai lần. Nếu dùng máy xay tại gia, hãy xay đủ 2 phút để nhũ hóa hoàn toàn xơ cải xoong.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar">Kiểm Soát Nhiệt Độ</h5>
+                    <p class="text-sm">Đảm bảo hỗn hợp kem ấm nhưng không sôi khi cho gelatin vào; nhiệt độ quá cao có thể làm yếu đặc tính đông đặc của gelatin và tạo ra kết cấu dai như cao su.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar">Độ Giòn Của Sablé</h5>
+                    <p class="text-sm">Để ngăn bánh quy bị mềm do độ ẩm từ panna cotta, chỉ nên lắp ráp món ăn tối đa 30 phút trước khi phục vụ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <h3 class="text-2xl font-bold mb-6 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button onclick="openTab('v-standard')" class="tab-btn px-6 py-2 border border-gold font-bold uppercase text-sm tracking-widest hover:bg-gold hover:text-white transition-all active-tab bg-gold text-white">Tiêu chuẩn</button>
+            <button onclick="openTab('v-veggie')" class="tab-btn px-6 py-2 border border-gold font-bold uppercase text-sm tracking-widest hover:bg-gold hover:text-white transition-all">Ăn chay</button>
+            <button onclick="openTab('v-pro')" class="tab-btn px-6 py-2 border border-gold font-bold uppercase text-sm tracking-widest hover:bg-gold hover:text-white transition-all">Cao cấp</button>
+        </div>
+
+        <div id="v-standard" class="tab-content active glass-card p-8 rounded-lg">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar italic">The Spinach Swap (Thay thế Cải bó xôi)</h4>
+            <p>Nếu vị cay nồng của cải xoong quá mạnh so với khẩu vị của bạn, hãy sử dụng cải bó xôi (baby spinach) để có hương vị nhẹ nhàng, thanh tao hơn mà vẫn giữ được màu xanh rực rỡ.</p>
+        </div>
+        <div id="v-veggie" class="tab-content glass-card p-8 rounded-lg">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar italic">Vegetarian Alternative (Lựa chọn Thuần chay/Thực vật)</h4>
+            <p>Thay thế các lá gelatin bằng 1,5g bột Agar-Agar. Lưu ý rằng Agar-Agar phải được đun sôi trong kem từ 1-2 phút để kích hoạt tính năng đông đặc. Kết cấu sẽ cứng hơn một chút so với gelatin truyền thống.</p>
+        </div>
+        <div id="v-pro" class="tab-content glass-card p-8 rounded-lg">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar italic">Smoked Element (Điểm nhấn Khói)</h4>
+            <p>Thêm một lát mỏng cá hồi xông khói giữa lớp panna cotta và trứng cút để tăng thêm một tầng hương vị umami đậm đà. Bạn cũng có thể dùng muối xông khói thay cho muối biển thông thường.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="ornament">✧ ❈ ✧</span></div>
+
+    <!-- Bottom Info -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div>
+            <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-cinnabar border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b border-dashed border-gold/20 pb-2">
+                    <span class="italic">Mỗi phần ăn (Ước tính)</span>
+                    <span class="font-bold">320 kcal</span>
+                </div>
+                <div class="description text-sm">
+                    <p class="mb-2"><strong>Lợi ích của Cải xoong:</strong> Loại rau họ cải này cực kỳ giàu Vitamin K (tốt cho xương) và Vitamin C (hỗ trợ miễn dịch).</p>
+                    <p class="mb-2"><strong>Lợi ích của Trứng cút:</strong> Dù nhỏ bé nhưng chúng cung cấp nguồn vitamin B đậm đặc và protein chất lượng cao với tỷ lệ gây dị ứng thấp hơn trứng gà.</p>
+                    <p><strong>Lưu ý:</strong> Món ăn này tự nhiên chứa ít carbohydrate nhưng lại giàu chất béo lành mạnh và các vitamin tan trong dầu.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-cinnabar border-b border-gold/30 pb-2">6. Gợi ý trình bày</h3>
+            <div class="description text-sm space-y-3">
+                <p><strong>Tương phản màu sắc:</strong> Sức hấp dẫn thị giác nằm ở màu "Xanh rừng rậm" của panna cotta tương phản với màu "Vàng rơm" của bánh quy.</p>
+                <p><strong>Chiều cao & Kết cấu:</strong> Đặt một nhánh mầm cải đỏ hoặc vi thảo mộc theo chiều dọc trên lòng đỏ trứng để tạo thêm chiều cao cho món ăn.</p>
+                <p><strong>Điểm chạm cuối cùng:</strong> Một giọt dầu ô liu chất lượng cao nhỏ lên mặt cắt của lòng đỏ trứng sẽ bắt sáng, khiến món ăn trông rực rỡ và "đắt giá" hơn khi lên ảnh hoặc phục vụ trong các bữa tiệc cao cấp.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openTab(tabId) {
+            // Hide all tabs
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+            });
+
+            // Show current tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Highlight current button
+            event.currentTarget.classList.add('bg-gold', 'text-white');
+        }
+    </script>
+</body>
+</html>
