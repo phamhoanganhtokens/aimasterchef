@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Салат с крабом и клубникой</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #D4AF37;
+            margin: 3rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+            opacity: 0.5;
+        }
+        .ornament:not(:empty)::before { margin-right: 1.5rem; }
+        .ornament:not(:empty)::after { margin-left: 1.5rem; }
 
+        .pro-tip-box {
+            border: 3px double #D4AF37;
+            background-color: rgba(212, 175, 55, 0.05);
+            padding: 2rem;
+            position: relative;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .meta-card {
+            border-right: 1px solid rgba(44, 44, 44, 0.1);
+        }
+        .meta-card:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            }
+            .meta-card:nth-child(even) {
+                border-left: 1px solid rgba(44, 44, 44, 0.1);
+            }
+        }
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="mb-4 text-burnished-gold tracking-widest text-sm font-bold uppercase tracking-[0.3em]">AI Vua Đầu Bếp Présente</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">Салат с крабом и клубникой</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">(Crab and Strawberry Salad)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 bg-white shadow-sm border border-gray-100 rounded-sm py-6 px-4">
+            <div class="meta-card flex flex-col items-center p-2">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ khó / Difficulty</span>
+                <span class="font-bold">Trung cấp (Intermediate)</span>
+            </div>
+            <div class="meta-card flex flex-col items-center p-2">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời gian / Time</span>
+                <span class="font-bold">25 Phút (Minutes)</span>
+            </div>
+            <div class="meta-card flex flex-col items-center p-2">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu phần / Servings</span>
+                <span class="font-bold">02 Người</span>
+            </div>
+            <div class="meta-card flex flex-col items-center p-2">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn gốc / Origin</span>
+                <span class="font-bold text-sm">Modern Fusion</span>
+            </div>
+        </div>
+
+        <div class="mt-6 italic text-gray-500 max-w-2xl mx-auto justified-text">
+            Sự pha trộn tinh tế giữa truyền thống Địa Trung Hải trong việc kết hợp hải sản với trái cây và xu hướng ẩm thực Nga hiện đại sử dụng dâu tây địa phương trong các món khai vị mặn.
+        </div>
+    </header>
+
+    <div class="ornament">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2L14.5,9H21L15.7,13L17.7,20L12,16L6.3,20L8.3,13L3,9H9.5L12,2Z" />
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-burnished-gold font-bold italic mb-3">Thành phần chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            200g Thịt cua Hoàng đế tươi (hoặc cua đóng hộp cao cấp)
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            150g Dâu tây tươi (chọn quả chín và chắc)
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            100g Rau arugula non hoặc rau Mizuna
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            01 Quả bơ lớn (ưu tiên giống bơ Hass)
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            30g Hạt thông hoặc hạnh nhân lát
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-burnished-gold font-bold italic mb-3">Nước sốt (Dressing)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            3 muỗng canh Dầu ô liu Extra virgin
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            1 muỗng canh Giấm balsamic trắng (hoặc giấm táo)
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            1 muỗng cà phê Mật ong hoặc siro agave
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            1 muỗng cà phê Nước cốt chanh
+                        </li>
+                        <li class="flex items-start justified-text hover-lift">
+                            <span class="text-cinnabar-red mr-2">✦</span>
+                            Một nhúm Muối biển và tiêu hồng xay tươi
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-6 uppercase tracking-wider">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-8">
+                <div class="relative pl-8 border-l-2 border-gray-100 hover:border-burnished-gold transition-colors duration-500 pb-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 bg-white border-2 border-cinnabar-red rounded-full"></div>
+                    <h4 class="font-bold text-lg mb-2">Bước 1: Chuẩn bị Protein <span class="text-sm font-normal italic text-gray-500 ml-2">5 Phút</span></h4>
+                    <p class="justified-text leading-relaxed">
+                        Cẩn thận gỡ thịt cua để loại bỏ các sụn nhỏ. Nếu sử dụng cua Hoàng đế tươi, hãy giữ nguyên các khối thịt lớn để bảo toàn kết cấu hảo hạng. <em class="text-gray-600 font-medium">Lưu ý cho gia đình:</em> Nếu không có cua thật, bạn có thể dùng thanh cua (surimi) cao cấp, nhưng nên xé tay thay vì cắt khối để mô phỏng tốt hơn kết cấu thịt cua thật.
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-gray-100 hover:border-burnished-gold transition-colors duration-500 pb-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 bg-white border-2 border-cinnabar-red rounded-full"></div>
+                    <h4 class="font-bold text-lg mb-2">Bước 2: Sơ chế Trái cây & Rau củ <span class="text-sm font-normal italic text-gray-500 ml-2">7 Phút</span></h4>
+                    <p class="justified-text leading-relaxed">
+                        Rửa sạch và bỏ cuống dâu tây. Cắt dọc dâu thành những lát hình trái tim mỏng để khoe trọn hoa văn bên trong. Tách hạt và gọt vỏ bơ, cắt thành những lát hình lưỡi liềm mỏng. Để tránh bơ bị thâm, hãy phết nhẹ một chút nước cốt chanh lên mặt bơ.
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-gray-100 hover:border-burnished-gold transition-colors duration-500 pb-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 bg-white border-2 border-cinnabar-red rounded-full"></div>
+                    <h4 class="font-bold text-lg mb-2">Bước 3: Chế biến Nhũ tương (The Emulsion) <span class="text-sm font-normal italic text-gray-500 ml-2">3 Phút</span></h4>
+                    <p class="justified-text leading-relaxed">
+                        Trong một tô inox nhỏ, đánh đều nước cốt chanh, mật ong và giấm. Từ từ rót dầu ô liu vào trong khi vẫn đánh mạnh tay để tạo ra một hỗn hợp nhũ tương ổn định. Mật ong đóng vai trò là chất nhũ hóa tự nhiên, giúp kết dính dầu và axit lại với nhau.
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-gray-100 hover:border-burnished-gold transition-colors duration-500 pb-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 bg-white border-2 border-cinnabar-red rounded-full"></div>
+                    <h4 class="font-bold text-lg mb-2">Bước 4: Rang Hạt <span class="text-sm font-normal italic text-gray-500 ml-2">3 Phút</span></h4>
+                    <p class="justified-text leading-relaxed">
+                        Sử dụng chảo khô trên lửa vừa, rang nhẹ hạt thông cho đến khi vàng đều và dậy mùi thơm. Quá trình này giúp giải phóng các loại dầu thiết yếu, tạo ra cầu nối hương vị giữa trái cây ngọt ngào và hải sản mặn mòi.
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-gray-100 hover:border-burnished-gold transition-colors duration-500 pb-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 bg-white border-2 border-cinnabar-red rounded-full"></div>
+                    <h4 class="font-bold text-lg mb-2">Bước 5: Trình bày & Hoàn thiện <span class="text-sm font-normal italic text-gray-500 ml-2">7 Phút</span></h4>
+                    <p class="justified-text leading-relaxed">
+                        Trong một tô lớn, trộn nhẹ rau xanh với một nửa lượng nước sốt. Xếp rau đã trộn lên đĩa làm lớp nền. Sắp xếp các khối thịt cua, lát dâu tây và bơ xen kẽ để mỗi miếng ăn đều chứa đựng đầy đủ các thành phần. Rưới lượng nước sốt còn lại lên trên cùng và trang trí bằng hạt thông rang cùng tiêu hồng.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="ornament">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2L14.5,9H21L15.7,13L17.7,20L12,16L6.3,20L8.3,13L3,9H9.5L12,2Z" />
+        </svg>
+    </div>
+
+    <!-- Chef's Corner -->
+    <section class="mb-12">
+        <div class="pro-tip-box">
+            <h3 class="text-xl font-bold text-burnished-gold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.674M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="justified-text text-sm">
+                    <strong class="text-cinnabar-red block mb-1 uppercase tracking-tighter">Kiểm soát Nhiệt độ:</strong>
+                    Đảm bảo thịt cua và dâu tây đã được làm lạnh kỹ trước khi chế biến. Sự tương phản giữa các thành phần lạnh và nước sốt ở nhiệt độ phòng làm tăng cảm giác tươi mát cho món ăn.
+                </div>
+                <div class="justified-text text-sm">
+                    <strong class="text-cinnabar-red block mb-1 uppercase tracking-tighter">Cân bằng Axit:</strong>
+                    Nếu dâu tây đặc biệt ngọt, hãy tăng thêm nước cốt chanh vào nước sốt. Ngược lại, nếu dâu tây chua, hãy thêm một chút mật ong để điều vị.
+                </div>
+                <div class="justified-text text-sm">
+                    <strong class="text-cinnabar-red block mb-1 uppercase tracking-tighter">Tránh Trộn Quá Tay:</strong>
+                    Đừng bao giờ trộn thịt cua quá mạnh với rau xanh, vì nó sẽ làm nát thịt cua và làm mất đi vẻ thẩm mỹ sang trọng của món ăn.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations -->
+    <section class="mb-12">
+        <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-8 uppercase tracking-wider">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 shadow-md border-t-4 border-burnished-gold hover-lift">
+                <h4 class="font-bold mb-3 italic">The Tropical Twist</h4>
+                <p class="text-sm justified-text">Thay thế dâu tây bằng xoài chín và thêm một chút ớt tươi vào nước sốt để tạo nên hương vị cay-ngọt độc đáo.</p>
+            </div>
+            <div class="bg-white p-6 shadow-md border-t-4 border-gray-300 hover-lift">
+                <h4 class="font-bold mb-3 italic">The Creamy Alternative</h4>
+                <p class="text-sm justified-text">Thay thế nước sốt vinaigrette bằng sốt nền sữa chua nhẹ nhàng, pha thêm vỏ chanh bào và lá bạc hà tươi.</p>
+            </div>
+            <div class="bg-white p-6 shadow-md border-t-4 border-cinnabar-red hover-lift">
+                <h4 class="font-bold mb-3 italic">Budget-Friendly</h4>
+                <p class="text-sm justified-text">Sử dụng tôm lạnh (đã bóc vỏ và bỏ chỉ lưng) thay cho cua Hoàng đế để có một phiên bản dễ tiếp cận hơn cho ngày thường.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="ornament">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2L14.5,9H21L15.7,13L17.7,20L12,16L6.3,20L8.3,13L3,9H9.5L12,2Z" />
+        </svg>
+    </div>
+
+    <!-- Technical Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div>
+            <h3 class="text-xl font-bold text-primary-charcoal mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">5. Giá trị dinh dưỡng</h3>
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <p class="font-bold text-cinnabar-red mb-2 text-lg">~320 kcal / Khẩu phần</p>
+                <p class="justified-text text-sm leading-relaxed">
+                    Món ăn này là nguồn cung cấp dồi dào axit béo Omega-3 (từ cua và bơ) và Vitamin C (từ dâu tây). Đây là lựa chọn ít tinh bột (low-carb) và giàu protein nạc. Hạt thông cung cấp chất béo không bão hòa đơn lành mạnh, rất tốt cho sức khỏe tim mạch.
+                </p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold text-primary-charcoal mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">6. Gợi ý trình bày</h3>
+            <div class="space-y-4 text-sm justified-text">
+                <p><strong>Lý thuyết Màu sắc:</strong> Sử dụng đĩa trắng hoặc xám đá phiến để làm nổi bật màu đỏ rực rỡ của dâu tây và màu xanh đậm của rau arugula.</p>
+                <p><strong>Độ cao:</strong> Hãy xếp món salad theo chiều dọc thay vì trải phẳng. Bắt đầu với lớp rau nền dày và đặt thịt cua, dâu tây lên trên một cách nghệ thuật.</p>
+                <p><strong>Điểm nhấn cuối:</strong> Sử dụng tiêu hồng; hương hoa của chúng bổ trợ cho dâu tây tốt hơn vị hăng của tiêu đen, đồng thời giữ được sự hài hòa về màu sắc.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Interactive touches
+        document.querySelectorAll('.hover-lift').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.color = '#E23D28';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.color = '#2C2C2C';
+            });
+        });
+    </script>
+</body>
+</html>
