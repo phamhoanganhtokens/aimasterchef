@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Apple Pie & Cloudberry Sorbet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 max-w-6xl mx-auto border-x border-gray-100 shadow-2xl min-h-screen">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="inline-block border-b-2 border-gold pb-2 mb-4">
+            <span class="uppercase tracking-widest text-xs font-bold text-cinnabar">AI Vua Đầu Bếp | Premium Recipe</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">Bánh Táo nướng & Kem Vanilla hoặc Sorbet Quả Mâm Xôi Bắc Cực</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">Apple Pie with Vanilla Ice Cream or Cloudberry Sorbet</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 py-6 border-y border-gold/30 bg-white/50">
+            <div class="flex flex-col items-center px-4">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m4.93 19.07 14.14-14.14"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest font-bold">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center px-4">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest font-bold">Thời gian</span>
+                <span class="font-bold">2 Giờ</span>
+            </div>
+            <div class="flex flex-col items-center px-4">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest font-bold">Phục vụ</span>
+                <span class="font-bold">8 Người</span>
+            </div>
+            <div class="flex flex-col items-center px-4">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest font-bold">Nguồn gốc</span>
+                <span class="font-bold">Anh/Pháp & Bắc Âu</span>
+            </div>
+        </div>
+
+        <div class="mt-8 px-4 md:px-20">
+            <p class="justified-text italic text-gray-700 first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-cinnabar">
+                The apple pie has deep roots in 14th-century England and France, evolving from unsweetened "coffyns" to the buttery, spiced dessert of today. This specific iteration blends that Western European tradition with the Nordic and Northern Russian influence of the cloudberry (Rubus chamaemorus), a rare subarctic berry known as "Arctic Gold," providing a sophisticated, tart contrast to the warm, spiced apples.
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament">
+        <span class="ornament-icon">✦ ❦ ✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Ingredients Column -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-l-4 border-cinnabar pl-4 uppercase tracking-tighter italic">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div class="glass-card p-5 rounded-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-cinnabar border-b border-gold/20 mb-3 pb-1">Vỏ bánh (Pate Brisée)</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Bột mì đa dụng</span><span>320g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Bơ lạt (lạnh)</span><span>225g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Muối</span><span>1 tsp</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Đường</span><span>1 tbsp</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Nước đá lạnh</span><span>60–100ml</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Trứng (phết mặt)</span><span>1 quả</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-cinnabar border-b border-gold/20 mb-3 pb-1">Nhân Táo</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Táo hỗn hợp (Granny Smith/Braeburn)</span><span>1.2kg</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Đường nâu nhạt</span><span>150g</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Bột ngô</span><span>2 tbsp</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Quế bột</span><span>2 tsp</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Nhục đậu khấu (Nutmeg)</span><span>1/4 tsp</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Nước cốt chanh</span><span>1 tbsp</span></li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300"><span>Bơ lạt (lạnh)</span><span>1 tbsp</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-cinnabar border-b border-gold/20 mb-3 pb-1">Đồ kèm (Accompaniments)</h4>
+                        <ul class="space-y-2 text-sm italic text-gray-600">
+                            <li>Kem Vanilla nguyên hạt (Premium)</li>
+                            <li>Hoặc Sorbet Quả Mâm Xôi Bắc Cực (Cloudberry): 400g quả, 100g đường, 100ml nước, 1 tsp nước chanh.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef's Corner -->
+            <section class="pro-tip-box p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-2 opacity-10">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9m0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-11a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gold mb-4 uppercase tracking-widest border-b border-gold pb-2">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="space-y-4 text-sm italic justified-text">
+                    <p><strong>Kiểm soát nhiệt độ:</strong> Hãy đảm bảo tất cả nguyên liệu và dụng cụ làm vỏ bánh phải thật lạnh để bơ không bị tan chảy trước khi nướng, tạo nên lớp vỏ giòn xốp hoàn hảo.</p>
+                    <p><strong>Kích hoạt tinh bột:</strong> Nhân bánh phải sôi sùng sục ở giữa để bột ngô chín và làm dày nước táo, tránh tình trạng đế bánh bị úng nước.</p>
+                    <p><strong>Nướng đều:</strong> Đặt một khay nướng đã được làm nóng sẵn ở ngăn dưới khay bánh để truyền nhiệt trực tiếp vào đáy khuôn ngay lập tức.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Steps Column -->
+        <article class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-8 border-l-4 border-cinnabar pl-4 uppercase tracking-tighter italic">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-4 top-0 bottom-0 w-px bg-gold/30 hidden md:block"></div>
+
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="hidden md:block absolute left-0 top-1 w-8 h-8 rounded-full bg-parchment border-2 border-gold z-10 text-center leading-7 font-bold text-gold group-hover:bg-gold group-hover:text-white transition-all">1</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-xs tracking-widest">Bước 1: Chuẩn bị vỏ bánh (Kỹ thuật chuyên nghiệp)</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500">[ 15 phút + 1 giờ nghỉ ]</span>
+                    </div>
+                    <p class="justified-text">Trộn đều các nguyên liệu khô và cho bơ lạnh vào bóp nhẹ cho đến khi tạo thành những vụn nhỏ kích cỡ hạt đậu. Thêm nước đá lạnh từng chút một cho đến khi bột kết dính. Bọc kín và để tủ lạnh ít nhất 1 giờ.</p>
+                </div>
+
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="hidden md:block absolute left-0 top-1 w-8 h-8 rounded-full bg-parchment border-2 border-gold z-10 text-center leading-7 font-bold text-gold group-hover:bg-gold group-hover:text-white transition-all">2</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-xs tracking-widest">Bước 2: Chuẩn bị Sorbet</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500">[ 20 phút ]</span>
+                    </div>
+                    <p class="justified-text">Nấu siro đường đơn giản với đường và nước, sau đó để nguội. Xay nhuyễn và lọc lấy nước cốt quả mâm xôi bắc cực. Trộn với siro và cho vào máy làm kem hoặc đông lạnh và đảo đều định kỳ.</p>
+                </div>
+
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="hidden md:block absolute left-0 top-1 w-8 h-8 rounded-full bg-parchment border-2 border-gold z-10 text-center leading-7 font-bold text-gold group-hover:bg-gold group-hover:text-white transition-all">3</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-xs tracking-widest">Bước 3: Làm Nhân (Phương pháp truyền thống)</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500">[ 15 phút ]</span>
+                    </div>
+                    <p class="justified-text">Táo gọt vỏ, thái lát vừa ăn, trộn cùng nước cốt chanh, đường, các loại gia vị và bột ngô. Để táo ngấm trong vòng 15 phút để tiết ra nước ngọt tự nhiên.</p>
+                </div>
+
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="hidden md:block absolute left-0 top-1 w-8 h-8 rounded-full bg-parchment border-2 border-gold z-10 text-center leading-7 font-bold text-gold group-hover:bg-gold group-hover:text-white transition-all">4</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-xs tracking-widest">Bước 4: Tạo hình (Phong cách Food Stylist)</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500">[ 20 phút ]</span>
+                    </div>
+                    <p class="justified-text">Cán lớp vỏ dưới dày khoảng 3mm và đặt vào khuôn. Đổ nhân táo vào và rắc thêm những miếng bơ nhỏ lên trên. Cán lớp vỏ thứ hai thành các dải dài và đan hình nan rổ (lattice) để tạo vẻ ngoài bắt mắt và giúp thoát hơi nước.</p>
+                </div>
+
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="hidden md:block absolute left-0 top-1 w-8 h-8 rounded-full bg-parchment border-2 border-gold z-10 text-center leading-7 font-bold text-gold group-hover:bg-gold group-hover:text-white transition-all">5</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-xs tracking-widest">Bước 5: Nướng Bánh</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500">[ 60 phút ]</span>
+                    </div>
+                    <p class="justified-text">Phết một lớp trứng mỏng lên mặt bánh. Nướng ở 200°C trong 20 phút, sau đó giảm xuống 175°C và nướng tiếp 35-40 phút cho đến khi vỏ bánh vàng rực và nhân táo sôi nổi bong bóng.</p>
+                </div>
+
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="hidden md:block absolute left-0 top-1 w-8 h-8 rounded-full bg-parchment border-2 border-gold z-10 text-center leading-7 font-bold text-gold group-hover:bg-gold group-hover:text-white transition-all">6</div>
+                    <div class="mb-2">
+                        <span class="step-number uppercase text-xs tracking-widest">Bước 6: Để nguội</span>
+                        <span class="ml-4 text-xs font-serif italic text-gray-500">[ 2 giờ ]</span>
+                    </div>
+                    <p class="justified-text">Để bánh nghỉ ít nhất 2 giờ trước khi cắt. Đây là bước quan trọng để phần nhân táo ổn định cấu trúc, giúp các lát cắt trở nên gọn gàng và đẹp mắt hơn.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white p-8 border border-gold/20 shadow-sm">
+                <h3 class="text-xl font-bold mb-6 text-charcoal flex items-center gap-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="m9 12 2 2 4-4"/></svg>
+                    4. Biến tấu & Phiên bản nâng cao
+                </h3>
+                
+                <div class="flex border-b border-gray-200 mb-6">
+                    <button onclick="switchTab('home')" id="btn-home" class="tab-btn active px-6 py-2 font-bold uppercase text-xs tracking-widest transition-all">Home Cook</button>
+                    <button onclick="switchTab('pro')" id="btn-pro" class="tab-btn px-6 py-2 font-bold uppercase text-xs tracking-widest transition-all">Pro Variant</button>
+                </div>
+
+                <div id="tab-home" class="tab-content active animate-fade-in">
+                    <p class="justified-text italic text-gray-700"><strong>Lối tắt cho bếp gia đình:</strong> Sử dụng vỏ bánh ngàn lớp (puff pastry) hoặc vỏ bánh ngắn (shortcrust) mua sẵn chất lượng cao để tiết kiệm thời gian. Nếu không tìm được quả mâm xôi bắc cực, bạn hoàn toàn có thể thay thế bằng quả mâm xôi đỏ hoặc quả việt quất để làm sorbet.</p>
+                </div>
+                <div id="tab-pro" class="tab-content animate-fade-in">
+                    <p class="justified-text italic text-gray-700"><strong>Crumble Top:</strong> Thay vì đan nan rổ, hãy thử phủ một lớp vụn (streusel) làm từ yến mạch, đường nâu và bơ lạnh để tạo thêm tầng kết cấu giòn rụm cho món bánh truyền thống này.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div class="ornament">
+        <span class="ornament-icon">✦ ❦ ✦</span>
+    </div>
+
+    <!-- Technical Info Footer-style section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-charcoal text-parchment p-8 rounded-sm">
+            <h4 class="text-gold uppercase tracking-widest font-bold mb-4 flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/><path d="M12 8h.01"/><path d="M12 4h.01"/><path d="M8 20h.01"/><path d="M8 16h.01"/><path d="M8 12h.01"/><path d="M8 8h.01"/><path d="M8 4h.01"/><path d="M16 20h.01"/><path d="M16 16h.01"/><path d="M16 12h.01"/><path d="M16 8h.01"/><path d="M16 4h.01"/></svg>
+                5. Giá trị dinh dưỡng
+            </h4>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b border-white/10 pb-2">
+                    <span class="text-sm opacity-80 uppercase">Mỗi phần ăn (Approx)</span>
+                    <span class="font-bold">420 kcal</span>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div><div class="text-xs opacity-60">Chất béo</div><div class="font-bold text-lg">22g</div></div>
+                    <div><div class="text-xs opacity-60">Carbs</div><div class="font-bold text-lg">54g</div></div>
+                    <div><div class="text-xs opacity-60">Đường</div><div class="font-bold text-lg">28g</div></div>
+                </div>
+                <p class="text-xs italic text-gold/80 pt-4 border-t border-white/10 justified-text">
+                    Ghi chú dinh dưỡng: Có thể thay thế 50% bột mì bằng bột mì nguyên cám và giảm 30% lượng đường để có phiên bản lành mạnh hơn. Lựa chọn sorbet thay vì kem sẽ giúp giảm chất béo bão hòa và bổ sung chất chống oxy hóa.
+                </p>
+            </div>
+        </div>
+
+        <div class="border border-charcoal/10 p-8 rounded-sm bg-white">
+            <h4 class="text-cinnabar uppercase tracking-widest font-bold mb-4 flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                6. Gợi ý trình bày
+            </h4>
+            <div class="space-y-4">
+                <p class="justified-text text-sm italic">
+                    <strong>Trình bày:</strong> Phục vụ một lát bánh nóng lệch tâm trên đĩa sứ trắng, đặt một viên kem (quenelle) sorbet hoặc kem vanilla mượt mà bên cạnh. 
+                </p>
+                <p class="justified-text text-sm italic">
+                    <strong>Hiệu ứng thị giác:</strong> Tận dụng sự tương phản giữa lớp vỏ vàng óng của bánh và màu hổ phách rực rỡ của quả mâm xôi bắc cực. Trang trí thêm một lá bạc hà tươi hoặc vài quả mâm xôi nguyên quả được áo đường bóng loáng bên trên viên kem để tạo vẻ hoàn thiện đẳng cấp chuyên nghiệp.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function switchTab(tab) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            // Show target
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.getElementById('btn-' + tab).classList.add('active');
+        }
+
+        // Add subtle entrance animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('main > *, header, section');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                el.style.transitionDelay = (index * 0.1) + 's';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
