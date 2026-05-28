@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - L'Assortiment de Légumes Classique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#B8860B',
+                        goldLight: '#F4E4BC',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #B8860B;
+            opacity: 0.3;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: #B8860B;
+        }
+
+        .chef-card {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            border-left: 5px solid #B8860B;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #E23D28;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 8px;
+            color: #E23D28;
+            border-bottom-color: #E23D28;
+        }
+
+        .meta-box {
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            background: white;
+            transition: transform 0.3s ease;
+        }
+
+        .meta-box:hover {
+            transform: translateY(-5px);
+            border-color: #B8860B;
+        }
+
+        .pro-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #B8860B;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .justified-text {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="inline-block border-b-2 border-cinnabar pb-2 mb-6">
+            <span class="text-cinnabar tracking-widest uppercase text-sm font-bold">Gourmet Series • AI Vua Đầu Bếp</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">L'Assortiment de Légumes Classique</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Classic European Vegetable Assortment / Rau kèm</h2>
+        
+        <p class="max-w-3xl mx-auto italic text-lg text-gray-700 mb-12 justified-text">
+            Rooted deeply in French culinary heritage, this assortment showcases traditional European side dishes, elevating humble ingredients through time-honored techniques like the fondant braise and butter emulsion.
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="pro-label">Độ khó</span>
+                <span class="font-bold text-xl uppercase">Nâng cao</span>
+            </div>
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="pro-label">Thời gian</span>
+                <span class="font-bold text-xl uppercase">1h 30p</span>
+            </div>
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="pro-label">Phần ăn</span>
+                <span class="font-bold text-xl uppercase">4 người</span>
+            </div>
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="pro-label">Nguồn gốc</span>
+                <span class="font-bold text-xl uppercase">Pháp</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-12">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-gold pb-2 mb-6">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <!-- Subgroup 1 -->
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-4 uppercase tracking-tighter">Đậu Hà Lan Tây Ban Nha</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>400g Đậu Runner Beans</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>1 tbsp Bơ lạt</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>Muối biển hạt to</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>Đá lạnh (để sốc nhiệt)</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup 2 -->
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-4 uppercase tracking-tighter">Bí đỏ nướng gia vị</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>500g Bí đỏ (cắt miếng)</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>2 tbsp Dầu ô liu extra virgin</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>1 tsp Ớt bột xông khói</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>Gia vị: Cumin, Cayenne, Muối, Tiêu</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>30g Hạt bí rang</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup 3 -->
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-4 uppercase tracking-tighter">Khoai tây fondant</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>4 củ Khoai tây Russet/Gold</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>3 tbsp Bơ lạt</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>400ml Nước dùng gà/rau củ</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>Lá xạ hương, Tỏi nghiền</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup 4 -->
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-4 uppercase tracking-tighter">Cải chard xào bơ</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>1 bó Cải Swiss Chard</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>2 tbsp Bơ lạt</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>Tỏi băm, Nước cốt chanh</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b-2 border-gold pb-2 mb-6">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="step-number">01</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-xl">Chiến lược chuẩn bị (Home Cook)</h4>
+                            <span class="italic text-gold text-sm font-bold">Bắt đầu ngay</span>
+                        </div>
+                        <p class="justified-text text-gray-800">
+                            Làm nóng lò ở 200°C (400°F). Bắt đầu với khoai tây và bí đỏ vì chúng cần thời gian nấu lâu nhất. Lót khay nướng bằng giấy bạc cho bí đỏ để việc dọn dẹp sau đó trở nên dễ dàng hơn.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="step-number">02</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-xl">Chế biến Bí đỏ</h4>
+                            <span class="italic text-gold text-sm font-bold">30 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-800">
+                            Trộn bí đỏ với dầu ô liu, paprika, cumin, cayenne, muối và tiêu. Trải đều lên khay và nướng trong 25-30 phút cho đến khi mềm và có màu caramel đẹp mắt. Rang hạt bí trong chảo khô cho đến khi dậy mùi thơm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="step-number">03</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-xl">Khoai tây Fondant (Kỹ thuật Pro)</h4>
+                            <span class="italic text-gold text-sm font-bold">40 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-800">
+                            Cắt khoai tây thành hình trụ theo phương pháp 'tournant'. Áp chảo hai mặt phẳng trong dầu nóng cho đến khi có màu vàng nâu đậm. Thêm bơ, tỏi, xạ hương. Khi bơ sủi bọt, đổ nước dùng vào (ngập nửa củ khoai) và chuyển vào lò nướng cùng bí đỏ trong 30 phút.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="step-number">04</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-xl">Đậu Hà Lan (Kỹ thuật Blanching)</h4>
+                            <span class="italic text-gold text-sm font-bold">10 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-800">
+                            Chần đậu trong nước muối sôi khoảng 3-4 phút. Chuyển ngay vào bát nước đá (shocking) để giữ màu xanh rực rỡ. Trước khi bày biện, xào nhanh đậu với bơ để làm nóng.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="step-number">05</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-xl">Cải Swiss Chard</h4>
+                            <span class="italic text-gold text-sm font-bold">10 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-800">
+                            Tách phần thân và lá. Xào thân cải với bơ trong 4-5 phút cho mềm, sau đó thêm tỏi và lá cải, đảo liên tục trong 2 phút cho đến khi vừa héo. Kết thúc với một ít nước cốt chanh để cân bằng vị béo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef's Corner -->
+            <section class="mt-16 chef-card p-8 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gold text-white flex items-center justify-center rounded-full mr-4 text-xl">✍</div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <ul class="space-y-4 italic text-lg">
+                    <li><strong class="text-cinnabar">Kỹ thuật Tournage:</strong> Việc tạo hình khoai tây không chỉ để đẹp mắt mà còn đảm bảo tất cả chín đều hoàn hảo.</li>
+                    <li><strong class="text-cinnabar">Độ cao của nước dùng:</strong> Chỉ đổ ngập nửa củ khoai tây. Phần dưới thấm vị, phần trên giữ được độ giòn bơ.</li>
+                    <li><strong class="text-cinnabar">Sốc nhiệt:</strong> Nước đá là bí quyết sống còn để rau củ không bị xỉn màu sau khi nấu.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ❦ ✦</span>
+    </div>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <h3 class="text-2xl font-bold border-b-2 border-gold pb-2 mb-8">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 shadow-sm border-t-4 border-cinnabar">
+                <h5 class="font-bold text-lg mb-2">Phiên bản Gia đình</h5>
+                <p class="justified-text text-gray-600 text-sm">Nếu không tìm được Runner beans, bạn có thể thay bằng đậu que thông thường hoặc đậu Hà Lan quả.</p>
+            </div>
+            <div class="bg-white p-6 shadow-sm border-t-4 border-gold">
+                <h5 class="font-bold text-lg mb-2">Tiết kiệm thời gian</h5>
+                <p class="justified-text text-gray-600 text-sm">Bỏ qua kỹ thuật 'tournage' phức tạp và chỉ cần cắt khoai tây thành các lát tròn dày đồng đều.</p>
+            </div>
+            <div class="bg-white p-6 shadow-sm border-t-4 border-charcoal">
+                <h5 class="font-bold text-lg mb-2">Lựa chọn thay thế</h5>
+                <p class="justified-text text-gray-600 text-sm">Cải bó xôi có thể thay thế cho cải Chard; bỏ qua bước xào thân cải và cho lá trực tiếp vào bơ tỏi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-goldLight pb-20">
+        <!-- Nutrition -->
+        <div>
+            <h3 class="text-xl font-bold uppercase tracking-widest mb-6">5. Giá trị dinh dưỡng</h3>
+            <div class="bg-goldLight/20 p-6 rounded">
+                <p class="mb-4 font-bold text-lg">Ước tính mỗi phần ăn:</p>
+                <div class="grid grid-cols-2 gap-y-2 mb-6 text-sm">
+                    <div class="flex justify-between pr-4 border-r border-gold/30"><span>Calo:</span> <strong>380 kcal</strong></div>
+                    <div class="flex justify-between pl-4"><span>Chất béo:</span> <strong>22g</strong></div>
+                    <div class="flex justify-between pr-4 border-r border-gold/30"><span>Carbs:</span> <strong>42g</strong></div>
+                    <div class="flex justify-between pl-4"><span>Đạm:</span> <strong>8g</strong></div>
+                    <div class="flex justify-between pr-4 border-r border-gold/30"><span>Chất xơ:</span> <strong>9g</strong></div>
+                </div>
+                <p class="justified-text italic text-sm text-gray-600">
+                    Món ăn giàu chất xơ và Vitamin A, C, K. Lượng bơ truyền thống Pháp giúp cơ thể hấp thụ tốt nhất các vitamin tan trong dầu có trong bí đỏ và cải Chard.
+                </p>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div>
+            <h3 class="text-xl font-bold uppercase tracking-widest mb-6">6. Gợi ý trình bày</h3>
+            <p class="justified-text text-gray-700 leading-relaxed italic">
+                Hãy coi đĩa ăn như một bức tranh. Đặt khoai tây Fondant vàng óng ở góc 6 giờ làm điểm nhấn. Xếp bí đỏ nướng rực rỡ ở góc 10 giờ, rắc thêm hạt bí để tạo sự tương phản. Đậu Runner beans xanh mướt và cải Chard bóng bẩy đặt ở góc 2 giờ. Cuối cùng, rưới nước sốt xạ hương đậm đà chỉ lên phần khoai tây để giữ độ giòn cho các loại rau khác.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth hover animations for ingredient list
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.fontWeight = 'bold';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.fontWeight = 'normal';
+            });
+        });
+    </script>
+</body>
+</html>
