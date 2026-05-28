@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - White House Honey & Vanilla Bean Crémeux</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        p, li, .justified-text {
+            text-align: justify;
+        }
+
+        .serif-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .meta-border {
+            border-top: 1px solid var(--accent-gold);
+            border-bottom: 1px solid var(--accent-gold);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D1D1D1;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .pro-tip-box {
+            border: 4px double var(--accent-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-cinnabar);
+            border-radius: 50%;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 8px;
+            color: var(--accent-cinnabar);
+        }
+
+        .tab-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 lg:p-24">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <div class="mb-4 text-xs tracking-[0.3em] uppercase text-gray-500">Gourmet Series • Issue 01</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 serif-display">White House Honey & Vanilla Bean Crémeux</h1>
+        <h2 class="text-xl md:text-2xl italic font-normal text-gray-600 mb-8">Flourless Chocolate Gâteau – Almond Joconde – Crème Fraîche Ice Cream</h2>
+        
+        <div class="meta-border py-6 my-8">
+            <div class="meta-grid flex flex-wrap justify-around items-center text-sm uppercase tracking-widest font-bold">
+                <div class="flex flex-col items-center p-2">
+                    <span class="text-[var(--accent-cinnabar)] mb-1">Mức độ</span>
+                    <span>Nâng cao</span>
+                </div>
+                <div class="flex flex-col items-center p-2 border-l border-gray-200">
+                    <span class="text-[var(--accent-cinnabar)] mb-1">Thời gian</span>
+                    <span>15.5 Giờ</span>
+                </div>
+                <div class="flex flex-col items-center p-2 border-l border-gray-200">
+                    <span class="text-[var(--accent-cinnabar)] mb-1">Khẩu phần</span>
+                    <span>8 Người</span>
+                </div>
+                <div class="flex flex-col items-center p-2 border-l border-gray-200">
+                    <span class="text-[var(--accent-cinnabar)] mb-1">Nguồn gốc</span>
+                    <span>Hoa Kỳ</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto italic text-gray-700 text-lg leading-relaxed">
+            "Inspired by the rich history of White House state dinners, this dessert pays homage to the South Lawn beehive established in 2009. It harmonizes classic French pastry foundations with American presidential elegance."
+        </p>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-2xl font-bold uppercase tracking-tighter mb-8 border-b-2 border-black pb-2 serif-display">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="font-bold italic text-[var(--accent-cinnabar)] mb-3">Honey & Vanilla Bean Crémeux</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>4 Lòng đỏ trứng lớn</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>50g Đường cát</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>80g Mật ong hảo hạng</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>1 Quả Vani (tách hạt)</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>250ml Kem tươi (heavy cream)</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>250ml Sữa nguyên kem</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>3g Gelatin lá bạc</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold italic text-[var(--accent-cinnabar)] mb-3">Flourless Chocolate Gâteau</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>170g Sô-cô-la đen (70%)</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>113g Bơ lạt</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>4 Quả trứng lớn (tách lòng)</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>100g Đường cát</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>1 tsp Chiết xuất vani</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold italic text-[var(--accent-cinnabar)] mb-3">Almond Joconde</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>125g Bột hạnh nhân</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>125g Đường bột</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>4 Quả trứng lớn</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>30g Bơ lạt đun chảy</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>4 Lòng trắng trứng</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>35g Bột bánh ngọt (cake flour)</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold italic text-[var(--accent-cinnabar)] mb-3">Phụ liệu & Trang trí</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>200g Crème fraîche</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>100g Sô-cô-la trắng</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>Bột tinh thể vàng thực phẩm</span></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold uppercase tracking-tighter mb-8 border-b-2 border-black pb-2 serif-display">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12 relative border-l border-gray-100 pl-8 ml-2">
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold serif-display">Chuẩn bị Kem Crème Fraîche</h4>
+                        <span class="text-sm font-serif italic text-gray-500">60 phút + Cấp đông</span>
+                    </div>
+                    <p class="text-gray-700">Đánh bông lòng đỏ trứng và đường. Đun nóng sữa và kem tươi đến khi sôi lăn tăn. Rót từ từ hỗn hợp sữa nóng vào lòng đỏ để làm ấm (temper), sau đó đun lại toàn bộ đến chính xác 82°C (180°F). Lọc qua rây, để nguội, sau đó trộn crème fraîche và cho vào máy làm kem.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold serif-display">Cốt bánh Chocolate không bột</h4>
+                        <span class="text-sm font-serif italic text-gray-500">30 phút</span>
+                    </div>
+                    <p class="text-gray-700">Làm nóng lò ở 160°C. Đun chảy sô-cô-la và bơ. Đánh lòng đỏ với một nửa lượng đường rồi trộn vào sô-cô-la. Đánh lòng trắng với phần đường còn lại đến khi bông mềm. Nhẹ nhàng fold lòng trắng vào hỗn hợp sô-cô-la. Nướng trong khuôn 8-inch khoảng 25-30 phút.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold serif-display">Bánh Almond Joconde</h4>
+                        <span class="text-sm font-serif italic text-gray-500">15 phút</span>
+                    </div>
+                    <p class="text-gray-700">Làm nóng lò ở 220°C. Đánh trứng nguyên quả, bột hạnh nhân và đường bột đến khi bông đặc. Đánh meringue từ lòng trắng trứng và đường cát. Fold meringue vào hỗn hợp hạnh nhân, rây bột bánh lên trên, trộn nhẹ và thêm bơ chảy. Dàn mỏng ra khay và nướng trong 5-7 phút.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold serif-display">Chế biến Crémeux Mật Ong</h4>
+                        <span class="text-sm font-serif italic text-gray-500">45 phút + Qua đêm</span>
+                    </div>
+                    <p class="text-gray-700">Đun nóng sữa, kem và vani. Đánh lòng đỏ trứng với mật ong. Temper lòng đỏ với sữa nóng rồi nấu đến 82°C. Thêm gelatin đã ngâm mềm vào khuấy tan. Đổ hỗn hợp lên trên lớp gâteau đã nguội và cấp đông qua đêm để định hình hoàn hảo.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold serif-display">Trang trí Tổ Ong Sô-cô-la</h4>
+                        <span class="text-sm font-serif italic text-gray-500">20 phút</span>
+                    </div>
+                    <p class="text-gray-700">Đổ sô-cô-la trắng đã temper lên một tấm xốp hơi (bubble wrap) sạch. Dàn đều, để đông lại ở nhiệt độ phòng rồi cho vào tủ lạnh. Khi đã cứng, gỡ tấm xốp để lộ kết cấu tổ ong, bẻ thành từng miếng và phủ bột vàng.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Special Insight Section -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <div class="pro-tip-box p-8 md:p-12 mb-12">
+            <h3 class="text-2xl font-bold mb-6 flex items-center serif-display">
+                <span class="mr-3 text-[var(--accent-gold)]">★</span>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="font-bold text-[var(--accent-gold)] uppercase text-xs tracking-widest mb-2">Kiểm soát nhiệt độ</h5>
+                    <p class="text-sm">Tuyệt đối không để hỗn hợp crémeux vượt quá 82°C. Nhiệt độ cao hơn sẽ làm trứng bị vón cục, phá hỏng cấu trúc mịn màng như lụa.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-[var(--accent-gold)] uppercase text-xs tracking-widest mb-2">Kỹ thuật Fold</h5>
+                    <p class="text-sm">Sử dụng phới dẹt lớn và chuyển động hình số 8 khi trộn lòng trắng. Việc trộn quá tay sẽ làm mất bọt khí, khiến bánh bị nén chặt và dai.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-[var(--accent-gold)] uppercase text-xs tracking-widest mb-2">Độ ổn định của kem</h5>
+                    <p class="text-sm">Chỉ thêm crème fraîche khi hỗn hợp kem nền đã nguội hoàn toàn để giữ được vị chua thanh và ngăn chặn sự tách lớp của nhũ tương.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-8 serif-display">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="tab-card bg-white p-6 border border-gray-100 shadow-sm">
+                <h5 class="font-bold mb-2 text-[var(--accent-cinnabar)]">Thay thế Gelatin</h5>
+                <p class="text-xs">Nếu không có gelatin lá bạc, hãy thay bằng 1 muỗng cà phê gelatin bột ngâm trong 1 muỗng canh nước lạnh.</p>
+            </div>
+            <div class="tab-card bg-white p-6 border border-gray-100 shadow-sm">
+                <h5 class="font-bold mb-2 text-[var(--accent-cinnabar)]">Dị ứng Hạnh nhân</h5>
+                <p class="text-xs">Có thể thay thế bột hạnh nhân bằng bột hạt bí ngô, hoặc bỏ qua lớp Joconde để tập trung hoàn toàn vào lớp Gâteau.</p>
+            </div>
+            <div class="tab-card bg-white p-6 border border-gray-100 shadow-sm">
+                <h5 class="font-bold mb-2 text-[var(--accent-cinnabar)]">Kem không máy</h5>
+                <p class="text-xs">Đánh bông kem tươi và crème fraîche, fold cùng 150g sữa đặc có đường rồi cấp đông trong khuôn bánh mì.</p>
+            </div>
+            <div class="tab-card bg-white p-6 border border-gray-100 shadow-sm">
+                <h5 class="font-bold mb-2 text-[var(--accent-cinnabar)]">Lối tắt Sô-cô-la</h5>
+                <p class="text-xs">Sử dụng sô-cô-la hợp chất (compound) chất lượng cao cho kỹ thuật xốp hơi nếu bạn chưa tự tin với việc temper sô-cô-la thật.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Footer Technical Info -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+        <div class="bg-[#2C2C2C] text-white p-8">
+            <h3 class="text-xl font-bold mb-6 serif-display text-[var(--accent-gold)]">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4 text-sm">
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <span>Calories</span>
+                    <span>~680 kcal</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <span>Chất béo (Healthy Fats)</span>
+                    <span>48g</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <span>Carbohydrates</span>
+                    <span>55g</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <span>Protein</span>
+                    <span>14g</span>
+                </div>
+                <p class="mt-6 italic text-gray-400 text-xs">
+                    Mặc dù là món tráng miệng xa xỉ, công thức sử dụng mật ong tự nhiên cung cấp khoáng chất và chỉ số đường huyết thấp hơn đường tinh luyện. Hạnh nhân mang lại chất béo tốt cho tim mạch và vitamin E.
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold mb-6 serif-display border-b border-black pb-2">6. Gợi ý trình bày</h3>
+            <ul class="space-y-4 text-sm list-disc pl-5">
+                <li><strong class="text-[var(--accent-cinnabar)]">Kiến trúc:</strong> Cắt bánh thành các khối chữ nhật chính xác bằng dao nóng để tạo vẻ ngoài sắc sảo và sang trọng.</li>
+                <li><strong class="text-[var(--accent-cinnabar)]">Tương phản:</strong> Đặt một viên kem Crème Fraîche hình oval (rocher) mượt mà bên cạnh để tạo sự đối lập với các góc cạnh của bánh.</li>
+                <li><strong class="text-[var(--accent-cinnabar)]">Điểm xuyết:</strong> Trang trí với miếng sô-cô-la tổ ong nghiêng nhẹ vào viên kem.</li>
+                <li><strong class="text-[var(--accent-cinnabar)]">Hoàn thiện:</strong> Rưới nhẹ vài giọt mật ong ấm lên không gian trống của đĩa để liên kết các thành phần hình ảnh.</li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
