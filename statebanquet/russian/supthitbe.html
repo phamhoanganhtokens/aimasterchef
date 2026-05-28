@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Borscht with Veal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#B8860B',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            text-align: justify;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+            border-bottom: 3px double #B8860B;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #B8860B;
+        }
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #B8860B;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .step-number {
+            font-size: 2rem;
+            color: #E23D28;
+            opacity: 0.3;
+            font-style: italic;
+            position: absolute;
+            left: -2rem;
+            top: -0.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(184, 134, 11, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="hero-gradient pt-16 pb-12 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <p class="uppercase tracking-widest text-cinnabar font-bold mb-4">AI VUA ĐẦU BẾP • HẠNG THƯỢNG ĐẲNG</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal leading-tight">Súp Củ Dền Thịt Bê</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Borscht with Veal (Борщ с телятиной)</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-gold py-6 max-w-3xl mx-auto mt-8">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">◈ ĐỘ KHÓ</span>
+                    <span class="font-bold uppercase tracking-tight">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center border-l-0 md:border-l border-gold/30">
+                    <span class="text-cinnabar mb-1">◈ THỜI GIAN</span>
+                    <span class="font-bold uppercase tracking-tight">3 Giờ</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/30">
+                    <span class="text-cinnabar mb-1">◈ PHỤC VỤ</span>
+                    <span class="font-bold uppercase tracking-tight">6–8 Người</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/30">
+                    <span class="text-cinnabar mb-1">◈ NGUỒN GỐC</span>
+                    <span class="font-bold uppercase tracking-tight text-sm">Di Sản Slavic</span>
+                </div>
+            </div>
+            
+            <p class="mt-10 max-w-2xl mx-auto italic text-gray-700 leading-relaxed">
+                "Một viên ngọc quý trong di sản ẩm thực Đông Âu, nổi tiếng với sự cân bằng tinh tế giữa vị ngọt thanh, chua dịu và hương thơm nồng nàn từ lòng đất."
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 italic">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold mb-3 uppercase tracking-wider">Nước Dùng (The Stock)</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 800g thịt chân giò hoặc nạc vai bê</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 3L nước lạnh</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 1 củ hành tây (giữ vỏ để lấy màu)</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 1 củ cà rốt, 2 lá nguyệt quế</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> Tiêu đen hạt, muối biển</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold mb-3 uppercase tracking-wider">Cốt Củ Dền (Beet Base)</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 3 củ dền vừa (~500g)</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 1 tbsp nước cốt chanh/giấm táo</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 1 tsp đường, ½ chén nước dùng</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold mb-3 uppercase tracking-wider">Hỗn Hợp Xào (Zazharka)</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 2 củ hành tây băm nhỏ</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 2 củ cà rốt bào sợi</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 2 tbsp cà chua cô đặc</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 40g bơ lạt hoặc dầu hướng dương</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold mb-3 uppercase tracking-wider">Rau Củ & Gia Vị</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 3 củ khoai tây cắt khối</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> ½ bắp cải trắng bào sợi</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> 4 tép tỏi giã nhuyễn</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> Thì là, kinh giới tây tươi</li>
+                                <li class="flex items-start gap-2 border-b border-gray-100 pb-2"><span>✦</span> Mỡ heo muối (Salo) - tùy chọn</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Preparation Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-12 border-b-2 border-cinnabar inline-block pb-1 italic">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12 relative border-l-2 border-gold/20 pl-8 ml-4">
+                    
+                    <div class="relative">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Ninh Nước Dùng Trong Suốt <span class="text-sm font-normal italic text-gray-500 ml-2">~ 2 Giờ</span></h4>
+                        <p class="leading-relaxed">Cho thịt bê vào nước lạnh, đun sôi lăn tăn. Hớt bỏ bọt xám liên tục để đảm bảo nước dùng thật trong. Thêm hành tây nướng cháy xém, cà rốt và gia vị. Ninh lửa nhỏ từ 1.5–2 giờ cho đến khi thịt mềm. Lọc lấy nước trong, thái thịt thành miếng vừa ăn.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Kỹ Thuật Chiết Màu Củ Dền <span class="text-sm font-normal italic text-gray-500 ml-2">~ 15 Phút</span></h4>
+                        <p class="leading-relaxed">Bào sợi củ dền. Trong chảo riêng, xào củ dền với ít dầu. Thêm nước cốt chanh (axit giúp giữ sắc tố betalain), đường và một muỗng nước dùng. Đậy nắp đun nhỏ lửa trong 15 phút. Quy trình này ngăn củ dền chuyển sang màu cam khi nấu sôi.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Chuẩn Bị Zazharka <span class="text-sm font-normal italic text-gray-500 ml-2">~ 10 Phút</span></h4>
+                        <p class="leading-relaxed">Xào hành tây và cà rốt với bơ cho đến khi chín vàng và dậy mùi thơm. Cho cà chua cô đặc vào đảo thêm 3 phút để loại bỏ vị kim loại thô của cà chua.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Hợp Nhất Nguyên Liệu</h4>
+                        <p class="leading-relaxed">Đun sôi lại nước dùng. Cho khoai tây vào nấu 10 phút, sau đó thêm bắp cải bào sợi. Khi khoai tây đã mềm, cho hỗn hợp Zazharka và củ dền đã hầm vào nồi.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Cân Bằng Hương Vị </h4>
+                        <p class="leading-relaxed font-italic italic">Lưu ý quan trọng: Không để súp sôi sùng sục sau khi cho củ dền; chỉ để sôi nhẹ để giữ màu đỏ ruby sâu thẳm. Nêm nếm theo "Bộ ba thần thánh": Muối - Axit (chanh/giấm) - Đường cho đến khi đạt hương vị đa tầng.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="step-number">06</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Phần Kết Truyền Thống</h4>
+                        <p class="leading-relaxed">Giã nhuyễn tỏi với mỡ heo muối và rau thơm thành một hỗn hợp sệt. Khuấy hỗn hợp này vào nồi súp, tắt bếp ngay lập tức và đậy nắp kín.</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="step-number">07</span>
+                        <h4 class="text-xl font-bold text-cinnabar mb-2 uppercase tracking-tight">Sự Giao Thoa Phân Tử</h4>
+                        <p class="leading-relaxed">Để Borscht "nghỉ" ít nhất 30 phút. Các hương vị sẽ trải qua quá trình "hôn nhân phân tử" trong thời gian này; món súp này luôn ngon hơn vào ngày hôm sau.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament text-cinnabar">❦</span>
+        </div>
+
+        <!-- Chef's Corner Section -->
+        <section class="mb-16">
+            <div class="bg-[#F4EFE6] border-double border-4 border-gold p-8 md:p-12 shadow-inner">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center text-gold text-2xl font-bold italic">V</div>
+                    <h3 class="text-3xl font-bold italic uppercase tracking-tighter">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="border-r border-gold/20 pr-6">
+                        <h5 class="font-bold text-cinnabar mb-2 uppercase text-sm tracking-widest">Kiểm soát nhiệt</h5>
+                        <p class="text-sm">Tuyệt đối không đun sôi mạnh sau khi thêm củ dền. Nhiệt độ cao phá vỡ sắc tố đỏ, khiến súp chuyển sang màu nâu mất thẩm mỹ.</p>
+                    </div>
+                    <div class="border-r border-gold/20 pr-6">
+                        <h5 class="font-bold text-cinnabar mb-2 uppercase text-sm tracking-widest">Bí quyết Axit</h5>
+                        <p class="text-sm">Axit từ chanh hoặc giấm không chỉ để cân bằng vị; nó đóng vai trò là chất ổn định hóa học cho màu đỏ đặc trưng của củ dền.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-cinnabar mb-2 uppercase text-sm tracking-widest">Kết cấu thịt</h5>
+                        <p class="text-sm">Thái thịt bê thành miếng vuông nhỏ sau khi ninh xong và chỉ cho lại vào nồi ngay trước khi phục vụ để giữ thịt mọng nước.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 italic">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 border-t-4 border-t-gold">
+                    <h4 class="font-bold text-lg mb-3">Phiên Bản Chay (Vegetarian)</h4>
+                    <p class="text-sm italic">Thay thế thịt bê bằng nước dùng nấm Porcini đậm đà để giữ nguyên độ sâu của hương vị mà vẫn thanh đạm.</p>
+                </div>
+                <div class="glass-card p-6 border-t-4 border-t-cinnabar">
+                    <h4 class="font-bold text-lg mb-3">Biến Tấu Mùa Hè</h4>
+                    <p class="text-sm italic">Sử dụng cả phần lá củ dền non bào sợi cùng với bắp cải để tăng thêm vị tươi mát và khoáng chất từ đất.</p>
+                </div>
+                <div class="glass-card p-6 border-t-4 border-t-charcoal">
+                    <h4 class="font-bold text-lg mb-3">Nốt Hương Khói</h4>
+                    <p class="text-sm italic">Sử dụng muối khói hoặc bột ớt Paprika hun khói nếu không có mỡ heo "Salo" truyền thống để tạo chiều sâu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical/Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t-2 border-gold pt-12">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 italic flex items-center gap-2">
+                    <span class="text-cinnabar">◈</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-bold">Sắt & Bổ Máu</span>
+                        <span class="text-sm">Thịt bê cung cấp sắt heme dễ hấp thụ.</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-bold">Chất Chống Oxy Hóa</span>
+                        <span class="text-sm">Betalain từ củ dền giúp giải độc cơ thể.</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-bold">Chất Xơ Dồi Dào</span>
+                        <span class="text-sm">Hỗ trợ tiêu hóa từ bắp cải và rễ củ.</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="font-bold">Đạm Nạc</span>
+                        <span class="text-sm">Bê là lựa chọn ít béo hơn thịt lợn truyền thống.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation Tips -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 italic flex items-center gap-2">
+                    <span class="text-cinnabar">◈</span> 6. Gợi ý trình bày
+                </h3>
+                <div class="bg-white p-6 shadow-sm border border-gold/10">
+                    <ul class="space-y-3 text-sm italic">
+                        <li class="flex gap-2"><span>•</span> <strong>Vật dụng:</strong> Sử dụng bát gốm sâu lòng, nặng để giữ nhiệt và tạo cảm giác mộc mạc thượng lưu.</li>
+                        <li class="flex gap-2"><span>•</span> <strong>Điểm nhấn:</strong> Cho một thìa váng sữa (Smetana) lạnh vào giữa, dùng tăm kéo nhẹ tạo hình ngôi sao.</li>
+                        <li class="flex gap-2"><span>•</span> <strong>Trang trí:</strong> Rắc thì là tươi lệch tâm và đặt một nhánh nhỏ lên lớp váng sữa.</li>
+                        <li class="flex gap-2"><span>•</span> <strong>Kèm theo:</strong> Phục vụ trên khay gỗ với bánh mì đen, vài tép tỏi sống và muối biển hạt to.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Visual Flourish at bottom -->
+    <div class="pb-20 pt-10 flex justify-center opacity-40">
+        <div class="flex items-center gap-4">
+            <div class="h-[1px] w-24 bg-gold"></div>
+            <span class="text-gold font-serif italic tracking-widest uppercase">Master AI Cuisine</span>
+            <div class="h-[1px] w-24 bg-gold"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+
