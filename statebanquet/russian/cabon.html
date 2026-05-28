@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Halibut Fillet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#2C2C2C',
+                            cream: '#FCFAFA',
+                            cinnabar: '#E23D28',
+                            gold: '#C5A059',
+                            mutedGold: '#D4AF37',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justify-text {
+            text-align: justify;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252,250,250,0) 0%, rgba(252,250,250,1) 100%);
+        }
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: #C5A059;
+            margin: 3rem 0;
+            opacity: 0.4;
+        }
+        .section-divider::after {
+            content: '★';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #FCFAFA;
+            padding: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: #fdfbf7;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            color: rgba(197, 160, 89, 0.2);
+            font-weight: bold;
+            line-height: 1;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-12 pb-8 px-6 text-center max-w-5xl mx-auto">
+        <div class="mb-4">
+            <span class="text-brand-cinnabar uppercase tracking-[0.3em] text-sm font-bold">AI VUA ĐẦU BẾP • TẠP CHÍ ẨM THỰC</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-brand-charcoal">Филе палтуса с мини-овощами</h1>
+        <h2 class="text-2xl md:text-3xl italic font-normal text-brand-gold mb-8">Halibut Fillet with Mini-Vegetables</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-brand-gold border-opacity-30">
+            <div class="flex flex-col items-center">
+                <span class="text-brand-cinnabar text-xs uppercase tracking-widest font-bold">Độ khó</span>
+                <span class="text-xl">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-brand-gold border-opacity-20">
+                <span class="text-brand-cinnabar text-xs uppercase tracking-widest font-bold">Thời gian</span>
+                <span class="text-xl">35 Phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-brand-gold border-opacity-20">
+                <span class="text-brand-cinnabar text-xs uppercase tracking-widest font-bold">Khẩu phần</span>
+                <span class="text-xl">2 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-brand-gold border-opacity-20">
+                <span class="text-brand-cinnabar text-xs uppercase tracking-widest font-bold">Phong cách</span>
+                <span class="text-xl">Pháp Hiện Đại</span>
+            </div>
+        </div>
+        
+        <div class="mt-8 max-w-3xl mx-auto">
+            <p class="justify-text italic text-brand-charcoal leading-relaxed opacity-80">
+                "Món ăn này là biểu tượng của ẩm thực Địa Trung Hải hiện đại của Pháp, nhấn mạnh triết lý 'Cuisine Marché' — sử dụng nguyên liệu tươi ngon theo mùa. Nó phản ánh kỹ thuật tinh tế của châu Âu khi kết hợp cá trắng thanh tao với các loại rau củ non bóng bẩy, giữ trọn vẹn sự thuần khiết của đại dương."
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-3xl font-bold mb-6 border-b-2 border-brand-cinnabar inline-block pr-8 pb-1">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <!-- Main Ingredient -->
+                <div class="glass-card p-6 rounded-sm shadow-sm hover-lift">
+                    <h4 class="text-brand-gold font-bold uppercase tracking-tighter mb-4 border-b border-brand-gold border-opacity-10 pb-2">Thành phần chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>400g Phi lê cá Palthus (còn da, chia 2 phần)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>8 Củ cà rốt mini (gọt vỏ, giữ cuống)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>6 Trái bí ngòi mini (cắt đôi theo chiều dọc)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>6 Ngọn măng tây (bỏ phần gốc già)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>100g Đậu Hà Lan non</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Spices & Aromatics -->
+                <div class="glass-card p-6 rounded-sm shadow-sm hover-lift">
+                    <h4 class="text-brand-gold font-bold uppercase tracking-tighter mb-4 border-b border-brand-gold border-opacity-10 pb-2">Gia vị & Hương liệu</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>60g Bơ lạt cao cấp</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>2 muỗng canh Dầu ô liu nguyên chất</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>1 nhánh Cỏ xạ hương tươi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>1 tép Tỏi (đập dập)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>50ml Rượu vang trắng khô (Sauvignon Blanc)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-cinnabar mr-3">✦</span>
+                            <span>Muối biển, tiêu trắng, nước cốt chanh</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-brand-cinnabar inline-block pr-8 pb-1">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative before:absolute before:left-6 before:top-0 before:bottom-0 before:w-px before:bg-brand-gold before:bg-opacity-20">
+                
+                <!-- Step 1 -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 step-number group-hover:text-brand-cinnabar transition-colors duration-500">01</div>
+                    <div class="bg-white p-6 rounded shadow-sm border-l-2 border-transparent hover:border-brand-gold transition-all">
+                        <h4 class="text-xl font-bold mb-2">Chuẩn bị <span class="text-sm font-normal text-brand-gold ml-2 italic">— 5 phút</span></h4>
+                        <p class="justify-text">Thấm thật khô các miếng phi lê cá bằng khăn giấy. Bề mặt khô là yếu tố sống còn để tạo lớp vỏ giòn. Nêm muối biển và tiêu trắng lên cả hai mặt cá.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 step-number group-hover:text-brand-cinnabar transition-colors duration-500">02</div>
+                    <div class="bg-white p-6 rounded shadow-sm border-l-2 border-transparent hover:border-brand-gold transition-all">
+                        <h4 class="text-xl font-bold mb-2">Chần rau củ <span class="text-sm font-normal text-brand-gold ml-2 italic">— 8 phút</span></h4>
+                        <p class="justify-text">Đun sôi nước với muối. Chần cà rốt trong 3 phút, sau đó thêm bí ngòi, măng tây và đậu trong 2 phút nữa. Chuyển ngay rau củ vào bát nước đá để giữ màu sắc rực rỡ. Để ráo và thấm khô.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 step-number group-hover:text-brand-cinnabar transition-colors duration-500">03</div>
+                    <div class="bg-white p-6 rounded shadow-sm border-l-2 border-transparent hover:border-brand-gold transition-all">
+                        <h4 class="text-xl font-bold mb-2">Kỹ thuật Áp chảo Chuyên nghiệp <span class="text-sm font-normal text-brand-gold ml-2 italic">— 5 phút</span></h4>
+                        <p class="justify-text">Đun nóng dầu ô liu trong chảo inox hoặc chảo gang đáy dày trên lửa vừa cao. Khi dầu sủi tăm, đặt mặt da cá xuống. Dùng xẻng ấn nhẹ mặt cá trong 30 giây để đảm bảo tiếp xúc đều và tránh cá bị cong.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 step-number group-hover:text-brand-cinnabar transition-colors duration-500">04</div>
+                    <div class="bg-white p-6 rounded shadow-sm border-l-2 border-transparent hover:border-brand-gold transition-all">
+                        <h4 class="text-xl font-bold mb-2">Kỹ thuật Rưới bơ (Arroser) <span class="text-sm font-normal text-brand-gold ml-2 italic">— 7 phút</span></h4>
+                        <p class="justify-text">Nấu mặt da trong 4-5 phút cho đến khi vàng giòn. Lật nhẹ. Thêm bơ, tỏi và cỏ xạ hương. Khi bơ sủi bọt, nghiêng chảo và dùng thìa rưới bơ nóng lên cá liên tục trong 2 phút cho đến khi cá chín vừa và dễ dàng tách lớp. Lấy cá ra đĩa ấm để nghỉ.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 step-number group-hover:text-brand-cinnabar transition-colors duration-500">05</div>
+                    <div class="bg-white p-6 rounded shadow-sm border-l-2 border-transparent hover:border-brand-gold transition-all">
+                        <h4 class="text-xl font-bold mb-2">Láng bóng Rau củ <span class="text-sm font-normal text-brand-gold ml-2 italic">— 5 phút</span></h4>
+                        <p class="justify-text">Trong cùng một chảo, khử men (deglaze) bằng rượu vang trắng, cạo sạch các mảng nâu (fond). Thêm rau củ đã chần vào, đảo trong 2 phút để lớp sốt bơ và rượu bao quanh. Vắt thêm một ít nước chanh vào phút cuối.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 (Home Shortcut) -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-0 top-0 step-number group-hover:text-brand-cinnabar transition-colors duration-500">06</div>
+                    <div class="bg-[#f9f5f0] p-6 rounded shadow-sm border-l-2 border-brand-gold transition-all italic">
+                        <h4 class="text-xl font-bold mb-2 not-italic">Lối tắt cho bếp gia đình</h4>
+                        <p class="justify-text">Nếu việc áp chảo khiến bạn lo lắng, hãy áp chảo mặt da trong 2 phút, sau đó cho cá vào lò nướng đã làm nóng sẵn ở 180°C (350°F) trong 5-7 phút trong khi bạn hoàn thiện phần rau củ trên bếp.</p>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Chef's Corner Section -->
+    <section class="max-w-5xl mx-auto px-6 mt-16">
+        <div class="pro-tip-box p-8 md:p-12 relative">
+            <div class="absolute -top-5 left-10 bg-brand-gold text-white px-6 py-1 uppercase tracking-widest font-bold">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <h5 class="text-brand-cinnabar font-bold uppercase text-sm">Nhiệt độ phòng</h5>
+                    <p class="text-sm justify-text">Để cá ở nhiệt độ phòng 15 phút trước khi nấu để đảm bảo cá chín đều từ trong ra ngoài mà không làm cháy lớp vỏ.</p>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-brand-cinnabar font-bold uppercase text-sm">Tinh hoa "Fond"</h5>
+                    <p class="text-sm justify-text">Đừng rửa chảo sau khi nấu cá; các mảng màu nâu (caramel hóa protein) chính là nguồn gốc của hương vị umami đậm đà cho lớp sốt rau củ.</p>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-brand-cinnabar font-bold uppercase text-sm">Độ chín hoàn hảo</h5>
+                    <p class="text-sm justify-text">Cá Palthus rất nạc và nhanh khô. Hãy hướng tới nhiệt độ tâm 52°C (125°F); nhiệt dư khi nghỉ sẽ đưa cá lên mức hoàn hảo 55°C (131°F).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-5xl mx-auto px-6 mt-16">
+        <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 border-t-4 border-brand-charcoal hover-lift">
+                <h4 class="font-bold mb-3 uppercase tracking-wider text-brand-gold">Thay thế nguyên liệu</h4>
+                <p class="text-sm justify-text">Nếu không có rau củ mini, hãy dùng cà rốt thường cắt hình "tourné" hoặc dạng thanh mỏng để giữ tính thẩm mỹ.</p>
+            </div>
+            <div class="glass-card p-6 border-t-4 border-brand-cinnabar hover-lift">
+                <h4 class="font-bold mb-3 uppercase tracking-wider text-brand-gold">Sốt Meunière</h4>
+                <p class="text-sm justify-text">Thêm 1 thìa cà phê nụ tầm xuân (capers) và rau mùi tây băm nhỏ vào lớp bơ láng để tạo phong cách "Meunière" cổ điển.</p>
+            </div>
+            <div class="glass-card p-6 border-t-4 border-brand-gold hover-lift">
+                <h4 class="font-bold mb-3 uppercase tracking-wider text-brand-gold">Lựa chọn Cá khác</h4>
+                <p class="text-sm justify-text">Cá tuyết (Cod), cá chẽm (Sea bass) hoặc cá bơn (Turbot) đều là những sự thay thế tuyệt vời cho công thức này.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Information -->
+    <section class="bg-brand-charcoal text-white mt-20 py-16 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-brand-gold border-b border-brand-gold border-opacity-30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-white border-opacity-10 pb-2">
+                        <span>Năng lượng</span>
+                        <span class="font-bold">~395 kcal / phần</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 py-2">
+                        <div class="text-center bg-white bg-opacity-5 p-3 rounded">
+                            <span class="block text-xs uppercase opacity-60">Protein</span>
+                            <span class="text-xl font-bold">38g</span>
+                        </div>
+                        <div class="text-center bg-white bg-opacity-5 p-3 rounded">
+                            <span class="block text-xs uppercase opacity-60">Chất béo</span>
+                            <span class="text-xl font-bold">24g</span>
+                        </div>
+                        <div class="text-center bg-white bg-opacity-5 p-3 rounded">
+                            <span class="block text-xs uppercase opacity-60">Tinh bột</span>
+                            <span class="text-xl font-bold">9g</span>
+                        </div>
+                    </div>
+                    <p class="text-sm italic opacity-80 justify-text pt-4">
+                        Giàu axit béo Omega-3 cho sức khỏe tim mạch, Selen hỗ trợ miễn dịch và Vitamin A từ cà rốt. Đây là bữa ăn có chỉ số đường huyết thấp, thân thiện với Keto và kháng viêm cực tốt.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-brand-gold border-b border-brand-gold border-opacity-30 pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-brand-gold mr-3">◆</span>
+                        <p class="justify-text"><strong class="text-brand-gold">Bố cục:</strong> Đặt một cụm nhỏ rau củ láng bóng hơi lệch tâm trong một đĩa trắng phẳng hoặc bát nông rộng.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-gold mr-3">◆</span>
+                        <p class="justify-text"><strong class="text-brand-gold">Sắp xếp:</strong> Tựa phi lê cá vào rau củ một góc nghiêng, hướng mặt da giòn lên trên để tránh bị hấp hơi và mềm.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-gold mr-3">◆</span>
+                        <p class="justify-text"><strong class="text-brand-gold">Hoàn thiện:</strong> Rưới phần sốt bơ còn lại xung quanh đĩa (không rưới lên cá). Trang trí với mầm rau hoặc chồi đậu để tạo độ cao và sắc xanh tươi mới.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-16 text-center">
+            <div class="inline-block p-4 border border-brand-gold border-opacity-20 text-xs tracking-widest uppercase opacity-40">
+                L’Art de la Gastronomie • AI King of Chefs
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
