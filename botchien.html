@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bột Chiên - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                        'gold-light': '#F4E8D1',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 640px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            }
+            .meta-item:nth-child(even) {
+                border-left: 1px solid rgba(197, 160, 89, 0.2);
+            }
+            .meta-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <div class="max-w-5xl mx-auto border-[12px] border-double border-gold/20 p-6 md:p-12 bg-parchment shadow-2xl relative">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <div class="text-cinnabar font-bold tracking-[0.2em] mb-4 uppercase text-sm">AI Vua Đầu Bếp Exclusive</div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-primary-charcoal italic">Bột chiên</h1>
+            <p class="text-xl md:text-2xl text-gold italic mb-8">Fried Rice Flour Cakes</p>
+            
+            <!-- Meta Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold/40 my-8">
+                <div class="meta-item">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Độ khó</span>
+                    <span class="font-bold text-sm">Trung bình</span>
+                </div>
+                <div class="meta-item">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Thời gian</span>
+                    <span class="font-bold text-sm">90 Phút</span>
+                </div>
+                <div class="meta-item">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Khẩu phần</span>
+                    <span class="font-bold text-sm">2 - 3 Người</span>
+                </div>
+                <div class="meta-item">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Xuất xứ</span>
+                    <span class="font-bold text-sm">Sài Gòn / Triều Châu</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto italic text-primary-charcoal/80 justified-text leading-relaxed px-4">
+                "Có nguồn gốc từ món 'Chai Tow Kway' của người Triều Châu (Trung Hoa), món Bột chiên khi du nhập vào Sài Gòn đã được Việt hóa với hương vị nước tương thanh dịu hơn, kết hợp cùng trứng gà và đu đủ bào sợi, trở thành một phần di sản ẩm thực đường phố đặc trưng."
+            </div>
+        </header>
+
+        <div class="ornament">
+            <span class="ornament-icon">✦</span>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <section>
+                    <h2 class="text-2xl font-bold border-b-2 border-cinnabar mb-6 pb-2 inline-block">1. Nguyên liệu</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 italic">Khối bột</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Bột gạo tẻ (loại cũ)</span> <span>250g</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Bột năng</span> <span>40g</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Nước lọc</span> <span>400ml</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Dầu ăn</span> <span>15ml</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Muối</span> <span>1/4 tsp</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 italic">Nước tương pha</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Nước tương</span> <span>100ml</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Nước lọc</span> <span>50ml</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Đường</span> <span>1 tbsp</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Giấm tiều (đen)</span> <span>1 tbsp</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Ớt sa tế</span> <span>Tùy chọn</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 italic">Chiên & Đồ chua</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Trứng gà</span> <span>3 quả</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Hành lá</span> <span>50g</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Cải xá bấu băm</span> <span>100g</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Đu đủ xanh</span> <span>1/4 quả</span></li>
+                                <li class="flex justify-between border-b border-gold/10 pb-1"><span>Cà rốt</span> <span>1/2 củ</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <section>
+                    <h2 class="text-2xl font-bold border-b-2 border-cinnabar mb-6 pb-2 inline-block">2. Các bước thực hiện</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <span class="text-3xl font-bold text-gold/30">01</span>
+                            <div>
+                                <h4 class="font-bold text-primary-charcoal mb-1">Chế biến khối bột</h4>
+                                <p class="justified-text text-sm leading-relaxed text-primary-charcoal/90">
+                                    Hòa tan bột gạo, bột năng, muối vào nước, để nghỉ 30 phút. Khuấy đều tay trên lửa nhỏ cho bột đặc lại (nửa chín nửa sống). Đổ vào khuôn, hấp cách thủy 20-25 phút. Để nguội hoàn toàn (tốt nhất để tủ lạnh qua đêm) rồi cắt miếng vừa ăn 2x3cm.
+                                </p>
+                                <span class="text-xs italic text-gold block mt-2">Thời gian ước tính: 55 phút</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="text-3xl font-bold text-gold/30">02</span>
+                            <div>
+                                <h4 class="font-bold text-primary-charcoal mb-1">Chuẩn bị đồ chua & nước chấm</h4>
+                                <p class="justified-text text-sm leading-relaxed text-primary-charcoal/90">
+                                    Ngâm đu đủ và cà rốt bào sợi với đường, giấm, nước theo tỷ lệ 1:1:2. Đun sôi hỗn hợp nước tương, nước, đường và giấm tiều, để nguội.
+                                </p>
+                                <span class="text-xs italic text-gold block mt-2">Thời gian ước tính: 15 phút</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="text-3xl font-bold text-gold/30">03</span>
+                            <div>
+                                <h4 class="font-bold text-primary-charcoal mb-1">Kỹ thuật áp chảo</h4>
+                                <p class="justified-text text-sm leading-relaxed text-primary-charcoal/90">
+                                    Làm nóng chảo gang với mỡ lợn hoặc dầu ăn. Sắp xếp bột vào chảo ở lửa lớn để tạo lớp vỏ vàng giòn nhưng bên trong vẫn dẻo. Tránh chồng miếng bột lên nhau.
+                                </p>
+                                <span class="text-xs italic text-gold block mt-2">Thời gian ước tính: 10 phút</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="text-3xl font-bold text-gold/30">04</span>
+                            <div>
+                                <h4 class="font-bold text-primary-charcoal mb-1">Hoàn thiện</h4>
+                                <p class="justified-text text-sm leading-relaxed text-primary-charcoal/90">
+                                    Khi bột vàng, thêm cải xá bấu vào xào thơm. Đổ trứng gà đã đánh tan lên trên, rắc hành lá. Lật mặt để trứng chín đều và bám chặt vào bột.
+                                </p>
+                                <span class="text-xs italic text-gold block mt-2">Thời gian ước tính: 10 phút</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="my-12">
+            <div class="bg-gold-light/30 border-2 border-double border-gold p-8 relative">
+                <div class="absolute -top-4 left-6 bg-parchment px-4 py-1 border border-gold font-bold text-xs uppercase tracking-widest text-gold">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                    <div class="text-sm italic justified-text p-4 border-r border-gold/20 last:border-0">
+                        "Luôn để bột thật nguội trước khi chiên để kết cấu không bị nát."
+                    </div>
+                    <div class="text-sm italic justified-text p-4 border-r border-gold/20 last:border-0">
+                        "Sử dụng chảo phẳng và lửa lớn để 'sốc nhiệt', tạo độ giòn rụm mà không làm bột bị ngấm dầu."
+                    </div>
+                    <div class="text-sm italic justified-text p-4 last:border-0">
+                        "Kiểm tra bột chín bằng cách xiên tăm; nếu tăm sạch là bột đạt."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-cinnabar mb-6 pb-2 inline-block">4. Biến tấu & Nâng cao</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass-card p-6 border-l-4 border-cinnabar">
+                    <h4 class="font-bold text-cinnabar mb-2 uppercase text-xs tracking-tighter">Phiên bản Nhanh</h4>
+                    <p class="text-sm justified-text">Có thể dùng bột đóng gói sẵn tại siêu thị để tiết kiệm thời gian mà vẫn đảm bảo được kết cấu dẻo mịn cần thiết.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-gold">
+                    <h4 class="font-bold text-gold mb-2 uppercase text-xs tracking-tighter">Phiên bản Hải sản</h4>
+                    <p class="text-sm justified-text">Thêm tôm nõn hoặc mực chiên cùng trứng để biến tấu thành phiên bản hải sản cao cấp, tăng thêm hương vị đậm đà của biển cả.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">
+            <span class="ornament-icon">✦</span>
+        </div>
+
+        <!-- Footer / Technical Info -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-primary-charcoal text-parchment p-8 -mx-6 md:-mx-12 -mb-6 md:-mb-12">
+            <section>
+                <h2 class="text-lg font-bold text-gold mb-4 border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h2>
+                <div class="space-y-3 text-sm justified-text text-parchment/80">
+                    <p>Ước tính <span class="text-gold font-bold">500-650 calo/đĩa</span>. Tinh bột và chất béo chiếm tỉ trọng cao trong món ăn này.</p>
+                    <p class="italic">Khuyên dùng nhiều đồ chua (đu đủ xanh chứa enzyme papain) để hỗ trợ tiêu hóa và cân bằng vị giác, giảm cảm giác ngấy đặc trưng của đồ chiên.</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 class="text-lg font-bold text-gold mb-4 border-b border-gold/30 pb-2">6. Gợi ý trình bày</h2>
+                <ul class="space-y-2 text-sm text-parchment/80">
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Đặt khối bột chiên trứng vàng ươm lên đĩa trắng phẳng để làm nổi bật màu sắc.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Phủ hành lá xanh mướt lên trên ngay khi trứng còn nóng để giữ màu.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Đồ chua nhiều màu sắc đặt một góc đĩa hoặc bát riêng để khách tự điều chỉnh.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Chén nước tương sẫm màu với vài lát ớt đỏ tươi tạo sự tương phản thị giác mạnh mẽ.</span>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+
+    </div>
+
+    <!-- Small visual flourish in corner -->
+    <div class="fixed bottom-4 right-4 hidden md:block opacity-20 pointer-events-none">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 0L53.5 46.5L100 50L53.5 53.5L50 100L46.5 53.5L0 50L46.5 46.5L50 0Z" fill="#C5A059"/>
+        </svg>
+    </div>
+
+</body>
+</html>
