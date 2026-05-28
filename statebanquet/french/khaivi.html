@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chair de tourteau et caviar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            -webkit-font-smoothing: antialiased;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            margin: 0 1rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23E28;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .premium-border {
+            border: 1px solid #C5A059;
+            position: relative;
+            padding: 2rem;
+        }
+        .premium-border::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #C5A059;
+            pointer-events: none;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
 
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-12">
+        <div class="mb-4">
+            <span class="text-cinnabar-red uppercase tracking-widest text-sm font-bold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Thịt Cua Tourteau & Caviar Osciètre</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Chair de tourteau et caviar Osciètre & Aquitaine sur un voile de fleurs</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 py-6 border-y border-burnished-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-burnished-gold mb-1">Độ khó</span>
+                <span class="font-bold">Advanced</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-burnished-gold mb-1">Thời gian</span>
+                <span class="font-bold">130 Phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-burnished-gold mb-1">Khẩu phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-burnished-gold mb-1">Xuất xứ</span>
+                <span class="font-bold italic">French Haute Cuisine</span>
+            </div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto mt-8">
+            <p class="justified italic text-gray-700 leading-relaxed">
+                This dish is a contemporary masterpiece of French Haute Cuisine, drawing inspiration from the "Cuisine de la Mer" traditions of the Atlantic coast. It celebrates the marriage between the European edible crab (Cancer pagurus) and the refined sturgeon caviars of the Osciètre and Aquitaine (Baeri) varieties.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold italic text-burnished-gold mb-3 uppercase text-sm tracking-widest">Phần Cua (The Crab)</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span class="group-hover:translate-x-1 transition-transform">1 Cua Tourteau sống (1kg - 1.2kg)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span class="group-hover:translate-x-1 transition-transform">1 Bouquet garni (tỏi tây, cỏ xạ hương, nguyệt quế)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span class="group-hover:translate-x-1 transition-transform">50g Mayonnaise cao cấp / Crème fraîche</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span class="group-hover:translate-x-1 transition-transform">1 Trái chanh (vỏ và nước cốt)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span class="group-hover:translate-x-1 transition-transform">10g Hẹ băm nhuyễn</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Fleur de sel & Tiêu Espelette</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold italic text-burnished-gold mb-3 uppercase text-sm tracking-widest">Lớp Phủ Hoa (Floral Veil)</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span>250ml Nước chiết hoa cơm cháy / Atiso đỏ</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span>2.5g Agar-agar</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span>Hoa ăn được (violas, borage, cornflowers, micro-marigolds)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold italic text-burnished-gold mb-3 uppercase text-sm tracking-widest">Trứng Cá Tầm (The Caviar)</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span>50g Trứng cá Osciètre (nutty, firm)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar-red mr-2">◈</span>
+                                <span>50g Trứng cá Aquitaine Baeri (briny, buttery)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red pb-2 mb-6 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10 relative">
+                    <div class="absolute left-[17px] top-4 bottom-4 w-[1px] bg-burnished-gold/30 hidden md:block"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-0 top-1 w-9 h-9 bg-bg-cream border-2 border-burnished-gold rounded-full z-10 flex items-center justify-center font-bold text-cinnabar-red">1</div>
+                        <div class="bg-white p-6 shadow-sm border-l-4 border-burnished-gold hover-lift">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-lg uppercase tracking-tight">Sơ chế Cua</h4>
+                                <span class="text-xs italic bg-gray-100 px-2 py-1 rounded">18-20 mins</span>
+                            </div>
+                            <p class="justified leading-relaxed">
+                                Luộc cua trong nước court-bouillon đã nêm gia vị. Sau đó ngâm ngay vào nước đá để giữ độ tươi. Tách lấy thịt trắng từ càng và thân cua, loại bỏ hoàn toàn sụn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-0 top-1 w-9 h-9 bg-bg-cream border-2 border-burnished-gold rounded-full z-10 flex items-center justify-center font-bold text-cinnabar-red">2</div>
+                        <div class="bg-white p-6 shadow-sm border-l-4 border-burnished-gold hover-lift">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-lg uppercase tracking-tight">Tẩm ướp</h4>
+                                <span class="text-xs italic bg-gray-100 px-2 py-1 rounded">5 mins</span>
+                            </div>
+                            <p class="justified leading-relaxed">
+                                Trộn nhẹ nhàng thịt cua với mayonnaise, vỏ chanh, nước cốt chanh, hẹ và tiêu Espelette trong bát inox lạnh. Bảo quản lạnh ngay sau khi trộn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-0 top-1 w-9 h-9 bg-bg-cream border-2 border-burnished-gold rounded-full z-10 flex items-center justify-center font-bold text-cinnabar-red">3</div>
+                        <div class="bg-white p-6 shadow-sm border-l-4 border-burnished-gold hover-lift">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-lg uppercase tracking-tight">Tạo lớp màng hoa (Floral Veil)</h4>
+                                <span class="text-xs italic bg-gray-100 px-2 py-1 rounded">30 mins</span>
+                            </div>
+                            <p class="justified leading-relaxed">
+                                Đun sôi hỗn hợp nước chiết hoa và agar-agar. Đổ một lớp cực mỏng (1mm) lên khay silicone. Khi còn ấm, dùng nhíp sắp xếp các cánh hoa lên bề mặt. Để đông trong tủ lạnh 20 phút rồi cắt thành hình tròn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4-7 -->
+                    <div class="relative pl-0 md:pl-12">
+                        <div class="hidden md:block absolute left-0 top-1 w-9 h-9 bg-bg-cream border-2 border-burnished-gold rounded-full z-10 flex items-center justify-center font-bold text-cinnabar-red">4</div>
+                        <div class="bg-white p-6 shadow-sm border-l-4 border-burnished-gold hover-lift">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-lg uppercase tracking-tight">Lắp ráp & Trình bày</h4>
+                                <span class="text-xs italic bg-gray-100 px-2 py-1 rounded">15 mins</span>
+                            </div>
+                            <p class="justified leading-relaxed mb-4">
+                                Sử dụng khuôn tròn (6-8cm), nén nhẹ một lớp thịt cua ở dưới. Tiếp theo là lớp trứng cá tầm Osciètre và Aquitaine, làm phẳng bề mặt bằng bay nhỏ.
+                            </p>
+                            <p class="justified leading-relaxed">
+                                Cuối cùng, đặt lớp màng hoa lên trên cùng. Độ trong suốt của màng sẽ để lộ vẻ lấp lánh của trứng cá tầm bên dưới. Nhấc khuôn ra từ từ để lộ các lớp sạch sẽ.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Section Ornament -->
+        <div class="ornament">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-burnished-gold">
+                <path d="M12 2L14.5 9H21.5L16 13.5L18.5 20.5L12 16L5.5 20.5L8 13.5L2.5 9H9.5L12 2Z" fill="currentColor"/>
+            </svg>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-12">
+            <div class="premium-border bg-white shadow-xl">
+                <div class="flex items-center mb-6">
+                    <div class="h-[2px] w-8 bg-cinnabar-red mr-4"></div>
+                    <h3 class="text-2xl font-bold uppercase tracking-widest">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-2">
+                        <h4 class="font-bold italic text-burnished-gold">Crab Precision</h4>
+                        <p class="text-sm justified">Để giữ kết cấu tinh tế của thịt cua, tránh trộn quá mạnh tay. Các khối thịt cua (lumps) nên được giữ nguyên hình dáng.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold italic text-burnished-gold">The Veil Technique</h4>
+                        <p class="text-sm justified">Nhiệt độ lý tưởng để đổ màng là 60°C. Nếu màng quá giòn, hãy tăng nhẹ lượng chất lỏng; nếu quá mềm, màng sẽ dễ rách khi thao tác.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold italic text-burnished-gold">Caviar Handling</h4>
+                        <p class="text-sm justified">Luôn sử dụng thìa bằng xà cừ hoặc xương để múc trứng cá tầm nhằm tránh quá trình oxy hóa và dư vị kim loại không mong muốn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6 uppercase tracking-wider text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="showTab('home')" class="tab-btn px-6 py-2 border border-burnished-gold bg-burnished-gold text-white font-bold transition-all" id="btn-home">Home Version</button>
+                <button onclick="showTab('swap')" class="tab-btn px-6 py-2 border border-burnished-gold hover:bg-burnished-gold hover:text-white transition-all" id="btn-swap">Ingredient Swap</button>
+                <button onclick="showTab('budget')" class="tab-btn px-6 py-2 border border-burnished-gold hover:bg-burnished-gold hover:text-white transition-all" id="btn-budget">Budget Alternative</button>
+            </div>
+
+            <div id="home" class="tab-content active p-8 bg-white border border-burnished-gold/20 shadow-lg italic justified">
+                Sử dụng thịt cua đóng hộp chất lượng cao để tiết kiệm thời gian. Nếu không có agar-agar, có thể thay thế bằng lá gelatin hạng vàng (mặc dù kết cấu sẽ tan chảy hơn và ít độ "giòn" hơn).
+            </div>
+            <div id="swap" class="tab-content p-8 bg-white border border-burnished-gold/20 shadow-lg italic justified">
+                Thay thế nước chiết hoa bằng nước cà chua đã lọc trong suốt để tạo ra một sự tương phản axit, mang hơi hướng mùa hè đầy sảng khoái.
+            </div>
+            <div id="budget" class="tab-content p-8 bg-white border border-burnished-gold/20 shadow-lg italic justified">
+                Thay thế trứng cá tầm bằng Avruga (ngọc trai cá trích) hoặc trứng cá hồi chất lượng cao để đạt được tính thẩm mỹ tương tự với chi phí thấp hơn.
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-burnished-gold/30">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-cinnabar-red italic">5. Giá trị dinh dưỡng</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-50 border-l-2 border-burnished-gold">
+                        <span class="block text-xs uppercase text-gray-500">Năng lượng</span>
+                        <span class="text-xl font-bold">220 kcal</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-l-2 border-burnished-gold">
+                        <span class="block text-xs uppercase text-gray-500">Protein</span>
+                        <span class="text-xl font-bold">25g</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-l-2 border-burnished-gold">
+                        <span class="block text-xs uppercase text-gray-500">Chất béo tốt</span>
+                        <span class="text-xl font-bold">12g (Omega-3)</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-l-2 border-burnished-gold">
+                        <span class="block text-xs uppercase text-gray-500">Khoáng chất</span>
+                        <span class="text-sm font-bold leading-tight">B12, Zn, Se, Mg</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-cinnabar-red italic">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm justified">
+                    <li class="flex items-start">
+                        <span class="font-bold mr-2 text-burnished-gold">●</span>
+                        <span>Dùng đĩa sứ trắng mờ hoặc đĩa màu đá phiến để tôn vinh màu sắc rực rỡ của lớp màng hoa.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-bold mr-2 text-burnished-gold">●</span>
+                        <span>Màng "Voile de fleurs" nên trông như một bức tranh kính màu. Hãy đảm bảo các cánh hoa tươi tắn và không bị chồng chéo quá nhiều.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-bold mr-2 text-burnished-gold">●</span>
+                        <span>Xịt một lớp sương nước biển nhẹ hoặc tinh dầu vỏ chanh ngay tại bàn để kích thích khứu giác về một "khu vườn đại dương".</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Reset buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-burnished-gold', 'text-white');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('bg-burnished-gold', 'text-white');
+        }
+    </script>
+</body>
+</html>
