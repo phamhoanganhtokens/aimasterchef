@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bò Cuốn Lá Lốt Mỡ Chài</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+        }
+        .pro-tip-border {
+            border: 4px double #C5A059;
+            padding: 1.5rem;
+            background: rgba(197, 160, 89, 0.05);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="inline-block mb-4">
+            <span class="text-gold tracking-[0.3em] uppercase text-sm font-bold border-b border-gold pb-1">Gourmet Magazine Edition</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase text-charcoal tracking-tight">Bò Cuốn Lá Lốt Mỡ Chài</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8 font-light">Beef in Wild Betel Leaves with Caul Fat</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 py-6 border-y border-gold/30 bg-white/50">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Thời gian</span>
+                <span class="text-lg">60-65 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Khẩu phần</span>
+                <span class="text-lg">4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Khu vực</span>
+                <span class="text-lg">Miền Nam</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic justified-text max-w-3xl mx-auto text-gray-700 leading-relaxed px-4">
+            Món nướng đặc sắc mang đậm dấu ấn ẩm thực đường phố và gia đình miền Nam Việt Nam. Món ăn là sự giao thoa hoàn hảo giữa vị ngọt của thịt bò, độ béo ngậy bảo vệ bên ngoài của mỡ chài và hương thơm nồng nàn đặc trưng của lá lốt khi bị nhiệt độ tác động.
+        </p>
+    </header>
+
+    <div class="ornament">
+        <span class="ornament-icon">✦ ✧ ✦</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 bg-white p-8 shadow-sm border-t-2 border-cinnabar">
+            <h3 class="text-2xl font-bold mb-6 border-b border-gray-100 pb-2 uppercase tracking-wide">1. Nguyên liệu</h3>
+            
+            <div class="space-y-6">
+                <section>
+                    <h4 class="text-gold font-bold italic mb-3">Phần nhân chính</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                            <span>Thịt bò xay (nạc vai)</span>
+                            <span class="font-bold">400g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                            <span>Thịt mỡ heo xay</span>
+                            <span class="font-bold">100g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                            <span>Mỡ chài (sơ chế sạch)</span>
+                            <span class="font-bold">150g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                            <span>Lá lốt tươi to</span>
+                            <span class="font-bold">30-40 lá</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4 class="text-gold font-bold italic mb-3">Gia vị & Ướp</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="text-cinnabar">◈</span>
+                            <span>Sả băm: 3 muỗng canh</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cinnabar">◈</span>
+                            <span>Hành tím băm: 2 muỗng canh</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cinnabar">◈</span>
+                            <span>Tỏi băm: 1 muỗng canh</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cinnabar">◈</span>
+                            <span>Dầu hào: 2 muỗng canh</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cinnabar">◈</span>
+                            <span>Ngũ vị hương: 1/2 muỗng cà phê</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4 class="text-gold font-bold italic mb-3">Ăn kèm & Nước chấm</h4>
+                    <p class="text-sm justified-text text-gray-600">
+                        Bánh tráng, bún tươi, xà lách, rau thơm, khế chua, chuối chát. Nước chấm mắm nêm pha khóm (thơm), tỏi, ớt, đường và chanh.
+                    </p>
+                </section>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <main class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-8 uppercase tracking-wide">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10">
+                <!-- Step 1 -->
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-0 text-3xl step-number italic">01.</div>
+                    <div class="glass-card p-6 rounded-sm hover-lift">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg uppercase">Trộn nhân</h4>
+                            <span class="text-sm italic text-gray-500">Chuẩn bị: 30-45p</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cho thịt bò và mỡ heo vào âu lớn (tỷ lệ 8:2 giúp thịt ẩm mọng). Cho sả, hành, tỏi, ngũ vị hương, dầu hào, nước tương, đường, tiêu, hạt nêm vào nhồi đều. Dùng màng bọc thực phẩm bọc kín, để thịt nghỉ trong ngăn mát tủ lạnh ít nhất 30 phút để gia vị thấm sâu và protein liên kết tạo độ dẻo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-0 text-3xl step-number italic">02.</div>
+                    <div class="glass-card p-6 rounded-sm hover-lift">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg uppercase">Sơ chế lá</h4>
+                            <span class="text-sm italic text-gray-500">Chuẩn bị: 10p</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Lá lốt rửa sạch, lau thật khô. Nếu lá đọng nước, khi nướng sẽ bị văng dầu và làm mất đi hương thơm tinh dầu nguyên bản. Mỡ chài vớt ra, vuốt ráo nước, cắt thành các miếng vuông khoảng 10x10cm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-0 text-3xl step-number italic">03.</div>
+                    <div class="glass-card p-6 rounded-sm hover-lift">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg uppercase">Cuốn thịt</h4>
+                            <span class="text-sm italic text-gray-500">Chuẩn bị: 15p</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Trải miếng mỡ chài ra thớt, đặt lá lốt lên trên (úp mặt xanh bóng xuống dưới để khi cuốn xong mặt đẹp nằm ngoài). Lấy khoảng 1 muỗng canh nhân thịt đặt vào phần đuôi lá, cuộn chặt tay. Dùng phần cuống lá ghim vào cuộn thịt để cố định. Lớp mỡ chài sẽ bọc kín lá lốt, khi nướng mỡ tươm ra giữ cho thịt không bị khô và lá không bị cháy thành tro.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-0 text-3xl step-number italic">04.</div>
+                    <div class="glass-card p-6 rounded-sm hover-lift">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg uppercase">Nướng thịt</h4>
+                            <span class="text-sm italic text-gray-500">Nấu: 15-20p</span>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="justified-text text-gray-700">
+                                <strong class="text-cinnabar">Nướng than hoa (Ngon nhất):</strong> Xếp bò lên vỉ, nướng trên lửa than vừa. Trở đều tay đến khi lớp mỡ chài xèo xèo, tươm mỡ bóng loáng, lá lốt chuyển màu sậm sém nhẹ và tỏa mùi thơm nức.
+                            </p>
+                            <p class="justified-text text-gray-700">
+                                <strong class="text-cinnabar">Nồi chiên không dầu:</strong> Làm nóng nồi 180°C. Nướng 10 phút, lật mặt, tăng lên 200°C nướng thêm 3-5 phút để tạo lớp vỏ sém lấp lánh.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Special Insight Sections -->
+    <section class="mb-16">
+        <div class="pro-tip-border mb-12">
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 uppercase">
+                <span class="bg-gold text-white px-3 py-1 text-sm">Chef's Corner</span>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <ul class="space-y-4">
+                <li class="justified-text">
+                    <strong class="text-cinnabar">Xử lý thịt:</strong> Không xay thịt bò quá nhuyễn như giò sống. Nên xay rối hoặc băm tay để giữ lại kết cấu thớ thịt, khi nhai sẽ cảm nhận rõ độ ngọt thịt hơn.
+                </li>
+                <li class="justified-text">
+                    <strong class="text-cinnabar">Kiểm soát nhiệt độ:</strong> Nhiệt là yếu tố cốt lõi. Lửa quá nhỏ làm mỡ chảy hết khiến thịt bên trong khô xác. Lửa quá lớn làm mỡ chài và lá lốt cháy đen, đắng trong khi nhân thịt vẫn còn sống.
+                </li>
+                <li class="justified-text">
+                    <strong class="text-cinnabar">Kỹ thuật cuốn:</strong> Phải cuốn thật chặt tay đẩy hết bọt khí bên trong ra ngoài, tránh tình trạng khi nướng thịt bị co lại làm lỏng và rớt lá lốt.
+                </li>
+            </ul>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-6 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 border-l-4 border-gold shadow-sm hover-lift">
+                <h4 class="font-bold mb-2 uppercase text-sm tracking-tighter">Thay thế mỡ chài</h4>
+                <p class="text-sm justified-text text-gray-600">Thêm sốt mayonnaise vào nhân và quét dầu ngoài lá lốt để giữ độ ẩm nếu không có mỡ chài.</p>
+            </div>
+            <div class="bg-white p-6 border-l-4 border-gold shadow-sm hover-lift">
+                <h4 class="font-bold mb-2 uppercase text-sm tracking-tighter">Nước chấm phá cách</h4>
+                <p class="text-sm justified-text text-gray-600">Có thể thay mắm nêm bằng nước mắm chua ngọt pha đặc kẹo với tỏi ớt băm nổi trên bề mặt.</p>
+            </div>
+            <div class="bg-white p-6 border-l-4 border-gold shadow-sm hover-lift">
+                <h4 class="font-bold mb-2 uppercase text-sm tracking-tighter">Nhân bùi giòn</h4>
+                <p class="text-sm justified-text text-gray-600">Thêm đậu phộng rang giã rối trực tiếp vào hỗn hợp thịt ướp để tạo độ bùi giòn bất ngờ.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="ornament">
+        <span class="ornament-icon">✥</span>
+    </div>
+
+    <!-- Footer Technical Info -->
+    <div class="grid md:grid-cols-2 gap-12 bg-charcoal text-parchment p-8 md:p-12 mb-12">
+        <section>
+            <h3 class="text-gold text-xl font-bold mb-6 uppercase border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4 justified-text text-gray-300">
+                <p>Ước tính 1 khẩu phần chứa <span class="text-white font-bold">350 - 450 kcal</span> và <span class="text-white font-bold">25g protein</span>.</p>
+                <p class="text-sm">Món ăn có lượng béo bão hòa từ mỡ chài khá cao, vì vậy việc kết hợp cùng lượng lớn rau sống, xà lách và chuối chát (giàu tannin) là sự cân bằng dinh dưỡng xuất sắc, giúp hỗ trợ tiêu hóa hiệu quả.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h3 class="text-gold text-xl font-bold mb-6 uppercase border-b border-gold/30 pb-2">6. Gợi ý trình bày</h3>
+            <div class="space-y-4 justified-text text-gray-300 text-sm">
+                <p>Sử dụng mẹt tre lót lá chuối xanh hoặc đĩa gốm mộc màu tối để làm nền, giúp tôn lên màu xanh đen bóng bẩy của bò cuốn.</p>
+                <p>Rưới mỡ hành óng ánh, rắc đậu phộng rang và sợi ớt sừng đỏ tươi để tạo điểm nhấn thị giác. Tổng thể tạo ra một mảng màu tương phản đa sắc, kích thích vị giác mạnh mẽ.</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
