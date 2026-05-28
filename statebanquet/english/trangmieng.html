@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombe Glacée Cardinal - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#D4AF37',
+                        goldLight: '#F4E6B3',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justify-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #D4AF37;
+            font-size: 1.5rem;
+        }
+        
+        .pro-tip-box {
+            border: 3px double #D4AF37;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #E34234;
+            font-weight: bold;
+            font-size: 1.25rem;
+            min-width: 2.5rem;
+        }
+
+        .meta-item {
+            border-right: 1px solid #e5e7eb;
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+                padding: 0.5rem 0;
+            }
+            .meta-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .ingredient-group h4 {
+            border-bottom: 1px solid #E34234;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            padding-right: 2rem;
+        }
+
+        /* Interactive Tabs/Cards for Variations */
+        .variation-card {
+            transition: all 0.3s ease;
+        }
+        .variation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <p class="uppercase tracking-widest text-cinnabar font-bold mb-4">AI Vua Đầu Bếp • Premium Collection</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">Bombe Glacée Cardinal</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Món Kem Tráng Miệng Hoàng Gia</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-gold py-6 max-w-4xl mx-auto uppercase text-sm tracking-wider">
+            <div class="meta-item px-4">
+                <span class="block text-gray-500 mb-1">Độ Khó / Difficulty</span>
+                <span class="font-bold">Nâng Cao / Advanced</span>
+            </div>
+            <div class="meta-item px-4">
+                <span class="block text-gray-500 mb-1">Thời Gian / Time</span>
+                <span class="font-bold">45m Prep | 12h Freeze</span>
+            </div>
+            <div class="meta-item px-4">
+                <span class="block text-gray-500 mb-1">Khẩu Phần / Servings</span>
+                <span class="font-bold">8 - 10 Người</span>
+            </div>
+            <div class="meta-item px-4">
+                <span class="block text-gray-500 mb-1">Nguồn Gốc / Origin</span>
+                <span class="font-bold italic">Escoffier (France)</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-8">
+            <p class="justify-text italic text-lg leading-relaxed text-gray-700">
+                A classic of the Escoffier era (late 19th century), this French frozen masterpiece is named for its vibrant red exterior, evoking the robes of a Catholic Cardinal. It represents the height of "Haute Cuisine" dessert architecture.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ✧ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-5">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4 uppercase">1. Nguyên liệu</h3>
+            
+            <div class="space-y-10">
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-xl">Lớp Vỏ (Raspberry Sorbet)</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 500g quả mâm xôi tươi (lọc bỏ hạt)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 200g đường cát
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 150ml nước lọc
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 1 muỗng canh nước cốt chanh
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 1 muỗng canh rượu Kirsch (truyền thống)
+                        </li>
+                        <li class="flex items-center gap-3 italic text-gray-600 bg-gray-50 p-2 rounded">
+                            <span class="font-bold text-gold mr-2">TIP:</span> 30g liquid glucose để tránh kết tinh đá.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-xl">Nhân Kem (Pâte à Bombe)</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 4 lòng đỏ trứng gà lớn
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 100g đường
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 50ml nước
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 1 quả vanilla tươi (tách lấy hạt)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 300ml whipping cream (35% béo)
+                        </li>
+                        <li class="flex items-center gap-3 italic text-gray-600 bg-gray-50 p-2 rounded">
+                            <span class="font-bold text-gold mr-2">HACK:</span> Có thể thay bằng 500ml kem vanilla cao cấp.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-xl">Sốt Cardinal</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 200g mâm xôi xay nhuyễn
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 50g đường bột rây mịn
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-cinnabar">◈</span> 1 muỗng cà phê nước cốt chanh
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-7">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4 uppercase">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-8 relative">
+                <div class="absolute left-[1.15rem] top-0 bottom-0 w-px bg-gold opacity-30"></div>
+                
+                <div class="flex gap-6 relative">
+                    <span class="step-number bg-parchment z-10">01</span>
+                    <div class="justify-text pb-4 border-b border-gray-100">
+                        <h5 class="font-bold text-lg mb-2">Chuẩn Bị Khuôn <span class="text-sm font-normal text-gray-500 ml-2">| 5 phút</span></h5>
+                        <p>Làm lạnh khuôn Bombe kim loại 1.5L hoặc tô inox hình cầu trong tủ đông ít nhất 30 phút. <span class="italic text-gray-600">(Mẹo: Lót màng bọc thực phẩm để dễ lấy kem ra hơn).</span></p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 relative">
+                    <span class="step-number bg-parchment z-10">02</span>
+                    <div class="justify-text pb-4 border-b border-gray-100">
+                        <h5 class="font-bold text-lg mb-2">Lớp Vỏ Sorbet <span class="text-sm font-normal text-gray-500 ml-2">| 2.5 giờ</span></h5>
+                        <p>Đun sôi nước, đường và glucose thành siro; để nguội rồi trộn với mâm xôi xay, chanh và Kirsch. Cho vào máy làm kem cho đến khi đặc. Trét một lớp dày 2cm lên thành khuôn đã lạnh, tạo một khoảng trống ở giữa. Cấp đông trong 2 giờ.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 relative">
+                    <span class="step-number bg-parchment z-10">03</span>
+                    <div class="justify-text pb-4 border-b border-gray-100">
+                        <h5 class="font-bold text-lg mb-2">Nhân Kem Pâte à Bombe <span class="text-sm font-normal text-gray-500 ml-2">| 30 phút</span></h5>
+                        <p>Đánh lòng đỏ trứng đến khi nhạt màu. Đun đường và nước đến 118°C rồi đổ từ từ vào lòng đỏ, đánh liên tục đến khi nguội và đặc lại. Trộn hạt vanilla và kem tươi đã đánh bông vào. <span class="italic text-gray-600">(Tip chuyên nghiệp: Dùng Italian Meringue để kết cấu nhẹ hơn).</span></p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 relative">
+                    <span class="step-number bg-parchment z-10">04</span>
+                    <div class="justify-text pb-4 border-b border-gray-100">
+                        <h5 class="font-bold text-lg mb-2">Lắp Ráp <span class="text-sm font-normal text-gray-500 ml-2">| 10 phút</span></h5>
+                        <p>Đổ hỗn hợp nhân vanilla vào khoảng trống giữa lớp vỏ sorbet. Làm phẳng mặt trên (sẽ là phần đế sau này). Đậy kín bằng giấy bạc hoặc nắp khuôn.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 relative">
+                    <span class="step-number bg-parchment z-10">05</span>
+                    <div class="justify-text pb-4 border-b border-gray-100">
+                        <h5 class="font-bold text-lg mb-2">Cấp Đông Lần Cuối <span class="text-sm font-normal text-gray-500 ml-2">| 8-10 giờ</span></h5>
+                        <p>Để trong tủ đông ít nhất 8 tiếng, tốt nhất là qua đêm, ở nhiệt độ -18°C hoặc thấp hơn để đạt độ cứng hoàn hảo.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 relative">
+                    <span class="step-number bg-parchment z-10">06</span>
+                    <div class="justify-text pb-4">
+                        <h5 class="font-bold text-lg mb-2">Trình Bày <span class="text-sm font-normal text-gray-500 ml-2">| 5 phút</span></h5>
+                        <p>Nhúng nhanh khuôn vào nước ấm khoảng 5-10 giây. Úp ngược lên đĩa đã làm lạnh và lấy khuôn/màng bọc ra ngay lập tức.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ✧ ✦</span>
+    </div>
+
+    <!-- Chef's Corner Section -->
+    <section class="max-w-4xl mx-auto mb-16">
+        <div class="pro-tip-box p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-[-20px] right-[-20px] text-8xl text-gold opacity-10 font-bold italic">Expert</div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="justify-text border-l-2 border-goldLight pl-4">
+                    <h6 class="font-bold text-charcoal mb-2 uppercase text-xs tracking-widest">Kiểm soát nhiệt độ</h6>
+                    <p class="text-sm italic">Đảm bảo lớp sorbet đã đông cứng hoàn toàn trước khi thêm nhân, nếu không các lớp sẽ bị lẫn màu, làm hỏng sự tương phản đặc trưng của dòng "Cardinal".</p>
+                </div>
+                <div class="justify-text border-l-2 border-goldLight pl-4">
+                    <h6 class="font-bold text-charcoal mb-2 uppercase text-xs tracking-widest">Kết cấu chuẩn Ý</h6>
+                    <p class="text-sm italic">Đầu bếp chuyên nghiệp dùng khúc xạ kế để đảm bảo sorbet đạt 30° Brix; điều này ngăn không cho vỏ kem bị cứng như đá tảng khó cắt.</p>
+                </div>
+                <div class="justify-text border-l-2 border-goldLight pl-4 md:col-span-2">
+                    <h6 class="font-bold text-charcoal mb-2 uppercase text-xs tracking-widest">Chiều sâu hương vị</h6>
+                    <p class="text-sm italic">Những người theo trường phái cổ điển nhấn mạnh việc ngâm mâm xôi trong rượu Kirsch 2 giờ trước khi xay để chiết xuất được hương thơm sâu nhất.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <h3 class="text-3xl font-bold mb-8 text-center uppercase">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="variation-card bg-white p-6 border border-gray-100 shadow-sm rounded-lg">
+                <span class="text-gold font-bold block mb-2">Praline Cardinal</span>
+                <p class="text-sm justify-text text-gray-600 italic">Thay nhân vanilla bằng parfait hương vị praline (hạt dẻ cười/hạnh nhân) và thêm các lát hạnh nhân nướng để tạo độ giòn.</p>
+            </div>
+            <div class="variation-card bg-white p-6 border border-gray-100 shadow-sm rounded-lg">
+                <span class="text-cinnabar font-bold block mb-2">Modernist Shortcut</span>
+                <p class="text-sm justify-text text-gray-600 italic">Sử dụng kem sorbet mâm xôi mua sẵn loại cao cấp. Làm mềm nhẹ bằng máy đánh trứng trước khi trét vào khuôn để có độ dẻo mong muốn.</p>
+            </div>
+            <div class="variation-card bg-white p-6 border border-gray-100 shadow-sm rounded-lg">
+                <span class="text-green-700 font-bold block mb-2">Vegan Version</span>
+                <p class="text-sm justify-text text-gray-600 italic">Sử dụng nhân vanilla làm từ kem dừa và lớp vỏ sorbet được làm ngọt bằng mật cây thùa (agave syrup).</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ✧ ✦</span>
+    </div>
+
+    <!-- Bottom Info -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <!-- Nutrition -->
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cinnabar" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="grid grid-cols-2 gap-4 text-sm mb-6 uppercase tracking-wider">
+                <div class="flex justify-between border-b border-gray-300 pb-1">
+                    <span>Calories</span> <span class="font-bold">450 kcal</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-300 pb-1">
+                    <span>Total Fat</span> <span class="font-bold">18g</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-300 pb-1">
+                    <span>Sugar</span> <span class="font-bold">42g</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-300 pb-1">
+                    <span>Vitamin C</span> <span class="font-bold">15% DV</span>
+                </div>
+            </div>
+            <p class="justify-text text-xs italic text-gray-500">
+                <span class="font-bold">Ghi chú từ chuyên gia:</span> Đây là món tráng miệng giàu đường và chất béo. Hãy cân bằng bữa ăn với món chính nhẹ nhàng, giàu protein. Mâm xôi cung cấp chất chống oxy hóa và chất xơ đáng kể, dù một phần sẽ mất đi khi lọc hạt.
+            </p>
+        </div>
+
+        <!-- Presentation -->
+        <div class="p-2">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                6. Gợi ý trình bày
+            </h3>
+            <ul class="space-y-4 text-sm">
+                <li class="justify-text italic border-b border-goldLight pb-2">
+                    <strong class="text-cinnabar">Hiệu ứng Cardinal:</strong> Mục tiêu là sự tương phản mạnh mẽ giữa lớp vỏ đỏ rực và nhân kem màu ngà.
+                </li>
+                <li class="justify-text italic border-b border-goldLight pb-2">
+                    <strong class="text-cinnabar">Lớp bóng Mirror:</strong> Rưới nước sốt mâm xôi lạnh lên Bombe sau khi lấy khỏi khuôn để tạo độ bóng gương.
+                </li>
+                <li class="justify-text italic">
+                    <strong class="text-gold">Styling cao cấp:</strong> Trang trí thêm một lá vàng thực phẩm ở đỉnh và phục vụ trên khay bạc. Dùng dao nhúng nước nóng để cắt những lát kem sắc lẹm, hoàn hảo.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>
