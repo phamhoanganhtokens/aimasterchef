@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Đúc Lạc Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldDark: '#A67C37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(2n) {
+                border-right: none;
+            }
+            .meta-item:last-child, .meta-item:nth-last-child(2) {
+                border-bottom: none;
+            }
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            color: #E23D28;
+            border-bottom: 2px solid #E23D28;
+        }
+        .ingredient-item {
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+        .ingredient-item:hover {
+            border-left: 2px solid #C5A059;
+            padding-left: 0.75rem;
+            background: rgba(197, 160, 89, 0.05);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto text-center mb-12">
+        <div class="mb-4">
+            <span class="uppercase tracking-[0.3em] text-gold font-bold text-sm">Tinh Hoa Ẩm Thực Việt</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Bánh Đúc Lạc Truyền Thống</h1>
+        <h2 class="text-2xl md:text-3xl font-serif italic text-gray-600 mb-8">Traditional Rice Cake with Peanuts & Hot Rice Cake</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold/40 py-6 max-w-4xl mx-auto">
+            <div class="meta-item flex flex-col items-center justify-center p-2">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M234.39,69.56l-28,28a12,12,0,0,1-17,0L170,78.14,116.31,131.8a12,12,0,0,1-17,0L78.14,110.6,35.41,153.32a12,12,0,1,1-17-17l51.13-51.14a12,12,0,0,1,17,0L107.86,106.4l53.66-53.66L142.07,33.29a12,12,0,1,1,17-17l46.12,46.12a12,12,0,0,1,0,17l-15,15,8.48,8.49,24.3-24.31a12,12,0,1,1,17,17l-.58.57Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="meta-item flex flex-col items-center justify-center p-2">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold">90 - 120 phút</span>
+            </div>
+            <div class="meta-item flex flex-col items-center justify-center p-2">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,190.81a12,12,0,0,0,20.94,11.58,72,72,0,0,1,127.06,0,12,12,0,0,0,20.94-11.58A95.83,95.83,0,0,0,117.25,157.92ZM84,140a36,36,0,1,1,36-36A36,36,0,0,1,84,140Zm168.47,50.81a95.83,95.83,0,0,0-47.22-32.89,60,60,0,1,0-66.5,0,95.67,95.67,0,0,0-23.32,15.11,12,12,0,1,0,16,17.94,71.72,71.72,0,0,1,100.1,0,12,12,0,0,0,20.94-11.58ZM172,140a36,36,0,1,1,36-36A36,36,0,0,1,172,140Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="meta-item flex flex-col items-center justify-center p-2">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.37a88,88,0,0,1,107.84,0,79.8,79.8,0,0,1-107.84,0ZM128,152a40,40,0,1,1,40-40A40,40,0,0,1,128,152Zm70.78,32a103.71,103.71,0,0,0-31-24.8,56,56,0,1,0-79.54,0,103.71,103.71,0,0,0-31,24.8,88,88,0,1,1,141.56,0Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Nguồn gốc</span>
+                <span class="font-bold">Đồng bằng Bắc Bộ</span>
+            </div>
+        </div>
+        <p class="max-w-2xl mx-auto mt-8 justified italic text-gray-700">
+            "Xuất thân là món ăn dân dã, no lâu của tầng lớp lao động, Bánh Đúc dần trở thành tinh hoa ẩm thực đường phố, gắn liền với ký ức của bao thế hệ người dân Việt."
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <!-- Two Column Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gold uppercase text-sm mb-4 tracking-widest">Phần cốt bánh</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex justify-between items-center py-2 border-b border-gray-100">
+                                <span>Gạo tẻ cũ / Bột gạo tẻ</span>
+                                <span class="font-bold">500g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between items-center py-2 border-b border-gray-100">
+                                <span>Nước vôi trong</span>
+                                <span class="font-bold">1.5 - 2 lít</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between items-center py-2 border-b border-gray-100">
+                                <span>Lạc nhân (đậu phộng)</span>
+                                <span class="font-bold">150g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between items-center py-2 border-b border-gray-100">
+                                <span>Muối</span>
+                                <span class="font-bold">1/2 muỗng</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between items-center py-2 border-b border-gray-100">
+                                <span>Dầu ăn / Mỡ lợn</span>
+                                <span class="font-bold">30ml</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold uppercase text-sm mb-4 tracking-widest">Gia vị & Kèm theo</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex flex-col py-2 border-b border-gray-100">
+                                <span class="font-bold">Tương Bần:</span>
+                                <span class="text-sm italic">Gừng, đường, ớt</span>
+                            </li>
+                            <li class="ingredient-item flex flex-col py-2 border-b border-gray-100">
+                                <span class="font-bold">Topping Bánh Nóng:</span>
+                                <span class="text-sm italic text-gray-600">Thịt lợn xay (200g), mộc nhĩ, hành khô, rau mùi, nước mắm chua ngọt.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10">
+                    <div class="relative pl-8 border-l-2 border-parchment-dark">
+                        <div class="absolute -left-[11px] top-0 w-5 h-5 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold"><span class="step-number">01.</span> Sơ chế lạc và bột</h4>
+                            <span class="text-xs bg-gold/10 text-goldDark px-3 py-1 rounded-full font-bold uppercase">Chuẩn bị</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Lạc ngâm nước 2 tiếng, luộc chín mềm, bóc vỏ lụa (tùy sở thích). Nếu dùng gạo tẻ, ngâm 6-8 tiếng rồi xay cùng nước vôi trong, lọc qua rây thật mịn. Nếu dùng bột gạo, hòa bột với nước vôi trong và muối, để bột nghỉ 30 phút.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l-2 border-parchment-dark">
+                        <div class="absolute -left-[11px] top-0 w-5 h-5 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold"><span class="step-number">02.</span> Khuấy bột (Kỹ thuật then chốt)</h4>
+                            <span class="text-xs bg-gold/10 text-goldDark px-3 py-1 rounded-full font-bold uppercase">20-30 phút</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Cho hỗn hợp bột vào nồi (ưu tiên nồi gang dày hoặc nồi chống dính). Đun lửa vừa, khuấy đều tay theo một chiều để tránh vón cục. Đây là giai đoạn quan trọng nhất để quyết định độ mịn của bánh.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l-2 border-parchment-dark">
+                        <div class="absolute -left-[11px] top-0 w-5 h-5 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold"><span class="step-number">03.</span> Giáo bột</h4>
+                            <span class="text-xs bg-gold/10 text-goldDark px-3 py-1 rounded-full font-bold uppercase">30-40 phút</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Khi bột bắt đầu đặc lại và chuyển màu trong hơn, hạ lửa nhỏ nhất. Thêm dầu ăn để bánh có độ bóng và không dính nồi. Đậy vung khoảng 2-3 phút, sau đó mở ra khuấy tiếp. Lặp lại 3 lần cho đến khi bột sánh mịn, nhấc đũa lên thấy bột chảy xuống thành dòng liên tục nhưng chậm (gọi là đổ lả lơi).
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 border-l-2 border-parchment-dark">
+                        <div class="absolute -left-[11px] top-0 w-5 h-5 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold"><span class="step-number">04.</span> Hoàn thiện</h4>
+                            <span class="text-xs bg-gold/10 text-goldDark px-3 py-1 rounded-full font-bold uppercase">Hoàn tất</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-white/50 border border-gold/20 rounded-lg">
+                                <span class="block font-bold mb-1 text-cinnabar">Bánh đúc lạc:</span>
+                                <p class="text-sm justified italic">Đổ bột ra mẹt hoặc đĩa có lót lá chuối phết mỡ, dàn phẳng. Đợi bánh nguội hoàn toàn và đông lại.</p>
+                            </div>
+                            <div class="p-4 bg-white/50 border border-gold/20 rounded-lg">
+                                <span class="block font-bold mb-1 text-cinnabar">Bánh đúc nóng:</span>
+                                <p class="text-sm justified italic">Giữ bột trong nồi ấm, khi ăn múc ra bát, thêm thịt băm xào mộc nhĩ, hành phi và nước mắm đường pha loãng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="glass-card p-8 rounded-2xl border-2 border-gold/30 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l2-2A9.89,9.89,0,0,0,12,22a10,10,0,0,0,10-10A10,10,0,0,0,12,2ZM12,20a8,8,0,0,1-5.33-2.06,1,1,0,0,0-1.27.06l-1.34,1.34A7.8,7.8,0,0,1,4,12,8,8,0,0,1,12,4a8,8,0,0,1,8,8A8,8,0,0,1,12,20ZM12,6a6,6,0,1,0,6,6A6,6,0,0,0,12,6Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,12,16Z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-cinnabar mb-6 flex items-center">
+                    <span class="mr-3">3. Mẹo hay từ Vua Đầu Bếp</span>
+                    <span class="h-[1px] flex-1 bg-cinnabar/20"></span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="justified">
+                        <h5 class="font-bold text-goldDark mb-2 uppercase text-xs tracking-tighter">Kỹ thuật nhiệt</h5>
+                        <p class="text-sm">Đầu bếp chuyên nghiệp nhấn mạnh việc "giáo bột" ở lửa cực thấp giúp tinh bột chín thấu, loại bỏ mùi nồng của vôi và tạo độ dẻo dai tự nhiên mà không cần hàn thê.</p>
+                    </div>
+                    <div class="justified">
+                        <h5 class="font-bold text-goldDark mb-2 uppercase text-xs tracking-tighter">Bí quyết truyền thống</h5>
+                        <p class="text-sm">Sử dụng nước vôi trong chuẩn (độ pH nhẹ) giúp bánh có độ giòn sần sật đặc trưng. Nếu không có nước vôi, bánh sẽ bị bở và giống cháo đặc.</p>
+                    </div>
+                    <div class="justified">
+                        <h5 class="font-bold text-goldDark mb-2 uppercase text-xs tracking-tighter">Mẹo nội trợ</h5>
+                        <p class="text-sm">Nếu bột quá đặc trong lúc khuấy, hãy thêm từng chút nước ấm (không dùng nước lạnh) để điều chỉnh độ nhất quán mà không làm hỏng cấu trúc liên kết của tinh bột.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Tabbed Section -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">4. Biến tấu & Phiên bản nâng cao</h3>
+            
+            <div class="flex border-b border-gray-200 mb-8 overflow-x-auto">
+                <button onclick="openTab(event, 'v-hot')" class="tab-btn px-6 py-3 font-bold uppercase text-sm tracking-widest active">Bánh đúc nóng</button>
+                <button onclick="openTab(event, 'v-pandan')" class="tab-btn px-6 py-3 font-bold uppercase text-sm tracking-widest">Bánh đúc lá dứa</button>
+                <button onclick="openTab(event, 'v-quick')" class="tab-btn px-6 py-3 font-bold uppercase text-sm tracking-widest">Giải pháp nhanh</button>
+            </div>
+
+            <div id="v-hot" class="tab-content active glass-card p-6 rounded-lg">
+                <p class="justified">Bỏ qua bước để đông. Kết hợp với topping thịt xào mỡ hành và nước mắm dấm ớt. Món ăn này thích hợp cho những ngày se lạnh, mang lại cảm giác ấm áp và đậm đà.</p>
+            </div>
+            <div id="v-pandan" class="tab-content glass-card p-6 rounded-lg">
+                <p class="justified">Thay nước vôi bằng nước cốt lá dứa để tạo màu xanh và mùi thơm, thường ăn kèm nước cốt dừa và mè rang. Đây là phiên bản phổ biến ở miền Nam, thiên về vị ngọt và thơm ngậy.</p>
+            </div>
+            <div id="v-quick" class="tab-content glass-card p-6 rounded-lg">
+                <p class="justified">Có thể thay thế gạo ngâm bằng hỗn hợp bột gạo tẻ và một ít bột năng (tỉ lệ 8:2) để tăng độ dai nếu dùng loại gạo quá mới hoặc muốn rút ngắn thời gian chuẩn bị mà vẫn đảm bảo cấu trúc bánh.</p>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="ornament">✦ ✦ ✦</span>
+        </div>
+
+        <!-- Nutrition & Presentation -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <div>
+                <h3 class="text-xl font-bold border-b border-gold mb-4 uppercase tracking-wider">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gold">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold mr-2 text-cinnabar">150-200</span>
+                        <span class="text-xs uppercase text-gray-500 font-bold">kcal / khẩu phần</span>
+                    </div>
+                    <div class="space-y-4 text-sm text-gray-700 justified">
+                        <p><strong class="text-charcoal uppercase text-[10px] tracking-widest block mb-1">Phân tích:</strong> Thành phần chính là tinh bột cung cấp năng lượng nhanh. Lạc cung cấp chất béo không bão hòa và protein thực vật.</p>
+                        <p><strong class="text-charcoal uppercase text-[10px] tracking-widest block mb-1">Lưu ý sức khỏe:</strong> Chỉ số đường huyết (GI) của bánh đúc khá cao; người tiểu đường nên kiểm soát liều lượng. Nước vôi trong giúp bổ sung một lượng nhỏ canxi nhưng cần lắng thật kỹ để tránh tạp chất.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold border-b border-gold mb-4 uppercase tracking-wider">6. Gợi ý trình bày</h3>
+                <div class="space-y-6 text-sm text-gray-700 justified">
+                    <div>
+                        <strong class="text-cinnabar block mb-1 uppercase tracking-tighter">Bánh đúc lạc (Cổ điển):</strong>
+                        <p>Cắt thành miếng hình thoi (hình trám) sắc cạnh. Bày trên mẹt tre lót lá chuối xanh đậm để làm nổi bật sắc trắng ngà của bánh. Chén tương bần đặt giữa, trang trí thêm vài lát gừng sợi và ớt tươi.</p>
+                    </div>
+                    <div>
+                        <strong class="text-cinnabar block mb-1 uppercase tracking-tighter">Bánh đúc nóng (Hiện đại):</strong>
+                        <p>Đựng trong bát sứ chiết yêu nhỏ, lớp thịt băm nâu thẫm nổi bật trên nền bột trắng, điểm xuyết màu xanh tươi của rau mùi và màu vàng óng của hành phi. Cần phục vụ khi khói còn bốc nghi ngút để kích thích khứu giác.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
