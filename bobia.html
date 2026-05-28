@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bò Bía Sài Gòn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'parchment': '#FCFAFA',
+                        'charcoal': '#2C2C2C',
+                        'cinnabar': '#E23D28',
+                        'gold': '#B8860B',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #B8860B;
+            opacity: 0.4;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament {
+            font-size: 1.5rem;
+            color: #B8860B;
+        }
+        .ingredient-item:hover {
+            background-color: rgba(184, 134, 11, 0.05);
+            transition: all 0.3s ease;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            color: #E23D28;
+            opacity: 0.2;
+            position: absolute;
+            left: -1rem;
+            top: -1rem;
+            font-weight: bold;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+        .gold-border {
+            border: 2px double #B8860B;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <div class="max-w-5xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="mb-4">
+                <span class="text-cinnabar font-bold tracking-[0.3em] uppercase text-sm">AI Vua Đầu Bếp Presents</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-charcoal mb-2 uppercase tracking-tight">Bò Bía Sài Gòn</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-8 font-normal">Saigon Popiah Rolls</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 mb-8">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Độ khó</span>
+                    <span class="text-lg">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Thời gian</span>
+                    <span class="text-lg">50 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Khẩu phần</span>
+                    <span class="text-lg">4 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Xuất xứ</span>
+                    <span class="text-lg">Sài Gòn</span>
+                </div>
+            </div>
+
+            <!-- Origin Text -->
+            <div class="max-w-3xl mx-auto px-4">
+                <p class="justified-text italic text-gray-700 leading-relaxed">
+                    Bò bía có nguồn gốc từ cộng đồng người Triều Châu (Trung Quốc) di cư đến Việt Nam, tên gọi gốc là "popiah". Tuy nhiên, khi du nhập vào Sài Gòn, món ăn này đã được tinh chỉnh để phù hợp với khẩu vị và nguyên liệu địa phương. Khác với bò bía ngọt làm từ kẹo mạch nha và dừa nạo, bò bía mặn là một bức tranh ẩm thực đường phố đặc trưng của miền Nam, nổi bật với sự cân bằng giữa vị ngọt thanh của củ sắn (củ đậu), vị mặn mà của tôm khô, lạp xưởng và hương thơm đặc trưng của tương đen.
+                </p>
+            </div>
+        </header>
+
+        <div class="section-divider"><span class="ornament">◈</span></div>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-gold">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-3 border-b border-gold/20 pb-1">Phần nhân cuốn</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>500g củ sắn (củ đậu)</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>100g cà rốt</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>3-4 cây lạp xưởng</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>3 quả trứng gà</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>50g tôm khô</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>1 xấp bánh tráng dẻo</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>Rau sống (Xà lách, húng quế...)</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-3 border-b border-gold/20 pb-1">Phần nước chấm</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>4 muỗng canh tương đen</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>1 muỗng bơ đậu phộng</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>Tỏi, hành tím băm</span></li>
+                            <li class="ingredient-item p-2 flex justify-between border-b border-gray-100"><span>Đậu phộng, hành phi</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                    <span class="text-gold">2.</span> Các bước thực hiện
+                </h3>
+                
+                <div class="space-y-12">
+                    <div class="relative pl-6 border-l-2 border-gold/20 pb-2">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold mb-2 text-charcoal uppercase">Sơ chế rau củ <span class="text-sm font-normal text-cinnabar lowercase italic">(15 phút)</span></h4>
+                        <p class="justified-text text-gray-700">
+                            Củ sắn và cà rốt gọt vỏ, thái sợi chỉ (julienne) thật đều tay. Làm nóng chảo với chút dầu, cho củ sắn và cà rốt vào xào với lửa vừa. Nêm một chút muối để củ sắn nhả nước, sau đó đậy nắp khoảng 5 phút cho chín mềm. Mở nắp, đảo đều để nước cạn bớt. 
+                            <span class="block mt-2 font-bold text-gold-light italic text-sm underline decoration-gold/30">Mẹo chuyên nghiệp: Sau khi xào, đổ ra rổ cho ráo hẳn nước để tránh làm rách bánh tráng khi cuốn.</span>
+                        </p>
+                    </div>
+
+                    <div class="relative pl-6 border-l-2 border-gold/20 pb-2">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold mb-2 text-charcoal uppercase">Chuẩn bị đạm <span class="text-sm font-normal text-cinnabar lowercase italic">(15 phút)</span></h4>
+                        <p class="justified-text text-gray-700">
+                            Với lạp xưởng, nên luộc cùng một ít nước lọc đến khi cạn nước, sau đó áp chảo bằng chính mỡ từ lạp xưởng tiết ra để lớp vỏ giòn và bớt ngậy, sau đó thái lát xéo mỏng. Trứng gà đánh tan, rây mịn rồi tráng thật mỏng, sau đó cuộn lại và thái sợi nhuyễn. Tôm khô ngâm mềm, rửa sạch và xào sơ với tỏi phi. Đối với gia đình bận rộn, có thể thay tôm khô bằng ruốc sấy tẩm vị sẵn.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-6 border-l-2 border-gold/20 pb-2">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold mb-2 text-charcoal uppercase">Pha nước chấm <span class="text-sm font-normal text-cinnabar lowercase italic">(5 phút)</span></h4>
+                        <p class="justified-text text-gray-700">
+                            Phi thơm hành tỏi băm, sau đó cho tương đen, bơ đậu phộng và nước lọc vào khuấy đều trên lửa nhỏ. Nêm đường cho vừa vị đến khi sốt hơi sánh lại. Khi ăn, rắc thêm đậu phộng rang, hành phi và tương ớt.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-6 border-l-2 border-gold/20 pb-2">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold mb-2 text-charcoal uppercase">Kỹ thuật cuốn <span class="text-sm font-normal text-cinnabar lowercase italic">(15 phút)</span></h4>
+                        <p class="justified-text text-gray-700">
+                            Trải bánh tráng phẳng, xếp lớp xà lách và rau thơm làm đệm. Cho nhân củ sắn, trứng và tôm khô lên trên. Gấp 2 mép bánh, xếp lạp xưởng ở mép ngoài cùng để khi cuốn xong màu đỏ của lạp xưởng hiện lên đẹp mắt. Cuộn chặt tay và đều đặn.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="section-divider"><span class="ornament">✧</span></div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-12">
+            <div class="gold-border p-8 bg-white/50 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-5">
+                    <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2m0 18c4.41 0 8-3.59 8-8s-3.59-8-8-8-8 3.59-8 8 3.59 8 8 8m-1-13h2v6h-2V7m0 8h2v2h-2v-2z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 flex items-center gap-2 text-gold">
+                    <span class="p-1 bg-gold text-white rounded-full">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </span>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-4">
+                        <span class="text-cinnabar font-bold italic">01.</span>
+                        <p class="justified-text text-gray-800"><strong>Quan trọng nhất là độ ẩm:</strong> Củ sắn xào phải để thật ráo nước và nguội hẳn mới bắt đầu cuốn để tránh làm nhũn bánh tráng.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-cinnabar font-bold italic">02.</span>
+                        <p class="justified-text text-gray-800"><strong>Kỹ thuật thái trứng:</strong> Sử dụng dao sắc và ấn dứt khoát để có sợi trứng dài, mỏng, tơi mà không bị nát.</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-cinnabar font-bold italic">03.</span>
+                        <p class="justified-text text-gray-800"><strong>Nước chấm chuẩn vị:</strong> Việc kết hợp bơ đậu phộng vào tương đen tạo nên cấu trúc sánh mịn (emulsion) và vị béo đặc trưng giúp món ăn đạt chất lượng cao cấp hơn.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="text-gold">4.</span> Biến tấu & Phiên bản nâng cao
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 glass-card rounded-lg border-l-4 border-cinnabar">
+                    <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        🌿 Phiên bản chay
+                    </h4>
+                    <p class="justified-text text-gray-700 text-sm">
+                        Sử dụng lạp xưởng chay, đậu hũ chiên thái chỉ và nước tương đen chay kết hợp bơ đậu phộng để giữ nguyên độ béo bùi đặc trưng.
+                    </p>
+                </div>
+                <div class="p-6 glass-card rounded-lg border-l-4 border-gold">
+                    <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        ⚡ Phiên bản nhanh
+                    </h4>
+                    <p class="justified-text text-gray-700 text-sm">
+                        Có thể dùng giò lụa thái sợi thay cho trứng tráng nếu cần tiết kiệm thời gian chuẩn bị mà vẫn đảm bảo được vị đậm đà cho món ăn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span class="ornament">❦</span></div>
+
+        <!-- Technical Footer Sections -->
+        <footer class="grid md:grid-cols-2 gap-12 pb-12">
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold uppercase tracking-widest text-cinnabar border-b-2 border-cinnabar/20 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-charcoal text-white p-6 rounded-sm">
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-white/10 pb-1">
+                            <span>Năng lượng</span>
+                            <span class="font-bold">80 - 110 kcal / cuốn</span>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 pb-1">
+                            <span>Thành phần chính</span>
+                            <span class="italic">Chất xơ, Đạm, Lipid</span>
+                        </li>
+                    </ul>
+                    <p class="mt-4 text-xs italic text-gray-400 justified-text">
+                        Lời khuyên: Để lành mạnh hơn, hãy chọn lạp xưởng nạc hoặc ức gà, tráng trứng không dầu và gia giảm lượng đường trong nước chấm.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold uppercase tracking-widest text-cinnabar border-b-2 border-cinnabar/20 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-3 text-gray-700">
+                    <p class="justified-text">
+                        • Sắp xếp các cuốn bò bía sao cho phần lạp xưởng lộ ra ngoài đĩa để tạo điểm nhấn màu sắc đỏ hồng bắt mắt.
+                    </p>
+                    <p class="justified-text">
+                        • Cắt đôi cuốn bò theo góc xéo 45 độ để lộ cấu trúc nhân đẹp mắt bên trong, kích thích vị giác người dùng.
+                    </p>
+                    <p class="justified-text">
+                        • Trình bày trên đĩa lá chuối hoặc dĩa gốm mộc, đặt chén nước chấm có vòng tương ớt và đậu phộng rang ở giữa để tăng tính thẩm mỹ khi phục vụ.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
