@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Herbed Ravioli - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-red: #B22222; /* Cinnabar Red */
+            --accent-gold: #C5A059; /* Burnished Gold */
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        p, .justify-text {
+            text-align: justify;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid var(--accent-gold);
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 9px;
+            height: 9px;
+            background: var(--accent-red);
+            border-radius: 50%;
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--accent-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 4px; }
+
+        .nav-tab {
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-tab.active {
+            border-bottom: 2px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-16 pt-8">
+        <div class="mb-4 text-sm tracking-widest uppercase text-stone-500 font-semibold">AI Vua Đầu Bếp • Premium Collection</div>
+        <h1 class="header-title text-4xl md:text-6xl font-bold mb-2">Spring Herbed Ravioli</h1>
+        <h2 class="text-xl md:text-2xl italic text-stone-600 mb-8">Bánh Xếp Ravioli Thảo Mộc Xuân: Phô Mai Ricotta – Nấm Bụng Dê – Bọt Sữa Parmesan</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 py-6 border-y border-stone-200">
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--accent-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7Z"/><path d="M12 19c-3.3 0-6-2.7-6-6"/><path d="M18 13c0 3.3-2.7 6-6 6"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-stone-400">Difficulty</span>
+                <span class="font-bold text-sm">Advanced</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--accent-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-stone-400">Time</span>
+                <span class="font-bold text-sm">2 Hours</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--accent-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-stone-400">Servings</span>
+                <span class="font-bold text-sm">4 People</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--accent-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 21.8c2.3-2.5 3.5-5.7 3.5-9.8s-1.2-7.3-3.5-9.8"/><path d="M12 2.2c-2.3 2.5-3.5 5.7-3.5 9.8s1.2 7.3 3.5 9.8"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-stone-400">Origin</span>
+                <span class="font-bold text-sm text-center">Modern Italian</span>
+            </div>
+        </div>
+
+        <p class="mt-12 max-w-3xl mx-auto italic text-stone-700 text-lg leading-relaxed px-4">
+            "Inspired by the spring harvest of the White House garden, this dish represents the seasonal awakening of nature. It marries the rustic, soulful Italian tradition of fresh egg pasta with modernist culinary techniques."
+        </p>
+    </header>
+
+    <!-- MAIN RECIPE CONTENT -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <section class="lg:col-span-4">
+            <h3 class="header-title text-2xl font-bold mb-6 flex items-center">
+                <span class="mr-3 text-[var(--accent-gold)]">1.</span> Nguyên liệu
+            </h3>
+            
+            <div class="space-y-8">
+                <!-- Subgroup: Pasta -->
+                <div>
+                    <h4 class="text-sm uppercase tracking-widest font-bold text-stone-500 mb-4 border-b border-stone-200 pb-1 italic">Pasta Dough</h4>
+                    <ul class="space-y-3">
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>300g Tipo 00 flour</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>3 Large farm-fresh eggs</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>1 cup Mixed delicate herbs</span>
+                            <span class="text-stone-400 text-[10px]">Chervil, Tarragon, Dill</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Subgroup: Ricotta Filling -->
+                <div>
+                    <h4 class="text-sm uppercase tracking-widest font-bold text-stone-500 mb-4 border-b border-stone-200 pb-1 italic">Ricotta Filling</h4>
+                    <ul class="space-y-3">
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>250g Whole milk fresh ricotta</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>50g Parmigiano-Reggiano</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Organic Lemon zest & Nutmeg</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Subgroup: Sauce & Morels -->
+                <div>
+                    <h4 class="text-sm uppercase tracking-widest font-bold text-stone-500 mb-4 border-b border-stone-200 pb-1 italic">Morels & Emulsion</h4>
+                    <ul class="space-y-3">
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>150g Fresh morel mushrooms</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>150g Parmigiano (for emulsion)</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>300ml Vegetable stock</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>50ml Heavy cream</span>
+                            <span class="text-stone-400">●</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-8">
+            <h3 class="header-title text-2xl font-bold mb-8 flex items-center">
+                <span class="mr-3 text-[var(--accent-gold)]">2.</span> Các bước thực hiện
+            </h3>
+
+            <div class="space-y-0">
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Chuẩn bị khối bột (Prepare Dough)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">10 mins + 30 mins rest</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Tạo giếng giữa đống bột Tipo 00, thêm trứng và đánh nhẹ bằng nĩa. Nhào bột trong 10 phút cho đến khi mịn và đàn hồi. Bọc màng thực phẩm và nghỉ 30 phút.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Trộn nhân Ricotta (Mix Filling)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">10 mins</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Kết hợp phô mai ricotta đã ráo nước, Parmesan bào, vỏ chanh, đậu khấu, muối và tiêu trắng. Đánh mịn và cho vào túi bắt kem.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Kỹ thuật ép thảo mộc (Laminate Herbs)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">20 mins</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Cán bột mỏng (số 6 hoặc 7). Trải lá thảo mộc tươi lên một tấm bột, đặt tấm bột thứ hai lên trên và cán lại để lá thảo mộc ép chặt vào cấu trúc bột.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Tạo hình Ravioli (Shape)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">15 mins</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Bóp các viên nhân khoảng 1 muỗng canh lên mặt bột, cách nhau 5cm. Xịt nhẹ nước xung quanh nhân, đậy lớp bột thứ hai và ép chặt để đẩy hết không khí ra ngoài trước khi cắt.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-item">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Nhũ tương Parmesan (Emulsion)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">25 mins</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Đun nhẹ nước dùng rau củ và kem tươi. Tắt bếp, cho Parmesan bào vào ngâm trong 20 phút. Lọc qua rây mịn lấy phần nước trong.
+                    </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="timeline-item">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Chế biến nấm Bụng Dê (Cook Morels)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">10 mins</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Xào thơm hành tím và cỏ xạ hương với bơ. Cho nấm bụng dê vào đảo trong 3-4 phút. Khử bằng rượu vang trắng và nấu cho đến khi cạn nước.
+                    </p>
+                </div>
+
+                <!-- Step 7 & 8 -->
+                <div class="timeline-item border-none pb-0">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="font-bold text-lg">Hoàn thiện & Tạo bọt (Finish)</h4>
+                        <span class="text-xs italic text-[var(--accent-gold)] font-bold">5 mins</span>
+                    </div>
+                    <p class="text-stone-600">
+                        Luộc Ravioli trong nước muối sôi khoảng 2-3 phút cho đến khi nổi. Trong lúc đó, dùng máy xay cầm tay đánh bông phần nước Parmesan để tạo lớp bọt mịn.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider">
+        <span class="ornament">★ ★ ★</span>
+    </div>
+
+    <!-- CHEF'S CORNER -->
+    <section class="mb-16">
+        <div class="pro-tip-box p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--accent-gold)"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+            </div>
+            <h3 class="header-title text-2xl font-bold mb-6 text-[var(--accent-gold)] uppercase tracking-widest flex items-center">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2 underline decoration-[var(--accent-red)] underline-offset-4">Vệ sinh Nấm Bụng Dê</h5>
+                    <p class="text-sm text-stone-600">Cấu trúc tổ ong của nấm rất dễ bám cát. Đừng ngâm quá lâu; hãy xóc mạnh nấm trong bát nước lạnh đúng 10 giây rồi vớt ra thấm khô ngay.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 underline decoration-[var(--accent-red)] underline-offset-4">Túi Khí Bí Mật</h5>
+                    <p class="text-sm text-stone-600">Khi dán Ravioli, hãy khum các ngón tay quanh nhân để đẩy hết không khí. Không khí kẹt lại sẽ giãn nở khi luộc và làm rách lớp bột mỏng.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 underline decoration-[var(--accent-red)] underline-offset-4">Độ ổn định của Bọt</h5>
+                    <p class="text-sm text-stone-600">Sử dụng bột Soy Lecithin là một kỹ thuật tân tiến giúp lớp bọt Parmesan giữ cấu trúc trên đĩa tới 30 phút mà không bị tan chảy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATIONS -->
+    <section class="mb-16">
+        <h3 class="header-title text-2xl font-bold mb-8 flex items-center">
+            <span class="mr-3 text-[var(--accent-gold)]">4.</span> Biến tấu & Phiên bản
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 border-l-4 border-l-[var(--accent-gold)]">
+                <h4 class="font-bold text-lg mb-3">Phiên bản Gia đình (Home Hack)</h4>
+                <p class="text-stone-600 text-sm">
+                    Nếu không có thời gian cán bột, bạn có thể dùng vỏ hoành thánh (wonton wrappers) hình vuông. Thay vì ép lá thảo mộc vào bột, hãy băm nhỏ chúng và trộn trực tiếp vào nhân phô mai.
+                </p>
+            </div>
+            <div class="glass-card p-6 border-l-4 border-l-[var(--accent-red)]">
+                <h4 class="font-bold text-lg mb-3">Sức khỏe & Dinh dưỡng (Light Version)</h4>
+                <p class="text-stone-600 text-sm">
+                    Thay thế ricotta nguyên kem bằng loại ít béo. Bỏ qua bơ khi xào nấm (dùng bình xịt dầu hoặc nước dùng rau củ) và không dùng kem tươi trong phần nhũ tương Parmesan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL INFO -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-stone-200">
+        <!-- NUTRITION -->
+        <div>
+            <h3 class="header-title text-xl font-bold mb-6 flex items-center">
+                <span class="mr-3 text-[var(--accent-gold)]">5.</span> Giá trị dinh dưỡng
+            </h3>
+            <div class="bg-stone-100 p-6 rounded-sm">
+                <div class="flex justify-between border-b border-stone-300 py-2">
+                    <span class="font-bold">Calories</span>
+                    <span>410 kcal</span>
+                </div>
+                <div class="flex justify-between border-b border-stone-300 py-2">
+                    <span>Protein</span>
+                    <span>22g</span>
+                </div>
+                <div class="flex justify-between border-b border-stone-300 py-2">
+                    <span>Fat</span>
+                    <span>24g</span>
+                </div>
+                <div class="flex justify-between border-b border-stone-300 py-2">
+                    <span>Carbohydrates</span>
+                    <span>28g</span>
+                </div>
+                <p class="mt-4 text-xs italic text-stone-500">
+                    *Giàu Canxi và Vitamin D từ nấm rừng. Số liệu ước tính trên một phần ăn gồm 4 viên ravioli kèm sốt.
+                </p>
+            </div>
+        </div>
+
+        <!-- PRESENTATION -->
+        <div>
+            <h3 class="header-title text-xl font-bold mb-6 flex items-center">
+                <span class="mr-3 text-[var(--accent-gold)]">6.</span> Gợi ý trình bày
+            </h3>
+            <p class="text-stone-700 leading-relaxed italic">
+                Sử dụng đĩa gốm sâu lòng, bản rộng đã được làm ấm. Đặt 3 đến 5 viên ravioli lệch tâm để tạo sự thú vị về mặt thị giác. Sắp xếp nấm bụng dê xen kẽ các kẽ hở. 
+                <br><br>
+                Dùng thìa lớn múc lớp bọt Parmesan trên cùng rưới nhẹ lên một phần ravioli để lộ lớp thảo mộc xanh mướt bên dưới. Kết thúc bằng vài bông hoa borage xanh và dầu ô-liu thượng hạng.
+            </p>
+        </div>
+    </section>
+
+    <div class="mt-20 mb-8 text-center text-stone-400 text-xs tracking-[0.3em] uppercase">
+        Artisanal Recipe • Master Agent AI • Excellence in Cuisine
+    </div>
+
+</body>
+</html>
