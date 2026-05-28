@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mì Sủi Cảo Thiên Thiên Hà Tôn Quyền - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Base Styles using Times New Roman for premium magazine feel */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            color: #2C2C2C;
+        }
+
+        /* Custom Colors & Borders */
+        .accent-cinnabar { color: #E23D28; }
+        .bg-cinnabar { background-color: #E23D28; }
+        .border-gold { border-color: #D4AF37; }
+        .text-gold { color: #B8860B; }
+
+        /* Typography Hierarchy */
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: #D4AF37;
+        }
+
+        /* Component Effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background-color: #E23D28;
+            border-radius: 50%;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            body { text-align: left; } /* Better readability on tiny screens */
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 max-w-6xl mx-auto text-center border-b border-gray-100">
+        <div class="mb-4">
+            <span class="uppercase tracking-widest text-xs font-bold text-gold">AI Vua Đầu Bếp Presents</span>
+        </div>
+        <h1 class="hero-title mb-4 italic">Mì Sủi Cảo Thiên Thiên Hà Tôn Quyền</h1>
+        <h2 class="text-2xl italic text-gray-500 mb-10">Thien Thien Ha Ton Quyen Dumpling Noodles</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 md:gap-16 py-6 border-y border-gold/30">
+            <div class="text-center">
+                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Độ khó</p>
+                <p class="font-bold accent-cinnabar">Khá</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Thời gian</p>
+                <p class="font-bold">180 phút</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Khẩu phần</p>
+                <p class="font-bold">4 - 6 người</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Nguồn gốc</p>
+                <p class="font-bold">Chợ Lớn (Quảng Đông)</p>
+            </div>
+        </div>
+
+        <p class="mt-10 max-w-3xl mx-auto text-lg leading-relaxed text-gray-600 italic">
+            Món ăn mang đậm dấu ấn văn hóa ẩm thực của cộng đồng người Hoa tại khu vực Chợ Lớn. Đặc trưng làm nên thương hiệu "Hà Tôn Quyền" là viên sủi cảo to, nhân thịt nạc dăm, cá thác lác quết dẻo ôm trọn một con tôm tươi nguyên vẹn.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 order-2 lg:order-1">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl mb-8 flex items-center">
+                        <span class="bg-cinnabar w-8 h-1 mr-4"></span>
+                        1. Nguyên liệu
+                    </h3>
+
+                    <!-- Subgroup: Nước dùng -->
+                    <div class="mb-10 p-6 bg-white shadow-sm border-l-4 border-gold glass-card">
+                        <h4 class="font-bold uppercase tracking-widest text-sm mb-4 text-gold">Nước dùng</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Xương ống heo</span> <span class="font-bold italic">1.5 kg</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Mực khô nhỏ (bí quyết)</span> <span class="font-bold italic">2-3 con</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Tôm khô</span> <span class="font-bold italic">50g</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Củ cải trắng</span> <span class="font-bold italic">2 củ</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Hành tây</span> <span class="font-bold italic">1 củ</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Gia vị</span> <span class="font-bold italic">Đường phèn, muối hạt</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup: Nhân sủi cảo -->
+                    <div class="mb-10 p-6 bg-white shadow-sm border-l-4 border-cinnabar glass-card">
+                        <h4 class="font-bold uppercase tracking-widest text-sm mb-4 accent-cinnabar">Nhân sủi cảo</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Tôm sú tươi</span> <span class="font-bold italic">500g</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Thịt nạc dăm (8:2)</span> <span class="font-bold italic">300g</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Chả cá thác lác</span> <span class="font-bold italic">150g</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Hành, tỏi băm</span> <span class="font-bold italic">2 tbsp</span></li>
+                            <li class="italic text-xs text-gray-500 mt-2">Dầu mè, nước tương, dầu hào, tiêu trắng, bột bắp.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup: Ăn kèm -->
+                    <div class="p-6 bg-white shadow-sm border-l-4 border-gray-800 glass-card">
+                        <h4 class="font-bold uppercase tracking-widest text-sm mb-4">Vỏ bánh & Đồ kèm</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Vỏ sủi cảo vàng</span> <span class="font-bold italic">1 xấp</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Mì trứng tươi sợi nhỏ</span> <span class="font-bold italic">4-6 vắt</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Cải ngọt</span> <span class="font-bold italic">500g</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Tóp mỡ & tỏi phi</span> <span class="font-bold italic">Tùy ý</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-1"><span>Giấm đỏ & sa tế</span> <span class="font-bold italic">Gia vị</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8 order-1 lg:order-2">
+                <h3 class="text-3xl mb-12 flex items-center">
+                    <span class="bg-cinnabar w-8 h-1 mr-4"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-16 pl-8 border-l border-gray-200 relative ml-4">
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-gray-800 text-white text-xs px-3 py-1 mr-4">120 PHÚT</span>
+                            <h4 class="text-xl font-bold italic">Chuẩn bị nước dùng kỹ thuật cao</h4>
+                        </div>
+                        <p class="mb-4">
+                            Ngâm rửa xương heo với nước muối loãng. Chần sơ xương qua nước sôi 5 phút, rửa sạch lại để loại bỏ tạp chất. Nướng sơ mực khô và hành tây cho thơm. Tôm khô ngâm mềm, rửa sạch.
+                        </p>
+                        <p class="text-gray-600">
+                            Cho xương, mực, tôm khô, hành tây và củ cải vào nồi với 3-4 lít nước. <span class="italic text-gold">Mẹo: Có thể dùng nồi áp suất hầm 30-40 phút để tiết kiệm.</span> Đun sôi, hạ lửa nhỏ và mở nắp, hớt bọt liên tục trong 1.5 - 2 giờ. Nêm nếm với đường phèn và muối.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-gray-800 text-white text-xs px-3 py-1 mr-4">20 PHÚT</span>
+                            <h4 class="text-xl font-bold italic">Xử lý tôm và quết nhân dẻo</h4>
+                        </div>
+                        <p class="mb-4">
+                            Rửa tôm với một ít muối và bột năng, xả sạch, thấm thật khô nước. Đây là bí quyết giúp tôm giòn sần sật. Trộn thịt heo xay, cá thác lác và các gia vị ướp vào tô lớn.
+                        </p>
+                        <p class="text-gray-600 italic">
+                            Dùng muỗng quết mạnh tay hoặc đập khối thịt dằn xuống tô nhiều lần cho đến khi hỗn hợp dẻo quánh, dính chặt vào nhau.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-gray-800 text-white text-xs px-3 py-1 mr-4">30 PHÚT</span>
+                            <h4 class="text-xl font-bold italic">Gói sủi cảo tạo hình thỏi vàng</h4>
+                        </div>
+                        <p class="mb-4">
+                            Trải lá sủi cảo ra tay, phết một ít nước lọc quanh mép. Lấy một muỗng cà phê hỗn hợp thịt cá dàn mỏng ở giữa, đặt một con tôm nguyên con lên trên.
+                        </p>
+                        <p class="text-gray-600">
+                            Gập đôi vỏ bánh lại thành hình bán nguyệt, bóp chặt mép bánh (có thể xếp nếp nhẹ). Đảm bảo ép hết không khí ra ngoài để khi luộc bánh không bị vỡ.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-gray-800 text-white text-xs px-3 py-1 mr-4">10 PHÚT</span>
+                            <h4 class="text-xl font-bold italic">Hoàn tất công đoạn luộc và trụng</h4>
+                        </div>
+                        <p class="mb-4">
+                            Nấu một nồi nước sôi riêng. Luộc sủi cảo trong 4-5 phút đến khi nổi lên, vỏ trong lại và thấy rõ màu hồng của tôm. Vớt ra cho ngay vào tô nước lạnh rồi để ráo, xóc qua ít dầu tỏi.
+                        </p>
+                        <p class="text-gray-600">
+                            Trụng mì trứng qua nước sôi khoảng 1 phút, xóc với mỡ tỏi. Trụng nhanh cải ngọt qua nước sôi có pha chút muối và dầu ăn để giữ màu xanh trong.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="mt-20 p-8 border-double border-4 border-gold bg-[#FFFDF0] relative shadow-lg">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#FFFDF0] px-6 text-gold font-bold italic tracking-widest uppercase text-sm">
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h5 class="font-bold accent-cinnabar mb-1">Kỹ thuật nước dùng trong:</h5>
+                            <p class="text-sm">Luôn duy trì lửa sôi lăn tăn (simmer), tuyệt đối không để sôi bùng sẽ làm đục nước. Mực khô phải rửa sạch lớp phấn trắng trước khi nướng.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold accent-cinnabar mb-1">Nhiệt độ nhân bánh:</h5>
+                            <p class="text-sm">Khi quết nhân, nguyên liệu phải ở trạng thái lạnh. Nếu nhân bị nóng lên, protein sẽ bị tách mỡ, làm nhân bở và khô.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold accent-cinnabar mb-1">Độ giòn của vỏ:</h5>
+                            <p class="text-sm">Việc làm sốc nhiệt bằng nước nguội sau khi luộc giúp lớp vỏ săn lại, dai trơn và không bị nhũn khi chan nước dùng nóng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">◈ Chef's Special ◈</span>
+        </div>
+
+        <!-- Variations Section -->
+        <section class="mb-20">
+            <h3 class="text-3xl mb-8 text-center italic">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-8 border border-gray-200 bg-white glass-card">
+                    <h4 class="font-bold text-lg mb-3">Phiên bản "Bận Rộn"</h4>
+                    <p class="text-sm italic text-gray-600">Nếu không tìm mua được chả cá thác lác, có thể thay thế hoàn toàn bằng giò sống (mọc) trộn cùng thịt nạc dăm băm nhuyễn để vẫn giữ được độ liên kết.</p>
+                </div>
+                <div class="p-8 border border-gray-200 bg-white glass-card">
+                    <h4 class="font-bold text-lg mb-3">Sủi Cảo Chiên Giòn</h4>
+                    <p class="text-sm italic text-gray-600">Cùng công thức nhân này, đem chiên ngập dầu ở nhiệt độ 160°C đến khi vàng rụm, ăn kèm nước xốt chua ngọt hoặc tương ớt đặc trưng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer Info -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-12 border-t border-gray-100 bg-[#F9F7F2] p-8">
+            <div>
+                <h3 class="text-2xl mb-6 italic">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 pb-2">
+                        <span>Năng lượng</span>
+                        <span class="font-bold">550 - 650 kcal</span>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">
+                        Cung cấp nguồn protein dồi dào từ tôm tươi, thịt và nước hầm xương. 
+                    </p>
+                    <div class="p-4 bg-red-50 text-xs text-red-800 border-l-2 border-red-800">
+                        <span class="font-bold uppercase block mb-1">Lưu ý sức khỏe:</span>
+                        Chứa hàm lượng cholesterol và natri cao. Khuyến nghị ăn kèm nhiều cải ngọt để bổ sung chất xơ. Người có huyết áp cao nên hạn chế húp cạn nước dùng.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl mb-6 italic">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm">
+                    <p><strong>Dụng cụ:</strong> Sử dụng tô sứ miệng rộng (tô chiết yêu họa tiết gà nướng phong cách Chợ Lớn là hoàn hảo nhất).</p>
+                    <p><strong>Sắp xếp:</strong> Đặt vắt mì ở đáy tô. Xếp 4-5 viên sủi cảo lên trên sao cho phần bụng tôm lấp ló qua lớp vỏ hướng lên trên. Đặt cải ngọt gọn gàng ở một góc.</p>
+                    <p><strong>Trang trí:</strong> Chan nước dùng thật nóng ngập 2/3. Rắc hẹ, hành lá, tiêu sọ. Điểm xuyết tóp mỡ vàng ươm và tỏi phi ngay giữa.</p>
+                    <p class="italic text-gold">Phục vụ: Bưng ra nóng hổi kèm đĩa nhỏ đựng giấm đỏ, nước tương và sa tế tôm cay nồng.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="py-12 text-center text-gray-400 text-xs tracking-widest uppercase">
+        <span class="accent-cinnabar">●</span> Digital Culinary Archive <span class="accent-cinnabar">●</span>
+    </div>
+
+</body>
+</html>
+
