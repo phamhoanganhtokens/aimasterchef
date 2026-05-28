@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Karelian Fish Soup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4E9D5'
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #C5A059;
+            margin: 3rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .ornament:not(:empty)::before { margin-right: 1.5rem; }
+        .ornament:not(:empty)::after { margin-left: 1.5rem; }
+
+        .recipe-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #E23D28;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            padding: 2rem;
+            background-color: #FDFBF7;
+            position: relative;
+        }
+        .pro-tip-box::after {
+            content: '★';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FDFBF7;
+            padding: 0 10px;
+            color: #C5A059;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto border-x border-gold/10 px-6 md:px-12 py-8 bg-[#FCFAFA] shadow-2xl">
+        
+        <!-- HERO HEADER -->
+        <header class="text-center mb-16">
+            <div class="mb-4 text-cinnabar font-bold tracking-[0.2em] uppercase text-sm">AI Vua Đầu Bếp • Premium Recipe</div>
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 text-charcoal leading-tight">
+                Уха по-карельски пельмени с осетриной и щучьей икрой
+            </h1>
+            <h2 class="text-xl md:text-2xl italic text-gold mb-10">
+                Karelian Fish Soup with Sturgeon Pelmeni and Pike Caviar
+            </h2>
+
+            <!-- RECIPE META-BAR -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-gold/30 py-6 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Mức độ</span>
+                    <span class="text-charcoal font-bold">Nâng cao</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20 md:border-l-0">
+                    <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Thời gian</span>
+                    <span class="text-charcoal font-bold">2 giờ 30 phút</span>
+                </div>
+                <div class="flex flex-col items-center md:border-l border-gold/20">
+                    <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Khẩu phần</span>
+                    <span class="text-charcoal font-bold">4 người</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Nguồn gốc</span>
+                    <span class="text-charcoal font-bold">Karelian-Russian Fusion</span>
+                </div>
+            </div>
+
+            <p class="mt-10 max-w-3xl mx-auto italic justified text-charcoal/80 leading-relaxed">
+                Một sự kết hợp đương đại tinh tế giữa "Lohikeitto" (súp cá kem vùng Karelia) và truyền thống hoàng gia Nga, sử dụng thịt cá tầm cao quý và "vàng vàng" của phương Bắc — trứng cá chó.
+            </p>
+        </header>
+
+        <div class="ornament"><span>✦</span></div>
+
+        <!-- MAIN RECIPE CONTENT -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- LEFT COLUMN: INGREDIENTS -->
+            <aside class="lg:col-span-4 space-y-10">
+                <section>
+                    <h3 class="font-display text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">
+                        1. Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold italic mb-3">Nước dùng cá (Nền tảng):</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1">
+                                    <span class="text-cinnabar">◈</span> 1 kg Khung cá (đầu/xương cá hồi hoặc cá trắng, đã bỏ mang)
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1">
+                                    <span class="text-cinnabar">◈</span> 1 Hành tây trắng, nướng cháy xém
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1">
+                                    <span class="text-cinnabar">◈</span> 1 Tỏi tây (chỉ lấy phần trắng)
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1">
+                                    <span class="text-cinnabar">◈</span> 2 Lá nguyệt quế & 5 hạt tiêu đen
+                                </li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1">
+                                    <span class="text-cinnabar">◈</span> 2.5 lít Nước lạnh
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold italic mb-3">Bánh Pelmeni cá tầm:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2"><span class="font-bold text-xs mt-1">● Nhân:</span> 400g phi lê cá tầm băm nhỏ, 50g kem béo lạnh, 1/2 hành tím bào, muối, tiêu trắng.</li>
+                                <li class="flex items-start gap-2"><span class="font-bold text-xs mt-1">● Vỏ:</span> 300g bột mì đa dụng, 1 quả trứng lớn, 120ml nước ấm, 1/2 muỗng cà phê muối.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold italic mb-3">Cốt súp kem:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1"><span class="text-cinnabar">◈</span> 300g Khoai tây (loại dẻo, cắt khối 1cm)</li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1"><span class="text-cinnabar">◈</span> 100g Cà rốt (cắt hạt lựu nhỏ)</li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1"><span class="text-cinnabar">◈</span> 50g Bơ lạt & 300ml Kem béo (heavy cream)</li>
+                                <li class="flex items-start gap-2 border-b border-gold/10 pb-1"><span class="text-cinnabar">◈</span> Thì là tươi băm nhỏ, gia vị.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gold/5 p-4 rounded border border-gold/20">
+                            <h4 class="font-bold text-cinnabar italic mb-2">Trình bày & Decor:</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 80g Trứng cá chó (Pike caviar)</li>
+                                <li>• Dầu thì là (tùy chọn)</li>
+                                <li>• Rau mầm hoặc nhánh thì là tươi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- RIGHT COLUMN: STEPS -->
+            <main class="lg:col-span-8">
+                <section>
+                    <h3 class="font-display text-2xl font-bold border-b-2 border-cinnabar inline-block mb-10 uppercase tracking-wider">
+                        2. Các bước thực hiện
+                    </h3>
+
+                    <div class="space-y-2">
+                        <div class="recipe-step">
+                            <span class="step-number">01</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Chuẩn bị nước dùng (30-40 phút)</h5>
+                            <p class="justified text-charcoal">Cho khung cá vào nước lạnh. Đun sôi nhẹ, hớt sạch bọt để đảm bảo nước dùng trong vắt. Thêm hành tây cháy, tỏi tây và gia vị. Đun liu riu trong 30-40 phút rồi lọc qua rây mịn hoặc vải thưa.</p>
+                        </div>
+
+                        <div class="recipe-step">
+                            <span class="step-number">02</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Nhào bột vỏ bánh (10 phút + nghỉ)</h5>
+                            <p class="justified text-charcoal">Rây bột vào tô, thêm trứng, nước và muối. Nhào cho đến khi bột đàn hồi (khoảng 10 phút). Để bột nghỉ dưới khăn ẩm trong 30 phút để phát triển gluten. <i>Mẹo: Có thể dùng vỏ hoành thánh chất lượng cao nếu thời gian hạn hẹp.</i></p>
+                        </div>
+
+                        <div class="recipe-step">
+                            <span class="step-number">03</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Nhân cá tầm (Kỹ thuật chuyên nghiệp)</h5>
+                            <p class="justified text-charcoal">Đảm bảo cá tầm luôn ở trạng thái cực lạnh. Băm nhỏ cá bằng tay hoặc xay nhanh bằng máy. Trộn nhẹ nhàng kem béo lạnh và hành tím vào. Kem tạo nên cấu trúc "mousse" giúp nhân luôn mọng nước bên trong vỏ bánh.</p>
+                        </div>
+
+                        <div class="recipe-step">
+                            <span class="step-number">04</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Tạo hình bánh</h5>
+                            <p class="justified text-charcoal">Cán bột mỏng như giấy. Cắt thành các vòng tròn đường kính 5cm. Đặt một thìa cà phê nhân vào giữa, gấp thành hình bán nguyệt và nối hai đầu lại để tạo hình Pelmeni truyền thống.</p>
+                        </div>
+
+                        <div class="recipe-step">
+                            <span class="step-number">05</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Nấu cốt súp</h5>
+                            <p class="justified text-charcoal">Trong nồi đáy dày, đun chảy bơ. Xào nhẹ cà rốt và khoai tây (không để lên màu nâu). Đổ nước dùng cá đã lọc vào. Đun liu riu cho đến khi khoai tây mềm.</p>
+                        </div>
+
+                        <div class="recipe-step">
+                            <span class="step-number">06</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Hòa quyện kem béo (Phương pháp Tempering)</h5>
+                            <p class="justified text-charcoal">Lấy một muôi nước dùng nóng pha vào kem béo trước khi đổ hỗn hợp ngược lại vào nồi. Điều này ngăn chặn tình trạng kem bị vón cục. Nêm nếm với tiêu trắng và muối.</p>
+                        </div>
+
+                        <div class="recipe-step">
+                            <span class="step-number">07</span>
+                            <h5 class="font-bold text-gold mb-1 italic">Luộc Pelmeni</h5>
+                            <p class="justified text-charcoal">Luộc Pelmeni trong một nồi nước muối riêng biệt khoảng 3-4 phút cho đến khi bánh nổi lên. Việc này giúp nước súp chính luôn trong và không bị đục bởi tinh bột thừa từ bột mì.</p>
+                        </div>
+
+                        <div class="recipe-step border-l-4 border-cinnabar pl-6 pb-2">
+                            <span class="step-number">08</span>
+                            <h5 class="font-bold text-cinnabar mb-1 italic uppercase tracking-tighter">Hoàn tất & Thưởng thức</h5>
+                            <p class="justified text-charcoal font-bold">Thêm Pelmeni đã luộc vào nồi súp kem, đun nhẹ thêm 1 phút. Thêm thì là tươi vào giây cuối cùng để giữ trọn màu sắc và hương thơm đặc trưng.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div class="ornament"><span>✧</span></div>
+
+        <!-- CHEF'S CORNER -->
+        <section class="mb-16">
+            <div class="pro-tip-box shadow-sm">
+                <h3 class="font-display text-2xl font-bold text-gold text-center mb-6 uppercase">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center md:text-left">
+                        <h4 class="font-bold text-cinnabar mb-2 italic">— Kiểm soát nhiệt độ</h4>
+                        <p class="text-sm justified">Giữ nhân cá tầm trên một tô đá trong khi chế biến để ngăn chất béo bị tách, đảm bảo bánh sủi cảo luôn mọng nước.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h4 class="font-bold text-cinnabar mb-2 italic">— Độ trong của súp</h4>
+                        <p class="text-sm justified">Đừng bao giờ để súp sôi mạnh sau khi đã thêm kem; một độ rung nhẹ trên bề mặt là đủ để duy trì cấu trúc mượt mà như nhung.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h4 class="font-bold text-cinnabar mb-2 italic">— Độ sánh tự nhiên</h4>
+                        <p class="text-sm justified">Nếu súp cảm thấy quá loãng, hãy nghiền nát hai khối khoai tây đã chín ngay trong nước dùng để tạo độ sánh tự nhiên.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VARIATIONS -->
+        <section class="mb-16">
+            <h3 class="font-display text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">
+                4. Biến tấu & Phiên bản nâng cao
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 border-l-4 border-gold">
+                    <h4 class="font-bold text-gold mb-2 italic">Thay thế nguyên liệu</h4>
+                    <p class="justified text-sm">Nếu không tìm được cá tầm, hãy sử dụng hỗn hợp cá hồi béo và cá tuyết phi lê chắc thịt cho phần nhân bánh.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-cinnabar">
+                    <h4 class="font-bold text-cinnabar mb-2 italic">Góc nhìn hiện đại</h4>
+                    <p class="justified text-sm">Thêm một chút rượu vang trắng khô vào nước dùng để tăng độ chua, giúp cân bằng độ ngậy của kem béo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUTRITION & PRESENTATION -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-charcoal text-parchment p-8 md:p-12 -mx-6 md:-mx-12">
+            <section>
+                <h3 class="font-display text-2xl font-bold border-b border-gold/30 pb-2 mb-6 uppercase tracking-wider text-gold">
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-gold/10 pb-2">
+                        <span>Mỗi khẩu phần:</span>
+                        <span class="font-bold italic">580 kcal</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center text-sm">
+                        <div class="bg-white/5 p-2">
+                            <span class="block text-xs text-gold uppercase">Protein</span>
+                            <span class="font-bold text-lg">35g</span>
+                        </div>
+                        <div class="bg-white/5 p-2">
+                            <span class="block text-xs text-gold uppercase">Chất béo</span>
+                            <span class="font-bold text-lg">28g</span>
+                        </div>
+                        <div class="bg-white/5 p-2">
+                            <span class="block text-xs text-gold uppercase">Carbs</span>
+                            <span class="font-bold text-lg">45g</span>
+                        </div>
+                    </div>
+                    <p class="text-sm italic text-gray-400 justified mt-4">
+                        Cá tầm cung cấp axit amin thiết yếu và Vitamin D, trong khi trứng cá chó là nguồn cung cấp lecithin và khoáng chất dồi dào cho cơ thể.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="font-display text-2xl font-bold border-b border-gold/30 pb-2 mb-6 uppercase tracking-wider text-gold">
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-sm leading-relaxed justified">
+                    <p><strong class="text-gold">Sắp xếp:</strong> Sử dụng bát trắng sâu lòng, vành rộng. Đặt 5-7 miếng Pelmeni vào chính giữa. Cẩn thận rót nước súp kem xung quanh chúng.</p>
+                    <p><strong class="text-gold">Trứng cá:</strong> Đặt một muỗng nhỏ trứng cá chó trực tiếp lên đỉnh mỗi chiếc Pelmeni. Màu vàng óng của trứng cá sẽ tạo sự tương phản tuyệt đẹp trên nền súp trắng.</p>
+                    <p><strong class="text-gold">Điểm xuyết:</strong> Nhỏ vài giọt dầu thì là xanh tươi xung quanh rìa bát và trang trí bằng một nhánh thì là nhỏ xinh. Thưởng thức ngay khi sự tương phản nhiệt độ giữa súp nóng và trứng cá lạnh đạt mức cao nhất.</p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+</body>
+</html>
