@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Há Cảo Tôm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#E5D5B5',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            margin: 0 1rem;
+        }
+        .step-number {
+            font-size: 2rem;
+            color: #C5A059;
+            font-weight: bold;
+            line-height: 1;
+            margin-right: 1rem;
+            opacity: 0.8;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .chef-corner {
+            position: relative;
+            border: 2px double #C5A059;
+            padding: 2rem;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(even) {
+                border-left: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+        .nav-tab.active {
+            border-bottom: 3px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <div class="max-w-5xl mx-auto shadow-2xl bg-white p-6 md:p-16 border border-gray-100">
+        
+        <!-- HERO HEADER -->
+        <header class="text-center mb-12">
+            <span class="text-cinnabar tracking-[0.3em] uppercase text-sm font-bold mb-4 block">AI Vua Đầu Bếp • Premium Collection</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal tracking-tight">HÁ CẢO TÔM</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gold mb-8">Har Gow</h2>
+            
+            <p class="max-w-2xl mx-auto italic mb-10 text-gray-600 border-t border-b border-gray-100 py-6">
+                "Há cảo (Har Gow) là một kiệt tác truyền thống của nghệ thuật Dim Sum có nguồn gốc từ Quảng Châu, Trung Quốc. Ở tiêu chuẩn cao nhất, lớp vỏ bánh phải đạt độ trong suốt pha lê, mỏng nhưng dẻo dai."
+            </p>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border border-gold rounded-sm overflow-hidden text-sm uppercase tracking-widest font-bold">
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-parchment">
+                    <span class="text-cinnabar mb-1">Độ khó</span>
+                    <span class="text-charcoal">Trung bình - Khó</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-parchment">
+                    <span class="text-cinnabar mb-1">Thời gian</span>
+                    <span class="text-charcoal">1 giờ 30 phút</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-parchment">
+                    <span class="text-cinnabar mb-1">Khẩu phần</span>
+                    <span class="text-charcoal">4 Người</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-parchment">
+                    <span class="text-cinnabar mb-1">Xuất xứ</span>
+                    <span class="text-charcoal">Quảng Châu</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="ornament">
+            <svg class="w-8 h-8 text-gold fill-current" viewBox="0 0 24 24">
+                <path d="M12,2C10.89,2 10,2.89 10,4V5H14V4C14,2.89 13.11,2 12,2M6,6V8H18V6H6M6,9C4.89,9 4,9.89 4,11V14C4,15.11 4.89,16 6,16H7V22H9V16H11V22H13V16H15V22H17V16H18C19.11,16 20,15.11 20,14V11C20,9.89 19.11,9 18,9H6Z" />
+            </svg>
+        </div>
+
+        <!-- MAIN RECIPE BODY -->
+        <main class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            
+            <!-- LEFT COLUMN: INGREDIENTS -->
+            <section class="md:col-span-5">
+                <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4 uppercase tracking-tighter">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div class="bg-parchment p-6 rounded-sm border border-gray-100 hover:border-gold transition-colors duration-300">
+                        <h4 class="font-bold text-gold uppercase mb-4 italic underline decoration-1">Vỏ bánh (Wrapper)</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>100g bột mì tinh (bột tàn mì)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>50g bột năng (tapioca starch)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>1 muỗng cà phê dầu ăn/mỡ heo</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>150ml nước sôi già (100°C)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-xs italic text-gray-500">
+                                <span>* Có thể dùng vỏ đóng gói sẵn nếu bận rộn.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-parchment p-6 rounded-sm border border-gray-100 hover:border-gold transition-colors duration-300">
+                        <h4 class="font-bold text-gold uppercase mb-4 italic underline decoration-1">Nhân bánh (Filling)</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>300g tôm tươi (bóc vỏ, rút chỉ)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>50g mỡ lưng heo (hạt lựu nhỏ)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>1 muỗng canh măng củ luộc</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-cinnabar mt-1">✦</span>
+                                <span>Gia vị: Dầu mè, rượu Thiệu Hưng, tiêu trắng, đường, muối, bột bắp.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: STEPS -->
+            <section class="md:col-span-7">
+                <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4 uppercase tracking-tighter">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="flex gap-4">
+                        <div class="step-number italic">01.</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wide mb-2">Chuẩn bị nhân <span class="text-gold text-sm ml-2 font-normal lowercase">(30 phút nghỉ)</span></h4>
+                            <p class="description">Dùng dao phay đập dập tôm rồi băm thô để giữ độ giòn sần sật truyền thống. Trộn tôm với mỡ heo, măng, bột bắp và gia vị. Quết đều tay theo một chiều duy nhất trong 5 phút đến khi hỗn hợp kết dính. Bọc kín, để ngăn mát tủ lạnh ít nhất 30 phút.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="step-number italic">02.</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wide mb-2">Làm vỏ bánh <span class="text-gold text-sm ml-2 font-normal lowercase">(15 phút nghỉ)</span></h4>
+                            <p class="description">Trộn đều bột tàn mì, bột năng và muối. Đổ từ từ nước sôi già (bắt buộc) vào bột, dùng đũa khuấy nhanh tay. Thêm dầu ăn, nhồi bột bằng tay khi còn ấm đến khi tạo thành khối mịn dẻo. Bọc màng nilon để bột nghỉ.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="step-number italic">03.</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wide mb-2">Cán bột & Tạo hình</h4>
+                            <p class="description">Chia bột thành các viên nhỏ khoảng 10-12g. Dùng cây cán bột cán thành hình tròn sao cho phần rìa mỏng hơn phần tâm. Cho 1 muỗng cà phê nhân vào giữa, xếp ly một bên mép bánh rồi ép chặt. Một chiếc há cảo chuẩn thường có từ 9-13 nếp gấp.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="step-number italic">04.</div>
+                        <div>
+                            <h4 class="font-bold uppercase tracking-wide mb-2">Hấp bánh <span class="text-gold text-sm ml-2 font-normal lowercase">(6-8 phút)</span></h4>
+                            <p class="description">Lót giấy nến đục lỗ vào xửng tre. Đun nước sôi bùng. Xếp bánh vào xửng, khoảng cách đều nhau. Hấp ở lửa lớn vừa trong 6-8 phút cho đến khi vỏ bánh đạt độ trong suốt pha lê.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- SPECIAL INSIGHT: CHEF'S CORNER -->
+        <section class="mt-20">
+            <div class="chef-corner">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white px-4 text-gold font-bold uppercase tracking-[0.2em]">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-cinnabar italic mb-2">Nhiệt độ nước</h5>
+                        <p class="text-sm italic">Nước phải đạt 100°C để làm chín một phần bột tàn mì, giúp vỏ bánh có độ trong suốt và không bị nứt khi tạo hình.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-cinnabar italic mb-2">Hơi nước & Thời gian</h5>
+                        <p class="text-sm italic">Không hấp quá thời gian (overcook), nếu không vỏ bánh sẽ bị nhão, rách và mất đi độ dai đặc trưng.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-cinnabar italic mb-2">Kỹ thuật quết</h5>
+                        <p class="text-sm italic">Thao tác quết tôm mạnh tay theo một chiều giúp protein liên kết tốt nhất, tạo kết cấu giòn sực.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VARIATIONS: TAB-LIKE CARDS -->
+        <section class="mt-20">
+            <h3 class="text-3xl font-bold mb-8 text-center uppercase tracking-tighter">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-t-4 border-gold bg-parchment p-8">
+                    <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Phiên bản lành mạnh</h4>
+                    <p class="description text-sm">Thay mỡ heo bằng dầu oliu, bổ sung nấm hương băm nhỏ, cà rốt thái hạt lựu, mộc nhĩ hoặc rau chân vịt chần. Cách này giúp tăng lượng chất xơ và giảm chất béo bão hòa.</p>
+                </div>
+                <div class="border-t-4 border-charcoal bg-gray-50 p-8">
+                    <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Phiên bản tại gia</h4>
+                    <p class="description text-sm">Dùng tôm đông lạnh thay vì tôm tươi (rã đông và thấm thật khô). Sử dụng khuôn ép há cảo bằng nhựa nếu chưa quen kỹ thuật xếp ly bằng tay thủ công.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">
+            <span class="px-4 text-gold">❦</span>
+        </div>
+
+        <!-- FOOTER: NUTRITION & PRESENTATION -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 bg-charcoal text-white p-10 -mx-6 md:-mx-16">
+            <div>
+                <h3 class="text-gold font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <div class="flex justify-between border-b border-gray-800 pb-2">
+                        <span>Lượng calo / chiếc</span>
+                        <span class="text-white font-bold">35 - 45 kcal</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-800 pb-2">
+                        <span>Lượng calo (Healthy version)</span>
+                        <span class="text-white font-bold">~30 kcal</span>
+                    </div>
+                    <p class="italic text-xs mt-4">Lưu ý: Há cảo là món ăn ít chất béo. Cần kiểm soát lượng nước tương chấm kèm để tránh nạp quá nhiều natri.</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-gold font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">6. Gợi ý trình bày</h3>
+                <ul class="text-sm space-y-3 text-gray-300">
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Phục vụ trực tiếp trong xửng tre đậy nắp để giữ làn khói nghi ngút.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Đặt bánh lên lát cà rốt mỏng để tạo tương phản màu sắc.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Trang trí với một chút trứng cá muối (tobiko) hoặc lá ngò rí nhỏ để tăng vẻ sang trọng.</span>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Interaction Script -->
+    <script>
+        // Subtle animation for ingredients
+        document.querySelectorAll('li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateX(5px)';
+                item.style.transition = 'all 0.3s ease';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateX(0px)';
+            });
+        });
+    </script>
+</body>
+</html>
+
