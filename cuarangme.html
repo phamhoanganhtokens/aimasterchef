@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cua Biển Rang Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                        body: ["'Lora'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: #C5A059;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-btn.active {
+            color: #E23D28;
+            border-bottom: 2px solid #E23D28;
+        }
+
+        @media (max-width: 768px) {
+            .justified {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 max-w-6xl mx-auto border-x border-gray-100 shadow-2xl">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-16 pt-8">
+        <div class="mb-4 text-cinnabar font-bold tracking-[0.3em] uppercase text-sm">AI Vua Đầu Bếp Présente</div>
+        <h1 class="text-5xl md:text-7xl font-black mb-2 text-charcoal tracking-tight">CUA BIỂN RANG ME</h1>
+        <p class="text-2xl md:text-3xl italic text-gold font-light mb-8">Mud Crab in Tamarind Sauce</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 border-y border-gold/30 py-6 mt-8">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500">Mức độ</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">45 - 60 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">2 - 4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h.25M12 22a10 10 0 110-20 10 10 0 010 20z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Việt Nam</span>
+            </div>
+        </div>
+        
+        <div class="mt-8 max-w-2xl mx-auto italic justified text-gray-600 px-4">
+            "Một món ăn hải sản đặc trưng trong ẩm thực Việt Nam, nổi tiếng với sự kết hợp hài hòa giữa vị ngọt thanh của hải sản tươi sống và vị chua - cay - mặn - ngọt đậm đà của sốt me rừng."
+        </div>
+    </header>
+
+    <div class="section-divider"><span class="ornament">✦</span></div>
+
+    <!-- MAIN CONTENT GRID -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <section class="lg:col-span-4 bg-white/40 p-8 border-l border-gold/20">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 italic">
+                <span class="text-cinnabar">1.</span> Nguyên liệu
+            </h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-gold font-bold uppercase text-xs tracking-widest mb-4 border-b border-gold/10 pb-2">Thành phần chính</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Cua biển: 2 con lớn (1kg - 1.2kg)</span>
+                        </li>
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Me chín (me vắt): 100g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-gold font-bold uppercase text-xs tracking-widest mb-4 border-b border-gold/10 pb-2">Gia vị & Hương liệu</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Tỏi: 50g | Hành tím: 30g | Sả: 20g</span>
+                        </li>
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Ớt sừng: 2 trái</span>
+                        </li>
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Bột bắp / Bột năng: 50g</span>
+                        </li>
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Nước mắm, đường phèn, dầu màu điều, tương ớt, tương cà</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-gold font-bold uppercase text-xs tracking-widest mb-4 border-b border-gold/10 pb-2">Kèm theo & Trang trí</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Rau răm, dưa leo</span>
+                        </li>
+                        <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                            <span class="text-cinnabar mt-1">◈</span>
+                            <span>Tỏi phi vàng, ớt sợi, hành lá</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-8">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 italic">
+                <span class="text-cinnabar">2.</span> Các bước thực hiện
+            </h2>
+            
+            <div class="space-y-10 pl-8 border-l border-gold/20 relative">
+                <!-- Step 1 -->
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-charcoal uppercase">Sơ chế cua</h4>
+                        <span class="text-gold italic text-sm">15 phút</span>
+                    </div>
+                    <p class="justified text-gray-700 italic font-medium mb-2 leading-relaxed">Kỹ thuật chuyên nghiệp</p>
+                    <p class="justified text-gray-600">Dùng mũi dao đâm nhẹ vào tim cua (dưới yếm) để cua chết nhanh, sau đó tháo dây buộc. Dùng bàn chải chà sạch rêu và cát. Tách mai, bỏ phổi và yếm. Chặt thân cua làm đôi hoặc làm tư tùy kích thước. Dùng kìm hoặc cán dao đập nhẹ lớp vỏ càng để gia vị thấm vào bên trong.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-charcoal uppercase">Áo bột và chiên sơ</h4>
+                        <span class="text-gold italic text-sm">10 phút</span>
+                    </div>
+                    <p class="justified text-gray-700 italic font-medium mb-2 leading-relaxed">Mẹo giữ độ ngọt</p>
+                    <p class="justified text-gray-600">Thấm thật khô các miếng cua. Phủ một lớp bột bắp mỏng lên các mặt có thịt. Chiên cua ngập dầu ở lửa lớn trong khoảng 2-3 phút cho đến khi vỏ chuyển sang màu đỏ rực và thịt săn lại. Vớt ra để ráo dầu. Việc này giúp giữ nước ngọt bên trong thịt cua và tạo độ bám cho sốt.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-charcoal uppercase">Chế biến sốt me</h4>
+                        <span class="text-gold italic text-sm">10 phút</span>
+                    </div>
+                    <p class="justified text-gray-700 italic font-medium mb-2 leading-relaxed">Bí quyết truyền thống</p>
+                    <p class="justified text-gray-600">Ngâm me với 200ml nước ấm, dầm nát và lọc lấy nước cốt đậm đặc. Pha hỗn hợp sốt gồm: Nước cốt me, 4 thìa canh đường phèn (giã nhỏ), 3 thìa canh nước mắm, 1 thìa canh tương ớt, 1 thìa canh tương cà. Khuấy đều cho tan.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-charcoal uppercase">Chế biến</h4>
+                        <span class="text-gold italic text-sm">15 phút</span>
+                    </div>
+                    <p class="justified text-gray-700 italic font-medium mb-2 leading-relaxed">Kỹ thuật Glaze</p>
+                    <p class="justified text-gray-600">Phi thơm hành, tỏi, sả với dầu màu điều. Đổ hỗn hợp sốt me vào đun sôi đến khi sốt bắt đầu sánh lại. Cho cua đã chiên vào chảo, đảo đều tay ở lửa lớn để sốt bao phủ hoàn toàn các mặt cua. Khi sốt cạn dần, bám một lớp màng bóng mượt (glaze) vào vỏ cua thì tắt bếp.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-charcoal uppercase">Hoàn thiện</h4>
+                        <span class="text-gold italic text-sm">2 phút</span>
+                    </div>
+                    <p class="justified text-gray-600">Cho ớt băm vào đảo cuối cùng để giữ màu sắc và mùi thơm.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CHEF'S CORNER -->
+    <section class="mb-16">
+        <div class="pro-tip-box p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute -top-4 -right-4 text-gold/10">
+                <svg width="150" height="150" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3L4 9v12h16V9l-8-6zm0 2.5l5.5 4.12V19H6.5v-9.38L12 5.5zM12 8a2 2 0 100 4 2 2 0 000-4z"/>
+                </svg>
+            </div>
+            <h2 class="text-3xl font-bold mb-6 italic text-charcoal flex items-center gap-3">
+                <span class="text-cinnabar">3.</span> Mẹo hay từ Vua Đầu Bếp
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 text-gray-700">
+                <div class="justified">
+                    <span class="font-bold text-gold mr-1">Selection:</span> Chọn cua phải còn sống, cầm nặng tay, bấm vào nốt thứ hai từ dưới lên của yếm thấy cứng là cua chắc thịt.
+                </div>
+                <div class="justified">
+                    <span class="font-bold text-gold mr-1">Sweetener:</span> Sử dụng đường phèn thay cho đường cát sẽ giúp nước sốt có độ trong, bóng và vị ngọt thanh không bị gắt.
+                </div>
+                <div class="justified">
+                    <span class="font-bold text-gold mr-1">Timing:</span> Tránh chiên cua quá lâu trong dầu vì sẽ làm thịt cua bị teo và mất đi độ mọng nước.
+                </div>
+                <div class="justified">
+                    <span class="font-bold text-gold mr-1">Heat Control:</span> Khi rang, cần giữ lửa lớn và thao tác nhanh để lớp vỏ cua không bị mềm do thấm nước sốt quá lâu.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATIONS -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 italic">
+            <span class="text-cinnabar">4.</span> Biến tấu & Phiên bản nâng cao
+        </h2>
+        
+        <div class="flex gap-4 mb-6 border-b border-gold/20 overflow-x-auto pb-1">
+            <button onclick="openTab(event, 'variation1')" class="tab-btn active px-6 py-2 font-bold uppercase tracking-widest text-sm whitespace-nowrap transition-all">Bơ Tỏi</button>
+            <button onclick="openTab(event, 'variation2')" class="tab-btn px-6 py-2 font-bold uppercase tracking-widest text-sm whitespace-nowrap transition-all">Cay Nồng</button>
+            <button onclick="openTab(event, 'variation3')" class="tab-btn px-6 py-2 font-bold uppercase tracking-widest text-sm whitespace-nowrap transition-all">Hải Sản Khác</button>
+        </div>
+
+        <div id="variation1" class="tab-content active glass-card p-8 rounded-lg">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Cua rang me bơ tỏi</h4>
+            <p class="justified text-gray-700">Thêm 20g bơ lạt vào giai đoạn phi thơm tỏi để tăng độ béo ngậy và mùi thơm đặc trưng. Sự kết hợp giữa vị chua của me và béo thơm của bơ tạo nên một tầng hương vị phức hợp, cực kỳ kích thích khứu giác.</p>
+        </div>
+        <div id="variation2" class="tab-content glass-card p-8 rounded-lg">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Phiên bản cay nồng</h4>
+            <p class="justified text-gray-700">Tăng gấp đôi lượng ớt sừng và thêm ớt bột nếu gia đình thích ăn cay đậm. Vị cay nồng sẽ giúp át đi mùi tanh của hải sản và làm cho nước sốt me trở nên bùng nổ hơn, đặc biệt ngon khi ăn vào những ngày mưa lạnh.</p>
+        </div>
+        <div id="variation3" class="tab-content glass-card p-8 rounded-lg">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Thay thế nguyên liệu</h4>
+            <p class="justified text-gray-700">Có thể áp dụng công thức sốt này cho ghẹ, tôm hùm đất hoặc bề bề. Sốt me là "loại sốt quốc dân" cho hầu hết các loại hải sản vỏ cứng, mang lại sự đồng nhất trong phong cách ẩm thực ven biển Việt Nam.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER INFO -->
+    <section class="grid md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+        <!-- Nutrition -->
+        <div class="glass-card p-8 rounded-xl border-t-4 border-t-cinnabar">
+            <h2 class="text-2xl font-bold mb-6 italic text-charcoal flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cinnabar" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                5. Giá trị dinh dưỡng
+            </h2>
+            <p class="justified text-gray-700 mb-4">Cua biển là nguồn cung cấp Protein chất lượng cao, giàu Canxi, Magie và Omega-3 tốt cho tim mạch.</p>
+            <div class="bg-parchment/50 p-4 rounded border border-gold/10 italic text-sm text-gray-600">
+                <strong class="text-cinnabar">Lưu ý:</strong> Cua có hàm lượng Cholesterol khá cao. Người bị cao huyết áp hoặc bệnh gout nên điều chỉnh lượng dùng. Công thức sử dụng đường phèn và tiết giảm muối để cân bằng dinh dưỡng.
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="glass-card p-8 rounded-xl border-t-4 border-t-gold">
+            <h2 class="text-2xl font-bold mb-6 italic text-charcoal flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                6. Gợi ý trình bày
+            </h2>
+            <ul class="space-y-3 text-sm text-gray-700 italic">
+                <li class="flex gap-2"><span>•</span> <span>Sắp xếp các miếng cua lại thành hình dáng con cua nguyên vẹn trên đĩa lớn để tạo ấn tượng thị giác.</span></li>
+                <li class="flex gap-2"><span>•</span> <span>Rưới phần sốt còn sót lại trong chảo lên thân cua để tạo độ bóng bẩy.</span></li>
+                <li class="flex gap-2"><span>•</span> <span>Rắc một nắm tỏi phi vàng giòn lên trên cùng.</span></li>
+                <li class="flex gap-2"><span>•</span> <span>Trang trí xung quanh bằng rau răm xanh mướt và vài lát dưa leo để tạo sự tương phản màu sắc.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
