@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Trung Thu Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C2C2C', // Deep Charcoal
+                        parchment: '#FCFAFA', // Off-White
+                        cinnabar: '#E23D28', // Cinnabar Red
+                        gold: '#C5A059', // Burnished Gold
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .chef-hat-icon {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .step-card {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background-color: #2C2C2C;
+            color: #FCFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(252, 250, 250, 0.8);
+            position: relative;
+        }
+
+        .tab-button.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto shadow-2xl my-8 border-t-8 border-cinnabar">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="mb-4">
+            <span class="uppercase tracking-widest text-gold font-bold text-sm">AI VUA ĐẦU BẾP • TẠP CHÍ ẨM THỰC CAO CẤP</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">Bánh Trung Thu Truyền Thống</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">Traditional Mooncakes: Mixed Nuts & Mung Bean</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-6 md:gap-12 py-6 border-y border-gold/30 bg-white/50 backdrop-blur-sm rounded-lg">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold">Cao (Advanced)</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gold/20 pl-6 md:pl-12">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Trung Thu Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, .display-font {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            font-weight: 700;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .recipe-gradient {
+            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .ornament-icon {
+            padding: 0 15px;
+            color: var(--cinnabar-red);
+            font-size: 1.2rem;
+        }
+
+        .meta-card {
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        .ingredient-group {
+            border-left: 3px solid var(--burnished-gold);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--burnished-gold);
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .chef-box {
+            background: #fdfaf3;
+            border: 2px double var(--burnished-gold);
+            position: relative;
+        }
+
+        .pro-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .pro-card:hover {
+            border-color: var(--burnished-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .badge-gold {
+            background-color: var(--burnished-gold);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .meta-card:nth-child(even) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <div class="mb-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-gray-500">AI Vua Đầu Bếp | Digital Issue No. 01</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl mb-4 text-[#1a1a1a]">Bánh Trung Thu Truyền Thống</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-12">Traditional Mooncakes: Mixed Nuts & Mung Bean</h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gray-200 py-8 mb-16">
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Độ khó / Difficulty</p>
+                <p class="text-lg font-bold uppercase tracking-tight">Cao / Professional</p>
+            </div>
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Thời gian / Time</p>
+                <p class="text-lg font-bold">4 - 6 Tiếng</p>
+            </div>
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Khẩu phần / Servings</p>
+                <p class="text-lg font-bold">10 - 12 Bánh</p>
+            </div>
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Nguồn gốc / Origin</p>
+                <p class="text-lg font-bold">Á Đông</p>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mb-20">
+            <p class="justified-text italic text-lg leading-relaxed text-gray-600 first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-black">
+                Bánh Trung Thu là biểu tượng của sự đoàn viên và sung túc trong văn hóa Á Đông. Nhân Thập Cẩm tượng trưng cho sự hòa quyện của đất trời với đủ vị mặn, ngọt, bùi, béo. Nhân Đậu Xanh với kết cấu mịn màng, thanh tao đại diện cho sự thuần khiết. Theo chuyên gia ẩm thực truyền thống, mỗi nguyên liệu trong nhân thập cẩm như hạt sen, mứt bí, lạp xưởng đều mang lời chúc về một cuộc sống đầy đủ, viên mãn.
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament max-w-6xl mx-auto px-6">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl mb-10 pb-2 border-b-2 border-black inline-block uppercase tracking-tighter">1. Nguyên liệu</h3>
+                
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Vỏ bánh (Chung)</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Bột mì đa dụng</span> <span>500g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Nước đường bánh nướng</span> <span>320g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Dầu lạc / Dầu ăn</span> <span>75g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Lòng đỏ trứng gà</span> <span>2 cái</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Bơ đậu phộng</span> <span>20g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Nước tro tàu</span> <span>1 tsp</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Nhân Đậu Xanh</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Đậu xanh không vỏ</span> <span>200g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Đường cát</span> <span>100g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Dầu ăn</span> <span>80g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Bột bánh dẻo</span> <span>10g</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Nhân Thập Cẩm</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Lạp xưởng (thái lựu)</span> <span>100g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Hạt điều/Dưa/Mè</span> <span>mỗi loại 50g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Mứt bí/Sen/Gừng đỏ</span> <span>mỗi loại 50g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Mỡ đường</span> <span>50g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Lá chanh (thái chỉ)</span> <span>10 lá</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Rượu Mai Quế Lộ</span> <span>2 tbsp</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Hỗn hợp phết mặt</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between"><span>Lòng đỏ + Dầu ăn + Nước</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl mb-10 pb-2 border-b-2 border-black inline-block uppercase tracking-tighter">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Chuẩn bị nhân bánh</h4>
+                            <p class="justified-text text-gray-700">
+                                <strong>Nhân Đậu Xanh:</strong> Ngâm đậu 4 tiếng, nấu chín mềm. Xay nhuyễn với đường rồi sên trên lửa nhỏ với dầu ăn cho đến khi khối nhân mịn, đứng dáng.
+                            </p>
+                            <p class="justified-text text-gray-700 mt-2">
+                                <strong>Nhân Thập Cẩm:</strong> Trộn đều nguyên liệu khô, rượu và nước sốt. Rắc từ từ bột bánh dẻo vào để tạo độ kết dính hoàn hảo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Nhào vỏ và bọc nhân</h4>
+                            <p class="justified-text text-gray-700">
+                                Trộn nguyên liệu lỏng trước khi rây bột mì vào. Nhào nhẹ tay đến khi mịn, để bột nghỉ 45 phút. Chia tỷ lệ 1 phần vỏ - 2 phần nhân. Cán mỏng vỏ, bao kín nhân để tránh bọt khí làm bánh bị hỏng khi nướng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">03</div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Đóng khuôn</h4>
+                                <span class="badge-gold">Food Stylist Tips</span>
+                            </div>
+                            <p class="justified-text text-gray-700">
+                                Quét một lớp dầu mỏng hoặc phủ bột áo vào khuôn. Cho viên bánh vào, ấn đều các góc với lực vừa phải. Giữ chắc khuôn trong 5 giây trước khi đẩy bánh ra để hoa văn sắc nét và tinh tế nhất.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">04</div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Kỹ thuật nướng 3 lần</h4>
+                                <span class="badge-gold">Pro Chef Technique</span>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="justified-text text-gray-700"><span class="italic font-bold">Lần 1:</span> 190°C trong 8-10 phút. Xịt phun sương nước ngay khi lấy ra để hạ nhiệt cấp tốc.</p>
+                                <p class="justified-text text-gray-700"><span class="italic font-bold">Nghỉ & Phết trứng:</span> Đợi nguội hẳn. Dùng cọ lông mềm phết một lớp cực mỏng, không để trứng đọng vào khe hoa văn.</p>
+                                <p class="justified-text text-gray-700"><span class="italic font-bold">Lần 2 & 3:</span> Nướng ở 180°C. Tổng thời gian nướng giúp bánh đạt màu vàng mật ong đồng nhất.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+        <div class="chef-box p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-px bg-burnished-gold flex-grow"></div>
+                <h3 class="text-2xl font-bold uppercase tracking-widest text-[#C5A059]">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="h-px bg-burnished-gold flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Nước đường:</h5>
+                    <p class="text-sm italic text-gray-700">Là linh hồn của bánh. Nước đường càng để lâu, bánh lên màu càng đẹp và vỏ càng mềm mại.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Kiểm soát nhiệt:</h5>
+                    <p class="text-sm italic text-gray-700">Lò quá nóng làm bánh phồng/nứt. Nhiệt thấp làm bánh "chân voi". Cần độ chính xác tuyệt đối.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Lỗi phết trứng:</h5>
+                    <p class="text-sm italic text-gray-700">Phết quá dày làm mất chi tiết. Luôn thấm bớt dịch trứng trên cọ trước khi chạm mặt bánh.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Nồi chiên không dầu:</h5>
+                    <p class="text-sm italic text-gray-700">Đậy mặt bánh bằng giấy bạc ở 5 phút đầu để tránh cháy nếu dùng nồi chiên gia đình.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <h3 class="text-3xl mb-10 pb-2 border-b-2 border-black inline-block uppercase tracking-tighter">4. Biến tấu & Nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="pro-card p-6 bg-white shadow-sm border border-gray-100">
+                <h4 class="text-xl font-bold mb-4 text-[#C5A059]">Phiên bản Ăn Kiêng</h4>
+                <p class="justified-text text-sm text-gray-600">Thay thế đường bằng Isomalt hoặc Stevia. Tăng cường hạt ngũ cốc tự nhiên (hạt điều, óc chó) thay cho mứt bí để giảm chỉ số đường huyết mà vẫn giữ vị bùi.</p>
+            </div>
+            <div class="pro-card p-6 bg-white shadow-sm border border-gray-100">
+                <h4 class="text-xl font-bold mb-4 text-[#C5A059]">Nâng cấp Nhân Trứng Muối</h4>
+                <p class="justified-text text-sm text-gray-600">Thêm lòng đỏ trứng muối đã xử lý qua rượu và nướng sơ vào giữa tâm nhân. Vị mặn nồng nàn của trứng sẽ cân bằng hoàn hảo với vị ngọt của đậu xanh.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="ornament max-w-6xl mx-auto px-6">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Technical Info -->
+    <footer class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+            <h3 class="text-2xl mb-8 uppercase tracking-tighter font-bold flex items-center gap-4">
+                <span class="w-8 h-px bg-black"></span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="space-y-4 border-l border-gray-200 pl-6">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-500">Bánh thập cẩm (150g)</span>
+                    <span class="font-bold">600 - 800 kcal</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-500">Bánh đậu xanh (150g)</span>
+                    <span class="font-bold">500 - 600 kcal</span>
+                </div>
+                <p class="text-xs italic text-gray-400 mt-4 leading-relaxed">
+                    Lời khuyên: Thưởng thức cùng trà xanh nóng để hỗ trợ tiêu hóa và làm dịu vị ngọt, giúp cảm nhận trọn vẹn hương vị truyền thống.
+                </p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-2xl mb-8 uppercase tracking-tighter font-bold flex items-center gap-4">
+                <span class="w-8 h-px bg-black"></span> 6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-4 border-l border-gray-200 pl-6">
+                <p class="text-sm justified-text text-gray-600">
+                    <strong>Đóng gói:</strong> Đợi bánh nguội hoàn toàn (24h) để "xuống dầu", lúc này màu sắc sẽ bóng đẹp và đậm đà nhất trước khi đóng bao bì.
+                </p>
+                <p class="text-sm justified-text text-gray-600">
+                    <strong>Trình bày:</strong> Sử dụng dĩa gốm mộc hoặc khay gỗ trầm. Cắt bánh bằng dao thật sắc để lộ rõ cấu trúc nhân. Điểm xuyết vài nụ hoa nhài hoặc hoa bưởi trắng muốt.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Elements (Scroll Reveal) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Trung Thu Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, .display-font {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            font-weight: 700;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .recipe-gradient {
+            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .ornament-icon {
+            padding: 0 15px;
+            color: var(--cinnabar-red);
+            font-size: 1.2rem;
+        }
+
+        .meta-card {
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        .ingredient-group {
+            border-left: 3px solid var(--burnished-gold);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--burnished-gold);
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .chef-box {
+            background: #fdfaf3;
+            border: 2px double var(--burnished-gold);
+            position: relative;
+        }
+
+        .pro-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .pro-card:hover {
+            border-color: var(--burnished-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .badge-gold {
+            background-color: var(--burnished-gold);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .meta-card:nth-child(even) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <div class="mb-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-gray-500">AI Vua Đầu Bếp | Digital Issue No. 01</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl mb-4 text-[#1a1a1a]">Bánh Trung Thu Truyền Thống</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-12">Traditional Mooncakes: Mixed Nuts & Mung Bean</h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gray-200 py-8 mb-16">
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Độ khó / Difficulty</p>
+                <p class="text-lg font-bold uppercase tracking-tight">Cao / Professional</p>
+            </div>
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Thời gian / Time</p>
+                <p class="text-lg font-bold">4 - 6 Tiếng</p>
+            </div>
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Khẩu phần / Servings</p>
+                <p class="text-lg font-bold">10 - 12 Bánh</p>
+            </div>
+            <div class="meta-card px-4 py-2">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Nguồn gốc / Origin</p>
+                <p class="text-lg font-bold">Á Đông</p>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mb-20">
+            <p class="justified-text italic text-lg leading-relaxed text-gray-600 first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-black">
+                Bánh Trung Thu là biểu tượng của sự đoàn viên và sung túc trong văn hóa Á Đông. Nhân Thập Cẩm tượng trưng cho sự hòa quyện của đất trời với đủ vị mặn, ngọt, bùi, béo. Nhân Đậu Xanh với kết cấu mịn màng, thanh tao đại diện cho sự thuần khiết. Theo chuyên gia ẩm thực truyền thống, mỗi nguyên liệu trong nhân thập cẩm như hạt sen, mứt bí, lạp xưởng đều mang lời chúc về một cuộc sống đầy đủ, viên mãn.
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament max-w-6xl mx-auto px-6">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl mb-10 pb-2 border-b-2 border-black inline-block uppercase tracking-tighter">1. Nguyên liệu</h3>
+                
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Vỏ bánh (Chung)</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Bột mì đa dụng</span> <span>500g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Nước đường bánh nướng</span> <span>320g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Dầu lạc / Dầu ăn</span> <span>75g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Lòng đỏ trứng gà</span> <span>2 cái</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Bơ đậu phộng</span> <span>20g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Nước tro tàu</span> <span>1 tsp</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Nhân Đậu Xanh</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Đậu xanh không vỏ</span> <span>200g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Đường cát</span> <span>100g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Dầu ăn</span> <span>80g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Bột bánh dẻo</span> <span>10g</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Nhân Thập Cẩm</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Lạp xưởng (thái lựu)</span> <span>100g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Hạt điều/Dưa/Mè</span> <span>mỗi loại 50g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Mứt bí/Sen/Gừng đỏ</span> <span>mỗi loại 50g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Mỡ đường</span> <span>50g</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Lá chanh (thái chỉ)</span> <span>10 lá</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-300 pb-1"><span>Rượu Mai Quế Lộ</span> <span>2 tbsp</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-sm uppercase mb-4 tracking-widest text-gray-500">Hỗn hợp phết mặt</h4>
+                    <ul class="space-y-2 text-[15px]">
+                        <li class="flex justify-between"><span>Lòng đỏ + Dầu ăn + Nước</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl mb-10 pb-2 border-b-2 border-black inline-block uppercase tracking-tighter">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Chuẩn bị nhân bánh</h4>
+                            <p class="justified-text text-gray-700">
+                                <strong>Nhân Đậu Xanh:</strong> Ngâm đậu 4 tiếng, nấu chín mềm. Xay nhuyễn với đường rồi sên trên lửa nhỏ với dầu ăn cho đến khi khối nhân mịn, đứng dáng.
+                            </p>
+                            <p class="justified-text text-gray-700 mt-2">
+                                <strong>Nhân Thập Cẩm:</strong> Trộn đều nguyên liệu khô, rượu và nước sốt. Rắc từ từ bột bánh dẻo vào để tạo độ kết dính hoàn hảo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Nhào vỏ và bọc nhân</h4>
+                            <p class="justified-text text-gray-700">
+                                Trộn nguyên liệu lỏng trước khi rây bột mì vào. Nhào nhẹ tay đến khi mịn, để bột nghỉ 45 phút. Chia tỷ lệ 1 phần vỏ - 2 phần nhân. Cán mỏng vỏ, bao kín nhân để tránh bọt khí làm bánh bị hỏng khi nướng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">03</div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Đóng khuôn</h4>
+                                <span class="badge-gold">Food Stylist Tips</span>
+                            </div>
+                            <p class="justified-text text-gray-700">
+                                Quét một lớp dầu mỏng hoặc phủ bột áo vào khuôn. Cho viên bánh vào, ấn đều các góc với lực vừa phải. Giữ chắc khuôn trong 5 giây trước khi đẩy bánh ra để hoa văn sắc nét và tinh tế nhất.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="step-number shrink-0">04</div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Kỹ thuật nướng 3 lần</h4>
+                                <span class="badge-gold">Pro Chef Technique</span>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="justified-text text-gray-700"><span class="italic font-bold">Lần 1:</span> 190°C trong 8-10 phút. Xịt phun sương nước ngay khi lấy ra để hạ nhiệt cấp tốc.</p>
+                                <p class="justified-text text-gray-700"><span class="italic font-bold">Nghỉ & Phết trứng:</span> Đợi nguội hẳn. Dùng cọ lông mềm phết một lớp cực mỏng, không để trứng đọng vào khe hoa văn.</p>
+                                <p class="justified-text text-gray-700"><span class="italic font-bold">Lần 2 & 3:</span> Nướng ở 180°C. Tổng thời gian nướng giúp bánh đạt màu vàng mật ong đồng nhất.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+        <div class="chef-box p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-px bg-burnished-gold flex-grow"></div>
+                <h3 class="text-2xl font-bold uppercase tracking-widest text-[#C5A059]">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="h-px bg-burnished-gold flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Nước đường:</h5>
+                    <p class="text-sm italic text-gray-700">Là linh hồn của bánh. Nước đường càng để lâu, bánh lên màu càng đẹp và vỏ càng mềm mại.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Kiểm soát nhiệt:</h5>
+                    <p class="text-sm italic text-gray-700">Lò quá nóng làm bánh phồng/nứt. Nhiệt thấp làm bánh "chân voi". Cần độ chính xác tuyệt đối.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Lỗi phết trứng:</h5>
+                    <p class="text-sm italic text-gray-700">Phết quá dày làm mất chi tiết. Luôn thấm bớt dịch trứng trên cọ trước khi chạm mặt bánh.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 flex items-center gap-2"><span class="text-red-600">✦</span> Nồi chiên không dầu:</h5>
+                    <p class="text-sm italic text-gray-700">Đậy mặt bánh bằng giấy bạc ở 5 phút đầu để tránh cháy nếu dùng nồi chiên gia đình.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <h3 class="text-3xl mb-10 pb-2 border-b-2 border-black inline-block uppercase tracking-tighter">4. Biến tấu & Nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="pro-card p-6 bg-white shadow-sm border border-gray-100">
+                <h4 class="text-xl font-bold mb-4 text-[#C5A059]">Phiên bản Ăn Kiêng</h4>
+                <p class="justified-text text-sm text-gray-600">Thay thế đường bằng Isomalt hoặc Stevia. Tăng cường hạt ngũ cốc tự nhiên (hạt điều, óc chó) thay cho mứt bí để giảm chỉ số đường huyết mà vẫn giữ vị bùi.</p>
+            </div>
+            <div class="pro-card p-6 bg-white shadow-sm border border-gray-100">
+                <h4 class="text-xl font-bold mb-4 text-[#C5A059]">Nâng cấp Nhân Trứng Muối</h4>
+                <p class="justified-text text-sm text-gray-600">Thêm lòng đỏ trứng muối đã xử lý qua rượu và nướng sơ vào giữa tâm nhân. Vị mặn nồng nàn của trứng sẽ cân bằng hoàn hảo với vị ngọt của đậu xanh.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="ornament max-w-6xl mx-auto px-6">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Technical Info -->
+    <footer class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+            <h3 class="text-2xl mb-8 uppercase tracking-tighter font-bold flex items-center gap-4">
+                <span class="w-8 h-px bg-black"></span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="space-y-4 border-l border-gray-200 pl-6">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-500">Bánh thập cẩm (150g)</span>
+                    <span class="font-bold">600 - 800 kcal</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-500">Bánh đậu xanh (150g)</span>
+                    <span class="font-bold">500 - 600 kcal</span>
+                </div>
+                <p class="text-xs italic text-gray-400 mt-4 leading-relaxed">
+                    Lời khuyên: Thưởng thức cùng trà xanh nóng để hỗ trợ tiêu hóa và làm dịu vị ngọt, giúp cảm nhận trọn vẹn hương vị truyền thống.
+                </p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-2xl mb-8 uppercase tracking-tighter font-bold flex items-center gap-4">
+                <span class="w-8 h-px bg-black"></span> 6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-4 border-l border-gray-200 pl-6">
+                <p class="text-sm justified-text text-gray-600">
+                    <strong>Đóng gói:</strong> Đợi bánh nguội hoàn toàn (24h) để "xuống dầu", lúc này màu sắc sẽ bóng đẹp và đậm đà nhất trước khi đóng bao bì.
+                </p>
+                <p class="text-sm justified-text text-gray-600">
+                    <strong>Trình bày:</strong> Sử dụng dĩa gốm mộc hoặc khay gỗ trầm. Cắt bánh bằng dao thật sắc để lộ rõ cấu trúc nhân. Điểm xuyết vài nụ hoa nhài hoặc hoa bưởi trắng muốt.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Elements (Scroll Reveal) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
