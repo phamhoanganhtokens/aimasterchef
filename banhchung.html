@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Chưng Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23636;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: var(--cinnabar-red);
+            font-size: 1.2rem;
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--burnished-gold);
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--burnished-gold);
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-right: 1rem;
+        }
+
+        .meta-card {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-card:nth-child(even) {
+                border-right: none;
+            }
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .ingredient-item::before {
+            content: '✦';
+            color: var(--burnished-gold);
+            margin-right: 10px;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        /* Tabs styling */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            color: var(--cinnabar-red);
+            border-bottom: 2px solid var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto shadow-2xl my-8">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <p class="uppercase tracking-widest text-xs mb-4 text-gray-500 font-bold">AI Vua Đầu Bếp | Premium Collection</p>
+        <h1 class="title-font text-5xl md:text-7xl font-bold mb-2 text-[#1a1a1a]">Bánh Chưng Truyền Thống</h1>
+        <h2 class="title-font text-2xl md:text-3xl italic text-gray-600 mb-8">Traditional Vietnamese Square Sticky Rice Cake</h2>
+        
+        <div class="max-w-3xl mx-auto border-y border-[#C5A059] py-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="meta-card flex flex-col items-center justify-center p-2">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ Khó</span>
+                <span class="font-bold text-lg">Cao</span>
+            </div>
+            <div class="meta-card flex flex-col items-center justify-center p-2">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời Gian</span>
+                <span class="font-bold text-lg">12 - 20 Giờ</span>
+            </div>
+            <div class="meta-card flex flex-col items-center justify-center p-2">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Phục Vụ</span>
+                <span class="font-bold text-lg">5 - 6 Bánh</span>
+            </div>
+            <div class="meta-card flex flex-col items-center justify-center p-2">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn Gốc</span>
+                <span class="font-bold text-lg italic">Vua Hùng</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto justified-text italic text-gray-700 leading-relaxed px-4">
+            "Ra đời từ thời Vua Hùng thứ 6 theo truyền thuyết Lang Liêu, Bánh Chưng là biểu tượng của Đất, thể hiện lòng biết ơn tổ tiên và là linh hồn không thể thiếu trong ngày Tết Nguyên Đán của người Việt."
+        </div>
+    </header>
+
+    <div class="section-divider"><span class="ornament">◈</span></div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Ingredients Column -->
+        <aside class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="title-font text-3xl font-bold mb-8 flex items-center">
+                    <span class="w-8 h-[2px] bg-cinnabar-red mr-4"></span>
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold text-gold-600 mb-4 text-[#C5A059]">Phần Chính & Gạo</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item justified-text"><strong>Gạo nếp:</strong> 2kg nếp cái hoa vàng (hạt tròn, đều, thơm nồng).</li>
+                            <li class="ingredient-item justified-text"><strong>Đỗ xanh:</strong> 500g đỗ xanh tiêu (loại lòng vàng, đã cà vỏ).</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold text-[#C5A059] mb-4">Nhân & Gia Vị</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item justified-text"><strong>Thịt lợn:</strong> 1kg thịt ba chỉ loại ngon (tỷ lệ nạc mỡ cân bằng).</li>
+                            <li class="ingredient-item justified-text"><strong>Gia vị:</strong> Muối trắng, tiêu đen xay (thật thơm), hành tím băm, nước cốt lá riềng.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold text-[#C5A059] mb-4">Gói & Buộc</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item justified-text"><strong>Lá gói:</strong> 20-30 lá dong bánh tẻ (màu xanh đậm, không rách).</li>
+                            <li class="ingredient-item justified-text"><strong>Dây buộc:</strong> 1 bó lạt tre (chẻ mỏng, dẻo dai).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Preparation Steps Column -->
+        <div class="lg:col-span-8">
+            <h3 class="title-font text-3xl font-bold mb-8 flex items-center">
+                <span class="w-8 h-[2px] bg-cinnabar-red mr-4"></span>
+                2. Các bước thực hiện
+            </h3>
+
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="flex items-start group">
+                    <span class="step-number">01</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                            Sơ chế (Traditional & Professional)
+                            <span class="text-xs font-serif italic text-gray-400">8+ Giờ Ngâm</span>
+                        </h4>
+                        <div class="justified-text text-gray-700 space-y-2">
+                            <p>Ngâm gạo nếp ít nhất 8 tiếng, vo sạch, để ráo rồi trộn với nước cốt lá riềng và muối.</p>
+                            <p>Đỗ xanh ngâm 4 tiếng, hấp chín, giã nhuyễn rồi nắm thành từng viên tròn (giúp nhân bánh vuông vức khi cắt).</p>
+                            <p>Thịt ba chỉ thái miếng to bản, dài, ướp với nhiều tiêu và hành tím trong ít nhất 2 giờ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex items-start group">
+                    <span class="step-number">02</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                            Chuẩn bị lá
+                            <span class="text-xs font-serif italic text-gray-400">Sơ chế lá</span>
+                        </h4>
+                        <p class="justified-text text-gray-700">Rửa sạch lá dong, lau khô. Dùng dao sắc tước bỏ phần sống lưng lá để lá mềm, dễ gập nhưng không làm rách lá. Đây là bước quan trọng để bánh vuông vức, không bị bục khi luộc.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex items-start group">
+                    <span class="step-number">03</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                            Gói bánh (Home Cook Friendly)
+                            <span class="text-xs font-serif italic text-gray-400">15-20 Phút/Cái</span>
+                        </h4>
+                        <div class="justified-text text-gray-700 space-y-2">
+                            <p>Đặt khuôn gỗ lên mặt phẳng, xếp 4 lá dong vào 4 góc (mặt xanh đậm quay vào trong để màu thấm vào gạo).</p>
+                            <p>Đổ một lớp gạo nếp vào đáy, dàn đều. Tiếp theo là một lớp đỗ xanh, đặt 2 miếng thịt vào giữa, sau đó phủ thêm một lớp đỗ và một lớp gạo trên cùng.</p>
+                            <p>Gập lá, ấn nhẹ tay cho bánh chặt, dùng lạt buộc lại (không buộc quá chặt để gạo có không gian nở).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex items-start group">
+                    <span class="step-number">04</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                            Luộc bánh (Professional Technique)
+                            <span class="text-xs font-serif italic text-gray-400">8-10 Giờ</span>
+                        </h4>
+                        <p class="justified-text text-gray-700">Lót cuống lá dong thừa xuống đáy nồi lớn để tránh cháy bánh. Xếp bánh theo chiều dọc, khít nhau. Đổ nước lạnh ngập bánh. Luộc liên tục trong 8-10 tiếng. <i>Lưu ý: Luôn phải có nồi nước sôi bên cạnh để châm nước thường xuyên, đảm bảo bánh luôn ngập dưới mặt nước.</i></p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex items-start group">
+                    <span class="step-number">05</span>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                            Ép bánh
+                            <span class="text-xs font-serif italic text-gray-400">5-8 Giờ</span>
+                        </h4>
+                        <p class="justified-text text-gray-700">Sau khi chín, vớt bánh ra rửa sơ qua nước lạnh. Xếp bánh lên bàn phẳng, dùng tấm gỗ và vật nặng ép lên trên trong 5-8 giờ để ép hết nước dư, giúp bánh chắc, phẳng đều và để được lâu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Expert Advice Section -->
+    <section class="mt-16">
+        <div class="pro-tip-box bg-[#F4F1E8] p-8 md:p-12 rounded-sm relative overflow-hidden">
+            <div class="absolute top-[-20px] right-[-20px] opacity-10">
+                <svg width="150" height="150" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2v-2zm0-6h2v4h-2v-4z"/></svg>
+            </div>
+            <h3 class="title-font text-2xl font-bold text-[#2C2C2C] mb-6 flex items-center">
+                <span class="text-3xl mr-3">3.</span> Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="justified-text border-l-2 border-burnished-gold pl-4">
+                    <p class="font-bold mb-2 text-[#C5A059] uppercase tracking-tighter text-sm">Màu sắc</p>
+                    Để vỏ bánh xanh mướt, tuyệt đối không dùng phẩm màu mà hãy dùng nước cốt lá riềng hoặc lá dứa trộn vào gạo.
+                </div>
+                <div class="justified-text border-l-2 border-burnished-gold pl-4">
+                    <p class="font-bold mb-2 text-[#C5A059] uppercase tracking-tighter text-sm">Hương vị</p>
+                    Tiêu đen phải là loại nguyên hạt rang thơm rồi mới giã dập để giữ mùi nồng nàn đặc trưng khi quyện vào mỡ lợn.
+                </div>
+                <div class="justified-text border-l-2 border-burnished-gold pl-4">
+                    <p class="font-bold mb-2 text-[#C5A059] uppercase tracking-tighter text-sm">Nhiệt độ</p>
+                    Giữ lửa đều trong suốt quá trình luộc; lửa quá to dễ gây cháy đáy nồi, lửa quá nhỏ làm bánh bị sượng (lại gạo).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mt-16">
+        <h3 class="title-font text-3xl font-bold mb-8 flex items-center">
+            <span class="w-8 h-[2px] bg-cinnabar-red mr-4"></span>
+            4. Biến tấu & Phiên bản nâng cao
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 shadow-md border-t-4 border-burnished-gold hover-lift">
+                <h4 class="font-bold text-lg mb-3">Bánh Chưng Chay</h4>
+                <p class="justified-text text-sm text-gray-600">Thay thịt lợn bằng nấm hương, đậu hũ ky và thêm chút hạt sen. Thanh đạm nhưng vẫn đậm đà hương vị Tết.</p>
+            </div>
+            <div class="bg-white p-6 shadow-md border-t-4 border-cinnabar-red hover-lift">
+                <h4 class="font-bold text-lg mb-3">Bánh Chưng Gấc</h4>
+                <p class="justified-text text-sm text-gray-600">Trộn gạo nếp với thịt gấc để bánh có màu đỏ may mắn, mang lại không khí rực rỡ cho mâm cỗ đầu năm.</p>
+            </div>
+            <div class="bg-white p-6 shadow-md border-t-4 border-gray-400 hover-lift">
+                <h4 class="font-bold text-lg mb-3">Lối tắt gia đình</h4>
+                <p class="justified-text text-sm text-gray-600">Sử dụng nồi áp suất để luộc bánh trong khoảng 2-3 tiếng nếu không có không gian và thời gian nấu bếp củi truyền thống.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Footer -->
+    <section class="mt-20 border-t-2 border-gray-100 pt-12">
+        <div class="grid md:grid-cols-2 gap-16">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="title-font text-2xl font-bold mb-6 text-[#2C2C2C]">5. Giá trị dinh dưỡng</h3>
+                <div class="bg-gray-50 p-6 rounded">
+                    <div class="flex items-center justify-between border-b border-gray-200 pb-2 mb-4">
+                        <span class="font-bold italic">Calorie (1/8 cái)</span>
+                        <span class="text-cinnabar-red font-bold">150-200 kcal</span>
+                    </div>
+                    <p class="justified-text text-sm mb-4">Món ăn có mật độ năng lượng cao, giàu tinh bột (nếp), protein (thịt, đỗ) và chất béo. Cung cấp năng lượng bền bỉ cho những ngày Tết hoạt động nhiều.</p>
+                    <div class="bg-white p-3 border-l-4 border-cinnabar-red text-xs italic">
+                        <strong>Lưu ý:</strong> Do chỉ số đường huyết cao, người bị tiểu đường nên ăn kèm nhiều rau xanh và dưa chua để cân bằng chuyển hóa.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="title-font text-2xl font-bold mb-6 text-[#2C2C2C]">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-[#C5A059] text-white flex-shrink-0 flex items-center justify-center rounded-full mr-4 text-xs">A</div>
+                        <div>
+                            <p class="font-bold text-sm uppercase mb-1">Nghệ thuật cắt bánh</p>
+                            <p class="justified-text text-sm text-gray-600">Dùng sợi lạt tre tước nhỏ, đặt chéo nhau trên mặt bánh, úp đĩa lên và lật ngược, sau đó kéo từng sợi để chia bánh thành 8 miếng đều nhau tinh tế.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-[#C5A059] text-white flex-shrink-0 flex items-center justify-center rounded-full mr-4 text-xs">B</div>
+                        <div>
+                            <p class="font-bold text-sm uppercase mb-1">Bày trí & Đồ kèm</p>
+                            <p class="justified-text text-sm text-gray-600">Phải có một đĩa Dưa hành muối trắng tinh khôi và một bát nước mắm nguyên chất rắc tiêu. Đặt bánh trên mẹt tre có lót lá chuối để giữ hồn quê.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Layer for dynamic feel -->
+    <script>
+        // Simple scroll animation for fade-in effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, main > *, header').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-4');
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
