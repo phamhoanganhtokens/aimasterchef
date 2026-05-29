@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cải Xá Bấu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--cinnabar-red);
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--burnished-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            background: var(--cinnabar-red);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(even) {
+                border-right: none;
+            }
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 10px;
+            color: var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-16 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16">
+        <div class="inline-block border-y-2 border-[#C5A059] py-2 px-8 mb-6">
+            <span class="uppercase tracking-[0.3em] text-xs font-bold text-[#C5A059]">AI King of Chefs Edition</span>
+        </div>
+        <h1 class="title-font text-5xl md:text-7xl font-bold mb-2 text-[#2C2C2C]">Cải Xá Bấu</h1>
+        <p class="title-font italic text-2xl text-[#C5A059] mb-10">Traditional Preserved Radish & Modern Twist</p>
+        
+        <div class="bg-white shadow-sm border border-[#C5A059]/20 grid grid-cols-2 md:grid-cols-4 rounded-sm overflow-hidden">
+            <div class="meta-item">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Độ khó / Difficulty</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Thời gian / Time</span>
+                <span class="font-bold text-lg">3 - 5 Ngày</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Khẩu phần / Servings</span>
+                <span class="font-bold text-lg">4 - 6 Người</span>
+            </div>
+            <div class="meta-item">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Nguồn gốc / Origin</span>
+                <span class="font-bold text-lg text-center leading-tight px-2">Bạc Liêu, Sóc Trăng</span>
+            </div>
+        </div>
+
+        <div class="mt-8 px-4 md:px-20">
+            <p class="justify-text italic text-gray-600 border-l-4 border-[#E23D28] pl-6 py-2">
+                Món ăn có nguồn gốc từ người Tiều (Triều Châu), sau đó du nhập và trở thành đặc sản gắn liền với đời sống của người dân miền Tây Nam Bộ, đặc biệt là vùng Bạc Liêu, Sóc Trăng.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h2 class="title-font text-3xl font-bold mb-8 border-b-2 border-[#E23D28] inline-block pb-2">1. Nguyên liệu</h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-[#C5A059] mb-4 italic">Phần cốt lõi / Core Ingredients</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Củ cải trắng (già, chắc)</span> <span class="italic">2kg</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Muối hạt (biển thô)</span> <span class="italic">300g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Cải xá bấu thành phẩm</span> <span class="italic">200g</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-[#C5A059] mb-4 italic">Protein & Tươi sống / Fresh Base</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Trứng vịt (hoặc gà)</span> <span class="italic">3 quả</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Hành lá, Tỏi, Ớt</span> <span class="italic">Tùy chọn</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-[#C5A059] mb-4 italic">Gia vị / Seasoning</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item">Đường cát trắng</li>
+                        <li class="ingredient-item">Nước mắm thượng hạng</li>
+                        <li class="ingredient-item">Tiêu xay, Dầu ăn</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h2 class="title-font text-3xl font-bold mb-8 border-b-2 border-[#E23D28] inline-block pb-2">2. Các bước thực hiện</h2>
+            
+            <div class="space-y-12 relative border-l border-[#C5A059]/30 ml-6 pl-8">
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="title-font text-xl font-bold">Giai đoạn Muối (Truyền thống)</h3>
+                        <span class="text-sm italic text-[#C5A059]">3 - 5 Ngày</span>
+                    </div>
+                    <p class="justify-text text-gray-700">
+                        Củ cải rửa sạch, giữ nguyên vỏ để đảm bảo độ giòn, cắt sợi dài hoặc cắt đôi tùy ý. Trộn với muối hạt theo tỷ lệ 10:1 và ủ qua đêm. Quy trình phơi nắng gắt ban ngày và ngâm lại nước muối ban đêm (ngày phơi đêm ngâm) cần được lặp lại 3-5 lần cho đến khi cải dẻo dai, tỏa mùi thơm đặc trưng của nắng và biển.
+                    </p>
+                </div>
+
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="title-font text-xl font-bold">Xử lý độ mặn & Sơ chế</h3>
+                        <span class="text-sm italic text-[#C5A059]">20 Phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700">
+                        Ngâm cải thành phẩm trong nước ấm hoặc nước vo gạo khoảng 15-20 phút để rút bớt vị mặn gắt. Bóp xả nhiều lần dưới vòi nước lạnh. Một bước quan trọng là dùng khăn sạch vắt thật ráo nước, điều này giúp cải giữ được kết cấu sần sật đặc trưng khi gặp nhiệt độ cao.
+                    </p>
+                </div>
+
+                <div class="timeline-step relative">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="title-font text-xl font-bold">Chế biến nhiệt</h3>
+                        <span class="text-sm italic text-[#C5A059]">10 Phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700">
+                        Phi thơm tỏi băm, cho cải xá bấu vào xào trên lửa lớn để cải săn lại. Thêm đường để cân bằng vị mặn-ngọt. Khi cải đã thấm, đổ trứng đã đánh tan vào, đảo nhanh tay để trứng bám đều một lớp mỏng vàng óng quanh sợi cải. Kết thúc bằng hành lá và tiêu xay thơm nồng.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">❦</span>
+    </div>
+
+    <!-- Special Insight Sections -->
+    <section class="mb-16">
+        <div class="pro-tip-box mb-12">
+            <h2 class="title-font text-2xl font-bold mb-4 text-[#C5A059] flex items-center">
+                <span class="mr-3">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <p class="justify-text italic border-r border-[#C5A059]/20 pr-4">
+                    Sử dụng phương pháp áp suất thẩm thấu bằng cách ngâm trong nước đường loãng thay vì nước lã để rút muối nhanh hơn nếu bạn cần gấp. Luôn xào trên chảo thật nóng với lửa cực đại để cải giòn mà không bị ra nước.
+                </p>
+                <p class="justify-text font-bold">
+                    Đặc biệt lưu ý: Không bao giờ được gọt vỏ củ cải. Phần vỏ chính là linh hồn tạo nên độ giòn sần sật "đắt giá" cho món xá bấu truyền thống.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="title-font text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-lg">
+                <h4 class="font-bold text-[#E23D28] mb-3">Chua Ngọt Ăn Liền</h4>
+                <p class="text-sm justify-text">Trộn xá bấu với tỏi ớt, đường và chanh. Để thấm 30 phút là có món ăn kèm cháo trắng thanh đạm tuyệt hảo cho bữa sáng.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg border-t-4 border-t-[#C5A059]">
+                <h4 class="font-bold text-[#C5A059] mb-3">Canh Hầm Thập Cẩm</h4>
+                <p class="text-sm justify-text">Sử dụng xá bấu nguyên củ hầm cùng thịt heo hoặc đậu hũ. Vị mặn đặc trưng sẽ chuyển hóa thành nước dùng ngọt thanh, sâu lắng.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg">
+                <h4 class="font-bold text-[#2C2C2C] mb-3">Phiên Bản Chay (Vegan)</h4>
+                <p class="text-sm justify-text">Thay thế trứng vịt bằng hành baro phi thơm và tàu hủ ky chiên giòn cắt sợi. Vị béo của tàu hủ ky sẽ bù trừ hoàn hảo cho trứng.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer/Technical Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-[#C5A059]/40">
+        <div class="bg-[#2C2C2C] text-[#FCFAFA] p-8 rounded-sm">
+            <h2 class="title-font text-2xl font-bold mb-4 flex items-center">
+                <span class="text-[#C5A059] mr-2">◈</span> 5. Giá trị dinh dưỡng
+            </h2>
+            <p class="justify-text text-sm opacity-90 leading-relaxed">
+                Món ăn chứa hàm lượng chất xơ dồi dào hỗ trợ tốt cho hệ tiêu hóa. Tuy nhiên, do tính chất của món muối, lượng Natri trong cải xá bấu rất cao. Người có bệnh lý về thận hoặc cao huyết áp cần đặc biệt lưu ý và hạn chế sử dụng. Lời khuyên từ chuyên gia: Luôn xả kỹ với nước nhiều lần để giảm thiểu lượng muối nạp vào cơ thể.
+            </p>
+        </div>
+        <div>
+            <h2 class="title-font text-2xl font-bold mb-4 flex items-center">
+                <span class="text-[#E23D28] mr-2">◈</span> 6. Gợi ý trình bày
+            </h2>
+            <p class="justify-text text-sm text-gray-700 italic mb-4">
+                "Ăn bằng mắt là bước khởi đầu của mỹ vị."
+            </p>
+            <p class="justify-text text-sm text-gray-700">
+                Hãy trình bày trên đĩa gốm mộc mạc màu nâu đất hoặc trắng ngà. Trải sợi cải tơi xốp, trang trí bằng vài lát ớt đỏ cắt xéo và ngọn ngò rí xanh mướt để tạo sự tương phản màu sắc rực rỡ giữa sắc vàng của trứng và màu trầm của cải. Phục vụ hoàn hảo nhất khi kèm theo một bát cháo trắng nóng hổi, bốc khói nghi ngút.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Simple animation to reveal sections on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, aside, .pro-tip-box').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
