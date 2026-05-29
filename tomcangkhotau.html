@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tôm Càng Kho Tàu – Mỹ Vị Miền Tây Nam Bộ | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'cream': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            height: 1px;
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+            flex-grow: 1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            opacity: 0.2;
+            line-height: 1;
+        }
+        .pro-box {
+            border: 2px double #D4AF37;
+            position: relative;
+        }
+        .pro-box::before {
+            content: "MASTER AGENT";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #FCFAFA;
+            padding: 0 10px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            font-weight: 600;
+        }
+        .tab-button.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <div class="mb-4 inline-block border-y border-gold py-2 px-8 uppercase tracking-[0.3em] text-xs font-sans text-gold">
+            The Culinary Heritage Series
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold mb-2 tracking-tight">Tôm Càng Kho Tàu</h1>
+        <h2 class="font-display italic text-xl md:text-2xl text-charcoal/70 mb-10">Mỹ Vị Miền Tây Nam Bộ</h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid max-w-4xl mx-auto border-y border-gold/30 py-6 my-8 flex flex-wrap justify-around items-center gap-6 font-sans">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-charcoal/50">Độ khó</span>
+                <span class="font-semibold text-sm">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-charcoal/50">Thời gian</span>
+                <span class="font-semibold text-sm">60 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-charcoal/50">Khẩu phần</span>
+                <span class="font-semibold text-sm">4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h.272M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-charcoal/50">Nguồn gốc</span>
+                <span class="font-semibold text-sm">Miền Tây Nam Bộ</span>
+            </div>
+        </div>
+
+        <p class="max-w-2xl mx-auto justified-text italic text-charcoal/80 mb-12 px-4">
+            Món ăn đặc trưng của vùng sông nước miền Tây Nam Bộ, thường hiện diện trong các bữa tiệc sang trọng và mâm cỗ ngày Tết. Sự hòa quyện giữa vị ngọt thanh của nước dừa, vị béo ngậy của gạch tôm và thịt tôm săn chắc tạo nên một tuyệt tác ẩm thực khó cưỡng.
+        </p>
+    </header>
+
+    <div class="ornament max-w-lg mx-auto">
+        <svg class="w-6 h-6 text-gold fill-current" viewBox="0 0 24 24">
+            <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <section>
+                    <h3 class="font-display text-2xl font-bold mb-6 border-b border-gold/20 pb-2">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-sans text-[10px] uppercase tracking-widest text-gold font-bold mb-3">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Tôm càng xanh: 1kg <span class="text-xs italic block text-charcoal/60">(8-10 con/kg, tươi sống, nhiều gạch)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Nước dừa xiêm: 500ml <span class="text-xs italic block text-charcoal/60">(khoảng 1-2 trái)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-sans text-[10px] uppercase tracking-widest text-gold font-bold mb-3">Gia vị & Hương liệu</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Hành tím & Tỏi băm: 2 muỗng canh mỗi loại</span>
+                                </li>
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Đầu hành lá: 5-7 nhánh (đập dập)</span>
+                                </li>
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Rượu trắng: 1 muỗng canh <span class="text-xs italic">(khử tanh)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Nước mắm ngon (40 độ đạm), đường thốt nốt, hạt nêm, tiêu xay, dầu màu điều.</span>
+                                </li>
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Chanh tươi: 1/2 quả.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-sans text-[10px] uppercase tracking-widest text-gold font-bold mb-3">Rau ăn kèm</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Xà lách, dưa leo, ngò rí.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Nutrition Section (Mobile: Stays here, Desktop: Part of sidebar) -->
+                <section class="p-6 bg-charcoal text-cream rounded-sm mt-12">
+                    <h3 class="font-display text-xl mb-4 border-b border-cream/20 pb-2 italic">5. Giá trị dinh dưỡng</h3>
+                    <div class="text-sm justified-text space-y-3 opacity-90">
+                        <p>Tôm là nguồn cung cấp protein dồi dào, ít béo, giàu canxi và Omega-3 tốt cho tim mạch.</p>
+                        <div class="p-3 bg-cream/10 border-l-2 border-gold italic">
+                            <strong class="text-gold">Lưu ý:</strong> Gạch tôm chứa cholesterol cao. Người có tiền sử mỡ máu cao hoặc bệnh Gout nên thưởng thức phần thịt tôm và hạn chế phần gạch.
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8 space-y-12">
+                <section>
+                    <h3 class="font-display text-2xl font-bold mb-8 border-b border-gold/20 pb-2">2. Các bước thực hiện</h3>
+                    
+                    <div class="space-y-12">
+                        <!-- Step 1 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex-none w-12 text-right">
+                                <span class="step-number group-hover:opacity-40 transition-opacity">01</span>
+                            </div>
+                            <div class="flex-grow pt-2">
+                                <h4 class="font-bold text-lg mb-2 uppercase tracking-wide">Sơ chế tôm <span class="text-gold font-sans text-xs italic ml-2">(Kỹ thuật chuyên nghiệp)</span></h4>
+                                <p class="justified-text text-charcoal/90">
+                                    Tôm rửa sạch, dùng kéo cắt bớt râu và chân dài. Dùng mũi kéo tỉa nhẹ phần đầu để lấy túi chất bẩn phía trên mắt tôm ra ngoài. 
+                                    <span class="font-bold italic text-cinnabar">Khéo léo dùng muỗng nhỏ hoặc mũi dao tách phần gạch tôm ở đầu ra một bát riêng.</span> 
+                                    Dùng tăm rút chỉ đen ở lưng tôm. Rửa lại tôm với nước pha chút rượu trắng để khử mùi tanh, để ráo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex-none w-12 text-right">
+                                <span class="step-number group-hover:opacity-40 transition-opacity">02</span>
+                            </div>
+                            <div class="flex-grow pt-2">
+                                <h4 class="font-bold text-lg mb-2 uppercase tracking-wide">Xử lý gạch tôm <span class="text-gold font-sans text-xs italic ml-2">(Bí quyết tạo màu)</span></h4>
+                                <p class="justified-text text-charcoal/90">
+                                    Cho vào bát gạch tôm: 1 muỗng cà phê đường, vài giọt nước cốt chanh, 1 muỗng cà phê dầu màu điều và một ít nước mắm. Đem bát gạch hấp cách thủy hoặc đặt trên nồi cơm vừa chín tới khoảng <span class="font-sans font-semibold border-b border-gold/50">5 phút</span> cho gạch đông lại và lên màu cam rực rỡ.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex-none w-12 text-right">
+                                <span class="step-number group-hover:opacity-40 transition-opacity">03</span>
+                            </div>
+                            <div class="flex-grow pt-2">
+                                <h4 class="font-bold text-lg mb-2 uppercase tracking-wide">Chiên sơ tôm <span class="text-gold font-sans text-xs italic ml-2">(Kỹ thuật giữ nước)</span></h4>
+                                <p class="justified-text text-charcoal/90">
+                                    Bắc chảo lên bếp với chút dầu ăn, chiên áp chảo tôm cho thịt săn lại và vỏ tôm chuyển sang màu hồng đều. Việc này giúp thịt tôm dai, không bị bở khi kho lâu.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex-none w-12 text-right">
+                                <span class="step-number group-hover:opacity-40 transition-opacity">04</span>
+                            </div>
+                            <div class="flex-grow pt-2">
+                                <h4 class="font-bold text-lg mb-2 uppercase tracking-wide">Kho tôm <span class="text-gold font-sans text-xs italic ml-2">(Phương pháp truyền thống)</span></h4>
+                                <div class="justified-text text-charcoal/90 space-y-3">
+                                    <p>Sử dụng nồi đất hoặc chảo sâu lòng, phi thơm hành tím và tỏi băm với dầu màu điều. Đổ nước dừa xiêm vào đun sôi. Nêm 2 muỗng canh nước mắm, 1 muỗng canh đường thốt nốt, 1 muỗng cà phê hạt nêm.</p>
+                                    <p>Thả tôm đã chiên vào nồi. Hạ lửa nhỏ riu riu để nước dừa thấm từ từ vào thịt tôm. Khi nước dừa cạn còn khoảng 1/3, dùng muỗng múc phần gạch tôm đã xử lý phết đều lên từng đầu con tôm và mình tôm.</p>
+                                    <p>Tiếp tục kho thêm <span class="font-sans font-semibold border-b border-gold/50">5-10 phút</span> cho nước sốt sánh lại, bao quanh con tôm một lớp màu cam óng ả. Cho đầu hành lá vào rồi tắt bếp.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chef's Corner -->
+                <section class="pro-box p-8 bg-cream shadow-sm rounded-sm">
+                    <h3 class="font-display text-2xl font-bold mb-4 flex items-center gap-3">
+                        <span class="text-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </span>
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </h3>
+                    <ul class="space-y-4 font-serif italic text-charcoal/80 justified-text">
+                        <li class="pl-4 border-l-2 border-gold">
+                            <strong>Nước cốt chanh trong gạch tôm:</strong> Đây là mẹo giúp gạch tôm không bị thâm đen mà luôn có màu đỏ cam tươi tắn.
+                        </li>
+                        <li class="pl-4 border-l-2 border-gold">
+                            <strong>Không lật tôm quá nhiều:</strong> Sau khi phết gạch, hạn chế đảo để gạch không bị rơi ra làm đục nước kho.
+                        </li>
+                        <li class="pl-4 border-l-2 border-gold">
+                            <strong>Kiểm soát lửa:</strong> Nước dừa chứa nhiều đường tự nhiên, nếu để lửa quá lớn ở giai đoạn cuối sẽ dễ bị cháy khét.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Variations Section -->
+                <section>
+                    <h3 class="font-display text-2xl font-bold mb-6 border-b border-gold/20 pb-2">4. Biến tấu & Phiên bản</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-lg">
+                            <h4 class="font-sans font-bold text-xs uppercase tracking-widest text-cinnabar mb-3">Dành cho nội trợ</h4>
+                            <p class="text-sm justified-text italic">
+                                Nếu không tìm được tôm càng xanh, có thể thay bằng tôm sú hoặc tôm thẻ loại lớn. Nếu không có nước dừa tươi, có thể dùng nước màu dừa pha loãng với nước lọc để thay thế.
+                            </p>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h4 class="font-sans font-bold text-xs uppercase tracking-widest text-gold mb-3">Phiên bản hiện đại</h4>
+                            <p class="text-sm justified-text italic">
+                                Có thể thêm một ít trứng cút luộc vào kho cùng để tăng thêm độ phong phú và kết cấu cho món ăn, làm cho nước sốt thêm phần hấp dẫn.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Presentation Section -->
+                <section class="border-t border-gold/20 pt-12">
+                    <h3 class="font-display text-2xl font-bold mb-6 italic">6. Gợi ý trình bày</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="space-y-2">
+                            <div class="h-px bg-gold/30 w-full"></div>
+                            <h5 class="font-sans font-bold text-[10px] uppercase">Bố cục</h5>
+                            <p class="text-xs justified-text">Xếp tôm theo hình tròn trên đĩa rộng, đầu tôm hướng vào tâm đĩa hoặc xếp chồng lên nhau tạo độ cao.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-px bg-gold/30 w-full"></div>
+                            <h5 class="font-sans font-bold text-[10px] uppercase">Hoàn thiện</h5>
+                            <p class="text-xs justified-text">Rưới phần nước sốt sệt còn lại trong nồi lên mình tôm để tạo độ bóng. Trang trí bằng ngò rí, ớt tỉa hoa.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-px bg-gold/30 w-full"></div>
+                            <h5 class="font-sans font-bold text-[10px] uppercase">Thưởng thức</h5>
+                            <p class="text-xs justified-text">Ăn kèm với cơm trắng nóng hổi, rau sống và dưa leo để cân bằng vị đậm đà của món ăn.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Visual Flourish -->
+    <div class="flex justify-center items-center py-12 opacity-30">
+        <div class="h-[1px] w-24 bg-gold"></div>
+        <div class="mx-4 text-gold">
+            <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                <path d="M11,21H13V15H11V21M12,11C15.87,11 19,14.13 19,18V20H5V18C5,14.13 8.13,11 12,11M12,3L14,5L12,7L10,5L12,3Z" />
+            </svg>
+        </div>
+        <div class="h-[1px] w-24 bg-gold"></div>
+    </div>
+
+</body>
+</html>
