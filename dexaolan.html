@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dê Xào Lăn | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-red: #B22222; /* Cinnabar Red variant */
+            --accent-gold: #C5A059; /* Burnished Gold */
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before, .ornament::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background-color: var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .ornament span {
+            padding: 0 15px;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            opacity: 0.6;
+            line-height: 1;
+        }
+
+        .meta-icon {
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .pro-tip-border {
+            border: 4px double var(--accent-gold);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pro-tip-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-red);
+        }
+
+        .tab-active {
+            border-bottom: 2px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: all 0.2s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 10px;
+            color: var(--accent-red);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="mb-4 text-xs tracking-[0.3em] uppercase text-gray-500">AI VUA ĐẦU BẾP PRESENTS</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight">DÊ XÀO LĂN</h1>
+        <h2 class="text-2xl md:text-3xl italic font-light text-gray-600 mb-8">Stir-fried Goat with Curry & Coconut Milk</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-[var(--accent-gold)] border-opacity-30">
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Độ Khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">⌚</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Thời Gian</span>
+                <span class="font-bold">60 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">👥</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Khẩu Phần</span>
+                <span class="font-bold">4 người ăn</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">📍</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Nguồn Gốc</span>
+                <span class="font-bold">Nam Bộ, Việt Nam</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-current mr-3"></span>
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="italic font-bold text-[var(--accent-red)] mb-3">Chính & Gia Vị Khử Mùi</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Thịt dê tươi</span> <span>500g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Gừng củ</span> <span>1 củ</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Rượu trắng/Mai Quế Lộ</span> <span>100ml</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="italic font-bold text-[var(--accent-red)] mb-3">Gia Vị Tẩm Ướp</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Bột cà ri</span> <span>20g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Bột ngũ vị hương</span> <span>1/2 mcf</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Nước cốt dừa đậm đặc</span> <span>100ml</span></li>
+                            <li class="ingredient-item"><span>Tỏi & hành tím băm</span></li>
+                            <li class="ingredient-item"><span>Muối, đường, hạt nêm, dầu hào</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="italic font-bold text-[var(--accent-red)] mb-3">Phụ Liệu & Rau Ăn Kèm</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Mộc nhĩ (nấm mèo)</span> <span>30g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Bún tàu (miến)</span> <span>30g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Sả nhánh</span> <span>5 nhánh</span></li>
+                            <li class="ingredient-item"><span>Hành tây, ớt sừng</span></li>
+                            <li class="ingredient-item"><span>Rau ngổ, ngò gai</span></li>
+                            <li class="ingredient-item"><span>Đậu phộng rang</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-current mr-3"></span>
+                    2. Các bước thực hiện
+                </h3>
+                
+                <div class="space-y-10">
+                    <div class="flex gap-6 group">
+                        <div class="step-number">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Sơ chế khử mùi</h4>
+                            <p class="justified-text text-gray-700 italic text-sm mb-2">Ước tính: 15 phút</p>
+                            <p class="justified-text">Thịt dê thái miếng vừa ăn, đem bóp kỹ với rượu trắng và gừng giã nát trong 10 phút, sau đó rửa sạch bằng nước ấm. Chần nhanh thịt qua nước sôi có pha chút dấm để loại bỏ hoàn toàn mùi hôi đặc trưng.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="step-number">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Ướp thịt</h4>
+                            <p class="justified-text text-gray-700 italic text-sm mb-2">Ước tính: 30 phút (chờ)</p>
+                            <p class="justified-text">Ướp thịt dê với bột cà ri, ngũ vị hương, hành tỏi băm, một ít đường, hạt nêm và dầu ăn. Để thịt thấm trong ít nhất 30 phút. Việc dùng ngũ vị hương và cà ri đúng tỉ lệ sẽ tạo nên tầng hương vị ấm nồng truyền thống.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="step-number">03</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Chuẩn bị phụ liệu</h4>
+                            <p class="justified-text text-gray-700 italic text-sm mb-2">Ước tính: 10 phút</p>
+                            <p class="justified-text">Ngâm mộc nhĩ và bún tàu trong nước ấm cho nở. Mộc nhĩ cắt bỏ chân, thái sợi to. Bún tàu cắt khúc 10cm. Hành tây bổ múi cau. Sả băm nhỏ một phần, phần còn lại cắt lát chéo. Nếu không có bún tàu ở nhà, có thể thay bằng miến dong dai nhưng cần giảm thời gian nấu.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="step-number">04</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Kỹ thuật xào chuyên nghiệp</h4>
+                            <p class="justified-text text-gray-700 italic text-sm mb-2">Ước tính: 5 phút</p>
+                            <p class="justified-text">Sử dụng chảo lòng sâu, để lửa thật lớn cho chảo bốc khói nhẹ (tạo hiệu ứng <i>wok hei</i>). Cho dầu vào phi thơm sả lát và tỏi. Trút thịt dê vào xào nhanh tay ở lửa cực đại cho thịt săn lại và giữ được độ mọng nước.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="step-number">05</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Tạo sốt và hoàn thiện</h4>
+                            <p class="justified-text text-gray-700 italic text-sm mb-2">Ước tính: 5 phút</p>
+                            <p class="justified-text">Khi thịt đã chín khoảng 70%, cho mộc nhĩ và hành tây vào đảo cùng. Đổ nước cốt dừa vào, hạ lửa vừa. Nấu cho đến khi nước sốt bắt đầu sánh lại, bao quanh miếng thịt. Cuối cùng, cho bún tàu và ớt sừng vào đảo nhanh 1 phút rồi tắt bếp.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament"><span>✦</span></div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="pro-tip-border">
+                <span class="pro-tip-label">3. Mẹo hay từ Vua Đầu Bếp</span>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="justified-text">
+                        <h5 class="font-bold mb-2 text-[var(--accent-gold)]">Mẹo Chuyên Nghiệp</h5>
+                        <p class="text-sm">Không nên nấu thịt dê quá lâu trên lửa nhỏ sau khi cho cốt dừa vì thịt sẽ bị dai và cốt dừa dễ bị tách dầu làm món ăn trông mất thẩm mỹ.</p>
+                    </div>
+                    <div class="justified-text">
+                        <h5 class="font-bold mb-2 text-[var(--accent-gold)]">Sai Lầm Cần Tránh</h5>
+                        <p class="text-sm">Quên không chần thịt dê hoặc không khử mùi bằng gừng rượu sẽ khiến món ăn có mùi nồng, lấn át mùi thơm của sả và cà ri.</p>
+                    </div>
+                    <div class="justified-text">
+                        <h5 class="font-bold mb-2 text-[var(--accent-gold)]">Kỹ Thuật Độ Sánh</h5>
+                        <p class="text-sm">Nếu nước sốt quá lỏng, có thể dùng một chút bột năng hòa nước để điều chỉnh, nhưng tốt nhất là để nước cốt dừa tự cô đặc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 text-center italic">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 text-center">
+                    <h4 class="text-lg font-bold mb-4 uppercase tracking-tighter">Phiên bản ít béo</h4>
+                    <p class="justified-text text-sm">Thay nước cốt dừa bằng sữa tươi không đường hoặc sữa đậu nành để giảm hàm lượng chất béo bão hòa mà vẫn giữ được độ ngậy nhẹ nhàng.</p>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <h4 class="text-lg font-bold mb-4 uppercase tracking-tighter">Phiên bản thưởng thức</h4>
+                    <p class="justified-text text-sm">Nếu không ăn với cơm, có thể tăng lượng nước dùng để chấm bánh mì hoặc ăn kèm bún tươi, tạo nên một bữa tiệc vị giác phong phú.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid md:grid-cols-2 gap-12 pt-12 border-t border-[var(--accent-gold)] border-opacity-20 mb-20">
+            <section>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 justified-text text-sm text-gray-700">
+                    <p><strong class="text-[var(--primary-charcoal)]">Thịt dê:</strong> Nguồn đạm chất lượng cao, chứa nhiều sắt và ít chất béo hơn thịt bò nếu loại bỏ phần mỡ dưới da.</p>
+                    <p><strong class="text-[var(--primary-charcoal)]">Nước cốt dừa:</strong> Cung cấp chất béo thực vật giúp tạo năng lượng nhanh nhưng cần kiểm soát lượng dùng.</p>
+                    <p class="p-3 bg-white border-l-2 border-[var(--accent-gold)] font-italic">
+                        Tổng quan: Một khẩu phần cung cấp khoảng 350-450 calo, giàu protein và các khoáng chất như kẽm, kali.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 justified-text text-sm text-gray-700">
+                    <p>Chọn dĩa sâu lòng hoặc tộ đất để giữ nhiệt và tạo cảm giác ấm cúng. Múc thịt dê ra dĩa, rắc một nắm đậu phộng rang vàng lên trên cùng để tạo độ giòn.</p>
+                    <p>Đặt vài nhánh rau ngổ và ngò gai xanh mướt lên đỉnh. Thêm một bông hoa ớt cắt tỉa ở giữa để tạo điểm nhấn thị giác.</p>
+                    <p class="italic text-[var(--accent-red)] font-bold">
+                        Sự kết hợp giữa màu vàng của cà ri, xanh của rau và đỏ của ớt sẽ làm món ăn vô cùng bắt mắt.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Simple interactive flourish for the recipe steps
+        document.querySelectorAll('.group').forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                step.querySelector('.step-number').style.transform = 'scale(1.1) translateX(5px)';
+                step.querySelector('.step-number').style.transition = 'all 0.3s ease';
+            });
+            step.addEventListener('mouseleave', () => {
+                step.querySelector('.step-number').style.transform = 'scale(1) translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>
