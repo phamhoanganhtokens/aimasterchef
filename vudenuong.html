@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vú Dê Nướng Chao Sa Tế - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            position: relative;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+            z-index: 1;
+        }
+        .section-divider span {
+            position: relative;
+            z-index: 2;
+            background-color: #FCFAFA;
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            padding: 2rem;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .ingredient-item:hover {
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 max-w-6xl mx-auto text-center">
+        <div class="mb-4">
+            <span class="uppercase tracking-widest text-cinnabar font-bold text-sm">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="hero-title text-5xl md:text-7xl font-bold mb-2 text-charcoal">VÚ DÊ NƯỚNG CHAO SA TẾ</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gold mb-8">Grilled Goat Udder with Fermented Bean Curd & Sate</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 mt-8">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.5V4a2 2 0 1 1 4 0v9.5c0 1.22.97 2.18 2.2 2.2a2.15 2.15 0 0 0 2.18-2V4a2 2 0 1 1 4 0v9.5a6.5 6.5 0 1 1-13 0Z"></path><path d="M9 20h6"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold">60 - 90 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-sm">Đặc sản Việt Nam</span>
+            </div>
+        </div>
+
+        <p class="mt-8 italic text-gray-600 max-w-3xl mx-auto justified-text">
+            Món nướng đặc sản quen thuộc tại các quán nhậu bình dân và nhà hàng ẩm thực Việt Nam, nổi bật với sự giao thoa văn hóa dùng gia vị lên men (chao) và các loại rau thơm bản địa, tạo nên kết cấu giòn sần sật đặc trưng không thể nhầm lẫn.
+        </p>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-6 pb-20">
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-cinnabar">1.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 border-b border-gold/20 pb-1">Thành phần chính</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>500g vú dê (nầm dê) tươi.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 border-b border-gold/20 pb-1">Khử mùi</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item flex items-start gap-2 italic">
+                                    <span class="text-cinnabar">✦</span> <span>1 củ gừng đập dập, 2 thìa rượu trắng.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2 italic">
+                                    <span class="text-cinnabar">✦</span> <span>1 quả chanh & muối hạt.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 border-b border-gold/20 pb-1">Gia vị ướp</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>3 thìa canh chao trắng.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>2 thìa canh sa tế.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Sả, tỏi, hành tím băm.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Dầu mè & dầu màu điều.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Đường, bột ngọt, mè rang.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3 border-b border-gold/20 pb-1">Nước chấm & Đồ kèm</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span> <span>Chao, đường, chanh, sữa đặc.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2 italic">
+                                    <span class="text-cinnabar">✦</span> <span>Đậu bắp, cà tím, tía tô, húng quế.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2 italic">
+                                    <span class="text-cinnabar">✦</span> <span>Chuối xanh, khế chua.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span class="text-cinnabar">2.</span> Các bước thực hiện
+                </h3>
+                
+                <div class="space-y-10 relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-[15px] top-4 bottom-4 w-px bg-gold/20 hidden md:block"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border-2 border-gold flex items-center justify-center hidden md:flex z-10">
+                            <span class="text-xs font-bold text-gold">01</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h5 class="font-bold text-lg mb-2 text-cinnabar">Sơ chế và khử mùi <span class="text-xs font-normal text-gray-500 italic ml-2">5-10 phút</span></h5>
+                            <p class="justified-text text-gray-700">
+                                Rửa sạch vú dê với nước. Dùng muối hạt, nước cốt chanh và gừng giã nát chà xát kỹ trong 5 phút để loại bỏ mùi hôi đặc trưng của dê, sau đó xả thật sạch và thấm khô. 
+                                <span class="block mt-2 text-sm italic opacity-70">Mẹo tại nhà: Nếu không có rượu trắng, có thể dùng giấm gạo để thay thế.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border-2 border-gold flex items-center justify-center hidden md:flex z-10">
+                            <span class="text-xs font-bold text-gold">02</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h5 class="font-bold text-lg mb-2 text-cinnabar">Thái thịt <span class="text-xs font-normal text-gray-500 italic ml-2">10 phút</span></h5>
+                            <p class="justified-text text-gray-700">
+                                Lạng bỏ bớt mỡ thừa bên ngoài. Thái vú dê theo phương vát chéo (bias cut) với độ dày khoảng 0.5 - 0.7cm. Không thái quá mỏng để khi nướng không bị khô, cũng không quá dày để tránh dai.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border-2 border-gold flex items-center justify-center hidden md:flex z-10">
+                            <span class="text-xs font-bold text-gold">03</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h5 class="font-bold text-lg mb-2 text-cinnabar">Ướp gia vị <span class="text-xs font-normal text-gray-500 italic ml-2">45-60 phút nghỉ</span></h5>
+                            <p class="justified-text text-gray-700">
+                                Tán nhuyễn chao, trộn đều cùng sa tế, sả, tỏi, hành tím, dầu mè, dầu màu điều, đường và bột ngọt. Cho vú dê vào trộn đều, dùng tay bóp và massage nhẹ nhàng khoảng 3-5 phút. Thêm mè rang ở bước cuối. Bọc kín và để nghỉ trong ngăn mát tủ lạnh.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border-2 border-gold flex items-center justify-center hidden md:flex z-10">
+                            <span class="text-xs font-bold text-gold">04</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg border-cinnabar/20">
+                            <h5 class="font-bold text-lg mb-2 text-cinnabar text-cinnabar">Nướng thịt <span class="text-xs font-normal text-gray-500 italic ml-2">15-30 phút</span></h5>
+                            <div class="space-y-3 text-gray-700 text-sm md:text-base">
+                                <p class="justified-text"><strong>Truyền thống:</strong> Nướng trên than hoa đỏ rực. Lật đều tay liên tục để bề mặt sém vàng, tỏa mùi thơm sả chao.</p>
+                                <p class="justified-text"><strong>Hiện đại:</strong> Sử dụng nồi chiên không dầu ở mức nhiệt 190°C trong 10-12 phút. Lật mặt ở phút thứ 7.</p>
+                                <p class="justified-text italic opacity-80">Lưu ý: Nướng kèm đậu bắp cắt vát và cà tím thái lát tẩm chút dầu ăn.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative md:pl-12">
+                        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-parchment border-2 border-gold flex items-center justify-center hidden md:flex z-10">
+                            <span class="text-xs font-bold text-gold">05</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h5 class="font-bold text-lg mb-2 text-cinnabar">Pha nước chấm <span class="text-xs font-normal text-gray-500 italic ml-2">5 phút</span></h5>
+                            <p class="justified-text text-gray-700">
+                                Tán mịn chao, thêm đường, sữa đặc và nước cốt chanh khuấy đều tay cho đến khi hỗn hợp sệt và nổi bọt nhẹ. Thêm ớt tươi tùy khẩu vị. Đây là linh hồn giúp món ăn thêm béo ngậy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span>✧ ✦ ✧</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Chef’s Corner -->
+            <section class="pro-tip-box rounded-xl">
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M18 10a6 6 0 0 0-12 0c0 7 3 12 3 12h6s3-5 3-12Z"></path></svg>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 text-sm text-gray-700 italic">
+                    <li class="justified-text"><strong>Kiểm soát nhiệt độ:</strong> Vú dê cần nướng ở nhiệt độ cao và thời gian ngắn (hot and fast). Tránh nướng lâu sẽ làm vú dê dai nhách như cao su.</li>
+                    <li class="justified-text"><strong>Không ướp muối trực tiếp:</strong> Dùng chao đã đủ độ mặn và mang lại vị umami. Muối hạt làm vú dê bị tiết nước, mất đi kết cấu giòn.</li>
+                    <li class="justified-text"><strong>Mẹo dao thớt:</strong> Cấp đông vú dê trước khi thái 30 phút để miếng thịt săn lại, các lát cắt sẽ cực kỳ gọn gàng.</li>
+                </ul>
+            </section>
+
+            <!-- Variations -->
+            <section class="bg-charcoal text-parchment p-8 rounded-xl shadow-2xl">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                    4. Biến tấu & Phiên bản nâng cao
+                </h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-gold text-sm mb-1 uppercase tracking-wider">Phiên bản kinh tế</h5>
+                        <p class="text-sm justified-text opacity-90">Thay thế vú dê bằng vú heo (nầm lợn). Kết cấu tương đương đến 85% nhưng ít mùi hôi hơn, dễ sơ chế hơn.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-gold text-sm mb-1 uppercase tracking-wider">Hương vị vùng miền</h5>
+                        <p class="text-sm justified-text opacity-90">Ướp mẻ, riềng và mắm tôm theo kiểu Bắc truyền thống; hoặc dùng muối ớt xanh lá é để tăng vị cay the kích thích.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Technical Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/20">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="text-cinnabar">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-white p-6 rounded border border-gray-100 shadow-sm">
+                    <p class="justified-text text-sm text-gray-600 mb-4">
+                        Cung cấp lượng protein dồi dào, hàm lượng kẽm cao và collagen tự nhiên tốt cho da, sụn khớp. Năng lượng ước tính: <strong>~250-300 kcal/100g</strong>.
+                    </p>
+                    <div class="p-3 bg-red-50 text-xs italic text-cinnabar rounded">
+                        <strong>Lưu ý sức khỏe:</strong> Chứa tỷ lệ chất béo bão hòa và cholesterol cao. Nên ăn kèm thật nhiều rau thơm (tía tô, húng quế) để hỗ trợ tiêu hóa và cân bằng lượng mỡ.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="text-cinnabar">6.</span> Gợi ý trình bày
+                </h3>
+                <div class="space-y-3 text-sm text-gray-700 italic">
+                    <p class="justified-text">
+                        <strong>Bố cục mộc mạc (Rustic Plating):</strong> Sử dụng mẹt tre lót lá chuối tươi hoặc đĩa gốm mộc tông màu sẫm để làm nổi bật màu vàng ươm của thịt.
+                    </p>
+                    <p class="justified-text">
+                        Xếp vú dê nướng chóp cao ở trung tâm, rắc mè trắng rang và vài lát ớt sừng đỏ lên trên. Viền xung quanh bằng rau tía tô, húng quế, chuối xanh và khế chua tạo vòng tròn màu sắc tương phản.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scroll Interaction Script -->
+    <script>
+        // Simple micro-interaction for sections on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, main, aside').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
