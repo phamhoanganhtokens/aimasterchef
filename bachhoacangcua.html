@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bách Hoa Càng Cua - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--burnished-gold);
+            transform: translateY(-2px);
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--burnished-gold);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pro-tip-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 1rem;
+            color: var(--cinnabar-red);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--burnished-gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(even) {
+                border-right: none;
+            }
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid var(--cinnabar-red);
+            color: var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12 animate-fade-in">
+            <p class="text-sm tracking-[0.3em] uppercase mb-4 text-[#C5A059]">AI Vua Đầu Bếp • Gourmet Edition</p>
+            <h1 class="heading-font text-5xl md:text-7xl font-bold mb-2">BÁCH HOA CÀNG CUA</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-500 mb-8">Fried Crab Claws with Shrimp Mousse</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-[#C5A059] py-4 bg-white/30">
+                <div class="meta-item">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400">Độ Khó</span>
+                    <span class="font-bold">Trung bình - Khó</span>
+                </div>
+                <div class="meta-item">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400">Thời gian</span>
+                    <span class="font-bold">60 Phút</span>
+                </div>
+                <div class="meta-item">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400">Khẩu phần</span>
+                    <span class="font-bold">4 - 6 Người</span>
+                </div>
+                <div class="meta-item">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400">Phân loại</span>
+                    <span class="font-bold">Khai vị truyền thống</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Origin Section -->
+        <section class="mb-16">
+            <div class="max-w-3xl mx-auto italic justified-text text-gray-700 leading-relaxed px-4 border-l-2 border-[#E23D28] pl-6">
+                "Bách hoa" trong nghệ thuật ẩm thực Việt - Hoa truyền thống tượng trưng cho sự trăm hoa đua nở, thường dùng để chỉ phần mọc tôm thịt được quết nhuyễn, dẻo dai và ngọt thanh. Món "Bách hoa càng cua" là sự giao thoa hoàn hảo giữa phần thịt càng cua tươi nguyên bản và lớp chả tôm thịt (mọc) ôm trọn bên ngoài, sau đó đem chiên xù vàng ruộm. Đây là món khai vị sang trọng mang đậm linh hồn của các bữa tiệc cưới hỏi hay cỗ tiệc cổ truyền, tượng trưng cho sự sung túc và vẹn tròn.
+            </div>
+        </section>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Main Recipe Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Ingredients Column -->
+            <aside class="lg:col-span-4">
+                <h3 class="heading-font text-3xl font-bold mb-8 border-b-2 border-[#E23D28] pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-[#C5A059] uppercase text-xs tracking-widest mb-4">Hải sản & Thịt</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Càng cua tươi</span>
+                                <span class="font-bold">10-12 cái</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Tôm sú tươi</span>
+                                <span class="font-bold">300g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Giò sống</span>
+                                <span class="font-bold">150g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Mỡ heo (mỡ gáy)</span>
+                                <span class="font-bold">50g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-[#C5A059] uppercase text-xs tracking-widest mb-4">Lớp áo chiên xù</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Trứng gà</span>
+                                <span class="font-bold">2 quả</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Bột mì/chiên giòn</span>
+                                <span class="font-bold">50g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1">
+                                <span>Bột chiên xù Panko</span>
+                                <span class="font-bold">150g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-[#C5A059] uppercase text-xs tracking-widest mb-4">Gia vị & Khác</h4>
+                        <ul class="space-y-2 text-sm italic">
+                            <li>• Nước mắm ngon, tiêu sọ trắng</li>
+                            <li>• Bột nêm, đường cát</li>
+                            <li>• Nước cốt hành tím & tỏi</li>
+                            <li>• Dầu ăn (chiên ngập)</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Steps Column -->
+            <main class="lg:col-span-8">
+                <h3 class="heading-font text-3xl font-bold mb-8 border-b-2 border-[#E23D28] pb-2 inline-block">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="flex gap-6">
+                        <span class="step-number">01</span>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Sơ chế mỡ đường (Phương pháp truyền thống)</h4>
+                            <p class="justified-text text-gray-700">Luộc chín mỡ heo, thái hạt lựu thật nhỏ, trộn với 1/2 thìa cà phê đường và phơi gió 30 phút cho mỡ trong lại. Đây là linh hồn giúp phần bách hoa khi chín tươm mỡ, mềm mọng và không bị khô xát.</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold bg-[#F0EAD6] px-2 py-1 rounded">35 PHÚT</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <span class="step-number">02</span>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Làm mọc Bách Hoa</h4>
+                            <p class="justified-text text-gray-700">Để tôm sú trong ngăn đá tủ lạnh 20 phút trước khi làm. Xay nhấp nhả (pulse) tôm với gia vị cho đến khi nát nhuyễn vừa phải. Sau đó, trộn cùng giò sống và mỡ đường. Dùng muỗng quết mạnh tay liên tục trong 10-15 phút đến khi khối thịt kết dính, dẻo quánh và bóng mịn.</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold bg-[#F0EAD6] px-2 py-1 rounded">25 PHÚT</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <span class="step-number">03</span>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Tạo hình & Tẩm bột</h4>
+                            <p class="justified-text text-gray-700">Lấy mọc bọc kín phần thịt càng cua, chừa lại ngàm sụn. Nắn tròn như nụ hoa. Lăn qua bột mì, nhúng trứng và áo đều bột xù Panko. Nén nhẹ tay để lớp xù bám chắc.</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold bg-[#F0EAD6] px-2 py-1 rounded">15 PHÚT</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <span class="step-number">04</span>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Chiên nhiệt kép (Kỹ thuật Chuyên nghiệp)</h4>
+                            <p class="justified-text text-gray-700">Chiên lần 1 ở 160°C trong 3-4 phút cho chín đều. Sau đó, tăng nhiệt lên 180°C và chiên lần 2 trong 1 phút để lớp vỏ giòn rụm và ép bớt dầu thừa ra ngoài.</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold bg-[#F0EAD6] px-2 py-1 rounded">5 PHÚT</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="pro-tip-box bg-white/50">
+                <span class="pro-tip-tag">3. Mẹo hay từ Vua Đầu Bếp</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-[#E23D28] mb-2 underline decoration-gold underline-offset-4">Nhiệt độ Protein</h5>
+                        <p class="text-sm italic justified-text">Lỗi lớn nhất khiến mọc bị bở là nguyên liệu bị nóng lên trong lúc xay. Phải luôn giữ tôm thịt thật lạnh (dưới 5°C).</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-[#E23D28] mb-2 underline decoration-gold underline-offset-4">Xử lý độ ẩm</h5>
+                        <p class="text-sm italic justified-text">Tôm phải được thấm thật khô bằng khăn giấy. Dư nước sẽ phá vỡ kết cấu dẻo dai của chả.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-[#E23D28] mb-2 underline decoration-gold underline-offset-4">Nước cốt gia vị</h5>
+                        <p class="text-sm italic justified-text">Dùng nước cốt hành tỏi thay vì xác băm để vỏ mọc không xuất hiện lốm đốm đen cháy xém.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h3 class="heading-font text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex justify-center gap-4 mb-8">
+                <button onclick="showTab('home')" id="btn-home" class="tab-btn active px-6 py-2 uppercase tracking-widest text-xs font-bold transition-all">Gia Đình</button>
+                <button onclick="showTab('healthy')" id="btn-healthy" class="tab-btn px-6 py-2 uppercase tracking-widest text-xs font-bold transition-all">Sức Khỏe</button>
+            </div>
+            
+            <div id="tab-home" class="tab-content active glass-card p-8 rounded-lg max-w-2xl mx-auto">
+                <h4 class="font-bold mb-4 text-[#C5A059]">Dành cho người nội trợ bận rộn</h4>
+                <p class="justified-text text-gray-700 italic">Nếu không có mỡ heo luộc, có thể trộn 1 thìa canh sốt Mayonnaise vào mọc tôm thịt để tạo độ béo ẩm. Càng cua có thể thay thế bằng càng ghẹ để dễ tìm mua hơn.</p>
+            </div>
+
+            <div id="tab-healthy" class="tab-content glass-card p-8 rounded-lg max-w-2xl mx-auto">
+                <h4 class="font-bold mb-4 text-[#C5A059]">Phiên bản Lành mạnh (Healthy)</h4>
+                <p class="justified-text text-gray-700 italic">Áo bột xù xong, xịt một lớp dầu olive mỏng và nướng bằng Nồi chiên không dầu (Air Fryer) ở 180°C trong 12-15 phút. Thay giò sống bằng thịt ức gà xay nhuyễn để giảm tối đa chất béo bão hòa.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Footer Info -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div class="p-8 border border-gray-200">
+                <h3 class="heading-font text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3 text-[#E23D28]">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <div class="flex justify-between border-b pb-2">
+                        <span>Calo (mỗi chiếc)</span>
+                        <span class="font-bold">180 - 210 kcal</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-2">
+                        <span>Protein</span>
+                        <span class="font-bold">12g</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-2">
+                        <span>Chất béo</span>
+                        <span class="font-bold">10g</span>
+                    </div>
+                    <p class="justified-text mt-4 italic text-gray-500">
+                        Đánh giá: Món ăn dồi dào canxi và kẽm. Chỉ nên tiêu thụ 2-3 chiếc mỗi bữa, kết hợp cùng salad để cân bằng. Phiên bản nồi chiên không dầu giảm calo xuống còn ~130 kcal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-8 border border-gray-200">
+                <h3 class="heading-font text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3 text-[#E23D28]">6.</span> Gợi ý trình bày
+                </h3>
+                <ul class="space-y-4 text-sm italic justified-text">
+                    <li><strong class="text-[#C5A059] uppercase not-italic text-[10px]">Màu sắc:</strong> Lớp vỏ vàng ươm tương phản với màu đỏ cam của đuôi càng cua. Sử dụng đĩa gốm mộc màu tối (đen mờ, xám) để làm nổi bật món ăn.</li>
+                    <li><strong class="text-[#C5A059] uppercase not-italic text-[10px]">Bố cục:</strong> Xếp càng cua dựng đứng hoặc nghiêng nương tựa vào nhau để tạo độ cao (elevation). Trải một đường sốt xéo (tương xí muội) qua mặt đĩa.</li>
+                    <li><strong class="text-[#C5A059] uppercase not-italic text-[10px]">Hoàn thiện:</strong> Điểm xuyết microgreens, ớt sừng uốn cong và rắc một chút vỏ chanh vàng (lemon zest) để kích thích khứu giác.</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById('tab-' + tabId).classList.add('active');
+            // Add active class to button
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Add some scroll reveal animation logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, main, aside, footer').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
