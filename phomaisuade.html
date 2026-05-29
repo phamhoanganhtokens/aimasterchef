@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Phô Mai Sữa Dê Thủ Công</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldDark: '#967A3F',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+        }
+
+        .meta-card {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+                padding-bottom: 0.5rem;
+                padding-top: 0.5rem;
+            }
+            .meta-card:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-size: 1.5rem;
+            min-width: 2.5rem;
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            position: relative;
+        }
+
+        .ingredient-item {
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <div class="mb-4 text-cinnabar font-bold uppercase tracking-widest text-sm">AI Vua Đầu Bếp — Tạp Chí Ẩm Thực</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">Phô Mai Sữa Dê Thủ Công</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Artisanal Goat Cheese (Chèvre)</h2>
+        
+        <div class="max-w-4xl mx-auto border-t border-b border-gold py-6 my-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-gold text-xs uppercase tracking-wider mb-1">Mức độ</span>
+                    <span class="font-bold text-lg uppercase">Trung bình</span>
+                </div>
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-gold text-xs uppercase tracking-wider mb-1">Thời gian</span>
+                    <span class="font-bold text-lg uppercase">45 Phút + 24H Ủ</span>
+                </div>
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-gold text-xs uppercase tracking-wider mb-1">Khẩu phần</span>
+                    <span class="font-bold text-lg uppercase">4-6 Người</span>
+                </div>
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-gold text-xs uppercase tracking-wider mb-1">Nguồn gốc</span>
+                    <span class="font-bold text-lg uppercase">Địa Trung Hải</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto italic justified-text text-gray-700 text-lg px-4">
+            "Phô mai sữa dê, hay còn gọi là 'Chèvre' trong tiếng Pháp, có nguồn gốc từ khu vực Địa Trung Hải và Thung lũng Loire. Đây là một trong những loại phô mai lâu đời nhất thế giới, gắn liền với kỹ nghệ chăn nuôi dê truyền thống và phương pháp làm đông tụ tự nhiên."
+        </p>
+    </header>
+
+    <div class="section-divider max-w-2xl mx-auto">
+        <span class="ornament">◈ ★ ◈</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex items-start border-b border-gray-100 pb-2">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span>2 lít sữa dê tươi nguyên chất (chưa qua tiệt trùng UHT)</span>
+                            </li>
+                            <li class="ingredient-item flex items-start border-b border-gray-100 pb-2">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span>1 gói nhỏ men Mesophilic (Starter culture)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Chất gây đông</h4>
+                        <div class="bg-gray-50 p-4 rounded-sm border border-gray-200">
+                            <div class="mb-4">
+                                <p class="font-bold text-sm underline mb-1">Phương pháp truyền thống:</p>
+                                <p class="text-sm italic">1/4 muỗng cà phê men đông (Rennet) lỏng + 20ml nước cất.</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm underline mb-1">Phương pháp tại gia:</p>
+                                <p class="text-sm italic">60ml nước cốt chanh tươi hoặc giấm trắng (5% acid).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Gia vị & Dụng cụ</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex items-start border-b border-gray-100 pb-2">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span>1 muỗng cà phê muối biển mịn (không i-ốt)</span>
+                            </li>
+                            <li class="ingredient-item flex items-start border-b border-gray-100 pb-2">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span>Nhiệt kế nấu ăn, vải mùng mịn, nồi đáy dày.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="step-number">01</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Khử trùng dụng cụ</h4>
+                        <p class="justified-text text-gray-700">Luộc sôi tất cả dụng cụ (nồi, muỗng, vải mùng) trong 5 phút để loại bỏ vi khuẩn có hại. Đây là bước then chốt của một đầu bếp chuyên nghiệp để đảm bảo phô mai không bị hỏng trong quá trình ủ.</p>
+                        <span class="inline-block mt-2 text-xs font-bold bg-gold/10 text-goldDark px-2 py-1 rounded">5 PHÚT</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="step-number">02</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Làm nóng sữa</h4>
+                        <p class="justified-text text-gray-700">Đổ sữa dê vào nồi. Đun lửa nhỏ, khuấy nhẹ liên tục để tránh cháy đáy nồi. Nếu dùng Rennet: Đun đến 30-32°C. Nếu dùng Chanh/Giấm: Đun đến 82-85°C (gần sôi lăn tăn).</p>
+                        <span class="inline-block mt-2 text-xs font-bold bg-gold/10 text-goldDark px-2 py-1 rounded">10 PHÚT</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="step-number">03</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Lên men và Đông tụ</h4>
+                        <p class="justified-text text-gray-700">Tắt bếp. Cho nước cốt chanh (hoặc hỗn hợp Rennet) vào sữa. Khuấy nhẹ theo hình số 8 trong khoảng 30 giây. Đậy nắp, để yên. Với phương pháp dùng chanh, sữa sẽ kết tủa ngay. Với Rennet, cần ủ từ 12-15 giờ ở nhiệt độ phòng (22-25°C) cho đến khi hình thành khối đông (curd) tách rời khỏi nước whey trong suốt.</p>
+                        <span class="inline-block mt-2 text-xs font-bold bg-gold/10 text-goldDark px-2 py-1 rounded">12-15 GIỜ Ủ</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="step-number">04</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Tách nước sữa</h4>
+                        <p class="justified-text text-gray-700">Trải vải mùng lên một cái rây lớn đặt trên tô sâu lòng. Dùng muôi múc nhẹ nhàng các khối đông cho vào vải. Thao tác này đòi hỏi sự kiên nhẫn để tránh làm nát kết cấu protein vừa hình thành.</p>
+                        <span class="inline-block mt-2 text-xs font-bold bg-gold/10 text-goldDark px-2 py-1 rounded">10 PHÚT</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="step-number">05</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Treo ráo nước</h4>
+                        <p class="justified-text text-gray-700">Túm bốn góc vải mùng lại, buộc dây và treo lên cao để nước whey nhỏ ra tự nhiên. Treo 2-4 giờ cho phô mai mềm (spreadable). Treo 12-24 giờ trong ngăn mát tủ lạnh nếu muốn phô mai chắc hơn để tạo hình khối.</p>
+                        <span class="inline-block mt-2 text-xs font-bold bg-gold/10 text-goldDark px-2 py-1 rounded">4-24 GIỜ</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="step-number">06</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide">Hoàn thiện</h4>
+                        <p class="justified-text text-gray-700">Lấy phô mai ra khỏi vải, trộn đều với muối biển. Lúc này bạn có thể thêm thảo mộc khô hoặc tiêu tùy thích để làm phong phú hương vị.</p>
+                        <span class="inline-block mt-2 text-xs font-bold bg-gold/10 text-goldDark px-2 py-1 rounded">HOÀN TẤT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Insights Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <div class="pro-tip-box bg-white p-8 md:p-12">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white px-4 text-gold font-bold tracking-[0.3em] uppercase text-sm">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-4">
+                    <div class="text-cinnabar text-3xl mb-3">🌡</div>
+                    <h5 class="font-bold mb-2 uppercase text-sm tracking-widest">Kiểm soát nhiệt độ</h5>
+                    <p class="text-sm justified-text italic">Protein trong sữa dê rất nhạy cảm. Việc đun quá lửa sẽ khiến phô mai bị dai và có mùi khét. Luôn sử dụng nhiệt kế để đạt độ chính xác cao nhất.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-cinnabar text-3xl mb-3">👐</div>
+                    <h5 class="font-bold mb-2 uppercase text-sm tracking-widest">Thao tác nhẹ tay</h5>
+                    <p class="text-sm justified-text italic">Khi múc khối đông vào vải lọc, hãy thao tác thật nhẹ nhàng. Việc phá vỡ kết cấu quá mạnh sẽ khiến chất béo thất thoát, làm phô mai bị khô.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-cinnabar text-3xl mb-3">🥛</div>
+                    <h5 class="font-bold mb-2 uppercase text-sm tracking-widest">Chất lượng sữa</h5>
+                    <p class="text-sm justified-text italic">Sữa dê tươi từ trang trại sẽ cho hương vị thơm ngon nhất so với sữa đóng hộp công nghiệp. Chọn sữa không qua tiệt trùng UHT.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-charcoal text-white p-6 rounded-sm shadow-xl hover:-translate-y-2 transition-transform">
+                <span class="text-gold text-xs font-bold tracking-widest uppercase">Thảo mộc</span>
+                <h4 class="text-xl font-bold my-2">Herbed Chèvre</h4>
+                <p class="text-sm text-gray-300 justified-text">Trộn thêm tỏi băm, hẹ tây và kinh giới (oregano) băm nhỏ để tạo nên hương vị đồng quê Pháp đặc trưng.</p>
+            </div>
+            <div class="bg-charcoal text-white p-6 rounded-sm shadow-xl hover:-translate-y-2 transition-transform">
+                <span class="text-gold text-xs font-bold tracking-widest uppercase">Tráng miệng</span>
+                <h4 class="text-xl font-bold my-2">Honey & Walnut</h4>
+                <p class="text-sm text-gray-300 justified-text">Sự kết hợp ngọt ngào của mật ong rừng và hạt óc chó nghiền vụn, biến phô mai thành món tráng miệng thượng hạng.</p>
+            </div>
+            <div class="bg-charcoal text-white p-6 rounded-sm shadow-xl hover:-translate-y-2 transition-transform">
+                <span class="text-gold text-xs font-bold tracking-widest uppercase">Đẳng cấp</span>
+                <h4 class="text-xl font-bold my-2">Ash-coated</h4>
+                <p class="text-sm text-gray-300 justified-text">Phủ một lớp than hoạt tính thực phẩm bên ngoài lớp vỏ để hỗ trợ quá trình chín và tạo ngoại quan chuyên nghiệp theo phong cách Valençay.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-2xl mx-auto">
+        <span class="ornament">◈ ★ ◈</span>
+    </div>
+
+    <!-- Footer Information -->
+    <section class="max-w-6xl mx-auto px-6 mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-50 p-10">
+        <div>
+            <h3 class="text-2xl font-bold mb-6 border-b border-gold pb-2 uppercase tracking-wider">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between border-b border-gray-200 pb-1">
+                    <span class="font-bold">Năng lượng</span>
+                    <span>260-280 kcal / 100g</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-200 pb-1">
+                    <span class="font-bold">Protein</span>
+                    <span>15g (Dễ tiêu hóa)</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-200 pb-1">
+                    <span class="font-bold">Chất béo</span>
+                    <span>21g (Acid béo tốt)</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-200 pb-1">
+                    <span class="font-bold">Canxi</span>
+                    <span>15% DV</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">Lactose</span>
+                    <span class="italic">Thấp</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-bold mb-6 border-b border-gold pb-2 uppercase tracking-wider">6. Gợi ý trình bày</h3>
+            <ul class="space-y-4 text-sm justified-text">
+                <li>
+                    <strong class="text-cinnabar">Bày trí:</strong> Đặt khối phô mai lên thớt gỗ tự nhiên hoặc đĩa đá đen (slate). Dùng dao nhỏ chuyên dụng để bên cạnh.
+                </li>
+                <li>
+                    <strong class="text-cinnabar">Phụ kiện:</strong> Trang trí xung quanh bằng vài quả nho tươi, quả sung chín, hạt dẻ cười và một nhánh hương thảo tươi để tạo sự tương phản màu sắc.
+                </li>
+                <li>
+                    <strong class="text-cinnabar">Hoàn thiện:</strong> Rưới một chút dầu oliu nguyên chất lên bề mặt để tạo độ bóng và tăng cảm giác ngon miệng dưới ánh sáng đèn.
+                </li>
+                <li class="bg-gold/10 p-3 rounded italic">
+                    Phô mai sữa dê ngon nhất khi ăn kèm bánh mì baguette nướng giòn hoặc bánh quy mặn (crackers).
+                </li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>
