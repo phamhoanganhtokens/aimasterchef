@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cà Ri Dê - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .divider-ornament:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .divider-ornament:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #C5A059;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 border-b border-gold/20 max-w-6xl mx-auto text-center">
+        <div class="mb-4 text-cinnabar font-bold tracking-[0.2em] text-sm uppercase">Tạp chí Ẩm thực Kỹ thuật số</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">CÀ RI DÊ</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gold mb-8">Vietnamese Goat Curry</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:flex-row justify-center items-center gap-6 md:gap-12 py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Độ khó</span>
+                <span class="font-bold">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Thời gian</span>
+                <span class="font-bold">120 - 150 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Nguồn gốc</span>
+                <span class="font-bold">Việt Nam / Ấn Độ</span>
+            </div>
+        </div>
+
+        <p class="mt-8 max-w-3xl mx-auto italic justified-text text-gray-700 px-4">
+            Cà ri dê Việt Nam là sự giao thoa độc đáo giữa kỹ thuật dùng gia vị của người Ấn Độ và khẩu vị ưu tiên sự béo ngậy, ngọt thanh từ dừa của người miền Nam Việt Nam.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                        <span class="w-8 h-px bg-cinnabar"></span>
+                        1. Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div class="card-hover p-6 bg-white border-l-4 border-gold shadow-sm">
+                            <h4 class="font-bold uppercase text-xs tracking-widest text-cinnabar mb-4">Thành phần chính</h4>
+                            <ul class="space-y-2 justified-text">
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span>Thịt dê (đùi hoặc sườn)</span> <span>1kg</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span>Khoai môn/khoai tây</span> <span>300g</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span>Hành tây</span> <span>1 củ</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="card-hover p-6 bg-white border-l-4 border-gold shadow-sm">
+                            <h4 class="font-bold uppercase text-xs tracking-widest text-cinnabar mb-4">Gia vị & Sơ chế</h4>
+                            <ul class="space-y-2 justified-text text-sm">
+                                <li class="flex items-start gap-2 italic">Sơ chế: Gừng, rượu trắng, muối hạt.</li>
+                                <li class="flex items-start gap-2 italic">Ướp: Bột cà ri, dầu màu điều, sả băm, hành tím, tỏi, nước mắm, đường, hạt nêm.</li>
+                            </ul>
+                        </div>
+
+                        <div class="card-hover p-6 bg-white border-l-4 border-gold shadow-sm">
+                            <h4 class="font-bold uppercase text-xs tracking-widest text-cinnabar mb-4">Nước dùng</h4>
+                            <ul class="space-y-2 justified-text text-sm">
+                                <li class="flex justify-between"><span>Nước cốt dừa</span> <span>500ml</span></li>
+                                <li class="flex justify-between"><span>Nước dùng gà/dừa tươi</span> <span>1 lít</span></li>
+                                <li class="flex justify-between"><span>Sả cây đập dập</span> <span>4 cây</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="card-hover p-6 bg-white border-l-4 border-cinnabar shadow-sm">
+                            <h4 class="font-bold uppercase text-xs tracking-widest text-cinnabar mb-4">Ăn kèm</h4>
+                            <p class="text-sm italic">Bánh mì giòn, bún tươi hoặc cơm nóng. Chấm cùng muối ớt chanh hoặc chao.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                    <span class="w-8 h-px bg-cinnabar"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative pl-8 border-l border-gold/30">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold"></div>
+                        <div class="step-number">Bước 01</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Sơ chế và khử mùi</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed mb-2">
+                            Thịt dê sau khi thui qua lửa, cắt miếng vừa ăn, cần bóp kỹ với gừng giã nát và rượu trắng trong 10-15 phút, sau đó rửa sạch bằng nước ấm. Cách này loại bỏ hoàn toàn mùi "hăng" đặc trưng của dê.
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-widest italic">Thời gian: 15-20 phút</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-8 border-l border-gold/30">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold"></div>
+                        <div class="step-number">Bước 02</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Ướp thịt</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed mb-2">
+                            Ướp thịt với toàn bộ gia vị ướp trong ít nhất 45 phút để gia vị thấm sâu vào từng thớ thịt.
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-widest italic">Thời gian: 45 phút</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-8 border-l border-gold/30">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold"></div>
+                        <div class="step-number">Bước 03</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Chiên rau củ</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed mb-2">
+                            Khoai môn/khoai tây cắt khối vuông. Trước khi nấu, hãy chiên sơ mặt ngoài của khoai. Việc này giúp khoai không bị nát khi hầm lâu và tạo lớp vỏ bùi, thơm hơn.
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-widest italic">Thời gian: 10 phút</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-8 border-l border-gold/30">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold"></div>
+                        <div class="step-number">Bước 04</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Xào thịt và tạo hương</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed mb-2">
+                            Đun nóng dầu, phi thơm sả cây đập dập, hành, tỏi. Cho thịt dê đã ướp vào xào ở lửa lớn (searing) để khóa nước bên trong thịt, giúp thịt đậm đà và không bị khô.
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-widest italic">Kỹ thuật: Searing</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-8 border-l border-gold/30">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold"></div>
+                        <div class="step-number">Bước 05</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Hầm thịt</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed mb-2">
+                            Cho nước dừa tươi hoặc nước dùng gà vào ngập thịt. Nếu dùng nồi áp suất, hầm trong 20-30 phút. Nếu nấu nồi thường, hầm lửa nhỏ trong 60-80 phút cho đến khi thịt gần mềm. Sau đó cho khoai đã chiên vào hầm tiếp đến khi khoai chín mềm.
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-widest italic">Thời gian: 30-80 phút</span>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative pl-8 border-l border-gold/30">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold"></div>
+                        <div class="step-number">Bước 06</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Hoàn thiện</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed mb-2">
+                            Đổ nước cốt dừa nhất vào cuối cùng, khuấy nhẹ tay, nêm nếm lại cho vừa miệng (ngọt thanh, mặn dịu, béo ngậy) rồi tắt bếp ngay để giữ mùi thơm của dừa.
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-widest italic">Lưu ý: Không đun sôi quá lâu</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="divider-ornament">
+            <svg class="w-8 h-8 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
+            </svg>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chef's Corner -->
+                <div class="bg-[#F4F1EA] p-8 border-double border-4 border-gold relative">
+                    <h3 class="text-2xl font-bold mb-6 italic flex items-center gap-3">
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </h3>
+                    <ul class="space-y-4 justified-text">
+                        <li class="flex items-start gap-3">
+                            <span class="text-cinnabar font-bold">●</span>
+                            <span><strong>Kỹ thuật Deglazing:</strong> Sau khi xào thịt, dùng một ít rượu vang trắng tráng nhẹ nồi để lấy đi lớp tinh túy hòa vào nước dùng.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cinnabar font-bold">●</span>
+                            <span><strong>Độ sánh:</strong> Tán nhuyễn một vài miếng khoai môn chín vào nồi để nước cà ri sánh tự nhiên mà không cần bột năng.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cinnabar font-bold">●</span>
+                            <span><strong>Nhiệt độ:</strong> Không nấu sôi sùng sục sau khi đã cho nước cốt dừa để tránh tách lớp dầu dừa.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Variations -->
+                <div class="flex flex-col">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-4">
+                        4. Biến tấu & Phiên bản nâng cao
+                    </h3>
+                    <div class="flex gap-2 mb-4">
+                        <button onclick="switchTab('less-fat')" id="btn-less-fat" class="px-4 py-2 border border-gold bg-gold text-white text-sm font-bold uppercase tracking-tighter transition-all">Ít Béo</button>
+                        <button onclick="switchTab('indian')" id="btn-indian" class="px-4 py-2 border border-gold text-gold text-sm font-bold uppercase tracking-tighter transition-all">Kiểu Ấn</button>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border border-gold/20 flex-grow">
+                        <div id="tab-less-fat" class="tab-content active justified-text">
+                            <h4 class="font-bold mb-2">Phiên bản ít béo</h4>
+                            <p>Thay nước cốt dừa bằng sữa tươi không đường và thêm một ít sữa đặc để tạo độ ngọt béo nhẹ hơn, giảm lượng calo nhưng vẫn giữ được cấu trúc sánh mịn.</p>
+                        </div>
+                        <div id="tab-indian" class="tab-content justified-text">
+                            <h4 class="font-bold mb-2">Cà ri dê kiểu Ấn</h4>
+                            <p>Tăng cường thêm bột nghệ, đinh hương và quế. Sử dụng thêm hạt cumin và ngò rí nếu bạn thích vị cay nồng và mùi thơm mạnh mẽ đặc trưng của ẩm thực Nam Á.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider-ornament">
+            <svg class="w-8 h-8 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+            </svg>
+        </div>
+
+        <!-- Technical/Footer Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 py-12 border-t border-gold/20">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-cinnabar">
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 justified-text bg-white p-6 border-l-2 border-gold italic">
+                    <p>Thịt dê là loại thịt đỏ lành mạnh, ít chất béo và cholesterol hơn thịt bò/thịt heo nhưng giàu sắt và protein.</p>
+                    <p>Gia vị như nghệ, sả, gừng chứa nhiều chất chống oxy hóa, hỗ trợ tiêu hóa và chống viêm hiệu quả.</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 font-bold">
+                        Ước tính: 450 - 600 kcal / phần ăn
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-cinnabar">
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 justified-text">
+                    <p>Múc cà ri ra tô sâu lòng. Đặt những miếng thịt dê có lớp da vàng óng và khoai môn lên trên để thể hiện độ hấp dẫn của nguyên liệu.</p>
+                    <p><strong>Trang trí:</strong> Rưới một muỗng dầu cà ri đỏ thắm lên bề mặt, thêm vài lát ớt sừng, ngò rí và hành tây thái múi cau trắng muốt để tạo sự tương phản màu sắc (Vàng - Đỏ - Trắng - Xanh).</p>
+                    <p class="italic">Phục vụ kèm bánh mì nướng giòn và một chén chao pha tỏi ớt để kích thích vị giác tối đa.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Reset all buttons
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+                btn.classList.add('text-gold');
+            });
+            
+            // Show active tab
+            document.getElementById('tab-' + tabId).classList.add('active');
+            // Style active button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('bg-gold', 'text-white');
+            activeBtn.classList.remove('text-gold');
+        }
+    </script>
+</body>
+</html>
