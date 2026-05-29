@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Thịt Heo Luộc Cuốn Bánh Tráng Phơi Sương</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        /* Standardized requirement: Times New Roman for all body and headings */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .cinnabar { color: #E44D2E; }
+        .bg-cinnabar { background-color: #E44D2E; }
+        .border-gold { border-color: #D4AF37; }
+        .text-gold { color: #B8860B; }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: .5em; }
+        .section-divider:not(:empty)::after { margin-left: .5em; }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: #D4AF37;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -2rem;
+            width: 1px;
+            background-color: #D4AF37;
+        }
+
+        .timeline-step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            z-index: 10;
+        }
+
+        /* Custom spacing for the "premium" feel */
+        .container-wide {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HERO HEADER -->
+    <header class="py-12 md:py-20 border-b border-stone-200">
+        <div class="container-wide text-center">
+            <span class="uppercase tracking-[0.3em] text-xs text-stone-500 mb-4 block">Tinh Hoa Ẩm Thực Việt</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2">Thịt Heo Luộc Cuốn Bánh Tráng Phơi Sương Trảng Bàng</h1>
+            <h2 class="text-xl md:text-2xl italic text-stone-500 mb-10">Boiled Pork Wrapped in Trảng Bàng Dew-Soaked Rice Paper</h2>
+            
+            <!-- RECIPE META-BAR -->
+            <div class="grid grid-cols-2 md:flex md:justify-center gap-6 md:gap-12 border-y border-stone-100 py-6">
+                <div class="flex flex-col items-center">
+                    <span class="text-gold text-sm mb-1 uppercase tracking-widest">Độ khó</span>
+                    <span class="font-bold text-lg">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-gold text-sm mb-1 uppercase tracking-widest">Thời gian</span>
+                    <span class="font-bold text-lg">45 - 60 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-gold text-sm mb-1 uppercase tracking-widest">Khẩu phần</span>
+                    <span class="font-bold text-lg">4 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-gold text-sm mb-1 uppercase tracking-widest">Vùng miền</span>
+                    <span class="font-bold text-lg">Tây Ninh</span>
+                </div>
+            </div>
+
+            <p class="mt-10 max-w-3xl mx-auto italic text-lg justified-text px-4 text-stone-600 leading-relaxed">
+                "Đặc sản trứ danh của vùng đất Trảng Bàng, Tây Ninh. Sự kết hợp hoàn hảo giữa bánh tráng phơi sương dẻo dai tự nhiên, thịt heo luộc ngọt mềm và bản giao hưởng vị từ hơn 30 loại lá rau rừng mang dược tính đặc trưng của vùng Đông Nam Bộ."
+            </p>
+        </div>
+    </header>
+
+    <main class="container-wide py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- LEFT COLUMN: INGREDIENTS -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center">
+                        <span class="bg-cinnabar w-8 h-px mr-4"></span>
+                        1. Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold uppercase text-sm tracking-widest text-stone-400 mb-4">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-stone-100 pb-2 hover:translate-x-1 transition-transform cursor-default">
+                                    <span>Thịt heo (Ba chỉ/Chân giò)</span>
+                                    <span class="font-bold text-gold">600g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-stone-100 pb-2 hover:translate-x-1 transition-transform cursor-default">
+                                    <span>Bánh tráng phơi sương</span>
+                                    <span class="font-bold text-gold">2-3 xấp</span>
+                                </li>
+                                <li class="flex justify-between border-b border-stone-100 pb-2 hover:translate-x-1 transition-transform cursor-default">
+                                    <span>Rau rừng Tây Ninh</span>
+                                    <span class="font-bold text-gold">500g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold uppercase text-sm tracking-widest text-stone-400 mb-4">Rau củ ăn kèm</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-stone-100 pb-2">
+                                    <span>Dưa leo</span>
+                                    <span class="font-bold text-gold">2 trái</span>
+                                </li>
+                                <li class="flex justify-between border-b border-stone-100 pb-2">
+                                    <span>Khế chua</span>
+                                    <span class="font-bold text-gold">2 trái</span>
+                                </li>
+                                <li class="flex justify-between border-b border-stone-100 pb-2">
+                                    <span>Chuối chát</span>
+                                    <span class="font-bold text-gold">2 trái</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold uppercase text-sm tracking-widest text-stone-400 mb-4">Gia vị & Mắm nêm</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-gold mr-2">•</span>
+                                    <span>Gừng, hành tím, giấm trắng, muối</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold mr-2">•</span>
+                                    <span>Mắm nêm nguyên chất (250ml)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold mr-2">•</span>
+                                    <span>Thơm (dứa), tỏi, ớt, sả, đường, chanh</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT COLUMN: STEPS -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="bg-cinnabar w-8 h-px mr-4"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-4">
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="font-bold text-xl">Sơ chế và luộc thịt</h4>
+                            <span class="italic text-stone-400 text-sm">~ 25 phút</span>
+                        </div>
+                        <p class="justified-text text-stone-700">
+                            Rửa sạch thịt heo với nước muối loãng. Cho thịt vào nồi nước lạnh ngập mặt cùng gừng đập dập, hành tím nguyên củ, muối và giấm trắng. Luộc ở mức lửa vừa trong 20-25 phút. Kiểm tra bằng cách dùng đũa xiên qua thịt, nếu không trào nước hồng là thịt đã chín tới.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="font-bold text-xl">Làm lạnh và thái thịt</h4>
+                            <span class="italic text-stone-400 text-sm">~ 10 phút</span>
+                        </div>
+                        <p class="justified-text text-stone-700">
+                            Vớt thịt ra và ngâm ngay vào một âu nước đá lạnh trong 5 phút. Vớt ra, dùng khăn giấy thấm khô nước rồi dùng dao sắc thái thành các lát mỏng vừa ăn.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="font-bold text-xl">Chuẩn bị rau củ</h4>
+                            <span class="italic text-stone-400 text-sm">~ 15 phút</span>
+                        </div>
+                        <p class="justified-text text-stone-700">
+                            Nhặt và rửa sạch các loại rau rừng qua nhiều lần nước, ngâm nước muối loãng 10 phút, sau đó vẩy thật ráo. Chuối chát tước vỏ, khế chua gọt rìa, thái lát mỏng và ngâm ngay vào âu nước lọc pha chút cốt chanh để không bị thâm đen.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="font-bold text-xl">Pha mắm nêm đặc sản</h4>
+                            <span class="italic text-stone-400 text-sm">~ 10 phút</span>
+                        </div>
+                        <p class="justified-text text-stone-700">
+                            Thơm (dứa) băm thật nhuyễn. Làm nóng chảo, phi thơm sả băm và tỏi băm. Cho thơm vào xào nhẹ cùng đường để giảm vị gắt. Đổ mắm nêm vào đun sôi lăn tăn, khuấy đều cho hòa quyện rồi tắt bếp. Khi mắm nguội bớt, vắt thêm nước cốt chanh và cho ớt băm vào.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CHEF'S CORNER -->
+                <div class="mt-12 p-8 border-2 border-double border-gold bg-stone-50 rounded-sm relative">
+                    <div class="absolute -top-4 left-8 bg-white px-4 py-1 text-xs uppercase tracking-widest font-bold text-gold border border-gold">
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </div>
+                    <ul class="space-y-4 mt-2">
+                        <li class="justified-text">
+                            <strong class="text-cinnabar tracking-wide">Kỹ thuật luộc:</strong> Luộc thịt từ nước lạnh giúp thịt chín đều từ trong ra ngoài. Thêm giấm giúp mỡ heo trong và trắng hơn. Việc ngâm nước đá ngay sau khi luộc là bí quyết cốt lõi để phần bì (da) săn lại, giòn sần sật.
+                        </li>
+                        <li class="justified-text border-t border-stone-200 pt-4">
+                            <strong class="text-cinnabar tracking-wide">Xử lý mắm nêm:</strong> Việc xào chín dứa và nấu sôi mắm nêm không chỉ giúp làm dịu mùi mắm, tạo độ ngọt thanh tự nhiên mà còn đảm bảo an toàn vệ sinh.
+                        </li>
+                        <li class="justified-text border-t border-stone-200 pt-4">
+                            <strong class="text-cinnabar tracking-wide">Xử lý bánh tráng:</strong> Bánh tráng phơi sương rất dễ bị khô cứng khi gặp gió. Cần giữ nguyên trong bao nilon hoặc ủ dưới lá chuối, khi ăn đến đâu lấy ra đến đó.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">✦</span>
+        </div>
+
+        <!-- VARIATIONS SECTION -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-[0.2em]">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-lg text-center">
+                    <h5 class="font-bold text-cinnabar mb-3 uppercase text-xs tracking-widest">Thay thế rau</h5>
+                    <p class="text-sm justified-text">Sử dụng các loại rau vườn dễ kiếm như xà lách, tía tô, kinh giới, húng lủi, diếp cá, húng quế và đinh lăng nếu không tìm được rau rừng.</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg text-center border-gold bg-stone-50">
+                    <h5 class="font-bold text-cinnabar mb-3 uppercase text-xs tracking-widest">Nguyên liệu chính</h5>
+                    <p class="text-sm justified-text">Có thể đổi thịt ba chỉ thành tai heo luộc hoặc thịt bắp bò luộc để thay đổi kết cấu độ giòn và trải nghiệm vị giác.</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg text-center">
+                    <h5 class="font-bold text-cinnabar mb-3 uppercase text-xs tracking-widest">Nước chấm</h5>
+                    <p class="text-sm justified-text">Nếu không quen với mùi mắm nêm, hoàn toàn có thể thay bằng nước mắm tỏi ớt chua ngọt hoặc sốt tương đậu phộng xay nhuyễn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUTRITION & PRESENTATION -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-stone-900 text-stone-100 p-8 md:p-16">
+            <div>
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-stone-700 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-stone-400">Năng lượng</span>
+                        <span class="font-bold text-lg">400 - 450 kcal</span>
+                    </div>
+                    <p class="text-sm justified-text text-stone-300">
+                        Món ăn là một ví dụ tuyệt vời về dinh dưỡng cân bằng. Thịt heo cung cấp protein dồi dào. Điểm nhấn nằm ở rổ rau rừng: cung cấp lượng chất xơ khổng lồ giúp giảm hấp thụ cholesterol. Các loại lá như đọt xoài, quế vị chứa nhiều vitamin C và chất chống oxy hóa tự nhiên.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-stone-700 pb-2">6. Gợi ý trình bày</h3>
+                <ul class="text-sm space-y-4 justified-text text-stone-300">
+                    <li><strong class="text-stone-100">Cảm hứng:</strong> Sử dụng mẹt tre lót lá chuối xanh để tôn lên nét mộc mạc của ẩm thực Nam Bộ.</li>
+                    <li><strong class="text-stone-100">Bố cục:</strong> Sắp xếp rau rừng dọc theo viền mẹt, phân chia theo dải màu từ xanh nõn chuối đến xanh đậm để tạo chiều sâu thị giác.</li>
+                    <li><strong class="text-stone-100">Điểm nhấn:</strong> Xếp thịt heo xòe hình nan quạt ở trung tâm. Đặt chén mắm nêm vào góc mẹt, rắc thêm vài khoanh ớt đỏ tươi để tạo sự hấp dẫn.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <div class="py-12 flex justify-center items-center">
+        <div class="w-24 h-px bg-stone-200"></div>
+        <div class="mx-6 text-stone-400 italic text-sm">AI Vua Đầu Bếp • Premium Recipe Series</div>
+        <div class="w-24 h-px bg-stone-200"></div>
+    </div>
+
+</body>
+</html>
