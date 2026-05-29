@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bộ Ba Bánh Bò, Bánh Tiêu & Giò Cháo Quẩy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold-accent': '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .header-gradient {
+            background: linear-gradient(to bottom, rgba(44, 44, 44, 0.05), transparent);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #C5A059;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23D28;
+            border-bottom: 1px solid #E23D28;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-0 m-0 antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 text-center header-gradient">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-gold-accent font-bold tracking-widest uppercase text-sm mb-4 block">AI Vua Đầu Bếp • Premium Culinary Heritage</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 text-primary-charcoal">Bộ Ba Bánh Bò, Bánh Tiêu & Giò Cháo Quẩy</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-10">The Trio of Steamed Honeycomb Cake, Hollow Donuts & Fried Breadsticks</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="meta-grid flex flex-wrap justify-center items-center gap-8 py-6 border-y border-gold-accent/30 max-w-3xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Độ Khó</span>
+                    <span class="text-lg font-bold">Trung bình - Khó</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Thời Gian</span>
+                    <span class="text-lg font-bold">4 - 5 giờ</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Khẩu Phần</span>
+                    <span class="text-lg font-bold">6 - 8 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Xuất Xứ</span>
+                    <span class="text-lg font-bold">Hoa - Việt</span>
+                </div>
+            </div>
+
+            <p class="mt-8 max-w-2xl mx-auto italic justified-text text-gray-700 px-4">
+                "Sự giao thoa văn hóa ẩm thực Hoa - Việt, phổ biến trong thực đơn ăn sáng và quà chiều tại Việt Nam. Bánh tiêu kẹp bánh bò là một biến tấu độc đáo của người miền Nam, trong khi giò cháo quẩy là món ăn kèm kinh điển cho cháo và phở."
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-cinnabar">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <!-- Subgroup: Bánh Bò -->
+                    <div>
+                        <h4 class="text-gold-accent font-bold uppercase text-xs mb-3 border-b border-gold-accent/20 pb-1 italic">Bánh Bò Hấp (Truyền thống & Hiện đại)</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>200g bột gạo</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>50g bột năng</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>150ml nước cốt dừa đậm đặc</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>120g đường cát trắng</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>5g men khô (hoặc 50ml nước cơm rượu)</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>150ml nước dừa tươi</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>Muối, tinh chất lá dứa</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup: Bánh Tiêu -->
+                    <div>
+                        <h4 class="text-gold-accent font-bold uppercase text-xs mb-3 border-b border-gold-accent/20 pb-1 italic">Bánh Tiêu</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>250g bột mì đa dụng (số 11)</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>5g men khô</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>50g đường</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>150ml nước ấm (35-40°C)</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>20g mè trắng</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>1/2 mcf muối, 1/2 mcf bột nở</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Subgroup: Giò Cháo Quẩy -->
+                    <div>
+                        <h4 class="text-gold-accent font-bold uppercase text-xs mb-3 border-b border-gold-accent/20 pb-1 italic">Giò Cháo Quẩy</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-1 flex justify-between"><span>300g bột mì số 11</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>5g bột nở (baking powder)</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>3g muối, 5g đường</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>1 quả trứng gà (tùy chọn)</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>180ml - 200ml nước lã</span></li>
+                            <li class="ingredient-item py-1 flex justify-between"><span>1 lít dầu ăn (để chiên)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span class="text-cinnabar">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 pl-6">
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step">
+                        <div class="absolute -left-[1.85rem] top-0 bg-parchment p-1 border border-gold-accent rounded-full w-3 h-3"></div>
+                        <h5 class="text-lg font-bold text-cinnabar italic mb-2">Bước 1: Chuẩn bị bột Bánh Bò <span class="text-gray-400 font-normal ml-2 text-sm">| ~150 phút</span></h5>
+                        <p class="justified-text text-gray-800 leading-relaxed">
+                            Trộn bột gạo, bột năng, men khô và đường. Đổ nước dừa tươi vào nhào đều cho đến khi bột mịn. 
+                            <strong>Ủ bột lần 1</strong> trong khoảng 1.5 - 2 giờ ở nơi kín gió cho đến khi bột sủi tăm. 
+                            Đun nhẹ nước cốt dừa với đường cho tan (không sôi), để nguội rồi pha vào khối bột đã ủ. Thêm màu lá dứa nếu thích. 
+                            <strong>Ủ lần 2</strong> thêm 30 phút trước khi đem hấp trong xửng nước sôi mạnh khoảng 15-20 phút.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step">
+                        <div class="absolute -left-[1.85rem] top-0 bg-parchment p-1 border border-gold-accent rounded-full w-3 h-3"></div>
+                        <h5 class="text-lg font-bold text-cinnabar italic mb-2">Bước 2: Chế biến Bánh Tiêu <span class="text-gray-400 font-normal ml-2 text-sm">| ~90 phút</span></h5>
+                        <p class="justified-text text-gray-800 leading-relaxed">
+                            Hòa tan đường, men vào nước ấm. Trộn bột mì, muối, bột nở rồi đổ nước men vào nhào kỹ khoảng 10-15 phút cho đến khi bột không dính tay. 
+                            Ủ bột 1-2 giờ cho nở gấp đôi. Chia bột thành các viên nhỏ khoảng 30g, cán dẹt, nhúng qua mè trắng rồi cán nhẹ lại lần nữa để mè dính chặt.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step">
+                        <div class="absolute -left-[1.85rem] top-0 bg-parchment p-1 border border-gold-accent rounded-full w-3 h-3"></div>
+                        <h5 class="text-lg font-bold text-cinnabar italic mb-2">Bước 3: Chế biến Giò Cháo Quẩy <span class="text-gray-400 font-normal ml-2 text-sm">| ~60 phút</span></h5>
+                        <p class="justified-text text-gray-800 leading-relaxed">
+                            Trộn bột mì, bột nở, muối, đường. Thêm nước từ từ và nhào thành khối dẻo. 
+                            <span class="italic text-gold-accent font-bold underline">Mẹo chuyên nghiệp:</span> Để bột nghỉ 30 phút, sau đó nhào sơ lại. Lặp lại chu trình này 3 lần để thớ quẩy dai và rỗng ruột hoàn hảo. 
+                            Cán bột thành dải dài, dày 0.5cm, cắt miếng rộng 2cm. Chồng hai miếng lên nhau, dùng tăm ấn vào giữa để tạo rãnh dính.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step">
+                        <div class="absolute -left-[1.85rem] top-0 bg-parchment p-1 border border-gold-accent rounded-full w-3 h-3"></div>
+                        <h5 class="text-lg font-bold text-cinnabar italic mb-2">Bước 4: Kỹ thuật chiên đỉnh cao <span class="text-gray-400 font-normal ml-2 text-sm">| ~30 phút</span></h5>
+                        <p class="justified-text text-gray-800 leading-relaxed mb-4">
+                            Sử dụng chảo sâu lòng, lượng dầu phải ngập bánh để đảm bảo độ nở và giòn đều.
+                        </p>
+                        <ul class="space-y-3 pl-4">
+                            <li class="border-l-2 border-gold-accent/30 pl-4 py-1">
+                                <span class="font-bold">Bánh Tiêu:</span> Dầu nóng ~170°C. Thả bánh vào, dùng đũa xoay nhẹ và ép xuống mặt dầu liên tục để bánh nở phồng đều hai mặt.
+                            </li>
+                            <li class="border-l-2 border-gold-accent/30 pl-4 py-1">
+                                <span class="font-bold">Giò Cháo Quẩy:</span> Dầu nóng ~180°C - 190°C. Kéo nhẹ hai đầu quẩy rồi thả vào dầu. Dùng đũa lật liên tục để quẩy nở to và vàng giòn rụm.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">✦ ❦ ✦</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-12">
+            <div class="glass-card p-8 rounded-sm border-double border-4 border-gold-accent/40 relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 opacity-5">
+                    <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-6 text-primary-charcoal flex items-center gap-3">
+                    <span class="text-cinnabar">3.</span> Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="space-y-2">
+                        <span class="text-cinnabar font-bold uppercase text-[10px] tracking-widest">Nhiệt độ dầu</span>
+                        <p class="text-sm justified-text">Nếu dầu quá nguội, bánh sẽ ngấm dầu và chai; nếu quá nóng, vỏ bánh cháy nhưng bên trong chưa chín. Hãy thử bằng một miếng bột nhỏ, nếu bột nổi lên ngay và sủi bọt mạnh là đạt.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-cinnabar font-bold uppercase text-[10px] tracking-widest">Xử lý bột</span>
+                        <p class="text-sm justified-text">Đối với quẩy, tuyệt đối không nhào quá nhiều sau khi bột đã nghỉ lâu để tránh làm đứt các liên kết gluten, khiến quẩy bị cứng và không xốp.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-cinnabar font-bold uppercase text-[10px] tracking-widest">Bí quyết Rễ tre</span>
+                        <p class="text-sm justified-text">Home cook nên dùng men Instant để rút ngắn thời gian, nhưng để bánh bò có "rễ tre" đẹp, khâu ủ bột lần 2 với nước cốt dừa là bắt buộc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="text-cinnabar">4.</span> Biến tấu & Phiên bản nâng cao
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+                    <h5 class="font-bold text-gold-accent mb-2 italic">Bánh bò nướng</h5>
+                    <p class="text-sm justified-text">Thay vì hấp, đổ bột vào khuôn đã láng dầu nóng rồi nướng để có lớp vỏ cháy cạnh thơm lừng mùi nước cốt dừa và kết cấu dai hơn.</p>
+                </div>
+                <div class="p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+                    <h5 class="font-bold text-gold-accent mb-2 italic">Quẩy đường</h5>
+                    <p class="text-sm justified-text">Sau khi chiên, áo một lớp đường kết tinh bên ngoài quẩy. Một món ăn vặt tuổi thơ đầy hấp dẫn cho những người yêu thích vị ngọt.</p>
+                </div>
+                <div class="p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+                    <h5 class="font-bold text-gold-accent mb-2 italic">Bánh tiêu nhân đậu xanh</h5>
+                    <p class="text-sm justified-text">Thêm một viên nhân đậu xanh sên đường vào giữa khối bột bánh tiêu trước khi cán dẹt để tăng độ béo bùi cho món bánh.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Technical Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold-accent/20">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-cinnabar">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 text-sm justified-text">
+                    <p>Mỗi chiếc bánh tiêu hoặc quẩy trung bình chứa khoảng <strong>150-200 kcal</strong>, chủ yếu từ tinh bột và chất béo bão hòa.</p>
+                    <div class="bg-cinnabar/5 p-4 border-l-4 border-cinnabar">
+                        <span class="font-bold block mb-1">Lời khuyên dinh dưỡng:</span>
+                        Đây là nhóm thực phẩm có chỉ số đường huyết (GI) cao. Chỉ nên ăn từ 1-2 đơn vị bánh trong một lần. Nên kết hợp cùng trà nóng hoặc nước trái cây không đường để cân bằng vị giác.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-3">
+                    <span class="text-cinnabar">6.</span> Gợi ý trình bày
+                </h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex gap-2">
+                        <span class="text-gold-accent">◆</span>
+                        <p class="justified-text"><strong>Sắp xếp:</strong> Đặt quẩy theo hình nan quạt. Bánh tiêu cắt đôi, kẹp miếng bánh bò lá dứa xanh mướt vào giữa để tạo sự tương phản màu sắc.</p>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold-accent">◆</span>
+                        <p class="justified-text"><strong>Phụ kiện:</strong> Trình bày trên mẹt tre lót lá chuối dân dã. Rắc thêm mè rang hoặc dừa nạo sợi lên mặt bánh bò để tăng độ thẩm mỹ.</p>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold-accent">◆</span>
+                        <p class="justified-text"><strong>Tiếp thị:</strong> Nhấn mạnh độ "giòn tan" của quẩy, "phồng rộp" của bánh tiêu và "rễ tre dai mềm" của bánh bò khi giới thiệu.</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        // Smooth scroll or micro-interactions could go here
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.letterSpacing = '0.025em';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.letterSpacing = 'normal';
+            });
+        });
+    </script>
+</body>
+</html>
