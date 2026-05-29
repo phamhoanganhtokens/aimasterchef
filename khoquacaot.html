@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Khổ Qua Cà Ớt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                        'soft-gold': 'rgba(197, 160, 89, 0.1)',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .header-gradient {
+            background: linear-gradient(180deg, rgba(44, 44, 44, 0.05) 0%, rgba(252, 250, 250, 0) 100%);
+        }
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.4;
+        }
+        .ornament-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .ornament-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .chef-hat-icon {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .meta-card {
+            border-left: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .meta-card {
+                border-left: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+                padding: 0.5rem 0;
+            }
+        }
+
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: rgba(252, 250, 250, 0.8);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-active {
+            border-bottom: 3px solid #E23D28;
+            color: #E23D28;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.15);
+            padding: 0.5rem 0;
+        }
+        .ingredient-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 max-w-6xl mx-auto shadow-2xl my-4 md:my-10 bg-white">
+
+    <!-- Hero Header -->
+    <header class="text-center pt-8 pb-12 px-4 header-gradient border-b-2 border-double border-burnished-gold/20">
+        <p class="uppercase tracking-[0.3em] text-cinnabar-red font-bold text-sm mb-4">AI Vua Đầu Bếp • Premium Selection</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Khổ Qua Cà Ớt</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 font-normal mb-10">Stuffed Vegetables in Clear Broth (Chợ Lớn Style)</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto py-6 border-y border-burnished-gold/30">
+            <div class="meta-card">
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Độ khó</p>
+                <p class="font-bold text-lg">Trung bình</p>
+            </div>
+            <div class="meta-card">
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Thời gian</p>
+                <p class="font-bold text-lg">75 phút</p>
+            </div>
+            <div class="meta-card">
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Phục vụ</p>
+                <p class="font-bold text-lg">4 - 6 người</p>
+            </div>
+            <div class="meta-card border-r-0">
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Nguồn gốc</p>
+                <p class="font-bold text-lg italic">Chợ Lớn, TP.HCM</p>
+            </div>
+        </div>
+
+        <div class="mt-10 max-w-3xl mx-auto">
+            <p class="justified-text text-gray-700 italic leading-relaxed">
+                Món ăn đặc trưng của cộng đồng người Hoa tại khu vực Chợ Lớn. Tên gọi "khổ qua cà ớt" xuất phát từ sự liệt kê các nguyên liệu chính: khổ qua (mướp đắng), cà chua và ớt sừng. Món ăn này thể hiện rõ nét triết lý ẩm thực tận dụng nguyên liệu khéo léo, giao thoa văn hóa và mang ý nghĩa sung túc, trọn vẹn.
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament-divider">
+        <span class="chef-hat-icon">✦ ⚔ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Ingredients Column -->
+        <aside class="lg:col-span-4 space-y-10">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-cinnabar-red italic mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-burnished-gold rounded-full mr-2"></span>
+                            Phần chả cá nhồi
+                        </h4>
+                        <ul class="text-sm">
+                            <li class="ingredient-item flex justify-between"><span>500g cá thát lát nạo sẵn</span> <span class="text-gray-400">Main</span></li>
+                            <li class="ingredient-item flex justify-between"><span>100g mỡ lưng heo (thái hạt lựu)</span> <span class="text-gray-400">Fat</span></li>
+                            <li class="ingredient-item"><span>Gia vị: Nước mắm, tiêu sọ, dầu mè, hành tím, tỏi băm, bột bắp.</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar-red italic mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-burnished-gold rounded-full mr-2"></span>
+                            Phần rau củ
+                        </h4>
+                        <ul class="text-sm">
+                            <li class="ingredient-item flex justify-between"><span>2 trái khổ qua vừa</span> <span>•</span></li>
+                            <li class="ingredient-item flex justify-between"><span>3 trái cà chua cứng quả</span> <span>•</span></li>
+                            <li class="ingredient-item flex justify-between"><span>4-5 trái ớt sừng trâu</span> <span>•</span></li>
+                            <li class="ingredient-item flex justify-between"><span>5 trái đậu bắp</span> <span>•</span></li>
+                            <li class="ingredient-item flex justify-between"><span>2 miếng đậu hũ chiên</span> <span>•</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar-red italic mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-burnished-gold rounded-full mr-2"></span>
+                            Phần nước dùng
+                        </h4>
+                        <ul class="text-sm">
+                            <li class="ingredient-item flex justify-between"><span>1.5 lít nước dùng xương heo</span> <span class="text-gray-400">Base</span></li>
+                            <li class="ingredient-item flex justify-between"><span>20g tôm khô & khô mực nhỏ</span> <span class="text-gray-400">Aroma</span></li>
+                            <li class="ingredient-item"><span>Đường phèn, muối, hạt nêm.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef's Corner -->
+            <section class="pro-tip-box p-6 hover-lift">
+                <h3 class="text-xl font-bold mb-4 flex items-center text-burnished-gold">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 text-sm justified-text italic">
+                    <li><strong>Kỹ thuật giữ lạnh:</strong> Bí quyết cốt lõi để chả cá dai giòn là nguyên liệu phải luôn ở nhiệt độ lạnh (2-4°C). Ướp lạnh cá trước khi quết.</li>
+                    <li><strong>Lỗi cần tránh:</strong> Tuyệt đối không đậy nắp nồi khi nấu nước dùng để tránh bị đục và giữ màu xanh cho khổ qua.</li>
+                    <li><strong>Mẹo chống rơi nhân:</strong> Áo một lớp bột bắp bên trong rau củ sẽ tạo lớp hồ dán tự nhiên, giữ nhân không bị bung.</li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Steps Column -->
+        <article class="lg:col-span-8 space-y-12">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10 relative">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row gap-6 group">
+                        <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-burnished-gold font-bold text-xl text-burnished-gold group-hover:bg-burnished-gold group-hover:text-white transition-colors duration-300">1</div>
+                        <div class="flex-1">
+                            <h5 class="text-lg font-bold mb-2">Chuẩn bị rau củ (Sơ chế) <span class="text-xs font-normal text-gray-400 uppercase ml-2 tracking-widest">• 15 phút</span></h5>
+                            <p class="justified-text text-gray-700">Rửa sạch các loại quả. Khổ qua cắt khoanh dày 3cm, nạo sạch ruột. Cà chua cắt đôi, bỏ hạt. Ớt sừng xẻ dọc một đường, lấy sạch hạt. Đậu bắp chẻ đôi không đứt lìa. Đậu hũ cắt chéo thành hình tam giác, rạch ở giữa.</p>
+                            <div class="mt-3 p-3 bg-soft-gold border-l-4 border-burnished-gold text-xs italic">
+                                *Mẹo gia đình:* Ngâm khổ qua vào nước muối loãng 10 phút, sau đó trụng sơ qua nước sôi để giảm vị đắng và giữ màu xanh.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row gap-6 group">
+                        <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-burnished-gold font-bold text-xl text-burnished-gold group-hover:bg-burnished-gold group-hover:text-white transition-colors duration-300">2</div>
+                        <div class="flex-1">
+                            <h5 class="text-lg font-bold mb-2">Quết chả <span class="text-xs font-normal text-gray-400 uppercase ml-2 tracking-widest">• 20 phút</span></h5>
+                            <p class="justified-text text-gray-700">Cho cá thát lát, mỡ heo, bột bắp và gia vị vào tô lớn. <strong>Kỹ thuật chuyên nghiệp:</strong> Dùng muỗng quết và miết mạnh khối chả theo một chiều liên tục trong 15-20 phút. Thỉnh thoảng nhấc bổng khối chả lên đập mạnh xuống tô.</p>
+                            <div class="mt-3 text-xs text-gray-500 italic">
+                                *Giải pháp đơn giản:* Sử dụng máy xay thực phẩm nhấn nhả vài lần để chả quyện dính nhanh chóng.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row gap-6 group">
+                        <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-burnished-gold font-bold text-xl text-burnished-gold group-hover:bg-burnished-gold group-hover:text-white transition-colors duration-300">3</div>
+                        <div class="flex-1">
+                            <h5 class="text-lg font-bold mb-2">Nhồi nhân <span class="text-xs font-normal text-gray-400 uppercase ml-2 tracking-widest">• 10 phút</span></h5>
+                            <p class="justified-text text-gray-700">Thoa lớp mỏng bột bắp vào bên trong các loại rau củ. Dùng muỗng nhỏ nhồi chặt chả cá vào bên trong. Miết phần bề mặt chả cho láng mịn và hơi gồ lên thẩm mỹ.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row gap-6 group">
+                        <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-burnished-gold font-bold text-xl text-burnished-gold group-hover:bg-burnished-gold group-hover:text-white transition-colors duration-300">4</div>
+                        <div class="flex-1">
+                            <h5 class="text-lg font-bold mb-2">Áp chảo (Định hình) <span class="text-xs font-normal text-gray-400 uppercase ml-2 tracking-widest">• 5 phút</span></h5>
+                            <p class="justified-text text-gray-700">Đun nóng một ít dầu ăn, cho mặt có chả cá úp xuống áp chảo xém vàng. Bước này giúp chả cá thơm hơn và bám chặt vào rau củ, không bị rời ra khi nấu.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex flex-col md:flex-row gap-6 group">
+                        <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-burnished-gold font-bold text-xl text-burnished-gold group-hover:bg-burnished-gold group-hover:text-white transition-colors duration-300">5</div>
+                        <div class="flex-1">
+                            <h5 class="text-lg font-bold mb-2">Nấu nước dùng <span class="text-xs font-normal text-gray-400 uppercase ml-2 tracking-widest">• 25 phút</span></h5>
+                            <p class="justified-text text-gray-700">Nấu sôi nước hầm cùng tôm khô và khô mực nướng. Nêm muối và đường phèn. Cho lần lượt khổ qua vào nấu 10 phút, sau đó cho tiếp ớt, đậu bắp, cà chua và đậu hũ vào nấu thêm 10 phút trên lửa riu riu. Hớt bọt thường xuyên.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Variations -->
+            <section class="bg-gray-50 p-8 rounded-sm shadow-inner">
+                <h3 class="text-2xl font-bold mb-8 uppercase tracking-wider text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 border border-gray-200 hover-lift">
+                        <h4 class="font-bold text-cinnabar-red mb-3">Phiên bản sốt tương (Ăn khô)</h4>
+                        <p class="text-sm justified-text text-gray-600">Thay vì nấu canh, sau khi áp chảo chín, rim với hỗn hợp sốt dầu hào, tương đen, nước tương và đường. Thích hợp ăn cùng cơm nóng.</p>
+                    </div>
+                    <div class="bg-white p-5 border border-gray-200 hover-lift">
+                        <h4 class="font-bold text-cinnabar-red mb-3">Phiên bản tốc hành tại nhà</h4>
+                        <p class="text-sm justified-text text-gray-600">Mua chả cá tẩm ướp sẵn tại các sạp uy tín. Sử dụng nước dùng đóng hộp hoặc nước hầm gà pha sẵn để hoàn thành món ăn trong vòng 30 phút.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div class="ornament-divider">
+        <span class="chef-hat-icon">✦ ⚔ ✦</span>
+    </div>
+
+    <!-- Technical Info / Footer Area -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-12">
+        <!-- Nutrition -->
+        <section class="bg-culinary-charcoal text-white p-8 rounded-lg shadow-xl">
+            <h3 class="text-xl font-bold text-burnished-gold mb-6 flex items-center uppercase tracking-widest">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <span class="text-gray-400">Năng lượng</span>
+                    <span class="font-bold">250 - 300 kcal / phần</span>
+                </div>
+                <p class="text-sm text-gray-300 justified-text">
+                    Cá thát lát cung cấp protein nạc và Omega-3. Khổ qua chứa Charantin ổn định đường huyết, thanh nhiệt. Cà chua giàu Lycopene chống oxy hóa, trong khi ớt và đậu bắp cung cấp Vitamin C và chất xơ.
+                </p>
+                <p class="text-xs italic text-burnished-gold">
+                    Đánh giá: Món ăn cân bằng hoàn hảo giữa đạm động vật và vitamin thực vật, ít béo, tốt cho hệ tiêu hóa và tim mạch.
+                </p>
+            </div>
+        </section>
+
+        <!-- Presentation -->
+        <section class="p-8 border border-gray-200">
+            <h3 class="text-xl font-bold text-cinnabar-red mb-6 flex items-center uppercase tracking-widest">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-4 text-sm justified-text text-gray-700">
+                <p>Sử dụng thố đất nung hoặc tô sứ trắng sâu lòng để làm phông nền tôn lên sự tương phản màu sắc: xanh của khổ qua, đỏ của ớt và vàng nâu của đậu hũ.</p>
+                <p>Xếp rau củ xen kẽ, hướng mặt chả cá vàng ươm lên trên. Chan nước dùng xâm xấp 2/3 nguyên liệu. Rắc hành lá tước sợi và tiêu sọ lên đỉnh.</p>
+                <div class="p-4 bg-gray-50 border-l-2 border-cinnabar-red italic">
+                    Dọn kèm chén nước chấm tương đen (hoisin) pha tương ớt và sa tế để tạo điểm nhấn thị giác và kích thích vị giác.
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- Small Interaction Script -->
+    <script>
+        // Subtle interaction for ingredient items
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.color = '#E23D28';
+                item.style.paddingLeft = '5px';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.color = '#2C2C2C';
+                item.style.paddingLeft = '0';
+            });
+        });
+    </script>
+</body>
+</html>
