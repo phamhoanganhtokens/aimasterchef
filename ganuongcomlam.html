@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gà nướng cơm lam - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        accent: '#8B4513'
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+            margin: 3rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-divider::after {
+            content: '✧';
+            background: #FCFAFA;
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .gold-border {
+            border: 1.5px solid #C5A059;
+            padding: 2px;
+            display: inline-block;
+        }
+        .inner-border {
+            border: 1px solid #C5A059;
+            padding: 1rem;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            opacity: 0.15;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-weight: bold;
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16">
+        <div class="mb-4">
+            <span class="text-cinnabar tracking-[0.3em] uppercase text-sm font-bold">AI Vua Đầu Bếp — Tinh Hoa Ẩm Thực</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal">Gà Nướng Cơm Lam</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-8 font-serif">Roasted Hill Chicken with Bamboo-Cooked Sticky Rice</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold/30 py-6 gap-4">
+            <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Mức độ</span>
+                <span class="font-bold text-charcoal">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center md:border-r border-gold/20">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold text-charcoal text-center px-2">4-5.5 giờ</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gold/20">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <span class="font-bold text-charcoal">4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Xuất xứ</span>
+                <span class="font-bold text-charcoal">Tây Bắc & Tây Nguyên</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Origin Description -->
+    <section class="mb-16 max-w-4xl mx-auto italic justified-text text-gray-700 leading-relaxed px-6 border-l-2 border-cinnabar/30">
+        "Gà nướng cơm lam là linh hồn của núi rừng Tây Bắc và Tây Nguyên Việt Nam, gắn liền với văn hóa của đồng bào các dân tộc thiểu số như người Thái, Tày, Ê Đê. Cơm lam ban đầu là phương pháp nấu ăn dã chiến của người đi rừng, dùng ống nứa tươi để nấu chín gạo nếp bằng lửa than. Gà đồi nướng với các loại gia vị đặc trưng như mắc khén, hạt dổi mang đậm hương vị bản địa, tượng trưng cho sự trù phú của thiên nhiên và thường xuất hiện trong các dịp lễ hội hoặc thiết đãi khách quý."
+    </section>
+
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <div class="lg:col-span-5 space-y-10">
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <h2 class="text-3xl font-bold uppercase tracking-tighter text-charcoal">1. Nguyên liệu</h2>
+                    <div class="flex-grow h-[1px] bg-gold/50"></div>
+                </div>
+
+                <!-- Subgroup: Gà -->
+                <div class="mb-8 glass-card p-6 rounded-sm border-l-4 border-cinnabar">
+                    <h3 class="text-lg font-bold mb-4 text-accent border-b border-gold/20 pb-2 italic">Phần Gà nướng</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Gà ta thả đồi (1.2 - 1.5 kg)</span>
+                            <span class="font-bold italic">1 con</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Mắc khén (rang thơm, giã nhỏ)</span>
+                            <span class="font-bold italic">2 tsp</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Hạt dổi (nướng phồng, giã nhỏ)</span>
+                            <span class="font-bold italic">3-4 hạt</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Sả, Hành tím, Tỏi, Ớt tươi, Lá chanh</span>
+                            <span class="font-bold italic">Vừa đủ</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Mật ong rừng, Nước mắm, Muối hạt</span>
+                            <span class="font-bold italic">Vừa đủ</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Subgroup: Cơm lam -->
+                <div class="mb-8 glass-card p-6 rounded-sm border-l-4 border-gold">
+                    <h3 class="text-lg font-bold mb-4 text-accent border-b border-gold/20 pb-2 italic">Phần Cơm lam</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Gạo nếp nương/Nếp cái hoa vàng</span>
+                            <span class="font-bold italic">500g</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Ống nứa tươi (còn mắt đốt)</span>
+                            <span class="font-bold italic">4-5 ống</span>
+                        </li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-1">
+                            <span>Lá chuối non, Nước dừa tươi</span>
+                            <span class="font-bold italic">Vừa đủ</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Subgroup: Chẩm chéo -->
+                <div class="glass-card p-6 rounded-sm border-l-4 border-gray-400">
+                    <h3 class="text-lg font-bold mb-4 text-accent border-b border-gold/20 pb-2 italic">Phần Chẩm chéo</h3>
+                    <p class="text-sm justified-text italic">Gồm: Mắc khén, hạt dổi, muối hạt, ớt nướng, tỏi, rau mùi, lá chanh giã nhuyễn.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Steps -->
+        <div class="lg:col-span-7">
+            <section>
+                <div class="flex items-center gap-4 mb-8">
+                    <h2 class="text-3xl font-bold uppercase tracking-tighter text-charcoal">2. Các bước thực hiện</h2>
+                    <div class="flex-grow h-[1px] bg-gold/50"></div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div class="relative pl-12 pb-8 border-l border-gold/30">
+                        <span class="step-number">01</span>
+                        <div class="absolute -left-[5px] top-2 w-[10px] h-[10px] rounded-full bg-cinnabar"></div>
+                        <h4 class="font-bold text-lg mb-2 text-cinnabar italic">Chuẩn bị cơm lam <span class="text-gray-400 font-normal ml-2">— 6 giờ (ngâm)</span></h4>
+                        <p class="justified-text text-gray-700">Gạo nếp vo sạch, ngâm 4-6 tiếng. Vớt ra để ráo, xóc với chút muối. Cho gạo vào 80% ống nứa, thêm nước dừa xâm xấp mặt. Nút kín miệng ống bằng lá chuối.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-12 pb-8 border-l border-gold/30">
+                        <span class="step-number">02</span>
+                        <div class="absolute -left-[5px] top-2 w-[10px] h-[10px] rounded-full bg-cinnabar"></div>
+                        <h4 class="font-bold text-lg mb-2 text-cinnabar italic">Sơ chế và ướp gà <span class="text-gray-400 font-normal ml-2">— 2 giờ</span></h4>
+                        <p class="justified-text text-gray-700">Khía nhẹ phần đùi và ức gà. Xay nhuyễn sả, hành, tỏi, ớt rồi trộn với mắc khén, hạt dổi, muối, mắm, dầu ăn. Massage hỗn hợp lên gà, ướp ít nhất 2 giờ trong ngăn mát tủ lạnh.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-12 pb-8 border-l border-gold/30">
+                        <span class="step-number">03</span>
+                        <div class="absolute -left-[5px] top-2 w-[10px] h-[10px] rounded-full bg-cinnabar"></div>
+                        <h4 class="font-bold text-lg mb-2 text-cinnabar italic">Nướng cơm lam <span class="text-gray-400 font-normal ml-2">— 60 phút</span></h4>
+                        <p class="justified-text text-gray-700">Đặt ống nứa lên bếp than hồng, xoay đều liên tục. Khi vỏ nứa xém vàng, có mùi thơm nếp tỏa ra là chín. Gọt bỏ lớp vỏ cháy, giữ lại lớp màng lụa trắng.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-12 pb-8 border-l border-gold/30">
+                        <span class="step-number">04</span>
+                        <div class="absolute -left-[5px] top-2 w-[10px] h-[10px] rounded-full bg-cinnabar"></div>
+                        <h4 class="font-bold text-lg mb-2 text-cinnabar italic">Kỹ thuật nướng gà <span class="text-gray-400 font-normal ml-2">— 45-60 phút</span></h4>
+                        <div class="bg-white/50 p-4 border-l-2 border-accent mb-4">
+                            <p class="font-bold text-sm uppercase text-accent mb-2">Cách 1: Truyền thống</p>
+                            <p class="text-sm justified-text">Kẹp gà vào vỉ tre, nướng trên than hoa cách mặt lửa 15-20cm. Khi gà chín tới, quét mật ong pha loãng lên da và nướng thêm 5-10 phút để tạo màu đẹp.</p>
+                        </div>
+                        <div class="bg-white/50 p-4 border-l-2 border-accent">
+                            <p class="font-bold text-sm uppercase text-accent mb-2">Cách 2: Home Cook</p>
+                            <p class="text-sm justified-text">Bọc gà trong giấy bạc, nướng nồi chiên không dầu ở 180°C trong 30 phút. Sau đó mở giấy bạc, quét mật ong và nướng tiếp 200°C trong 10 phút cho da giòn.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-12 border-l border-gold/30">
+                        <span class="step-number">05</span>
+                        <div class="absolute -left-[5px] top-2 w-[10px] h-[10px] rounded-full bg-cinnabar"></div>
+                        <h4 class="font-bold text-lg mb-2 text-cinnabar italic">Hoàn thiện <span class="text-gray-400 font-normal ml-2">— 5 phút</span></h4>
+                        <p class="justified-text text-gray-700">Để gà nghỉ 5 phút trước khi chặt miếng. Cơm lam cắt khúc 5-7cm, dọn kèm chẩm chéo.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="section-divider"></div>
+
+    <!-- Special Insight Sections -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Chef's Corner -->
+        <div class="gold-border shadow-xl">
+            <div class="inner-border bg-[#F5F1E6]/50 h-full">
+                <h3 class="text-2xl font-bold mb-4 flex items-center gap-2 text-accent">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L4 9v12h16V9l-8-6zm0 14a3 3 0 110-6 3 3 0 010 6z"/></svg>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 text-gray-800 italic justified-text">
+                    <li class="flex gap-3">
+                        <span class="text-cinnabar font-bold">•</span>
+                        <span>Đừng ướp mật ong ngay từ đầu vì đường sẽ cháy khét trước khi thịt chín. Chỉ quét mật ong ở công đoạn cuối.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cinnabar font-bold">•</span>
+                        <span>Hạt dổi phải được nướng trực tiếp trên than hồng mới dậy mùi tinh dầu, không nên rang trên chảo.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-cinnabar font-bold">•</span>
+                        <span>Thời gian nghỉ (resting) sau khi nướng là tối quan trọng để giữ nước ngọt bên trong miếng thịt.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Variations -->
+        <div class="bg-charcoal text-parchment p-8 rounded-sm shadow-xl">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2 text-gold">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                4. Biến tấu & Phiên bản
+            </h3>
+            <div class="space-y-6">
+                <div class="border-l-2 border-gold/50 pl-4">
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-2">Gia đình hiện đại</h4>
+                    <p class="text-sm justified-text text-gray-300">Nếu không có ống nứa, có thể nấu xôi bằng nồi hấp, sau đó cuộn hình trụ và nướng áp chảo để tạo lớp vỏ giòn.</p>
+                </div>
+                <div class="border-l-2 border-gold/50 pl-4">
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-2">Thay thế gia vị</h4>
+                    <p class="text-sm justified-text text-gray-300">Có thể thay thế mắc khén, hạt dổi bằng công thức muối ớt sả và ngũ vị hương nếu không tìm được gia vị đặc sản vùng cao.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Info -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+        <div>
+            <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-cinnabar">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4 justified-text">
+                <p>Một khẩu phần cung cấp khoảng <span class="font-bold">650 - 750 kcal</span>, giàu protein từ thịt gà ít mỡ và carbohydrate phức hợp từ gạo nếp.</p>
+                <p class="text-sm italic text-gray-600">Chuyên gia dinh dưỡng khuyên nên ăn kèm nhiều rau rừng, dưa chuột hoặc rau thơm để bổ sung chất xơ và cân bằng tính nóng của món ăn.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-cinnabar">6. Gợi ý trình bày</h3>
+            <ul class="space-y-3 text-sm justified-text">
+                <li class="flex gap-2">
+                    <span class="text-gold">✦</span>
+                    <span>Trình bày trên mẹt tre lót lá chuối để tạo cảm giác mộc mạc, gần gũi với thiên nhiên.</span>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gold">✦</span>
+                    <span>Phết một lớp dầu mỏng lên da gà để tạo độ bóng. Chẻ dọc ống cơm lam để lộ phần lõi trắng dẻo.</span>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gold">✦</span>
+                    <span>Điểm xuyết ớt nướng và lá chanh thái chỉ. Sử dụng bát chén đất nung cho nước chấm để đồng bộ phong cách.</span>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="mt-20 text-center opacity-30 select-none">
+        <p class="text-xs uppercase tracking-[0.5em]">Authentic Heritage Selection</p>
+    </div>
+
+</body>
+</html>
+
