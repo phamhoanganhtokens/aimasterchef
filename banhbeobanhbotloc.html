@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh Bèo và Bánh Bột Lọc - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold-accent': '#C5A059',
+                        'deep-gold': '#9D7D3F',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #C5A059;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .ornament:not(:empty)::before { margin-right: 1rem; }
+        .ornament:not(:empty)::after { margin-left: 1rem; }
+
+        .recipe-step-number {
+            font-size: 2.5rem;
+            opacity: 0.15;
+            position: absolute;
+            left: -1rem;
+            top: -0.5rem;
+            font-weight: bold;
+        }
+
+        .tab-button.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 lg:p-24 max-w-7xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16">
+        <div class="inline-block border-y-2 border-gold-accent py-4 px-8 mb-6">
+            <span class="tracking-[0.3em] uppercase text-sm font-bold text-gold-accent">AI VUA ĐẦU BẾP PRESENTS</span>
+        </div>
+        <h1 class="hero-title text-5xl md:text-7xl font-bold mb-4 tracking-tight leading-tight uppercase">
+            Bánh Bèo & <br class="md:hidden"> Bánh Bột Lọc
+        </h1>
+        <p class="text-2xl md:text-3xl italic text-gray-600 mb-10">
+            The Quintessence of Hue Imperial Cuisine
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-gray-200 py-6 max-w-4xl mx-auto uppercase text-sm tracking-widest font-bold">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">Mức độ</span>
+                <span class="text-primary-charcoal">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">Thời gian</span>
+                <span class="text-primary-charcoal">120 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">Khẩu phần</span>
+                <span class="text-primary-charcoal">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">Nguồn gốc</span>
+                <span class="text-primary-charcoal">Cố đô Huế</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="ornament">✦</div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-12">
+            <section>
+                <h2 class="text-3xl font-bold mb-8 border-b-4 border-cinnabar inline-block pb-1 italic">1. Nguyên liệu</h2>
+                
+                <div class="space-y-8">
+                    <!-- Bánh Bèo -->
+                    <div class="glass-card p-6 rounded-sm shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 text-deep-gold flex items-center">
+                            <span class="mr-2">◈</span> Bánh Bèo
+                        </h3>
+                        <ul class="space-y-3 text-lg justified">
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> 200g bột gạo (loại ngon, cũ)</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> 30g bột năng</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> 600ml nước lọc (lạnh & sôi)</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> Nhân tôm chấy: 200g tôm, muối, tiêu, màu điều</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> Mỡ hành: Hành lá, dầu ăn</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> Tóp mỡ hoặc bánh mì chiên</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bánh Bột Lọc -->
+                    <div class="glass-card p-6 rounded-sm shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 text-deep-gold flex items-center">
+                            <span class="mr-2">◈</span> Bánh Bột Lọc
+                        </h3>
+                        <ul class="space-y-3 text-lg justified">
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> 400g bột năng</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> 250ml nước sôi già</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> Nhân: 200g tôm nhỏ, 150g thịt ba chỉ</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> Gia vị: Nước mắm, đường, tiêu, hành, tỏi, ớt</li>
+                            <li class="flex items-baseline"><span class="text-cinnabar mr-2">•</span> Lá chuối (đã chần nước sôi)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Nước Chấm -->
+                    <div class="glass-card p-6 rounded-sm shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 text-deep-gold flex items-center">
+                            <span class="mr-2">◈</span> Nước chấm
+                        </h3>
+                        <p class="text-lg justified italic">Nước mắm ngon, đường, nước cốt chanh, ớt sừng, nước luộc tôm.</p>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8 space-y-12">
+            <section>
+                <h2 class="text-3xl font-bold mb-8 border-b-4 border-cinnabar inline-block pb-1 italic">2. Các bước thực hiện</h2>
+                
+                <div class="space-y-12 relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-px bg-gold-accent opacity-20 hidden md:block"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative pl-0 md:pl-16 group">
+                        <div class="recipe-step-number text-gold-accent group-hover:opacity-30 transition-opacity">01</div>
+                        <h3 class="text-xl font-bold mb-3 uppercase tracking-wider text-primary-charcoal">Chuẩn bị nhân</h3>
+                        <div class="space-y-4 text-lg text-gray-700 justified">
+                            <p><strong class="text-cinnabar">Bánh Bèo:</strong> Tôm luộc chín, bóc vỏ, giã nhuyễn rồi sấy trên chảo nóng với chút dầu màu điều đến khi bông tơi (tôm chấy).</p>
+                            <p><strong class="text-cinnabar">Bánh Bột Lọc:</strong> Thịt ba chỉ thái hạt lựu, tôm cắt bỏ đầu. Rim thịt và tôm với nước mắm, đường, tiêu và hành tím băm đến khi săn cứng và thấm vị.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-0 md:pl-16 group">
+                        <div class="recipe-step-number text-gold-accent group-hover:opacity-30 transition-opacity">02</div>
+                        <h3 class="text-xl font-bold mb-3 uppercase tracking-wider text-primary-charcoal">Pha và hấp Bánh Bèo</h3>
+                        <div class="space-y-4 text-lg text-gray-700 justified">
+                            <p>Trộn bột gạo, bột năng và muối. Hòa tan với 300ml nước lạnh, sau đó cho 300ml nước sôi vào khuấy đều (kỹ thuật lấy trùng giúp bánh dai). Để bột nghỉ 30 phút.</p>
+                            <p>Thoa dầu vào chén nhỏ, xếp vào xửng hấp thật nóng. Đổ bột vào 1/3 chén, hấp lửa lớn trong 5-7 phút. Khi thấy bánh trắng đục, có xoáy sâu ở giữa là đạt.</p>
+                        </div>
+                        <div class="mt-2 italic text-sm text-gold-accent font-bold">Estimated time: 40 minutes</div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-0 md:pl-16 group">
+                        <div class="recipe-step-number text-gold-accent group-hover:opacity-30 transition-opacity">03</div>
+                        <h3 class="text-xl font-bold mb-3 uppercase tracking-wider text-primary-charcoal">Nhồi bột và gói Bánh Bột Lọc</h3>
+                        <div class="space-y-4 text-lg text-gray-700 justified">
+                            <p>Cho bột năng vào tô lớn, đổ nước sôi già từ từ vào giữa. Dùng thìa khuấy nhanh rồi đợi nguội bớt thì nhồi bằng tay đến khi bột mịn, không dính.</p>
+                            <p>Lấy một viên bột nhỏ, cán mỏng, cho 1 con tôm và 1 miếng thịt vào giữa. Gập đôi lại, ép chặt mép. Gói vào lá chuối đã thoa dầu.</p>
+                            <p>Hấp bánh trong khoảng 15-20 phút đến khi lá chuyển màu đậm và bột trở nên trong suốt.</p>
+                        </div>
+                        <div class="mt-2 italic text-sm text-gold-accent font-bold">Estimated time: 45 minutes</div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-0 md:pl-16 group">
+                        <div class="recipe-step-number text-gold-accent group-hover:opacity-30 transition-opacity">04</div>
+                        <h3 class="text-xl font-bold mb-3 uppercase tracking-wider text-primary-charcoal">Làm nước chấm</h3>
+                        <div class="text-lg text-gray-700 justified">
+                            <p>Pha nước mắm theo tỷ lệ: 1 mắm : 1 đường : 5 nước lọc (hoặc nước luộc tôm) : 1/2 chanh. Thêm ớt sừng thái mỏng. Nước mắm Huế phải thanh, ngọt dịu và cay nồng.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef's Corner -->
+            <section class="bg-[#F3EFE0] p-8 md:p-12 border-2 border-double border-gold-accent rounded-sm shadow-inner">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-primary-charcoal rounded-full flex items-center justify-center mr-4 shadow-lg">
+                        <span class="text-gold-accent text-2xl">👨‍🍳</span>
+                    </div>
+                    <h2 class="text-2xl font-bold italic tracking-tight">3. Mẹo hay từ Vua Đầu Bếp</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 text-lg justified">
+                    <div class="p-4 bg-white/50 border-l-4 border-cinnabar">
+                        <h4 class="font-bold mb-1 text-cinnabar uppercase text-sm">Kỹ thuật tạo xoáy</h4>
+                        <p>Chén phải thật nóng trước khi đổ bột và lửa phải duy trì ở mức cao nhất.</p>
+                    </div>
+                    <div class="p-4 bg-white/50 border-l-4 border-cinnabar">
+                        <h4 class="font-bold mb-1 text-cinnabar uppercase text-sm">Xử lý bột năng</h4>
+                        <p>Phải dùng nước sôi 100 độ C để lấy trùng bột lọc, nếu không bột sẽ bị chảy.</p>
+                    </div>
+                    <div class="p-4 bg-white/50 border-l-4 border-cinnabar">
+                        <h4 class="font-bold mb-1 text-cinnabar uppercase text-sm">Độ trong vắt</h4>
+                        <p>Sau khi hấp nên nhúng nhanh vào thau nước đun sôi để nguội rồi mới thoa mỡ hành.</p>
+                    </div>
+                    <div class="p-4 bg-white/50 border-l-4 border-cinnabar">
+                        <h4 class="font-bold mb-1 text-cinnabar uppercase text-sm">Lỗi cần tránh</h4>
+                        <p>Không pha quá nhiều bột năng vào bánh bèo vì sẽ làm bánh bị cứng khi nguội.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div class="ornament">✦</div>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 border-b-4 border-cinnabar inline-block pb-1 italic">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="border border-gold-accent/30 p-8 hover:bg-white transition-all duration-300 group cursor-default">
+                <h4 class="text-xl font-bold mb-4 group-hover:text-cinnabar transition-colors">Tiện lợi tại gia</h4>
+                <p class="justified opacity-80 italic">Có thể dùng bột bánh bèo/bột lọc pha sẵn tại siêu thị để tiết kiệm thời gian cân đo, phù hợp cho những bữa ăn nhanh nhưng vẫn giữ vị truyền thống.</p>
+            </div>
+            <div class="border border-gold-accent/30 p-8 bg-primary-charcoal text-white transform hover:-translate-y-2 transition-transform duration-300">
+                <h4 class="text-xl font-bold mb-4 text-gold-accent">Bánh bột lọc trần</h4>
+                <p class="justified opacity-90 italic">Thay vì gói lá, bạn luộc bánh trong nước sôi, khi bánh nổi lên thì vớt ra cho ngay vào bát mỡ hành. Nhanh gọn và khoe trọn được lớp nhân tôm thịt rực rỡ.</p>
+            </div>
+            <div class="border border-gold-accent/30 p-8 hover:bg-white transition-all duration-300 group cursor-default">
+                <h4 class="text-xl font-bold mb-4 group-hover:text-cinnabar transition-colors">Nhân chay thanh tịnh</h4>
+                <p class="justified opacity-80 italic">Thay tôm thịt bằng đậu xanh đồ chín, nấm mèo và đậu phụ băm nhỏ. Vẫn giữ được độ dai và hương vị đặc trưng của ẩm thực cung đình.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Info -->
+    <footer class="grid md:grid-cols-2 gap-12 bg-white p-10 border border-gray-100 shadow-xl mb-12">
+        <section>
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-px bg-cinnabar mr-3"></span> 5. Giá trị dinh dưỡng
+            </h2>
+            <div class="space-y-4 text-lg justified border-r border-gray-100 pr-8">
+                <p><span class="font-bold text-cinnabar">Ước tính:</span> Mỗi khẩu phần (5 chén bánh bèo + 3 cái bánh lọc) chứa khoảng <span class="bg-yellow-100 px-1">450-550 calo</span>.</p>
+                <p>Thành phần chủ yếu là Carbohydrate từ bột gạo/năng. Cần bổ sung nhiều rau sống hoặc đồ chua để tăng chất xơ và cân bằng vị giác tinh tế của món ăn.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-px bg-cinnabar mr-3"></span> 6. Gợi ý trình bày
+            </h2>
+            <div class="space-y-4 text-lg justified">
+                <p><span class="font-bold text-deep-gold">Bánh Bèo:</span> Xếp chén vào mẹt tre tròn. Rắc tôm chấy vào chính giữa xoáy bánh, rưới mỡ hành xanh mướt.</p>
+                <p><span class="font-bold text-deep-gold">Chụp ảnh:</span> Sử dụng ánh sáng tự nhiên, góc chụp flat lay (từ trên xuống). Đặt bát nước mắm có vài lát ớt đỏ ở tâm điểm để tạo sự thu hút thị giác mạnh mẽ.</p>
+            </div>
+        </section>
+    </footer>
+
+    <!-- No generic footer as per instructions -->
+
+</body>
+</html>
