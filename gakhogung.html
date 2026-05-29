@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Gà Kho Gừng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            font-size: 1.5rem;
+            color: #C5A059;
+        }
+        
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+        }
+
+        .meta-card {
+            border-right: 1px solid #eee;
+        }
+        @media (max-width: 768px) {
+            .meta-card { border-right: none; border-bottom: 1px solid #eee; }
+            .meta-card:last-child { border-bottom: none; }
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed #ddd;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .chef-box {
+            border: 2px double #C5A059;
+            background-color: rgba(252, 250, 250, 0.8);
+            position: relative;
+        }
+
+        .glass-tab {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Header / Hero Section -->
+    <header class="pt-16 pb-12 px-6 text-center max-w-5xl mx-auto">
+        <p class="uppercase tracking-[0.3em] text-cinnabar font-bold mb-4">AI Vua Đầu Bếp • Premium Collection</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">GÀ KHO GỪNG</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-10">Braised Chicken with Ginger</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-gold py-6 gap-4">
+            <div class="meta-card px-4">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">Độ khó / Difficulty</p>
+                <p class="text-lg font-bold">Dễ</p>
+            </div>
+            <div class="meta-card px-4">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">Thời gian / Time</p>
+                <p class="text-lg font-bold">45 - 60 phút</p>
+            </div>
+            <div class="meta-card px-4">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">Khẩu phần / Servings</p>
+                <p class="text-lg font-bold">3 - 4 người</p>
+            </div>
+            <div class="px-4">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">Phong cách / Style</p>
+                <p class="text-lg font-bold">Cơm gia đình Việt</p>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="mt-10 max-w-3xl mx-auto">
+            <p class="justified-text italic text-gray-700 leading-relaxed">
+                Gà kho gừng là món ăn cốt lõi trong mâm cơm gia đình Việt Nam, đặc biệt phổ biến tại các vùng nông thôn. Dựa trên triết lý âm dương ngũ hành trong ẩm thực, tính "hàn" của thịt gà được cân bằng hoàn hảo bởi tính "nhiệt" của gừng, tạo nên một món ăn không chỉ ngon miệng mà còn có tác dụng làm ấm cơ thể, tốt cho tiêu hóa.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider max-w-5xl mx-auto"><span class="ornament">◈</span></div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">1. Nguyên liệu</h3>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-gold font-bold uppercase tracking-wider mb-4">Thành phần chính</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between">
+                                <span>Thịt gà (Đùi/Cánh)</span>
+                                <span class="font-bold">600g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Gừng tươi (Gừng già)</span>
+                                <span class="font-bold">50g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Hành tím</span>
+                                <span class="font-bold">2 củ</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Tỏi</span>
+                                <span class="font-bold">2 củ</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-8">
+                        <h4 class="text-gold font-bold uppercase tracking-wider mb-4">Gia vị & Khác</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between">
+                                <span>Nước mắm (40 độ đạm)</span>
+                                <span>2 muỗng canh</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Đường cát/Thốt nốt</span>
+                                <span>1-2 muỗng</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Dầu ăn</span>
+                                <span>2 muỗng canh</span>
+                            </li>
+                            <li class="ingredient-item">Hạt nêm, Tiêu đen, Ớt hiểm</li>
+                            <li class="ingredient-item">Nước màu (Nước hàng)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10">
+                    <!-- Step 1 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center text-xl font-bold text-cinnabar">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Sơ chế & Khử mùi</h4>
+                            <p class="justified-text text-gray-700">Gà chặt miếng vừa ăn, xát muối và rượu trắng (hoặc gừng đập dập) để khử mùi tanh, sau đó rửa sạch, để ráo. Gừng chia làm hai: một nửa băm nhuyễn, một nửa thái sợi dài.</p>
+                            <span class="text-sm font-serif italic text-gold mt-2 block">Ước tính: 10 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center text-xl font-bold text-cinnabar">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase text-xs tracking-tighter text-gray-400">Home Cook Style</h4>
+                            <h4 class="text-xl font-bold mb-2">Ướp gia vị</h4>
+                            <p class="justified-text text-gray-700">Ướp gà với gừng băm, hành tỏi băm, 2 thìa nước mắm, 1 thìa đường, 1 thìa hạt nêm và tiêu trong ít nhất 20-30 phút để gia vị thấm sâu vào từng thớ thịt.</p>
+                            <span class="text-sm font-serif italic text-gold mt-2 block">Ước tính: 25 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center text-xl font-bold text-cinnabar">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase text-xs tracking-tighter text-gray-400">Professional Chef Technique</h4>
+                            <h4 class="text-xl font-bold mb-2">Kỹ thuật Caramel</h4>
+                            <p class="justified-text text-gray-700">Đun nóng dầu ăn, cho 1 muỗng đường vào khuấy đều tay trên lửa vừa cho đến khi đường tan và chuyển sang màu cánh gián đậm. Đây là bước quyết định màu sắc "hổ phách" sang trọng của món ăn.</p>
+                            <span class="text-sm font-serif italic text-gold mt-2 block">Ước tính: 5 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center text-xl font-bold text-cinnabar">4</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Kỹ thuật Áp chảo (Searing)</h4>
+                            <p class="justified-text text-gray-700">Cho gà đã ướp vào nồi nước màu, tăng lửa lớn. Đảo nhanh tay để thịt gà săn lại, khóa chặt nước bên trong, giúp miếng thịt không bị khô khi kho lâu.</p>
+                            <span class="text-sm font-serif italic text-gold mt-2 block">Ước tính: 5 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center text-xl font-bold text-cinnabar">5</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Kho chậm</h4>
+                            <p class="justified-text text-gray-700">Khi gà đã săn và lên màu đẹp, hạ lửa nhỏ (liu riu). Nếu thịt gà quá khô, thêm 1/2 chén nước lọc (hoặc nước dừa để tăng độ béo). Kho trong khoảng 15-20 phút cho đến khi nước sệt lại thành dạng sốt dẻo.</p>
+                            <span class="text-sm font-serif italic text-gold mt-2 block">Ước tính: 20 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center text-xl font-bold text-cinnabar">6</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Hoàn thiện</h4>
+                            <p class="justified-text text-gray-700">Cho phần gừng thái sợi và ớt hiểm vào đảo đều trong 2 phút cuối để giữ mùi thơm tươi mới của gừng và tạo độ cay nồng hậu vị.</p>
+                            <span class="text-sm font-serif italic text-gold mt-2 block">Ước tính: 2 phút</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"><span class="ornament">◈</span></div>
+
+        <!-- Chef's Corner -->
+        <section class="chef-box p-8 md:p-12 mb-16 shadow-xl">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-parchment px-6 py-2 border border-gold flex items-center">
+                <span class="text-gold mr-2">✦</span>
+                <h3 class="text-2xl font-bold uppercase tracking-widest">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <span class="text-gold ml-2">✦</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+                <div class="p-4">
+                    <h5 class="font-bold text-cinnabar mb-2 underline decoration-gold underline-offset-4">Tránh vị đắng</h5>
+                    <p class="text-sm justified-text italic">Khi thắng nước màu, nếu đường quá cháy sẽ gây đắng; nếu chưa tới màu, món ăn sẽ bị nhạt nhòa. Hãy tắt bếp ngay khi đường vừa chuyển màu cánh gián.</p>
+                </div>
+                <div class="p-4 border-l border-r border-gold border-opacity-30">
+                    <h5 class="font-bold text-cinnabar mb-2 underline decoration-gold underline-offset-4">Nhiệt độ</h5>
+                    <p class="text-sm justified-text italic">Không bao giờ cho nước lạnh vào khi gà đang sôi mạnh vì sẽ làm thịt bị bở và mất đi độ dai tự nhiên.</p>
+                </div>
+                <div class="p-4">
+                    <h5 class="font-bold text-cinnabar mb-2 underline decoration-gold underline-offset-4">Lựa chọn gà</h5>
+                    <p class="text-sm justified-text italic">Nếu dùng gà công nghiệp, nên chiên sơ gà trước khi kho để da không bị nát. Gà ta là lựa chọn tối ưu cho độ giòn và ngọt thịt.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-tab p-6 rounded-lg shadow-sm hover:shadow-md transition-all border-l-4 border-l-gold">
+                    <h4 class="font-bold text-lg mb-2">Gà kho gừng sả</h4>
+                    <p class="text-sm justified-text text-gray-600">Thêm sả băm để tăng hương thơm thảo mộc, tạo ra tầng hương vị đa dạng và nồng nàn hơn.</p>
+                </div>
+                <div class="glass-tab p-6 rounded-lg shadow-sm hover:shadow-md transition-all border-l-4 border-l-cinnabar">
+                    <h4 class="font-bold text-lg mb-2">Giải pháp nhanh</h4>
+                    <p class="text-sm justified-text text-gray-600">Nếu không có thời gian thắng đường, có thể thay thế bằng 1 muỗng cà phê hắc xì dầu để tạo màu sắc tương đương.</p>
+                </div>
+                <div class="glass-tab p-6 rounded-lg shadow-sm hover:shadow-md transition-all border-l-4 border-l-green-700">
+                    <h4 class="font-bold text-lg mb-2">Phiên bản thanh đạm</h4>
+                    <p class="text-sm justified-text text-gray-600">Thay đường bằng mật ong để có vị ngọt thanh và tốt cho sức khỏe hơn, giúp món ăn bóng bẩy tự nhiên.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span class="ornament">◈</span></div>
+
+        <!-- Nutrition & Presentation -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+            <div class="bg-gray-50 p-8 rounded-sm">
+                <h3 class="text-2xl font-bold mb-6 border-b border-gray-200 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-bold">Năng lượng</span>
+                        <span>~250-300 kcal/khẩu phần</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-bold">Chất đạm (Protein)</span>
+                        <span>Nguồn đạm dồi dào</span>
+                    </div>
+                    <div>
+                        <span class="font-bold block mb-2">Lợi ích sức khỏe:</span>
+                        <p class="text-sm justified-text italic text-gray-600">Chất Gingerol trong gừng giúp kháng viêm, giảm đầy hơi và tăng cường hệ miễn dịch. Người bị cao huyết áp nên điều chỉnh lượng natri phù hợp.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h3 class="text-2xl font-bold mb-6 border-b border-cinnabar pb-2 inline-block">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <p class="justified-text text-gray-700">
+                        <strong class="text-cinnabar">Rustic Look:</strong> Trình bày trong nồi đất hoặc bát sứ có tông màu trầm (nâu, đen) để làm nổi bật màu vàng óng của gà.
+                    </p>
+                    <p class="justified-text text-gray-700">
+                        <strong class="text-cinnabar">Styling:</strong> Xếp thịt gà gọn gàng, rưới nước sốt sánh quyện lên trên. Đặt gừng thái sợi thành cụm ở giữa, trang trí thêm vài cọng ngò rí và ớt cắt lát đỏ rực để tạo điểm nhấn thị giác mạnh mẽ. Một chút tiêu đen rắc đều lên bề mặt sẽ tạo cảm giác hấp dẫn và ấm áp.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="bg-charcoal text-parchment py-10 px-6 text-center">
+        <div class="max-w-xl mx-auto opacity-80">
+            <p class="text-sm uppercase tracking-widest mb-2 font-serif">Nâng tầm món ăn gia đình Việt</p>
+            <p class="italic text-xs font-serif">"Ẩm thực không chỉ là vị giác, mà còn là linh hồn của mỗi gia đình."</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth reveal animations for steps
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.flex.gap-6');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            steps.forEach(step => {
+                step.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700');
+                observer.observe(step);
+            });
+        });
+    </script>
+</body>
+</html>
