@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Tằm Bì Nem Nướng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .chef-card {
+            background-color: #fdfaf3;
+            border-left: 4px solid var(--burnished-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            color: var(--cinnabar-red);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .meta-card {
+            background: white;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .meta-card:hover {
+            border-color: var(--burnished-gold);
+            transform: translateY(-2px);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed #e0e0e0;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .ingredient-item:hover {
+            color: var(--cinnabar-red);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid var(--cinnabar-red);
+            color: var(--cinnabar-red);
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-8 text-center">
+        <div class="mb-4 text-xs tracking-[0.3em] uppercase text-gray-500 font-bold">Tinh Hoa Ẩm Thực Miền Tây</div>
+        <h1 class="hero-title heading-font text-5xl md:text-6xl font-bold mb-2 text-[#1a1a1a]">Bánh Tằm Bì Nem Nướng Nước Cốt Dừa</h1>
+        <p class="text-xl italic text-gray-600 heading-font mb-10">Silken Thick Rice Noodles with Grilled Pork & Creamy Coconut Sauce</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="meta-card p-4 rounded-sm flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
+                <span class="font-bold">Khó (Mỉ tỉ)</span>
+            </div>
+            <div class="meta-card p-4 rounded-sm flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold">120 - 150 phút</span>
+            </div>
+            <div class="meta-card p-4 rounded-sm flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <span class="font-bold">4 người ăn</span>
+            </div>
+            <div class="meta-card p-4 rounded-sm flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Xuất xứ</span>
+                <span class="font-bold text-center">Miền Tây Nam Bộ</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider max-w-6xl mx-auto px-6">
+        <span class="ornament">✦ ✧ ✦</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Ingredients Column -->
+        <aside class="lg:col-span-4">
+            <h2 class="heading-font text-3xl font-bold mb-8 border-b-2 border-[var(--cinnabar-red)] inline-block">1. Nguyên liệu</h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-sm text-[var(--burnished-gold)] mb-3">Thành phần chính</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Bánh tằm (se tay)</span> <span>1kg</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Nước cốt dừa đậm đặc</span> <span>400ml</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Thính gạo rang</span> <span>50g</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-sm text-[var(--burnished-gold)] mb-3">Phần Bì</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Thịt đùi heo/nạc lưng</span> <span>300g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Da heo</span> <span>200g</span></li>
+                        <li class="ingredient-item italic text-sm text-gray-500">Gia vị: Tỏi băm, muối, đường, mắm, rượu trắng</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-sm text-[var(--burnished-gold)] mb-3">Phần Nem Nướng</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Giò sống</span> <span>400g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Thịt nạc vai xay</span> <span>200g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Mỡ heo hạt lựu</span> <span>100g</span></li>
+                        <li class="ingredient-item italic text-sm text-gray-500">Gia vị: Sả, tỏi, hành tím, mật ong, màu điều, tiêu</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-sm text-[var(--burnished-gold)] mb-3">Đồ ăn kèm & Nước chấm</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item">Dưa leo băm, giá đỗ</li>
+                        <li class="ingredient-item">Rau thơm (húng quế, xà lách)</li>
+                        <li class="ingredient-item">Đồ chua (củ cải, cà rốt)</li>
+                        <li class="ingredient-item">Nước dừa tươi (pha mắm)</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Steps Column -->
+        <section class="lg:col-span-8">
+            <h2 class="heading-font text-3xl font-bold mb-8 border-b-2 border-[var(--cinnabar-red)] inline-block">2. Các bước thực hiện</h2>
+            
+            <div class="space-y-10">
+                <!-- Step 1 -->
+                <div class="flex gap-6">
+                    <div class="hidden sm:block">
+                        <span class="step-number">01.</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 heading-font text-[var(--cinnabar-red)]">Chế biến Bì Truyền thống <span class="text-sm font-normal italic text-gray-400 ml-2">30-40 phút</span></h4>
+                        <p class="justify-text text-gray-700">Luộc chín da heo với chút gừng và rượu trắng để khử mùi, sau đó lạng mỏng và thái sợi chỉ. Thịt heo ướp tỏi, nước mắm, đường rồi đem khìa (rim) với nước dừa cho đến khi vàng đều, để nguội và thái sợi. Trộn đều thịt, da heo với thính gạo và tỏi phi vàng.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6">
+                    <div class="hidden sm:block">
+                        <span class="step-number">02.</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 heading-font text-[var(--cinnabar-red)]">Kỹ thuật Quết & Nướng Nem <span class="text-sm font-normal italic text-gray-400 ml-2">45 phút</span></h4>
+                        <p class="justify-text text-gray-700">Trộn giò sống, thịt xay và mỡ hạt lựu. Quết hỗn hợp thật kỹ với sả, mật ong và gia vị cho đến khi đạt độ dẻo dính cao. Viên thịt vào que tre hoặc sả. <span class="italic text-[var(--burnished-gold)] font-semibold">Mẹo: Nướng bằng nồi chiên không dầu ở 180°C trong 15-20 phút, phết dầu màu điều và mật ong để màu sắc bắt mắt.</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6">
+                    <div class="hidden sm:block">
+                        <span class="step-number">03.</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 heading-font text-[var(--cinnabar-red)]">Nấu Nước Cốt Dừa Sánh Mịn <span class="text-sm font-normal italic text-gray-400 ml-2">15 phút</span></h4>
+                        <p class="justify-text text-gray-700">Cho nước cốt dừa vào nồi, thêm chút muối và đường (vị béo mặn đặc trưng miền Tây). Hòa tan bột năng với ít nước rồi cho vào để tạo độ sánh nhẹ. Khi nước cốt vừa sôi lăn tăn, cho hành lá vào và tắt bếp ngay để giữ màu xanh.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6">
+                    <div class="hidden sm:block">
+                        <span class="step-number">04.</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 heading-font text-[var(--cinnabar-red)]">Pha Nước Mắm Chua Ngọt <span class="text-sm font-normal italic text-gray-400 ml-2">10 phút</span></h4>
+                        <p class="justify-text text-gray-700">Áp dụng tỉ lệ vàng 1 nước mắm : 1 đường : 1 nước dừa tươi : 1/2 chanh. Khuấy tan hoàn toàn đường rồi mới cho tỏi ớt băm vào để tỏi ớt nổi lên trên mặt nước mắm vô cùng đẹp mắt.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 & 6 -->
+                <div class="flex gap-6">
+                    <div class="hidden sm:block">
+                        <span class="step-number">05.</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 heading-font text-[var(--cinnabar-red)]">Hoàn thiện & Trình bày</h4>
+                        <p class="justify-text text-gray-700">Hấp lại bánh tằm cho nóng mềm. Xếp rau thơm, giá và dưa leo xuống đáy tô. Cho bánh tằm lên trên, tiếp theo là bì, nem nướng và đồ chua. Rưới nước cốt dừa đặc sóng sánh lên trên cùng để các hương vị hòa quyện.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider max-w-6xl mx-auto px-6">
+        <span class="ornament">✺</span>
+    </div>
+
+    <!-- Chef's Corner & Variations -->
+    <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div class="chef-card p-8 relative">
+            <div class="absolute -top-4 left-8 bg-[var(--burnished-gold)] text-white px-4 py-1 text-xs uppercase tracking-widest font-bold">
+                Expert Insight
+            </div>
+            <h3 class="heading-font text-2xl font-bold mb-6 text-[var(--primary-charcoal)]">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="space-y-4">
+                <li class="flex gap-3">
+                    <span class="text-[var(--burnished-gold)]">◆</span>
+                    <p class="text-sm justify-text italic"><strong>Xử lý thịt:</strong> Thịt phải thật tươi và giữ lạnh trong suốt quá trình quết để nem không bị bở. Mỡ heo thái hạt lựu là "linh hồn" giúp nem có độ mướt, không khô.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-[var(--burnished-gold)]">◆</span>
+                    <p class="text-sm justify-text italic"><strong>Nước cốt:</strong> Tuyệt đối không đun sôi quá lâu làm nước cốt bị tách dầu, làm mất đi mùi thơm thanh tao tự nhiên của dừa.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-[var(--burnished-gold)]">◆</span>
+                    <p class="text-sm justify-text italic"><strong>Bì giòn:</strong> Thính gạo phải rang mới. Nếu da heo bị cứng, hãy bóp nhẹ với chút nước ấm trước khi trộn thính để đạt độ mềm dẻo.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-8 border border-gray-100 shadow-sm">
+            <h3 class="heading-font text-2xl font-bold mb-6">4. Biến tấu & Nâng cao</h3>
+            <div class="flex border-b border-gray-200 mb-6">
+                <button onclick="showTab('domestic')" id="btn-domestic" class="tab-btn active px-4 py-2 text-sm font-bold uppercase tracking-widest">Nội trợ</button>
+                <button onclick="showTab('healthy')" id="btn-healthy" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-widest">Healthy</button>
+            </div>
+            
+            <div id="domestic" class="tab-content active animate-in fade-in duration-500">
+                <p class="justify-text text-gray-600 mb-4 italic">Dành cho những ngày bận rộn nhưng vẫn muốn thưởng thức hương vị quê nhà.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Thay bánh tằm bằng sợi bún bò loại lớn (dễ tìm mua).</li>
+                    <li>Sử dụng bì làm sẵn tại các sạp giò chả để tiết kiệm 40 phút sơ chế.</li>
+                </ul>
+            </div>
+
+            <div id="healthy" class="tab-content animate-in fade-in duration-500">
+                <p class="justify-text text-gray-600 mb-4 italic">Phiên bản nhẹ nhàng hơn cho sức khỏe mà không mất đi bản sắc.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Thay mỡ heo trong nem bằng nấm mèo thái nhỏ để giảm chất béo bão hòa.</li>
+                    <li>Sử dụng đường ăn kiêng hoặc mật ong nguyên chất để pha nước mắm.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition & Presentation -->
+    <div class="bg-[#f2efeb] py-16">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="heading-font text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-8 h-[2px] bg-[var(--cinnabar-red)]"></span>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <p class="justify-text text-gray-700 mb-6">Món ăn là sự kết hợp hoàn hảo của các nhóm chất: Carbohydrate từ bánh tằm, Protein dồi dào trong nem và bì, Lipid béo ngậy từ nước cốt dừa cùng Vitamin và chất xơ từ rau sống phong phú.</p>
+                <div class="bg-white/50 p-4 rounded border-l-4 border-[var(--cinnabar-red)] italic text-sm">
+                    <strong>Lưu ý từ chuyên gia:</strong> Nước cốt dừa chứa nhiều chất béo bão hòa. Người có vấn đề về mỡ máu nên tiết chế lượng nước cốt. Hãy ưu tiên ăn kèm thật nhiều rau xanh để trung hòa độ béo.
+                </div>
+            </div>
+
+            <div>
+                <h3 class="heading-font text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-8 h-[2px] bg-[var(--cinnabar-red)]"></span>
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-[var(--burnished-gold)] text-white text-[10px] p-1 mt-1 font-bold">STYLING</div>
+                        <p class="text-sm justify-text italic">Sử dụng tô sứ trắng lòng sâu để làm nổi bật sự tương phản: màu vàng của nem, màu trắng ngà của nước cốt dừa và màu xanh tươi của rau.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-[var(--burnished-gold)] text-white text-[10px] p-1 mt-1 font-bold">GARNISH</div>
+                        <p class="text-sm justify-text italic">Đặt nem nướng ở vị trí trung tâm, rắc đậu phộng rang giã dập và hành phi lên trên nước cốt dừa để tạo điểm nhấn thị giác và độ giòn tan khi thưởng thức.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active state from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show target tab and activate button
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
