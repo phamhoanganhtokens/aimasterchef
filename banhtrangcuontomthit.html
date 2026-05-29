@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Tráng Cuốn Tôm Thịt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .premium-justify {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .heading-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--burnished-gold);
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .divider:not(:empty)::before { margin-right: 1.5rem; }
+        .divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .meta-card {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        .pro-tip-box {
+            border: 2px double var(--burnished-gold);
+            position: relative;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            border-bottom-color: var(--cinnabar-red);
+        }
+
+        .step-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--burnished-gold);
+            opacity: 0.6;
+        }
+
+        .tab-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
+            .meta-card:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- HERO HEADER -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="mb-4">
+            <span class="heading-font text-xs tracking-[0.3em] text-[var(--burnished-gold)] uppercase">Tinh Hoa Ẩm Thực Việt</span>
+        </div>
+        <h1 class="heading-font text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Bánh Tráng Cuốn Tôm Thịt</h1>
+        <p class="text-xl italic text-gray-600 mb-10">Vietnamese Fresh Spring Rolls (Gỏi Cuốn)</p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white py-8 px-4 rounded-sm shadow-sm border border-stone-100">
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500 font-bold">Thời Gian</span>
+                <span class="font-bold text-lg">45 - 60 Phút</span>
+            </div>
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500 font-bold">Khẩu Phần</span>
+                <span class="font-bold text-lg">4 Người Ăn</span>
+            </div>
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500 font-bold">Mức Độ</span>
+                <span class="font-bold text-lg">Trung Bình</span>
+            </div>
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </span>
+                <span class="uppercase text-[10px] tracking-widest text-gray-500 font-bold">Nguồn Gốc</span>
+                <span class="font-bold text-lg">Miền Nam</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto">
+            <p class="premium-justify italic text-stone-600 leading-relaxed">
+                "Món ăn dân dã đặc trưng của ẩm thực Việt Nam, phổ biến nhất tại miền Nam với tên gọi Gỏi cuốn, tượng trưng cho sự tinh tế trong cách kết hợp nguyên liệu tươi sống."
+            </p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- LEFT COLUMN: INGREDIENTS -->
+            <section class="lg:col-span-4">
+                <h2 class="heading-font text-2xl mb-8 flex items-center gap-3">
+                    <span class="text-[var(--cinnabar-red)]">1.</span> Nguyên liệu
+                </h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="heading-font text-sm uppercase tracking-widest text-[var(--burnished-gold)] mb-4">Thành phần chính</h3>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex justify-between py-1"><span>Thịt ba chỉ / chân giò</span><span class="font-bold italic">400g</span></li>
+                            <li class="ingredient-item flex justify-between py-1"><span>Tôm sú tươi (30-40 con/kg)</span><span class="font-bold italic">400g</span></li>
+                            <li class="ingredient-item flex justify-between py-1"><span>Bún tươi sợi nhỏ</span><span class="font-bold italic">500g</span></li>
+                            <li class="ingredient-item flex justify-between py-1"><span>Bánh tráng dẻo Long An</span><span class="font-bold italic">1 xấp</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="heading-font text-sm uppercase tracking-widest text-[var(--burnished-gold)] mb-4">Rau sống & Thảo mộc</h3>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item py-1">Xà lách, húng quế, húng lủi</li>
+                            <li class="ingredient-item py-1">Tía tô, kinh giới, giá đỗ</li>
+                            <li class="ingredient-item py-1">Lá hẹ tươi (nguyên cọng)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="heading-font text-sm uppercase tracking-widest text-[var(--burnished-gold)] mb-4">Gia vị & Nước chấm</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="ingredient-item py-1">Gừng, hành tím, muối, rượu trắng, giấm</li>
+                            <li class="ingredient-item py-1">Nước mắm, đường, chanh/tắc, tỏi, ớt</li>
+                            <li class="ingredient-item py-1 italic text-gray-500 text-xs">Tùy chọn: Tương đen, đậu phộng, gan heo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CHEF'S CORNER IN LEFT COLUMN ON DESKTOP -->
+                <div class="pro-tip-box p-6 mt-12">
+                    <h3 class="heading-font text-lg mb-4 text-[var(--cinnabar-red)] border-b border-[var(--burnished-gold)] pb-2 inline-block">3. Mẹo từ Vua Đầu Bếp</h3>
+                    <div class="space-y-4 text-sm premium-justify">
+                        <div>
+                            <strong class="text-[var(--burnished-gold)]">Kỹ thuật luộc:</strong>
+                            <p>Cho thịt vào từ nước lạnh giúp thịt chín đều từ trong ra ngoài. Ngâm nước đá ngay sau khi chín là bước bắt buộc để giữ độ giòn và màu sắc.</p>
+                        </div>
+                        <div>
+                            <strong class="text-[var(--burnished-gold)]">Chọn bánh tráng:</strong>
+                            <p>Nên chọn loại bánh tráng phơi sương có độ dẻo cao, tránh các loại quá giòn sẽ bị vỡ vụn khi thao tác cuốn.</p>
+                        </div>
+                        <div>
+                            <strong class="text-[var(--burnished-gold)]">Lưu ý quan trọng:</strong>
+                            <p>Rau sống phải vẩy thật ráo nước. Nước dư thừa từ rau là nguyên nhân chính khiến bánh tráng bị rách sau khi cuốn xong.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: STEPS -->
+            <section class="lg:col-span-8">
+                <h2 class="heading-font text-2xl mb-12 flex items-center gap-3">
+                    <span class="text-[var(--cinnabar-red)]">2.</span> Các bước thực hiện
+                </h2>
+
+                <div class="space-y-12 relative border-l border-stone-200 ml-4 pl-10">
+                    <div class="relative">
+                        <span class="absolute -left-16 top-0 step-number">01</span>
+                        <h4 class="heading-font text-lg font-bold mb-2">Sơ chế thảo mộc & Nguyên liệu</h4>
+                        <p class="premium-justify text-gray-700">
+                            Rau sống nhặt kỹ từng lá, ngâm nước muối loãng trong 10 phút, sau đó vẩy thật ráo nước. Hẹ rửa sạch, cắt khúc dài vừa phải. Tôm rửa sạch, dùng tăm rút chỉ lưng để loại bỏ tạp chất.
+                        </p>
+                        <span class="inline-block mt-2 text-[10px] uppercase font-bold tracking-widest text-[var(--burnished-gold)]">10 phút</span>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-16 top-0 step-number">02</span>
+                        <h4 class="heading-font text-lg font-bold mb-2">Nghệ thuật luộc thịt chuẩn vị</h4>
+                        <p class="premium-justify text-gray-700">
+                            Cho thịt vào nồi nước lạnh cùng hành tím đập dập, gừng và 1 thìa cà phê muối. Luộc chín tới (khoảng 20-25 phút). Vớt ra ngâm ngay vào bát nước đá lạnh có pha chút giấm để da trắng giòn. Sau đó thái lát mỏng bản to để khi cuốn nhìn đẹp mắt hơn.
+                        </p>
+                        <span class="inline-block mt-2 text-[10px] uppercase font-bold tracking-widest text-[var(--burnished-gold)]">25 phút</span>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-16 top-0 step-number">03</span>
+                        <h4 class="heading-font text-lg font-bold mb-2">Chế biến tôm sú</h4>
+                        <p class="premium-justify text-gray-700">
+                            Dùng chính nước luộc thịt, thêm một chút rượu trắng để khử tanh. Luộc tôm nhanh trong 3-5 phút đến khi chuyển màu đỏ cam đậm. Vớt ra ngâm nước đá, lột vỏ, bỏ đầu, sau đó dùng dao sắc xẻ đôi theo chiều dọc cơ thể tôm.
+                        </p>
+                        <span class="inline-block mt-2 text-[10px] uppercase font-bold tracking-widest text-[var(--burnished-gold)]">5 phút</span>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-16 top-0 step-number">04</span>
+                        <h4 class="heading-font text-lg font-bold mb-2">Pha chế nước chấm "Tỷ lệ Vàng"</h4>
+                        <p class="premium-justify text-gray-700">
+                            Hòa tan theo tỷ lệ: 1 nước mắm : 1 đường : 1 nước cốt chanh : 5 nước lọc. Lưu ý quan trọng: khuấy tan đường hoàn toàn trước khi cho tỏi và ớt băm vào. Cách này giúp tỏi ớt nổi lên mặt nước chấm, tạo hiệu ứng thị giác cực kỳ chuyên nghiệp.
+                        </p>
+                        <span class="inline-block mt-2 text-[10px] uppercase font-bold tracking-widest text-[var(--burnished-gold)]">5 phút</span>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-16 top-0 step-number">05</span>
+                        <h4 class="heading-font text-lg font-bold mb-2">Kỹ thuật cuốn chuyên nghiệp</h4>
+                        <p class="premium-justify text-gray-700">
+                            Trải bánh tráng lên mặt phẳng, thoa nhẹ lớp nước mỏng. Xếp xà lách xuống dưới, tiếp theo là bún, rau thơm và thịt heo. Cuốn một vòng cho chặt tay, sau đó xếp 3 con tôm (mặt đỏ úp xuống dưới bánh tráng) và lá hẹ ló ra ngoài. Tiếp tục cuộn tròn đến hết để tôm hiện ra rõ nét sau lớp bánh trong suốt.
+                        </p>
+                        <span class="inline-block mt-2 text-[10px] uppercase font-bold tracking-widest text-[var(--burnished-gold)]">15 phút</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="divider">
+            <span class="ornament">◈ ✦ ◈</span>
+        </div>
+
+        <!-- VARIATIONS SECTION -->
+        <section class="mb-16">
+            <h2 class="heading-font text-2xl mb-8 flex items-center gap-3">
+                <span class="text-[var(--cinnabar-red)]">4.</span> Biến tấu & Nâng cao
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="tab-card p-6 border border-stone-200 bg-white rounded-sm">
+                    <h5 class="heading-font font-bold mb-3 text-[var(--burnished-gold)]">Gỏi cuốn Chay</h5>
+                    <p class="text-sm premium-justify">Thay thế tôm thịt bằng đậu hũ chiên vàng thái sợi, nấm đùi gà xào sơ và giò lụa chay. Sử dụng nước chấm tương đậu phộng để tăng độ béo bùi.</p>
+                </div>
+                <div class="tab-card p-6 border border-stone-200 bg-white rounded-sm">
+                    <h5 class="heading-font font-bold mb-3 text-[var(--burnished-gold)]">Phong vị Miền Trung</h5>
+                    <p class="text-sm premium-justify">Ăn kèm với đồ chua từ đu đủ và cà rốt bào sợi ngâm giấm đường. Đặc biệt phải sử dụng nước mắm nêm đậm đà xay cùng dứa (thơm).</p>
+                </div>
+                <div class="tab-card p-6 border border-stone-200 bg-white rounded-sm">
+                    <h5 class="heading-font font-bold mb-3 text-[var(--burnished-gold)]">Chế độ Keto / Healthy</h5>
+                    <p class="text-sm premium-justify">Sử dụng bánh tráng gạo lứt hoặc bánh tráng làm từ củ mài. Có thể thay thế bún bằng các loại rau mầm hoặc cuộn hoàn toàn bằng rau xà lách khổ lớn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER INFO -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-stone-100 p-8 md:p-12 border-t-4 border-[var(--burnished-gold)]">
+            <div>
+                <h3 class="heading-font text-xl mb-6 border-b border-stone-300 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 premium-justify text-sm text-stone-700">
+                    <p>Món ăn này được coi là "tỷ lệ vàng" trong dinh dưỡng nhờ sự cân bằng tuyệt đối giữa chất đạm thực động vật và chất xơ dồi dào từ rau xanh nhiệt đới.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-[var(--cinnabar-red)] rounded-full"></span> Giàu Vitamin A, C và khoáng chất hỗ trợ tiêu hóa.</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-[var(--cinnabar-red)] rounded-full"></span> Hàm lượng calorie thấp: <strong>50-70 kcal/cuốn</strong>.</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-[var(--cinnabar-red)] rounded-full"></span> Phù hợp tuyệt vời cho chế độ ăn kiêng và giữ dáng.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h3 class="heading-font text-xl mb-6 border-b border-stone-300 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 premium-justify text-sm text-stone-700">
+                    <p><strong>Sắp đặt:</strong> Xếp các cuốn bánh lên mẹt tre lót lá chuối tươi. Bố trí theo hình vòng cung hoặc xếp chồng so le để tạo chiều sâu cho bức ảnh.</p>
+                    <p><strong>Hiệu ứng thị giác:</strong> Lớp bánh tráng phải đủ trong suốt để lộ rõ màu đỏ rực của tôm, màu xanh mướt của lá hẹ và màu trắng tinh khôi của thịt luộc.</p>
+                    <p><strong>Điểm nhấn:</strong> Đặt bát nước chấm ở trung tâm, trang trí bằng vài lát ớt tỉa hoa và đậu phộng giã dập để tăng phần sinh động.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- INTERACTIVE HOVER SCRIPT -->
+    <script>
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.color = 'var(--cinnabar-red)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.color = 'inherit';
+            });
+        });
+    </script>
+</body>
+</html>
