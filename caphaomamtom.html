@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cà Pháo Muối Chua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justify-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .ingredient-card {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .ingredient-card:hover {
+            border-left: 3px solid var(--accent-cinnabar);
+            padding-left: 1rem;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .glass-box {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .pro-tip-box {
+            border: 4px double var(--accent-gold);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pro-tip-box::before {
+            content: "MASTER TIP";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 15px;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-8 px-6 max-w-6xl mx-auto text-center">
+        <div class="mb-4">
+            <span class="text-xs tracking-[0.4em] uppercase text-stone-500 font-bold">AI Vua Đầu Bếp | Premium Collection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-[#1a1a1a]">CÀ PHÁO MUỐI CHUA</h1>
+        <h2 class="text-2xl md:text-3xl italic font-light text-stone-500 mb-12">Fermented Salted Eggplant with Shrimp Paste</h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-stone-200">
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--accent-cinnabar)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-stone-400">Độ khó</span>
+                <span class="font-bold text-sm">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-stone-100">
+                <span class="text-[var(--accent-cinnabar)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-stone-400">Thời gian</span>
+                <span class="font-bold text-sm text-center">Chuẩn bị 45ph <br> Muối 2-3 ngày</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-stone-100">
+                <span class="text-[var(--accent-cinnabar)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-stone-400">Khẩu phần</span>
+                <span class="font-bold text-sm">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-stone-100">
+                <span class="text-[var(--accent-cinnabar)] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-stone-400">Nguồn gốc</span>
+                <span class="font-bold text-sm">Miền Bắc, Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-stone-600 justify-text leading-relaxed">
+            "Món ăn dân dã kinh điển trong ẩm thực Việt Nam, đặc biệt phổ biến tại miền Bắc. Đây là linh hồn của mâm cơm gia đình truyền thống, thường được ví von là 'món ăn đưa cơm' bậc nhất khi kết hợp cùng canh rau muống luộc."
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 border-b border-stone-200 pb-2">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xs tracking-widest uppercase text-[var(--accent-gold)] font-bold mb-4">Phần Cà Pháo</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>1kg Cà pháo tươi</span>
+                                <span class="italic text-stone-400 text-sm">Bánh tẻ</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>100g Muối hột</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>50g Đường cát</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>1 củ Riềng già</span>
+                                <span class="italic text-stone-400 text-sm">Lát/Dập</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>5-7 tép Tỏi</span>
+                                <span class="italic text-stone-400 text-sm">Đập dập</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>3-5 quả Ớt hiểm</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>1 lít Nước sôi để nguội</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs tracking-widest uppercase text-[var(--accent-gold)] font-bold mb-4">Phần Mắm Tôm</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>3 muỗng Mắm tôm ngon</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>1 muỗng Đường</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>1/2 muỗng Rượu trắng</span>
+                            </li>
+                            <li class="ingredient-card py-1 flex justify-between items-end border-b border-stone-100">
+                                <span>Cốt chanh/quất, ớt, tỏi</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b border-stone-200 pb-2">2. Các bước thực hiện</h3>
+                
+                <div class="relative">
+                    <!-- Steps Timeline -->
+                    <div class="space-y-12">
+                        <!-- Step 1 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex flex-col items-center">
+                                <span class="step-number text-4xl text-[var(--accent-gold)] opacity-40 group-hover:opacity-100 transition-opacity">01</span>
+                                <div class="w-[1px] h-full bg-stone-200 mt-2"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Sơ chế chống thâm</h5>
+                                <p class="justify-text text-stone-700 leading-relaxed mb-2">Cắt bỏ núm cà, thả ngay vào chậu nước muối loãng có pha chút giấm hoặc chanh để giữ màu trắng tự nhiên.</p>
+                                <span class="text-[10px] font-bold text-[var(--accent-gold)] uppercase tracking-tighter">⏱ 30 phút ngâm</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex flex-col items-center">
+                                <span class="step-number text-4xl text-[var(--accent-gold)] opacity-40 group-hover:opacity-100 transition-opacity">02</span>
+                                <div class="w-[1px] h-full bg-stone-200 mt-2"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Làm héo</h5>
+                                <p class="justify-text text-stone-700 leading-relaxed mb-2">Sau khi rửa sạch, vớt cà ra rổ phơi nắng nhẹ giúp mặt cà hơi héo lại, đây là bí quyết để cà đạt độ giòn cực đại.</p>
+                                <span class="text-[10px] font-bold text-[var(--accent-gold)] uppercase tracking-tighter">⏱ 2 - 3 giờ phơi</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex flex-col items-center">
+                                <span class="step-number text-4xl text-[var(--accent-gold)] opacity-40 group-hover:opacity-100 transition-opacity">03</span>
+                                <div class="w-[1px] h-full bg-stone-200 mt-2"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Pha nước muối</h5>
+                                <p class="justify-text text-stone-700 leading-relaxed mb-2">Hòa tan muối hột và đường vào nước đun sôi để nguội cho đến khi vị mặn đậm hơn nước canh thông thường.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex flex-col items-center">
+                                <span class="step-number text-4xl text-[var(--accent-gold)] opacity-40 group-hover:opacity-100 transition-opacity">04</span>
+                                <div class="w-[1px] h-full bg-stone-200 mt-2"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Muối cà</h5>
+                                <p class="justify-text text-stone-700 leading-relaxed mb-2">Xếp riềng, tỏi xuống đáy hũ sành/thủy tinh, cho cà vào xen kẽ tỏi và ớt. Đổ nước muối ngập mặt cà.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex flex-col items-center">
+                                <span class="step-number text-4xl text-[var(--accent-gold)] opacity-40 group-hover:opacity-100 transition-opacity">05</span>
+                                <div class="w-[1px] h-full bg-stone-200 mt-2"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Nén cà</h5>
+                                <p class="justify-text text-stone-700 leading-relaxed mb-2">Dùng vỉ tre hoặc túi nước nén chặt cho cà luôn ngập dưới mặt nước. Để ở nhiệt độ phòng nơi thoáng mát.</p>
+                                <span class="text-[10px] font-bold text-[var(--accent-gold)] uppercase tracking-tighter">⏱ 2 - 3 ngày lên men</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="flex gap-6 group">
+                            <div class="flex flex-col items-center">
+                                <span class="step-number text-4xl text-[var(--accent-gold)] opacity-40 group-hover:opacity-100 transition-opacity">06</span>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="text-xl font-bold mb-2 uppercase tracking-wide">Pha mắm tôm</h5>
+                                <p class="justify-text text-stone-700 leading-relaxed mb-2">Đánh bông hỗn hợp mắm tôm, đường, rượu trắng đến khi nổi bọt mịn, sau đó thêm chanh, tỏi, ớt để cân bằng vị.</p>
+                                <span class="text-[10px] font-bold text-[var(--accent-gold)] uppercase tracking-tighter">⏱ 10 phút</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="section-divider"><span class="ornament">✺</span></div>
+
+        <!-- Chef's Corner -->
+        <section class="my-16">
+            <div class="pro-tip-box bg-white/50 shadow-sm">
+                <h3 class="text-2xl font-bold mb-6 text-center">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center md:text-left">
+                        <span class="text-[var(--accent-cinnabar)] font-bold text-lg mb-2 block">Kỹ thuật Nén</span>
+                        <p class="justify-text text-sm text-stone-600">Tuyệt đối không để cà nổi lên khỏi mặt nước để tránh bị thâm đen và lên váng. Đây là lỗi phổ biến nhất làm hỏng mẻ cà.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-[var(--accent-cinnabar)] font-bold text-lg mb-2 block">Bí quyết Mắm Tôm</span>
+                        <p class="justify-text text-sm text-stone-600">Một chút rượu trắng trong mắm tôm giúp khử mùi nồng và hỗ trợ đánh bông bọt tốt hơn, tạo độ mịn mượt khi chấm.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-[var(--accent-cinnabar)] font-bold text-lg mb-2 block">Vệ sinh Hũ</span>
+                        <p class="justify-text text-sm text-stone-600">Tiệt trùng hũ đựng và đảm bảo hũ thật khô trước khi muối để tránh vi khuẩn xâm nhập làm cà bị khú (hỏng).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-16">
+            <h3 class="text-3xl font-bold mb-8 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-box p-6 rounded-sm hover:shadow-lg transition-shadow">
+                    <h4 class="font-bold text-[var(--accent-cinnabar)] mb-3">Muối Xổi</h4>
+                    <p class="text-sm justify-text">Thái mỏng, bóp gia vị trực tiếp. Có thể thưởng thức ngay sau 30 phút, phù hợp cho những bữa cơm cần gấp.</p>
+                </div>
+                <div class="glass-box p-6 rounded-sm hover:shadow-lg transition-shadow">
+                    <h4 class="font-bold text-[var(--accent-cinnabar)] mb-3">Phong cách Kim Chi</h4>
+                    <p class="text-sm justify-text">Phối trộn với sốt ớt cay kiểu Hàn Quốc, tạo nên sự giao thoa văn hóa thú vị và vị cay nồng kích thích.</p>
+                </div>
+                <div class="glass-box p-6 rounded-sm hover:shadow-lg transition-shadow">
+                    <h4 class="font-bold text-[var(--accent-cinnabar)] mb-3">Ngâm Mắm Đường</h4>
+                    <p class="text-sm justify-text">Sau khi cà đã chín chua, chuyển sang ngâm mắm đường để tạo vị đậm đà, giữ được lâu hơn trong tủ lạnh.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 pt-12 border-t border-stone-200">
+            <section>
+                <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[var(--accent-gold)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04 Pel m-4.016 11.955 11.955 0 01-8.618 3.04M12 20.935a11.955 11.955 0 01-8.618-3.04V12a10 10 0 0010-10V2.944a11.955 11.955 0 018.618 3.04V12a10 10 0 0010 10z" />
+                    </svg>
+                    5. Giá trị dinh dưỡng
+                </h4>
+                <div class="justify-text text-sm space-y-3 text-stone-600">
+                    <p>• Cung cấp Probiotics hỗ trợ tiêu hóa tự nhiên thông qua quá trình lên men.</p>
+                    <p class="font-bold text-stone-800 italic underline decoration-[var(--accent-cinnabar)]">Lưu ý quan trọng:</p>
+                    <p>Hàm lượng muối cao, người bị huyết áp và bệnh thận cần hạn chế. Tuyệt đối không ăn cà muối chưa kỹ (còn hăng) vì chứa solanine có hại cho sức khỏe.</p>
+                </div>
+            </section>
+            <section>
+                <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[var(--accent-gold)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    6. Gợi ý trình bày
+                </h4>
+                <div class="justify-text text-sm space-y-3 text-stone-600">
+                    <p>• Sử dụng bát sành hoặc đĩa gốm mộc mạc để tôn vinh vẻ đẹp truyền thống. Lót lá chuối tươi bên dưới để tạo sự tương phản màu sắc.</p>
+                    <p>• Trang trí bằng những lát riềng vàng nhạt và vài lát ớt đỏ tươi để kích thích thị giác.</p>
+                    <p>• Bát mắm tôm đặc biệt phải đánh bông bọt trắng mịn, đặt trung tâm cạnh đĩa cà để tạo cảm giác ngon miệng và đậm chất Việt.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Simple animation logic for appearing elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.ingredient-card, .glass-box').forEach(el => {
+                el.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
