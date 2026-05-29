@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phá Lấu Lòng Bò - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EBD0',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            margin: 0 1rem;
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #C5A059;
+            opacity: 0.5;
+            line-height: 1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background: #fdfbf4;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-12 animate-fade-in">
+        <div class="mb-4">
+            <span class="text-cinnabar tracking-widest uppercase font-bold text-sm">AI Vua Đầu Bếp | Premium Collection</span>
+        </div>
+        <h1 class="hero-title text-5xl md:text-7xl font-display font-bold mb-2 text-charcoal">PHÁ LẤU LÒNG BÒ</h1>
+        <p class="text-xl md:text-2xl italic text-gold font-serif mb-8">Beef Offal Stew with Coconut Milk</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold">2 - 3 Giờ</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 - 6 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-center leading-tight">Sài Gòn (Tiều)</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto">
+            <p class="italic text-gray-600 justified-text">
+                "Phá lấu không chỉ là một món ăn, đó là một phần ký ức của những con hẻm Sài Gòn. Với kỹ thuật chế biến tỉ mỉ từ khâu sơ chế đến cách hầm nước dừa béo ngậy, món ăn này mang đến sự hài hòa tuyệt đối giữa vị giòn sần sật của lòng bò và vị thơm nồng của thảo mộc."
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h2 class="text-3xl font-display font-bold mb-8 flex items-center gap-4">
+                        <span class="w-10 h-[1px] bg-cinnabar"></span>
+                        1. Nguyên liệu
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 border-b border-goldLight pb-2">Thành phần chính</h3>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="font-serif italic text-charcoal">• Lòng bò (đa dạng)</span>
+                                    <span class="font-bold">1.5kg</span>
+                                </li>
+                                <li class="flex justify-between hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="font-serif italic text-charcoal">• Nước dừa tươi</span>
+                                    <span class="font-bold">1.5 lít</span>
+                                </li>
+                                <li class="flex justify-between hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="font-serif italic text-charcoal">• Nước cốt dừa</span>
+                                    <span class="font-bold">200ml</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 border-b border-goldLight pb-2">Gia vị & Thảo mộc</h3>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between">
+                                    <span class="font-serif italic text-charcoal">• Ngũ vị hương</span>
+                                    <span class="font-bold">1 gói (5g)</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="font-serif italic text-charcoal">• Bột cà ri</span>
+                                    <span class="font-bold">1 tsp</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="font-serif italic text-charcoal">• Hoa hồi & Quế</span>
+                                    <span class="font-bold">2 hồi, 1 quế</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="font-serif italic text-charcoal">• Dầu màu điều</span>
+                                    <span class="font-bold">3 tbsp</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="font-serif italic text-charcoal">• Đường phèn</span>
+                                    <span class="font-bold">1 tbsp</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 border-b border-goldLight pb-2">Sơ chế & Phụ liệu</h3>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between italic text-charcoal">
+                                    <span>Gừng, rượu trắng, giấm</span>
+                                    <span class="text-gray-400">Khử mùi</span>
+                                </li>
+                                <li class="flex justify-between italic text-charcoal">
+                                    <span>Rau răm, bánh mì</span>
+                                    <span class="text-gray-400">Ăn kèm</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h2 class="text-3xl font-display font-bold mb-8 flex items-center gap-4">
+                    <span class="w-10 h-[1px] bg-cinnabar"></span>
+                    2. Các bước thực hiện
+                </h2>
+
+                <div class="space-y-12 relative">
+                    <!-- Step 1 -->
+                    <div class="group">
+                        <div class="flex items-start gap-6">
+                            <span class="step-number group-hover:opacity-100 transition-opacity">01</span>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-cinnabar">Sơ chế lòng bò (Kỹ thuật truyền thống)</h3>
+                                <p class="justified-text text-charcoal">
+                                    Đây là bước quan trọng nhất để khử mùi. Lòng mua về bóp với muối hạt và giấm nhiều lần. Đun sôi nước với gừng đập dập và rượu trắng, cho lòng vào chần sơ trong 5 phút. Vớt ra, tiếp tục dùng gừng và rượu chà xát kỹ các kẽ nhỏ của tổ ong và lá lách, sau đó rửa lại bằng nước lạnh cho đến khi trắng sạch và hết mùi đặc trưng.
+                                </p>
+                                <span class="inline-block mt-3 text-xs font-bold px-3 py-1 bg-goldLight text-gold rounded-full">Thời gian: 60 phút</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="group">
+                        <div class="flex items-start gap-6">
+                            <span class="step-number group-hover:opacity-100 transition-opacity">02</span>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-cinnabar">Ướp gia vị</h3>
+                                <p class="justified-text text-charcoal">
+                                    Cắt lòng thành các miếng lớn (không cắt nhỏ ngay để tránh bị teo). Ướp với ngũ vị hương, bột cà ri, hành, tỏi, sả băm và các gia vị khô trong ít nhất 1 giờ để thấm sâu vào từng thớ thịt.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="group">
+                        <div class="flex items-start gap-6">
+                            <span class="step-number group-hover:opacity-100 transition-opacity">03</span>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-cinnabar">Áp chảo & Tạo màu (Kỹ thuật chuyên nghiệp)</h3>
+                                <p class="justified-text text-charcoal">
+                                    Đun nóng dầu màu điều, cho sả đập dập, hoa hồi, quế vào phi thơm. Cho lòng bò vào áp chảo với lửa lớn. Việc này tạo phản ứng <strong>Maillard</strong> giúp miếng lòng săn lại, thơm hơn và giữ được độ ngọt bên trong, đồng thời lên màu đỏ cam óng ả.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="group">
+                        <div class="flex items-start gap-6">
+                            <span class="step-number group-hover:opacity-100 transition-opacity">04</span>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-cinnabar">Nấu phá lấu</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                    <div class="p-4 border-l-2 border-gold bg-goldLight/20">
+                                        <p class="font-bold text-xs uppercase text-gold mb-1">Cách truyền thống</p>
+                                        <p class="text-sm italic">Cho nước dừa tươi vào nồi, hầm lửa nhỏ liu riu trong 1-1.5 giờ đến khi lòng mềm vừa đủ.</p>
+                                    </div>
+                                    <div class="p-4 border-l-2 border-charcoal bg-gray-100">
+                                        <p class="font-bold text-xs uppercase text-charcoal mb-1">Cách hiện đại (Home Cook)</p>
+                                        <p class="text-sm italic">Dùng nồi áp suất chế độ "Meat/Stew" trong 25-30 phút để tiết kiệm thời gian.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="group">
+                        <div class="flex items-start gap-6">
+                            <span class="step-number group-hover:opacity-100 transition-opacity">05</span>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-cinnabar">Hoàn thiện</h3>
+                                <p class="justified-text text-charcoal">
+                                    Khi lòng đã đạt độ mềm ưng ý, thêm nước cốt dừa vào. Khuấy nhẹ và đun thêm 5 phút để nước dùng có độ béo ngậy và sánh nhẹ. Nêm nếm lại cho vừa vị mặn ngọt.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="mt-16 pro-tip-box p-8 relative">
+                    <div class="absolute -top-4 left-8 bg-gold px-4 py-1 text-white uppercase text-xs font-bold tracking-widest">
+                        Chef's Corner
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold mt-1">✦</span>
+                            <p class="justified-text italic">Không cho nước cốt dừa ngay từ đầu vì đun lâu sẽ làm mất mùi thơm và dễ bị tách dầu.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold mt-1">✦</span>
+                            <p class="justified-text italic">Sử dụng đường phèn thay vì đường cát để nước dùng có vị ngọt thanh, không bị gắt cổ.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold mt-1">✦</span>
+                            <p class="justified-text italic">Độ sánh của nước dùng có thể điều chỉnh bằng cách thêm một chút bột năng hòa tan nếu muốn nước đặc hơn.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Variations Section -->
+        <div class="ornament">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5">
+                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" fill="#C5A059"/>
+            </svg>
+        </div>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-display font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="flex justify-center mb-8 border-b border-goldLight">
+                <button onclick="showTab('v-heo')" class="tab-btn active px-6 py-2 font-bold transition-all" id="btn-v-heo">Phá Lấu Heo</button>
+                <button onclick="showTab('v-chay')" class="tab-btn px-6 py-2 font-bold transition-all" id="btn-v-chay">Phiên bản Chay</button>
+                <button onclick="showTab('v-sub')" class="tab-btn px-6 py-2 font-bold transition-all" id="btn-v-sub">Thay thế khác</button>
+            </div>
+            
+            <div id="v-heo" class="tab-content active glass-card p-8 rounded-lg shadow-sm">
+                <div class="max-w-3xl mx-auto">
+                    <h4 class="text-xl font-bold text-cinnabar mb-2">Sự lựa chọn truyền thống thay thế</h4>
+                    <p class="justified-text italic">Dành cho người không ăn được mùi đặc trưng của bò. Bạn có thể thay thế bằng tai heo, bao tử và lưỡi heo. Quy trình sơ chế tương tự nhưng thời gian hầm sẽ nhanh hơn để giữ độ giòn sần sật của tai heo.</p>
+                </div>
+            </div>
+            
+            <div id="v-chay" class="tab-content glass-card p-8 rounded-lg shadow-sm">
+                <div class="max-w-3xl mx-auto">
+                    <h4 class="text-xl font-bold text-cinnabar mb-2">Hương vị thanh đạm</h4>
+                    <p class="justified-text italic">Sử dụng nấm đùi gà cắt miếng to, tàu hũ ky chiên sơ và chân nấm đông cô để tạo độ dai tương tự lòng bò. Thay nước mắm bằng nước tương loại ngon và sử dụng nước dừa tươi để hầm nấm.</p>
+                </div>
+            </div>
+
+            <div id="v-sub" class="tab-content glass-card p-8 rounded-lg shadow-sm">
+                <div class="max-w-3xl mx-auto">
+                    <h4 class="text-xl font-bold text-cinnabar mb-2">Mẹo khi thiếu nguyên liệu</h4>
+                    <p class="justified-text italic">Nếu không có nước dừa tươi, bạn có thể dùng sữa tươi không đường pha loãng với nước theo tỷ lệ 1:2. Cách này vẫn tạo được độ béo và giúp làm mềm lòng nhanh chóng mà không làm biến đổi quá nhiều hương vị gốc.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gold/30 pt-12 mb-20">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-2xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-cinnabar rounded text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <p class="justified-text text-gray-700">Cung cấp lượng lớn protein, sắt và vitamin B12 cần thiết cho cơ thể.</p>
+                    <div class="bg-red-50 p-4 border-l-4 border-cinnabar">
+                        <p class="text-xs font-bold text-cinnabar uppercase mb-1">Cảnh báo sức khỏe</p>
+                        <p class="text-sm italic">Lòng bò chứa hàm lượng cholesterol và chất béo bão hòa cao. Người có bệnh lý về gout, mỡ máu hoặc cao huyết áp nên hạn chế.</p>
+                    </div>
+                    <p class="text-sm italic text-gray-500">Gợi ý: Mỗi khẩu phần nên là 150g-200g lòng, ăn kèm nhiều rau răm để hỗ trợ tiêu hóa.</p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-2xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-gold rounded text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4">
+                    <p class="justified-text text-charcoal">
+                        <strong>Trình bày:</strong> Múc phá lấu ra bát sứ nhỏ, dùng kéo cắt lòng thành miếng vừa ăn ngay tại bàn để cảm nhận độ nóng hổi. Rắc lên trên một ít rau răm xanh mướt và vài lát ớt đỏ.
+                    </p>
+                    <p class="justified-text text-charcoal italic">
+                        <strong>Pairing:</strong> Phải ăn kèm với bánh mì nướng giòn tan để chấm nước dùng béo ngậy.
+                    </p>
+                    <div class="p-4 bg-goldLight/30 border border-gold/20 rounded">
+                        <p class="text-sm font-bold text-gold uppercase mb-1">Linh hồn món ăn</p>
+                        <p class="text-sm italic">Nước mắm me chua ngọt, đậm đặc, cay nồng chính là chìa khóa để cân bằng vị béo của nước cốt dừa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            // Activate selected button
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Simple Fade-in animation for hero
+        window.addEventListener('load', () => {
+            const header = document.querySelector('header');
+            header.style.opacity = '0';
+            header.style.transition = 'opacity 1s ease-in-out, transform 1s ease-out';
+            header.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                header.style.opacity = '1';
+                header.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
+
