@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Thịt Kho Tàu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Thịt Kho Tàu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Tailwind Config Extension */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .gold-border {
+            border: 1px solid var(--burnished-gold);
+        }
+
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--burnished-gold), transparent);
+            margin: 4rem 0;
+        }
+
+        .section-divider::after {
+            content: '★';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-cream);
+            padding: 0 1rem;
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--cinnabar-red);
+            border: 2px solid var(--bg-cream);
+            box-shadow: 0 0 0 2px var(--cinnabar-red);
+        }
+
+        /* Tabs logic */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { 
+            border-bottom: 2px solid var(--cinnabar-red); 
+            color: var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="mb-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-[var(--burnished-gold)] font-bold">AI Vua Đầu Bếp • Premium Collection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight">Thịt Kho Tàu</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10 font-serif">Braised Pork with Duck Eggs</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-flex md:flex md:justify-center gap-6 md:gap-12 border-y border-[var(--burnished-gold)] py-6 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l md:border-l border-gray-200 pl-6 md:pl-12">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Thời gian</span>
+                <span class="text-lg">~180 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-200 pl-6 md:pl-12">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Khẩu phần</span>
+                <span class="text-lg">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-200 pl-6 md:pl-12">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Phong vị</span>
+                <span class="text-lg">Nam Bộ</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-12">
+            <p class="justified-text italic text-gray-700 leading-relaxed bg-white p-8 rounded-lg shadow-sm border-l-4 border-[var(--burnished-gold)]">
+                "Trái với tên gọi, 'Thịt kho tàu' không có nguồn gốc từ Trung Quốc. Trong văn hóa Nam Bộ, chữ 'tàu' mang nghĩa là 'lạt' (nhạt), ám chỉ món thịt kho có vị mặn ngọt hài hòa... Sự kết hợp giữa miếng thịt vuông vức và quả trứng tròn trịa mang ý nghĩa 'vuông tròn', tượng trưng cho sự sum vầy, trọn vẹn và một năm mới sung túc, bình an."
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4 sticky top-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-[var(--cinnabar-red)] inline-block pb-2">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <section>
+                        <h4 class="text-[var(--burnished-gold)] font-bold uppercase text-sm mb-4 flex items-center">
+                            <span class="mr-2">◈</span> Thành phần chính
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Thịt ba chỉ / thịt đùi</span>
+                                <span class="font-bold">1kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Trứng vịt (hoặc trứng gà)</span>
+                                <span class="font-bold">6-8 quả</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-[var(--burnished-gold)] font-bold uppercase text-sm mb-4 flex items-center">
+                            <span class="mr-2">◈</span> Gia vị & Nước dùng
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Nước dừa tươi (2 quả)</span>
+                                <span class="font-bold">1 - 1.5L</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Nước mắm (40-45 độ đạm)</span>
+                                <span class="font-bold">4-5 tbsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Đường phèn</span>
+                                <span class="font-bold">2 tbsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Hành tím, tỏi giã nhuyễn</span>
+                                <span class="font-bold">50g/loại</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-[var(--burnished-gold)] font-bold uppercase text-sm mb-4 flex items-center">
+                            <span class="mr-2">◈</span> Phụ gia
+                        </h4>
+                        <p class="text-sm italic text-gray-600">
+                            Muối biển, tiêu sọ, ớt sừng, chanh tươi.
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-10 border-b-2 border-[var(--cinnabar-red)] inline-block pb-2">2. Các bước thực hiện</h3>
+                
+                <div class="relative ml-6 border-l-2 border-gray-200 pl-10 space-y-12 pb-8">
+                    
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Sơ chế thịt</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cạo sạch lông, chà xát da heo với muối và chanh để khử mùi. Rửa sạch, chần sơ qua nước sôi cùng vài lát hành tím trong 3 phút. Cắt thịt thành khối vuông lớn (khoảng 5x5 cm) - việc cắt to giúp thịt khi kho lâu sẽ mềm rục nhưng không bị nát vụn.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Ướp thịt kỹ thuật chuyên gia</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">45 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Trộn thịt với nước cốt hành tỏi (bỏ bã để nước không bị đục). Thêm 2 muỗng đường phèn, 1 muỗng cà phê muối, 1 muỗng cà phê tiêu đập dập. Phơi nắng khoảng 30-45 phút giúp mỡ thịt trong vắt và giòn hơn. <span class="italic font-bold text-[var(--cinnabar-red)]">*Không ướp nước mắm ở bước này.*</span>
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Trứng & Nước màu</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Luộc trứng vịt chín tới (8-10 phút), ngâm nước đá, bóc vỏ. Thắng 2 muỗng đường với 1 muỗng nước trên lửa nhỏ; khi chuyển màu cánh gián (amber), thêm 2 muỗng nước ấm để khóa màu.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Xăn thịt & Kho lần 1</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">90 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Đảo thịt với nước màu cho đến khi săn lại. Đổ nước dừa tươi ngập mặt thịt. Khi nước sôi bùng, vớt sạch bọt. Hạ lửa liu riu, nêm nước mắm. Đậy mặt thịt bằng lá chuối non hoặc giấy nến có khoét lỗ.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Hoàn thiện cùng trứng</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">60 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Khi thịt bắt đầu mềm, cho trứng vịt và vài trái ớt sừng vào. Kho thêm 45-60 phút. Việc cho trứng vào sau giúp lòng trắng không bị chai cứng và có màu sắc đẹp mắt.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Chef's Corner -->
+        <div class="max-w-4xl mx-auto my-16 bg-[#F3EFE0] p-10 border-double border-4 border-[var(--burnished-gold)] relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[var(--burnished-gold)] text-white px-6 py-2 font-bold uppercase tracking-widest text-sm">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-4">
+                <div class="space-y-4">
+                    <h5 class="font-bold text-[var(--primary-charcoal)] border-b border-gray-400 pb-2">Chọn nguyên liệu</h5>
+                    <p class="justified-text text-sm italic">
+                        Phải chọn dừa rám quả (không non, không già). Nước dừa già sẽ làm nước kho bị chua và lên màu đen kịt.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="font-bold text-[var(--primary-charcoal)] border-b border-gray-400 pb-2">Kỹ thuật kiểm soát nhiệt</h5>
+                    <p class="justified-text text-sm italic">
+                        Tuyệt đối không đậy nắp kín, nhiệt độ nắp rơi xuống sẽ làm nước đục. Lửa phải luôn giữ ở mức sôi sủi tăm nhẹ (85-90°C).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variations Tab Section -->
+        <section class="my-20">
+            <h3 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản</h3>
+            <div class="flex justify-center gap-8 mb-8 border-b border-gray-200">
+                <button onclick="switchTab('family')" id="btn-family" class="tab-btn active pb-4 font-bold uppercase text-sm tracking-widest transition-all">Gia đình (Tối ưu)</button>
+                <button onclick="switchTab('pro')" id="btn-pro" class="tab-btn pb-4 font-bold uppercase text-sm tracking-widest transition-all">Giải pháp thay thế</button>
+            </div>
+            
+            <div id="family" class="tab-content active transition-opacity duration-500">
+                <div class="max-w-2xl mx-auto recipe-card bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-xl font-bold mb-4 text-[var(--cinnabar-red)]">Tối ưu thời gian</h4>
+                    <p class="justified-text italic text-gray-700">
+                        Sử dụng nồi áp suất trong 30 phút, sau đó mở nắp, thêm trứng và đun liu riu thêm 15-20 phút để rút nước và lên màu. Tiết kiệm 70% thời gian mà vẫn giữ được độ mềm của thịt.
+                    </p>
+                </div>
+            </div>
+
+            <div id="pro" class="tab-content transition-opacity duration-500">
+                <div class="max-w-2xl mx-auto recipe-card bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-xl font-bold mb-4 text-[var(--cinnabar-red)]">Nguyên liệu thay thế</h4>
+                    <p class="justified-text italic text-gray-700">
+                        Nếu không có nước dừa tươi, có thể dùng soda hoặc nước dừa đóng hộp. Khí carbon dioxide trong soda giúp làm mềm các bó cơ rất nhanh. Trứng cút là sự lựa chọn tuyệt vời nếu muốn trứng thấm vị nhanh hơn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Nutrition and Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-[var(--burnished-gold)]">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3">🥗</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <p class="justified-text text-gray-700 mb-6">
+                    Mỗi khẩu phần cung cấp ước tính <strong>450-500 kcal</strong>, giàu protein và chất béo bão hòa. 
+                </p>
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <p class="text-sm text-green-800 italic">
+                        "Khuyến nghị ăn kèm với dưa giá, kiệu muối chua. Axit lactic giúp cân bằng vị giác, chống ngán và thúc đẩy chuyển hóa chất béo hiệu quả."
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-[var(--cinnabar-red)]">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3">📸</span> 6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-sm text-gray-600">
+                    <p class="justified-text">
+                        <strong class="text-[var(--primary-charcoal)]">Giao diện:</strong> Thịt óng ánh nâu đỏ, mỡ trong vắt và núng nính. Nước kho sóng sánh, sạch cặn.
+                    </p>
+                    <p class="justified-text">
+                        <strong class="text-[var(--primary-charcoal)]">Sắp đặt:</strong> Thố đất nung mộc mạc, xếp thịt xen kẽ trứng (cắt đôi một quả để lộ lòng đỏ bùi béo).
+                    </p>
+                    <p class="justified-text italic border-l-2 border-gray-200 pl-4 py-2">
+                        Mẹo chụp ảnh: Sử dụng ánh sáng ngược (backlight) 45 độ để làm nổi bật độ bóng (glossy) của mỡ thịt và làn khói mờ ảo.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Remove active class from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Add some scroll reveal effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .timeline-step').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Thịt Kho Tàu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Tailwind Config Extension */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .gold-border {
+            border: 1px solid var(--burnished-gold);
+        }
+
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--burnished-gold), transparent);
+            margin: 4rem 0;
+        }
+
+        .section-divider::after {
+            content: '★';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-cream);
+            padding: 0 1rem;
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--cinnabar-red);
+            border: 2px solid var(--bg-cream);
+            box-shadow: 0 0 0 2px var(--cinnabar-red);
+        }
+
+        /* Tabs logic */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { 
+            border-bottom: 2px solid var(--cinnabar-red); 
+            color: var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="mb-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-[var(--burnished-gold)] font-bold">AI Vua Đầu Bếp • Premium Collection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight">Thịt Kho Tàu</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10 font-serif">Braised Pork with Duck Eggs</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-flex md:flex md:justify-center gap-6 md:gap-12 border-y border-[var(--burnished-gold)] py-6 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l md:border-l border-gray-200 pl-6 md:pl-12">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Thời gian</span>
+                <span class="text-lg">~180 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-200 pl-6 md:pl-12">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Khẩu phần</span>
+                <span class="text-lg">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-200 pl-6 md:pl-12">
+                <span class="text-[var(--cinnabar-red)] text-xs font-bold uppercase mb-1">Phong vị</span>
+                <span class="text-lg">Nam Bộ</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-12">
+            <p class="justified-text italic text-gray-700 leading-relaxed bg-white p-8 rounded-lg shadow-sm border-l-4 border-[var(--burnished-gold)]">
+                "Trái với tên gọi, 'Thịt kho tàu' không có nguồn gốc từ Trung Quốc. Trong văn hóa Nam Bộ, chữ 'tàu' mang nghĩa là 'lạt' (nhạt), ám chỉ món thịt kho có vị mặn ngọt hài hòa... Sự kết hợp giữa miếng thịt vuông vức và quả trứng tròn trịa mang ý nghĩa 'vuông tròn', tượng trưng cho sự sum vầy, trọn vẹn và một năm mới sung túc, bình an."
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4 sticky top-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-[var(--cinnabar-red)] inline-block pb-2">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <section>
+                        <h4 class="text-[var(--burnished-gold)] font-bold uppercase text-sm mb-4 flex items-center">
+                            <span class="mr-2">◈</span> Thành phần chính
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Thịt ba chỉ / thịt đùi</span>
+                                <span class="font-bold">1kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Trứng vịt (hoặc trứng gà)</span>
+                                <span class="font-bold">6-8 quả</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-[var(--burnished-gold)] font-bold uppercase text-sm mb-4 flex items-center">
+                            <span class="mr-2">◈</span> Gia vị & Nước dùng
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Nước dừa tươi (2 quả)</span>
+                                <span class="font-bold">1 - 1.5L</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Nước mắm (40-45 độ đạm)</span>
+                                <span class="font-bold">4-5 tbsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Đường phèn</span>
+                                <span class="font-bold">2 tbsp</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Hành tím, tỏi giã nhuyễn</span>
+                                <span class="font-bold">50g/loại</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-[var(--burnished-gold)] font-bold uppercase text-sm mb-4 flex items-center">
+                            <span class="mr-2">◈</span> Phụ gia
+                        </h4>
+                        <p class="text-sm italic text-gray-600">
+                            Muối biển, tiêu sọ, ớt sừng, chanh tươi.
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-10 border-b-2 border-[var(--cinnabar-red)] inline-block pb-2">2. Các bước thực hiện</h3>
+                
+                <div class="relative ml-6 border-l-2 border-gray-200 pl-10 space-y-12 pb-8">
+                    
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Sơ chế thịt</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cạo sạch lông, chà xát da heo với muối và chanh để khử mùi. Rửa sạch, chần sơ qua nước sôi cùng vài lát hành tím trong 3 phút. Cắt thịt thành khối vuông lớn (khoảng 5x5 cm) - việc cắt to giúp thịt khi kho lâu sẽ mềm rục nhưng không bị nát vụn.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Ướp thịt kỹ thuật chuyên gia</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">45 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Trộn thịt với nước cốt hành tỏi (bỏ bã để nước không bị đục). Thêm 2 muỗng đường phèn, 1 muỗng cà phê muối, 1 muỗng cà phê tiêu đập dập. Phơi nắng khoảng 30-45 phút giúp mỡ thịt trong vắt và giòn hơn. <span class="italic font-bold text-[var(--cinnabar-red)]">*Không ướp nước mắm ở bước này.*</span>
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Trứng & Nước màu</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Luộc trứng vịt chín tới (8-10 phút), ngâm nước đá, bóc vỏ. Thắng 2 muỗng đường với 1 muỗng nước trên lửa nhỏ; khi chuyển màu cánh gián (amber), thêm 2 muỗng nước ấm để khóa màu.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Xăn thịt & Kho lần 1</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">90 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Đảo thịt với nước màu cho đến khi săn lại. Đổ nước dừa tươi ngập mặt thịt. Khi nước sôi bùng, vớt sạch bọt. Hạ lửa liu riu, nêm nước mắm. Đậy mặt thịt bằng lá chuối non hoặc giấy nến có khoét lỗ.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Hoàn thiện cùng trứng</h4>
+                            <span class="text-xs italic text-[var(--burnished-gold)]">60 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Khi thịt bắt đầu mềm, cho trứng vịt và vài trái ớt sừng vào. Kho thêm 45-60 phút. Việc cho trứng vào sau giúp lòng trắng không bị chai cứng và có màu sắc đẹp mắt.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Chef's Corner -->
+        <div class="max-w-4xl mx-auto my-16 bg-[#F3EFE0] p-10 border-double border-4 border-[var(--burnished-gold)] relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[var(--burnished-gold)] text-white px-6 py-2 font-bold uppercase tracking-widest text-sm">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-4">
+                <div class="space-y-4">
+                    <h5 class="font-bold text-[var(--primary-charcoal)] border-b border-gray-400 pb-2">Chọn nguyên liệu</h5>
+                    <p class="justified-text text-sm italic">
+                        Phải chọn dừa rám quả (không non, không già). Nước dừa già sẽ làm nước kho bị chua và lên màu đen kịt.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="font-bold text-[var(--primary-charcoal)] border-b border-gray-400 pb-2">Kỹ thuật kiểm soát nhiệt</h5>
+                    <p class="justified-text text-sm italic">
+                        Tuyệt đối không đậy nắp kín, nhiệt độ nắp rơi xuống sẽ làm nước đục. Lửa phải luôn giữ ở mức sôi sủi tăm nhẹ (85-90°C).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variations Tab Section -->
+        <section class="my-20">
+            <h3 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản</h3>
+            <div class="flex justify-center gap-8 mb-8 border-b border-gray-200">
+                <button onclick="switchTab('family')" id="btn-family" class="tab-btn active pb-4 font-bold uppercase text-sm tracking-widest transition-all">Gia đình (Tối ưu)</button>
+                <button onclick="switchTab('pro')" id="btn-pro" class="tab-btn pb-4 font-bold uppercase text-sm tracking-widest transition-all">Giải pháp thay thế</button>
+            </div>
+            
+            <div id="family" class="tab-content active transition-opacity duration-500">
+                <div class="max-w-2xl mx-auto recipe-card bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-xl font-bold mb-4 text-[var(--cinnabar-red)]">Tối ưu thời gian</h4>
+                    <p class="justified-text italic text-gray-700">
+                        Sử dụng nồi áp suất trong 30 phút, sau đó mở nắp, thêm trứng và đun liu riu thêm 15-20 phút để rút nước và lên màu. Tiết kiệm 70% thời gian mà vẫn giữ được độ mềm của thịt.
+                    </p>
+                </div>
+            </div>
+
+            <div id="pro" class="tab-content transition-opacity duration-500">
+                <div class="max-w-2xl mx-auto recipe-card bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-xl font-bold mb-4 text-[var(--cinnabar-red)]">Nguyên liệu thay thế</h4>
+                    <p class="justified-text italic text-gray-700">
+                        Nếu không có nước dừa tươi, có thể dùng soda hoặc nước dừa đóng hộp. Khí carbon dioxide trong soda giúp làm mềm các bó cơ rất nhanh. Trứng cút là sự lựa chọn tuyệt vời nếu muốn trứng thấm vị nhanh hơn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Nutrition and Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-[var(--burnished-gold)]">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3">🥗</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <p class="justified-text text-gray-700 mb-6">
+                    Mỗi khẩu phần cung cấp ước tính <strong>450-500 kcal</strong>, giàu protein và chất béo bão hòa. 
+                </p>
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <p class="text-sm text-green-800 italic">
+                        "Khuyến nghị ăn kèm với dưa giá, kiệu muối chua. Axit lactic giúp cân bằng vị giác, chống ngán và thúc đẩy chuyển hóa chất béo hiệu quả."
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-[var(--cinnabar-red)]">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3">📸</span> 6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-sm text-gray-600">
+                    <p class="justified-text">
+                        <strong class="text-[var(--primary-charcoal)]">Giao diện:</strong> Thịt óng ánh nâu đỏ, mỡ trong vắt và núng nính. Nước kho sóng sánh, sạch cặn.
+                    </p>
+                    <p class="justified-text">
+                        <strong class="text-[var(--primary-charcoal)]">Sắp đặt:</strong> Thố đất nung mộc mạc, xếp thịt xen kẽ trứng (cắt đôi một quả để lộ lòng đỏ bùi béo).
+                    </p>
+                    <p class="justified-text italic border-l-2 border-gray-200 pl-4 py-2">
+                        Mẹo chụp ảnh: Sử dụng ánh sáng ngược (backlight) 45 độ để làm nổi bật độ bóng (glossy) của mỡ thịt và làn khói mờ ảo.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Remove active class from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Add some scroll reveal effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .timeline-step').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
