@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ốc Bươu Nhồi Thịt - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Custom Tailwind Configuration via CSS */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justified-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--burnished-gold), transparent);
+        }
+
+        .section-divider .ornament {
+            margin: 0 1.5rem;
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .hero-title {
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--burnished-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .pro-tip-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .ingredient-item {
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+        }
+
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: var(--cinnabar-red);
+        }
+
+        .step-number {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: var(--burnished-gold);
+        }
+
+        .tab-card {
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tab-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--burnished-gold);
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(2n) {
+                border-right: none;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--burnished-gold);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="mb-4 text-sm tracking-[0.3em] text-[#C5A059] uppercase font-semibold">Tạp chí Ẩm thực Kỹ thuật số</div>
+        <h1 class="hero-title text-4xl md:text-6xl font-bold mb-2">ỐC BƯƠU NHỒI THỊT</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-10">(Dalat-Style Stuffed Apple Snails)</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-[#C5A059] py-6 max-w-4xl mx-auto">
+            <div class="meta-item p-4 flex flex-col items-center">
+                <span class="text-[#E23D28] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center">
+                <span class="text-[#E23D28] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Thời gian</span>
+                <span class="font-bold text-lg">1 giờ 30 phút</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center">
+                <span class="text-[#E23D28] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">4 người</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center">
+                <span class="text-[#E23D28] mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 12 10 5 10-5"></path><path d="m2 17 10 5 10-5"></path><path d="m2 7 10 5 10-5-10-5Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Nguồn gốc</span>
+                <span class="font-bold text-lg">Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-8">
+            <p class="justified-text italic text-gray-700">
+                Ốc bươu nhồi thịt là đặc trưng của ẩm thực Đà Lạt và miền Bắc, mang ý nghĩa văn hóa ẩm thực đặc sắc sưởi ấm cơ thể trong tiết trời se lạnh. Món ăn là sự kết hợp tinh tế giữa độ giòn của ốc, độ dẻo của giò sống và mùi thơm nồng nàn của sả.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-[#E23D28] pb-2 inline-block">1. Nguyên liệu</h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-4">Chính & Thịt</h3>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> 1 kg ốc bươu tươi (chọn con đều, mày dày)
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> 150g thịt heo xay (nạc dăm có mỡ)
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> 150g giò sống (mọc)
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-4">Thảo mộc & Gia vị</h3>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> 3-4 tai nấm mèo (mộc nhĩ)
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> 15-20 nhánh sả tươi
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> Gừng, hành khô, tỏi, ớt tươi, lá chanh
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> Nước mắm ngon, tiêu sọ, đường, hạt nêm
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> Rượu trắng, giấm (khử mùi)
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-4">Ăn kèm</h3>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> Rau tía tô, rau thơm
+                        </li>
+                        <li class="ingredient-item flex items-start py-1">
+                            <span class="mr-3 text-[#E23D28]">▪</span> Khế chua, chuối chát non
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-[#E23D28] pb-2 inline-block">2. Các bước thực hiện</h2>
+            
+            <div class="space-y-10">
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">I</span>
+                    <h4 class="text-xl font-bold mb-2">Ngâm & Làm sạch Ốc</h4>
+                    <p class="justified-text text-gray-700">Cho ốc vào thau nước vo gạo cùng vài lát ớt tươi (hoặc vật dụng kim loại) ngâm 1-2 tiếng để ốc nhả sạch bùn nhớt.</p>
+                </div>
+
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">II</span>
+                    <h4 class="text-xl font-bold mb-2">Sơ chế thịt ốc</h4>
+                    <p class="justified-text text-gray-700">Luộc sơ ốc với sả đập dập. Khều lấy thịt, bỏ phần ruột đen. Bóp thịt ốc với muối, giấm và chút rượu trắng rồi rửa sạch. Thái thịt ốc thành hạt lựu lớn (không xay) để giữ độ giòn.</p>
+                </div>
+
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">III</span>
+                    <h4 class="text-xl font-bold mb-2">Vệ sinh vỏ ốc</h4>
+                    <p class="justified-text text-gray-700">Vỏ ốc được chải sạch, luộc sôi tiệt trùng và để ráo để chuẩn bị cho công đoạn nhồi nhân.</p>
+                </div>
+
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">IV</span>
+                    <h4 class="text-xl font-bold mb-2">Chế biến nhân</h4>
+                    <p class="justified-text text-gray-700">Băm nhỏ nấm mèo, hành, tỏi, gừng. Trộn đều ốc thái hạt lựu, thịt xay, giò sống và nấm mèo. Nêm nước mắm, tiêu sọ, hạt nêm. Quết kỹ hỗn hợp nhiều lần bằng muỗng để tạo độ dẻo dai.</p>
+                </div>
+
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">V</span>
+                    <h4 class="text-xl font-bold mb-2">Nhồi & Tạo hình</h4>
+                    <p class="justified-text text-gray-700">Cắt sả thành khúc 5-7cm, đập dập phần gốc. Đặt một lá sả gập đôi vào vỏ ốc làm tay nắm, sau đó nhồi chặt nhân vào bên trong, miết phẳng bề mặt.</p>
+                </div>
+
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">VI</span>
+                    <h4 class="text-xl font-bold mb-2">Hấp cách thủy</h4>
+                    <p class="justified-text text-gray-700 font-semibold italic text-[#E23D28]">Thời gian: 15-20 phút</p>
+                    <p class="justified-text text-gray-700">Lót sả và lá chanh dưới đáy xửng hấp. Khi nước sôi, xếp ốc vào hấp đến khi thịt chín tỏa mùi thơm đặc trưng.</p>
+                </div>
+
+                <div class="relative pl-12 border-l border-gray-200">
+                    <span class="absolute left-[-1.5rem] top-0 w-12 h-12 bg-[#FCFAFA] border border-[#C5A059] rounded-full flex items-center justify-center font-bold text-xl step-number">VII</span>
+                    <h4 class="text-xl font-bold mb-2">Linh hồn của món ăn: Nước chấm</h4>
+                    <p class="justified-text text-gray-700">Giã nhuyễn gừng, tỏi, ớt. Pha nước mắm, đường, nước cốt chanh và hỗn hợp gừng ớt để có bát nước chấm đậm đà, cay nồng.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner Section -->
+    <div class="max-w-5xl mx-auto px-6 my-20">
+        <div class="pro-tip-box p-10 relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#FCFAFA] px-6 text-[#C5A059] font-bold tracking-widest uppercase flex items-center">
+                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21l-2-2-2 2-2-2-2 2V13.87z"></path></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-4">
+                <div>
+                    <h5 class="text-[#E23D28] font-bold mb-2">Bí quyết giòn dai:</h5>
+                    <p class="justified-text text-gray-700">Tuyệt đối không xay thịt ốc, chỉ thái hạt lựu để giữ độ sần sật đặc trưng. Sử dụng tiêu sọ đập dập thay vì tiêu bột để tạo vị cay nồng mà không làm xỉn màu nhân.</p>
+                </div>
+                <div>
+                    <h5 class="text-[#E23D28] font-bold mb-2">Xử lý mùi chuyên nghiệp:</h5>
+                    <p class="justified-text text-gray-700">Việc bóp thịt ốc với rượu trắng và giấm là bước then chốt của giới chuyên nghiệp để loại bỏ hoàn toàn mùi tanh và nhớt của ốc bùn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ⚜ ✦</span>
+    </div>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="tab-card p-8 rounded-sm bg-white">
+                <div class="text-[#C5A059] text-xs font-bold uppercase tracking-widest mb-2">Home Edition</div>
+                <h4 class="text-xl font-bold mb-4">Phiên bản gia đình</h4>
+                <p class="justified-text text-gray-700">Nếu không có vỏ ốc, bạn có thể bọc nhân quanh đầu củ sả rồi đem hấp hoặc nướng (chả ốc nướng sả). Phương pháp này giúp nhân tiếp xúc nhiệt đều hơn và rất tiện lợi khi tổ chức tiệc ngoài trời.</p>
+            </div>
+            <div class="tab-card p-8 rounded-sm bg-white">
+                <div class="text-[#E23D28] text-xs font-bold uppercase tracking-widest mb-2">Chef's Signature</div>
+                <h4 class="text-xl font-bold mb-4">Topping & Kết cấu mới</h4>
+                <p class="justified-text text-gray-700">Thêm một chút hạt bắp sấy hoặc hạt sen băm nhỏ vào nhân để tăng thêm hương vị ngọt thanh và kết cấu giòn lạ miệng. Đây là cách các đầu bếp cao cấp thường dùng để tạo điểm nhấn khác biệt.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Technical Info -->
+    <div class="bg-gray-100 border-t border-gray-200 pt-16 pb-24">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 border-b border-[#C5A059] pb-2 inline-block">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <p class="justified-text text-gray-700">
+                        <strong class="text-[#2C2C2C]">Giàu khoáng chất:</strong> Ốc bươu là nguồn cung cấp canxi, sắt và protein dồi dào nhưng ít chất béo, phù hợp cho người muốn bổ sung chất khoáng mà vẫn giữ được vóc dáng.
+                    </p>
+                    <p class="justified-text text-gray-700">
+                        <strong class="text-[#2C2C2C]">Cân bằng âm dương:</strong> Các gia vị đi kèm như gừng, sả có tính ấm, giúp cân bằng tính hàn của ốc, tốt cho hệ tiêu hóa. Lưu ý cần đảm bảo hấp chín kỹ để đảm bảo an toàn vệ sinh thực phẩm.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-6 border-b border-[#C5A059] pb-2 inline-block">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <p class="justified-text text-gray-700">
+                        Sử dụng mẹt tre lót lá chuối để tăng tính truyền thống và mộc mạc. Xếp ốc theo vòng tròn, cuống sả hướng lên trên giúp thực khách dễ dàng kéo phần thịt ra. 
+                    </p>
+                    <p class="justified-text text-gray-700 italic">
+                        <strong>Mẹo chụp ảnh:</strong> Đặt bát nước chấm màu đỏ cam rực rỡ ở giữa, trang trí xung quanh bằng lá tía tô tím nhạt và tỏi ớt băm để làm nổi bật món ăn khi lên hình.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Decorative Element -->
+    <div class="py-12 flex justify-center opacity-30">
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10L60 40H90L65 60L75 90L50 70L25 90L35 60L10 40H40L50 10Z" fill="#C5A059"/>
+        </svg>
+    </div>
+
+    <script>
+        // Simple interactive scroll effect for the header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scroll = window.scrollY;
+            if (scroll > 100) {
+                header.style.opacity = Math.max(1 - (scroll - 100) / 500, 0.3);
+            } else {
+                header.style.opacity = 1;
+            }
+        });
+
+        // Add subtle animation to ingredient items on load
+        document.querySelectorAll('.ingredient-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-10px)';
+            setTimeout(() => {
+                item.style.transition = 'all 0.5s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+            }, 100 * index);
+        });
+    </script>
+</body>
+</html>
