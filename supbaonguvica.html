@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Súp Bào Ngư Vi Cá "Ông Sủi" - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-red: #B22222; /* Cinnabar Red */
+            --accent-gold: #D4AF37; /* Burnished Gold */
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .display-font {
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .gold-border {
+            border: 1px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .gold-border::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 1px solid var(--accent-gold);
+            pointer-events: none;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .step-number {
+            font-style: italic;
+            color: var(--accent-red);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .meta-card {
+            border-right: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .custom-bullet {
+            list-style: none;
+        }
+        .custom-bullet li::before {
+            content: "✦";
+            color: var(--accent-gold);
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            }
+            .meta-card:nth-child(2n) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 lg:p-24">
+
+    <!-- HERO HEADER -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="mb-4">
+            <span class="text-sm tracking-widest text-gray-500 italic">DI SẢN ẨM THỰC QUẢNG ĐÔNG</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 tracking-tighter">Súp Bào Ngư Vi Cá "Ông Sủi"</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 font-light mb-12">(Thượng Canh Hải Vị - Imperial Seafood Soup)</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-[var(--accent-gold)] py-6 gap-4">
+            <div class="meta-card px-4">
+                <p class="text-[var(--accent-gold)] text-xs uppercase tracking-widest mb-1">Độ Khó</p>
+                <p class="font-bold text-lg">Khó</p>
+            </div>
+            <div class="meta-card px-4">
+                <p class="text-[var(--accent-gold)] text-xs uppercase tracking-widest mb-1">Thời Gian</p>
+                <p class="font-bold text-lg">4 - 8 Giờ</p>
+            </div>
+            <div class="meta-card px-4">
+                <p class="text-[var(--accent-gold)] text-xs uppercase tracking-widest mb-1">Phần Ăn</p>
+                <p class="font-bold text-lg">4 - 6 Người</p>
+            </div>
+            <div class="meta-card px-4 border-none">
+                <p class="text-[var(--accent-gold)] text-xs uppercase tracking-widest mb-1">Nguồn Gốc</p>
+                <p class="font-bold text-sm leading-tight uppercase">Cung Đình Trung Hoa</p>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-600 justified-text px-4">
+            Món ăn là biểu tượng của sự vương giả, thịnh vượng và trường thọ, thường chỉ xuất hiện trong các yến tiệc cung đình xưa hoặc các nhà hàng cao cấp ngày nay.
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">◈ ✦ ◈</span>
+    </div>
+
+    <!-- MAIN CONTENT GRID -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <section class="lg:col-span-4 bg-white/50 p-8 rounded-sm shadow-sm">
+            <h3 class="text-2xl font-bold mb-8 border-b border-[var(--accent-gold)] pb-2 inline-block">1. Nguyên liệu</h3>
+            
+            <div class="mb-8">
+                <h4 class="italic font-bold text-[var(--accent-red)] mb-4 uppercase text-sm tracking-widest">Phần Thượng canh</h4>
+                <ul class="space-y-3 custom-bullet ml-6">
+                    <li>1 con gà già (khoảng 1.5kg)</li>
+                    <li>500g xương ống heo (đã chần sạch)</li>
+                    <li>50g giăm bông Kim Hoa</li>
+                    <li>30g cồi sò điệp khô</li>
+                    <li>3 lít nước lọc</li>
+                </ul>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="italic font-bold text-[var(--accent-red)] mb-4 uppercase text-sm tracking-widest">Nguyên liệu chính</h4>
+                <ul class="space-y-3 custom-bullet ml-6">
+                    <li>Bào ngư: 4-6 con</li>
+                    <li>Vi cá: 50g (ngâm nở)</li>
+                    <li>Hải sâm: 100g</li>
+                    <li>Nấm đông cô: 6-8 tai</li>
+                    <li>Kỷ tử: 1 muỗng canh</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="italic font-bold text-[var(--accent-red)] mb-4 uppercase text-sm tracking-widest">Gia vị & Tạo sánh</h4>
+                <ul class="space-y-3 custom-bullet ml-6">
+                    <li>Nước tương thượng hạng, Dầu hào</li>
+                    <li>Rượu Thiệu Hưng</li>
+                    <li>Đường phèn</li>
+                    <li>Bột năng & Gừng, hành lá</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-8 border-b border-[var(--accent-gold)] pb-2 inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12">
+                <!-- STEP 1 -->
+                <div class="flex items-start">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h4 class="font-bold text-lg uppercase mb-2">Nấu Thượng canh (Cốt lõi hương vị)</h4>
+                        <p class="justified-text text-gray-700">
+                            Cho gà già, xương heo, giăm bông và sò điệp khô vào nồi cùng 3 lít nước. Đun sôi, hớt bọt kỹ. Hạ lửa nhỏ và hầm liu riu trong <span class="italic font-bold">4-6 giờ</span>. Lọc lấy nước trong, bỏ bã. 
+                        </p>
+                        <div class="mt-2 text-xs italic text-[var(--accent-gold)] font-bold">
+                            Mẹo: Có thể dùng nồi áp suất hầm trong 45 phút để tiết kiệm thời gian.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="flex items-start">
+                    <span class="step-number">02</span>
+                    <div>
+                        <h4 class="font-bold text-lg uppercase mb-2">Xử lý nguyên liệu chính</h4>
+                        <p class="justified-text text-gray-700">
+                            Bào ngư khô cần ngâm 2 ngày, luộc sơ với gừng và hành. Vi cá và hải sâm hấp cách thủy 10 phút với rượu Thiệu Hưng để khử mùi tanh. Nếu dùng đồ hộp, chắt lấy nước dùng và rửa sạch thịt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="flex items-start">
+                    <span class="step-number">03</span>
+                    <div>
+                        <h4 class="font-bold text-lg uppercase mb-2">Hầm súp</h4>
+                        <p class="justified-text text-gray-700">
+                            Đun sôi phần nước Thượng canh. Cho bào ngư, hải sâm, nấm đông cô vào nồi. Nêm nếm nước tương, dầu hào, đường phèn, rượu Thiệu Hưng. Hạ lửa nhỏ hầm thêm <span class="italic font-bold">30-45 phút</span> cho thấm vị.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="flex items-start">
+                    <span class="step-number">04</span>
+                    <div>
+                        <h4 class="font-bold text-lg uppercase mb-2">Hoàn thiện</h4>
+                        <p class="justified-text text-gray-700">
+                            Cho vi cá và kỷ tử vào đun thêm 5 phút. Từ từ rót hỗn hợp bột năng vào, khuấy đều tay theo một chiều cho đến khi súp đạt độ sánh mượt, dẻo nhưng không bị đặc quánh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">◈ ✦ ◈</span>
+    </div>
+
+    <!-- CHEF CORNER SECTION -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <div class="gold-border p-8 md:p-12 bg-white">
+            <h3 class="text-xl font-bold mb-6 text-[var(--accent-gold)] flex items-center">
+                <span class="mr-2">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="border-l-2 border-[var(--accent-gold)] pl-4">
+                    <h5 class="font-bold uppercase text-xs tracking-widest mb-2">Kỹ thuật "Tẩy canh"</h5>
+                    <p class="justified-text text-sm italic text-gray-700">
+                        Để nước dùng trong vắt, sau khi hầm xong xương, hãy băm nhuyễn 100g thịt nạc heo, hòa với chút nước lạnh rồi đổ vào nồi nước dùng đang sôi lăn tăn. Thịt sẽ nổi lên, cuốn theo mọi cặn bẩn.
+                    </p>
+                </div>
+                <div class="border-l-2 border-[var(--accent-gold)] pl-4">
+                    <h5 class="font-bold uppercase text-xs tracking-widest mb-2">Kiểm soát Nhiệt độ</h5>
+                    <p class="justified-text text-sm italic text-gray-700">
+                        Khi nấu vi cá và bào ngư, tuyệt đối không để sôi bùng, chỉ giữ lửa ở mức sôi sủi tăm (simmer) để giữ trọn vẹn kết cấu dai giòn và không làm đục nước.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATIONS SECTION -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <h3 class="text-2xl font-bold mb-8 border-b border-[var(--accent-gold)] pb-2 inline-block">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-[var(--primary-charcoal)] text-white p-6 hover-lift">
+                <h4 class="text-[var(--accent-gold)] font-bold mb-2 uppercase tracking-widest text-sm">Phiên bản Gia đình & Môi trường</h4>
+                <p class="text-sm justified-text italic text-gray-300">
+                    Thay thế vi cá mập bằng vi cá nhân tạo, nấm tuyết thái sợi, hoặc bóng cá (fish maw). Sử dụng bào ngư lon hoặc cồi sò điệp tươi cỡ lớn để tối ưu chi phí mà vẫn giữ được hương vị tinh túy.
+                </p>
+            </div>
+            <div class="bg-[var(--accent-red)] text-white p-6 hover-lift">
+                <h4 class="text-white font-bold mb-2 uppercase tracking-widest text-sm underline decoration-[var(--accent-gold)]">Phiên bản Gourmet</h4>
+                <p class="text-sm justified-text italic text-gray-100">
+                    Thêm thịt càng cua tươi xé sợi ở bước cuối cùng để tăng vị ngọt hải sản. Sử dụng thêm một chút nước cốt chân giò muối để gia tăng độ ngậy cho phần Thượng canh.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER TECHNICAL INFO -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-[var(--accent-gold)] pb-24">
+        <!-- NUTRITION -->
+        <div>
+            <h3 class="text-lg font-bold mb-4 flex items-center">
+                <span class="mr-2">⚖️</span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="space-y-3 text-sm justified-text">
+                <p>Cung cấp lượng lớn <span class="font-bold">Collagen</span> tự nhiên và Elastin giúp trẻ hóa làn da và tái tạo sụn khớp.</p>
+                <p>Chứa nhiều Protein, Canxi, Sắt và Kẽm, hỗ trợ đắc lực cho việc phục hồi sinh lực và bồi bổ sức khỏe.</p>
+                <p class="italic text-gray-500">Lưu ý: Khuyến nghị dùng 1-2 lần/tháng đối với người có tiền sử bệnh tim mạch hoặc Gout do hàm lượng Purin cao.</p>
+            </div>
+        </div>
+
+        <!-- PRESENTATION -->
+        <div>
+            <h3 class="text-lg font-bold mb-4 flex items-center">
+                <span class="mr-2">✨</span> 6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-3 text-sm justified-text">
+                <p>Múc súp ra <span class="font-bold italic">thố sứ có nắp đậy (Tureen)</span> để giữ nhiệt. Đặt nguyên liệu lớn (bào ngư, nấm) ở dưới, gắp vi cá phủ lên trên đỉnh.</p>
+                <p>Điểm xuyết hạt kỷ tử đỏ tươi và ngò rí. Tại các nhà hàng 5 sao, một mảnh <span class="text-[var(--accent-gold)] font-bold">vàng lá (gold leaf)</span> nhỏ thường được đặt lên trên cùng.</p>
+                <p class="italic">Dùng kèm với dấm đỏ (dấm tiều) và giá đỗ chần để cân bằng vị giác.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal for ingredients
+        document.querySelectorAll('.custom-bullet li').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-10px)';
+            item.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
