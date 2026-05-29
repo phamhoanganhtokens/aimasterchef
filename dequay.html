@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Dê Quay Thảo Mộc Ninh Bình</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        
+        p, .description-text {
+            text-align: justify;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        
+        .section-divider:not(:empty)::before { margin-right: 1rem; }
+        .section-divider:not(:empty)::after { margin-left: 1rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23D28;
+            background-color: rgba(226, 61, 40, 0.02);
+        }
+
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(2n) {
+                border-right: none;
+            }
+        }
+
+        .glass-nav {
+            background: rgba(252, 250, 250, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <nav class="glass-nav py-4 px-6 flex justify-between items-center">
+        <span class="text-gold font-bold tracking-widest text-lg uppercase">AI Vua Đầu Bếp</span>
+        <span class="text-charcoal italic text-sm">Gourmet Digital Series</span>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-8 py-12">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Dê Quay Thảo Mộc Ninh Bình</h1>
+            <h2 class="text-2xl md:text-3xl italic text-cinnabar font-normal mb-8">Herb-Roasted Ninh Binh Goat</h2>
+            
+            <div class="description-text max-w-3xl mx-auto mb-10 text-lg leading-relaxed italic opacity-90">
+                "Xuất phát từ vùng núi đá vôi Ninh Bình, món dê quay là sự kết hợp tinh tế giữa kỹ thuật chế biến thịt rừng và các loại gia vị thảo mộc đặc trưng của miền Bắc như mẻ, riềng, tương bần. Đây là món ăn biểu tượng cho sự hiếu khách và kỹ nghệ ẩm thực dân gian Việt Nam."
+            </div>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border border-gold rounded-sm overflow-hidden">
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-white">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Độ khó</span>
+                    <span class="font-bold">Nâng cao</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-white">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Thời gian</span>
+                    <span class="font-bold">4 - 5 giờ</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-white">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Khẩu phần</span>
+                    <span class="font-bold">4 - 6 người</span>
+                </div>
+                <div class="meta-item p-4 flex flex-col items-center justify-center bg-white">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Nguồn gốc</span>
+                    <span class="font-bold">Ninh Bình, VN</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="section-divider">
+            <span class="ornament">◈ ★ ◈</span>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3 uppercase text-sm">Thịt chính</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-2 flex justify-between">
+                                <span>Thịt dê núi (đùi hoặc ba chỉ)</span>
+                                <span class="italic text-cinnabar">2 - 3kg</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3 uppercase text-sm">Gia vị truyền thống</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-2">Cơm mẻ (đã lọc) - 3 muỗng canh</li>
+                            <li class="ingredient-item py-2">Riềng giã nhỏ - 2 củ</li>
+                            <li class="ingredient-item py-2">Sả băm - 5 củ</li>
+                            <li class="ingredient-item py-2">Gừng lớn - 1 củ</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3 uppercase text-sm">Hỗn hợp tẩm ướp</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-2">Ngũ vị hương, Dầu hào, Mật ong</li>
+                            <li class="ingredient-item py-2">Rượu trắng, Muối, Tiêu, Hành tím</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3 uppercase text-sm">Skin Glaze (Lớp quét da)</h4>
+                        <ul class="space-y-2 text-sm italic">
+                            <li class="ingredient-item py-2">Mật ong (hoặc mạch nha), Nước cốt chanh, Giấm trắng, Nước ấm</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3 uppercase text-sm">Rau ăn kèm & Nước chấm</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item py-2">Lá mơ, đinh lăng, húng lủi, khế, chuối chát</li>
+                            <li class="ingredient-item py-2">Tương bần, gừng, ớt, đường</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12 relative">
+                    <!-- Step 1 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-3xl">01</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Khử mùi và Sơ chế <span class="text-sm font-normal italic text-gold ml-2">(Kỹ thuật Truyền thống)</span></h4>
+                            <p class="text-charcoal opacity-90 leading-relaxed">
+                                Dùng gừng giã nát trộn với rượu trắng chà xát kỹ lên miếng thịt dê trong 15 phút để khử mùi hôi đặc trưng. Sau đó rửa sạch bằng nước ấm và thấm thật khô bằng khăn sạch. Việc làm khô bề mặt là tiên quyết cho độ giòn sau này.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-3xl">02</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Tẩm ướp <span class="text-sm font-normal italic text-gold ml-2">(Kết hợp Chuyên nghiệp & Gia đình)</span></h4>
+                            <p class="text-charcoal opacity-90 leading-relaxed">
+                                Dùng dao nhọn khía nhẹ vào mặt trong của miếng thịt (không khía vào lớp da). Trộn đều mẻ, riềng, sả, ngũ vị hương và các gia vị tẩm ướp. Thoa đều hỗn hợp này vào mặt thịt, tránh để gia vị dính lên lớp da. Để thịt thấm ít nhất 2 giờ trong ngăn mát tủ lạnh.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-3xl">03</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Xử lý lớp da <span class="text-sm font-normal italic text-gold ml-2">(Bí quyết Giòn da)</span></h4>
+                            <p class="text-charcoal opacity-90 leading-relaxed">
+                                Dùng dụng cụ xăm da (hoặc nĩa) xăm đều lên bề mặt da dê. Lau khô da một lần nữa, sau đó quét hỗn hợp mật ong, chanh và giấm lên. Đây là bước quan trọng để khi quay da sẽ nổ giòn và có màu vàng óng đẹp mắt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-3xl">04</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Quay thịt <span class="text-sm font-normal italic text-gold ml-2">(Phương pháp linh hoạt)</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                                <div class="p-4 bg-white border-l-4 border-gold shadow-sm">
+                                    <span class="block font-bold text-sm uppercase mb-1">Truyền thống</span>
+                                    <span class="text-sm italic">Quay trên than hồng, xoay đều tay, liên tục quét dầu để thịt không bị khô.</span>
+                                </div>
+                                <div class="p-4 bg-white border-l-4 border-cinnabar shadow-sm">
+                                    <span class="block font-bold text-sm uppercase mb-1">Hiện đại (Lò nướng)</span>
+                                    <span class="text-sm italic">180°C trong 30-40 phút. Sau đó tăng lên 220°C trong 10-15 phút để da nổ giòn.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-6">
+                        <div class="flex-none">
+                            <span class="step-number text-3xl">05</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Nghỉ thịt <span class="text-sm font-normal italic text-gold ml-2">(Resting - Professional)</span></h4>
+                            <p class="text-charcoal opacity-90 leading-relaxed">
+                                Sau khi lấy thịt ra khỏi lò, tuyệt đối không cắt ngay. Để thịt nghỉ trong 15-20 phút. Việc này giúp nước thịt phân phối lại, giữ cho miếng thịt bên trong mềm mọng, không bị khô xác khi thái.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">◈ ★ ◈</span>
+        </div>
+
+        <!-- Chef's Corner Section -->
+        <section class="pro-tip-box p-8 md:p-12 mb-16 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm1-11h-2v3H8v2h3v3h2v-3h3v-2h-3V8z"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="bg-gold text-white p-1 rounded-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                </span>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h5 class="font-bold text-cinnabar uppercase text-sm mb-2 tracking-widest">Kiểm soát nhiệt độ</h5>
+                    <p class="italic">Luôn giữ lớp da khô nhất có thể trước khi tiếp xúc với nhiệt cao. Nếu dùng lò nướng, hãy đặt một khay nước nhỏ phía dưới để hơi nước giữ cho phần thịt không bị mất nước trong khi lớp da vẫn giòn.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-cinnabar uppercase text-sm mb-2 tracking-widest">Kỹ thuật thái</h5>
+                    <p class="italic">Sử dụng dao sắc, thái bản to nhưng mỏng, cắt ngang thớ thịt để miếng dê không bị dai. Kỹ thuật thái quyết định 30% cảm giác ngon miệng của thực khách.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations & Pro Versions -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 uppercase tracking-wider">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white border border-gold shadow-sm hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-lg mb-3 flex items-center gap-2">
+                        <span class="text-gold">●</span> Lối sống hiện đại
+                    </h4>
+                    <p class="text-sm italic opacity-90">Nếu không có cơm mẻ, bạn có thể thay thế bằng sữa chua không đường kết hợp với một chút giấm táo để tạo độ chua thanh và làm mềm thịt tương tự.</p>
+                </div>
+                <div class="p-6 bg-white border border-gold shadow-sm hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-lg mb-3 flex items-center gap-2">
+                        <span class="text-gold">●</span> Biến tấu hương vị
+                    </h4>
+                    <p class="text-sm italic opacity-90">Có thể thêm lá móc mật băm nhỏ vào phần sốt ướp để tạo mùi thơm kiểu Tây Bắc, tạo nên một bản giao hưởng hương vị vùng cao độc đáo.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="ornament">◈ ★ ◈</span>
+        </div>
+
+        <!-- Footer/Technical Info -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-charcoal text-white p-8 md:p-12 rounded-sm">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 opacity-90">
+                    <p>Thịt dê là nguồn protein dồi dào, chứa ít chất béo bão hòa và cholesterol hơn thịt bò và thịt heo, rất tốt cho sức khỏe tim mạch.</p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span class="px-3 py-1 border border-gold/50 text-xs rounded-full">Giàu Sắt</span>
+                        <span class="px-3 py-1 border border-gold/50 text-xs rounded-full">Kẽm</span>
+                        <span class="px-3 py-1 border border-gold/50 text-xs rounded-full">Vitamin B12</span>
+                    </div>
+                    <p class="text-sm italic text-gold/80 pt-2 border-t border-gold/20">Lưu ý: Do thịt dê có tính nhiệt cao, nên kết hợp ăn kèm với nhiều loại rau sống để cân bằng âm dương và hỗ trợ tiêu hóa.</p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-gold/30 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 opacity-90 text-sm">
+                    <p><strong class="text-gold">Trình bày:</strong> Lót một lớp lá mơ và lá đinh lăng xanh mướt dưới đĩa lớn. Xếp thịt dê quay theo hình vòng tròn hoặc xếp lớp chồng lên nhau sao cho phần da giòn quay ra ngoài.</p>
+                    <p><strong class="text-gold">Điểm nhấn:</strong> Đặt một chén tương bần ở giữa đĩa, rắc thêm một ít mè rang vàng lên trên thịt. Màu vàng cánh gián của lớp da tương phản với màu xanh của thảo mộc sẽ kích thích thị giác tối đa.</p>
+                    <p><strong class="text-gold">Garnish:</strong> Trang trí thêm vài lát ớt đỏ và sả bào mỏng xung quanh để đĩa ăn trông chuyên nghiệp và bắt mắt.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Visual Accents -->
+    <div class="fixed bottom-8 right-8 pointer-events-none opacity-20 hidden md:block">
+        <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90C72.0914 90 90 72.0914 90 50C90 27.9086 72.0914 10 50 10Z" stroke="#C5A059" stroke-width="0.5"/>
+            <path d="M50 20C33.4315 20 20 33.4315 20 50C20 66.5685 33.4315 80 50 80C66.5685 80 80 66.5685 80 50C80 33.4315 66.5685 20 50 20Z" stroke="#C5A059" stroke-width="0.5"/>
+            <path d="M50 0V100M0 50H100" stroke="#C5A059" stroke-width="0.1"/>
+        </svg>
+    </div>
+
+    <script>
+        // Simple interactive flourish
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.cursor = 'default';
+            });
+        });
+    </script>
+</body>
+</html>
