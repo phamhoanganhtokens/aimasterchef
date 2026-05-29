@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Sữa Đậu Nành</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldMuted: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            text-rendering: optimizeLegibility;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .recipe-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .recipe-card:hover {
+            border-color: #C5A059;
+            box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.2);
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: #E23D28;
+            border-radius: 50%;
+        }
+        .gold-frame {
+            border: 2px double #C5A059;
+            padding: 2rem;
+            position: relative;
+            background: rgba(197, 160, 89, 0.03);
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center border-b border-gray-200">
+        <div class="mb-4 tracking-widest text-cinnabar font-bold uppercase text-sm">Tinh Hoa Ẩm Thực Việt</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">SỮA ĐẬU NÀNH</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 font-light mb-10 tracking-wide">Soy Milk</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center border-r border-gray-100 last:border-0">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M234.39,183.12,185.7,35.48a16,16,0,0,0-30.43,0L106.58,183.12a16,16,0,0,0,15.21,21H219.18A16,16,0,0,0,234.39,183.12ZM170.49,40.58l48.69,147.64H121.8ZM96,204H40a16,16,0,0,1,0-32H85.45A16,16,0,0,0,96,204ZM40,156a16,16,0,0,1,0-32H69.45A16,16,0,0,0,80,156ZM40,108a16,16,0,0,1,0-32H53.45A16,16,0,0,0,64,108Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Độ khó</span>
+                <span class="font-bold text-sm">TRUNG BÌNH</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-100 last:border-0">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Thời gian</span>
+                <span class="font-bold text-sm">8 - 10 GIỜ</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-100 last:border-0">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M117.25,156.92a4,4,0,0,1-6.5,0A84,84,0,1,0,33.25,208a4,4,0,0,0,3.5,6H187.25a4,4,0,0,0,3.5-6A84,84,0,0,0,117.25,156.92ZM110.5,68a28,28,0,1,1,28,28A28,28,0,0,1,110.5,68Zm-10,124a68.1,68.1,0,0,1,27.5-54,44,44,0,1,0-56,0,68.1,68.1,0,0,1,27.5,54Zm116.51-14.73A84.1,84.1,0,0,0,147,136.2a4,4,0,0,1-2.14-5.32,44,44,0,1,0-43.7,0,4,4,0,0,1-2.14,5.32,84.09,84.09,0,0,0-50,33.62,4,4,0,0,0,6.56,4.55,68,68,0,0,1,121.84,0,4,4,0,0,0,6.56-4.55Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Khẩu phần</span>
+                <span class="font-bold text-sm">4 - 6 NGƯỜI</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,136a48,48,0,1,1,48-48A48.05,48.05,0,0,1,128,152Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-400">Nguồn gốc</span>
+                <span class="font-bold text-sm">VIỆT NAM</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto italic justified text-gray-600 text-lg">
+            "Sữa đậu nành là thức uống dân dã, gắn liền với đời sống văn hóa của người Việt từ nông thôn đến thành thị. Theo truyền thống, đậu được xay bằng cối đá thủ công để giữ trọn hương vị nguyên bản và độ béo ngậy đặc trưng."
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-2">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-gold uppercase tracking-widest text-sm mb-4">Thành phần chính</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start group">
+                                <span class="w-6 h-6 flex-shrink-0 text-cinnabar mt-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity">◈</span>
+                                <span class="justified leading-relaxed"><strong>200g Đậu nành</strong> (chọn hạt vàng, mẩy, không biến đổi gen - Non-GMO).</span>
+                            </li>
+                            <li class="flex items-start group border-t border-gray-100 pt-4">
+                                <span class="w-6 h-6 flex-shrink-0 text-cinnabar mt-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity">◈</span>
+                                <span class="justified leading-relaxed"><strong>1.5 - 2 lít Nước lọc</strong> (tùy độ đặc mong muốn).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold uppercase tracking-widest text-sm mb-4">Hương liệu & Gia vị</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start group">
+                                <span class="w-6 h-6 flex-shrink-0 text-cinnabar mt-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity">◈</span>
+                                <span class="justified leading-relaxed"><strong>5 - 7 Lá dứa</strong> (lá nếp) tươi.</span>
+                            </li>
+                            <li class="flex items-start group border-t border-gray-100 pt-4">
+                                <span class="w-6 h-6 flex-shrink-0 text-cinnabar mt-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity">◈</span>
+                                <span class="justified leading-relaxed"><strong>1/4 muỗng cà phê Muối biển</strong>.</span>
+                            </li>
+                            <li class="flex items-start group border-t border-gray-100 pt-4">
+                                <span class="w-6 h-6 flex-shrink-0 text-cinnabar mt-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity">◈</span>
+                                <span class="justified leading-relaxed"><strong>Đường phèn</strong> hoặc đường thốt nốt (tùy khẩu vị).</span>
+                            </li>
+                            <li class="flex items-start group border-t border-gray-100 pt-4">
+                                <span class="w-6 h-6 flex-shrink-0 text-cinnabar mt-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity">◈</span>
+                                <span class="justified leading-relaxed"><strong>Gừng:</strong> Một lát gừng nhỏ (tùy chọn theo phong cách truyền thống).</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-2">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12 border-l-2 border-gray-100 ml-4 pl-10 relative">
+                    <!-- Step 1 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold">Sơ chế & Ngâm đậu</h4>
+                            <span class="text-cinnabar italic text-sm">6 - 12 Giờ</span>
+                        </div>
+                        <p class="justified leading-relaxed text-gray-700">
+                            <span class="italic text-gold block mb-1">Góc nhìn Truyền thống:</span>
+                            Rửa sạch đậu nành, loại bỏ hạt lép và tạp chất. Ngâm đậu trong nước ấm từ 6-8 giờ (mùa hè) hoặc 10-12 giờ (mùa đông). Sau khi ngâm, dùng tay bóp nhẹ để đãi vỏ (giúp sữa trắng và mịn hơn).
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold">Xay đậu</h4>
+                            <span class="text-cinnabar italic text-sm">10 Phút</span>
+                        </div>
+                        <p class="justified leading-relaxed text-gray-700">
+                            <span class="italic text-gold block mb-1">Góc nhìn Gia đình:</span>
+                            Cho đậu vào máy xay sinh tố cùng với nước lọc theo tỷ lệ 1 phần đậu : 8 phần nước. Xay ở tốc độ cao nhất cho đến khi hỗn hợp thật mịn.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold">Lọc sữa</h4>
+                            <span class="text-cinnabar italic text-sm">5 Phút</span>
+                        </div>
+                        <p class="justified leading-relaxed text-gray-700">
+                            <span class="italic text-gold block mb-1">Góc nhìn Đầu bếp:</span>
+                            Sử dụng túi lọc vải (nut milk bag) chuyên dụng để lọc lấy nước cốt. Vắt thật kỹ để thu được tối đa dưỡng chất. Để đạt độ mịn chuyên nghiệp, hãy lọc lại lần hai qua rây kim loại cực mịn để loại bỏ hoàn toàn bã thừa (okara).
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold">Nấu sữa & Kiểm soát nhiệt</h4>
+                            <span class="text-cinnabar italic text-sm">15 Phút</span>
+                        </div>
+                        <p class="justified leading-relaxed text-gray-700">
+                            <span class="italic text-gold block mb-1">Góc nhìn Chuyên gia:</span>
+                            Đổ sữa vào nồi đế dày. Đun ở lửa vừa, khuấy liên tục và đều tay để tránh sữa bị "khê" (cháy đáy nồi). Khi sữa bắt đầu sủi tăm, thêm lá dứa và một chút muối để làm nổi bật vị béo tự nhiên.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold">Xử lý Enzyme</h4>
+                            <span class="text-cinnabar italic text-sm">15 Phút</span>
+                        </div>
+                        <p class="justified leading-relaxed text-gray-700">
+                            <span class="italic text-gold block mb-1">Góc nhìn Dinh dưỡng:</span>
+                            Khi sữa sôi bùng, hạ lửa nhỏ và tiếp tục đun trong 10-15 phút. Việc này cực kỳ quan trọng để phá hủy enzyme lipoxygenase (nguyên nhân gây mùi hăng và đầy bụng) và giúp protein trong đậu dễ hấp thụ hơn.
+                        </p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold">Hoàn thiện</h4>
+                            <span class="text-cinnabar italic text-sm">Hoàn tất</span>
+                        </div>
+                        <p class="justified leading-relaxed text-gray-700">
+                            Thêm đường phèn vào cuối quá trình nấu, khuấy tan rồi tắt bếp.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Ornament Divider -->
+        <div class="ornament">
+            <div class="ornament-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224,104a8,8,0,0,1-16,0V88H184a8,8,0,0,1,0-16h24V48a8,8,0,0,1,16,0V72h24a8,8,0,0,1,0,16H224Zm-16,80a8,8,0,0,0-16,0v16H176a8,8,0,0,0,0,16h16v16a8,8,0,0,0,16,0V216h16a8,8,0,0,0,0-16H208ZM180.34,136,56,232H40V216L136,91.66l-14.34-14.34L25.17,173.83a8,8,0,0,1-11.31-11.32L110.34,66,94.34,50A40,40,0,0,1,150.85,10.51l6,6a8,8,0,0,1,0,11.32Zm-11.31-11.31L136,91.66,164.34,120Zm11.31-68.35-6-6a24,24,0,0,0-33.94,33.94l16,16L196.34,72.34Z"></path></svg>
+            </div>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="max-w-4xl mx-auto mb-20">
+            <div class="gold-frame bg-white shadow-sm">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white px-6 font-bold text-cinnabar tracking-[0.2em] uppercase">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-4">
+                    <div class="text-center">
+                        <div class="text-cinnabar font-bold mb-2">Kiểm soát bọt</div>
+                        <p class="justified text-sm italic text-gray-600">Luôn hớt bỏ lớp bọt trắng nổi lên trong quá trình đun để sữa trong và thanh thoát hơn.</p>
+                    </div>
+                    <div class="text-center border-x-0 md:border-x border-gray-200 px-4">
+                        <div class="text-cinnabar font-bold mb-2">Kỹ thuật nhiệt</div>
+                        <p class="justified text-sm italic text-gray-600">Tuyệt đối không để sữa sôi trào quá mạnh vì sẽ làm tách lớp và biến tính protein. Nhiệt độ lý tưởng là duy trì quanh mức 90-95 độ C.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-cinnabar font-bold mb-2">Bí quyết dậy mùi</div>
+                        <p class="justified text-sm italic text-gray-600">Thêm một lát gừng mỏng khi nấu sẽ giúp làm ấm bụng và tạo hậu vị sâu cho sữa theo phong cách ẩm thực cung đình xưa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-20">
+            <h3 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="recipe-card p-8 bg-white border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-12 h-12 mb-6 text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" /></svg>
+                    </div>
+                    <h5 class="text-lg font-bold mb-4">Sữa đậu nành lá dứa</h5>
+                    <p class="justified text-sm text-gray-600">Tăng lượng lá dứa để có màu xanh nhạt tự nhiên và hương thơm nồng nàn, thanh mát khó cưỡng.</p>
+                </div>
+                <div class="recipe-card p-8 bg-white border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-12 h-12 mb-6 text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h17.25" /></svg>
+                    </div>
+                    <h5 class="text-lg font-bold mb-4">Sữa ngũ cốc</h5>
+                    <p class="justified text-sm text-gray-600">Kết hợp thêm hạt sen, mè đen hoặc đậu phộng để tăng độ ngậy và giá trị dinh dưỡng cao cấp.</p>
+                </div>
+                <div class="recipe-card p-8 bg-white border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-12 h-12 mb-6 text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+                    </div>
+                    <h5 class="text-lg font-bold mb-4">Phiên bản thực dưỡng</h5>
+                    <p class="justified text-sm text-gray-600">Sử dụng đường cỏ ngọt (Stevia) hoặc chà là để tạo ngọt tự nhiên, phù hợp cho chế độ ăn kiêng chuyên sâu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical / Bottom Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gray-200">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="text-cinnabar mr-3">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="font-bold">Protein</span>
+                        <span class="text-gold italic">Hàm lượng cao (không cholesterol)</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="font-bold">Isoflavones</span>
+                        <span class="text-gold italic">Cân bằng nội tiết tố</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="font-bold">Vitamins</span>
+                        <span class="text-gold italic">A, B1, B2 & Khoáng chất</span>
+                    </div>
+                    <div class="bg-cinnabar/5 p-3 rounded text-xs italic text-cinnabar justified border-l-2 border-cinnabar">
+                        Lưu ý: Không nên uống sữa đậu nành sống hoặc chưa chín kỹ vì chứa chất ức chế Trypsin gây rối loạn tiêu hóa.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="text-cinnabar mr-3">6.</span> Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-sm text-gray-700">
+                    <p class="justified">
+                        <strong class="text-charcoal block mb-1 uppercase tracking-tighter text-xs">Ly đựng:</strong>
+                        Sử dụng ly thủy tinh trong suốt để khoe được sắc trắng sữa tinh khôi hoặc màu xanh nhạt của lá dứa.
+                    </p>
+                    <p class="justified">
+                        <strong class="text-charcoal block mb-1 uppercase tracking-tighter text-xs">Trang trí:</strong>
+                        Thắt một dải lá dứa nhỏ quanh thân ly hoặc đặt một cọng lá dứa tươi đứng dọc trong ly (Góc nhìn Food Stylist).
+                    </p>
+                    <p class="justified">
+                        <strong class="text-charcoal block mb-1 uppercase tracking-tighter text-xs">Phục vụ:</strong>
+                        Nếu uống nóng, hãy tạo một lớp bọt mỏng trên bề mặt. Nếu uống lạnh, phục vụ cùng đá viên tinh khiết và vụn dừa tươi.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Top Script (Interactivity) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll and subtle reveal for steps
+            const steps = document.querySelectorAll('.timeline-step');
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, observerOptions);
+
+            steps.forEach(step => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(20px)';
+                step.style.transition = 'all 0.6s ease-out';
+                observer.observe(step);
+            });
+        });
+    </script>
+</body>
+</html>
