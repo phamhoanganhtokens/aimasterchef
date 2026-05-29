@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Phật Nhảy Tường</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament span {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.1);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid rgba(197, 160, 89, 0.3);
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="relative py-16 px-6 text-center border-b border-gold/20 bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]">
+        <div class="max-w-4xl mx-auto">
+            <span class="uppercase tracking-widest text-gold font-bold text-sm mb-4 block">— AI VUA ĐẦU BẾP —</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal">PHẬT NHẢY TƯỜNG</h1>
+            <h2 class="text-2xl md:text-3xl italic font-light text-cinnabar/80 mb-8">Buddha Jumps Over the Wall</h2>
+            
+            <p class="max-w-2xl mx-auto italic justified mb-10 text-charcoal/70">
+                "Ra đời từ triều đại nhà Thanh tại tỉnh Phúc Kiến, Trung Hoa. Đây là món ăn biểu tượng của sự quyền quý, kết hợp tinh túy của 'sơn hào hải vị' và triết lý ngũ hành trong Đông y."
+            </p>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 max-w-3xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-tighter text-gold mb-1">Độ khó</span>
+                    <span class="font-bold text-charcoal">Rất khó</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-tighter text-gold mb-1">Thời gian</span>
+                    <span class="font-bold text-charcoal">12 - 15 giờ</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-tighter text-gold mb-1">Khẩu phần</span>
+                    <span class="font-bold text-charcoal">4 - 6 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-tighter text-gold mb-1">Nguồn gốc</span>
+                    <span class="font-bold text-charcoal">Phúc Kiến</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold text-cinnabar border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold italic mb-3">Sơn hào hải vị</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mr-2">✦</span>
+                                    <span class="justified">Bào ngư (4-6 con), hải sâm (200g), vi cá chay.</span>
+                                </li>
+                                <li class="flex items-start hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mr-2">✦</span>
+                                    <span class="justified">Bong bóng cá (50g), sò điệp khô (4-6 cồi), gân hươu/bò (100g).</span>
+                                </li>
+                                <li class="flex items-start hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mr-2">✦</span>
+                                    <span class="justified">Thịt gà già, vịt, đùi lợn Kim Hoa (150g).</span>
+                                </li>
+                                <li class="flex items-start hover:translate-x-1 transition-transform cursor-default">
+                                    <span class="text-cinnabar mr-2">✦</span>
+                                    <span class="justified">Trứng cút (10 quả), khoai môn (200g), măng khô.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold italic mb-3">Thảo mộc & Gia vị</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-cinnabar mr-2">✦</span>
+                                    <span>Nhân sâm, nấm linh chi, kỷ tử, táo đỏ, nấm đông cô.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cinnabar mr-2">✦</span>
+                                    <span>Rượu Thiệu Hưng (100ml), gừng, hành tím.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-gold/5 border border-gold/20 rounded-lg">
+                            <h4 class="font-bold text-gold italic mb-3">Nước cốt (Master Stock)</h4>
+                            <p class="text-sm italic text-charcoal/80">Xương ống lợn (1kg), gà già (1 con), đùi lợn muối, nước lọc (5 lít).</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Process -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold text-cinnabar border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-2">
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg">Chế biến Nước dùng Thượng hạng (Master Stock)</h4>
+                            <span class="text-sm italic text-gold font-bold">12 giờ</span>
+                        </div>
+                        <p class="justified text-charcoal/90">
+                            Ninh xương ống, gà già và đùi lợn muối trong ít nhất 12 giờ. Liên tục hớt bọt để nước trong. Sau khi ninh, lọc nước cốt qua vải mịn để lấy phần nước sánh vàng, tinh khiết nhất.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg">Sơ chế nguyên liệu</h4>
+                            <span class="text-sm italic text-gold font-bold">1-2 ngày chuẩn bị</span>
+                        </div>
+                        <p class="justified text-charcoal/90">
+                            Ngâm nở các nguyên liệu khô (hải sâm, bào ngư, vi cá, măng khô) trước 1-2 ngày. Khử mùi tanh bằng cách chần qua nước sôi có pha gừng và rượu Thiệu Hưng. Khoai môn cắt khối, chiên sơ để không bị nát khi hầm.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg">Sắp xếp bố cục (Layering)</h4>
+                            <span class="text-sm italic text-gold font-bold">Nghệ thuật trình bày</span>
+                        </div>
+                        <p class="justified text-charcoal/90">
+                            Sử dụng thố sứ hoặc bình gốm. Xếp nguyên liệu theo thứ tự: Lớp dưới cùng là măng khô, khoai môn, thịt gà, vịt, chân giò. Lớp giữa là nấm đông cô, táo đỏ, nhân sâm, trứng cút. Lớp trên cùng là bào ngư, hải sâm, vi cá, sò điệp và kỷ tử.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg">Chưng cách thủy (Double-boiling)</h4>
+                            <span class="text-sm italic text-gold font-bold">4-6 giờ</span>
+                        </div>
+                        <p class="justified text-charcoal/90">
+                            Đổ nước cốt Master Stock vào thố cho ngập nguyên liệu, thêm rượu Thiệu Hưng vào cuối cùng. Dùng giấy bản hoặc lá sen bịt kín miệng thố để giữ trọn hương thơm. Chưng cách thủy ở nhiệt độ thấp để đạt độ mềm mượt hoàn hảo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="mt-12 p-8 border-4 border-double border-gold relative bg-parchment shadow-xl">
+                    <span class="absolute -top-4 left-6 bg-parchment px-4 text-gold font-bold uppercase tracking-widest text-sm">3. Mẹo hay từ Vua Đầu Bếp</span>
+                    <div class="space-y-4 pt-2">
+                        <div>
+                            <h5 class="font-bold text-charcoal flex items-center"><span class="text-cinnabar mr-2">◈</span> Kiểm soát nhiệt độ:</h5>
+                            <p class="justified text-sm italic italic">Luôn giữ lửa nhỏ khi chưng để các tinh chất từ hải sâm và bào ngư thẩm thấu từ từ vào nước dùng mà không làm đục nước.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-charcoal flex items-center"><span class="text-cinnabar mr-2">◈</span> Chất xúc tác quan trọng:</h5>
+                            <p class="justified text-sm italic">Rượu Thiệu Hưng là yếu tố then chốt; không được bỏ qua vì nó giúp kích thích hương thơm của thảo mộc và khử hoàn toàn vị nồng của hải sản khô.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-charcoal flex items-center"><span class="text-cinnabar mr-2">◈</span> Lưu ý về muối:</h5>
+                            <p class="justified text-sm italic">Các nguyên liệu như đùi lợn muối vốn đã mặn, chỉ nêm nếm lại vào giai đoạn cuối cùng để tránh làm hỏng vị ngọt thanh tự nhiên.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament"><span>★</span></div>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold text-cinnabar text-center mb-8 uppercase tracking-wider">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex justify-center mb-8 space-x-4 border-b border-gold/20">
+                <button onclick="switchTab('family')" class="tab-btn active px-6 py-2 font-bold uppercase text-sm tracking-widest transition-all">Gia Đình</button>
+                <button onclick="switchTab('pro')" class="tab-btn px-6 py-2 font-bold uppercase text-sm tracking-widest transition-all">Hiện Đại</button>
+                <button onclick="switchTab('eco')" class="tab-btn px-6 py-2 font-bold uppercase text-sm tracking-widest transition-all">Bảo Vệ Môi Trường</button>
+            </div>
+
+            <div id="family" class="tab-content active animate-in fade-in duration-500">
+                <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-sm border border-gold/10">
+                    <div>
+                        <h4 class="text-xl font-bold text-gold mb-4">Phiên bản Tiết kiệm</h4>
+                        <p class="justified text-charcoal/80 mb-4">Thay các loại hải sản đắt đỏ bằng tôm nõn, mực, nấm đùi gà. Sử dụng nước hầm gà đóng hộp kết hợp với thịt xông khói để giả vị đùi lợn Kim Hoa đặc trưng.</p>
+                    </div>
+                    <div class="border-l-2 border-gold/20 pl-8">
+                        <h5 class="font-bold italic mb-2">Mẹo nhanh:</h5>
+                        <p class="text-sm italic">Phù hợp cho các bữa tiệc sum họp gia đình mà không tốn quá nhiều chi phí nguyên liệu quý hiếm.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pro" class="tab-content animate-in fade-in duration-500">
+                <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-sm border border-gold/10">
+                    <div>
+                        <h4 class="text-xl font-bold text-gold mb-4">Thiết bị Thay thế</h4>
+                        <p class="justified text-charcoal/80 mb-4">Sử dụng nồi nấu chậm (slow cooker) chế độ thấp nhất trong 6-8 giờ để đạt kết cấu mềm tương tự truyền thống mà không cần canh lửa liên tục.</p>
+                    </div>
+                    <div class="border-l-2 border-gold/20 pl-8">
+                        <h5 class="font-bold italic mb-2">Lợi ích:</h5>
+                        <p class="text-sm italic">Đảm bảo nhiệt độ ổn định tuyệt đối, giúp nước dùng luôn trong và giữ trọn dưỡng chất.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eco" class="tab-content animate-in fade-in duration-500">
+                <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-sm border border-gold/10">
+                    <div>
+                        <h4 class="text-xl font-bold text-gold mb-4">Lựa chọn Bền vững</h4>
+                        <p class="justified text-charcoal/80 mb-4">Sử dụng vi cá làm từ miến dong loại cao cấp hoặc sợi cước thực vật để thay cho vi cá thật, góp phần bảo vệ hệ sinh thái đại dương.</p>
+                    </div>
+                    <div class="border-l-2 border-gold/20 pl-8">
+                        <h5 class="font-bold italic mb-2">Thông điệp:</h5>
+                        <p class="text-sm italic">Ẩm thực cao cấp vẫn có thể đi đôi với trách nhiệm môi trường.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t-2 border-charcoal">
+            <div class="p-10 bg-charcoal text-parchment">
+                <h3 class="text-xl font-bold text-gold mb-6 uppercase tracking-widest border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <p class="justified mb-6">
+                    Món ăn cực kỳ giàu <span class="text-gold">Protein</span> và <span class="text-gold">Collagen</span>, hỗ trợ tái tạo sụn khớp và làm đẹp da. Nhân sâm và thảo mộc giúp bồi bổ khí huyết sâu từ bên trong.
+                </p>
+                <div class="p-4 border border-cinnabar/50 bg-cinnabar/5 rounded">
+                    <h5 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-2">Lưu ý quan trọng:</h5>
+                    <p class="text-xs italic text-parchment/70 justified">
+                        Chứa hàm lượng Purine rất cao, không dùng cho người bệnh Gout. Người bị cao huyết áp nên hạn chế vì lượng Natri trong đồ khô muối lớn.
+                    </p>
+                </div>
+            </div>
+            <div class="p-10 bg-gold/10">
+                <h3 class="text-xl font-bold text-cinnabar mb-6 uppercase tracking-widest border-b border-cinnabar/30 pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <div class="min-w-[80px] text-xs font-bold uppercase text-gold pt-1">Vật chứa</div>
+                        <p class="text-sm justified">Thố gốm có hoa văn cổ điển (rồng phượng) để tôn vinh vẻ cung đình sang trọng.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="min-w-[80px] text-xs font-bold uppercase text-gold pt-1">Thị giác</div>
+                        <p class="text-sm justified">Khi mở nắp, bào ngư, hải sâm phải nằm mặt trên, điểm xuyết màu đỏ rực của kỷ tử.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="min-w-[80px] text-xs font-bold uppercase text-gold pt-1">Trải nghiệm</div>
+                        <p class="text-sm justified italic">Phục vụ khi còn bốc khói nghi ngút. Hương thơm nồng nàn từ lớp lá sen là tiêu chuẩn vàng của sự thành công.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Remove active classes
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active classes to selected
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
