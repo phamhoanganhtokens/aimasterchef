@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh Giò Hà Nội - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+
+        p, .description {
+            text-align: justify;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pro-tip-box {
+            border: 4px double var(--accent-gold);
+            padding: 2rem;
+            background: rgba(197, 160, 89, 0.05);
+            position: relative;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: var(--accent-cinnabar);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .tab-button.active {
+            border-bottom: 2px solid var(--accent-cinnabar);
+            color: var(--accent-cinnabar);
+        }
+
+        .meta-icon {
+            color: var(--accent-cinnabar);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16 animate-fade-in">
+        <div class="mb-4 tracking-widest text-sm uppercase text-gray-500">AI Vua Đầu Bếp Presents</div>
+        <h1 class="heading-font text-5xl md:text-7xl font-bold mb-2">BÁNH GIÒ HÀ NỘI</h1>
+        <h2 class="heading-font italic text-2xl md:text-3xl text-gray-600 mb-8 font-normal">Traditional Vietnamese Pyramid Pork Dumpling</h2>
+        
+        <div class="max-w-4xl mx-auto border-t border-b border-gray-200 py-6 px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm md:text-base">
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">◈</span>
+                    <span class="font-bold">Độ khó</span>
+                    <span class="italic">Trung bình - Khó</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">⏱</span>
+                    <span class="font-bold">Thời gian</span>
+                    <span class="italic">120 - 150 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">🍽</span>
+                    <span class="font-bold">Khẩu phần</span>
+                    <span class="italic">6 - 8 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">📍</span>
+                    <span class="font-bold">Nguồn gốc</span>
+                    <span class="italic">Hà Nội, Việt Nam</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="max-w-2xl mx-auto mt-8 text-lg italic text-gray-700">
+            "Bánh Giò là món quà sáng đặc trưng của người Hà Nội, nổi tiếng với lớp vỏ mịn mướt, tan trong miệng và nhân thịt đậm đà hương vị mộc nhĩ, hạt tiêu."
+        </p>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">❦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8 animate-fade-in" style="animation-delay: 0.2s;">
+            <section>
+                <h3 class="heading-font text-3xl mb-6 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-lg text-gold mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-cinnabar rounded-full mr-2"></span> Phần vỏ bánh
+                        </h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item">400g bột gạo tẻ (chọn loại gạo mới, thơm)</li>
+                            <li class="ingredient-item">100g bột năng (tạo độ dai nhẹ và mướt)</li>
+                            <li class="ingredient-item">2 lít nước dùng xương lợn (lọc trong)</li>
+                            <li class="ingredient-item">1 thìa cà phê muối, 2 thìa canh dầu ăn</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gold mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-cinnabar rounded-full mr-2"></span> Phần nhân bánh
+                        </h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item">500g thịt nạc vai xay (có chút mỡ)</li>
+                            <li class="ingredient-item">50g mộc nhĩ, nấm hương (ngâm nở)</li>
+                            <li class="ingredient-item">100g hành tím băm nhỏ</li>
+                            <li class="ingredient-item">10 - 15 quả trứng cút (đã luộc)</li>
+                            <li class="ingredient-item italic text-sm">Gia vị: Nước mắm, hạt tiêu sọ, hạt nêm</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gold mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-cinnabar rounded-full mr-2"></span> Phần lá gói
+                        </h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item">Lá chuối tây (khổ rộng, không rách)</li>
+                            <li class="ingredient-item">Lạt tre hoặc dây nilon</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8 animate-fade-in" style="animation-delay: 0.4s;">
+            <h3 class="heading-font text-3xl mb-10 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12 relative">
+                <!-- Step 1 -->
+                <div class="flex gap-6">
+                    <div class="step-number">01</div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">Chuẩn bị lá</h4>
+                        <p class="text-gray-700">Lá chuối rửa sạch, trụng qua nước sôi cho mềm dai hoặc hơ qua lửa để dễ gói mà không bị rách. Lau khô cả hai mặt.</p>
+                        <span class="inline-block mt-2 text-xs font-bold uppercase tracking-widest text-gold border border-gold px-2 py-1">Mẹo Người nội trợ</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6">
+                    <div class="step-number">02</div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">Chế biến nhân</h4>
+                        <p class="text-gray-700">Phi thơm hành tím với dầu ăn, cho thịt băm vào xào săn. Tiếp tục cho mộc nhĩ, nấm hương vào đảo cùng. Nêm nước mắm và thật nhiều hạt tiêu. Lưu ý không xào nhân quá kỹ vì sẽ còn hấp lại, giữ lại nước tiết ra từ thịt để nhân có độ ẩm. Thêm trứng cút vào sau cùng.</p>
+                        <span class="inline-block mt-2 text-xs font-bold uppercase tracking-widest text-cinnabar border border-cinnabar px-2 py-1">Kỹ thuật Chuyên nghiệp</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6">
+                    <div class="step-number">03</div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">Quấy bột</h4>
+                        <p class="text-gray-700">Hòa bột gạo, bột năng vào nước dùng xương nguội, thêm muối và dầu ăn. Để bột nghỉ 30 phút. Cho hỗn hợp lên bếp đun lửa vừa, khuấy đều tay liên tục. Khi bột bắt đầu đặc lại và chuyển màu trắng đục, dùng phới lồng đánh mạnh tay cho bột mịn mượt. Tắt bếp khi bột còn hơi sệt.</p>
+                        <span class="inline-block mt-2 text-xs font-bold uppercase tracking-widest text-cinnabar border border-cinnabar px-2 py-1">Kỹ thuật Chuyên nghiệp</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6">
+                    <div class="step-number">04</div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">Gói bánh</h4>
+                        <p class="text-gray-700">Xếp hai lớp lá chuối chéo nhau, cuộn thành hình cái phễu. Múc một lớp bột lót đáy, cho nhân và trứng cút vào giữa, sau đó phủ thêm một lớp bột lên trên che kín nhân. Gấp các mép lá lại tạo thành hình khối chóp tứ giác cân đối. Buộc lạt cố định nhưng không quá chặt.</p>
+                        <span class="inline-block mt-2 text-xs font-bold uppercase tracking-widest text-blue-800 border border-blue-800 px-2 py-1">Tính Nguyên Bản</span>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-6">
+                    <div class="step-number">05</div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">Hấp bánh</h4>
+                        <p class="text-gray-700">Đun sôi nước trong xửng, xếp bánh vào hấp trong khoảng 30 - 40 phút. Sau khi chín, để bánh trong nồi thêm 5 phút trước khi lấy ra để ổn định cấu trúc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Insights -->
+    <section class="max-w-6xl mx-auto mb-20">
+        <div class="pro-tip-box mb-16 animate-fade-in" style="animation-delay: 0.6s;">
+            <h3 class="heading-font text-2xl mb-4 flex items-center">
+                <span class="mr-3 text-3xl">⭐</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2 text-cinnabar">Độ mịn của bột</h5>
+                    <p class="text-sm">Bí quyết nằm ở nước dùng xương. Nước dùng phải thật trong và để nguội hoàn toàn trước khi pha bột để tránh vón cục (lỗi thường gặp).</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 text-cinnabar">Kiểm soát nhiệt</h5>
+                    <p class="text-sm">Khi quấy bột, nếu bột đặc quá nhanh, có thể thêm một chút nước dùng ấm và giảm nhiệt. Bánh đạt chuẩn là khi nguội vỏ vẫn mềm, không cứng.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 text-cinnabar">Hương vị</h5>
+                    <p class="text-sm">Luôn sử dụng hạt tiêu sọ mới xay để tạo vị cay nồng đặc trưng giúp kích thích vị giác và át đi mùi nồng của bột gạo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="animate-fade-in" style="animation-delay: 0.8s;">
+            <h3 class="heading-font text-3xl mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-lg text-center">
+                    <div class="text-2xl mb-2">🥚</div>
+                    <h4 class="font-bold mb-2">Nhân trứng muối</h4>
+                    <p class="text-sm">Thay trứng cút bằng lòng đỏ trứng muối để tăng vị bùi béo, phù hợp cho các bữa tiệc sang trọng.</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg text-center">
+                    <div class="text-2xl mb-2">🥬</div>
+                    <h4 class="font-bold mb-2">Bánh Giò chay</h4>
+                    <p class="text-sm">Thay thịt bằng đậu hũ băm nhỏ và các loại nấm, dùng nước dùng rau củ thanh đạm để quấy bột.</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg text-center">
+                    <div class="text-2xl mb-2">⏱</div>
+                    <h4 class="font-bold mb-2">Phiên bản nhanh</h4>
+                    <p class="text-sm">Nếu không có lá chuối, dùng bát sứ nhỏ phết dầu ăn chống dính và hấp cách thủy trực tiếp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Footer Info -->
+    <div class="section-divider">
+        <span class="ornament">✺</span>
+    </div>
+
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div class="bg-gray-100 p-8 rounded-sm">
+            <h3 class="heading-font text-2xl mb-4">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4">
+                <p class="text-sm">Mỗi chiếc bánh giò trung bình chứa khoảng <strong>350 - 450 kcal</strong>. Thành phần chính bao gồm Carbohydrate từ bột gạo và Protein từ thịt, trứng.</p>
+                <div class="bg-white p-4 italic text-sm border-l-4 border-gold">
+                    "Lời khuyên: Nên ăn kèm với dưa chuột muối hoặc nộm đu đủ để bổ sung chất xơ, giúp cân bằng vị giác và hỗ trợ tiêu hóa."
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 border border-gray-200">
+            <h3 class="heading-font text-2xl mb-4">6. Gợi ý trình bày</h3>
+            <ul class="space-y-4 text-sm">
+                <li class="flex gap-3">
+                    <span class="text-cinnabar">●</span>
+                    <p><strong>Tư vấn Stylist:</strong> Khi phục vụ, bóc lớp lá chuối sao cho giữ nguyên hình khối chóp sắc nét. Đặt bánh lên đĩa gốm mộc mạc để tôn vinh vẻ đẹp truyền thống.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-cinnabar">●</span>
+                    <p>Dùng dao khía nhẹ một đường dọc từ đỉnh xuống để lộ phần nhân thịt hấp dẫn bên trong.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-cinnabar">●</span>
+                    <p>Trang trí bằng vài lát giò lụa, chả cốm, dưa góp và tương ớt đỏ tươi để tạo sự tương phản màu sắc cho bức ảnh.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Simple interactivity for the ingredient cards/hover effects
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.fontWeight = 'bold';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.fontWeight = 'normal';
+            });
+        });
+
+        // Add scroll animation triggers
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
