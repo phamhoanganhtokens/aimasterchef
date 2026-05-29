@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cơm Niêu Làng Vũ Đại - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            background-color: #E23D28;
+            border-radius: 50%;
+            border: 2px solid #FCFAFA;
+            box-shadow: 0 0 0 2px #E23D28;
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+    <div class="max-w-5xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-2">Cơm Niêu Làng Vũ Đại</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Vu Dai Village Clay Pot Rice</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest font-bold">Difficulty</p>
+                    <p class="text-sm">Khó (Nâng cao)</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest font-bold">Time</p>
+                    <p class="text-sm">60 - 90 phút</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest font-bold">Servings</p>
+                    <p class="text-sm">2 - 4 người ăn</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <p class="text-xs uppercase tracking-widest font-bold">Origin</p>
+                    <p class="text-sm">Làng Vũ Đại, Hà Nam</p>
+                </div>
+            </div>
+            
+            <div class="mt-6 italic justified-text px-4 max-w-3xl mx-auto text-gray-700">
+                Làng Vũ Đại (xã Hòa Hậu, huyện Lý Nhân, tỉnh Hà Nam) nổi tiếng với truyền thống sử dụng niêu đất để nấu cơm và kho cá, tạo nên hương vị đặc trưng của vùng đồng bằng Bắc Bộ.
+            </div>
+        </header>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-5">
+                <h3 class="text-3xl font-bold mb-6 border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-bold italic mb-3 text-gold">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform">
+                                <span class="text-gold mt-1">◈</span>
+                                <span><strong>Gạo:</strong> 300g gạo Tám Xoan (loại gạo hạt nhỏ, dài, thơm đặc trưng của vùng Nam Định, Hà Nam).</span>
+                            </li>
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform">
+                                <span class="text-gold mt-1">◈</span>
+                                <span><strong>Nước:</strong> Khoảng 400ml nước lọc (tùy độ hút nước của gạo mới hay cũ).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold italic mb-3 text-gold">Dụng cụ & Gia vị</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform">
+                                <span class="text-gold mt-1">◈</span>
+                                <span><strong>Dụng cụ:</strong> Niêu đất (loại niêu làm từ đất sét nung già, thành mỏng nhưng bền), bếp củi (truyền thống) hoặc bếp than.</span>
+                            </li>
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform">
+                                <span class="text-gold mt-1">◈</span>
+                                <span><strong>Gia vị:</strong> Một chút muối tinh, 1 thìa cà phê mỡ lợn (tạo độ bóng và giòn).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 bg-orange-50 border-l-4 border-gold italic shadow-sm">
+                        <p class="font-bold text-charcoal mb-1">Đồ ăn kèm bắt buộc:</p>
+                        <p class="text-gray-700">Cá kho làng Vũ Đại, canh cua mồng tơi, cà pháo muối chua.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-7">
+                <h3 class="text-3xl font-bold mb-8 border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
+                <div class="relative ml-4 border-l-2 border-gold/30 pl-8 space-y-12 pb-4">
+                    
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Chuẩn bị niêu đất</h4>
+                            <span class="text-sm italic text-cinnabar">Kỹ thuật Chuyên gia</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Niêu đất mới mua về cần ngâm nước qua đêm, sau đó nấu một nồi cháo loãng để lấp đầy các lỗ li ti trên bề mặt đất nung, giúp niêu không bị nứt khi gặp nhiệt cao và giữ nhiệt tốt hơn.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Sơ chế gạo</h4>
+                            <span class="text-sm italic text-cinnabar">Ý kiến Người nội trợ</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Vo gạo nhẹ nhàng 1-2 lần để sạch bụi bẩn nhưng vẫn giữ được lớp cám thơm bên ngoài. Ngâm gạo trong nước ấm khoảng 15 phút trước khi nấu để hạt gạo nở đều, khi chín cơm sẽ mềm dẻo từ trong ra ngoài.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Nấu cơm giai đoạn đầu</h4>
+                            <span class="text-sm italic text-cinnabar">Kỹ thuật Đầu bếp</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cho gạo và nước vào niêu (tỷ lệ khoảng 1 gạo : 1.2 nước). Thêm một nhúm muối nhỏ để vị cơm đậm đà hơn. Đặt niêu lên bếp lửa lớn. Đun sôi cho đến khi nước cạn xấp mặt gạo thì dùng đũa cả xới nhẹ để gạo chín đều.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Kỹ thuật tạo cháy vàng</h4>
+                            <span class="text-sm italic text-cinnabar">Sự kết hợp Truyền thống</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Khi nước đã cạn hẳn, đậy kín vung niêu. Hạ lửa xuống mức nhỏ nhất. <strong>"Vần" cơm:</strong> Đặt niêu nghiêng trên than hồng, liên tục xoay tròn niêu khoảng 5 phút mỗi vị trí để nhiệt tác động đều vào thành và đáy niêu. Để tạo lớp cháy vàng giòn, có thể lách một chút mỡ lợn vào quanh thành niêu.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-wide">Ủ cơm</h4>
+                            <span class="text-sm italic text-cinnabar">Giai đoạn cuối</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Sau khi cơm đã có lớp cháy vàng, vùi niêu vào tro nóng hoặc để trên bếp than lụi khoảng 15-20 phút. Quá trình ủ giúp hạt cơm săn lại, thoát hết hơi nước dư thừa, tạo độ dẻo và mùi thơm nồng nàn.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-8 text-center">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="pro-tip-box p-8 max-w-4xl mx-auto shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+                            Kiểm soát nhiệt
+                        </h5>
+                        <p class="text-sm justified-text">Không được để lửa quá to ở giai đoạn sau vì niêu đất giữ nhiệt rất lâu, dễ làm cháy đen cơm.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+                            Lựa chọn niêu
+                        </h5>
+                        <p class="text-sm justified-text">Chọn niêu có nắp đậy thật khít để giữ áp suất bên trong, giúp cơm chín bằng hơi (om nhiệt).</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+                            Lỗi cần tránh
+                        </h5>
+                        <p class="text-sm justified-text">Mở vung quá nhiều lần làm mất hơi, cơm sẽ bị khô hoặc chín không đều (sống sượng).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 border-t-4 border-gold">
+                    <h4 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        🏠 Phiên bản Tại nhà
+                    </h4>
+                    <p class="justified-text text-sm text-gray-700">
+                        Sử dụng nồi đất hiện đại có đáy dày. Dùng tấm tản nhiệt để lửa không tập trung vào một điểm. Sau khi cơm chín, cho vào lò nướng ở 180 độ C trong 10 phút để tạo lớp cháy bao quanh.
+                    </p>
+                </div>
+                <div class="glass-card p-6 border-t-4 border-cinnabar">
+                    <h4 class="text-xl font-bold mb-3 flex items-center gap-2">
+                        🌿 Phiên bản Hương sắc
+                    </h4>
+                    <p class="justified-text text-sm text-gray-700">
+                        <strong>Cơm niêu lá dứa:</strong> Thêm 2-3 lá dứa vào nồi khi nấu để tăng thêm hương thơm thanh cảnh cho món cơm truyền thống.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer/Technical Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 italic text-cinnabar">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 text-gray-700 text-sm">
+                    <p class="justified-text"><strong class="text-charcoal">Tinh bột:</strong> Cung cấp năng lượng chính (Carbohydrate) cho cơ thể.</p>
+                    <p class="justified-text"><strong class="text-charcoal">Lớp cháy:</strong> Chứa một lượng nhỏ Acrylamide (do phản ứng Maillard), nên ăn ở mức độ vừa phải để đảm bảo sức khỏe.</p>
+                    <p class="justified-text"><strong class="text-charcoal">Kết hợp:</strong> Khi ăn cùng cá kho (giàu đạm) và rau củ, món ăn đạt sự cân bằng dinh dưỡng tốt, kích thích tiêu hóa nhờ tính ấm của niêu đất.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-6 italic text-cinnabar">6. Gợi ý trình bày</h3>
+                <ul class="space-y-3 text-sm text-gray-700">
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Giữ nguyên cơm trong niêu đất để duy trì độ nóng và vẻ mộc mạc.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Dùng muôi gỗ xới nhẹ lớp cơm trắng lên trên, để lộ lớp cháy vàng rơm dưới đáy.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Đặt niêu cơm trên một chiếc rổ tre nhỏ hoặc đế lót bằng mây tre đan.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">•</span>
+                        <span>Trang trí thêm hành lá chẻ hoặc tiêu đen lên mặt cá kho ăn kèm để tạo sự tương phản màu sắc.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Signature -->
+        <div class="mt-16 text-center">
+            <div class="inline-block border-y border-gold py-2 px-8">
+                <p class="uppercase tracking-widest text-gold text-xs font-bold">Thực hiện bởi</p>
+                <p class="text-2xl font-bold text-charcoal">AI VUA ĐẦU BẾP</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Micro-animations Script -->
+    <script>
+        document.querySelectorAll('.timeline-step').forEach((step, index) => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateX(-20px)';
+            step.style.transition = `all 0.6s ease ${index * 0.2}s`;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        step.style.opacity = '1';
+                        step.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(step);
+        });
+    </script>
+</body>
+</html>
