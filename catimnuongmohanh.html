@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cà Tím Nướng Mỡ Hành</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E44236',
+                        'burnished-gold': '#C5A059',
+                        'accent-soft': '#F4F1EA',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                        'playfair': ["'Playfair Display'", 'serif'],
+                        'lora': ["'Lora'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            text-align: justify;
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
+        }
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            border-bottom: 2px solid #C5A059;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.25rem;
+        }
+        .meta-box {
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .meta-box:hover {
+            border-color: #C5A059;
+            transform: translateY(-2px);
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: #FDFBF7;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to var(--direction, right), transparent, #C5A059);
+        }
+        .ornament::after { --direction: left; }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -2rem;
+            width: 1px;
+            background-color: #C5A059;
+        }
+        .timeline-step:last-child::before { display: none; }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #2C2C2C;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+        .variation-card {
+            background: white;
+            border-left: 4px solid #C5A059;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .ingredient-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+        }
+        .ingredient-item:last-child { border-bottom: none; }
+        .ingredient-item::before {
+            content: "✦";
+            color: #C5A059;
+            margin-right: 0.75rem;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="inline-block border-y-2 border-primary-charcoal py-2 mb-6">
+            <span class="tracking-[0.3em] text-xs uppercase font-bold">AI Vua Đầu Bếp Magazine</span>
+        </div>
+        
+        <h1 class="header-title text-5xl md:text-7xl font-bold mb-4 text-primary-charcoal">
+            Cà Tím Nướng Mỡ Hành
+        </h1>
+        <p class="text-xl md:text-2xl italic font-lora text-burnished-gold mb-10">
+            Grilled Eggplant with Scallion Oil
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red text-xl mb-1">◈</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Độ Khó</span>
+                <span class="font-bold">Dễ (Easy)</span>
+            </div>
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red text-xl mb-1">🕒</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Thời Gian</span>
+                <span class="font-bold">30 - 40 phút</span>
+            </div>
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red text-xl mb-1">🍽</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Khẩu Phần</span>
+                <span class="font-bold">2 - 3 người</span>
+            </div>
+            <div class="meta-box p-4 flex flex-col items-center justify-center">
+                <span class="text-cinnabar-red text-xl mb-1">📍</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Nguồn Gốc</span>
+                <span class="font-bold">Nam Bộ</span>
+            </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 italic border-l-4 border-burnished-gold pl-6 py-2">
+            Món ăn dân dã có nguồn gốc từ vùng sông nước Nam Bộ, Việt Nam. Đây là món ăn biểu tượng cho sự tinh tế trong việc kết hợp những nguyên liệu đơn giản để tạo ra hương vị bùng nổ, thường xuất hiện trong các bữa cơm gia đình truyền thống.
+        </p>
+    </header>
+
+    <div class="ornament max-w-2xl mx-auto px-6">
+        <span class="ornament-icon">✧</span>
+    </div>
+
+    <!-- Main Recipe Body -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h2 class="section-header text-2xl font-bold uppercase tracking-wide">1. Nguyên liệu</h2>
+                
+                <div class="space-y-8 mt-6">
+                    <div>
+                        <h3 class="font-bold text-cinnabar-red italic mb-3 border-b border-cinnabar-red/20 pb-1">Thành phần chính</h3>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item"><strong>Cà tím:</strong> 3 - 4 quả (chọn quả dài, thon, da căng bóng, màu tím đậm).</li>
+                            <li class="ingredient-item"><strong>Hành lá:</strong> 50g (chỉ lấy phần xanh).</li>
+                            <li class="ingredient-item"><strong>Đậu phộng (lạc):</strong> 30g (rang chín, giã dập).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-cinnabar-red italic mb-3 border-b border-cinnabar-red/20 pb-1">Gia vị & Sốt</h3>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item"><strong>Dầu ăn:</strong> 4 - 5 muỗng canh.</li>
+                            <li class="ingredient-item"><strong>Nước mắm ngon:</strong> 2 muỗng canh.</li>
+                            <li class="ingredient-item"><strong>Đường:</strong> 2 muỗng canh.</li>
+                            <li class="ingredient-item"><strong>Nước cốt chanh:</strong> 1 muỗng canh.</li>
+                            <li class="ingredient-item"><strong>Tỏi ớt:</strong> Băm nhuyễn.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-accent-soft p-5 rounded-sm border-l-4 border-cinnabar-red italic text-sm">
+                        <span class="font-bold block mb-1">Tùy chọn thêm:</span>
+                        Ăn kèm thịt băm xào hoặc tôm khô để tăng thêm độ đạm và hương vị đậm đà.
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h2 class="section-header text-2xl font-bold uppercase tracking-wide">2. Các bước thực hiện</h2>
+                
+                <div class="mt-8 space-y-2">
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <h4 class="font-bold text-lg mb-2">Sơ chế nguyên liệu</h4>
+                        <p class="leading-relaxed text-gray-700">
+                            Cà tím rửa sạch, để nguyên cuống để dễ cầm khi nướng. Dùng tăm hoặc nĩa đâm nhẹ vài lỗ quanh thân cà để khi nướng không bị nổ và thoát hơi nước tốt hơn.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <h4 class="font-bold text-lg mb-2">Nướng cà <span class="text-sm font-normal italic text-burnished-gold">(15-20 phút)</span></h4>
+                        <p class="mb-4">Bạn có thể chọn một trong ba phương pháp sau:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 italic text-sm">
+                            <div class="p-3 bg-white border border-gray-100 rounded">
+                                <span class="font-bold block text-cinnabar-red not-italic mb-1">Truyền thống</span>
+                                Nướng trên than củi cho đến khi vỏ cháy xém, lấy hương vị khói đặc trưng.
+                            </div>
+                            <div class="p-3 bg-white border border-gray-100 rounded">
+                                <span class="font-bold block text-cinnabar-red not-italic mb-1">Bếp ga</span>
+                                Dùng kẹp xoay liên tục trên lửa ga cho đến khi lớp vỏ ngoài bong ra.
+                            </div>
+                            <div class="p-3 bg-white border border-gray-100 rounded">
+                                <span class="font-bold block text-cinnabar-red not-italic mb-1">Nồi chiên</span>
+                                Phết dầu, nướng ở 200°C trong 15-20 phút, lật mặt giữa chừng.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <h4 class="font-bold text-lg mb-2">Bóc vỏ & Tạo hình</h4>
+                        <p class="leading-relaxed text-gray-700">
+                            Sau khi nướng, cho cà vào bát đậy kín khoảng 5 phút để hơi nước làm mềm vỏ. Tước bỏ lớp vỏ cháy, giữ lại phần thịt trắng ngần. Dùng nĩa tước dọc thân cà thành từng sợi nhưng vẫn giữ nguyên hình dáng quả.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                        <h4 class="font-bold text-lg mb-2">Làm mỡ hành</h4>
+                        <p class="leading-relaxed text-gray-700">
+                            Thái nhỏ hành lá, cho vào bát với một chút muối/hạt nêm. Đun sôi dầu ăn thật nóng rồi dội trực tiếp vào hành. Cách này giúp hành giữ màu xanh mướt và không bị nồng.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">5</div>
+                        <h4 class="font-bold text-lg mb-2">Pha nước chấm chua ngọt</h4>
+                        <p class="leading-relaxed text-gray-700">
+                            Khuấy đều nước mắm, đường, chanh theo tỷ lệ <span class="font-bold text-burnished-gold">1 : 1 : 0.5</span>. Sau đó thêm tỏi và ớt băm nhuyễn vào khuấy đều.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">6</div>
+                        <h4 class="font-bold text-lg mb-2 uppercase text-cinnabar-red">Hoàn thiện</h4>
+                        <p class="leading-relaxed text-gray-700">
+                            Đặt cà tím đã tước ra đĩa, rưới đều nước mắm chua ngọt, sau đó đến mỡ hành thơm nức và cuối cùng là đậu phộng rang giã dập.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament max-w-2xl mx-auto px-6">
+            <span class="ornament-icon">◈</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="pro-tip-box p-8 relative">
+                <div class="absolute -top-4 left-6 bg-primary-charcoal text-white px-4 py-1 text-xs uppercase tracking-widest font-bold">
+                    Master Agent Insights
+                </div>
+                <h2 class="header-title text-2xl font-bold mb-6 text-burnished-gold">3. Mẹo hay từ Vua Đầu Bếp</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="mr-3 text-burnished-gold">★</span>
+                        <span><strong>Chọn nguyên liệu:</strong> Cà tím phải tươi, khi ấn nhẹ thấy có độ đàn hồi. Nếu ấn vào mà vết lún không mất đi là cà già, nhiều hạt và đắng.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 text-burnished-gold">★</span>
+                        <span><strong>Kỹ thuật sốc nhiệt:</strong> Khi làm mỡ hành, hãy thêm một chút xíu đường hoặc muối vào hành lá trước khi dội dầu sôi để hành giữ độ giòn và màu xanh bền lâu.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 text-burnished-gold">★</span>
+                        <span><strong>Tránh bị nhũn:</strong> Không nên nướng cà quá lâu trong nồi chiên không dầu ở nhiệt độ thấp vì sẽ làm cà bị khô và mất nước. Nhiệt độ cao và thời gian ngắn là chìa khóa.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="section-header text-2xl font-bold uppercase tracking-wide">4. Biến tấu món ăn</h2>
+                <div class="space-y-4 mt-4">
+                    <div class="variation-card p-4">
+                        <h5 class="font-bold text-cinnabar-red mb-1">Cà tím nướng thịt băm</h5>
+                        <p class="text-sm italic">Xào thịt heo băm với hành tím và tiêu, phủ lên trên cà trước khi rưới mỡ hành để tăng độ béo ngậy.</p>
+                    </div>
+                    <div class="variation-card p-4">
+                        <h5 class="font-bold text-cinnabar-red mb-1">Phiên bản Chay</h5>
+                        <p class="text-sm italic">Thay nước mắm bằng nước tương hoặc nước mắm chay, bỏ qua thịt băm. Vẫn đảm bảo hương vị thanh đạm.</p>
+                    </div>
+                    <div class="variation-card p-4">
+                        <h5 class="font-bold text-cinnabar-red mb-1">Biến tấu kiểu Nhật</h5>
+                        <p class="text-sm italic">Nướng cà và dùng kèm sốt Miso hoặc nước tương dashi thay vì mỡ hành cho một trải nghiệm ẩm thực mới lạ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-10 border border-gray-100 shadow-sm">
+            <div>
+                <h2 class="section-header text-xl font-bold uppercase tracking-wide">5. Giá trị dinh dưỡng</h2>
+                <div class="space-y-4 text-sm">
+                    <div class="flex justify-between border-b border-dotted pb-2">
+                        <span>Calorie</span>
+                        <span class="font-bold">150 - 200 kcal / phần</span>
+                    </div>
+                    <p class="text-gray-600">
+                        <strong>Lợi ích:</strong> Cà tím giàu chất xơ, chất chống oxy hóa (nasunin trong vỏ) và kali, cực kỳ tốt cho sức khỏe tim mạch.
+                    </p>
+                    <p class="text-gray-600 italic">
+                        <strong>Lưu ý:</strong> Để giảm calo, có thể giảm lượng mỡ hành và thay bằng hành lá chần hoặc sử dụng dầu olive thay cho dầu thực vật.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-header text-xl font-bold uppercase tracking-wide">6. Gợi ý trình bày</h2>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start">
+                        <span class="w-2 h-2 rounded-full bg-burnished-gold mt-1.5 mr-3 shrink-0"></span>
+                        <span><strong>Bố cục:</strong> Sử dụng đĩa dài (rectangular plate) màu trắng hoặc gốm mộc để làm nổi bật màu xanh của hành và đỏ của ớt.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-2 h-2 rounded-full bg-burnished-gold mt-1.5 mr-3 shrink-0"></span>
+                        <span><strong>Màu sắc:</strong> Tạo sự tương phản bằng cách xếp cà nằm thẳng, rưới mỡ hành theo đường dọc, điểm xuyết ớt và đậu phộng ở giữa.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-2 h-2 rounded-full bg-burnished-gold mt-1.5 mr-3 shrink-0"></span>
+                        <span><strong>Trang trí:</strong> Một vài cọng ngò rí đặt lên trên cùng để tạo độ cao. Đảm bảo đĩa sạch, không dính vệt dầu mỡ ở mép đĩa.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <div class="h-20"></div>
+
+</body>
+</html>
