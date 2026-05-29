@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Lẩu Riêu Cua Đồng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        /* Strict requirement: Times New Roman for body and headings */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .accent-border {
+            border-color: #D22B2B; /* Cinnabar Red */
+        }
+
+        .gold-accent {
+            color: #B8860B; /* Burnished Gold */
+        }
+
+        .gold-bg {
+            background-color: #FAF6E9;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(210, 43, 43, 0.1);
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #B8860B;
+            margin: 0 1rem;
+        }
+
+        .ornament span {
+            font-size: 1.5rem;
+            color: #B8860B;
+        }
+
+        .step-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .pro-tip-box {
+            border: 3px double #B8860B;
+            padding: 2rem;
+            background-color: #fffdf5;
+            position: relative;
+        }
+
+        .meta-icon {
+            color: #D22B2B;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Hover effects */
+        .ingredient-item:hover {
+            background-color: #f3f3f3;
+            padding-left: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center border-b border-gray-200">
+        <div class="mb-4 text-xs tracking-widest uppercase font-semibold text-red-700">Digital Culinary Magazine</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tight">Lẩu Riêu Cua Đồng</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 font-normal mb-10">Field Crab Hot Pot</h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center gap-8 md:gap-16 border-t border-b border-gray-100 py-6">
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-r border-gray-100 px-8">
+                <span class="meta-icon">⏱</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Thời gian</span>
+                <span class="font-bold italic">Chuẩn bị: 45' | Nấu: 60'</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-100 pr-8">
+                <span class="meta-icon">皿</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Khẩu phần</span>
+                <span class="font-bold">4-6 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">📍</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Nguồn gốc</span>
+                <span class="font-bold">Bắc Bộ, VN</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 flex items-center">
+                        <span class="w-8 h-[2px] bg-red-700 mr-4"></span>
+                        1. Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <!-- Main Protein -->
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest font-bold text-red-800 mb-4 border-b border-red-100 pb-1">Chất Đạm Chính</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Cua đồng tươi</span> <span class="italic text-gray-500">1 kg</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Xương ống (bò/lợn)</span> <span class="italic text-gray-500">500g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Sườn sụn lợn</span> <span class="italic text-gray-500">500g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Thịt bắp bò</span> <span class="italic text-gray-500">500g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Đậu phụ</span> <span class="italic text-gray-500">5 bìa</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Seasoning -->
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest font-bold text-red-800 mb-4 border-b border-red-100 pb-1">Gia vị & Phụ gia</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Giấm bỗng nếp</span> <span class="italic text-gray-500">150ml</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Cà chua</span> <span class="italic text-gray-500">4-5 quả</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Mắm tôm</span> <span class="italic text-gray-500">1 thìa cf</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Hành khô</span> <span class="italic text-gray-500">5 củ</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Veggies -->
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest font-bold text-red-800 mb-4 border-b border-red-100 pb-1">Rau & Ăn kèm</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Hoa chuối, rau muống chẻ</span> <span class="italic text-gray-500">Tùy ý</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Tía tô, kinh giới, xà lách</span> <span class="italic text-gray-500">Tùy ý</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between pb-2 border-b border-dotted border-gray-200">
+                                    <span>Bún rối / Bánh đa đỏ</span> <span class="italic text-gray-500">1 kg</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="w-8 h-[2px] bg-red-700 mr-4"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12">
+                    <div class="flex gap-6">
+                        <div class="step-number">1</div>
+                        <div class="justified-text">
+                            <span class="font-bold text-lg block mb-1">Sơ chế nước dùng xương</span>
+                            <p class="text-gray-700">Xương ống và sườn sụn ngâm nước muối loãng, chần qua nước sôi rồi rửa sạch. Đem ninh nhỏ lửa trong <span class="font-bold italic gold-accent underline decoration-red-200">60 phút</span>, liên tục hớt bọt để nước dùng có độ trong vắt và vị ngọt thanh tự nhiên. Sườn sụn chín tới vớt ra thái lát mỏng.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">2</div>
+                        <div class="justified-text">
+                            <span class="font-bold text-lg block mb-1">Xử lý cua đồng</span>
+                            <p class="text-gray-700">Cua rửa sạch, bóc yếm và mai, dùng tăm khêu phần gạch cua ra bát nhỏ. Cho 1 thìa cà phê muối hạt vào phần thịt cua, giã tay (hoặc xay máy để tiết kiệm thời gian). Thêm 1.5 lít nước vào bóp nát, lọc qua rây 2-3 lần để lấy nước cốt, bỏ bã.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">3</div>
+                        <div class="justified-text">
+                            <span class="font-bold text-lg block mb-1">Tạo tảng riêu cua</span>
+                            <p class="text-gray-700 italic gold-accent mb-2">Thời gian tập trung: 15 phút</p>
+                            <p class="text-gray-700">Bắc nồi nước lẩu cua lên bếp, đun lửa vừa. Dùng đũa khuấy nhẹ theo một chiều để thịt cua không đọng đáy nồi. Khi thấy thịt cua bắt đầu kết tủa và nổi lên mặt nước, ngừng khuấy, hạ nhỏ lửa. Dùng muôi thủng vớt nhẹ tảng riêu ra bát riêng để riêu không bị nát khi nhúng lẩu.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">4</div>
+                        <div class="justified-text">
+                            <span class="font-bold text-lg block mb-1">Chưng gạch và tạo màu</span>
+                            <p class="text-gray-700">Phi thơm hành khô băm nhỏ với dầu ăn, cho cà chua bổ múi cau vào xào chín tới (không để nát). Tiếp tục trút phần gạch cua vào chưng cùng 1 thìa nước mắm cho dậy mùi thơm và lên màu vàng óng.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">5</div>
+                        <div class="justified-text">
+                            <span class="font-bold text-lg block mb-1">Hoàn thiện nước lẩu</span>
+                            <p class="text-gray-700">Chắt phần nước ninh xương (đã bỏ xương) hòa cùng nước lẩu cua. Đun sôi trở lại, trút phần cà chua và gạch cua đã chưng vào. Nêm giấm bỗng để tạo vị chua dịu, thêm chút mắm tôm để dậy mùi đặc trưng. Nêm nếm lại muối, hạt nêm cho đậm đà. Đậu phụ cắt miếng vuông nhỏ, chiên vàng 4 mặt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ornament Divider -->
+                <div class="ornament">
+                    <span>★</span>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="pro-tip-box mb-12">
+                    <div class="absolute -top-4 left-6 bg-red-800 text-white px-4 py-1 text-xs uppercase tracking-widest font-bold">
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </div>
+                    <div class="space-y-4 justified-text">
+                        <p><strong class="gold-accent uppercase text-xs">Kỹ thuật:</strong> Việc thêm muối hạt trước khi giã/xay là bắt buộc, muối giúp protein trong thịt cua liên kết chặt chẽ, tạo thành tảng lớn cứng cáp. Không bao giờ khuấy nồi nước khi riêu đã bắt đầu nổi để tránh làm vỡ mảng.</p>
+                        <p><strong class="gold-accent uppercase text-xs">Lưu ý:</strong> Không xào cà chua quá nát làm nước lẩu bị đục. Tránh đậy vung khi đun nước cua vì sẽ làm trào rớt hết phần thịt cua nổi.</p>
+                        <p><strong class="gold-accent uppercase text-xs">Hương vị:</strong> Giấm bỗng là linh hồn của món ăn này. Phải cho giấm bỗng vào sau cùng khi nước đã sôi để giữ trọn vẹn hương thơm mộc mạc của hèm rượu.</p>
+                    </div>
+                </div>
+
+                <!-- Variations -->
+                <div class="bg-gray-100 p-8 rounded-sm mb-12">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-6 h-[1px] bg-gray-400 mr-3"></span>
+                        4. Biến tấu & Nâng cao
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="glass-card p-6">
+                            <h5 class="font-bold mb-2 text-red-800">Thêm Đạm & Ngọt</h5>
+                            <p class="text-sm justified-text italic text-gray-600">Bổ sung đạm: Có thể đập thêm 2-3 quả trứng vịt lộn thẳng vào nồi nước lẩu khi đang ăn để nước dùng ngọt sâu hơn. Thêm chả ốc, giò tai hoặc chả cá thu tùy theo sở thích gia đình.</p>
+                        </div>
+                        <div class="glass-card p-6 border-l-4 border-gold-accent">
+                            <h5 class="font-bold mb-2 text-red-800">Sáng tạo Vị Chua</h5>
+                            <p class="text-sm justified-text italic text-gray-600">Thay thế gia vị: Nếu không có giấm bỗng, người nội trợ có thể dùng mẻ ngấu (lọc lấy nước chua) hoặc nước cốt me, tuy nhiên hương vị sẽ thiên về chua gắt hơn.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament">
+            <span>✧</span>
+        </div>
+
+        <!-- Nutrition & Presentation Footer -->
+        <section class="grid md:grid-cols-2 gap-12 border-t border-gray-200 pt-12 pb-24">
+            <div class="justified-text">
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-red-800">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <p class="border-l-2 border-red-200 pl-4">
+                        <strong>Năng lượng:</strong> Ước tính 500 - 600 kcal/khẩu phần.
+                    </p>
+                    <p class="border-l-2 border-red-200 pl-4">
+                        <strong>Sức khỏe:</strong> Cua đồng cung cấp Canxi tự nhiên dồi dào cho xương. Thịt bắp bò cung cấp protein, sắt và kẽm giúp tái tạo máu.
+                    </p>
+                    <p class="border-l-2 border-red-200 pl-4">
+                        <strong>Cân bằng:</strong> Đĩa rau sống phong phú chứa nhiều tinh dầu và vitamin C, giúp giải cảm và kích thích tiêu hóa hiệu quả.
+                    </p>
+                </div>
+            </div>
+
+            <div class="justified-text">
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-red-800">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm italic text-gray-600">
+                    <p>Sử dụng nồi lẩu bằng đất nung hoặc gốm sứ mộc mạc để tôn lên vẻ đẹp truyền thống của ẩm thực Bắc Bộ.</p>
+                    <p>Nước lẩu giữ váng gạch đỏ cam óng ánh. Đặt tảng riêu ở trung tâm, rắc hành lá và mùi tàu. Xung quanh điểm xuyết đậu phụ chiên vàng và cà chua đỏ.</p>
+                    <p>Bắp bò thái mỏng cuộn hình hoa hồng trên đĩa đá đen. Rau nhúng xếp vòm cung: tâm là hoa chuối tím, hai bên là rau muống xanh, ngoài cùng là lá tía tô đỏ.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple interactivity for ingredient hover items
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.color = '#D22B2B';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.color = '#2C2C2C';
+            });
+        });
+
+        // Console log for premium check
+        console.log("AI Vua Đầu Bếp Magazine Rendered Successfully.");
+    </script>
+</body>
+</html>
