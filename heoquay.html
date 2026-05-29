@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heo Quay Da Giòn | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .serif-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--burnished-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--burnished-gold);
+            font-size: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--burnished-gold);
+            opacity: 0.3;
+        }
+
+        .chef-box {
+            border: 2px double var(--burnished-gold);
+            position: relative;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .nav-tab.active {
+            border-bottom: 2px solid var(--cinnabar-red);
+            color: var(--cinnabar-red);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    }
+                }
+            }
+        }
+
+        function switchVariation(tab) {
+            const contents = document.querySelectorAll('.variation-content');
+            const tabs = document.querySelectorAll('.variation-tab');
+            
+            contents.forEach(c => c.classList.add('hidden'));
+            tabs.forEach(t => t.classList.remove('text-cinnabar', 'border-cinnabar', 'border-b-2'));
+            
+            document.getElementById(`variation-${tab}`).classList.remove('hidden');
+            event.currentTarget.classList.add('text-cinnabar', 'border-cinnabar', 'border-b-2');
+        }
+    </script>
+</head>
+<body class="p-4 md:p-12 lg:p-20">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-16 animate-fade">
+        <p class="uppercase tracking-[0.3em] text-gold mb-4 text-sm font-bold">AI Vua Đầu Bếp Présente</p>
+        <h1 class="serif-display text-5xl md:text-7xl font-bold mb-2">HEO QUAY DA GIÒN</h1>
+        <h2 class="serif-display italic text-2xl md:text-3xl text-gray-500 mb-10">Crispy Roasted Pork Belly</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-gold/30 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-400 mb-1">Độ khó</span>
+                <span class="font-bold text-charcoal">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-gold/20">
+                <span class="text-xs uppercase tracking-widest text-gray-400 mb-1">Thời gian</span>
+                <span class="font-bold text-charcoal">3 - 4 Giờ</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-gold/20">
+                <span class="text-xs uppercase tracking-widest text-gray-400 mb-1">Khẩu phần</span>
+                <span class="font-bold text-charcoal">4 - 6 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-gold/20">
+                <span class="text-xs uppercase tracking-widest text-gray-400 mb-1">Xuất xứ</span>
+                <span class="font-bold text-charcoal text-center px-2">Việt Nam / Hoa</span>
+            </div>
+        </div>
+
+        <p class="mt-8 justify-text max-w-3xl mx-auto italic text-gray-600">
+            "Xuất phát từ kỹ nghệ quay thịt của người Hoa, heo quay đã trở thành món ăn không thể thiếu trong các dịp lễ tết, hỷ sự và đời sống ẩm thực hàng ngày của người Việt với hương vị ngũ vị hương đặc trưng."
+        </p>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">◈</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-10">
+            <section>
+                <h3 class="serif-display text-3xl font-bold mb-8 border-b border-gold pb-2">1. Nguyên Liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold uppercase tracking-tighter text-cinnabar text-sm mb-4">Thịt Chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-gold mr-3 group-hover:scale-125 transition-transform">✦</span>
+                                <span class="justify-text"><strong>1kg thịt ba rọi</strong> (chọn miếng vuông vức, phần mỡ và nạc xen kẽ đều, bì dày).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase tracking-tighter text-cinnabar text-sm mb-4">Gia Vị Ướp Thịt</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1 muỗng cà phê bột ngũ vị hương</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1 muỗng canh dầu hào</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1 muỗng cà phê bột tỏi (nước cốt tỏi)</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1/2 muỗng cà phê tiêu trắng</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1 viên chao đỏ</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1 muỗng cà phê đường</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase tracking-tighter text-cinnabar text-sm mb-4">Xử Lý Da</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 2 muỗng canh giấm hoặc chanh</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> 1 muỗng cà phê muối tinh</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> Muối hột (để phủ bề mặt)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase tracking-tighter text-cinnabar text-sm mb-4">Đồ Ăn Kèm</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> Dưa leo, xà lách, rau thơm</li>
+                            <li class="flex items-center group"><span class="text-gold mr-3">✦</span> Đồ chua (củ cải, cà rốt)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="serif-display text-3xl font-bold mb-12 border-b border-gold pb-2">2. Các Bước Thực Hiện</h3>
+            
+            <div class="space-y-12 ml-6">
+                <!-- Step 1 -->
+                <div class="relative timeline-step">
+                    <div class="absolute -left-10 top-0 bg-gold text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                    <h4 class="serif-display text-xl font-bold mb-2">Sơ chế và Làm sạch</h4>
+                    <p class="justify-text text-gray-700">Rửa sạch thịt, trụng sơ phần da vào nước sôi có gừng và hành tím trong <span class="italic font-bold text-gold">3-5 phút</span> cho da săn lại. Lau thật khô miếng thịt, đặc biệt là phần da.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative timeline-step">
+                    <div class="absolute -left-10 top-0 bg-gold text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                    <h4 class="serif-display text-xl font-bold mb-2">Ướp thịt</h4>
+                    <p class="justify-text text-gray-700">Khứa nhẹ vài đường trên phần thịt. Thoa đều hỗn hợp gia vị ngũ vị hương và chao đỏ lên phần thịt nạc. <span class="text-cinnabar font-bold italic">Tuyệt đối không để gia vị dính vào phần da.</span></p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative timeline-step">
+                    <div class="absolute -left-10 top-0 bg-gold text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                    <h4 class="serif-display text-xl font-bold mb-2">Xăm da và Sấy khô</h4>
+                    <p class="justify-text text-gray-700">Dùng dụng cụ xăm hoặc nĩa đâm dày đặc lên bề mặt da (không đâm quá sâu vào lớp mỡ). Lau sạch nước mỡ, thoa hỗn hợp giấm và muối lên da. Sấy khô da bằng máy sấy hoặc quạt trong <span class="italic font-bold text-gold">30-60 phút</span>.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative timeline-step">
+                    <div class="absolute -left-10 top-0 bg-gold text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                    <h4 class="serif-display text-xl font-bold mb-2">Nướng thịt</h4>
+                    <div class="grid md:grid-cols-2 gap-6 mt-4">
+                        <div class="glass-card p-4 rounded-lg">
+                            <h5 class="font-bold text-cinnabar mb-2 uppercase text-xs">Lò nướng truyền thống</h5>
+                            <p class="text-sm justify-text">Bọc giấy bạc quanh thịt, để hở da. Phủ muối hột lên da. Nướng ở 200°C trong 20 phút. Gạt bỏ muối, tiếp tục nướng ở 220°C cho đến khi da nổ đều (15-20 phút).</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-lg">
+                            <h5 class="font-bold text-cinnabar mb-2 uppercase text-xs">Nồi chiên không dầu</h5>
+                            <p class="text-sm justify-text">Đặt da hướng lên, nướng lần 1 ở 180°C trong 20 phút. Lau mỡ, quét giấm mỏng, nướng lần 2 ở 200°C trong 10-15 phút.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative timeline-step">
+                    <div class="absolute -left-10 top-0 bg-gold text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                    <h4 class="serif-display text-xl font-bold mb-2">Nghỉ thịt</h4>
+                    <p class="justify-text text-gray-700">Để thịt nghỉ <span class="italic font-bold text-gold">10-15 phút</span> trước khi chặt để giữ độ mềm mọng và ổn định cấu trúc tế bào thịt.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">◈</span>
+    </div>
+
+    <!-- Special Insight Sections -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <!-- Chef's Corner -->
+        <section class="chef-box p-8 shadow-inner">
+            <h3 class="serif-display text-2xl font-bold mb-6 flex items-center">
+                <span class="bg-gold text-white p-2 rounded mr-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                </span>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <ul class="space-y-4 text-gray-700 italic">
+                <li class="justify-text">• Bí quyết da giòn lâu là da phải thật khô. Quét giấm giúp phá vỡ liên kết protein, tạo độ xốp tinh tế.</li>
+                <li class="justify-text">• Tránh xăm da quá sâu vào lớp nạc vì nước tiết ra làm ẩm da, gây dai và mất độ giòn.</li>
+                <li class="justify-text">• Nếu da bị cháy cục bộ, dùng dao cạo nhẹ phần cháy để lộ lớp vàng giòn bên dưới.</li>
+            </ul>
+        </section>
+
+        <!-- Variations & Pro Versions -->
+        <section>
+            <h3 class="serif-display text-2xl font-bold mb-6">4. Biến tấu & Nâng cao</h3>
+            <div class="border-b border-gold/30 flex mb-6">
+                <button onclick="switchVariation('macmat')" class="variation-tab pb-2 px-4 font-bold text-cinnabar border-b-2 border-cinnabar">Lá Mắc Mật</button>
+                <button onclick="switchVariation('xaxiu')" class="variation-tab pb-2 px-4 font-bold text-gray-400">Xá Xíu</button>
+                <button onclick="switchVariation('chef')" class="variation-tab pb-2 px-4 font-bold text-gray-400">Chef Level</button>
+            </div>
+            
+            <div id="variation-macmat" class="variation-content transition-opacity duration-500">
+                <p class="justify-text p-6 glass-card rounded-lg">
+                    <strong>Heo quay lá mắc mật:</strong> Thêm lá mắc mật băm nhỏ vào phần ướp thịt. Hương tinh dầu từ lá mắc mật sẽ quyện vào từng thớ thịt, tạo nên phong vị Tây Bắc đặc trưng khó cưỡng.
+                </p>
+            </div>
+            <div id="variation-xaxiu" class="variation-content hidden">
+                <p class="justify-text p-6 glass-card rounded-lg">
+                    <strong>Heo quay xá xíu:</strong> Thay ngũ vị hương bằng sốt xá xíu đậm đặc để có vị ngọt sâu và màu đỏ óng ả đặc trưng của ẩm thực Quảng Đông.
+                </p>
+            </div>
+            <div id="variation-chef" class="variation-content hidden">
+                <p class="justify-text p-6 glass-card rounded-lg">
+                    <strong>Nâng cao (Slow Roast):</strong> Áp dụng kỹ thuật nướng chậm ở nhiệt độ thấp 120°C trong 3 tiếng để mỡ tan chảy hoàn toàn, sau đó mới tăng nhiệt đột ngột để làm giòn da.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Final Footer-style Info -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t-2 border-charcoal/10">
+        <section>
+            <h4 class="serif-display text-xl font-bold mb-4 uppercase tracking-widest text-cinnabar">5. Giá trị dinh dưỡng</h4>
+            <p class="justify-text bg-charcoal text-white p-6 rounded-sm">
+                "Giàu protein nhưng cao chất béo bão hòa. Nên ăn kèm nhiều rau xanh và đồ chua để hỗ trợ tiêu hóa chất béo và cân bằng vị giác hoàn hảo."
+            </p>
+        </section>
+        
+        <section>
+            <h4 class="serif-display text-xl font-bold mb-4 uppercase tracking-widest text-cinnabar">6. Gợi ý trình bày</h4>
+            <div class="space-y-3 italic text-gray-700">
+                <p class="justify-text">• Chặt thịt thành miếng chữ nhật đều nhau, sắc cạnh.</p>
+                <p class="justify-text">• Xếp thịt trên đĩa sứ trắng hoặc mẹt tre lót lá chuối tươi.</p>
+                <p class="justify-text">• Màu vàng cam của da heo hướng lên trên, trang trí xung quanh bằng dưa leo và ớt sừng. Đặt bát nước tương tỏi ớt vào giữa đĩa tạo điểm nhấn thị giác.</p>
+            </div>
+        </section>
+    </footer>
+
+    <!-- Decorative Bottom Ornament -->
+    <div class="mt-20 flex justify-center opacity-30">
+        <svg class="w-16 h-16 text-gold" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L9 9H2L7 14L5 21L12 17L19 21L17 14L22 9H15L12 2Z" />
+        </svg>
+    </div>
+
+</body>
+</html>
