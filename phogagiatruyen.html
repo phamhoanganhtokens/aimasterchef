@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Phở Gà Gia Truyền</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                        'soft-gold': '#F4EFE6',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description-text {
+            text-align: justify;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .ingredient-item:hover {
+            transform: translateX(5px);
+            transition: transform 0.3s ease;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-border {
+            border: 4px double #C5A059;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background-color: #E23D28;
+            border-radius: 50%;
+            border: 3px solid #FCFAFA;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            background-color: #C5A059;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-12 pb-8 px-6 max-w-6xl mx-auto text-center">
+        <div class="mb-4">
+            <span class="text-xs tracking-[0.3em] uppercase text-cinnabar-red font-bold">AI Vua Đầu Bếp • Premium Collection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight">Phở Gà Gia Truyền</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-10">Traditional Chicken Pho</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-burnished-gold/30 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center border-r border-burnished-gold/20 last:border-0">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M245.54,93.43l-31.52-25.21a20,20,0,0,0-25,0L157.54,93.43a20,20,0,0,0-5.78,21.64L165.65,159a20,20,0,0,0,19.06,13h34.58a20,20,0,0,0,19.06-13l13.89-43.94A20,20,0,0,0,245.54,93.43Z"></path><path d="M101.54,93.43,70,68.22a20,20,0,0,0-25,0L13.54,93.43a20,20,0,0,0-5.78,21.64L21.65,159A20,20,0,0,0,40.71,172H75.29a20,20,0,0,0,19.06-13l13.89-43.94A20,20,0,0,0,101.54,93.43Z" opacity="0.4"></path></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Mức độ</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center md:border-r border-burnished-gold/20">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Thời gian</span>
+                <span class="font-bold">180 - 240 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-burnished-gold/20">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48V208a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V48A16,16,0,0,1,56,32h32a8,8,0,0,1,0,16H56V208H200V48H168a8,8,0,0,1,0-16h32A16,16,0,0,1,216,48ZM136,80a8,8,0,0,0-8-8H96a8,8,0,0,0,0,16h32A8,8,0,0,0,136,80Zm0,32a8,8,0,0,0-8-8H96a8,8,0,0,0,0,16h32A8,8,0,0,0,136,112Zm0,32a8,8,0,0,0-8-8H96a8,8,0,0,0,0,16h32A8,8,0,0,0,136,144Z"></path></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25,26.19,30.07,42.49,42.08,43.13,42.55a4.07,4.07,0,0,0,5.74,0c.64-.47,16.94-12.48,43.13-42.55,27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,223.47C113.89,228.85,56,182.2,56,104a72,72,0,0,1,144,0C200,182.2,142.11,228.85,128,239.47Z"></path></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Nguồn gốc</span>
+                <span class="font-bold text-sm">Hà Nội, Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-2xl mx-auto italic text-gray-700 leading-relaxed">
+            <p>"Phở gà là một biến thể tinh tế của phở bò, hình thành và định danh rõ nét tại Hà Nội từ những năm 1930. Đây là món ăn đại diện cho sự thanh tao, nhẹ nhàng của ẩm thực miền Bắc."</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red inline-block mb-6 pb-1 uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest font-bold text-burnished-gold mb-3 italic">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span><strong>Gà:</strong> 1 con gà ta (1.5kg - 1.8kg), nên chọn gà mái tơ.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span><strong>Xương kèm:</strong> 500g xương bay gà hoặc xương ống lợn.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span><strong>Bánh phở:</strong> 1kg bánh phở tươi loại sợi nhỏ.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest font-bold text-burnished-gold mb-3 italic">Thảo mộc & Gia vị nướng</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span>Hành tím (3 củ), Gừng già (1 củ).</span>
+                                </li>
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span>Quế (2 thanh), Hoa hồi (3 cánh), Thảo quả (1 trái), Hạt mùi (1 muỗng cà phê).</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest font-bold text-burnished-gold mb-3 italic">Gia vị nêm & Rau thơm</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span>Nước mắm cốt, muối hạt, đường phèn.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span>Hành lá, rau mùi, lá chanh, hành tây.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start space-x-2 border-b border-burnished-gold/10 pb-2">
+                                    <span class="text-cinnabar-red mt-1">•</span>
+                                    <span>Ăn kèm: Chanh, ớt tươi, tương ớt Bắc, quẩy.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar-red inline-block mb-10 pb-1 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="relative pl-8 border-l border-burnished-gold/30 space-y-12">
+                    
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="timeline-dot"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase">Sơ chế gà và xương</h4>
+                            <span class="bg-soft-gold px-3 py-1 text-xs font-bold text-burnished-gold rounded-full">10-15 Phút</span>
+                        </div>
+                        <p class="description-text text-gray-700">Xát muối, gừng và chút rượu trắng lên gà để khử mùi tanh, rửa sạch. Xương ống lợn (nếu dùng) cần chần qua nước sôi với muối trong 5 phút rồi rửa lại để loại bỏ tạp chất và mùi hôi.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="timeline-dot"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase">Nướng và chuẩn bị thảo mộc</h4>
+                            <span class="bg-soft-gold px-3 py-1 text-xs font-bold text-burnished-gold rounded-full">10 Phút</span>
+                        </div>
+                        <p class="description-text text-gray-700">Nướng hành tím và gừng nguyên vỏ trên lửa đến khi dậy mùi thơm và hơi cháy xém. Cạo bỏ lớp vỏ cháy, đập dập. Rang nhẹ quế, hồi, thảo quả và hạt mùi trên chảo nóng cho đến khi tinh dầu tỏa hương. Cho tất cả vào túi vải lọc.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="timeline-dot"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase">Luộc gà (Kỹ thuật chuyên nghiệp)</h4>
+                            <span class="bg-soft-gold px-3 py-1 text-xs font-bold text-burnished-gold rounded-full">30-40 Phút</span>
+                        </div>
+                        <p class="description-text text-gray-700">Cho gà và xương vào nồi nước lạnh, ngập mặt gà. Thêm gừng và hành nướng. Hạ lửa nhỏ, hớt bọt liên tục. Khi gà chín tới, vớt ra ngâm ngay vào bát nước đá lạnh 5-10 phút. Kỹ thuật này giúp da gà giòn, săn chắc và không bị thâm. Sau khi nguội, lọc thịt và xé miếng mỏng.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <div class="timeline-dot"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase">Ninh nước dùng</h4>
+                            <span class="bg-soft-gold px-3 py-1 text-xs font-bold text-burnished-gold rounded-full">120-180 Phút</span>
+                        </div>
+                        <p class="description-text text-gray-700">Tiếp tục ninh phần xương thêm 90-120 phút. Cho túi thảo mộc vào trước khi hoàn tất 30-45 phút. Nêm đường phèn và muối hạt. Chỉ nêm nước mắm cốt trước khi chuẩn bị ăn để giữ mùi thơm và tránh làm nước dùng bị chua.</p>
+                    </div>
+
+                    <!-- Step 5 & 6 -->
+                    <div class="relative">
+                        <div class="timeline-dot"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase">Hoàn thiện và Trình bày</h4>
+                            <span class="bg-soft-gold px-3 py-1 text-xs font-bold text-burnished-gold rounded-full">5 Phút</span>
+                        </div>
+                        <p class="description-text text-gray-700 mb-4">Chần bánh phở tươi qua nước sôi, xóc ráo rồi chia vào các bát tô. Xếp thịt gà lên trên, rắc hành lá, rau mùi và lá chanh thái chỉ mỏng.</p>
+                        <p class="description-text text-gray-700">Thêm vài lát hành tây thái mỏng để tăng độ thanh. Chan nước dùng thật nóng (đang sôi) vào bát và thưởng thức ngay.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">✦</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <div class="pro-tip-border p-8 bg-soft-gold relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-culinary-cream px-4">
+                    <h3 class="text-lg font-bold uppercase tracking-widest text-burnished-gold italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 pt-4">
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-cinnabar-red mb-2 uppercase text-sm italic">Độ trong nước dùng</h5>
+                        <p class="text-sm">Tuyệt đối không để nước dùng sôi bùng sau khi hớt bọt. Luôn duy trì mức nhiệt khiến mặt nước chỉ sủi tăm nhẹ. Có thể dùng lòng trắng trứng để lọc cặn.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-cinnabar-red mb-2 uppercase text-sm italic">Tỷ lệ thảo mộc</h5>
+                        <p class="text-sm">Không nên cho quá nhiều quế và hồi vì sẽ lấn át mùi thơm thanh nhẹ đặc trưng của thịt gà ta.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-cinnabar-red mb-2 uppercase text-sm italic">Giải pháp tại gia</h5>
+                        <p class="text-sm">Nếu thiếu thời gian, dùng nồi áp suất ninh xương 30 phút, sau đó mở nắp đun thảo mộc ở chế độ thường để lấy hương.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Tabbed Section -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <h3 class="text-2xl font-bold text-center mb-8 uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex justify-center mb-6 space-x-2">
+                <button onclick="openTab(event, 'home')" class="tab-btn active px-6 py-2 border border-burnished-gold text-sm font-bold uppercase tracking-widest transition-all">Phở Trộn</button>
+                <button onclick="openTab(event, 'pro')" class="tab-btn px-6 py-2 border border-burnished-gold text-sm font-bold uppercase tracking-widest transition-all">Phở Mọc</button>
+                <button onclick="openTab(event, 'diet')" class="tab-btn px-6 py-2 border border-burnished-gold text-sm font-bold uppercase tracking-widest transition-all">Phở Ức Gà</button>
+            </div>
+            
+            <div id="home" class="tab-content active p-8 glass-card rounded-lg">
+                <h4 class="text-xl font-bold mb-3 italic">Phở Gà Trộn</h4>
+                <p class="description-text italic text-gray-700">Sử dụng thịt gà đã luộc, trộn với bánh phở, xì dầu, mỡ gà phi hành, lạc rang và rau thơm. Nước dùng được phục vụ riêng trong một bát nhỏ để thực khách cảm nhận trọn vẹn vị đậm đà của sốt trộn.</p>
+            </div>
+            <div id="pro" class="tab-content p-8 glass-card rounded-lg">
+                <h4 class="text-xl font-bold mb-3 italic">Phở Gà Mọc</h4>
+                <p class="description-text italic text-gray-700">Thêm các viên mọc (giò sống trộn nấm hương, mộc nhĩ) được viên tròn xinh xắn vào nồi nước dùng. Sự kết hợp này mang lại đa dạng kết cấu và vị ngọt béo từ nấm cho bát phở truyền thống.</p>
+            </div>
+            <div id="diet" class="tab-content p-8 glass-card rounded-lg">
+                <h4 class="text-xl font-bold mb-3 italic">Phở Ức Gà (Light Version)</h4>
+                <p class="description-text italic text-gray-700">Dành cho chế độ ăn kiêng hoặc người thích vị thanh đạm tuyệt đối. Chỉ sử dụng phần lườn gà (ức gà) bỏ da, thái lát mỏng. Nước dùng được lọc kỹ để loại bỏ tối đa váng mỡ.</p>
+            </div>
+        </section>
+
+        <!-- Final Info Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t-2 border-burnished-gold/20">
+            <!-- Nutrition -->
+            <div class="p-8 bg-white/50 border border-burnished-gold/10">
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-6 border-b border-cinnabar-red/30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="italic">Năng lượng</span>
+                        <span class="font-bold">450 - 550 kcal / bát</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="italic">Thành phần chính</span>
+                        <span class="text-right text-sm">Protein, Carbohydrate, Collagen</span>
+                    </div>
+                    <p class="text-xs italic text-gray-500 mt-4">Lợi ích: Các thảo mộc như gừng và hồi có tác dụng làm ấm cơ thể, hỗ trợ tiêu hóa, kháng khuẩn và rất tốt cho việc phục hồi sức khỏe.</p>
+                </div>
+            </div>
+
+            <!-- Presentation Tips -->
+            <div>
+                <h3 class="text-xl font-bold uppercase tracking-wider mb-6 border-b border-cinnabar-red/30 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="text-sm font-bold uppercase mb-1">Sắp xếp nghệ thuật</h5>
+                        <p class="text-sm description-text">Đặt những miếng da gà vàng óng lên trên cùng để thu hút thị giác. Sự tương phản giữa bánh phở trắng, da gà vàng, hành xanh và ớt đỏ tạo nên bức tranh hài hòa.</p>
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold uppercase mb-1">Nghệ thuật nhiếp ảnh</h5>
+                        <p class="text-sm description-text">Sử dụng bát sứ trắng hoặc gốm mộc. Chụp ở góc 45 độ dưới ánh sáng tự nhiên để làm nổi bật làn khói nghi ngút và độ bóng của nước dùng. Đặt thêm đĩa quẩy giòn bên cạnh để tạo cảm giác truyền thống.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
