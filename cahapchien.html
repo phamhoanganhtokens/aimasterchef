@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cá Nục Hấp Sẵn Chiên Da Vàng Giòn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#2C2C2C',
+                            cream: '#FCFAFA',
+                            cinnabar: '#E23E28',
+                            gold: '#C5A059',
+                            goldLight: '#F4EBD0'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .ornament-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .ornament-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament-icon {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+        }
+        .step-number {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #E23E28;
+        }
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(2n) {
+                border-right: none;
+            }
+            .meta-item:last-child, .meta-item:nth-last-child(2) {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 md:px-12 max-w-6xl mx-auto text-center border-b-2 border-brand-gold">
+        <p class="uppercase tracking-widest text-brand-cinnabar font-bold mb-4">Tinh Hoa Ẩm Thực Việt</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-brand-charcoal">Cá nục hấp sẵn chiên da vàng giòn</h1>
+        <h2 class="text-xl md:text-2xl italic text-brand-gold mb-10">Crispy Pan-Fried Pre-Steamed Scad</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/50 py-6 px-4 border border-brand-gold/30 rounded-sm shadow-sm">
+            <div class="meta-item flex flex-col items-center px-4">
+                <span class="text-brand-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M232,128a104,104,0,1,1-104-104A104.11,104.11,0,0,1,232,128Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold text-lg">20 Phút</span>
+            </div>
+            <div class="meta-item flex flex-col items-center px-4">
+                <span class="text-brand-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM128,72a8,8,0,0,1,8,8v40h40a8,8,0,0,1,0,16H128a8,8,0,0,1-8-8V80A8,8,0,0,1,128,72Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="meta-item flex flex-col items-center px-4">
+                <span class="text-brand-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M117.33,128A42.67,42.67,0,1,1,74.67,85.33,42.67,42.67,0,0,1,117.33,128Z" opacity="0.2"></path><path d="M117.33,128a42.67,42.67,0,1,1-42.66-42.67A42.67,42.67,0,0,1,117.33,128Zm112,0a42.67,42.67,0,1,1-42.66-42.67A42.67,42.67,0,0,1,229.33,128Zm-21.33,48H152a8,8,0,0,0-8,8,32,32,0,0,1-64,0,8,8,0,0,0-8-8H48a24,24,0,0,0-24,24v16a8,8,0,0,0,16,0V200H65.07a48,48,0,0,0,93.86,0H216v16a8,8,0,0,0,16,0V200A24,24,0,0,0,208,176Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold text-lg">2-3 người</span>
+            </div>
+            <div class="meta-item flex flex-col items-center px-4 text-center">
+                <span class="text-brand-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-152a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64Zm0,112a48,48,0,1,1,48-48A48.05,48.05,0,0,1,128,176Z"></path></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-sm leading-tight">Duyên hải Việt Nam</span>
+            </div>
+        </div>
+        <p class="mt-8 italic text-gray-600 max-w-2xl mx-auto justified-text">
+            "Món ăn dân dã đặc trưng của vùng duyên hải Việt Nam, kết hợp phương pháp bảo quản truyền thống (hấp) và kỹ thuật chế biến hiện đại để tăng kết cấu món ăn."
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 md:px-12 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold border-b border-brand-gold pb-2 mb-6 flex items-center">
+                        <span class="mr-2 text-brand-cinnabar">I.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-brand-gold font-bold uppercase text-sm tracking-widest mb-4">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-cinnabar mt-2 mr-3 group-hover:scale-150 transition-transform"></span>
+                                    <p class="justified-text"><strong class="text-brand-charcoal">Cá nục hấp sẵn:</strong> 500g (khoảng 4-6 con, chọn loại cá tươi, mắt còn trong, mình săn chắc).</p>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-cinnabar mt-2 mr-3 group-hover:scale-150 transition-transform"></span>
+                                    <p class="justified-text"><strong class="text-brand-charcoal">Bột năng hoặc bột bắp:</strong> 20g (dùng để tạo lớp màng mỏng bảo vệ da).</p>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-cinnabar mt-2 mr-3 group-hover:scale-150 transition-transform"></span>
+                                    <p class="justified-text"><strong class="text-brand-charcoal">Dầu ăn:</strong> 200ml (chọn dầu thực vật có điểm khói cao).</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-brand-gold font-bold uppercase text-sm tracking-widest mb-4">Gia vị & Ăn kèm</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-cinnabar mt-2 mr-3 group-hover:scale-150 transition-transform"></span>
+                                    <p class="justified-text"><strong class="text-brand-charcoal">Nước mắm:</strong> Nước mắm ngon, tỏi, ớt, đường, chanh, gừng.</p>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-cinnabar mt-2 mr-3 group-hover:scale-150 transition-transform"></span>
+                                    <p class="justified-text"><strong class="text-brand-charcoal">Rau ăn kèm:</strong> Xà lách, rau thơm (húng quế, diếp cá), dưa leo, khế chua hoặc chuối chát.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Execution -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b border-brand-gold pb-2 mb-8 flex items-center">
+                    <span class="mr-2 text-brand-cinnabar">II.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 relative before:content-[''] before:absolute before:left-4 md:before:left-6 before:top-4 before:bottom-4 before:w-px before:bg-brand-gold/30">
+                    <!-- Step 1 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="absolute left-1.5 md:left-3.5 top-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-cream border-2 border-brand-cinnabar flex items-center justify-center z-10">
+                            <span class="step-number text-xs">1</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-gold">
+                            <h4 class="font-bold text-xl mb-2">Sơ chế và làm khô</h4>
+                            <p class="justified-text text-gray-700">Lấy cá ra khỏi vỉ hấp, dùng giấy thấm dầu thấm thật khô bề mặt da cá. Đây là bước then chốt để khi chiên không bị bắn dầu và da đạt độ giòn tối đa.</p>
+                            <span class="inline-block mt-3 text-xs uppercase tracking-widest text-brand-cinnabar italic">Giai đoạn chuẩn bị • 2-3 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="absolute left-1.5 md:left-3.5 top-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-cream border-2 border-brand-cinnabar flex items-center justify-center z-10">
+                            <span class="step-number text-xs">2</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-gold">
+                            <h4 class="font-bold text-xl mb-2">Áo bột mỏng (Kỹ thuật chuyên nghiệp)</h4>
+                            <p class="justified-text text-gray-700">Rây một lớp bột năng thật mỏng lên hai mặt cá. Lớp bột này đóng vai trò như một lớp màng ngăn nước từ thịt cá thoát ra, giúp da giòn rụm mà bên trong vẫn giữ được độ ẩm tự nhiên.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="absolute left-1.5 md:left-3.5 top-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-cream border-2 border-brand-cinnabar flex items-center justify-center z-10">
+                            <span class="step-number text-xs">3</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-gold">
+                            <h4 class="font-bold text-xl mb-2">Kỹ thuật chiên</h4>
+                            <p class="justified-text text-gray-700">Sử dụng chảo chống dính hoặc chảo gang. Đun dầu đến khi đạt nhiệt độ khoảng 170-180°C (thử bằng đầu đũa thấy sủi tăm mạnh). Hạ lửa vừa, nhẹ nhàng thả cá vào.</p>
+                            <span class="inline-block mt-3 text-xs uppercase tracking-widest text-brand-cinnabar italic">Nhiệt độ quan trọng • 180°C</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="absolute left-1.5 md:left-3.5 top-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-cream border-2 border-brand-cinnabar flex items-center justify-center z-10">
+                            <span class="step-number text-xs">4</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-gold">
+                            <h4 class="font-bold text-xl mb-2">Giữ nguyên trạng (Mẹo Home Cook)</h4>
+                            <p class="justified-text text-gray-700">Không lật trở cá trong 3-4 phút đầu để lớp da định hình và cứng lại. Khi rìa cá chuyển sang màu vàng đậm, mới lật mặt còn lại.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="absolute left-1.5 md:left-3.5 top-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-cream border-2 border-brand-cinnabar flex items-center justify-center z-10">
+                            <span class="step-number text-xs">5</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-gold">
+                            <h4 class="font-bold text-xl mb-2">Ép dầu</h4>
+                            <p class="justified-text text-gray-700">Trước khi vớt cá ra 30 giây, tăng lửa lớn để nhiệt độ cao đẩy bớt lượng dầu thừa ra khỏi sớ thịt, giúp món ăn không bị ngấy.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="absolute left-1.5 md:left-3.5 top-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-cream border-2 border-brand-cinnabar flex items-center justify-center z-10">
+                            <span class="step-number text-xs">6</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-gold">
+                            <h4 class="font-bold text-xl mb-2">Thấm dầu</h4>
+                            <p class="justified-text text-gray-700">Vớt cá ra giá rây hoặc dĩa có lót giấy thấm dầu ngay lập tức.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament-divider">
+            <span class="ornament-icon">✦ ❦ ✦</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Chef's Corner -->
+            <section class="bg-brand-goldLight/30 p-8 rounded-sm border-2 border-double border-brand-gold relative">
+                <div class="absolute -top-4 left-6 bg-brand-gold text-white px-4 py-1 text-sm font-bold uppercase tracking-widest">
+                    Chef’s Corner
+                </div>
+                <h3 class="text-xl font-bold mb-6 text-brand-charcoal mt-2 italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-4">
+                    <li class="justified-text italic border-l-2 border-brand-cinnabar pl-4">
+                        <strong class="not-italic">Nhiệt độ dầu:</strong> Nếu dầu quá nguội, cá sẽ ngấm dầu và bở; nếu quá nóng, da sẽ cháy mà thịt chưa kịp săn.
+                    </li>
+                    <li class="justified-text italic border-l-2 border-brand-cinnabar pl-4">
+                        <strong class="not-italic">Tránh văng dầu:</strong> Cho một nhúm muối nhỏ vào dầu trước khi chiên để hạn chế tình trạng bắn dầu do độ ẩm còn sót lại trong cá hấp.
+                    </li>
+                    <li class="justified-text italic border-l-2 border-brand-cinnabar pl-4">
+                        <strong class="not-italic">Kiểm soát độ khô:</strong> Không chiên quá lâu khiến phần thịt cá nục vốn dĩ đã chín qua bước hấp bị xác và mất chất dinh dưỡng.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Variations -->
+            <section class="space-y-6">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="text-brand-cinnabar mr-2">4.</span> Biến tấu & Nâng cao
+                </h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="glass-card p-5 rounded-md">
+                        <h4 class="font-bold text-brand-cinnabar uppercase text-xs tracking-tighter mb-2">Phiên bản Healthy</h4>
+                        <p class="justified-text text-sm italic">Sử dụng nồi chiên không dầu, xịt một lớp màng dầu mỏng lên da cá, chiên ở 200°C trong 10-12 phút mỗi mặt.</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-md">
+                        <h4 class="font-bold text-brand-cinnabar uppercase text-xs tracking-tighter mb-2">Phiên bản đậm đà</h4>
+                        <p class="justified-text text-sm italic">Sau khi chiên giòn, có thể sốt nhanh với mắm tỏi gừng hoặc sốt cà chua cay để tăng hương vị.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Technical / Nutrition Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-brand-charcoal text-brand-cream p-10 rounded-sm">
+            <div>
+                <h3 class="text-brand-gold text-lg font-bold uppercase tracking-widest mb-4 border-b border-brand-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 text-sm">
+                    <p class="justified-text"><span class="text-brand-gold">● Giá trị chính:</span> Cá nục là nguồn cung cấp dồi dào Omega-3, Vitamin D và Protein chất lượng cao, tốt cho tim mạch.</p>
+                    <p class="justified-text"><span class="text-brand-gold">● Khuyến nghị:</span> Một khẩu phần (2 con) chứa khoảng 250-300 calo. Nên ăn kèm ít nhất 150g rau xanh và các loại quả chua để cân bằng lượng chất béo, hỗ trợ tiêu hóa tốt hơn.</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-brand-gold text-lg font-bold uppercase tracking-widest mb-4 border-b border-brand-gold/30 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-sm">
+                    <p class="justified-text">Sử dụng đĩa gốm mộc hoặc mẹt tre lót lá chuối để tôn lên vẻ đẹp truyền thống. Xếp cá theo chiều ngang hoặc đan xen nhẹ, không chồng chất lên nhau để giữ độ giòn.</p>
+                    <p class="justified-text italic text-brand-gold/80">"Đặt chén nước mắm tỏi ớt đỏ rực ở giữa, xung quanh trang trí bằng lát dưa leo thái vát và vài nhánh ngò rí."</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Adding subtle scroll animations for a premium feel
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            const animElements = document.querySelectorAll('.glass-card, section, header');
+            animElements.forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
