@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Xúp bào ngư và cua Cà Mau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                        display: ["'Playfair Display'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .gold-border {
+            border: 1px solid #C5A059;
+        }
+
+        .double-border {
+            border: 4px double #C5A059;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(252, 250, 250, 0.9), rgba(252, 250, 250, 0.7));
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .nav-tab.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+
+        @media (max-width: 640px) {
+            .justified-text {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <div class="max-w-6xl mx-auto border-x border-gold/20 px-4 md:px-12 bg-white shadow-2xl">
+        
+        <!-- Header -->
+        <header class="py-12 text-center">
+            <div class="mb-4 text-cinnabar font-bold tracking-[0.2em] uppercase text-sm">AI Vua Đầu Bếp • Premium Selection</div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-2">Xúp bào ngư và cua Cà Mau</h1>
+            <p class="text-xl md:text-2xl italic text-gray-600 mb-8 font-serif">Abalone & Ca Mau Crab Consommé</p>
+            
+            <div class="section-divider">
+                <span class="text-gold text-2xl">✧</span>
+            </div>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 my-8">
+                <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Độ khó</span>
+                    <span class="font-bold uppercase text-sm">Nâng cao</span>
+                </div>
+                <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Thời gian</span>
+                    <span class="font-bold uppercase text-sm">120 - 150 Phút</span>
+                </div>
+                <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Phục vụ</span>
+                    <span class="font-bold uppercase text-sm">4 Người</span>
+                </div>
+                <div class="flex flex-col items-center last:border-0">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Nguồn gốc</span>
+                    <span class="font-bold uppercase text-sm">Nam Bộ / Việt Nam</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <p class="justified-text italic text-gray-700 leading-relaxed">
+                    Món ăn là sự kết hợp tinh hoa giữa kỹ nghệ chế biến hải sản cao cấp và sản vật cua Cà Mau lừng danh. Đây là món đại tiệc biểu trưng cho sự thịnh vượng và tinh tế trong văn hóa ẩm thực Việt Nam, thường xuất hiện trong các buổi yến tiệc sang trọng.
+                </p>
+            </div>
+        </header>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 py-8">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <section>
+                    <h2 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-gold font-bold italic mb-3 uppercase text-xs tracking-widest">Hải sản thượng hạng</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>4-6 con bào ngư tươi cỡ vừa</span>
+                                </li>
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>1 con cua Cà Mau (600g, ưu tiên cua gạch)</span>
+                                </li>
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>50g cồi sò điệp khô</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gold font-bold italic mb-3 uppercase text-xs tracking-widest">Cốt canh & Rau củ</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>1kg xương ống gà & 200g thịt thăn lợn</span>
+                                </li>
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>50g nấm đông cô, 30g nấm tuyết</span>
+                                </li>
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Cà rốt, gừng, hành tím, kỷ tử, táo đỏ</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gold font-bold italic mb-3 uppercase text-xs tracking-widest">Gia vị & Hoàn thiện</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>Dầu hào, rượu Mai Quế Lộ, đường phèn</span>
+                                </li>
+                                <li class="flex items-start gap-3 group transition-all duration-300 hover:translate-x-1">
+                                    <span class="text-cinnabar mt-1">◈</span>
+                                    <span>50g bột củ năng, 2 lòng trắng trứng</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h2 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">2. Các bước thực hiện</h2>
+                
+                <div class="space-y-10 relative before:absolute before:left-[17px] before:top-0 before:h-full before:w-[1px] before:bg-gold/30">
+                    
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 w-9 h-9 rounded-full bg-white border border-gold flex items-center justify-center z-10">
+                            <span class="step-number text-cinnabar font-bold">I</span>
+                        </div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Nấu nước dùng (Consommé)</h3>
+                            <span class="text-xs italic text-gray-500 font-serif">90-120 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Chần xương gà và thịt thăn qua nước sôi có gừng. Ninh xương với 2.5 lít nước cùng cồi sò điệp khô. Thường xuyên hớt bọt để nước trong. Lọc lấy khoảng 1.5 lít nước dùng trong vắt.</p>
+                    </div>
+
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 w-9 h-9 rounded-full bg-white border border-gold flex items-center justify-center z-10">
+                            <span class="step-number text-cinnabar font-bold">II</span>
+                        </div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Sơ chế hải sản</h3>
+                            <span class="text-xs italic text-gray-500 font-serif">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Bào ngư dùng bàn chải chà sạch, rửa qua rượu gừng khử mùi. Cua Cà Mau hấp chín với sả và gừng, gỡ lấy thịt và gạch. Phi thơm hành tím, xào sơ thịt cua với chút tiêu để thịt thơm và săn lại.</p>
+                    </div>
+
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 w-9 h-9 rounded-full bg-white border border-gold flex items-center justify-center z-10">
+                            <span class="step-number text-cinnabar font-bold">III</span>
+                        </div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Chuẩn bị nguyên liệu phụ</h3>
+                            <span class="text-xs italic text-gray-500 font-serif">10 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Nấm đông cô thái sợi, nấm tuyết ngâm nở cắt nhỏ, cà rốt tỉa hoa hoặc cắt hạt lựu. Kỷ tử và táo đỏ rửa sạch.</p>
+                    </div>
+
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 w-9 h-9 rounded-full bg-white border border-gold flex items-center justify-center z-10">
+                            <span class="step-number text-cinnabar font-bold">IV</span>
+                        </div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Chế biến xúp</h3>
+                            <span class="text-xs italic text-gray-500 font-serif">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Đun sôi trở lại nước dùng đã lọc. Cho táo đỏ, kỷ tử và bào ngư vào nấu khoảng 10 phút. Tiếp đến cho các loại nấm và cà rốt vào. Nêm nếm với dầu hào và đường phèn sao cho vị thanh tao.</p>
+                    </div>
+
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 w-9 h-9 rounded-full bg-white border border-gold flex items-center justify-center z-10">
+                            <span class="step-number text-cinnabar font-bold">V</span>
+                        </div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Hoàn thiện độ sánh</h3>
+                            <span class="text-xs italic text-gray-500 font-serif">5 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Hòa bột củ năng với nước, rót từ từ vào nồi, khuấy nhẹ tay theo một chiều đến khi đạt độ sánh gương. Cuối cùng, rót lòng trắng trứng qua rây tạo vân mây.</p>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Chef's Corner -->
+        <section class="my-16 bg-gold/5 p-8 double-border">
+            <h2 class="text-2xl font-display font-bold mb-6 text-center text-cinnabar italic">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <h4 class="font-bold text-gold uppercase text-xs tracking-tighter">Độ trong của nước</h4>
+                    <p class="text-sm justified-text">Nếu nước dùng bị đục, hãy dùng lòng trắng trứng trộn thịt băm nhuyễn cho vào nồi, các tạp chất sẽ bị hút sạch vào khối thịt đó, sau đó lọc lại.</p>
+                </div>
+                <div class="space-y-2 border-x border-gold/20 px-0 md:px-8">
+                    <h4 class="font-bold text-gold uppercase text-xs tracking-tighter">Kết cấu bào ngư</h4>
+                    <p class="text-sm justified-text">Tránh nấu bào ngư quá lâu trên lửa lớn vì collagen sẽ co lại làm thịt bị dai. Nên giữ lửa nhỏ liu riu khi hầm.</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-gold uppercase text-xs tracking-tighter">Bí quyết độ sánh</h4>
+                    <p class="text-sm justified-text">Sử dụng bột củ năng thay vì bột năng thông thường sẽ giúp xúp giữ được độ sánh lâu hơn và không bị "vữa" khi để nguội.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-16">
+            <h2 class="text-2xl font-display font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-parchment gold-border group hover:bg-white transition-colors duration-500">
+                    <h3 class="font-display italic text-lg text-cinnabar mb-2">Phiên bản gia đình</h3>
+                    <p class="justified-text text-sm">Có thể thay bào ngư bằng nấm đùi gà thái lát và dùng tôm tươi băm nhỏ thay cua để tiết kiệm chi phí mà vẫn giữ được độ ngọt thanh đặc trưng của món xúp.</p>
+                </div>
+                <div class="p-6 bg-charcoal text-white gold-border group hover:bg-black transition-colors duration-500">
+                    <h3 class="font-display italic text-lg text-gold mb-2">Phiên bản tẩm bổ</h3>
+                    <p class="justified-text text-sm opacity-90">Thêm bóng cá hoặc vi cá vào nấu cùng để tăng hàm lượng dinh dưỡng cho người mới ốm dậy, tạo nên một bát canh phục hồi năng lượng tuyệt vời.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="text-gold text-2xl">✧</span>
+        </div>
+
+        <!-- Nutrition and Presentation -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+            <div>
+                <h2 class="text-2xl font-display font-bold mb-6 uppercase tracking-wider text-charcoal">5. Giá trị dinh dưỡng</h2>
+                <ul class="space-y-4">
+                    <li class="border-l-4 border-cinnabar pl-4 py-1">
+                        <span class="font-bold">Bào ngư:</span>
+                        <p class="text-sm justified-text text-gray-600">Cung cấp nhiều khoáng chất và acid amin giúp phục hồi thể lực và tăng cường miễn dịch.</p>
+                    </li>
+                    <li class="border-l-4 border-gold pl-4 py-1">
+                        <span class="font-bold">Cua Cà Mau:</span>
+                        <p class="text-sm justified-text text-gray-600">Giàu protein, canxi và kẽm, hỗ trợ xương khớp và hệ thần kinh.</p>
+                    </li>
+                    <li class="border-l-4 border-gray-400 pl-4 py-1">
+                        <p class="text-sm italic text-gray-500">Món ăn có hàm lượng chất béo thấp, giàu đạm và hải sản tươi, là nguồn bổ sung vi chất lý tưởng.</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="bg-parchment p-6 gold-border">
+                <h2 class="text-2xl font-display font-bold mb-6 uppercase tracking-wider text-charcoal">6. Gợi ý trình bày</h2>
+                <ul class="space-y-3 text-sm italic">
+                    <li class="flex gap-2">
+                        <span class="text-gold">★</span>
+                        <span>Múc xúp ra thố sứ có nắp để giữ độ nóng lâu nhất.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">★</span>
+                        <span>Xếp bào ngư lên trên, xung quanh là thịt cua và gạch cua vàng óng.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">★</span>
+                        <span>Trang trí bằng ngò rí, tiêu trắng và vài sợi gừng thái chỉ.</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-gold">★</span>
+                        <span>Phục vụ kèm một chén nhỏ giấm đỏ thượng hạng.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Final Decorative Element -->
+    <div class="text-center py-12 text-gold/40 select-none">
+        <span class="text-4xl">𓊝</span>
+    </div>
+
+    <script>
+        // Subtle interaction for ingredients
+        document.querySelectorAll('li.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.color = '#E23D28';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.color = '#2C2C2C';
+            });
+        });
+    </script>
+</body>
+</html>
