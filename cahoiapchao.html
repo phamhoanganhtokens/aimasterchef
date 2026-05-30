@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cá Hồi Áp Chảo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#2C2C2C',
+                            cream: '#FCFAFA',
+                            cinnabar: '#E23D28',
+                            gold: '#C5A059',
+                            goldLight: '#F4EBD0',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .header-gradient {
+            background: linear-gradient(to bottom, #F4EBD0 0%, #FCFAFA 100%);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 0.75rem 0;
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .tab-card {
+            border-top: 3px solid #E23D28;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .tab-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="header-gradient pt-16 pb-12 px-6 border-b border-brand-gold/30">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="uppercase tracking-[0.3em] text-brand-cinnabar font-bold mb-4">Tạp Chí Ẩm Thực Số - AI Vua Đầu Bếp</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2">Cá Hồi Áp Chảo Sốt Bơ Tỏi Thảo Mộc</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-10">Pan-Seared Salmon with Garlic Herb Butter Sauce</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="max-w-3xl mx-auto bg-white/80 backdrop-blur-sm border border-brand-gold p-6 md:p-4 rounded-sm shadow-sm">
+                <div class="meta-grid flex flex-wrap justify-around items-center gap-4">
+                    <div class="flex flex-col items-center px-4">
+                        <span class="text-brand-gold mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                        <span class="font-bold">Trung bình</span>
+                    </div>
+                    <div class="flex flex-col items-center px-4 border-l border-brand-gold/20">
+                        <span class="text-brand-gold mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                        <span class="font-bold">20-25 phút</span>
+                    </div>
+                    <div class="flex flex-col items-center px-4 border-l border-brand-gold/20">
+                        <span class="text-brand-gold mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                        <span class="font-bold">2 người</span>
+                    </div>
+                    <div class="flex flex-col items-center px-4 border-l border-brand-gold/20">
+                        <span class="text-brand-gold mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Xuất xứ</span>
+                        <span class="font-bold">Âu châu hiện đại</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-brand-cinnabar pb-2 mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold italic text-brand-gold mb-3">Thành phần chính</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex justify-between">
+                                    <span class="justified-text"><strong>Cá hồi:</strong> 2 miếng lườn cá hồi tươi (150g - 200g/miếng), nguyên da.</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between">
+                                    <span class="justified-text italic text-sm text-gray-600">Chọn cá màu cam tươi, vân mỡ trắng đều, thịt săn chắc.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold italic text-brand-gold mb-3">Gia vị & Chất béo</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>Gia vị ướp: Muối biển hạt mịn, tiêu đen xay mới.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>2 muỗng canh dầu hạt cải hoặc dầu oliu.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>30g bơ lạt (unsalted butter).</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold italic text-brand-gold mb-3">Thảo mộc & Đồ kèm</h4>
+                            <ul class="space-y-1">
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>3 tép tỏi để nguyên vỏ đập dập.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>2 nhánh cỏ xạ hương hoặc hương thảo.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>1/2 quả chanh vàng.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>100g măng tây hoặc bông cải xanh.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start">
+                                    <span class="mr-2">✦</span>
+                                    <span>1 củ khoai tây nghiền mịn.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <article class="lg:col-span-8 space-y-12">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-brand-cinnabar pb-2 mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                    
+                    <div class="space-y-10 relative">
+                        <!-- Step 1 -->
+                        <div class="flex group">
+                            <div class="step-number">01</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-cinnabar transition-colors">Sơ chế và chuẩn bị</h4>
+                                <p class="justified-text text-gray-700">
+                                    Lấy cá hồi ra khỏi tủ lạnh trước 15 phút để đưa về nhiệt độ phòng. Dùng giấy thấm dầu <strong>thấm thật khô</strong> bề mặt thịt và đặc biệt là phần da cá (đây là bí quyết để da giòn). Chỉ ướp muối và tiêu ngay trước khi cho vào chảo để tránh cá bị ra nước.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex group">
+                            <div class="step-number">02</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-cinnabar transition-colors">Áp chảo tạo độ giòn (Searing)</h4>
+                                <p class="justified-text text-gray-700">
+                                    Làm nóng chảo trên lửa vừa - lớn. Cho dầu vào, khi dầu bắt đầu bốc khói nhẹ, đặt cá vào chảo, mặt da xuống trước. Dùng xẻng ấn nhẹ miếng cá xuống trong 30 giây đầu để da tiếp xúc hoàn toàn với mặt chảo, giúp da phẳng và giòn đều.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex group">
+                            <div class="step-number">03</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-cinnabar transition-colors">Kiểm soát nhiệt độ</h4>
+                                <p class="justified-text text-gray-700">
+                                    Giữ nguyên mặt da trong khoảng <span class="text-brand-cinnabar italic font-serif">4-5 phút</span> cho đến khi thấy phần thịt chín dần lên quá nửa miếng cá và lớp da vàng ruộm, tách hẳn khỏi mặt chảo. Lật miếng cá nhẹ nhàng.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex group">
+                            <div class="step-number">04</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-cinnabar transition-colors">Kỹ thuật Basting (Tưới bơ)</h4>
+                                <p class="justified-text text-gray-700">
+                                    Ngay sau khi lật, hạ lửa xuống mức trung bình. Thêm bơ lạt, tỏi và thảo mộc vào. Khi bơ tan chảy và sủi bọt, nghiêng chảo, dùng muỗng liên tục múc hỗn hợp bơ nóng rưới lên mặt cá trong <span class="text-brand-cinnabar italic font-serif">1-2 phút</span>. Kỹ thuật này giúp cá chín đều, mọng nước và thấm đẫm mùi thơm.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="flex group">
+                            <div class="step-number">05</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-cinnabar transition-colors">Nghỉ ngơi</h4>
+                                <p class="justified-text text-gray-700">
+                                    Lấy cá ra khỏi chảo, đặt lên đĩa và để cá "nghỉ" trong <span class="text-brand-cinnabar italic font-serif">3 phút</span>. Bước này giúp các thớ thịt thư giãn và giữ lại nước ngọt bên trong.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">❦</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="pro-tip-box shadow-xl">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-gold text-white px-6 py-1 text-sm tracking-[0.2em] uppercase font-bold">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 pt-4">
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-brand-cinnabar mb-2 uppercase text-sm tracking-widest">Độ chín hoàn hảo</h5>
+                        <p class="text-sm justified-text">Không nên nấu cá chín kỹ (well-done). Cá hồi ngon nhất khi ở mức <strong>Medium-rare</strong> (hồng nhạt ở giữa, nhiệt độ tâm 50-52°C).</p>
+                    </div>
+                    <div class="text-center md:text-left border-x border-brand-gold/20 px-4">
+                        <h5 class="font-bold text-brand-cinnabar mb-2 uppercase text-sm tracking-widest">Sử dụng chảo</h5>
+                        <p class="text-sm justified-text">Chảo phải đủ nóng trước khi cho cá vào để kích hoạt <strong>phản ứng Maillard</strong>, tạo lớp vỏ thơm ngon và màu sắc bắt mắt.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold text-brand-cinnabar mb-2 uppercase text-sm tracking-widest">Xử lý da</h5>
+                        <p class="text-sm justified-text">Nếu da cá bị cong, đó là do bạn chưa thấm đủ khô hoặc chảo chưa đủ nhiệt. Hãy luôn dùng xẻng ấn nhẹ khi vừa cho cá vào.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold border-b-2 border-brand-cinnabar pb-2 mb-8 uppercase tracking-wider text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="tab-card bg-white p-6 rounded-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-brand-goldLight p-2 rounded-full mr-4 text-brand-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold">Sốt chanh dây (Passion fruit)</h4>
+                    </div>
+                    <p class="justified-text text-gray-600 text-sm italic">Thay bơ tỏi bằng nước cốt chanh dây đun nhẹ với chút đường và bơ để tạo vị chua ngọt thanh mát, kích thích vị giác.</p>
+                </div>
+                <div class="tab-card bg-white p-6 rounded-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-brand-goldLight p-2 rounded-full mr-4 text-brand-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold">Phong cách Á Đông (Oriental Style)</h4>
+                    </div>
+                    <p class="justified-text text-gray-600 text-sm italic">Ướp cá với một ít nước tương, gừng băm và mật ong trước khi áp chảo để tạo hương vị đậm đà, quen thuộc.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Sections Grid -->
+        <div class="grid md:grid-cols-2 gap-12 border-t border-brand-gold pt-12">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest flex items-center">
+                    <span class="w-8 h-[2px] bg-brand-cinnabar mr-3"></span>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="bg-brand-goldLight/30 p-6 rounded-lg">
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <span class="text-brand-gold mr-3">●</span>
+                            <span class="justified-text">Nguồn cung cấp <strong>Axit béo Omega-3</strong> dồi dào, tốt cho tim mạch và não bộ.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-gold mr-3">●</span>
+                            <span class="justified-text">Chứa hàm lượng Protein cao, Vitamin D và Selenium cần thiết cho cơ thể.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-gold mr-3">●</span>
+                            <span class="justified-text">Kết hợp cùng măng tây và khoai tây giúp cân bằng đạm, béo tốt và xơ (Clean Eating).</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest flex items-center">
+                    <span class="w-8 h-[2px] bg-brand-cinnabar mr-3"></span>
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="prose prose-sm italic text-gray-700">
+                    <p class="justified-text mb-3">Sử dụng đĩa sứ trắng khổ lớn để làm nổi bật màu sắc. Đặt khoai tây nghiền ở tâm, dùng muỗng quẹt nhẹ tạo hình lưỡi liềm.</p>
+                    <p class="justified-text mb-3">Xếp măng tây đã xào bơ lên trên, sau đó đặt miếng cá với mặt da hướng lên để khoe độ giòn rụm.</p>
+                    <p class="justified-text">Rưới nước cốt bơ còn dư, trang trí thêm lát chanh vàng và nhánh thảo mộc tươi để đạt đẳng cấp nhà hàng 5 sao.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll Indicator (Decorative) -->
+    <div class="fixed bottom-8 right-8 hidden md:block">
+        <div class="flex flex-col items-center">
+            <span class="text-[10px] uppercase tracking-[0.3em] rotate-90 mb-12 origin-left text-brand-gold font-bold">Authentic Recipe</span>
+            <div class="w-[1px] h-24 bg-brand-gold/40 relative">
+                <div class="absolute bottom-0 left-0 w-full h-1/2 bg-brand-gold"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
