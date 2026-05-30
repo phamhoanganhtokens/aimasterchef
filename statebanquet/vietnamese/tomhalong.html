@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Xa lát Củ cải đỏ và Tôm Hạ Long</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 1px solid #C5A059;
+        }
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 9px;
+            height: 9px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .gold-frame {
+            border: 2px double #C5A059;
+            padding: 2rem;
+            background-color: rgba(197, 160, 89, 0.03);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-white">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">AI Vua Đầu Bếp | Premium Recipes</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-charcoal">Xa lát Củ cải đỏ và Tôm Hạ Long</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-8">Radish and Ha Long Shrimp Salad</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-0 max-w-4xl mx-auto border-y border-gold py-2">
+            <div class="meta-item">
+                <span class="text-cinnabar text-xs uppercase tracking-tighter mb-1">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="meta-item border-l border-gold/20 md:border-l">
+                <span class="text-cinnabar text-xs uppercase tracking-tighter mb-1">Thời gian</span>
+                <span class="font-bold text-lg">30 - 40 phút</span>
+            </div>
+            <div class="meta-item border-t border-gold/20 md:border-t-0 md:border-l">
+                <span class="text-cinnabar text-xs uppercase tracking-tighter mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">2 - 3 người</span>
+            </div>
+            <div class="meta-item border-t border-gold/20 md:border-t-0 border-l">
+                <span class="text-cinnabar text-xs uppercase tracking-tighter mb-1">Nguồn gốc</span>
+                <span class="font-bold text-sm">Quảng Ninh, VN</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-8">
+            <p class="justified italic text-gray-700 leading-relaxed px-4 border-l-4 border-gold">
+                "Sự giao thoa tinh tế giữa sản vật biển Hạ Long (Quảng Ninh) trứ danh và kỹ thuật chế biến xa lát hiện đại, mang âm hưởng của món gỏi truyền thống Việt Nam."
+            </p>
+        </div>
+    </header>
+
+    <div class="ornament max-w-4xl mx-auto">
+        <span class="ornament-icon">✧</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="sticky top-8">
+                    <h2 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-gold italic mb-2">Thành phần chính</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Tôm tươi Hạ Long (He/Sắt): 300g (chắc thịt, vỏ bóng).</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Củ cải đỏ (Red Radish): 200g (10-12 củ nhỏ).</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Rau mầm hoặc xà lách hỗn hợp: 50g.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-gold italic mb-2">Gia vị & Rau thơm</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Húng lủi, ngò rí.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Nước mắm ngon, chanh, đường phèn, tỏi, ớt sừng.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Đậu phộng rang, hành phi.</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-2 group-hover:scale-125 transition-transform">◈</span>
+                                    <span class="justified">Gừng, hành tím, muối (chần tôm).</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h2 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h2>
+                
+                <div class="space-y-2">
+                    <div class="timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">Chế biến tôm</h3>
+                            <span class="italic text-gold text-sm">~ 10 phút</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Rửa sạch tôm, lấy chỉ lưng. Đun sôi nước với gừng đập dập và hành tím để khử mùi tanh. Khi nước sôi, hạ nhiệt xuống khoảng 85-90°C. Cho tôm vào chần trong 2-3 phút cho đến khi tôm vừa chín tới. Vớt tôm ra và ngâm ngay vào tô nước đá lạnh trong 2 phút để giữ độ giòn và màu sắc. Sau đó bóc vỏ, giữ lại phần đuôi.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">Sơ chế củ cải đỏ</h3>
+                            <span class="italic text-gold text-sm">~ 12 phút</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Rửa sạch củ cải, cắt bỏ hai đầu. Dùng bàn bào mandoline thái lát mỏng tang hoặc thái múi cau nhỏ. Ngâm củ cải vào nước đá có pha chút đường và chanh trong 10 phút để giảm vị hăng, sau đó vớt ra để thật ráo nước.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">Pha nước sốt</h3>
+                            <span class="italic text-gold text-sm">~ 5 phút</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Hòa tan đường phèn với nước cốt chanh, sau đó thêm nước mắm. Cuối cùng cho tỏi và ớt băm để chúng nổi lên bề mặt. Tỉ lệ này giúp tôn vinh vị ngọt tự nhiên của tôm Hạ Long.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step border-transparent">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">Phối trộn & Hoàn thiện</h3>
+                            <span class="italic text-gold text-sm">~ 3 phút</span>
+                        </div>
+                        <p class="justified text-gray-700">
+                            Cho củ cải đỏ, rau mầm và tôm vào tô lớn. Rưới sốt vào, đảo nhẹ tay để tránh làm dập rau củ. Thêm rau thơm, đậu phộng và hành phi lên trên. Thưởng thức ngay để cảm nhận độ giòn tan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="mt-12 gold-frame">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-3">👨‍🍳</span>
+                        <h2 class="text-xl font-bold uppercase tracking-widest text-gold">3. Mẹo hay từ Vua Đầu Bếp</h2>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="justified pl-4 border-l-2 border-cinnabar">
+                            <strong class="text-charcoal uppercase text-sm block mb-1 tracking-tighter">Kiểm soát nhiệt</strong>
+                            Không nấu tôm quá lâu để giữ độ ngọt và mọng nước.
+                        </li>
+                        <li class="justified pl-4 border-l-2 border-cinnabar">
+                            <strong class="text-charcoal uppercase text-sm block mb-1 tracking-tighter">Độ giòn tuyệt đối</strong>
+                            Đảm bảo củ cải thật ráo nước trước khi trộn để không làm loãng nước sốt.
+                        </li>
+                        <li class="justified pl-4 border-l-2 border-cinnabar">
+                            <strong class="text-charcoal uppercase text-sm block mb-1 tracking-tighter">Thời điểm vàng</strong>
+                            Chỉ trộn sốt ngay trước khi ăn để nguyên liệu không bị mềm nát.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament max-w-4xl mx-auto my-16">
+            <span class="ornament-icon">✦</span>
+        </div>
+
+        <!-- Variations Section -->
+        <section class="mb-20">
+            <h2 class="text-2xl font-bold text-center mb-10 uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 border-t-4 border-cinnabar">
+                    <h3 class="font-bold text-lg mb-3">Phiên bản Healthy</h3>
+                    <p class="justified text-sm text-gray-700 italic">Thay đường phèn bằng mật ong hoặc syrup cây phong để giảm chỉ số đường huyết mà vẫn giữ được vị ngọt thanh thoát.</p>
+                </div>
+                <div class="glass-card p-6 border-t-4 border-gold">
+                    <h3 class="font-bold text-lg mb-3">Phiên bản Cao cấp</h3>
+                    <p class="justified text-sm text-gray-700 italic">Thêm bơ sáp cắt khối hoặc hạt thông để tăng độ béo bùi, tạo sự tương phản với vị giòn cay nhẹ của củ cải.</p>
+                </div>
+                <div class="glass-card p-6 border-t-4 border-charcoal">
+                    <h3 class="font-bold text-lg mb-3">Thay thế Protein</h3>
+                    <p class="justified text-sm text-gray-700 italic">Nếu không có tôm, mực ống Hạ Long hoặc cồi sò điệp là những lựa chọn thay thế hoàn hảo để giữ đúng linh hồn của biển cả.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+            <!-- Nutrition -->
+            <section>
+                <h2 class="text-xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-cinnabar mr-3"></span>
+                    5. GIÁ TRỊ DINH DƯỠNG
+                </h2>
+                <div class="bg-charcoal text-parchment p-8 rounded-sm shadow-xl">
+                    <div class="flex justify-between mb-4 border-b border-gray-600 pb-2">
+                        <span>Năng lượng</span>
+                        <span class="font-bold text-gold">180 - 220 kcal/phần</span>
+                    </div>
+                    <p class="text-sm justified mb-4 opacity-90 italic">
+                        Giàu Protein, Vitamin C và chất chống oxy hóa Anthocyanin từ củ cải đỏ.
+                    </p>
+                    <p class="text-sm justified opacity-90 italic">
+                        Lợi ích: Hỗ trợ tiêu hóa, làm đẹp da và đặc biệt phù hợp cho các chế độ ăn kiêng hiện đại.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h2 class="text-xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-px bg-cinnabar mr-3"></span>
+                    6. GỢI Ý TRÌNH BÀY
+                </h2>
+                <div class="space-y-4 text-gray-700">
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar">●</span>
+                        <p class="justified text-sm"><strong class="text-charcoal">Phối màu:</strong> Sử dụng đĩa sứ trắng hoặc đen nhám để làm nổi bật sắc đỏ rực rỡ của củ cải và sắc cam của tôm Hạ Long.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar">●</span>
+                        <p class="justified text-sm"><strong class="text-charcoal">Sắp xếp:</strong> Xếp các lát củ cải mỏng làm nền, đặt tôm lên trên theo cụm để tạo độ cao khối (vertical plating) cho món ăn.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar">●</span>
+                        <p class="justified text-sm"><strong class="text-charcoal">Điểm xuyết:</strong> Rắc vài lá húng lủi xanh mướt và một ít hạt mè trắng rang thơm để tạo sự tương phản tinh tế trên bề mặt.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Simple scroll animation for glass cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
+
