@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cá Lăng Việt Trì Bọc Lá Sen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        deepGold: '#94763D',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        .timeline-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .timeline-step::after {
+            content: "";
+            position: absolute;
+            left: 0.95rem;
+            top: 2.2rem;
+            bottom: -2.2rem;
+            width: 1px;
+            background: #C5A059;
+        }
+        .timeline-step:last-child::after {
+            display: none;
+        }
+        .ingredient-item:hover {
+            transform: translateX(5px);
+            transition: transform 0.3s ease;
+        }
+        .nav-pill {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-pill.active {
+            background-color: #C5A059;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 md:px-12 max-w-6xl mx-auto text-center border-b border-gold/30">
+        <div class="mb-4">
+            <span class="uppercase tracking-widest text-cinnabar font-bold text-sm">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-charcoal">Cá Lăng Việt Trì Bọc Lá Sen</h1>
+        <h2 class="text-2xl md:text-3xl italic font-light text-deepGold mb-8">Viet Tri Hemibagrus Wrapped in Lotus Leaves</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 mt-8 py-6 border-y border-gold/20">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình khá</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gold/20 md:pl-12">
+                <span class="text-cinnabar text-xl mb-1">🕒</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Thời gian</span>
+                <span class="font-bold">60 - 75 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gold/20 md:pl-12">
+                <span class="text-cinnabar text-xl mb-1">👥</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Khẩu phần</span>
+                <span class="font-bold">3 - 4 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gold/20 md:pl-12">
+                <span class="text-cinnabar text-xl mb-1">📍</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Việt Trì, Phú Thọ</span>
+            </div>
+        </div>
+        <p class="mt-8 max-w-3xl mx-auto italic justified text-gray-600">
+            Việt Trì (Phú Thọ) – vùng đất ngã ba sông nổi tiếng với các loại cá nước ngọt, đặc biệt là cá lăng sông Đà, sông Lô dai thịt, thơm ngậy. Sự kết hợp giữa cá lăng và hương sen tinh khiết tạo nên một tuyệt phẩm ẩm thực vùng Đất Tổ.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 md:px-12 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-4">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span><strong>Cá lăng:</strong> 1 con (1-1.2kg). Ưu tiên cá tươi sống.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span><strong>Lá sen:</strong> 2-3 lá tươi, to bản, không rách.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-4">Gia vị truyền thống</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex items-start gap-2 border-b border-gold/10 pb-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span>2 thìa canh mẻ ngấu (lọc nước)</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2 border-b border-gold/10 pb-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span>1 thìa canh mắm tôm loại ngon</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2 border-b border-gold/10 pb-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span>3 củ riềng giã nhỏ, 2 củ nghệ tươi (vắt cốt)</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2 border-b border-gold/10 pb-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span>3 củ hành tím, 2 cây sả băm nhỏ</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-4">Phụ liệu & Rau kèm</h4>
+                            <ul class="space-y-3">
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span class="italic">Thì là, hành lá, húng láng, chuối chát, khế chua, dứa.</span>
+                                </li>
+                                <li class="ingredient-item flex items-start gap-2">
+                                    <span class="text-cinnabar">✦</span>
+                                    <span class="italic">Nước chấm: Mắm tôm pha chanh đường ớt hoặc nước mắm gừng.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-2">
+                    <div class="timeline-step" data-step="1">
+                        <h4 class="font-bold text-xl mb-2">Sơ chế cá <span class="text-sm font-normal text-gold italic ml-2">(Kỹ thuật chuyên nghiệp)</span></h4>
+                        <p class="justified text-gray-700">
+                            Cá lăng sau khi làm sạch, dùng muối và chanh (hoặc rượu gừng) chà xát khắp thân để khử nhớt và mùi tanh. Lọc lấy thịt phi lê, cắt miếng vừa ăn (khoảng 3-4cm). Giữ lại xương và đầu để nấu canh chua.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="2">
+                        <h4 class="font-bold text-xl mb-2">Tẩm ướp <span class="text-sm font-normal text-gold italic ml-2">(30 - 45 phút)</span></h4>
+                        <p class="justified text-gray-700">
+                            Trộn đều cá với hỗn hợp: nước cốt nghệ, nước mẻ, mắm tôm, riềng giã, sả băm, hành tím, đường và một ít mỡ lợn. Để cá thấm gia vị trong ít nhất 30 phút. <strong>Mẹo:</strong> Mỡ lợn giúp cá không bị khô khi nướng và tạo độ bóng bẩy.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="3">
+                        <h4 class="font-bold text-xl mb-2">Chuẩn bị lá sen <span class="text-sm font-normal text-gold italic ml-2">(Mẹo bếp gia đình)</span></h4>
+                        <p class="justified text-gray-700">
+                            Chần sơ lá sen qua nước sôi có pha chút muối để lá dẻo, dễ gói và giữ được màu xanh lâu hơn. Lau khô lá trước khi gói.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="4">
+                        <h4 class="font-bold text-xl mb-2">Bọc lá sen</h4>
+                        <p class="justified text-gray-700">
+                            Trải lá sen ra, đặt một ít thì là và hành lá cắt khúc xuống dưới, xếp cá đã ướp lên trên, sau đó phủ thêm một lớp thì là nữa. Cuộn lá sen lại thật kín, dùng lạt tre hoặc chỉ thực phẩm buộc nhẹ.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step" data-step="5">
+                        <h4 class="font-bold text-xl mb-2">Chế biến <span class="text-sm font-normal text-gold italic ml-2">(20 - 25 phút)</span></h4>
+                        <div class="grid md:grid-cols-2 gap-6 mt-4">
+                            <div class="p-4 bg-parchment border border-gold/30 rounded shadow-sm">
+                                <h5 class="font-bold text-cinnabar mb-2">🔥 Nướng Than</h5>
+                                <p class="text-sm justified">Nướng gói cá trên than hồng khoảng 20-25 phút. Hương thơm của lá sen hòa quyện với mùi riềng mẻ đặc trưng.</p>
+                            </div>
+                            <div class="p-4 bg-parchment border border-gold/30 rounded shadow-sm">
+                                <h5 class="font-bold text-cinnabar mb-2">🏠 Tại Nhà</h5>
+                                <p class="text-sm justified">Sử dụng lò nướng/nồi chiên không dầu ở 200°C trong 20 phút. Có thể hấp 15 phút trước khi nướng để cá mọng nước hơn.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="ornament">
+            <span class="ornament-icon">★ ★ ★</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Chef’s Corner -->
+            <div class="p-8 bg-gold/5 border-2 border-double border-gold relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 text-gold/10 text-8xl font-bold">Chef</div>
+                <h3 class="text-2xl font-bold text-deepGold mb-6 flex items-center gap-2">
+                    <span class="text-3xl">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="text-cinnabar mt-1">●</span>
+                        <p class="justified"><strong>Kiểm soát nhiệt:</strong> Không nướng ở nhiệt độ quá cao ngay từ đầu để tránh làm lá sen cháy nhanh trong khi cá chưa chín hoàn toàn bên trong.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-cinnabar mt-1">●</span>
+                        <p class="justified"><strong>Xử lý lá sen:</strong> Đảm bảo mặt trong của lá sen (mặt nhẵn) tiếp xúc với cá để tinh dầu sen thấm trực tiếp vào thịt cá tốt nhất.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-cinnabar mt-1">●</span>
+                        <p class="justified"><strong>Chọn cá:</strong> Cá lăng ngon nhất là loại bụng trắng, mình thuôn dài, đàn hồi tốt. Tránh dùng cá đông lạnh lâu ngày.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div class="flex flex-col">
+                <h3 class="text-2xl font-bold text-charcoal mb-6">4. Biến tấu & Nâng cao</h3>
+                <div class="bg-white p-1 rounded-lg border border-gold/20 flex mb-4">
+                    <button onclick="switchTab('sub')" class="nav-pill active flex-1 py-2 text-center text-sm font-bold uppercase tracking-widest" id="tab-sub">Thay thế</button>
+                    <button onclick="switchTab('fusion')" class="nav-pill flex-1 py-2 text-center text-sm font-bold uppercase tracking-widest" id="tab-fusion">Giao thoa</button>
+                </div>
+                <div class="flex-1 p-6 border border-gold/20 rounded-lg shadow-inner bg-white/50" id="variation-content">
+                    <p class="justified" id="variation-text">
+                        <strong>Thay thế nguyên liệu:</strong> Nếu không có cá lăng, có thể dùng cá quả (cá lóc) hoặc cá tầm để thay thế, tuy giữ được hình thức nhưng hương vị sẽ khác biệt đôi chút.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Sections -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-xl font-bold text-cinnabar mb-6 flex items-center gap-2">
+                    <span class="p-2 bg-cinnabar text-white rounded-full text-xs">5</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 text-gray-700">
+                    <p class="justified">Cá lăng là nguồn protein dồi dào, chứa nhiều Omega-3 tốt cho tim mạch và trí não. Thịt cá ít xương dăm, an toàn cho trẻ nhỏ.</p>
+                    <p class="justified">Lá sen có tác dụng thanh nhiệt, an thần. Các gia vị đi kèm như nghệ, riềng hỗ trợ tiêu hóa và có tính kháng khuẩn cao.</p>
+                    <p class="justified font-semibold italic text-deepGold">Món ăn cân bằng giữa đạm và chất xơ, hạn chế tối đa dầu mỡ xấu.</p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-xl font-bold text-cinnabar mb-6 flex items-center gap-2">
+                    <span class="p-2 bg-cinnabar text-white rounded-full text-xs">6</span> Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-gray-700">
+                    <p class="justified">Đặt gói lá sen vào giữa một chiếc đĩa gốm lớn hoặc mẹt tre lót lá chuối. Dùng kéo cắt lớp lá sen phía trên theo hình chữ thập và mở nhẹ ra để lộ miếng cá vàng óng, nghi ngút khói ngay tại bàn.</p>
+                    <p class="justified">Điểm xuyết vài cánh hoa sen tươi xung quanh đĩa để tăng tính thẩm mỹ. Đặt cạnh bát nước chấm mắm tôm đánh sủi bọt trắng và đĩa bún sợi nhỏ. Sự tương phản màu sắc tạo nên sự hấp dẫn thị giác mạnh mẽ.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(type) {
+            const tabSub = document.getElementById('tab-sub');
+            const tabFusion = document.getElementById('tab-fusion');
+            const content = document.getElementById('variation-text');
+
+            if (type === 'sub') {
+                tabSub.classList.add('active');
+                tabFusion.classList.remove('active');
+                content.innerHTML = '<strong>Thay thế nguyên liệu:</strong> Nếu không có cá lăng, có thể dùng cá quả (cá lóc) hoặc cá tầm để thay thế, tuy giữ được hình thức nhưng hương vị sẽ khác biệt đôi chút.';
+            } else {
+                tabFusion.classList.add('active');
+                tabSub.classList.remove('active');
+                content.innerHTML = '<strong>Gia vị:</strong> Có thể thêm một ít hạt mắc khén để tạo hương vị giao thoa vùng cao, nhưng để chuẩn vị Việt Trì gốc nên ưu tiên riềng mẻ truyền thống.';
+            }
+        }
+    </script>
+</body>
+</html>
