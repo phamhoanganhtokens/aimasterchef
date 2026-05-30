@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Ram Cuốn Đẻn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E2E',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .ornament:not(:empty)::before { margin-right: 1.5rem; }
+        .ornament:not(:empty)::after { margin-left: 1.5rem; }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #E23E2E;
+            margin-bottom: 2rem;
+        }
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #E23E2E;
+            border: 3px solid #FCFAFA;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .section-header {
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 space-y-6">
+        <div class="inline-block border-b-2 border-burnished-gold pb-2 mb-4">
+            <span class="text-xs uppercase tracking-widest text-cinnabar-red font-bold">Đặc Sản Quảng Bình</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-primary-charcoal leading-tight">
+            RAM CUỐN ĐỂN
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic text-burnished-gold font-light opacity-90">
+            Sea Snake Spring Rolls
+        </h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 py-6 border-y border-stone-200">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-tighter text-stone-500">Độ khó</span>
+                <span class="font-bold">Khó</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-stone-200">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-tighter text-stone-500">Thời gian</span>
+                <span class="font-bold">120 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-stone-200">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-tighter text-stone-500">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-stone-200">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-tighter text-stone-500">Xuất xứ</span>
+                <span class="font-bold">Quảng Bình</span>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto mt-8">
+            <p class="justified-text italic text-stone-600 px-4">
+                "Đây là món ăn đặc sản nổi tiếng của vùng biển Quảng Bình. Đẻn biển (một loại rắn biển) được ngư dân đánh bắt và chế biến thành nhiều món, trong đó ram cuốn đẻn là món ăn tinh tế, kết hợp giữa vị ngọt đậm đà của biển cả và sự giòn tan của lớp vỏ bánh đa nem."
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="section-header text-2xl font-bold border-b-2 border-primary-charcoal pb-2 mb-6">
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <section>
+                        <h4 class="text-cinnabar-red font-bold text-sm uppercase tracking-widest mb-3 italic">Nguyên liệu chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold group-hover:scale-125 transition-transform">✦</span>
+                                <span class="justified-text text-sm">500g thịt đẻn biển tươi (đã loại bỏ nội tạng và đầu).</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold group-hover:scale-125 transition-transform">✦</span>
+                                <span class="justified-text text-sm">100g thịt lợn vai băm, 2 quả trứng gà.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-cinnabar-red font-bold text-sm uppercase tracking-widest mb-3 italic">Rau củ & Gia vị</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold">✦</span>
+                                <span class="justified-text text-sm">30g mộc nhĩ, 20g nấm hương (băm nhỏ).</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold">✦</span>
+                                <span class="justified-text text-sm">50g hành tím, 3 củ sả, 1 củ gừng lớn.</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold">✦</span>
+                                <span class="justified-text text-sm">Hành lá, rau mùi (ngò rí).</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold">✦</span>
+                                <span class="justified-text text-sm">Nước mắm ngon, tiêu đen xay (nhiều), hạt nêm, rượu trắng.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4 class="text-cinnabar-red font-bold text-sm uppercase tracking-widest mb-3 italic">Vỏ cuốn & Kèm</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold">✦</span>
+                                <span class="justified-text text-sm">Bánh đa nem loại mỏng, dai (đặc sản Quảng Bình).</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="mr-2 text-burnished-gold">✦</span>
+                                <span class="justified-text text-sm">Rau sống (xà lách, húng quế, diếp cá), nước mắm chua ngọt, dưa góp.</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="section-header text-2xl font-bold border-b-2 border-primary-charcoal pb-2 mb-8">
+                2. Các bước thực hiện
+            </h3>
+
+            <div class="space-y-2">
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-2">
+                        <h5 class="text-lg font-bold text-cinnabar-red">Bước 1: Sơ chế đẻn biển</h5>
+                        <span class="text-xs italic text-stone-500 font-serif">Kỹ thuật chuyên gia</span>
+                    </div>
+                    <p class="justified-text text-stone-700 leading-relaxed">
+                        Cắt bỏ đầu, đuôi, xẻ lườn để loại bỏ nội tạng và mạch máu dọc xương sống. Chần nhanh đẻn qua nước sôi có pha gừng đập dập và rượu trắng để khử mùi. Lọc lấy thịt, băm thật nhuyễn cả xương (xương đẻn mềm và giàu canxi).
+                    </p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-2">
+                        <h5 class="text-lg font-bold text-cinnabar-red">Bước 2: Trộn nhân</h5>
+                        <span class="text-xs italic text-stone-500 font-serif">Công thức truyền thống</span>
+                    </div>
+                    <p class="justified-text text-stone-700 leading-relaxed">
+                        Trộn thịt đẻn, thịt lợn vai với mộc nhĩ, nấm hương, hành tím, sả băm, hành lá. Nêm 1 thìa nước mắm, 1 thìa hạt nêm và thật nhiều tiêu đen. Cho lòng đỏ trứng gà vào trộn đều để tạo độ kết dính.
+                    </p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-2">
+                        <h5 class="text-lg font-bold text-cinnabar-red">Bước 3: Cuốn Ram</h5>
+                        <span class="text-xs italic text-stone-500 font-serif">Mẹo nội trợ</span>
+                    </div>
+                    <p class="justified-text text-stone-700 leading-relaxed">
+                        Thoa một ít nước cốt chanh hoặc giấm lên bánh đa nem trước khi cuốn để vỏ giòn lâu hơn. Đặt một lượng nhân vừa đủ, cuốn chặt tay nhưng không quá căng.
+                    </p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="flex items-center justify-between mb-2">
+                        <h5 class="text-lg font-bold text-cinnabar-red">Bước 4: Chiên Ram</h5>
+                        <span class="text-xs italic text-stone-500 font-serif">Kỹ thuật Professional Chef</span>
+                    </div>
+                    <p class="justified-text text-stone-700 leading-relaxed">
+                        Chiên 2 lần. <strong>Lần 1:</strong> Chiên ở lửa nhỏ cho nhân chín đều và lớp vỏ se lại, sau đó để nguội. <strong>Lần 2:</strong> Chiên ở lửa lớn (dầu sôi già) để ép dầu ra ngoài và làm lớp vỏ đạt độ giòn xốp tối đa.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Chef's Corner -->
+            <div class="mt-12 p-8 border-2 border-burnished-gold bg-[#fdfaf3] relative hover-lift">
+                <div class="absolute -top-4 left-6 bg-burnished-gold text-white px-4 py-1 text-sm font-bold tracking-widest">
+                    MASTER TIPS
+                </div>
+                <h4 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="mr-2">👨‍🍳</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border-r border-stone-200 pr-4 last:border-0">
+                        <p class="text-xs font-bold text-cinnabar-red uppercase mb-1">An toàn</p>
+                        <p class="text-sm justified-text italic">Tuyệt đối không chạm tay không vào vùng đầu khi sơ chế do độc tố mạnh.</p>
+                    </div>
+                    <div class="border-r border-stone-200 pr-4 last:border-0">
+                        <p class="text-xs font-bold text-cinnabar-red uppercase mb-1">Khử mùi</p>
+                        <p class="text-sm justified-text italic">Bí quyết nằm ở sả băm cực mịn giúp át mùi tanh tự nhiên của rắn biển.</p>
+                    </div>
+                    <div class="border-r border-stone-200 pr-4 last:border-0">
+                        <p class="text-xs font-bold text-cinnabar-red uppercase mb-1">Kết cấu</p>
+                        <p class="text-sm justified-text italic">Băm tay truyền thống giúp cảm nhận được độ sần sật của xương đẻn mềm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="ornament"><span class="text-burnished-gold px-2">★</span></div>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h3 class="section-header text-center text-2xl font-bold mb-8 italic">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-6 border-l-4 border-l-burnished-gold">
+                <h5 class="text-lg font-bold mb-2">Dành cho gia đình</h5>
+                <p class="justified-text text-stone-600">
+                    Nếu không tìm mua được đẻn tươi, có thể thay thế bằng lươn biển hoặc cá đuối băm để có hương vị tương tự nhưng dễ thực hiện hơn.
+                </p>
+            </div>
+            <div class="glass-card p-6 border-l-4 border-l-cinnabar-red">
+                <h5 class="text-lg font-bold mb-2">Phiên bản Healthy</h5>
+                <p class="justified-text text-stone-600">
+                    Sử dụng nồi chiên không dầu (xịt một lớp dầu mỏng bên ngoài) để giảm lượng chất béo, vẫn đảm bảo độ giòn mà tốt cho sức khỏe hơn.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Content -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-stone-200 mb-12">
+        <!-- Nutrition -->
+        <div class="space-y-4">
+            <h4 class="section-header text-xl font-bold flex items-center">
+                <span class="w-8 h-[2px] bg-cinnabar-red mr-3"></span>
+                5. Giá trị dinh dưỡng
+            </h4>
+            <div class="bg-white p-6 shadow-sm border border-stone-100">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-sm text-stone-500 uppercase">Năng lượng</span>
+                    <span class="font-bold text-cinnabar-red">250 - 300 kcal / 100g</span>
+                </div>
+                <p class="justified-text text-sm mb-3">
+                    <strong>Giá trị sức khỏe:</strong> Thịt đẻn giàu protein, các acid amin thiết yếu và tốt cho xương khớp theo y học cổ truyền.
+                </p>
+                <div class="p-3 bg-red-50 text-xs text-red-800 border border-red-100 italic">
+                    Lưu ý: Người bị gout nên hạn chế do hàm lượng đạm cao.
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="space-y-4">
+            <h4 class="section-header text-xl font-bold flex items-center">
+                <span class="w-8 h-[2px] bg-burnished-gold mr-3"></span>
+                6. Gợi ý trình bày
+            </h4>
+            <ul class="space-y-3 text-sm italic text-stone-600">
+                <li class="flex items-start">
+                    <span class="text-burnished-gold mr-2">◦</span>
+                    <span>Xếp ram theo hình nan quạt hoặc hình tháp trên mẹt tre lót lá chuối để tạo cảm giác dân dã.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-burnished-gold mr-2">◦</span>
+                    <span>Đặt chén nước mắm chua ngọt có tỏi ớt nổi ở giữa. Trang trí xung quanh bằng rau thơm và ớt tỉa hoa.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-burnished-gold mr-2">◦</span>
+                    <span>Phục vụ ngay khi còn nóng để thực khách cảm nhận được độ giòn tan của vỏ và mùi thơm đặc trưng.</span>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="text-center py-12 opacity-50">
+        <p class="text-xs uppercase tracking-widest">— Tinh Hoa Ẩm Thực Việt —</p>
+    </div>
+
+</body>
+</html>
