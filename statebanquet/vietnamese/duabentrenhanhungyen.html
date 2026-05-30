@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Kem dừa Bến Tre & Nhãn lồng Hưng Yên</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'parchment': '#FCFAFA',
+                        'charcoal': '#2C2C2C',
+                        'cinnabar': '#E23D28',
+                        'gold-accent': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament {
+            padding: 0 1.5rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #C5A059;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+        }
+        .meta-item {
+            border-right: 1px solid rgba(44, 44, 44, 0.1);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 lg:p-24 max-w-7xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 animate-fade-in">
+        <div class="inline-block border-b-2 border-cinnabar pb-2 mb-6">
+            <span class="uppercase tracking-[0.3em] text-sm font-semibold text-gold-accent">AI VUA ĐẦU BẾP - Tinh Hoa Ẩm Thực</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-charcoal">Kem dừa Bến Tre và nhãn lồng Hưng Yên</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-10">Bến Tre Coconut & Hung Yen Longan Ice Cream</p>
+        
+        <div class="max-w-4xl mx-auto bg-white shadow-sm border border-gold-accent/20 p-6 md:p-8 rounded-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
+                <div class="meta-item px-4 text-center">
+                    <span class="block text-xs uppercase tracking-widest text-gold-accent mb-1">Độ khó</span>
+                    <span class="font-bold">Trung bình</span>
+                </div>
+                <div class="meta-item px-4 text-center">
+                    <span class="block text-xs uppercase tracking-widest text-gold-accent mb-1">Thời gian</span>
+                    <span class="font-bold">45m + 8h đông</span>
+                </div>
+                <div class="meta-item px-4 text-center">
+                    <span class="block text-xs uppercase tracking-widest text-gold-accent mb-1">Khẩu phần</span>
+                    <span class="font-bold">4-6 người</span>
+                </div>
+                <div class="meta-item px-4 text-center">
+                    <span class="block text-xs uppercase tracking-widest text-gold-accent mb-1">Xuất xứ</span>
+                    <span class="font-bold">Nam - Bắc Hội Tụ</span>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-100 italic text-charcoal/80 leading-relaxed">
+                "Đây là sự giao thoa văn hóa ẩm thực đặc sắc giữa hai miền Nam - Bắc: vị béo ngậy đậm đà của dừa Xiêm Bến Tre kết hợp cùng hương thơm thanh nhã, cùi dày giòn ngọt của nhãn lồng tiến vua Hưng Yên."
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ❈ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h2 class="text-2xl font-bold uppercase tracking-tighter border-l-4 border-cinnabar pl-4 mb-8">1. Nguyên liệu</h2>
+            
+            <div class="space-y-8">
+                <section>
+                    <h3 class="text-lg font-bold italic mb-4 text-gold-accent">Cốt kem</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>400ml nước cốt dừa đậm đặc (ép từ dừa già Bến Tre)</span>
+                        </li>
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>200ml nước dừa tươi (dừa Xiêm xanh)</span>
+                        </li>
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>250ml Whipping cream (độ béo >35%)</span>
+                        </li>
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>150g sữa đặc có đường</span>
+                        </li>
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>2 lòng đỏ trứng gà <span class="text-xs italic text-gray-500">(tùy chọn)</span></span>
+                        </li>
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>1/4 muỗng cà phê muối tinh</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-bold italic mb-4 text-gold-accent">Phần nhãn</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>300g nhãn lồng Hưng Yên (cùi dày, ráo nước)</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-lg font-bold italic mb-4 text-gold-accent">Topping</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>Đậu phộng rang vàng, dừa bào sợi</span>
+                        </li>
+                        <li class="flex items-baseline space-x-2 group cursor-default">
+                            <span class="text-cinnabar transition-transform group-hover:scale-125">◈</span>
+                            <span>Xôi lá dứa <span class="text-xs italic text-gray-500">(tùy chọn)</span></span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <div class="lg:col-span-8">
+            <h2 class="text-2xl font-bold uppercase tracking-tighter border-l-4 border-cinnabar pl-4 mb-8">2. Các bước thực hiện</h2>
+            
+            <div class="space-y-10 relative before:content-[''] before:absolute before:left-[19px] before:top-4 before:bottom-4 before:w-[1px] before:bg-gold-accent/30">
+                
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-parchment border-2 border-gold-accent rounded-full flex items-center justify-center font-bold text-charcoal group-hover:bg-gold-accent group-hover:text-white transition-colors duration-300">1</div>
+                    <h4 class="text-lg font-bold mb-2">Sơ chế nhãn <span class="text-sm font-normal text-gold-accent ml-2">— Traditional Expert</span></h4>
+                    <p class="description text-charcoal/80">Nhãn lồng bóc vỏ, dùng dụng cụ tách hạt khéo léo để giữ nguyên hình dáng cùi nhãn tròn trịa. Một nửa số nhãn cắt nhỏ để trộn vào kem, một nửa giữ nguyên để trang trí.</p>
+                </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-parchment border-2 border-gold-accent rounded-full flex items-center justify-center font-bold text-charcoal group-hover:bg-gold-accent group-hover:text-white transition-colors duration-300">2</div>
+                    <h4 class="text-lg font-bold mb-2">Nấu hỗn hợp sữa dừa <span class="text-sm font-normal text-gold-accent ml-2">— Professional Chef</span></h4>
+                    <p class="description text-charcoal/80 italic mb-2">Kỹ thuật: Creme Anglaise</p>
+                    <p class="description text-charcoal/80">Đun nhẹ nước cốt dừa, nước dừa tươi và sữa đặc trên lửa nhỏ. Nếu dùng lòng đỏ trứng, hãy đánh tan lòng đỏ rồi đổ từ từ hỗn hợp dừa ấm vào, khuấy liên tục đến khi hỗn hợp hơi sánh lại (khoảng 80°C) thì tắt bếp, lọc qua rây và để nguội hoàn toàn.</p>
+                </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-parchment border-2 border-gold-accent rounded-full flex items-center justify-center font-bold text-charcoal group-hover:bg-gold-accent group-hover:text-white transition-colors duration-300">3</div>
+                    <h4 class="text-lg font-bold mb-2">Đánh bông kem <span class="text-sm font-normal text-gold-accent ml-2">— Home Cook</span></h4>
+                    <p class="description text-charcoal/80 italic mb-2">Kỹ thuật: Fold</p>
+                    <p class="description text-charcoal/80">Whipping cream để thật lạnh, dùng máy đánh trứng đánh đến khi bông mềm (tạo chóp oặt). Trộn nhẹ nhàng hỗn hợp sữa dừa đã nguội vào whipping cream theo kỹ thuật fold (vét từ dưới lên) để không làm vỡ bọt khí.</p>
+                </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-parchment border-2 border-gold-accent rounded-full flex items-center justify-center font-bold text-charcoal group-hover:bg-gold-accent group-hover:text-white transition-colors duration-300">4</div>
+                    <h4 class="text-lg font-bold mb-2">Kết hợp</h4>
+                    <p class="description text-charcoal/80">Trộn phần nhãn băm nhỏ vào hỗn hợp kem dừa một cách nhẹ nhàng để đảm bảo nhãn được phân bổ đều trong cấu trúc kem.</p>
+                </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-parchment border-2 border-gold-accent rounded-full flex items-center justify-center font-bold text-charcoal group-hover:bg-gold-accent group-hover:text-white transition-colors duration-300">5</div>
+                    <h4 class="text-lg font-bold mb-2">Làm đông <span class="text-sm font-normal text-gold-accent ml-2">— No-churn method</span></h4>
+                    <p class="description text-charcoal/80">Đổ hỗn hợp vào hộp kín, để ngăn đông. Cứ mỗi 1-2 tiếng, lấy kem ra dùng nĩa hoặc máy đánh cầm tay xới đều để phá vỡ tinh thể đá. Lặp lại 3 lần. Nếu có máy làm kem, chỉ cần cho hỗn hợp vào máy quay trong 20-30 phút.</p>
+                </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-parchment border-2 border-gold-accent rounded-full flex items-center justify-center font-bold text-charcoal group-hover:bg-gold-accent group-hover:text-white transition-colors duration-300">6</div>
+                    <h4 class="text-lg font-bold mb-2">Ủ kem</h4>
+                    <p class="description text-charcoal/80">Để kem trong ngăn đá ít nhất 6 tiếng cho đến khi cứng lại hoàn toàn. Thành quả sẽ là chất kem mịn mướt, thơm nồng nàn mùi dừa và ngọt thanh vị nhãn.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Special Insights -->
+    <section class="mt-20">
+        <div class="bg-charcoal text-parchment p-8 md:p-12 border-double border-4 border-gold-accent shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 text-gold-accent opacity-10 text-9xl">
+                ★
+            </div>
+            <h2 class="text-2xl font-bold uppercase tracking-widest text-gold-accent mb-6 flex items-center">
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border-r border-gold-accent/20 pr-6">
+                    <h5 class="font-bold text-gold-accent mb-2">Texture (Cấu trúc)</h5>
+                    <p class="text-sm description">Để kem không bị dăm đá, hàm lượng chất béo và đường phải cân bằng. Việc đun ấm hỗn hợp giúp các phân tử liên kết tốt hơn.</p>
+                </div>
+                <div class="border-r border-gold-accent/20 pr-6">
+                    <h5 class="font-bold text-gold-accent mb-2">Hương vị</h5>
+                    <p class="text-sm description">Luôn thêm một chút muối để tôn vinh vị ngọt thanh của nhãn và vị béo của dừa.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-gold-accent mb-2">Bảo quản</h5>
+                    <p class="text-sm description">Nhãn lồng Hưng Yên có độ nước cao, nên thấm thật khô cùi nhãn trước khi cho vào kem để tránh tạo ra những cục đá nhỏ quanh miếng nhãn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mt-20">
+        <h2 class="text-2xl font-bold uppercase tracking-tighter border-l-4 border-cinnabar pl-4 mb-8">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 rounded-sm">
+                <h3 class="text-xl font-bold mb-3 text-cinnabar">Phiên bản thuần chay (Vegan)</h3>
+                <p class="description text-charcoal/80 italic">Thay whipping cream bằng kem béo thực vật và sữa đặc bằng đường thốt nốt. Vị ngọt của đường thốt nốt sẽ tạo nên một tầng hương vị mộc mạc, đậm chất Tây Nam Bộ.</p>
+            </div>
+            <div class="glass-card p-6 rounded-sm">
+                <h3 class="text-xl font-bold mb-3 text-gold-accent">Hương vị mới</h3>
+                <p class="description text-charcoal/80 italic">Thêm một ít nước cốt lá dứa vào hỗn hợp để tạo màu xanh nhạt và mùi thơm đặc trưng của miền Tây. Sự kết hợp này mang lại cảm giác thanh mát như một buổi chiều quê.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ❈ ✦</span>
+    </div>
+
+    <!-- Nutrition and Presentation -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div class="bg-white/50 p-8 border border-gray-100">
+            <h2 class="text-2xl font-bold uppercase tracking-tighter mb-6 text-charcoal">5. Giá trị dinh dưỡng</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b border-gray-200 pb-2">
+                    <span>Năng lượng</span>
+                    <span class="font-bold">320 kcal / serving</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-200 pb-2">
+                    <span>Chất béo (Axit Lauric)</span>
+                    <span class="font-bold">Hàm lượng cao</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-200 pb-2">
+                    <span>Vitamin C & Khoáng chất</span>
+                    <span class="font-bold">Dồi dào</span>
+                </div>
+                <p class="text-xs text-gray-500 italic mt-4">Lưu ý: Người có vấn đề về đường huyết hoặc mỡ máu nên thưởng thức với liều lượng vừa phải.</p>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-bold uppercase tracking-tighter mb-6 text-charcoal">6. Gợi ý trình bày</h2>
+            <div class="space-y-4 text-charcoal/90">
+                <p class="description"><strong class="text-cinnabar">Visual:</strong> Sử dụng chính vỏ trái dừa Xiêm đã nạo sạch làm bát đựng kem. Múc 2-3 viên kem tròn vào giữa.</p>
+                <p class="description"><strong class="text-cinnabar">Plating:</strong> Xếp 3-4 cùi nhãn lồng nguyên vẹn lên trên. Rắc thêm đậu phộng rang và dừa sợi trắng muốt. Cắm một chiếc lá dứa nhỏ hoặc một bông hoa nhài sạch để tăng phần tinh tế.</p>
+                <p class="description border-l-2 border-gold-accent pl-4 italic"><strong class="text-gold-accent">Master Tip:</strong> Để tạo hiệu ứng "mờ ảo", có thể đặt gáo dừa lên một chiếc dĩa chứa một ít đá khô để tạo khói trắng lúc phục vụ.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
