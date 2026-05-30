@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cá Nâu Kho Trái Giác - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#E6D5B8',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .display-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #E23D28;
+            opacity: 0.3;
+        }
+
+        .meta-card {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .meta-card:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+                padding: 10px 0;
+            }
+            .meta-card:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-0 m-0 antialiased">
+
+    <!-- Hero Header -->
+    <header class="relative bg-parchment pt-12 pb-8 px-6 border-b border-goldLight/30">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="uppercase tracking-widest text-gold font-bold mb-2">AI Vua Đầu Bếp • Tinh Hoa Ẩm Thực</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-charcoal mb-2">Cá Nâu Kho Trái Giác</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-500 mb-8">Braised Scat Fish with Cayratia Trifolia</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-gold py-6 mt-4">
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Độ khó</span>
+                    <span class="font-bold text-lg">Trung bình</span>
+                </div>
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Thời gian</span>
+                    <span class="font-bold text-lg text-center">Chuẩn bị: 20' <br> Chế biến: 40'</span>
+                </div>
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Khẩu phần</span>
+                    <span class="font-bold text-lg">4 người</span>
+                </div>
+                <div class="meta-card flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-gold mb-1">Nguồn gốc</span>
+                    <span class="font-bold text-lg">Miền Tây Nam Bộ</span>
+                </div>
+            </div>
+
+            <!-- Origin Story -->
+            <div class="mt-10 max-w-3xl mx-auto">
+                <p class="justified-text italic text-gray-700 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-cinnabar first-letter:mr-3 first-letter:float-left">
+                    Món ăn là tinh hoa ẩm thực hoang sơ mang đậm bản sắc vùng sông nước miền Tây Nam Bộ, đặc biệt là tại Cà Mau. Cá nâu vốn là loài cá nước lợ sống dưới những tán rừng ngập mặn, mang trên mình lớp da đốm tròn tựa da beo độc đáo. Trái giác là một loại quả dại mọc thành chùm ven bờ ao. Sự kết hợp này là minh chứng cho triết lý "mùa nào thức nấy": mượn vị chua chát thanh tao của trái dại để trung hòa và tôn lên trọn vẹn vị béo ngậy, ngọt thịt mộc mạc của cá nâu.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-sm tracking-widest mb-4 italic">Nguyên liệu chính</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item flex justify-between">
+                                    <span>Cá nâu tươi (3-4 con)</span>
+                                    <span class="font-bold">800g</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between">
+                                    <span>Trái giác (Xanh & Chín)</span>
+                                    <span class="font-bold">150g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-sm tracking-widest mb-4 italic">Gia vị & Thảo mộc</h4>
+                            <ul class="space-y-2">
+                                <li class="ingredient-item">Hành tím, tỏi (Băm nhuyễn)</li>
+                                <li class="ingredient-item">Ớt hiểm (3-5 trái)</li>
+                                <li class="ingredient-item">Hành lá, ngò rí</li>
+                                <li class="ingredient-item flex justify-between">
+                                    <span>Nước mắm truyền thống</span>
+                                    <span class="font-bold">4 muỗng</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between">
+                                    <span>Đường (Cát/Phèn)</span>
+                                    <span class="font-bold">2 muỗng</span>
+                                </li>
+                                <li class="ingredient-item flex justify-between">
+                                    <span>Nước màu dừa</span>
+                                    <span class="font-bold">1 muỗng</span>
+                                </li>
+                                <li class="ingredient-item">Muối, tiêu xay, mỡ heo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nutrition Summary Card -->
+                    <div class="mt-12 p-6 bg-stone-100 rounded-sm border-l-4 border-gold">
+                        <h4 class="font-bold mb-2">5. Giá trị dinh dưỡng</h4>
+                        <p class="text-sm justified-text text-gray-600 mb-3">
+                            Thịt cá nâu giàu protein nạc, Omega-3, Canxi, tốt cho tim mạch. Trái giác chứa Vitamin C và Anthocyanin chống oxy hóa.
+                        </p>
+                        <div class="text-xs font-bold text-gold">250 - 300 KCAL / KHẨU PHẦN</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative pl-8 border-l border-goldLight group">
+                        <div class="absolute -left-1.5 top-0 w-3 h-3 bg-cinnabar rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-start gap-4">
+                            <span class="step-number">01</span>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Sơ chế cá <span class="text-sm font-normal italic text-gray-500 ml-2">10 phút</span></h4>
+                                <p class="justified-text text-gray-700">Làm sạch vảy và nội tạng. <span class="text-cinnabar font-bold italic">Lưu ý:</span> Cực kỳ cẩn thận khi cắt vây vì gai cá nâu có nọc độc nhẹ. Chà xát cá với muối hạt để sạch nhớt, rửa sạch, khứa nhẹ mình cá.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-8 border-l border-goldLight group">
+                        <div class="absolute -left-1.5 top-0 w-3 h-3 bg-cinnabar rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-start gap-4">
+                            <span class="step-number">02</span>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Sơ chế trái giác <span class="text-sm font-normal italic text-gray-500 ml-2">5 phút</span></h4>
+                                <p class="justified-text text-gray-700">Lặt bỏ cuống, rửa sạch. Đập giập nhẹ một nửa lượng trái để tinh dầu và vị chua tiết ra; nửa còn lại để nguyên trái để tạo hình thẩm mỹ.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-8 border-l border-goldLight group">
+                        <div class="absolute -left-1.5 top-0 w-3 h-3 bg-cinnabar rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-start gap-4">
+                            <span class="step-number">03</span>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Tẩm ướp chuyên nghiệp <span class="text-sm font-normal italic text-gray-500 ml-2">30 phút nghỉ</span></h4>
+                                <p class="justified-text text-gray-700">Ướp cá với 2/3 hành tỏi băm, nước mắm, muối, đường, tiêu và nước màu dừa. Để thấm trong 30 phút để áp suất thẩm thấu giúp thịt cá săn chắc và đậm đà tận xương.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-8 border-l border-goldLight group">
+                        <div class="absolute -left-1.5 top-0 w-3 h-3 bg-cinnabar rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-start gap-4">
+                            <span class="step-number">04</span>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Kho cá truyền thống <span class="text-sm font-normal italic text-gray-500 ml-2">5 phút</span></h4>
+                                <p class="justified-text text-gray-700">Sử dụng nồi đất để giữ nhiệt tốt nhất. Phi thơm hành tỏi còn lại với mỡ heo, xếp cá vào tộ, đun lửa vừa cho cá săn hai mặt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-8 border-l border-goldLight group">
+                        <div class="absolute -left-1.5 top-0 w-3 h-3 bg-cinnabar rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-start gap-4">
+                            <span class="step-number">05</span>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Om vị chua <span class="text-sm font-normal italic text-gray-500 ml-2">30 phút</span></h4>
+                                <p class="justified-text text-gray-700">Đổ nước dừa tươi xăm xắp mặt cá, đun sôi. Thả toàn bộ trái giác vào. Hạ lửa riu riu, đậy nắp hé để nước kho rút từ từ vào thịt cá.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative pl-8 border-l border-goldLight group">
+                        <div class="absolute -left-1.5 top-0 w-3 h-3 bg-cinnabar rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-start gap-4">
+                            <span class="step-number">06</span>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Hoàn thiện <span class="text-sm font-normal italic text-gray-500 ml-2">2 phút</span></h4>
+                                <p class="justified-text text-gray-700">Khi nước kho sánh kẹo, nêm nếm lại. Vị phải mặn ngọt đậm đà xen lẫn chua thanh. Rắc tiêu, hành ngò và ớt hiểm rồi tắt bếp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="ornament">
+                    <span class="ornament-icon">✦</span>
+                </div>
+                
+                <div class="pro-tip-box p-8 bg-stone-50 mb-12">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-parchment px-4 py-1 text-gold font-bold uppercase tracking-widest border border-gold">
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </div>
+                    <ul class="space-y-4 pt-4">
+                        <li class="flex gap-4">
+                            <span class="text-cinnabar">●</span>
+                            <p class="justified-text"><strong>Kỹ thuật chuyên gia:</strong> Tránh lật trở cá nhiều lần khi đang sôi để không làm vỡ nát thịt cá nâu mềm mại.</p>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-cinnabar">●</span>
+                            <p class="justified-text"><strong>Kiểm soát độ chua:</strong> Nếu quá chua, dùng đường phèn nấu chảy để cân bằng. Tuyệt đối không dùng bột ngọt vì sẽ làm mất vị thanh dại.</p>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-cinnabar">●</span>
+                            <p class="justified-text"><strong>Lỗi nhiệt độ:</strong> Không châm nước lạnh vào nồi đang kho. Nước lạnh làm protein co rút đột ngột gây tanh cá.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Variations -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8">4. Biến tấu & Phiên bản</h3>
+                    <div class="flex gap-4 mb-6 overflow-x-auto pb-2">
+                        <button onclick="switchTab('tab-alternative')" class="tab-btn active whitespace-nowrap px-6 py-2 font-bold uppercase text-sm tracking-widest transition-all">Nguyên liệu thay thế</button>
+                        <button onclick="switchTab('tab-sour')" class="tab-btn whitespace-nowrap px-6 py-2 font-bold uppercase text-sm tracking-widest transition-all">Vị chua thay thế</button>
+                    </div>
+                    
+                    <div id="tab-alternative" class="tab-content active p-6 bg-white border border-gray-100 shadow-sm rounded">
+                        <p class="justified-text">Nếu không có cá nâu, kỹ thuật kho trái giác này có thể áp dụng tuyệt vời trên <strong>cá đối, cá rô đồng, cá lóc, hoặc cá nục</strong>. Mỗi loại cá sẽ mang lại một trải nghiệm vị giác riêng biệt nhưng vẫn giữ được hồn cốt sông nước.</p>
+                    </div>
+                    <div id="tab-sour" class="tab-content p-6 bg-white border border-gray-100 shadow-sm rounded">
+                        <p class="justified-text">Khi không tìm được trái giác (nho rừng), <strong>me xanh, khế chua, trái bần hoặc quả sấu</strong> là những giải pháp tạo độ chua tuyệt vời, dù sẽ thiếu đi chút hậu vị chát nhẹ đặc trưng của loài quả dại vùng ngập mặn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation Section -->
+        <div class="ornament">
+            <span class="ornament-icon">✧ ✦ ✧</span>
+        </div>
+
+        <section class="max-w-4xl mx-auto mb-16">
+            <h3 class="text-2xl font-bold text-center mb-8">6. Gợi ý trình bày & Thưởng thức</h3>
+            <div class="bg-charcoal text-parchment p-8 md:p-12 rounded-lg shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full -mr-16 -mt-16"></div>
+                <div class="relative z-10">
+                    <p class="justified-text text-lg italic leading-relaxed mb-6">
+                        "Hãy dọn món ăn nguyên trong chiếc tộ đất còn đang sôi sùng sục, bốc khói nghi ngút. Màu nâu cánh gián bóng bẩy của nước kho caramel bao quanh lớp da hoa văn 'da beo' đặc trưng. Điểm xuyết tinh tế là những trái giác xanh tím, tương phản với sắc đỏ của ớt và xanh của hành ngò."
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-6 items-center border-t border-parchment/20 pt-6">
+                        <div class="flex-1">
+                            <h4 class="text-gold font-bold mb-2 uppercase tracking-widest">Phục vụ kèm</h4>
+                            <p class="text-sm opacity-80">Rổ rau rừng dân dã: Bông súng, bắp chuối bào, đọt choại, rau nhút và một thố cơm trắng nóng hổi.</p>
+                        </div>
+                        <div class="flex-none">
+                            <div class="w-16 h-px bg-gold"></div>
+                        </div>
+                        <div class="flex-1 text-right">
+                            <h4 class="text-gold font-bold mb-2 uppercase tracking-widest">Trải nghiệm</h4>
+                            <p class="text-sm opacity-80">Gắp một miếng thịt cá trắng ngần quyện nước sốt chua cay mặn ngọt để cảm nhận trọn vẹn phong vị miền Tây.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            // Activate current button
+            event.currentTarget.classList.add('active');
+        }
+
+        // Add a subtle scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .pro-tip-box, .ingredient-item').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.6s ease-out";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
