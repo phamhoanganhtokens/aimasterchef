@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Viên Bò Mông Cổ Nhồi Bao Tử</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justified {
+            text-align: justify;
+        }
+
+        .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .section-divider span {
+            padding: 0 15px;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--accent-gold);
+            position: relative;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .pro-tip-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 15px;
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .meta-card {
+            border-left: 1px solid rgba(197, 160, 89, 0.3);
+            padding-left: 1rem;
+        }
+
+        .ingredient-group {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-cinnabar);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid var(--accent-cinnabar);
+            color: var(--accent-cinnabar);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- HERO HEADER -->
+    <header class="max-w-6xl mx-auto text-center mb-12 animate-fade-in">
+        <p class="cinzel text-sm tracking-widest text-red-700 uppercase mb-2">AI Vua Đầu Bếp • Premium Collection</p>
+        <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4 tracking-tight uppercase">
+            Viên Bò Mông Cổ Nhồi Bao Tử<br>
+            <span class="italic text-2xl md:text-4xl font-normal block mt-2 lowercase opacity-80" style="font-family: 'Times New Roman', serif;">
+                Mongolian Stuffed Tripe Beef Balls with Scallion Coulis
+            </span>
+        </h1>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 py-6 border-y border-stone-200">
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--accent-gold)] text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest opacity-60">Độ Khó</span>
+                <span class="font-bold italic">Trung bình - Khó</span>
+            </div>
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--accent-gold)] text-xl mb-1">⏱</span>
+                <span class="text-xs uppercase tracking-widest opacity-60">Tổng Thời Gian</span>
+                <span class="font-bold italic">105 Phút</span>
+            </div>
+            <div class="meta-card flex flex-col items-center">
+                <span class="text-[var(--accent-gold)] text-xl mb-1">🍽</span>
+                <span class="text-xs uppercase tracking-widest opacity-60">Khẩu Phần</span>
+                <span class="font-bold italic">4 Người ăn</span>
+            </div>
+            <div class="meta-card flex flex-col items-center border-r md:border-r-0">
+                <span class="text-[var(--accent-gold)] text-xl mb-1">🗺</span>
+                <span class="text-xs uppercase tracking-widest opacity-60">Nguồn Gốc</span>
+                <span class="font-bold italic">Thảo Nguyên Mông Cổ</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto">
+            <p class="justified italic text-stone-600 leading-relaxed">
+                Món ăn này là sự tôn vinh triết lý ẩm thực du mục truyền thống của người Mông Cổ, nơi không có phần nào của con vật bị lãng phí. Bao tử bò đại diện cho sự trân trọng nguyên liệu, kết hợp với phần nhân thịt bò đậm đà mang hương vị thảo nguyên để giữ ấm cơ thể trong khí hậu khắc nghiệt.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L4 9v12h16V9l-8-6zm0 2.5L18 10v9H6v-9l6-4.5z"/></svg></span>
+    </div>
+
+    <!-- MAIN CONTENT GRID -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <aside class="lg:col-span-4">
+            <h2 class="cinzel text-2xl font-bold mb-8 border-b-2 border-[var(--accent-cinnabar)] inline-block">1. Nguyên Liệu</h2>
+            
+            <div class="ingredient-group">
+                <h3 class="font-bold italic text-[var(--accent-gold)] mb-3 uppercase tracking-wider">Phần vỏ và nhân thịt</h3>
+                <ul class="space-y-2">
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>500g Bao tử bò tổ ong</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>400g Thịt bò băm (20% mỡ)</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>3 Tép tỏi băm</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>1 Củ gừng nhỏ băm</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Gia vị: Nước tương, dầu hào, mật ong</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Dầu mè, Bột bắp, Tiêu đen</span></li>
+                </ul>
+            </div>
+
+            <div class="ingredient-group">
+                <h3 class="font-bold italic text-[var(--accent-gold)] mb-3 uppercase tracking-wider">Sơ chế & Làm sạch</h3>
+                <ul class="space-y-2">
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Muối hạt & Giấm trắng</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Gừng đập dập & Rượu trắng</span></li>
+                </ul>
+            </div>
+
+            <div class="ingredient-group">
+                <h3 class="font-bold italic text-[var(--accent-gold)] mb-3 uppercase tracking-wider">Nước hẹ xay</h3>
+                <ul class="space-y-2">
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>100g Hẹ tươi</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Tỏi, Ớt xanh, Giấm đen</span></li>
+                    <li class="flex justify-between border-b border-dotted border-stone-300 pb-1"><span>Dầu ăn (đun nóng xèo)</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-8">
+            <h2 class="cinzel text-2xl font-bold mb-8 border-b-2 border-[var(--accent-cinnabar)] inline-block">2. Các Bước Thực Hiện</h2>
+            
+            <div class="space-y-8">
+                <div class="timeline-step" data-step="1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg">Sơ chế bao tử (Làm sạch chuyên sâu)</h4>
+                        <span class="text-xs font-mono italic bg-stone-200 px-2 py-1 rounded">20 PHÚT</span>
+                    </div>
+                    <p class="justified text-stone-700">
+                        Bóp kỹ bao tử bò với muối hạt và giấm trắng trong 5 phút để khử nhớt, rửa sạch. Tiếp tục đun sôi một nồi nước với gừng đập dập và rượu trắng, chần bao tử trong 3-5 phút. Vớt ra, ngâm ngay vào nước đá lạnh để giữ độ giòn. Cắt bao tử thành các miếng vuông (khoảng 8x8cm). 
+                        <span class="block mt-2 italic text-sm text-stone-500 underline decoration-[var(--accent-gold)]">Mẹo tại gia: Bạn có thể mua bao tử đã được làm sạch sẵn ở siêu thị để tiết kiệm 70% thời gian.</span>
+                    </p>
+                </div>
+
+                <div class="timeline-step" data-step="2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg">Trộn nhân bò Mông Cổ</h4>
+                        <span class="text-xs font-mono italic bg-stone-200 px-2 py-1 rounded">10 PHÚT</span>
+                    </div>
+                    <p class="justified text-stone-700">
+                        Cho thịt bò băm, tỏi, gừng, nước tương, dầu hào, mật ong, dầu mè, bột bắp và tiêu đen vào âu lớn. Dùng đũa khuấy mạnh tay theo một chiều duy nhất trong khoảng 3-5 phút cho đến khi thịt bò tiết ra protein dẻo dính (nhũ tương hóa). Kỹ thuật này giúp viên thịt chắc, mọng nước và không bị rã.
+                    </p>
+                </div>
+
+                <div class="timeline-step" data-step="3">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg">Nhồi và tạo hình "Túi Tiền"</h4>
+                        <span class="text-xs font-mono italic bg-stone-200 px-2 py-1 rounded">15 PHÚT</span>
+                    </div>
+                    <p class="justified text-stone-700">
+                        Xúc một muỗng nhân thịt bò (khoảng 30g) đặt vào giữa miếng bao tử. Túm các mép bao tử lại để bọc kín viên thịt, dùng tăm tre hoặc chỉ thực phẩm buộc chặt lại tạo thành hình những chiếc túi nhỏ tinh tế.
+                    </p>
+                </div>
+
+                <div class="timeline-step" data-step="4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg">Hấp cách thủy</h4>
+                        <span class="text-xs font-mono italic bg-stone-200 px-2 py-1 rounded">35 PHÚT</span>
+                    </div>
+                    <p class="justified text-stone-700">
+                        Xếp các viên bò nhồi vào xửng hấp. Hấp trên lửa vừa - lớn. Hấp giúp bao tử giữ được kết cấu giòn sật mà phần nhân bên trong vẫn ngậm đầy nước ngọt, không bị mất chất như phương pháp luộc.
+                    </p>
+                </div>
+
+                <div class="timeline-step" data-step="5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg">Làm nước hẹ xay (Signature Sauce)</h4>
+                        <span class="text-xs font-mono italic bg-stone-200 px-2 py-1 rounded">10 PHÚT</span>
+                    </div>
+                    <p class="justified text-stone-700">
+                        Xay nhuyễn hẹ, tỏi, ớt, nước tương, giấm đen và đường. Đun nóng dầu ăn đến khi bốc khói nhẹ, rót ngay vào bát sốt. Tiếng "xèo" vang lên sẽ đánh thức tinh dầu của hẹ, làm chín tái các nguyên liệu và tạo ra hương vị bùng nổ.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SPECIAL INSIGHT SECTIONS -->
+    <section class="max-w-6xl mx-auto mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Chef's Corner -->
+            <div class="pro-tip-box p-8 rounded-lg shadow-sm">
+                <span class="pro-tip-label cinzel text-xs">3. Mẹo hay từ Vua Đầu Bếp</span>
+                <ul class="space-y-4 mt-4">
+                    <li class="justified italic">
+                        <strong class="text-[var(--accent-cinnabar)]">— Nhiệt độ thịt:</strong> Luôn giữ thịt bò băm ở trạng thái lạnh khi trộn. Thịt nguội sẽ khiến mỡ bị tách ra, làm viên thịt bị bở sau khi hấp.
+                    </li>
+                    <li class="justified italic">
+                        <strong class="text-[var(--accent-cinnabar)]">— Xử lý bao tử:</strong> Không luộc bao tử quá lâu bước đầu. Nếu chín kỹ quá, nó sẽ co rút mạnh và dai như cao su khi hấp lần hai.
+                    </li>
+                    <li class="justified italic">
+                        <strong class="text-[var(--accent-cinnabar)]">— Kỹ thuật đổ dầu:</strong> Rót dầu nóng từ từ và chia làm hai lần để dầu nhũ tương hóa tốt nhất với giấm, tạo sốt mượt mà.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div class="bg-stone-100 p-8 rounded-lg">
+                <h2 class="cinzel text-xl font-bold mb-6">4. Biến tấu & Nâng cao</h2>
+                <div class="flex gap-4 mb-6 border-b border-stone-300">
+                    <button onclick="showTab('home')" id="btn-home" class="tab-btn pb-2 font-bold uppercase text-xs tracking-widest active">Tại Gia</button>
+                    <button onclick="showTab('chef')" id="btn-chef" class="tab-btn pb-2 font-bold uppercase text-xs tracking-widest">Nâng Cao</button>
+                    <button onclick="showTab('kids')" id="btn-kids" class="tab-btn pb-2 font-bold uppercase text-xs tracking-widest">Trẻ Nhỏ</button>
+                </div>
+                
+                <div id="tab-home" class="tab-content active">
+                    <p class="justified text-sm italic">Thay thế bao tử bằng lá bắp cải chần mềm hoặc váng đậu (tàu hũ ky) để cuộn nhân nếu bạn không thích nội tạng.</p>
+                </div>
+                <div id="tab-chef" class="tab-content">
+                    <p class="justified text-sm italic">Thêm một ít củ năng băm nhỏ hoặc nấm hương ngâm nở thái lựu vào nhân thịt bò để tăng thêm độ giòn và hương vị mộc mạc.</p>
+                </div>
+                <div id="tab-kids" class="tab-content">
+                    <p class="justified text-sm italic">Giảm hẹ, thay bằng ngò rí và loại bỏ ớt. Thêm dầu mè vào sốt để tạo vị thơm béo, dễ ăn hơn cho trẻ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg></span>
+    </div>
+
+    <!-- FOOTER INFO -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-20">
+        <div class="bg-white p-8 border-l-4 border-[var(--accent-gold)] shadow-sm">
+            <h2 class="cinzel text-xl font-bold mb-4 uppercase tracking-tighter text-[var(--accent-gold)]">5. Giá trị dinh dưỡng</h2>
+            <p class="justified text-sm text-stone-600">
+                Món ăn cung cấp khoảng <strong>320 kcal</strong> mỗi phần. Thịt bò mang lại protein chất lượng cao, sắt và kẽm. Bao tử giàu collagen tốt cho da và sụn khớp. Sốt hẹ chứa allicin (kháng khuẩn tự nhiên) và Vitamin C giúp kích thích tiêu hóa và cân bằng tính hàn - nhiệt.
+            </p>
+        </div>
+
+        <div class="p-8 border border-stone-200 rounded-sm">
+            <h2 class="cinzel text-xl font-bold mb-4 uppercase tracking-tighter">6. Gợi ý trình bày</h2>
+            <p class="justified text-sm text-stone-600 italic">
+                Sử dụng đĩa gốm màu tối (đen than) để làm nổi bật màu trắng ngà của bao tử. Xếp các "túi" thành vòng tròn, rưới sốt hẹ màu xanh ngọc lục bảo quanh chân đĩa. Rắc mè rang và vài sợi ớt sừng cắt chỉ đỏ lên đỉnh để tạo điểm nhấn mỹ thuật sang trọng.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab and activate button
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
