@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Vua Đầu Bếp - Bánh Xếp Blini Cá Ngừ Phú Yên</title>
+    <title>AI Vua Đầu Bếp - Bánh xếp Blini Cá ngừ & Trứng cá tầm</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap');
@@ -16,361 +16,377 @@
         }
 
         body {
-            font-family: 'Times New Roman', serif;
             background-color: var(--bg-cream);
             color: var(--primary-charcoal);
+            font-family: 'Times New Roman', serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
         .justified-text {
             text-align: justify;
+            hyphens: auto;
         }
 
-        .header-font {
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .meta-label {
-            font-size: 0.75rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .divider-ornament {
+        .section-divider {
             display: flex;
             align-items: center;
             text-align: center;
             margin: 3rem 0;
+            color: var(--accent-gold);
         }
 
-        .divider-ornament::before,
-        .divider-ornament::after {
+        .section-divider::before,
+        .section-divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
         }
 
-        .divider-ornament:not(:empty)::before {
-            margin-right: .75em;
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
         }
 
-        .divider-ornament:not(:empty)::after {
-            margin-left: .75em;
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
         }
 
-        .ingredient-group {
-            border-left: 2px solid var(--accent-gold);
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
+        .ornament {
+            font-size: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .pro-tip-box {
+            border: 4px double var(--accent-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+            padding: 2rem;
+            position: relative;
         }
 
         .timeline-step {
             position: relative;
             padding-left: 3rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        .step-number {
+        .timeline-step::before {
+            content: attr(data-step);
             position: absolute;
             left: 0;
             top: 0;
             width: 2rem;
             height: 2rem;
-            background-color: var(--accent-red);
+            background: var(--accent-red);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
             border-radius: 50%;
+            font-weight: bold;
         }
 
-        .chef-box {
-            background-color: #fdf6ec;
-            border: 2px double var(--accent-gold);
-            position: relative;
+        .meta-icon {
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
         }
 
-        .nutrition-card {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent-red);
+        .tab-content {
+            display: none;
         }
 
-        .variation-tab {
-            transition: all 0.3s ease;
-        }
-        
-        .variation-tab:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .tab-content.active {
+            display: block;
         }
 
-        /* Glassmorphism subtle effect for the recipe bar */
-        .meta-bar {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
+        .tab-btn.active {
+            border-bottom: 2px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
         }
     </style>
 </head>
-<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+<body class="p-4 md:p-8 lg:p-12">
 
-    <!-- Hero Header -->
-    <header class="text-center mb-16">
-        <div class="mb-4 text-sm tracking-widest text-red-800 font-bold">DIGITAL CULINARY MAGAZINE</div>
-        <h1 class="header-font text-4xl md:text-6xl font-black mb-2 text-gray-900">BÁNH XẾP BLINI CÁ NGỪ PHÚ YÊN</h1>
-        <h2 class="text-xl md:text-2xl italic font-serif text-gray-600 mb-10">Blini with Phu Yen Ocean Tuna</h2>
+    <!-- HERO HEADER -->
+    <header class="max-w-6xl mx-auto text-center mb-16 pt-8">
+        <div class="mb-4 text-xs tracking-widest uppercase text-gray-500 font-bold">AI King of Chefs • Digital Issue No. 01</div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
+            Bánh xếp Blini Cá ngừ Đại dương Phú Yên & Trứng cá tầm Sapa
+        </h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-10 font-serif">
+            Blini with Phu Yen Tuna & Sapa Sturgeon Caviar
+        </p>
 
         <!-- Recipe Meta-Bar -->
-        <div class="meta-bar grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-sm shadow-sm max-w-4xl mx-auto">
-            <div class="text-center">
-                <span class="meta-label">Độ khó</span>
-                <span class="text-lg font-bold">Trung bình</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-gray-200 bg-white/50 backdrop-blur-sm rounded-lg shadow-sm">
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest font-bold text-gray-400">Độ khó</span>
+                <span class="font-bold">Trung bình - Cao</span>
             </div>
-            <div class="text-center">
-                <span class="meta-label">Thời gian</span>
-                <span class="text-lg font-bold">45 phút</span>
+            <div class="flex flex-col items-center border-l border-gray-100">
+                <span class="meta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest font-bold text-gray-400">Thời gian</span>
+                <span class="font-bold">60 phút</span>
             </div>
-            <div class="text-center">
-                <span class="meta-label">Khẩu phần</span>
-                <span class="text-lg font-bold">3 - 4 người</span>
+            <div class="flex flex-col items-center border-l border-gray-100">
+                <span class="meta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest font-bold text-gray-400">Khẩu phần</span>
+                <span class="font-bold">4 người</span>
             </div>
-            <div class="text-center">
-                <span class="meta-label">Nguồn gốc</span>
-                <span class="text-lg font-bold">Giao thoa Nga - Việt</span>
+            <div class="flex flex-col items-center border-l border-gray-100">
+                <span class="meta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest font-bold text-gray-400">Xuất xứ</span>
+                <span class="font-bold">Fusion Cuisine</span>
             </div>
         </div>
-
-        <div class="mt-8 max-w-3xl mx-auto italic justified-text text-gray-700 border-l-4 border-gold-500 pl-6 border-l-amber-400">
-            "Sự giao thoa tinh tế giữa ẩm thực châu Âu (bánh Blini truyền thống của Nga) và hương vị biển cả miền Trung Việt Nam, tôn vinh đặc sản cá ngừ đại dương Phú Yên."
+        
+        <div class="max-w-3xl mx-auto mt-8 italic text-lg justified-text leading-relaxed text-gray-700">
+            "Đây là món ăn mang phong cách Fusion (đương đại), kết hợp giữa kỹ thuật làm bánh Blini cổ điển của Nga/Pháp với những nguyên liệu thượng hạng nhất từ Việt Nam. Sự kết hợp này tôn vinh 'vàng đen' từ vùng nước lạnh Sapa và 'thịt bò đại dương' từ vùng biển Phú Yên, tạo nên một bản giao hưởng giữa núi cao và biển sâu."
         </div>
     </header>
 
-    <div class="divider-ornament">
-        <svg class="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-        </svg>
-    </div>
+    <div class="section-divider"><span class="ornament">✦</span></div>
 
-    <!-- Main Recipe Body -->
-    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <!-- MAIN CONTENT GRID -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
         
-        <!-- Left Column: Ingredients -->
-        <section class="lg:col-span-5">
-            <h3 class="header-font text-2xl mb-8 border-b-2 border-black pb-2 flex items-center">
-                <span class="mr-3 text-red-700">1.</span> NGUYÊN LIỆU
-            </h3>
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <aside class="lg:col-span-4 space-y-12">
+            <section>
+                <h2 class="text-3xl font-bold mb-8 border-b-2 border-accent-gold pb-2 inline-block">1. Nguyên liệu</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-sm uppercase tracking-widest font-bold text-accent-red mb-4">Phần bánh Blini</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Bột mì đa dụng (hoặc lúa mạch đen)</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Sữa tươi không đường (ấm)</span>
+                                <span class="font-bold">150ml</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Trứng gà (tách lòng)</span>
+                                <span class="font-bold">1 quả</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Men nở khô (hoặc bột nở)</span>
+                                <span class="font-bold">3g - 5g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Bơ lạt đun chảy</span>
+                                <span class="font-bold">15g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Muối, đường</span>
+                                <span class="font-bold">1 nhúm</span>
+                            </li>
+                        </ul>
+                    </div>
 
-            <div class="ingredient-group">
-                <h4 class="font-bold text-amber-800 mb-3 uppercase text-sm tracking-widest">Phần bánh Blini</h4>
-                <ul class="space-y-2">
-                    <li class="flex justify-between border-b border-gray-100 pb-1 hover:bg-gray-50 transition-colors">
-                        <span>Bột kiều mạch / Bột mì nguyên cám</span>
-                        <span class="font-bold">100g</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Men nở (hoặc bột nở)</span>
-                        <span class="font-bold">3g</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Sữa tươi không đường</span>
-                        <span class="font-bold">150ml</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Trứng gà</span>
-                        <span class="font-bold">1 quả</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Muối nhỏ</span>
-                        <span class="font-bold">1 nhúm</span>
-                    </li>
-                </ul>
-            </div>
+                    <div>
+                        <h3 class="text-sm uppercase tracking-widest font-bold text-accent-red mb-4">Nhân và Topping</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Cá ngừ đại dương Phú Yên (Saku)</span>
+                                <span class="font-bold">200g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Trứng cá tầm Sapa (ướp lạnh)</span>
+                                <span class="font-bold">30-50g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Sour Cream hoặc Greek Yogurt</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Dầu ô liu, vỏ chanh vàng bào</span>
+                                <span class="font-bold">Vừa đủ</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Thì là, hẹ, microgreens</span>
+                                <span class="font-bold">Trang trí</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-            <div class="ingredient-group">
-                <h4 class="font-bold text-amber-800 mb-3 uppercase text-sm tracking-widest">Phần cá ngừ</h4>
-                <ul class="space-y-2">
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Cá ngừ đại dương Phú Yên</span>
-                        <span class="font-bold">200g</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Gừng băm nhuyễn</span>
-                        <span class="font-bold">1 tsp</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Ớt xiêm xanh</span>
-                        <span class="font-bold">2-3 trái</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Dầu ăn</span>
-                        <span class="font-bold">1 tbsp</span>
-                    </li>
-                </ul>
-            </div>
+            <!-- CHEF'S CORNER IN LEFT COLUMN ON DESKTOP -->
+            <section class="pro-tip-box shadow-xl">
+                <div class="flex items-center gap-2 mb-4 text-accent-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+                    <h3 class="font-bold uppercase tracking-widest text-sm">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="space-y-4 text-sm justified-text leading-relaxed">
+                    <p><strong>Nhiệt độ tương phản:</strong> Bánh Blini nên được phục vụ khi còn ấm nhẹ, trong khi cá ngừ và trứng cá tầm phải được giữ lạnh sâu cho đến lúc trình bày để giữ trọn hương vị tinh khiết.</p>
+                    <p><strong>Xử lý trứng cá tầm:</strong> Tuyệt đối không dùng muỗng kim loại (inox, bạc) để múc trứng cá tầm vì sẽ gây oxy hóa làm biến đổi mùi vị. Hãy dùng muỗng gỗ, nhựa hoặc xà cừ.</p>
+                    <p><strong>Độ tươi của cá:</strong> Cá ngừ Phú Yên sau khi mua về nên ngâm trong nước đá muối loãng 5 phút rồi thấm thật khô để khử mùi tanh và làm thịt cá săn chắc hơn.</p>
+                </div>
+            </section>
+        </aside>
 
-            <div class="ingredient-group">
-                <h4 class="font-bold text-amber-800 mb-3 uppercase text-sm tracking-widest">Phần xốt & Trang trí</h4>
-                <ul class="space-y-2">
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Creme Fraiche (Kem chua)</span>
-                        <span class="font-bold">3 tbsp</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Nước tương Nhật</span>
-                        <span class="font-bold">1 tsp</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-100 pb-1">
-                        <span>Tinh dầu vỏ quýt/Chanh</span>
-                        <span class="font-bold">Vài giọt</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Trứng cá hồi, Rau thơm, Ớt</span>
-                        <span class="italic text-gray-500">Tùy chọn</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Right Column: Steps -->
-        <section class="lg:col-span-7">
-            <h3 class="header-font text-2xl mb-8 border-b-2 border-black pb-2 flex items-center">
-                <span class="mr-3 text-red-700">2.</span> CÁC BƯỚC THỰC HIỆN
-            </h3>
-
-            <div class="space-y-4">
-                <div class="timeline-step">
-                    <div class="step-number">1</div>
-                    <h4 class="font-bold text-lg mb-1">Sơ chế cá</h4>
-                    <p class="justified-text text-gray-700">Ướp nhẹ cá ngừ Phú Yên với một chút gừng băm nhuyễn và ớt xiêm xanh đặc trưng miền Trung dập dập để khử tanh mà vẫn giữ nguyên độ ngọt thanh tự nhiên và vị nồng đặc trưng.</p>
+        <!-- RIGHT COLUMN: STEPS -->
+        <article class="lg:col-span-8">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-accent-gold pb-2 inline-block">2. Các bước thực hiện</h2>
+            
+            <div class="space-y-12">
+                <div class="timeline-step" data-step="1">
+                    <h3 class="text-xl font-bold mb-2">Chế biến vỏ bánh Blini</h3>
+                    <p class="text-xs font-serif italic text-accent-red mb-3">Dự kiến: 40 phút (bao gồm thời gian nghỉ bột)</p>
+                    <div class="justified-text text-gray-700 space-y-2">
+                        <p>Hòa tan men và đường vào sữa ấm, để yên 5 phút cho men kích hoạt. Trộn bột mì, muối, lòng đỏ trứng và bơ đun chảy vào hỗn hợp sữa.</p>
+                        <p>Đánh bông lòng trắng trứng đến khi tạo chóp mềm rồi nhẹ nhàng dùng kỹ thuật "fold" trộn vào hỗn hợp bột để bánh có độ xốp nhẹ như mây.</p>
+                        <p>Để bột nghỉ 20-30 phút. Sau đó, làm nóng chảo chống dính với một ít bơ, múc từng muỗng bột nhỏ tạo thành các hình tròn đường kính 5cm. Rán vàng đều hai mặt.</p>
+                    </div>
                 </div>
 
-                <div class="timeline-step">
-                    <div class="step-number">2</div>
-                    <h4 class="font-bold text-lg mb-1">Áp chảo cá <span class="text-sm font-normal italic text-red-800">(Kỹ thuật Tataki)</span></h4>
-                    <p class="justified-text text-gray-700">Làm nóng chảo với dầu ăn, áp chảo nhanh khối cá ngừ để làm chín khoảng 2mm bề mặt, giữ bên trong màu đỏ hồng và mọng nước. Thái lát mỏng. Nếu làm cho gia đình không quen ăn tái, bạn có thể áp chảo chín kỹ hơn.</p>
+                <div class="timeline-step" data-step="2">
+                    <h3 class="text-xl font-bold mb-2">Xử lý cá ngừ Phú Yên</h3>
+                    <p class="text-xs font-serif italic text-accent-red mb-3">Dự kiến: 10 phút</p>
+                    <div class="justified-text text-gray-700 space-y-2">
+                        <p><strong>Kỹ thuật Tataki (Chuyên nghiệp):</strong> Thấm khô miếng cá, xát một chút muối và tiêu. Áp chảo lửa cực lớn với dầu ô liu trong 10-15 giây mỗi mặt để bên ngoài săn lại nhưng bên trong vẫn giữ màu đỏ hồng tươi rói.</p>
+                        <p>Cắt cá thành những lát mỏng hoặc khối vuông nhỏ (tartare) tùy sở thích. Nếu làm tại gia, có thể dùng cá ngừ tươi cắt lát trực tiếp nếu đảm bảo vệ sinh thực phẩm.</p>
+                    </div>
                 </div>
 
-                <div class="timeline-step">
-                    <div class="step-number">3</div>
-                    <h4 class="font-bold text-lg mb-1">Trộn bột bánh</h4>
-                    <p class="justified-text text-gray-700">Pha bột kiều mạch với men nở, sữa tươi và trứng gà, khuấy đều đến khi xốp nhẹ. Để bột nghỉ một lúc để lên men tự nhiên.</p>
+                <div class="timeline-step" data-step="3">
+                    <h3 class="text-xl font-bold mb-2">Chuẩn bị kem lót</h3>
+                    <p class="text-xs font-serif italic text-accent-red mb-3">Dự kiến: 5 phút</p>
+                    <p class="justified-text text-gray-700">Trộn kem chua với một ít hẹ băm nhỏ, vỏ chanh bào và một vài giọt nước cốt chanh để tạo độ thanh thoát, cân bằng vị béo của cá và trứng cá tầm.</p>
                 </div>
 
-                <div class="timeline-step">
-                    <div class="step-number">4</div>
-                    <div class="step-number">4</div>
-                    <h4 class="font-bold text-lg mb-1">Đổ bánh Blini</h4>
-                    <p class="justified-text text-gray-700">Làm nóng chảo chống dính, múc từng muỗng bột đổ vào chảo tạo hình tròn nhỏ (đường kính 4-5cm). Rán vàng hai mặt đến khi xốp mềm như mây.</p>
-                </div>
-
-                <div class="timeline-step">
-                    <div class="step-number">5</div>
-                    <h4 class="font-bold text-lg mb-1">Pha xốt</h4>
-                    <p class="justified-text text-gray-700">Đánh quyện Creme Fraiche với nước tương Nhật và chút tinh dầu vỏ quýt. Vị béo ngậy của kem sẽ được cân bằng bởi hương thanh khiết của quýt.</p>
-                </div>
-
-                <div class="timeline-step">
-                    <div class="step-number">6</div>
-                    <h4 class="font-bold text-lg mb-1">Trình bày món ăn</h4>
-                    <p class="justified-text text-gray-700">Phết một lớp xốt trắng lên mặt bánh Blini, đặt thịt cá ngừ lên trên, rồi điểm thêm trứng cá, rau thơm/rau mầm và vài lát ớt xiêm xanh sắc sảo.</p>
+                <div class="timeline-step" data-step="4">
+                    <h3 class="text-xl font-bold mb-2">Hoàn thiện (Assembly)</h3>
+                    <p class="text-xs font-serif italic text-accent-red mb-3">Dự kiến: 5 phút</p>
+                    <p class="justified-text text-gray-700">Đặt một miếng bánh Blini ấm lên đĩa. Phết một thìa kem chua lên trên. Đặt miếng cá ngừ áp chảo lên. Cuối cùng, dùng muỗng nhựa hoặc sứ múc một lượng trứng cá tầm Sapa đặt lên đỉnh.</p>
                 </div>
             </div>
-        </section>
+
+            <section class="mt-16">
+                <h2 class="text-2xl font-bold mb-6 border-b border-accent-gold pb-2 inline-block uppercase text-sm tracking-widest">4. Biến tấu & Phiên bản nâng cao</h2>
+                <div class="flex gap-4 mb-6 overflow-x-auto pb-2">
+                    <button onclick="showTab('homemaker')" id="btn-homemaker" class="tab-btn active px-4 py-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-all">Dành cho nội trợ</button>
+                    <button onclick="showTab('flavor')" id="btn-flavor" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-all">Biến tấu hương vị</button>
+                    <button onclick="showTab('healthy')" id="btn-healthy" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-all">Phiên bản Healthy</button>
+                </div>
+                
+                <div id="homemaker" class="tab-content active glass-card p-6">
+                    <p class="justified-text italic text-gray-700">Nếu không tìm được kem chua, bạn có thể thay thế bằng kem phô mai (cream cheese) đánh mềm với một ít sữa chua không đường để đạt được độ đặc và vị chua tương tự.</p>
+                </div>
+                <div id="flavor" class="tab-content glass-card p-6">
+                    <p class="justified-text italic text-gray-700">Tăng thêm chiều sâu hương vị bằng cách thêm một lát bơ sáp chín hoặc vài lát hành tây tím ngâm chua ngọt. Điều này mang lại sự cân bằng hoàn hảo giữa vị béo và vị chua thanh.</p>
+                </div>
+                <div id="healthy" class="tab-content glass-card p-6">
+                    <p class="justified-text italic text-gray-700">Sử dụng bột gạo lứt hoặc bột yến mạch thay thế cho bột mì để có phiên bản Blini giàu chất xơ và lành mạnh hơn mà vẫn giữ được độ ngon khó cưỡng.</p>
+                </div>
+            </section>
+        </article>
     </main>
 
-    <!-- Chef's Corner -->
-    <section class="my-16">
-        <div class="chef-box p-8 md:p-12 rounded-lg shadow-inner">
-            <div class="flex items-center mb-4">
-                <div class="bg-amber-600 text-white p-2 rounded mr-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                </div>
-                <h3 class="header-font text-2xl font-bold tracking-tight">3. MẸO HAY TỪ VUA ĐẦU BẾP</h3>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 italic text-gray-800 justified-text">
-                <p>Điểm mấu chốt của kỹ thuật Tataki là chảo phải thật nóng và thời gian áp chảo cực ngắn để không làm mất đi cái "chất" ngọt tinh khiết của cá. Khi làm xốt, cần cân bằng vị để độ chua nhẹ của kem làm đối trọng với độ béo của cá.</p>
-                <p>Không nên bỏ qua các loại rau thơm như húng lủi, ngò tàu vì đây là sợi dây kết nối hương vị hoàn hảo giữa lớp bột và thịt cá, tạo nên một bản giao hưởng vị giác trọn vẹn.</p>
-            </div>
-        </div>
-    </section>
+    <div class="section-divider"><span class="ornament">✦</span></div>
 
-    <!-- Variations Section -->
-    <section class="mb-16">
-        <h3 class="header-font text-2xl mb-8 border-b-2 border-black pb-2">4. BIẾN TẤU & PHIÊN BẢN NÂNG CAO</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="variation-tab p-6 bg-white border border-gray-200 rounded-sm">
-                <h4 class="font-bold text-red-800 mb-2 uppercase text-xs tracking-widest">Tiết kiệm & Gia đình</h4>
-                <p class="text-sm justified-text">Thay thế bột kiều mạch bằng bột mì đa dụng pha trứng sữa. Sử dụng cá ngừ ngâm dầu cao cấp thay cho cá tươi nếu không tìm được nguồn sashimi chuẩn.</p>
+    <!-- FOOTER INFO -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+        <section class="bg-gray-100/50 p-8 rounded-lg">
+            <div class="flex items-center gap-3 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-red"><path d="M12 20.94c1.88-1.13 4.41-2.26 5.94-2.76 1.2-.39 2.1-.98 2.1-2.18V5c0-1.1-.9-2-2-2h-3.14C13.89 3 12 5 12 5s-1.89-2-2.94-2H5.94c-1.1 0-2 .9-2 2v11c0 1.2.9 1.79 2.1 2.18 1.53.5 4.06 1.63 5.94 2.76Z"/><path d="M12 5v15.5"/></svg>
+                <h2 class="text-xl font-bold uppercase tracking-widest">5. Giá trị dinh dưỡng</h2>
             </div>
-            <div class="variation-tab p-6 bg-white border border-gray-200 rounded-sm">
-                <h4 class="font-bold text-amber-600 mb-2 uppercase text-xs tracking-widest">Tiện lợi hiện đại</h4>
-                <p class="text-sm justified-text">Sử dụng xốt Mayonnaise pha tương ớt thay cho kem chua. Rau mầm siêu thị là lựa chọn thay thế tiện lợi cho các loại thảo mộc truyền thống mà vẫn giữ được độ tươi giòn.</p>
-            </div>
-            <div class="variation-tab p-6 bg-gray-900 text-white rounded-sm">
-                <h4 class="font-bold text-amber-400 mb-2 uppercase text-xs tracking-widest">Masterclass Level</h4>
-                <p class="text-sm justified-text">Sử dụng bột kiều mạch lên men 24h. Cá ngừ được hun khói lạnh sơ qua trước khi áp chảo Tataki. Trang trí với vàng lá thực phẩm và trứng cá tầm thượng hạng.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider-ornament">
-        <svg class="w-6 h-6 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" />
-        </svg>
-    </div>
-
-    <!-- Bottom Info -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-        <!-- Nutrition -->
-        <section class="nutrition-card p-8">
-            <h3 class="header-font text-xl mb-6 flex items-center">
-                <svg class="w-5 h-5 mr-2 text-red-700" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h.01a1 1 0 100-2H10zm3 0a1 1 0 000 2h.01a1 1 0 100-2H13zm-9 3a1 1 0 011-1h.01a1 1 0 110 2H5a1 1 0 01-1-1zm3 1a1 1 0 100 2h.01a1 1 0 100-2H7zm4-1a1 1 0 011-1h.01a1 1 0 110 2H11a1 1 0 01-1-1zm3 1a1 1 0 100 2h.01a1 1 0 100-2H13z" clip-rule="evenodd" /></svg>
-                5. GIÁ TRỊ DINH DƯỠNG
-            </h3>
-            <div class="space-y-4 justified-text text-sm">
-                <div class="flex items-baseline border-b border-gray-100 pb-2">
-                    <span class="font-bold text-lg mr-2">250-300</span>
-                    <span class="text-gray-500 uppercase text-xs">Kcal / khẩu phần</span>
-                </div>
-                <p>Món khai vị cân bằng dinh dưỡng, cung cấp protein chất lượng cao và Omega-3 dồi dào từ cá ngừ, tốt cho tim mạch và não bộ. Sử dụng bột kiều mạch hoặc nguyên cám giúp tăng chất xơ và giảm chỉ số đường huyết.</p>
-                <p class="text-xs italic text-gray-500">* Lưu ý: Cần kiểm soát lượng muối trong nước tương và lượng chất béo từ xốt kem để đảm bảo lợi ích sức khỏe tối đa.</p>
-            </div>
+            <ul class="space-y-4 justified-text text-sm text-gray-700">
+                <li class="flex items-start gap-2">
+                    <span class="text-accent-gold mt-1">●</span>
+                    <span>Món ăn cực kỳ giàu Omega-3 và DHA từ cá ngừ và trứng cá tầm, hỗ trợ sức khỏe tim mạch và trí não.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-accent-gold mt-1">●</span>
+                    <span>Cung cấp lượng Protein chất lượng cao và các khoáng chất quý hiếm như Selen, Magie và Vitamin B12.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-accent-gold mt-1">●</span>
+                    <span>Hàm lượng tinh bột thấp, phù hợp cho chế độ ăn uống cao cấp và lành mạnh.</span>
+                </li>
+            </ul>
         </section>
 
-        <!-- Presentation -->
-        <section class="p-8 border-t-4 border-amber-500 bg-white shadow-sm">
-            <h3 class="header-font text-xl mb-6 flex items-center">
-                <svg class="w-5 h-5 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" /></svg>
-                6. GỢI Ý TRÌNH BÀY
-            </h3>
-            <div class="space-y-4 justified-text text-sm">
-                <p>Màu sắc là chìa khóa của món ăn. Hãy dùng đĩa đá phiến đen hoặc gốm tối màu để làm nổi bật màu hồng đỏ của cá và vàng sậm của bánh. Xếp bánh theo quy tắc số lẻ (3 hoặc 5 chiếc).</p>
-                <p>Một chấm xốt trắng muốt ở giữa, đặt miếng cá lên, trang trí với lát ớt xiêm thái mỏng và nhánh ngò rí để tạo điểm nhấn màu xanh mát mắt. Tận dụng ánh sáng tự nhiên từ một phía khi chụp ảnh để tôn lên độ bóng của thớ cá và cấu trúc xốp của mặt bánh.</p>
+        <section class="bg-gray-900 text-white p-8 rounded-lg shadow-2xl">
+            <div class="flex items-center gap-3 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-gold"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                <h2 class="text-xl font-bold uppercase tracking-widest">6. Gợi ý trình bày</h2>
+            </div>
+            <div class="space-y-4 justified-text text-sm text-gray-300">
+                <p>Sử dụng đĩa đá đen (slate) hoặc đĩa sứ trắng tối giản để làm nổi bật màu đỏ của cá ngừ và màu đen óng ánh của trứng cá tầm.</p>
+                <p>Sắp xếp bánh theo đường cong hoặc vòng tròn. Điểm xuyết thêm các lá thì là nhỏ hoặc hoa ăn được để tạo cảm giác sang trọng.</p>
+                <p class="italic text-accent-gold">"Khi thưởng thức, nên ăn trọn một miếng trong một lần để tất cả các kết cấu: độ xốp của bánh, độ béo của kem, sự mềm mại của cá và tiếng nổ lách tách của trứng cá hòa quyện vào nhau."</p>
             </div>
         </section>
-    </div>
+    </footer>
 
-    <!-- Interaction Script -->
     <script>
-        // Simple micro-interaction for ingredients
-        document.querySelectorAll('li').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.paddingLeft = '10px';
-                item.style.color = '#B22222';
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
             });
-            item.addEventListener('mouseleave', () => {
-                item.style.paddingLeft = '0';
-                item.style.color = '';
+            
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
+            
+            // Show the selected tab content and activate the button
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Add a subtle scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, article').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.6s ease-out";
+            observer.observe(el);
         });
     </script>
 </body>
