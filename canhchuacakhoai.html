@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Canh Chua Cá Khoai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                        'soft-gold': '#F4EFE6',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament {
+            font-size: 1.5rem;
+            color: #C5A059;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: #E23D28;
+            opacity: 0.2;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .recipe-meta-icon {
+            color: #C5A059;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <span class="text-cinnabar-red font-bold tracking-widest uppercase text-sm mb-4 block">AI VUA ĐẦU BẾP | PREMIUM RECIPE</span>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-culinary-charcoal">CANH CHUA CÁ KHOAI</h1>
+        <h2 class="text-2xl md:text-3xl italic text-burnished-gold mb-10">Sea Snail Fish Sour Soup (Coastal Flavor)</h2>
+        
+        <div class="max-w-3xl mx-auto mb-12">
+            <p class="justified-text text-lg italic text-gray-700 leading-relaxed border-l-4 border-cinnabar-red pl-6 py-2">
+                Cá khoai (hay cá cháo) là đặc sản nổi tiếng của các vùng ven biển như Thái Bình, Quảng Bình, Nam Định. Món canh chua cá khoai không chỉ là món ăn giải nhiệt mà còn mang đậm tính bản sắc văn hóa ẩm thực của cư dân miền biển mỗi khi mùa cá về (thường từ tháng 9 đến tháng 2 âm lịch).
+            </p>
+        </div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-burnished-gold/30 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="recipe-meta-icon">◈</span>
+                <span class="text-xs uppercase font-bold text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-burnished-gold/20">
+                <span class="recipe-meta-icon">🕒</span>
+                <span class="text-xs uppercase font-bold text-gray-500">Thời gian</span>
+                <span class="font-bold">30 Phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-burnished-gold/20">
+                <span class="recipe-meta-icon">🍽</span>
+                <span class="text-xs uppercase font-bold text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-burnished-gold/20">
+                <span class="recipe-meta-icon">📍</span>
+                <span class="text-xs uppercase font-bold text-gray-500">Vùng miền</span>
+                <span class="font-bold">Duyên hải</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 flex items-center">
+                        <span class="text-cinnabar-red mr-3">1.</span> Nguyên liệu
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-sm uppercase font-bold text-burnished-gold border-b border-burnished-gold/20 mb-4 pb-1">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-baseline group">
+                                    <span class="hover:text-cinnabar-red transition-colors">Cá khoai tươi</span>
+                                    <span class="border-b border-dotted border-gray-300 flex-grow mx-2"></span>
+                                    <span class="font-bold">500g - 700g</span>
+                                </li>
+                                <li class="italic text-sm text-gray-500 -mt-2">Chọn con mang đỏ, thân trong suốt</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm uppercase font-bold text-burnished-gold border-b border-burnished-gold/20 mb-4 pb-1">Chất tạo chua</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-baseline"><span>Khế chua</span><span class="border-b border-dotted border-gray-300 flex-grow mx-2"></span><span class="font-bold">2 quả</span></li>
+                                <li class="flex justify-between items-baseline"><span>Cà chua</span><span class="border-b border-dotted border-gray-300 flex-grow mx-2"></span><span class="font-bold">2 quả</span></li>
+                                <li class="flex justify-between items-baseline"><span>Me nhỏ (vắt)</span><span class="border-b border-dotted border-gray-300 flex-grow mx-2"></span><span class="font-bold">1 vắt</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm uppercase font-bold text-burnished-gold border-b border-burnished-gold/20 mb-4 pb-1">Gia vị & Rau thơm</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-start"><span class="text-cinnabar-red mr-2">✦</span> Hành tím, gừng, nghệ tươi (khử tanh)</li>
+                                <li class="flex items-start"><span class="text-cinnabar-red mr-2">✦</span> Ớt chỉ thiên</li>
+                                <li class="flex items-start"><span class="text-cinnabar-red mr-2">✦</span> Hành lá, thì là (bắt buộc)</li>
+                                <li class="flex items-start"><span class="text-cinnabar-red mr-2">✦</span> Rau ngổ, ngò gai</li>
+                                <li class="flex items-start"><span class="text-cinnabar-red mr-2">✦</span> Nước mắm ngon, tiêu xay</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="text-cinnabar-red mr-3">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative pl-8 timeline-step">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Bước 1: Sơ chế cá chuyên nghiệp</h4>
+                            <span class="text-xs italic bg-soft-gold px-3 py-1 rounded-full border border-burnished-gold/30">15 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cá khoai rất mềm và dễ nát. Cắt bỏ đầu, vây, đuôi và ruột. Rửa sạch với nước muối pha loãng có thêm gừng giã nhuyễn để khử tanh. Ngâm cá trong nước muối loãng khoảng 5 phút để thịt cá săn lại hơn trước khi nấu. <strong class="text-cinnabar-red">Tuyệt đối không cắt cá quá nhỏ</strong>, nên để nguyên con hoặc cắt đôi nếu cá quá lớn.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-8 timeline-step">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Bước 2: Tẩm ướp & Chuẩn bị</h4>
+                            <span class="text-xs italic bg-soft-gold px-3 py-1 rounded-full border border-burnished-gold/30">10 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Ướp cá với 1 thìa cà phê nước cốt nghệ (hoặc nghệ băm), 1 ít hành tím băm, tiêu và một chút nước mắm. Để thấm trong 10 phút. Trong lúc đợi, cà chua bổ múi cau; khế chua gọt cạnh, thái lát hình sao; rau gia vị rửa sạch, cắt khúc 2cm.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-8 timeline-step">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Bước 3: Nấu nước dùng thanh trong</h4>
+                            <span class="text-xs italic bg-soft-gold px-3 py-1 rounded-full border border-burnished-gold/30">5 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Phi thơm hành tím với chút dầu ăn, cho nửa lượng cà chua vào xào lấy màu. Đổ 1.2 lít nước vào đun sôi. Cho me và khế vào. Khi nước sôi lại, vớt bọt kỹ để nước canh trong, mang lại vẻ đẹp tinh tế cho món ăn.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-8 timeline-step">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Bước 4: Kỹ thuật nấu cá (Điểm mấu chốt)</h4>
+                            <span class="text-xs italic bg-cinnabar-red text-white px-3 py-1 rounded-full">Quan trọng</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Khi nước dùng đang sôi mạnh, nhẹ nhàng thả từng con cá khoai vào nồi. <strong class="text-cinnabar-red uppercase">Không dùng muôi khuấy mạnh</strong>. Để nước sôi bùng lên khoảng 2-3 phút là cá chín (thịt cá chuyển từ màu trong sang trắng đục). Cá khoai chín rất nhanh, nấu quá lâu cá sẽ tan vào nước.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-8 timeline-step">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Bước 5: Hoàn thiện</h4>
+                            <span class="text-xs italic bg-soft-gold px-3 py-1 rounded-full border border-burnished-gold/30">2 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cho nốt phần cà chua còn lại vào để giữ hình dáng đẹp. Nêm nếm lại gia vị cho vừa miệng (vị chua thanh, ngọt dịu). Cuối cùng, thả toàn bộ rau gia vị và ớt cắt lát vào rồi tắt bếp ngay để giữ màu xanh tươi.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">❧ ✵ ☙</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Chef's Corner -->
+                <div class="md:col-span-1 bg-soft-gold p-8 border-double border-4 border-burnished-gold relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-culinary-cream px-4 text-burnished-gold font-bold text-sm tracking-widest uppercase">
+                        Chef’s Corner
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">3. Mẹo từ Vua Đầu Bếp</h3>
+                    <ul class="space-y-4 text-sm italic">
+                        <li class="justified-text"><strong>Tránh sai lầm:</strong> Đừng bao giờ cho cá khoai vào nước lạnh hoặc nước chỉ mới âm ấm, cá sẽ bị tanh và nát vụn ngay lập tức.</li>
+                        <li class="justified-text"><strong>Giữ hình khối:</strong> Nếu nấu số lượng lớn, bạn có thể chần nhanh cá qua nước sôi có pha chút dấm/nghệ rồi để riêng, khi ăn mới múc nước canh nóng vào.</li>
+                        <li class="justified-text"><strong>Nâng tầm:</strong> Một chút nước mắm cốt thêm vào cuối cùng trước khi tắt bếp sẽ làm dậy mùi thơm đặc trưng của biển cả.</li>
+                    </ul>
+                </div>
+
+                <!-- Variations -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="text-cinnabar-red mr-3">4.</span> Biến tấu & Nâng cao
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="glass-card p-6 rounded-lg">
+                            <h4 class="font-bold text-cinnabar-red mb-2 uppercase text-sm">Phong vị miền Nam</h4>
+                            <p class="text-sm justified-text text-gray-600">
+                                Có thể thêm giá đỗ, dứa (thơm) và dọc mùng (bạc hà) để tăng độ giòn và vị ngọt thanh đặc trưng của vùng sông nước Cửu Long.
+                            </p>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h4 class="font-bold text-cinnabar-red mb-2 uppercase text-sm">Phong cách Bắc Bộ</h4>
+                            <p class="text-sm justified-text text-gray-600">
+                                Thay khế/me bằng cơm mẻ lọc lấy nước để có vị chua thanh dịu và mùi thơm đặc trưng của văn hóa đồng bằng Bắc Bộ.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical / Bottom Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gray-200">
+            <!-- Nutrition -->
+            <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="text-cinnabar-red mr-3">5.</span> Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 text-gray-700">
+                    <p class="justified-text text-sm">Cá khoai chứa nhiều đạm, ít chất béo, giàu canxi, photpho và các vitamin giúp bồi bổ sức khỏe, giải nhiệt hiệu quả.</p>
+                    <div class="grid grid-cols-2 gap-4 text-xs font-bold uppercase tracking-widest text-gray-500">
+                        <div class="flex flex-col border-l-2 border-burnished-gold pl-3">
+                            <span>Năng lượng</span>
+                            <span class="text-lg text-culinary-charcoal">~150-200 kcal</span>
+                        </div>
+                        <div class="flex flex-col border-l-2 border-burnished-gold pl-3">
+                            <span>Tính chất</span>
+                            <span class="text-lg text-culinary-charcoal">Lành mạnh</span>
+                        </div>
+                    </div>
+                    <p class="text-sm italic text-gray-500">Hệ rau gia vị (thì là, hành) hỗ trợ tiêu hóa và chống cảm cúm tự nhiên.</p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="text-cinnabar-red mr-3">6.</span> Gợi ý trình bày
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 flex-shrink-0 bg-burnished-gold text-white flex items-center justify-center rounded-full font-bold">A</div>
+                        <div>
+                            <h5 class="font-bold text-sm uppercase">Sử dụng tô sứ trắng</h5>
+                            <p class="text-sm text-gray-600 justified-text">Làm nổi bật màu đỏ của cà chua, màu xanh của thì là và màu trắng tinh khôi của thịt cá khoai.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 flex-shrink-0 bg-burnished-gold text-white flex items-center justify-center rounded-full font-bold">B</div>
+                        <div>
+                            <h5 class="font-bold text-sm uppercase">Sắp xếp nghệ thuật</h5>
+                            <p class="text-sm text-gray-600 justified-text">Múc nước canh xuống trước, đặt những con cá khoai còn nguyên vẹn lên trên. Rắc thêm một chút tiêu và vài lát ớt đỏ lên bề mặt.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 flex-shrink-0 bg-cinnabar-red text-white flex items-center justify-center rounded-full font-bold">C</div>
+                        <div>
+                            <h5 class="font-bold text-sm uppercase">Thưởng thức đúng điệu</h5>
+                            <p class="text-sm text-gray-600 justified-text font-bold italic">Ăn nóng cùng cơm trắng. Nước chấm phải là nước mắm nguyên chất kèm ớt thật cay để cân bằng tính hàn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Visual Flourish at Page End -->
+    <div class="flex justify-center py-12">
+        <div class="w-24 h-px bg-burnished-gold"></div>
+        <div class="mx-4 text-burnished-gold">❦</div>
+        <div class="w-24 h-px bg-burnished-gold"></div>
+    </div>
+
+    <script>
+        // Simple interactivity for potential dynamic elements
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#E23D28';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
