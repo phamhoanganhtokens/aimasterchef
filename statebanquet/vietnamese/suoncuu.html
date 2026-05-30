@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Vua Đầu Bếp - Trứng Cá Tầm Sapa</title>
+    <title>Sườn Cừu Nướng | AI Vua Đầu Bếp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,16 +11,15 @@
                 extend: {
                     colors: {
                         charcoal: '#2C2C2C',
-                        parchment: '#FCFAFA',
+                        cream: '#FCFAFA',
                         cinnabar: '#E23D28',
                         gold: '#C5A059',
-                        goldLight: '#E5D5B7',
                     },
                     fontFamily: {
                         serif: ["'Times New Roman'", 'serif'],
                     },
-                },
-            },
+                }
+            }
         }
     </script>
     <style>
@@ -30,8 +29,9 @@
             font-family: 'Times New Roman', serif;
             line-height: 1.6;
         }
-        p, .description-text {
+        .justified-text {
             text-align: justify;
+            text-justify: inter-word;
         }
         .section-divider {
             display: flex;
@@ -45,314 +45,304 @@
             content: '';
             flex: 1;
             border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
         }
-        .section-divider:not(:empty)::before {
-            margin-right: 1rem;
-        }
-        .section-divider:not(:empty)::after {
-            margin-left: 1rem;
-        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
         .ornament {
             font-size: 1.5rem;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
+
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+
+        .ingredient-item {
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+            padding: 0.75rem 0;
         }
-        .glass-card:hover {
-            border-color: #C5A059;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        .pro-tip-box {
-            border: 3px double #C5A059;
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
             background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .pro-tip-box {
+            border: 4px double #C5A059;
             position: relative;
         }
-        .timeline-step::before {
-            content: '';
-            position: absolute;
-            left: -1.25rem;
-            top: 0.5rem;
-            width: 10px;
-            height: 10px;
-            background: #E23D28;
-            border-radius: 50%;
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
         }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .tab-btn.active {
-            border-bottom: 2px solid #E23D28;
-            color: #E23D28;
+
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
 
     <!-- Hero Header -->
-    <header class="text-center mb-12">
-        <div class="inline-block border-y-2 border-gold py-4 px-8 mb-6">
-            <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-2">Trứng Cá Tầm Sapa</h1>
-            <h2 class="text-2xl md:text-3xl italic text-gray-600 font-normal">Sapa Caviar</h2>
+    <header class="text-center mb-16 space-y-6">
+        <div class="mb-4">
+            <span class="tracking-widest uppercase text-gold font-bold text-sm">AI Vua Đầu Bếp Exclusive</span>
         </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-charcoal mb-2">Sườn Cừu Nướng, Rau Non Đà Lạt, Sốt Mận Sapa</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 font-light">Grilled Lamb Rack, Dalat Baby Vegetables, Sapa Plum Sauce</h2>
         
-        <p class="max-w-3xl mx-auto italic text-lg mb-8 text-gray-700">
-            Tận dụng nguồn nước lạnh tinh khiết từ dãy Hoàng Liên Sơn, Sapa đã trở thành "thủ phủ" nuôi cá tầm Nga và cá tầm Siberi, cho ra đời loại trứng cá đen (Caviar) đạt tiêu chuẩn quốc tế với hương vị béo ngậy đặc trưng.
-        </p>
+        <div class="meta-grid flex flex-wrap justify-center gap-4 md:gap-12 py-8 border-y border-gold/30 mt-8">
+            <div class="flex flex-col items-center px-4">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold uppercase tracking-widest text-sm">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center px-4 border-l border-gold/20">
+                <span class="text-cinnabar text-xl mb-1">🕒</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold uppercase tracking-widest text-sm">60 phút</span>
+            </div>
+            <div class="flex flex-col items-center px-4 border-l border-gold/20">
+                <span class="text-cinnabar text-xl mb-1">🍽</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold uppercase tracking-widest text-sm">2 Người</span>
+            </div>
+            <div class="flex flex-col items-center px-4 border-l border-gold/20">
+                <span class="text-cinnabar text-xl mb-1">📍</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Vùng miền</span>
+                <span class="font-bold uppercase tracking-widest text-sm">Tây Bắc × Đà Lạt</span>
+            </div>
+        </div>
 
-        <!-- Recipe Meta-Bar -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-gray-200 py-6 mt-8">
-            <div class="flex flex-col items-center">
-                <span class="text-gold text-xl mb-1">◈</span>
-                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
-                <span class="font-bold text-sm md:text-base">Trung bình</span>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-gold text-xl mb-1">⏲</span>
-                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
-                <span class="font-bold text-sm md:text-base">30 Phút</span>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-gold text-xl mb-1">皿</span>
-                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
-                <span class="font-bold text-sm md:text-base">2 - 4 Người</span>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-gold text-xl mb-1">📍</span>
-                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Xuất xứ</span>
-                <span class="font-bold text-sm md:text-base text-center px-2">Sapa, Lào Cai</span>
-            </div>
+        <div class="max-w-3xl mx-auto mt-8">
+            <p class="justified-text italic text-gray-700 leading-relaxed">
+                Món ăn là sự giao thoa tinh tế giữa kỹ thuật chế biến thịt đỏ kinh điển của ẩm thực Pháp và những nguyên liệu đặc sản mang đậm linh hồn vùng cao Việt Nam: quả mận hậu Sapa chua thanh và rau non tươi giòn từ vùng đất sương mù Đà Lạt.
+            </p>
         </div>
     </header>
 
-    <!-- Main Recipe Body -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="section-divider">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
         <!-- Left Column: Ingredients -->
-        <section class="lg:col-span-4">
-            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-widest">1. Nguyên liệu</h3>
-            
-            <div class="space-y-8">
-                <div>
-                    <h4 class="font-bold text-gold italic mb-4">Thành phần chính</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-2">✦</span>
-                            <span>Trứng cá tầm Sapa: 50g - 100g <br><em class="text-xs text-gray-500">(Giữ lạnh ở -2 đến 2°C)</em></span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-2">✦</span>
-                            <span>Bánh Blinis: 12 - 15 chiếc <br><em class="text-xs text-gray-500">(Bánh kếp Nga hoặc sandwich nướng giòn)</em></span>
-                        </li>
-                    </ul>
-                </div>
+        <aside class="lg:col-span-4 space-y-10">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3">Thành phần chính</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex items-center">
+                                <span class="text-cinnabar mr-2">◈</span> 500g sườn cừu (4-6 dẻ), lọc sạch mỡ thừa.
+                            </li>
+                        </ul>
+                    </div>
 
-                <div>
-                    <h4 class="font-bold text-gold italic mb-4">Sốt & Kèm</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-2">✦</span>
-                            <span>Kem chua (Crème Fraîche): 100g</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-2">✦</span>
-                            <span>Trứng gà ta: 2 quả <br><em class="text-xs text-gray-500">(Luộc chín, băm nhỏ lòng trắng/đỏ riêng)</em></span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-2">✦</span>
-                            <span>Hành tím băm nhuyễn: 1 củ</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-2">✦</span>
-                            <span>Chanh vàng & Hẹ tươi</span>
-                        </li>
-                    </ul>
-                </div>
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3">Sơ chế & ướp</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>1 củ gừng nhỏ, 50ml rượu trắng hoặc sữa tươi.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>2 nhánh lá hương thảo tươi, 3 tép tỏi băm.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>Muối biển, tiêu đen xay, 2 muỗng canh dầu ô liu.</span>
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class="p-4 bg-gray-100 italic text-sm border-l-4 border-gold">
-                    <h4 class="font-bold not-italic mb-1">Gợi ý đồ uống:</h4>
-                    Rượu Vodka lạnh hoặc Champagne (Vang sủi) để tôn vinh vị biển cả.
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3">Sốt mận Sapa</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>200g mận hậu Sapa chín đỏ.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>Mật ong, nước mắm ngon, quế bột.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>50ml vang đỏ (tùy chọn).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold italic mb-3">Rau củ & Trang trí</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>100g cà rốt baby Đà Lạt, 100g măng tây/ngô bao tử.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>50g bơ lạt.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start">
+                                <span class="text-cinnabar mr-2 mt-1">◈</span> <span>Lá húng tây hoặc hoa ăn được (edible flowers).</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </aside>
 
         <!-- Right Column: Steps -->
-        <section class="lg:col-span-8">
-            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-widest">2. Các bước thực hiện</h3>
-            
-            <div class="space-y-10 ml-5 border-l border-gray-200">
-                <!-- Step 1 -->
-                <div class="relative pl-8 timeline-step">
-                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">01</span>
-                    <h4 class="font-bold text-xl mb-2">Chuẩn bị phụ kiện</h4>
-                    <p class="description-text">
-                        Cho trứng cá tầm từ tủ lạnh ra ngay trước khi dùng. Đặt hũ trứng cá vào một bát sứ hoặc pha lê đổ đầy đá bào để duy trì độ tươi ngon và kết cấu giòn tan của trứng.
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="relative pl-8 timeline-step">
-                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">02</span>
-                    <h4 class="font-bold text-xl mb-2">Chế biến bánh Blinis</h4>
-                    <p class="description-text mb-2">
-                        Trộn bột mì, trứng, sữa và một chút men nở. Chiên những vòng tròn nhỏ đường kính 5cm trên chảo không dính cho đến khi vàng đều hai mặt.
-                    </p>
-                    <div class="text-sm italic text-gray-600 bg-white p-3 border border-dashed border-gold">
-                        <strong>Mẹo Home Cook:</strong> Nếu không có thời gian làm Blinis, hãy dùng bánh quy mặn loại nhạt hoặc lát khoai tây chiên mỏng nướng giòn.
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="relative pl-8 timeline-step">
-                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">03</span>
-                    <h4 class="font-bold text-xl mb-2">Sắp xếp đồ kèm</h4>
-                    <p class="description-text">
-                        Bày lòng trắng trứng băm, lòng đỏ trứng băm, hành tím băm và kem chua vào các đĩa nhỏ riêng biệt. Mỗi thành phần cần được giữ ở kích thước đồng nhất để đạt hiệu ứng thị giác tốt nhất.
-                    </p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="relative pl-8 timeline-step">
-                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">04</span>
-                    <h4 class="font-bold text-xl mb-2">Thưởng thức</h4>
-                    <p class="description-text">
-                        Dùng thìa gỗ hoặc thìa xà cừ múc một lượng kem chua nhỏ lên bánh Blinis, rắc thêm một ít hành tím và trứng gà băm, sau cùng đặt một thìa trứng cá tầm lên trên cùng. Thưởng thức ngay để cảm nhận vị nổ lách tách của trứng cá hòa quyện cùng vị béo của kem.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Section Divider -->
-    <div class="section-divider">
-        <span class="ornament">◈ ♛ ◈</span>
-    </div>
-
-    <!-- Chef's Corner Section -->
-    <section class="mb-16">
-        <div class="pro-tip-box p-8 md:p-12">
-            <h3 class="text-2xl font-bold text-gold mb-6 uppercase text-center tracking-widest">3. Mẹo hay từ Vua Đầu Bếp</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <span class="text-gold text-2xl">☝</span>
-                        <div>
-                            <h5 class="font-bold mb-1">Nguyên tắc vàng về dụng cụ</h5>
-                            <p class="text-sm">Tuyệt đối không sử dụng thìa bằng kim loại (inox, bạc, sắt) để múc trứng cá vì kim loại sẽ gây oxy hóa, làm biến đổi hương vị tinh tế, để lại vị tanh sắt khó chịu.</p>
+        <div class="lg:col-span-8 space-y-12">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10">
+                    <div class="flex group">
+                        <span class="step-number">01</span>
+                        <div class="pb-6 border-b border-gray-100">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Sơ chế thịt cừu <span class="text-xs italic text-gray-400 ml-2">(10 phút)</span></h4>
+                            <p class="justified-text text-gray-700">Để loại bỏ mùi gây đặc trưng, chà xát sườn cừu với gừng giã nhuyễn và rượu trắng, để 5 phút rồi rửa sạch, thấm thật khô bằng khăn giấy. Nếu muốn thịt thơm hơn, có thể ngâm sườn trong sữa tươi không đường 15 phút trước khi ướp.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <span class="text-gold text-2xl">❄</span>
-                        <div>
-                            <h5 class="font-bold mb-1">Quản lý nhiệt độ</h5>
-                            <p class="text-sm">Trứng cá tầm rất nhạy cảm. Chỉ nên mở nắp hũ trứng ngay trước khi ăn và luôn đặt trên nền đá lạnh xuyên suốt bữa tiệc.</p>
+
+                    <div class="flex group">
+                        <span class="step-number">02</span>
+                        <div class="pb-6 border-b border-gray-100">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Ướp thịt <span class="text-xs italic text-gray-400 ml-2">(25 phút)</span></h4>
+                            <p class="justified-text text-gray-700">Giã nhỏ lá hương thảo, trộn với tỏi băm, muối, tiêu và dầu ô liu. Thoa đều hỗn hợp lên các mặt của sườn cừu. Để thấm trong 20-30 phút ở nhiệt độ phòng để gia vị thẩm thấu sâu.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex group">
+                        <span class="step-number">03</span>
+                        <div class="pb-6 border-b border-gray-100">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Chế biến sốt mận <span class="text-xs italic text-gray-400 ml-2">(15 phút)</span></h4>
+                            <p class="justified-text text-gray-700 italic font-medium mb-2 text-gold">Kỹ thuật đầu bếp chuyên nghiệp:</p>
+                            <p class="justified-text text-gray-700">Mận rửa sạch, bỏ hạt, cắt nhỏ. Cho mận vào chảo cùng mật ong, vang đỏ và quế. Đun lửa nhỏ cho đến khi mận mềm nhũn. Cho hỗn hợp vào máy xay sinh tố xay nhuyễn, sau đó lọc qua rây để có hỗn hợp sốt mịn mượt. Đun lại sốt trên chảo cho đến khi sốt sánh lại, nêm chút nước mắm để tạo độ đậm đà hậu vị.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex group">
+                        <span class="step-number">04</span>
+                        <div class="pb-6 border-b border-gray-100">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Nướng sườn cừu <span class="text-xs italic text-gray-400 ml-2">(10 phút)</span></h4>
+                            <div class="space-y-3 justified-text text-gray-700">
+                                <p><strong>Áp chảo:</strong> Đun nóng chảo với một ít dầu, áp chảo sườn mỗi mặt 2-3 phút cho đến khi có lớp vỏ nâu vàng đẹp mắt (phản ứng Maillard).</p>
+                                <p><strong>Nướng:</strong> Cho sườn vào lò nướng ở 200°C trong 5-7 phút cho độ chín Medium-rare (hồng nhạt bên trong).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex group">
+                        <span class="step-number">05</span>
+                        <div class="pb-6 border-b border-gray-100">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Chế biến rau non <span class="text-xs italic text-gray-400 ml-2">(5 phút)</span></h4>
+                            <p class="justified-text text-gray-700">Cà rốt và măng tây chần sơ qua nước sôi có chút muối, sau đó vớt ra ngâm nước đá để giữ màu xanh. Sau đó, xào nhanh với bơ lạt và một chút tiêu để rau bóng mượt và thơm.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex group">
+                        <span class="step-number">06</span>
+                        <div class="pb-6 border-b border-gray-100">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Nghỉ thịt <span class="text-xs italic text-gray-400 ml-2">(5 phút)</span></h4>
+                            <p class="justified-text text-gray-700">Đây là bước quan trọng nhất. Để sườn cừu nghỉ 5 phút sau khi lấy ra khỏi lò trước khi cắt để nước thịt thấm ngược vào bên trong, giúp thịt mềm mọng.</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-charcoal text-white p-6 rounded-sm shadow-xl">
-                    <h5 class="font-bold text-gold mb-2 flex items-center gap-2">
-                        <span>✨</span> Thưởng thức chuẩn sành ăn
-                    </h5>
-                    <p class="text-sm italic">
-                        Đặt một ít trứng cá lên mu bàn tay (vị trí giữa ngón trỏ và ngón cái), đợi vài giây để nhiệt độ cơ thể làm dậy mùi thơm, sau đó thưởng thức trực tiếp để cảm nhận trọn vẹn vị umami nguyên bản của "vàng đen".
-                    </p>
+            </section>
+
+            <!-- Chef's Corner -->
+            <section class="pro-tip-box p-8 bg-gold/5 mt-12 rounded-sm shadow-sm">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cream px-4 text-gold font-bold tracking-widest uppercase text-sm">
+                    3. Mẹo hay từ Vua Đầu Bếp
                 </div>
-            </div>
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-start">
+                        <span class="text-gold mr-3">★</span>
+                        <p class="justified-text text-charcoal"><strong>Nhiệt độ chuẩn:</strong> Sử dụng nhiệt kế thực phẩm; thịt cừu đạt độ ngon nhất khi nhiệt độ lõi khoảng 52-55°C.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-gold mr-3">★</span>
+                        <p class="justified-text text-charcoal"><strong>Độ mịn của sốt:</strong> Luôn lọc sốt qua rây mịn để loại bỏ hoàn toàn bã mận, giúp nước sốt có độ bóng gương (glaze).</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-gold mr-3">★</span>
+                        <p class="justified-text text-charcoal"><strong>Tránh cháy tỏi:</strong> Khi áp chảo, nếu thấy tỏi băm bắt đầu cháy đen, hãy dùng khăn giấy lau bớt để tránh vị đắng ám vào thịt.</p>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">❦</span>
+    </div>
 
     <!-- Variations Section -->
     <section class="mb-16">
-        <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
-        
-        <div class="flex border-b border-gray-200 mb-6 overflow-x-auto">
-            <button onclick="openTab(event, 'local')" class="tab-btn active px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all">Sapa Local</button>
-            <button onclick="openTab(event, 'home')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all">Home Cook</button>
-            <button onclick="openTab(event, 'chef')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all">Chef's Signature</button>
-        </div>
-
-        <div id="local" class="tab-content active glass-card p-8 animate-fadeIn">
-            <h4 class="text-xl font-bold mb-4 text-cinnabar">Phong cách Sapa địa phương</h4>
-            <p>Thay thế bánh Blinis bằng lát khoai tây Sapa luộc chín tới, cắt khoanh tròn, hoặc dùng kèm với một chút thịt cá tầm hun khói thái lát mỏng để tạo nên một bản giao hưởng hương vị đậm chất Tây Bắc.</p>
-        </div>
-
-        <div id="home" class="tab-content glass-card p-8 animate-fadeIn">
-            <h4 class="text-xl font-bold mb-4 text-cinnabar">Home Cook Version</h4>
-            <p>Dùng bánh mì gối nướng bơ tỏi cắt miếng nhỏ thay cho Blinis và dùng sữa chua Hy Lạp không đường thay cho Crème Fraîche để giảm độ ngậy mà vẫn giữ được cấu trúc kem mịn màng.</p>
-        </div>
-
-        <div id="chef" class="tab-content glass-card p-8 animate-fadeIn">
-            <h4 class="text-xl font-bold mb-4 text-cinnabar">Fine Dining Elevate</h4>
-            <p>Kết hợp với thạch rượu Vodka và điểm xuyết bằng những lá vàng thực phẩm 24k để tôn vinh sự sang trọng đẳng cấp của trứng cá tầm Sapa trên bàn tiệc quốc tế.</p>
+        <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 rounded-lg">
+                <h4 class="text-gold font-bold mb-3 italic">Lựa chọn thay thế</h4>
+                <p class="justified-text text-sm text-gray-700">Nếu không phải mùa mận Sapa, bạn có thể thay thế bằng mứt dâu tằm Đà Lạt hoặc sốt quả mâm xôi để giữ vị chua ngọt tương tự.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg">
+                <h4 class="text-gold font-bold mb-3 italic">Hương vị Tây Bắc</h4>
+                <p class="justified-text text-sm text-gray-700">Thay thế lá hương thảo bằng lá móc mật khô nghiền nhỏ để tăng cường bản sắc văn hóa vùng cao Việt Nam vào món ăn.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Technical Info Section -->
-    <div class="grid md:grid-cols-2 gap-12 border-t-2 border-charcoal pt-12">
-        <!-- Nutrition -->
-        <section>
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                <span class="w-8 h-[1px] bg-cinnabar"></span> 5. Giá trị dinh dưỡng
-            </h3>
-            <div class="bg-white p-6 border border-gray-100 shadow-sm space-y-4">
-                <p class="text-sm font-bold italic text-gold">Siêu thực phẩm từ lòng hồ thủy điện</p>
-                <div class="grid grid-cols-2 gap-4 text-sm">
-                    <div class="border-b border-gray-100 pb-2">
-                        <span class="block text-gray-500 text-xs">Năng lượng</span>
-                        <span class="font-bold">250-280 calo / 100g</span>
-                    </div>
-                    <div class="border-b border-gray-100 pb-2">
-                        <span class="block text-gray-500 text-xs">Omega-3</span>
-                        <span class="font-bold">Hàm lượng cực cao</span>
-                    </div>
-                    <div class="border-b border-gray-100 pb-2">
-                        <span class="block text-gray-500 text-xs">Vitamin</span>
-                        <span class="font-bold">B12, Selenium, Magie</span>
-                    </div>
-                    <div class="border-b border-gray-100 pb-2">
-                        <span class="block text-gray-500 text-xs">Trí não</span>
-                        <span class="font-bold">Giàu Acetylcholine</span>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 italic mt-4">Hỗ trợ sức khỏe tim mạch, tăng cường trí nhớ và chống oxy hóa mạnh mẽ cho làn da.</p>
+    <!-- Footer Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gold/30 pt-12 pb-12">
+        <div>
+            <h3 class="text-xl font-bold mb-6 text-charcoal uppercase tracking-widest">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4">
+                <p class="justified-text text-sm text-gray-600">
+                    <strong class="text-charcoal block mb-1">Thịt cừu:</strong> 
+                    Nguồn cung cấp Protein chất lượng cao, giàu sắt, kẽm và Vitamin B12 giúp tăng cường hệ miễn dịch và tái tạo máu.
+                </p>
+                <p class="justified-text text-sm text-gray-600">
+                    <strong class="text-charcoal block mb-1">Rau non Đà Lạt:</strong> 
+                    Cung cấp chất xơ, Vitamin A và khoáng chất thiết yếu cho cơ thể.
+                </p>
+                <p class="justified-text text-sm text-gray-600">
+                    <strong class="text-charcoal block mb-1">Mận Sapa:</strong> 
+                    Chứa nhiều chất chống oxy hóa (anthocyanin) và Vitamin C, giúp cân bằng lại lượng chất béo trong thịt đỏ.
+                </p>
             </div>
-        </section>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold mb-6 text-charcoal uppercase tracking-widest">6. Gợi ý trình bày</h3>
+            <div class="space-y-4 bg-white p-6 rounded-sm border border-gold/10">
+                <p class="justified-text text-sm text-gray-700 italic">
+                    <strong class="text-charcoal not-italic">Phong cách Fine Dining:</strong> 
+                    Đặt một dải sốt mận kéo dài theo hình vòng cung trên đĩa sứ trắng bản lớn. Sắp xếp 2-3 dẻ sườn chồng nhẹ lên nhau ở tâm đĩa, phần xương hướng lên trên tạo độ cao.
+                </p>
+                <p class="justified-text text-sm text-gray-700 italic">
+                    Sắp xếp rau non xen kẽ bên cạnh sườn. Rưới thêm một chút sốt lên mặt thịt để tạo độ bóng. Trang trí bằng một nhánh hương thảo tươi hoặc vài cánh hoa hồng khô để gợi nhắc đến xuất xứ vùng cao.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Presentation -->
-        <section>
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                <span class="w-8 h-[1px] bg-cinnabar"></span> 6. Gợi ý trình bày
-            </h3>
-            <ul class="text-sm space-y-3 list-disc pl-5">
-                <li>Sử dụng khay bạc hoặc bát thủy tinh chứa đầy đá bào làm nền để giữ nhiệt độ lý tưởng.</li>
-                <li>Đặt hũ trứng cá ở trung tâm khay đá để tạo sự sang trọng và đảm bảo độ lạnh.</li>
-                <li>Sử dụng thìa xà cừ óng ánh để tạo điểm nhấn thị giác cao cấp.</li>
-                <li>Trang trí xung quanh bằng các lát chanh vàng và vài nhánh thì là xanh mướt để làm nổi bật màu đen óng ả của "vàng đen" Sapa.</li>
-                <li>Trình bày các món ăn kèm theo hình vòng tròn đối xứng quanh hũ trứng để tạo sự hài hòa.</li>
-            </ul>
-        </section>
+    <!-- Final Stamp -->
+    <div class="flex justify-center items-center py-12 opacity-40">
+        <div class="border-2 border-charcoal rounded-full w-24 h-24 flex items-center justify-center text-center p-2 rotate-12">
+            <span class="text-[10px] font-bold uppercase tracking-tighter">Certified Master Recipe<br>AI KING OF CHEFS</span>
+        </div>
     </div>
 
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
 </body>
 </html>
