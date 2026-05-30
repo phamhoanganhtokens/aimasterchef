@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canh Chua Cá Úc Lá Me Non - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#B8860B',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #B8860B;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #B8860B;
+            opacity: 0.4;
+        }
+        .ornament:not(:empty)::before { margin-right: 1rem; }
+        .ornament:not(:empty)::after { margin-left: 1rem; }
+        
+        .recipe-meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        .recipe-meta-item:last-child {
+            border-right: none;
+        }
+        
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .ingredient-group {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .recipe-meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            }
+            .recipe-meta-item:nth-child(even) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="mb-4">
+            <span class="text-cinnabar font-bold tracking-widest uppercase text-sm">AI Vua Đầu Bếp • Premium Selection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight">Canh Chua Cá Úc Lá Me Non</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 font-normal">Young Tamarind Leaf Sour Soup with Ariid Catfish</h2>
+        
+        <div class="ornament">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L14.5 9H21L15.7 13L17.7 20L12 16L6.3 20L8.3 13L3 9H9.5L12 2Z" />
+            </svg>
+        </div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 bg-white custom-shadow rounded-sm border border-gold/20 overflow-hidden">
+            <div class="recipe-meta-item">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Độ khó</span>
+                <span class="font-bold text-lg text-charcoal">Trung bình</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold text-lg text-charcoal">45 - 60 phút</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg text-charcoal">3 - 4 người</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="uppercase text-xs tracking-widest text-gray-500 mb-1">Xuất xứ</span>
+                <span class="font-bold text-lg text-charcoal">Miền Tây / Duyên Hải</span>
+            </div>
+        </div>
+
+        <div class="mt-12 max-w-3xl mx-auto">
+            <p class="justified-text text-lg italic text-gray-700 leading-relaxed">
+                Món canh này là một đặc sản mộc mạc gắn liền với đời sống sông nước của người dân miền Tây và duyên hải miền Trung Việt Nam. Cá úc là loại cá da trơn sống ở vùng nước lợ, thịt béo và thơm. Khác với canh chua sử dụng me trái thông thường, việc sử dụng lá me non mang lại vị chua thanh dịu, nhẹ nhàng và hương thơm thảo mộc đặc trưng.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 uppercase tracking-tighter">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <section class="ingredient-group">
+                        <h4 class="text-gold font-bold uppercase text-sm mb-4 tracking-widest italic">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Cá úc: 500g (chọn cá tươi, mắt trong)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Lá me non: 100g - 150g (búp lá xanh mướt)</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="ingredient-group">
+                        <h4 class="text-gold font-bold uppercase text-sm mb-4 tracking-widest italic">Rau củ & Thảo mộc</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Cà chua (2 quả), thơm (1/4 quả)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Giá đỗ (100g), dọc mùng (tùy chọn)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Rau om, ngò gai, hành lá</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="ingredient-group border-none">
+                        <h4 class="text-gold font-bold uppercase text-sm mb-4 tracking-widest italic">Gia vị & Sơ chế</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Hành băm, tỏi băm, ớt hiểm</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Nước mắm ngon, đường phèn, muối</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="group-hover:translate-x-1 transition-transform">Gừng hoặc rượu trắng (khử mùi)</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1 uppercase tracking-tighter">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10 relative border-l border-gold/20 pl-8 ml-4">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="absolute -left-[45px] top-0 w-8 h-8 bg-parchment border-2 border-cinnabar rounded-full flex items-center justify-center font-bold text-cinnabar">1</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Sơ chế cá</h4>
+                        <p class="justified-text text-gray-700">
+                            Cá úc có nhiều nhớt và mùi tanh đặc trưng. Dùng muối hạt và nước cốt chanh chà xát kỹ lên thân cá, sau đó dùng dao cạo sạch lớp nhớt. Rửa lại bằng nước gừng hoặc rượu trắng để khử hoàn toàn mùi tanh. Cắt cá thành khúc vừa ăn hoặc để nguyên con nếu cá nhỏ.
+                        </p>
+                        <span class="inline-block mt-2 text-sm italic font-bold text-gold">Dự kiến: 15 phút</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="absolute -left-[45px] top-0 w-8 h-8 bg-parchment border-2 border-cinnabar rounded-full flex items-center justify-center font-bold text-cinnabar">2</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Chuẩn bị lá me và rau củ</h4>
+                        <p class="justified-text text-gray-700">
+                            Lá me non rửa sạch, để ráo. Dùng tay vò nhẹ lá me trước khi nấu để các tế bào lá vỡ ra, giúp giải phóng vị chua nhanh và đậm đà hơn. Cà chua cắt múi cau, thơm cắt lát mỏng.
+                        </p>
+                        <span class="inline-block mt-2 text-sm italic font-bold text-gold">Dự kiến: 5 phút</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="absolute -left-[45px] top-0 w-8 h-8 bg-parchment border-2 border-cinnabar rounded-full flex items-center justify-center font-bold text-cinnabar">3</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Nấu nước dùng</h4>
+                        <p class="justified-text text-gray-700">
+                            Phi thơm hành tím và tỏi băm với một ít dầu ăn. Cho cà chua và thơm vào xào sơ để tạo màu sắc và hương thơm tự nhiên. Đổ khoảng 1.2 - 1.5 lít nước vào nồi, đun sôi.
+                        </p>
+                        <span class="inline-block mt-2 text-sm italic font-bold text-gold">Dự kiến: 10 phút</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <div class="absolute -left-[45px] top-0 w-8 h-8 bg-parchment border-2 border-cinnabar rounded-full flex items-center justify-center font-bold text-cinnabar">4</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Nấu cá</h4>
+                        <p class="justified-text text-gray-700">
+                            Khi nước sôi, cho cá úc vào. Để nước sôi bùng lên rồi hạ lửa nhỏ, thường xuyên hớt bọt để nước canh được trong veo. Khi cá chín tới (khoảng 7-10 phút tùy kích cỡ), vớt cá ra để riêng để tránh bị nát.
+                        </p>
+                        <span class="inline-block mt-2 text-sm italic font-bold text-gold">Dự kiến: 10 phút</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative">
+                        <div class="absolute -left-[45px] top-0 w-8 h-8 bg-parchment border-2 border-cinnabar rounded-full flex items-center justify-center font-bold text-cinnabar">5</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Tạo vị chua & Nêm nếm</h4>
+                        <p class="justified-text text-gray-700">
+                            Cho lá me non đã vò vào nồi nước dùng. Nấu thêm khoảng 2-3 phút cho vị chua thẩm thấu. Nêm nếm nước mắm, đường phèn và một chút muối sao cho đạt vị chua - ngọt - mặn hài hòa.
+                        </p>
+                        <span class="inline-block mt-2 text-sm italic font-bold text-gold">Dự kiến: 5 phút</span>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative">
+                        <div class="absolute -left-[45px] top-0 w-8 h-8 bg-parchment border-2 border-cinnabar rounded-full flex items-center justify-center font-bold text-cinnabar">6</div>
+                        <h4 class="text-xl font-bold mb-2 uppercase">Hoàn thiện</h4>
+                        <p class="justified-text text-gray-700">
+                            Cho giá đỗ và các loại rau ăn kèm vào. Đợi nước sôi lại thì tắt bếp ngay để rau giữ độ giòn. Cho cá lại vào nồi hoặc xếp ra tô để trình bày.
+                        </p>
+                        <span class="inline-block mt-2 text-sm italic font-bold text-gold">Dự kiến: 2 phút</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chef's Corner -->
+        <div class="mt-20 bg-white border-double border-4 border-gold p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gold/5 -rotate-12 translate-x-8 -translate-y-8 pointer-events-none"></div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center text-gold">
+                <span class="mr-3">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
+                        <line x1="6" y1="17" x2="18" y2="17" />
+                    </svg>
+                </span>
+                3. MẸO HAY TỪ VUA ĐẦU BẾP
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar italic">Xử lý nhớt hiệu quả</h5>
+                    <p class="text-sm justified-text text-gray-600">Nếu không có chanh, bạn có thể dùng nước tro bếp hoặc nước vo gạo đặc để làm sạch nhớt cá úc hiệu quả, giúp thịt cá sạch và thơm hơn.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar italic">Giữ độ trong của nước</h5>
+                    <p class="text-sm justified-text text-gray-600">Luôn thả cá vào khi nước đang sôi thật mạnh để thịt cá săn lại ngay lập tức, giúp giữ vị ngọt tự nhiên và không làm đục nước canh.</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="font-bold text-cinnabar italic">Nghệ thuật cân bằng vị</h5>
+                    <p class="text-sm justified-text text-gray-600">Lá me non có vị chua chát nhẹ đặc thù, nên cần sử dụng đường phèn để vị ngọt thanh thoát hơn thay vì dùng đường cát trắng thông thường.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variations -->
+        <section class="mt-20">
+            <h3 class="text-3xl font-bold mb-8 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 border border-gray-200 hover:border-gold transition-colors bg-white">
+                    <h4 class="font-bold text-lg mb-2 text-cinnabar uppercase">Lối sống hiện đại</h4>
+                    <p class="justified-text text-gray-600 italic">Nếu không tìm được lá me non tươi, có thể thay thế bằng lá giang. Tuy nhiên, lưu ý hương vị sẽ thiên về vị chua gắt hơn, cần điều chỉnh lượng đường để cân bằng.</p>
+                </div>
+                <div class="p-6 border border-gray-200 hover:border-gold transition-colors bg-white">
+                    <h4 class="font-bold text-lg mb-2 text-cinnabar uppercase">Phiên bản đậm đà</h4>
+                    <p class="justified-text text-gray-600 italic">Để tăng thêm tầng hương vị và độ béo, bạn có thể thêm vài lát thịt ba chỉ cháy cạnh vào nồi canh. Sự kết hợp giữa mỡ lợn và vị chua của lá me tạo nên một trải nghiệm bùng nổ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Details -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-20 pt-12 border-t border-gold/30">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 uppercase tracking-tighter">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-2 h-2 mt-2 bg-cinnabar rounded-full shrink-0"></div>
+                        <div>
+                            <span class="font-bold block">Thịt cá úc:</span>
+                            <p class="text-gray-600 justified-text">Cung cấp nguồn protein nạc chất lượng cao, giàu Omega-3 cực kỳ tốt cho hệ tim mạch và phát triển trí não.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-2 h-2 mt-2 bg-cinnabar rounded-full shrink-0"></div>
+                        <div>
+                            <span class="font-bold block">Lá me non:</span>
+                            <p class="text-gray-600 justified-text">Chứa hàm lượng Vitamin C dồi dào giúp tăng cường sức đề kháng, hỗ trợ tiêu hóa và có tính thanh nhiệt, giải độc cơ thể tuyệt vời.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 uppercase tracking-tighter">6. Gợi ý trình bày</h3>
+                <div class="space-y-4 text-gray-600 justified-text">
+                    <p>
+                        <strong class="text-charcoal uppercase text-xs tracking-wider">Bố cục:</strong> Múc canh ra tô lớn, khéo léo xếp cá lên trên cùng để làm điểm nhấn trung tâm của bát canh.
+                    </p>
+                    <p>
+                        <strong class="text-charcoal uppercase text-xs tracking-wider">Màu sắc:</strong> Sắc xanh của lá me và rau nêm làm nền hoàn hảo cho sắc đỏ của ớt tươi và cà chua, điểm xuyết sắc trắng tinh khôi của thịt cá.
+                    </p>
+                    <p>
+                        <strong class="text-charcoal uppercase text-xs tracking-wider">Hoàn thiện:</strong> Rắc thêm một ít tỏi phi vàng lên bề mặt để kích thích khứu giác. Phục vụ kèm một chén nước mắm nguyên chất có vài lát ớt hiểm để chấm cá.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Simple interactive flourish: subtle parallax or scroll revealing
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section, .relative');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
