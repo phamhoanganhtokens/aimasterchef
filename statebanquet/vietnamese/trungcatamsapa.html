@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Trứng Cá Tầm Sapa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#E5D5B7',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .ornament {
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #C5A059;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+            position: relative;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="inline-block border-y-2 border-gold py-4 px-8 mb-6">
+            <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-2">Trứng Cá Tầm Sapa</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 font-normal">Sapa Caviar</h2>
+        </div>
+        
+        <p class="max-w-3xl mx-auto italic text-lg mb-8 text-gray-700">
+            Tận dụng nguồn nước lạnh tinh khiết từ dãy Hoàng Liên Sơn, Sapa đã trở thành "thủ phủ" nuôi cá tầm Nga và cá tầm Siberi, cho ra đời loại trứng cá đen (Caviar) đạt tiêu chuẩn quốc tế với hương vị béo ngậy đặc trưng.
+        </p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-gray-200 py-6 mt-8">
+            <div class="flex flex-col items-center">
+                <span class="text-gold text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Độ khó</span>
+                <span class="font-bold text-sm md:text-base">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold text-xl mb-1">⏲</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời gian</span>
+                <span class="font-bold text-sm md:text-base">30 Phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold text-xl mb-1">皿</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu phần</span>
+                <span class="font-bold text-sm md:text-base">2 - 4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold text-xl mb-1">📍</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Xuất xứ</span>
+                <span class="font-bold text-sm md:text-base text-center px-2">Sapa, Lào Cai</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Recipe Body -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-widest">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="font-bold text-gold italic mb-4">Thành phần chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-cinnabar mr-2">✦</span>
+                            <span>Trứng cá tầm Sapa: 50g - 100g <br><em class="text-xs text-gray-500">(Giữ lạnh ở -2 đến 2°C)</em></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cinnabar mr-2">✦</span>
+                            <span>Bánh Blinis: 12 - 15 chiếc <br><em class="text-xs text-gray-500">(Bánh kếp Nga hoặc sandwich nướng giòn)</em></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gold italic mb-4">Sốt & Kèm</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-cinnabar mr-2">✦</span>
+                            <span>Kem chua (Crème Fraîche): 100g</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cinnabar mr-2">✦</span>
+                            <span>Trứng gà ta: 2 quả <br><em class="text-xs text-gray-500">(Luộc chín, băm nhỏ lòng trắng/đỏ riêng)</em></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cinnabar mr-2">✦</span>
+                            <span>Hành tím băm nhuyễn: 1 củ</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cinnabar mr-2">✦</span>
+                            <span>Chanh vàng & Hẹ tươi</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-4 bg-gray-100 italic text-sm border-l-4 border-gold">
+                    <h4 class="font-bold not-italic mb-1">Gợi ý đồ uống:</h4>
+                    Rượu Vodka lạnh hoặc Champagne (Vang sủi) để tôn vinh vị biển cả.
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-widest">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 ml-5 border-l border-gray-200">
+                <!-- Step 1 -->
+                <div class="relative pl-8 timeline-step">
+                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">01</span>
+                    <h4 class="font-bold text-xl mb-2">Chuẩn bị phụ kiện</h4>
+                    <p class="description-text">
+                        Cho trứng cá tầm từ tủ lạnh ra ngay trước khi dùng. Đặt hũ trứng cá vào một bát sứ hoặc pha lê đổ đầy đá bào để duy trì độ tươi ngon và kết cấu giòn tan của trứng.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-8 timeline-step">
+                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">02</span>
+                    <h4 class="font-bold text-xl mb-2">Chế biến bánh Blinis</h4>
+                    <p class="description-text mb-2">
+                        Trộn bột mì, trứng, sữa và một chút men nở. Chiên những vòng tròn nhỏ đường kính 5cm trên chảo không dính cho đến khi vàng đều hai mặt.
+                    </p>
+                    <div class="text-sm italic text-gray-600 bg-white p-3 border border-dashed border-gold">
+                        <strong>Mẹo Home Cook:</strong> Nếu không có thời gian làm Blinis, hãy dùng bánh quy mặn loại nhạt hoặc lát khoai tây chiên mỏng nướng giòn.
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-8 timeline-step">
+                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">03</span>
+                    <h4 class="font-bold text-xl mb-2">Sắp xếp đồ kèm</h4>
+                    <p class="description-text">
+                        Bày lòng trắng trứng băm, lòng đỏ trứng băm, hành tím băm và kem chua vào các đĩa nhỏ riêng biệt. Mỗi thành phần cần được giữ ở kích thước đồng nhất để đạt hiệu ứng thị giác tốt nhất.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-8 timeline-step">
+                    <span class="absolute -left-14 top-0 font-bold text-gray-300 text-3xl">04</span>
+                    <h4 class="font-bold text-xl mb-2">Thưởng thức</h4>
+                    <p class="description-text">
+                        Dùng thìa gỗ hoặc thìa xà cừ múc một lượng kem chua nhỏ lên bánh Blinis, rắc thêm một ít hành tím và trứng gà băm, sau cùng đặt một thìa trứng cá tầm lên trên cùng. Thưởng thức ngay để cảm nhận vị nổ lách tách của trứng cá hòa quyện cùng vị béo của kem.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <span class="ornament">◈ ♛ ◈</span>
+    </div>
+
+    <!-- Chef's Corner Section -->
+    <section class="mb-16">
+        <div class="pro-tip-box p-8 md:p-12">
+            <h3 class="text-2xl font-bold text-gold mb-6 uppercase text-center tracking-widest">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <span class="text-gold text-2xl">☝</span>
+                        <div>
+                            <h5 class="font-bold mb-1">Nguyên tắc vàng về dụng cụ</h5>
+                            <p class="text-sm">Tuyệt đối không sử dụng thìa bằng kim loại (inox, bạc, sắt) để múc trứng cá vì kim loại sẽ gây oxy hóa, làm biến đổi hương vị tinh tế, để lại vị tanh sắt khó chịu.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-gold text-2xl">❄</span>
+                        <div>
+                            <h5 class="font-bold mb-1">Quản lý nhiệt độ</h5>
+                            <p class="text-sm">Trứng cá tầm rất nhạy cảm. Chỉ nên mở nắp hũ trứng ngay trước khi ăn và luôn đặt trên nền đá lạnh xuyên suốt bữa tiệc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-charcoal text-white p-6 rounded-sm shadow-xl">
+                    <h5 class="font-bold text-gold mb-2 flex items-center gap-2">
+                        <span>✨</span> Thưởng thức chuẩn sành ăn
+                    </h5>
+                    <p class="text-sm italic">
+                        Đặt một ít trứng cá lên mu bàn tay (vị trí giữa ngón trỏ và ngón cái), đợi vài giây để nhiệt độ cơ thể làm dậy mùi thơm, sau đó thưởng thức trực tiếp để cảm nhận trọn vẹn vị umami nguyên bản của "vàng đen".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+        
+        <div class="flex border-b border-gray-200 mb-6 overflow-x-auto">
+            <button onclick="openTab(event, 'local')" class="tab-btn active px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all">Sapa Local</button>
+            <button onclick="openTab(event, 'home')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all">Home Cook</button>
+            <button onclick="openTab(event, 'chef')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest transition-all">Chef's Signature</button>
+        </div>
+
+        <div id="local" class="tab-content active glass-card p-8 animate-fadeIn">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Phong cách Sapa địa phương</h4>
+            <p>Thay thế bánh Blinis bằng lát khoai tây Sapa luộc chín tới, cắt khoanh tròn, hoặc dùng kèm với một chút thịt cá tầm hun khói thái lát mỏng để tạo nên một bản giao hưởng hương vị đậm chất Tây Bắc.</p>
+        </div>
+
+        <div id="home" class="tab-content glass-card p-8 animate-fadeIn">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Home Cook Version</h4>
+            <p>Dùng bánh mì gối nướng bơ tỏi cắt miếng nhỏ thay cho Blinis và dùng sữa chua Hy Lạp không đường thay cho Crème Fraîche để giảm độ ngậy mà vẫn giữ được cấu trúc kem mịn màng.</p>
+        </div>
+
+        <div id="chef" class="tab-content glass-card p-8 animate-fadeIn">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Fine Dining Elevate</h4>
+            <p>Kết hợp với thạch rượu Vodka và điểm xuyết bằng những lá vàng thực phẩm 24k để tôn vinh sự sang trọng đẳng cấp của trứng cá tầm Sapa trên bàn tiệc quốc tế.</p>
+        </div>
+    </section>
+
+    <!-- Technical Info Section -->
+    <div class="grid md:grid-cols-2 gap-12 border-t-2 border-charcoal pt-12">
+        <!-- Nutrition -->
+        <section>
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <span class="w-8 h-[1px] bg-cinnabar"></span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="bg-white p-6 border border-gray-100 shadow-sm space-y-4">
+                <p class="text-sm font-bold italic text-gold">Siêu thực phẩm từ lòng hồ thủy điện</p>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="border-b border-gray-100 pb-2">
+                        <span class="block text-gray-500 text-xs">Năng lượng</span>
+                        <span class="font-bold">250-280 calo / 100g</span>
+                    </div>
+                    <div class="border-b border-gray-100 pb-2">
+                        <span class="block text-gray-500 text-xs">Omega-3</span>
+                        <span class="font-bold">Hàm lượng cực cao</span>
+                    </div>
+                    <div class="border-b border-gray-100 pb-2">
+                        <span class="block text-gray-500 text-xs">Vitamin</span>
+                        <span class="font-bold">B12, Selenium, Magie</span>
+                    </div>
+                    <div class="border-b border-gray-100 pb-2">
+                        <span class="block text-gray-500 text-xs">Trí não</span>
+                        <span class="font-bold">Giàu Acetylcholine</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 italic mt-4">Hỗ trợ sức khỏe tim mạch, tăng cường trí nhớ và chống oxy hóa mạnh mẽ cho làn da.</p>
+            </div>
+        </section>
+
+        <!-- Presentation -->
+        <section>
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <span class="w-8 h-[1px] bg-cinnabar"></span> 6. Gợi ý trình bày
+            </h3>
+            <ul class="text-sm space-y-3 list-disc pl-5">
+                <li>Sử dụng khay bạc hoặc bát thủy tinh chứa đầy đá bào làm nền để giữ nhiệt độ lý tưởng.</li>
+                <li>Đặt hũ trứng cá ở trung tâm khay đá để tạo sự sang trọng và đảm bảo độ lạnh.</li>
+                <li>Sử dụng thìa xà cừ óng ánh để tạo điểm nhấn thị giác cao cấp.</li>
+                <li>Trang trí xung quanh bằng các lát chanh vàng và vài nhánh thì là xanh mướt để làm nổi bật màu đen óng ả của "vàng đen" Sapa.</li>
+                <li>Trình bày các món ăn kèm theo hình vòng tròn đối xứng quanh hũ trứng để tạo sự hài hòa.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
