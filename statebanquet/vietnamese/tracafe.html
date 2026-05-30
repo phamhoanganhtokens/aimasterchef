@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trà và Cà phê Chiêu đãi Quốc yến - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'cream-bg': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .header-gradient {
+            background: linear-gradient(to bottom, #f3f1ed, #FCFAFA);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider span {
+            padding: 0 1rem;
+            font-size: 1.5rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #C5A059;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .meta-card {
+            border-right: 1px solid #e5e7eb;
+        }
+        .meta-card:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .meta-card:last-child {
+                border-bottom: none;
+            }
+            body {
+                text-align: left; /* Better readability on very small screens if preferred, but instruction says justify */
+                text-align: justify;
+            }
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23D28;
+        }
+        .variation-card {
+            background: white;
+            border-top: 4px solid #C5A059;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="header-gradient pt-16 pb-8 px-6 text-center border-b border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-cinnabar-red tracking-[0.3em] uppercase text-sm mb-4 font-bold">AI Vua Đầu Bếp • Premium Selection</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">Trà và Cà phê Chiêu đãi Quốc yến</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-10">Lotus Tea & Specialized Phin Coffee: The Diplomatic Duo</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 bg-white shadow-xl rounded-sm border border-gray-100 overflow-hidden">
+                <div class="meta-card p-4 flex flex-col items-center justify-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.738-1.37a1.683 1.683 0 0 0 .537-.255l1.425-.356v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.5 3.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ khó</span>
+                    <span class="font-bold text-sm">CAO</span>
+                </div>
+                <div class="meta-card p-4 flex flex-col items-center justify-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 1 1 14 0z"/></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời gian</span>
+                    <span class="font-bold text-sm">45 - 60 PHÚT</span>
+                </div>
+                <div class="meta-card p-4 flex flex-col items-center justify-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                    <span class="font-bold text-sm">4 - 6 NGƯỜI</span>
+                </div>
+                <div class="meta-card p-4 flex flex-col items-center justify-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM4.5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                    <span class="font-bold text-sm uppercase">Việt Nam</span>
+                </div>
+            </div>
+
+            <div class="mt-8 max-w-2xl mx-auto italic text-gray-700 leading-relaxed px-4">
+                "Trà Sen Tây Hồ đại diện cho sự thanh cao, tinh khiết của cốt cách dân tộc; trong khi Cà phê Phin là biểu tượng của sự kiên nhẫn, nồng nàn và giao thoa văn hóa."
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold mb-6 border-b-2 border-burnished-gold pb-2 inline-block uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="mb-10">
+                        <h4 class="text-lg font-bold text-cinnabar-red mb-4 italic">Trà Sen Tây Hồ</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between">
+                                <span>Trà Sen thượng hạng</span>
+                                <span class="font-bold">10g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Nước tinh khiết (pH 6.5-7.5)</span>
+                                <span class="font-bold">500ml</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-bold text-cinnabar-red mb-4 italic">Cà phê Phin Đặc sản</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between">
+                                <span>Cà phê bột (7:3 Robusta/Arabica)</span>
+                                <span class="font-bold">60g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Nước nóng (92°C - 96°C)</span>
+                                <span class="font-bold">240ml</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Sữa đặc cao cấp</span>
+                                <span class="font-bold">Tùy chọn</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between">
+                                <span>Đá viên tinh khiết</span>
+                                <span class="font-bold">Vừa đủ</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-burnished-gold pb-2 inline-block uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <!-- Section 1: Tea -->
+                <div class="mb-12">
+                    <h4 class="flex items-center text-xl font-bold mb-6 text-primary-charcoal">
+                        <span class="w-8 h-8 bg-cinnabar-red text-white rounded-full flex items-center justify-center mr-3 text-sm">I</span>
+                        Nghệ thuật Pha Trà Sen
+                    </h4>
+                    <div class="space-y-8 relative border-l border-gray-200 ml-4 pl-8">
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-burnished-gold rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-burnished-gold mb-1">Bước 1: Tráng ấm chén</p>
+                            <p>Dùng nước sôi 100°C tráng qua bộ ấm trà (nên dùng ấm tử sa hoặc sứ trắng mỏng) để làm ấm và khử khuẩn.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-burnished-gold rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-burnished-gold mb-1">Bước 2: Đánh thức trà</p>
+                            <p>Cho trà vào ấm. Rót một lượng nước (80°C) vừa đủ ngập mặt trà, xoay nhẹ ấm rồi đổ nước đi ngay. Điều này giúp lá trà mở ra và loại bỏ bụi phấn.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-burnished-gold rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-burnished-gold mb-1">Bước 3: Hãm trà</p>
+                            <p>Rót 250ml nước ở nhiệt độ chính xác 80°C - 85°C vào ấm. Đậy nắp, rót thêm một chút nước nóng bên ngoài ấm để giữ nhiệt đều.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-burnished-gold rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-burnished-gold mb-1 text-cinnabar-red italic">Bước 4: Ủ trà (30 - 45 giây)</p>
+                            <p>Hãm trong 30 - 45 giây. Không nên ngâm quá lâu sẽ làm trà bị nồng và mất hương sen thanh khiết.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-burnished-gold rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-burnished-gold mb-1">Bước 5: Rót trà</p>
+                            <p>Rót toàn bộ nước trà ra chén tống (chén lớn) trước khi chia ra các chén quân (chén nhỏ) để đảm bảo độ đậm đà đồng nhất.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Coffee -->
+                <div class="mb-12">
+                    <h4 class="flex items-center text-xl font-bold mb-6 text-primary-charcoal">
+                        <span class="w-8 h-8 bg-cinnabar-red text-white rounded-full flex items-center justify-center mr-3 text-sm">II</span>
+                        Kỹ thuật Chiết suất Cà phê Phin
+                    </h4>
+                    <div class="space-y-8 relative border-l border-gray-200 ml-4 pl-8">
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar-red rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-cinnabar-red mb-1">Bước 1: Làm nóng phin</p>
+                            <p>Tráng phin bằng nước sôi để ổn định nhiệt độ kim loại.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar-red rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-cinnabar-red mb-1">Bước 2: Nén cà phê</p>
+                            <p>Cho bột cà phê vào phin, lắc nhẹ để phẳng mặt. Dùng tấm nén ép một lực vừa phải (không quá chặt làm tắc dòng chảy, không quá lỏng làm nhạt vị).</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar-red rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-cinnabar-red mb-1 italic">Bước 3: Giai đoạn Ủ (2 phút)</p>
+                            <p>Rót 20ml nước nóng (92°C) vào nắp phin và đặt phin lên trên, đồng thời rót 20ml nước lên trên mặt cà phê. Đợi 2 phút để cà phê hấp thụ nước và giải phóng khí CO2.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar-red rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-cinnabar-red mb-1 italic">Bước 4: Chiết suất (45 - 60 giọt/phút)</p>
+                            <p>Rót thêm 60ml nước nóng vào phin. Đậy nắp và chờ cà phê nhỏ giọt với tốc độ 45 - 60 giọt/phút.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar-red rounded-full border-4 border-white"></span>
+                            <p class="font-bold text-sm uppercase tracking-tighter text-cinnabar-red mb-1">Bước 5: Hoàn thiện</p>
+                            <p>Thu được khoảng 40-45ml nước cốt cà phê đậm đặc. Tùy theo khẩu vị khách quốc tế, có thể dùng đen hoặc thêm sữa đặc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="section-divider">
+            <span>⚜</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="pro-tip-box p-8 mb-12 rounded-lg shadow-sm">
+            <h3 class="text-2xl font-bold mb-6 text-burnished-gold flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 italic">
+                <div>
+                    <p class="mb-4"><strong>Chất lượng nước:</strong> Đây là yếu tố quyết định 80% hương vị. Tuyệt đối không dùng nước máy trực tiếp vì mùi Clo sẽ phá hỏng hương sen và vị cà phê.</p>
+                    <p><strong>Nhiệt độ:</strong> Trà Sen cực kỳ nhạy cảm; nước quá sôi sẽ làm cháy lá trà, gây đắng chát.</p>
+                </div>
+                <div>
+                    <p class="mb-4"><strong>Mẹo cho gia đình:</strong> Nếu không có nước suối thiên nhiên, hãy dùng nước lọc qua hệ thống RO nhưng đun sôi rồi để nguội bớt mới pha trà.</p>
+                    <p><strong>Lỗi cần tránh:</strong> Không dùng thìa khuấy mạnh trong phin khi đang chiết suất sẽ làm nước cà phê bị đục.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="variation-card p-6">
+                    <h4 class="font-bold text-lg mb-2 text-primary-charcoal uppercase">Cold Brew Lotus Tea</h4>
+                    <p class="text-gray-600 italic">Ngâm trà sen trong nước tinh khiết để ngăn mát tủ lạnh 12 tiếng để có vị ngọt thanh, giảm caffein.</p>
+                </div>
+                <div class="variation-card p-6">
+                    <h4 class="font-bold text-lg mb-2 text-primary-charcoal uppercase">Cà phê Trứng Quốc yến</h4>
+                    <p class="text-gray-600 italic">Kết hợp cốt cà phê phin với kem trứng đánh bông mịn cùng chút tinh chất vani để tăng sự sang trọng.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span>⚜</span>
+        </div>
+
+        <!-- Technical / Nutrition / Presentation -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Nutrition -->
+            <div class="bg-white p-8 border border-gray-100 shadow-sm rounded-sm">
+                <h3 class="text-xl font-bold mb-6 text-cinnabar-red uppercase tracking-widest border-b pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <p><strong>Trà Sen:</strong> Chứa hàm lượng Polyphenol và EGCG cao, giúp chống oxy hóa, thư giãn thần kinh và hỗ trợ tiêu hóa sau tiệc.</p>
+                    <p><strong>Cà phê:</strong> Caffeine cung cấp sự tỉnh táo, tăng cường trao đổi chất.</p>
+                    <p class="text-sm border-l-4 border-cinnabar-red pl-4 italic bg-red-50 py-2"><strong>Lưu ý sức khỏe:</strong> Khách mời có tiền sử tim mạch hoặc mất ngủ nên dùng trà sen nhạt và hạn chế dùng cà phê sau 16h chiều.</p>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div class="bg-white p-8 border border-gray-100 shadow-sm rounded-sm">
+                <h3 class="text-xl font-bold mb-6 text-burnished-gold uppercase tracking-widest border-b pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm">
+                    <li><strong class="text-primary-charcoal">Không gian:</strong> Sử dụng khay gỗ khảm trai hoặc khay bạc chạm khắc tinh xảo. Một bình hoa sen nhỏ (nếu là mùa sen) hoặc một nhành lan trắng đặt cạnh.</li>
+                    <li><strong class="text-primary-charcoal">Bộ đồ sứ:</strong> Sử dụng sứ trắng cao cấp có viền chỉ vàng để làm nổi bật màu nước trà xanh vàng mật ong và màu cà phê nâu cánh gián.</li>
+                    <li><strong class="text-primary-charcoal">Phụ kiện:</strong> Trà phục vụ kèm một đĩa nhỏ hạt sen sấy hoặc mứt sen trần. Cà phê phục vụ kèm một chiếc thìa bạc nhỏ và ly nước lọc nhỏ.</li>
+                    <li><strong class="text-primary-charcoal">Thao tác:</strong> Phục vụ trà trước bằng hai tay, hướng mặt hoa văn của chén về phía khách.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive script for subtle effects -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('translate-y-4');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, main > div > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-100', 'translate-y-0');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
