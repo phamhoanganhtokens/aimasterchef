@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chuột Đồng Khìa Nước Dừa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+        :root {
+            --primary: #2C2C2C;
+            --bg: #FCFAFA;
+            --accent: #D22F27; /* Cinnabar Red */
+            --gold: #C5A059; /* Burnished Gold */
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--primary);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+
+        .justified {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+            color: var(--gold);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .section-divider span {
+            padding: 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 2rem;
+            line-height: 1;
+            margin-right: 1rem;
+        }
+
+        .chef-box {
+            border: 3px double var(--gold);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 9px;
+            height: 9px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="inline-block border-y-2 border-[#C5A059] py-2 mb-6">
+                <p class="uppercase tracking-[0.3em] text-sm cinzel font-bold text-[#C5A059]">Digital Culinary Magazine</p>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 cinzel text-[#2C2C2C]">CHUỘT ĐỒNG KHÌA NƯỚC DỪA</h1>
+            <p class="text-xl md:text-2xl italic text-[#D22F27] mb-8 font-serif">Field Mouse Simmered in Coconut Water</p>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-stone-200">
+                <div class="flex flex-col items-center">
+                    <span class="text-[var(--gold)] text-xs uppercase tracking-widest cinzel mb-1">Difficulty</span>
+                    <span class="font-bold text-lg">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[var(--gold)] text-xs uppercase tracking-widest cinzel mb-1">Time</span>
+                    <span class="font-bold text-lg">60 - 75 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[var(--gold)] text-xs uppercase tracking-widest cinzel mb-1">Servings</span>
+                    <span class="font-bold text-lg">3 - 4 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[var(--gold)] text-xs uppercase tracking-widest cinzel mb-1">Origin</span>
+                    <span class="font-bold text-lg">Miền Tây Nam Bộ</span>
+                </div>
+            </div>
+
+            <div class="mt-8 max-w-3xl mx-auto">
+                <p class="justified italic text-stone-600 leading-relaxed">
+                    Đây là món ăn đặc sản đậm chất khẩn hoang của vùng Đồng bằng sông Cửu Long. Món ăn gắn liền với mùa nước nổi hoặc sau vụ thu hoạch lúa, khi chuột đồng béo tròn nhờ ăn lúa chín, mang hương vị ngọt lịm của phù sa và sự trù phú của sông ngòi miền Tây.
+                </p>
+            </div>
+        </header>
+
+        <div class="section-divider">
+            <span>★</span>
+        </div>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h2 class="text-3xl font-bold cinzel mb-8 border-b-2 border-[var(--accent)] inline-block">1. Nguyên liệu</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-[var(--gold)] uppercase tracking-wider font-bold mb-4 text-sm cinzel">Main Component</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified group-hover:text-[var(--gold)] transition-colors"><strong>Chuột đồng:</strong> 1kg (Chọn loại chuột cơm hoặc chuột cống nhum đã thui rơm, da vàng ươm, thịt chắc).</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified group-hover:text-[var(--gold)] transition-colors"><strong>Nước dừa tươi:</strong> 2 - 3 trái (Dừa xiêm để có độ ngọt thanh nhất).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[var(--gold)] uppercase tracking-wider font-bold mb-4 text-sm cinzel">Preparation & Spices</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified">Rượu trắng (100ml) & Gừng già.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified">Chanh tươi: 2 quả & Muối hạt.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified">Đường thốt nốt, hạt nêm, nước mắm ngon, tiêu sọ xay.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified">Hành tím, tỏi băm nhuyễn (30g).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-3 text-[var(--accent)]">◈</span>
+                                <span class="justified">Ngũ vị hương (1/2 muỗng cà phê) & Nước màu dừa nguyên chất.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[var(--gold)] uppercase tracking-wider font-bold mb-4 text-sm cinzel">Accompaniments</h3>
+                        <p class="justified text-sm italic text-stone-500">Chuối chát, khế chua, rau răm, húng quế, dưa leo.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h2 class="text-3xl font-bold cinzel mb-8 border-b-2 border-[var(--accent)] inline-block">2. Các bước thực hiện</h2>
+                
+                <div class="space-y-4">
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-xl uppercase tracking-tight">Sơ chế truyền thống</h4>
+                            <span class="italic text-stone-400 text-sm">15 phút</span>
+                        </div>
+                        <p class="justified text-stone-700">Chuột mua về đã thui sẵn, cắt bỏ đầu, đuôi, móng và đặc biệt là bộ phận tuyến hôi ở bẹn và nách chuột. Dùng hỗn hợp rượu trắng, gừng giã nát và muối hạt chà xát mạnh lên toàn thân chuột để khử mùi tanh. Rửa lại bằng nước chanh loãng, sau đó rửa sạch với nước lạnh và để thật ráo.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-xl uppercase tracking-tight">Ướp gia vị</h4>
+                            <span class="italic text-stone-400 text-sm">30 phút</span>
+                        </div>
+                        <p class="justified text-stone-700">Ướp chuột với hành tỏi băm, 1 muỗng đường thốt nốt, 1 muỗng nước mắm, nước màu dừa, tiêu và một ít hạt nêm. Để thịt thấm trong ít nhất 30 phút. Đường thốt nốt giúp món ăn có vị ngọt sâu và màu sắc đẹp hơn đường cát.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-xl uppercase tracking-tight">Áp chảo tạo màu</h4>
+                            <span class="italic text-stone-400 text-sm">10 phút</span>
+                        </div>
+                        <p class="justified text-stone-700">Đun nóng chảo với một ít dầu, cho chuột vào áp chảo với lửa lớn. Việc này giúp lớp da săn lại, mỡ chuột tướt ra và tạo phản ứng Maillard giúp bề mặt thịt có màu nâu cánh gián bắt mắt và giữ được nước bên trong thịt.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-xl uppercase tracking-tight">Khìa nước dừa</h4>
+                            <span class="italic text-stone-400 text-sm">20 phút</span>
+                        </div>
+                        <p class="justified text-stone-700">Sau khi áp chảo, chắt bớt mỡ thừa ra ngoài, đổ nước dừa tươi vào ngập mặt thịt. Đun sôi rồi hạ lửa nhỏ (liu riu). Trong quá trình khìa, không nên đậy nắp để nước dừa từ từ rút vào thịt, tạo độ bóng.</p>
+                    </div>
+
+                    <div class="timeline-item border-none pb-0">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-xl uppercase tracking-tight text-[var(--accent)]">Hoàn thiện</h4>
+                            <span class="italic text-stone-400 text-sm">Về đích</span>
+                        </div>
+                        <p class="justified text-stone-700">Khi nước dừa cạn dần và sánh lại thành hỗn hợp sền sệt, áo đều lên thân chuột thì tắt bếp. Lúc này thịt chuột sẽ có màu vàng nâu óng ả và vị ngọt thanh đặc trưng.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="section-divider">
+            <span>✧</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-12">
+            <div class="chef-box p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7.58 3 4 4.79 4 7c0 2.21 3.58 4 8 4s8-1.79 8-4c0-2.21-3.58-4-8-4M4 9v2c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 4v2c0 2.21 3.58 4 8 4s8-1.79 8-4v-2c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold cinzel mb-6 flex items-center">
+                    <span class="w-8 h-px bg-[var(--gold)] mr-4"></span>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                    <span class="w-8 h-px bg-[var(--gold)] ml-4"></span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-6 rounded-lg">
+                        <h5 class="font-bold text-[var(--accent)] mb-2 uppercase text-xs cinzel">Khử mùi hôi</h5>
+                        <p class="text-sm justified">Bước quan trọng nhất là loại bỏ tuyến hôi. Nếu không lấy sạch hai cục hôi ở bẹn, món ăn sẽ có mùi nồng rất khó chịu.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h5 class="font-bold text-[var(--accent)] mb-2 uppercase text-xs cinzel">Kiểm soát nhiệt</h5>
+                        <p class="text-sm justified">Giai đoạn nước dừa gần cạn là lúc dễ cháy nhất. Cần đảo liên tục và hạ lửa xuống mức thấp nhất để nước sốt không bị đắng.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h5 class="font-bold text-[var(--accent)] mb-2 uppercase text-xs cinzel">Lựa chọn chuột</h5>
+                        <p class="text-sm justified">Ngon nhất là chuột cơm hoặc chuột cống nhum. Tránh mua chuột ở khu vực dân cư để đảm bảo vệ sinh an toàn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold cinzel mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border border-stone-200 p-6 hover:bg-stone-50 transition-all cursor-default">
+                    <h4 class="font-bold cinzel text-[var(--gold)] mb-3">Ngũ Vị Hương</h4>
+                    <p class="text-sm justified italic">Thêm một ít ngũ vị hương lúc ướp để có mùi thơm nồng nàn hơn, gợi nhắc hương vị tiệc tùng truyền thống.</p>
+                </div>
+                <div class="border border-stone-200 p-6 hover:bg-stone-50 transition-all cursor-default">
+                    <h4 class="font-bold cinzel text-[var(--gold)] mb-3">Phiên Bản Cay</h4>
+                    <p class="text-sm justified italic">Thêm ớt hiểm đập dập vào giai đoạn khìa nếu muốn kích thích vị giác và át đi độ béo của dừa.</p>
+                </div>
+                <div class="border border-stone-200 p-6 hover:bg-stone-50 transition-all cursor-default">
+                    <h4 class="font-bold cinzel text-[var(--gold)] mb-3">Thay Thế</h4>
+                    <p class="text-sm justified italic">Kỹ thuật này có thể áp dụng hoàn hảo cho thịt gà thả vườn hoặc sườn non nếu không tìm được chuột đồng ngon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Bottom Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t-4 border-double border-stone-200">
+            <section>
+                <h3 class="text-xl font-bold cinzel mb-6 flex items-center text-[var(--accent)]">
+                    <span class="mr-2">◈</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-stone-100 pb-2">
+                        <span class="font-bold">Thịt chuột đồng</span>
+                        <span class="justified text-sm max-w-[250px]">Giàu đạm (protein), ít chất béo bão hòa, nhiều axit amin thiết yếu.</span>
+                    </div>
+                    <div class="flex justify-between border-b border-stone-100 pb-2">
+                        <span class="font-bold">Nước dừa</span>
+                        <span class="justified text-sm max-w-[250px]">Cung cấp điện giải (Kali, Magie), tạo vị ngọt tự nhiên.</span>
+                    </div>
+                    <p class="text-xs italic text-stone-500 mt-2">Tổng thể: Món ăn giàu năng lượng, cần ăn kèm nhiều rau xanh để bổ sung chất xơ.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xl font-bold cinzel mb-6 flex items-center text-[var(--accent)]">
+                    <span class="mr-2">◈</span> 6. Gợi ý trình bày
+                </h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="justified"><strong>Cách bày trí:</strong> Xếp chuột ra đĩa lớn hoặc mẹt lót lá chuối. Có thể để nguyên con hoặc chặt miếng vừa ăn.</li>
+                    <li class="justified"><strong>Đồ ăn kèm:</strong> Chuối chát thái mỏng, khế chua trung hòa vị béo. Thêm rau răm và ớt sừng tỉa hoa.</li>
+                    <li class="justified"><strong>Master Note:</strong> Nước sốt khìa là tinh túy, hãy dùng để chấm bánh mì hoặc xôi trắng để cảm nhận trọn vẹn vị ngọt miền Tây.</li>
+                </ul>
+            </section>
+        </div>
+
+    </div>
+
+    <script>
+        // Smooth hover animations for ingredients
+        document.querySelectorAll('li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateX(10px)';
+                item.style.transition = 'transform 0.3s ease';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>
