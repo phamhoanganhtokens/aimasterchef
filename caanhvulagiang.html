@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cá Anh Vũ Nấu Lá Giang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                        display: ["'Playfair Display'", "serif"],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            border-color: #C5A059;
+        }
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #C5A059;
+        }
+        .step-number {
+            position: absolute;
+            left: -33px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            border: 1px solid #C5A059;
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="relative pt-12 pb-8 px-6 md:px-12 max-w-6xl mx-auto text-center">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">AI VUA ĐẦU BẾP • ĐỆ NHẤT SẢN VẬT</div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold mb-2">Cá Anh Vũ Nấu Lá Giang</h1>
+        <h2 class="font-display text-xl md:text-2xl italic text-gray-600 mb-8">Anh Vu Fish with Giang Leaves Sour Soup</h2>
+        
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 border-y border-gold/30 py-6 my-8">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Độ Khó</span>
+                <span class="font-serif italic">Khó (Tinh tế)</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Thời Gian</span>
+                <span class="font-serif italic">55 Phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Khẩu Phần</span>
+                <span class="font-serif italic">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter">Vùng Miền</span>
+                <span class="font-serif italic">Bắc & Trung Bộ</span>
+            </div>
+        </div>
+
+        <p class="justified-text max-w-3xl mx-auto italic text-gray-700 leading-relaxed opacity-90 px-4 border-l-2 border-gold/20">
+            Món ăn là sự giao thoa độc đáo giữa lịch sử ẩm thực cung đình và nét dân dã của vùng miền. Cá Anh Vũ, loài cá có phần sụn môi hình mõm lợn đặc trưng sống ở ngã ba sông Bạch Hạc, vốn là đệ nhất sản vật tiến vua nhờ thớ thịt trắng ngần, giòn sần sật. Việc kết hợp với lá giang tạo ra một bản hòa tấu ẩm thực mang tính bản địa sâu sắc.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 md:px-12 pb-20">
+        
+        <div class="ornament">
+            <span class="ornament-icon">✧ ❃ ✧</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="font-display text-2xl font-bold border-b-2 border-charcoal pb-2 mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <section>
+                            <h4 class="text-cinnabar font-bold text-sm uppercase mb-3 tracking-widest italic">Chính & Hải Sản</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Cá Anh Vũ (nguyên sụn môi)</span>
+                                    <span class="italic text-gray-500">1 - 1.2kg</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Lá giang (vừa tầm)</span>
+                                    <span class="italic text-gray-500">150g</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="text-cinnabar font-bold text-sm uppercase mb-3 tracking-widest italic">Hương Liệu & Rau Nêm</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Ngò ôm, ngò gai</span>
+                                    <span class="italic text-gray-500">50g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Hành tím băm</span>
+                                    <span class="italic text-gray-500">3 củ</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Ớt sừng đỏ</span>
+                                    <span class="italic text-gray-500">1 quả</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Gừng tươi & Rượu trắng</span>
+                                    <span class="italic text-gray-500">Sơ chế</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 class="text-cinnabar font-bold text-sm uppercase mb-3 tracking-widest italic">Gia Vị & Nước Dùng</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Nước mắm cốt nhĩ</span>
+                                    <span class="italic text-gray-500">Loại ngon</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Đường phèn, Tiêu sọ trắng</span>
+                                    <span class="italic text-gray-500">Vừa đủ</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dotted border-gold/40 pb-1">
+                                    <span>Nước dùng thanh</span>
+                                    <span class="italic text-gray-500">1.5 lít</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="font-display text-2xl font-bold border-b-2 border-charcoal pb-2 mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                
+                <div class="ml-8 space-y-10">
+                    <div class="relative timeline-step">
+                        <span class="step-number">1</span>
+                        <h5 class="font-bold text-lg mb-2 text-cinnabar italic">Sơ chế cá Anh Vũ</h5>
+                        <p class="justified-text text-gray-800">
+                            Cá đánh vẩy, bỏ mang và nội tạng (chú ý tuyệt đối không làm rách mật cá để tránh bị đắng). Đặc biệt phải giữ nguyên phần sụn môi vì đây là tinh túy của con cá. Dùng muối hạt, nước cốt chanh và rượu trắng pha gừng đập dập vuốt nhẹ dọc thân cá để loại bỏ hoàn toàn màng đen và nhớt. Rửa sạch lại dưới vòi nước chảy, thấm khô, cắt khúc vừa ăn.
+                        </p>
+                    </div>
+
+                    <div class="relative timeline-step">
+                        <span class="step-number">2</span>
+                        <h5 class="font-bold text-lg mb-2 text-cinnabar italic">Tẩm ướp tinh tế <span class="text-xs font-normal text-gray-500 ml-2">| 15 phút</span></h5>
+                        <p class="justified-text text-gray-800">
+                            Ướp cá với 1 thìa cà phê nước cốt hành tím, 1/2 thìa cà phê muối và một chút tiêu sọ xay. Để nghỉ trong 15 phút. Không dùng nước mắm hay ngũ vị hương lúc này để bảo toàn hương vị nguyên bản của cá tiến vua.
+                        </p>
+                    </div>
+
+                    <div class="relative timeline-step">
+                        <span class="step-number">3</span>
+                        <h5 class="font-bold text-lg mb-2 text-cinnabar italic">Kỹ thuật vò lá giang</h5>
+                        <p class="justified-text text-gray-800">
+                            Lá giang nhặt lấy lá, rửa sạch. <strong>Đặc biệt lưu ý:</strong> Phải dùng tay vò nát lá giang trước khi nấu để giải phóng tối đa lượng axit tartaric, giúp nước canh có vị chua thanh và mùi thơm đặc trưng. Ngò ôm, ngò gai rửa sạch, cắt khúc 1cm.
+                        </p>
+                    </div>
+
+                    <div class="relative timeline-step">
+                        <span class="step-number">4</span>
+                        <h5 class="font-bold text-lg mb-2 text-cinnabar italic">Nấu nước dùng trong <span class="text-xs font-normal text-gray-500 ml-2">| 10 phút</span></h5>
+                        <p class="justified-text text-gray-800">
+                            Phi thơm hành tím băm với một chút dầu ăn, đổ 1.5 lít nước vào đun sôi. Khi nước sôi bùng, nhẹ nhàng thả cá Anh Vũ vào. Hạ lửa vừa, mở nắp nồi và liên tục vớt bọt để nước canh đạt độ trong tuyệt đối.
+                        </p>
+                    </div>
+
+                    <div class="relative timeline-step">
+                        <span class="step-number">5</span>
+                        <h5 class="font-bold text-lg mb-2 text-cinnabar italic">Tạo tầng vị cân bằng</h5>
+                        <p class="justified-text text-gray-800">
+                            Sau khi cá nấu được khoảng 10 phút (vừa chín tới), thả phần lá giang đã vò nát vào nồi. Nêm nếm với 1 thìa canh đường phèn (giúp cân bằng vị chua gắt thành chua thanh), 1 thìa cà phê muối. Đun thêm 3-5 phút.
+                        </p>
+                    </div>
+
+                    <div class="relative timeline-step">
+                        <span class="step-number">6</span>
+                        <h5 class="font-bold text-lg mb-2 text-cinnabar italic">Hoàn thiện hương sắc</h5>
+                        <p class="justified-text text-gray-800">
+                            Tắt bếp, nêm thêm 1.5 thìa canh nước mắm cốt nhĩ ngay khi vừa nhấc nồi ra khỏi bếp để tạo mùi thơm mà không làm chua nước canh. Rắc ngò ôm, ngò gai và ớt lát lên trên.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ornament">
+            <span class="ornament-icon">✧ ❃ ✧</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Chef's Corner -->
+            <section class="bg-gold/5 p-8 border-2 border-double border-gold/30 rounded-sm relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 text-gold/10 text-8xl font-serif">“</div>
+                <h3 class="font-display text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="w-8 h-[1px] bg-gold"></span>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 justified-text">
+                    <li class="flex gap-3">
+                        <span class="text-gold">✦</span>
+                        <span><strong>Kiểm soát nhiệt:</strong> Tuyệt đối không để nước sôi sục mạnh sau khi thả cá, thớ thịt cá Anh Vũ tinh tế sẽ dễ bị nát. Chỉ duy trì mức sôi lăn tăn (simmering).</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-gold">✦</span>
+                        <span><strong>Đường phèn:</strong> Là bí quyết tạo hậu vị thanh mát, làm cầu nối hoàn hảo giữa vị chua của lá giang và vị ngọt đạm của cá.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-gold">✦</span>
+                        <span><strong>Xử lý sụn môi:</strong> Căn chuẩn thời gian để sụn vừa chín tới, giữ nguyên độ giòn sần sật - linh hồn của nguyên liệu.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Variations -->
+            <section class="flex flex-col">
+                <h3 class="font-display text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="w-8 h-[1px] bg-charcoal"></span>
+                    4. Biến tấu & Phiên bản nâng cao
+                </h3>
+                <div class="flex-grow space-y-4">
+                    <div class="glass-card p-5 rounded">
+                        <h5 class="text-cinnabar font-bold text-sm uppercase mb-2">Thay thế nguyên liệu</h5>
+                        <p class="justified-text text-sm">Sử dụng cá lăng, cá chép giòn, hoặc cá tầm nếu không có cá Anh Vũ. Các loại cá này đều có thớ thịt chắc và sụn giòn phù hợp.</p>
+                    </div>
+                    <div class="glass-card p-5 rounded">
+                        <h5 class="text-cinnabar font-bold text-sm uppercase mb-2">Biến tấu độ chua</h5>
+                        <p class="justified-text text-sm">Nếu thiếu lá giang, dùng mẻ hoặc lá me non. Thêm một chút nước cốt chanh dây lọc hạt vào cuối quy trình để tạo dải hương nhiệt đới tương đồng.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-charcoal/10 pt-12">
+            <div>
+                <h3 class="font-display text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-3 h-3 bg-cinnabar rounded-full"></span>
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <p class="justified-text text-gray-700 text-sm leading-relaxed mb-4">
+                    Cá Anh Vũ cung cấp nguồn protein giá trị sinh học cao, Omega-3 dồi dào tốt cho tim mạch. Phần sụn môi chứa lượng lớn collagen và chondroitin tự nhiên hỗ trợ tái tạo sụn khớp.
+                </p>
+                <p class="justified-text text-gray-700 text-sm leading-relaxed">
+                    Lá giang giàu Vitamin C và saponin, giúp thanh nhiệt, giải độc và hỗ trợ hệ tiêu hóa xuất sắc.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-display text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-3 h-3 bg-cinnabar rounded-full"></span>
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-3 text-sm justified-text text-gray-700 italic border-l-2 border-gold/20 pl-6">
+                    <p>• Sử dụng tô sứ sâu lòng, lý tưởng nhất là gốm Celadon (men ngọc) để tôn vinh nước dùng trong.</p>
+                    <p>• Đặt cá vào trung tâm bát, hướng phần "môi" đặc trưng lên trên để thực khách chiêm ngưỡng.</p>
+                    <p>• Chan nước dùng ngập 2/3 thân cá, để lộ phần da trắng xám vẩy ánh bạc.</p>
+                    <p>• Điểm xuyết ngò ôm, ngò gai và ớt sừng đỏ tạo hiệu ứng tương phản thị giác.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Simple interactivity for visual flourish
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 10px 25px -5px rgba(197, 160, 89, 0.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
