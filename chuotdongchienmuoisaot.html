@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chuột Đồng Chiên Muối Sả Ớt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Force brand font requirements */
+        body, p, span, div, h1, h2, h3, h4, li {
+            font-family: 'Times New Roman', serif !important;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .parchment-bg {
+            background-color: #FCFAFA;
+        }
+
+        .charcoal-text {
+            color: #2C2C2C;
+        }
+
+        .cinnabar-accent {
+            color: #E23D28;
+        }
+
+        .gold-border {
+            border-color: #D4AF37;
+        }
+
+        .gold-accent {
+            color: #B8860B;
+        }
+
+        /* Glassmorphism subtle effect for headers */
+        .glass-nav {
+            background: rgba(252, 250, 250, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Decorative ornament divider */
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+            opacity: 0.4;
+        }
+        .divider-ornament:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .divider-ornament:not(:empty)::after {
+            margin-left: 1rem;
+        }
+
+        /* Custom Timeline Line */
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background-color: #E23D28;
+            border-radius: 50%;
+        }
+
+        .timeline-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 1.5rem;
+            width: 1px;
+            height: calc(100% - 1rem);
+            background-color: #D4AF37;
+            opacity: 0.3;
+        }
+
+        /* Tabs Animation */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* Responsive spacing for Meta-Bar */
+        @media (max-width: 640px) {
+            .meta-item {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+        }
+    </style>
+</head>
+<body class="parchment-bg charcoal-text selection:bg-red-100">
+
+    <!-- Header / Hero Section -->
+    <header class="max-w-5xl mx-auto px-6 pt-16 pb-8 text-center">
+        <div class="inline-block border-y-2 border-double border-[#D4AF37] py-2 px-6 mb-6">
+            <span class="uppercase tracking-[0.3em] text-xs font-bold cinnabar-accent">AI Vua Đầu Bếp • Premium Selection</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 charcoal-text tracking-tight leading-tight">
+            Chuột Đồng Chiên Muối Sả Ớt
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic gold-accent mb-12">
+            Field Mouse with Salt, Lemongrass & Chili
+        </h2>
+
+        <!-- Meta Bar -->
+        <div class="max-w-4xl mx-auto bg-white shadow-sm border border-gold-border rounded-sm overflow-hidden grid grid-cols-2 sm:grid-cols-4 text-sm tracking-wide">
+            <div class="meta-item p-4 border-r border-gray-100 flex flex-col items-center justify-center gap-1">
+                <span class="uppercase text-[10px] text-gray-400 font-bold">Độ khó</span>
+                <span class="font-bold text-base">TRUNG BÌNH</span>
+            </div>
+            <div class="meta-item p-4 border-r border-gray-100 flex flex-col items-center justify-center gap-1">
+                <span class="uppercase text-[10px] text-gray-400 font-bold">Thời gian</span>
+                <span class="font-bold text-base">60 PHÚT</span>
+            </div>
+            <div class="meta-item p-4 border-r border-gray-100 flex flex-col items-center justify-center gap-1">
+                <span class="uppercase text-[10px] text-gray-400 font-bold">Khẩu phần</span>
+                <span class="font-bold text-base">3-4 NGƯỜI</span>
+            </div>
+            <div class="meta-item p-4 flex flex-col items-center justify-center gap-1">
+                <span class="uppercase text-[10px] text-gray-400 font-bold">Nguồn gốc</span>
+                <span class="font-bold text-base uppercase">MIỀN TÂY</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-12 italic justified-text leading-relaxed text-gray-600">
+            "Đây là món ăn đặc sản dân dã mang đậm linh hồn của miền Tây Nam Bộ, đặc biệt phổ biến vào 'mùa nước nổi' hoặc sau các vụ thu hoạch lúa. Chuột đồng ăn lúa nên thịt chắc, ngọt, được xem là 'gà đồng', biểu tượng cho sự trù phú và tinh hoa ẩm thực khẩn hoang của người dân vùng sông nước."
+        </div>
+    </header>
+
+    <div class="divider-ornament max-w-lg mx-auto">
+        <svg class="w-8 h-8 gold-accent opacity-60" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+    </div>
+
+    <!-- Main Content Body -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="flex flex-col lg:flex-row gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:w-1/3">
+                <div class="sticky top-10">
+                    <h3 class="text-3xl font-bold mb-8 border-b-2 border-gold-border pb-2 inline-block">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="uppercase tracking-widest text-xs font-bold cinnabar-accent mb-4">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-dashed border-gray-200 pb-2 hover:bg-red-50 transition-colors px-2">
+                                    <span>Chuột đồng (chọn con chắc thịt)</span>
+                                    <span class="font-bold">1kg</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dashed border-gray-200 pb-2 hover:bg-red-50 transition-colors px-2">
+                                    <span>Sả tươi (nhánh)</span>
+                                    <span class="font-bold">5</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dashed border-gray-200 pb-2 hover:bg-red-50 transition-colors px-2">
+                                    <span>Ớt hiểm</span>
+                                    <span class="font-bold">3-5 quả</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="uppercase tracking-widest text-xs font-bold cinnabar-accent mb-4">Gia vị & Khử mùi</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between border-b border-dashed border-gray-200 pb-2 px-2">
+                                    <span>Tỏi, hành tím</span>
+                                    <span class="font-bold">2 củ mỗi loại</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dashed border-gray-200 pb-2 px-2">
+                                    <span>Gia vị truyền thống</span>
+                                    <span class="italic text-sm">Muối hột, đường, mắm...</span>
+                                </li>
+                                <li class="flex justify-between border-b border-dashed border-gray-200 pb-2 px-2">
+                                    <span>Gừng & Rượu trắng</span>
+                                    <span class="font-bold">100ml</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="uppercase tracking-widest text-xs font-bold cinnabar-accent mb-4">Rau ăn kèm</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white border border-gold-border px-3 py-1 text-sm rounded-full">Rau răm</span>
+                                <span class="bg-white border border-gold-border px-3 py-1 text-sm rounded-full">Dưa leo</span>
+                                <span class="bg-white border border-gold-border px-3 py-1 text-sm rounded-full">Xoài xanh bào</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chef's Corner -->
+                    <div class="mt-12 p-8 border-2 border-double border-gold-border bg-white shadow-xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-2 opacity-5">
+                            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L4 9v12h16V9l-8-6zm0 14c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                            <span class="cinnabar-accent">★</span> 3. Mẹo từ Vua Đầu Bếp
+                        </h4>
+                        <ul class="space-y-4 text-sm leading-relaxed justified-text italic">
+                            <li class="pl-4 border-l-2 border-red-200"><strong>Độ khô của thịt:</strong> Phải đảm bảo thịt chuột thật khô trước khi chiên để tránh bắn dầu và giúp da giòn hơn.</li>
+                            <li class="pl-4 border-l-2 border-red-200"><strong>Kiểm soát nhiệt độ:</strong> Không cho quá nhiều chuột vào chảo cùng lúc để tránh làm nguội dầu.</li>
+                            <li class="pl-4 border-l-2 border-red-200"><strong>Tránh cháy sả:</strong> Ướp với nước cốt sả trước, xác sả chỉ cho vào lúc cuối.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:w-2/3">
+                <h3 class="text-3xl font-bold mb-12 border-b-2 border-gold-border pb-2 inline-block">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12 ml-6">
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Sơ chế và Khử mùi</h4>
+                            <span class="text-sm gold-accent italic font-serif">Kỹ thuật Chuyên gia</span>
+                        </div>
+                        <p class="justified-text leading-relaxed text-gray-700">
+                            Chuột sau khi lột da, bỏ đầu, chân và nội tạng, cần đặc biệt lưu ý cắt bỏ phần hạch hôi ở hai bên bẹn và nách chuột. Đây là bước quan trọng nhất để loại bỏ mùi đặc trưng. Chà xát thịt chuột với gừng giã nát trộn rượu trắng trong 5-10 phút, sau đó rửa sạch bằng nước lạnh và thấm thật khô bằng khăn sạch hoặc giấy thấm dầu.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Tẩm ướp</h4>
+                            <span class="text-sm gold-accent italic font-serif">Hương vị Truyền thống</span>
+                        </div>
+                        <p class="justified-text leading-relaxed text-gray-700">
+                            Băm nhỏ sả, ớt, hành và tỏi. Giã nhỏ muối hột rồi trộn đều với sả ớt và một ít đường (để cân bằng vị mặn và tạo màu nâu vàng). Ướp hỗn hợp này lên toàn bộ thân chuột, từ trong ra ngoài. Để thịt nghỉ 30 phút cho gia vị thấm sâu vào thớ thịt.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Chiên sơ</h4>
+                            <span class="text-sm gold-accent italic font-serif">Mẹo gia đình</span>
+                        </div>
+                        <p class="justified-text leading-relaxed text-gray-700">
+                            Để tiết kiệm thời gian và đảm bảo thịt chín đều mà không bị cháy sả, bạn có thể chặt chuột làm đôi hoặc làm tư. Cho dầu vào chảo, khi dầu nóng già, cho chuột vào chiên ở lửa vừa cho đến khi thịt chín đều và có màu vàng nhạt.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Chiên giòn</h4>
+                            <span class="text-sm gold-accent italic font-serif">Kỹ thuật Đầu bếp</span>
+                        </div>
+                        <p class="justified-text leading-relaxed text-gray-700">
+                            Vớt chuột ra để ráo dầu và nguội bớt. Trước khi ăn, đun dầu thật nóng (đến khi bốc khói nhẹ) rồi thả chuột vào chiên lại lần 2 trong khoảng 1-2 phút ở lửa lớn. Kỹ thuật <strong class="cinnabar-accent">"chiên hai lần"</strong> này giúp lớp da đạt độ giòn tan như bánh quy trong khi bên trong vẫn giữ được độ mọng nước (juicy).
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tight">Hoàn thiện</h4>
+                            <span class="text-sm gold-accent italic font-serif">Cảm quan khứu giác</span>
+                        </div>
+                        <p class="justified-text leading-relaxed text-gray-700">
+                            Phi thơm một ít sả băm mới và lá chúc (nếu có) rồi xóc nhanh với thịt chuột đã chiên giòn để tăng kích thích khứu giác.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="divider-ornament mt-20">
+                    <span class="px-4 text-gold-accent opacity-50 uppercase tracking-[0.5em] text-[10px]">Tiếp nối hương vị</span>
+                </div>
+
+                <!-- Variations Section -->
+                <section class="mt-16 bg-white p-8 rounded shadow-sm border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-8">4. Biến tấu & Phiên bản nâng cao</h3>
+                    
+                    <div class="flex border-b border-gray-200 mb-8 overflow-x-auto">
+                        <button onclick="openTab(event, 'nuocmam')" class="tab-link px-6 py-3 border-b-2 border-gold-border font-bold text-sm uppercase cinnabar-accent whitespace-nowrap">Nước mắm</button>
+                        <button onclick="openTab(event, 'quaylu')" class="tab-link px-6 py-3 border-b-2 border-transparent hover:border-gray-300 font-bold text-sm uppercase text-gray-400 whitespace-nowrap">Quay lu</button>
+                        <button onclick="openTab(event, 'thaythe')" class="tab-link px-6 py-3 border-b-2 border-transparent hover:border-gray-300 font-bold text-sm uppercase text-gray-400 whitespace-nowrap">Nguyên liệu khác</button>
+                    </div>
+
+                    <div id="nuocmam" class="tab-content active">
+                        <p class="justified-text italic text-lg leading-relaxed">
+                            "Dành cho những ai thích vị mặn ngọt đậm đà thay vì vị cay nồng của sả ớt. Lớp sốt nước mắm keo lại bao quanh miếng thịt giòn rụm tạo nên sức hấp dẫn khó cưỡng."
+                        </p>
+                    </div>
+                    <div id="quaylu" class="tab-content">
+                        <p class="justified-text italic text-lg leading-relaxed">
+                            "Nếu có không gian ngoài trời, việc quay chuột trong lu đất sẽ mang lại hương vị hun khói đặc trưng của miền Tây, thịt sẽ mềm và thơm mùi rơm rạ."
+                        </p>
+                    </div>
+                    <div id="thaythe" class="tab-content">
+                        <p class="justified-text italic text-lg leading-relaxed">
+                            "Nếu không có chuột đồng, công thức này hoàn toàn có thể áp dụng cho chim cút hoặc gà tre để tạo nên một món chiên muối sả đẳng cấp không kém."
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="divider-ornament my-16">
+            <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+        </div>
+
+        <!-- Footer Info: Nutrition & Presentation -->
+        <div class="grid md:grid-cols-2 gap-12 bg-[#2C2C2C] text-[#FCFAFA] p-12 rounded-sm shadow-2xl">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 border-b border-gray-600 pb-2 gold-accent">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4 justified-text">
+                    <p>Thịt chuột đồng là nguồn cung cấp protein dồi dào, ít chất béo và cholesterol hơn so với thịt gia súc.</p>
+                    <div class="bg-gray-800 p-4 rounded border-l-4 border-gold-border">
+                        <p class="text-sm italic"><strong>Phân tích:</strong> 100g thịt chuột chứa khoảng 20g protein. Do phương pháp chiên ngập dầu, calorie sẽ cao. Nên ăn kèm rau răm và dưa leo để hỗ trợ tiêu hóa.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-6 border-b border-gray-600 pb-2 gold-accent">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm justified-text">
+                    <li class="flex gap-4">
+                        <span class="cinnabar-accent font-bold">01.</span>
+                        <span>Sử dụng đĩa gốm màu tối hoặc mẹt tre lót lá chuối để tôn lên vẻ đẹp mộc mạc của món ăn.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="cinnabar-accent font-bold">02.</span>
+                        <span>Xếp thịt chuột chồng lên nhau tạo độ cao, rắc sả chiên vàng giòn và ớt lát lên đỉnh để tạo điểm nhấn thị giác.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="cinnabar-accent font-bold">03.</span>
+                        <span>Màu xanh đậm của rau răm lót bên dưới sẽ tạo sự tương phản mạnh mẽ với màu vàng óng của thịt chuột.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("cinnabar-accent", "border-gold-border");
+                tablinks[i].classList.add("text-gray-400", "border-transparent");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("cinnabar-accent", "border-gold-border");
+            evt.currentTarget.classList.remove("text-gray-400", "border-transparent");
+        }
+
+        // Simple scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-step').forEach(step => {
+            step.style.opacity = "0";
+            step.style.transform = "translateY(20px)";
+            step.style.transition = "all 0.6s ease-out";
+            observer.observe(step);
+        });
+    </script>
+</body>
+</html>
+
