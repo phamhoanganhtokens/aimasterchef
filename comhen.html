@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cơm Hến</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="inline-block border-b-2 border-cinnabar pb-2 mb-4">
+            <span class="tracking-[0.3em] text-sm font-bold uppercase text-cinnabar">AI Vua Đầu Bếp</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight">Cơm Hến</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">Clam Rice - The Essence of Hue Heritage</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center gap-4 md:gap-8 border-y border-gold/30 py-6">
+            <div class="flex flex-col items-center px-4">
+                <span class="text-cinnabar text-xl">◈</span>
+                <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center px-4">
+                <span class="text-cinnabar text-xl">◈</span>
+                <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">90 phút</span>
+            </div>
+            <div class="flex flex-col items-center px-4">
+                <span class="text-cinnabar text-xl">◈</span>
+                <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 người</span>
+            </div>
+            <div class="flex flex-col items-center px-4">
+                <span class="text-cinnabar text-xl">◈</span>
+                <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Sông Hương, Huế</span>
+            </div>
+        </div>
+        
+        <p class="max-w-3xl mx-auto mt-8 justified-text italic text-gray-700 leading-relaxed px-4">
+            Món ăn dân dã có nguồn gốc từ vùng Cồn Hến trên sông Hương, Huế. Triết lý của món ăn nằm ở sự kết hợp giữa cái nghèo (tận dụng cơm nguội) và sự tinh tế trong gia vị, thể hiện rõ nét đặc trưng ẩm thực miền Trung: cay, đậm đà và thanh mát.
+        </p>
+    </header>
+
+    <div class="ornament">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4 space-y-8">
+            <div>
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-cinnabar italic text-4xl">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-6">
+                    <div class="hover-lift glass-card p-6 rounded-lg">
+                        <h4 class="font-bold text-cinnabar border-b border-gold/20 mb-3 pb-1">Thành phần chính</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                                <span>Hến tươi (hoặc đông lạnh)</span>
+                                <span class="font-bold">2kg / 400g</span>
+                            </li>
+                            <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                                <span>Cơm trắng (để nguội, tơi)</span>
+                                <span class="font-bold">3 bát</span>
+                            </li>
+                            <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                                <span>Da heo khô (tóp mỡ)</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                                <span>Đậu phộng rang cả vỏ</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="flex justify-between items-start border-b border-dotted border-gray-300 pb-1">
+                                <span>Mè rang</span>
+                                <span class="font-bold">Vừa đủ</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="hover-lift glass-card p-6 rounded-lg">
+                        <h4 class="font-bold text-cinnabar border-b border-gold/20 mb-3 pb-1">Rau sống & Thảo mộc</h4>
+                        <p class="text-sm justified-text text-gray-700 italic">
+                            Bắp chuối bào, thân chuối non thái mỏng, dọc mùng (bạc hà), rau thơm, ngò rí, giá đỗ, khế chua.
+                        </p>
+                    </div>
+
+                    <div class="hover-lift glass-card p-6 rounded-lg">
+                        <h4 class="font-bold text-cinnabar border-b border-gold/20 mb-3 pb-1">Gia vị đặc trưng</h4>
+                        <ul class="space-y-1 text-sm list-disc list-inside text-gray-700">
+                            <li>Mắm ruốc Huế nguyên chất</li>
+                            <li>Ớt chưng (ớt sa tế) siêu cay</li>
+                            <li>Tỏi, hành tím, gừng tươi</li>
+                            <li>Dầu màu điều, tiêu, nước mắm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-cinnabar italic text-4xl">2.</span> Các bước thực hiện
+            </h3>
+            
+            <div class="space-y-10 relative before:absolute before:left-[17px] before:top-4 before:bottom-4 before:w-[1px] before:bg-gold/30">
+                <!-- Step 1 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-9 h-9 bg-parchment border-2 border-gold rounded-full flex items-center justify-center font-bold text-cinnabar z-10 group-hover:bg-cinnabar group-hover:text-white transition-colors">1</div>
+                    <div class="bg-white/50 p-6 rounded-xl border border-transparent hover:border-gold/20 transition-all">
+                        <h4 class="font-bold text-xl mb-2 text-charcoal">Sơ chế hến và nước dùng</h4>
+                        <p class="justified-text text-gray-700">Ngâm hến tươi với nước vo gạo và vài lát ớt để sạch cát. Luộc hến với một chút muối và gừng đập dập. Khi hến mở miệng, đãi lấy thịt và lọc lấy phần nước trong. Đối với hến đông lạnh, rửa sạch với rượu trắng và gừng trước khi xào.</p>
+                        <span class="inline-block mt-3 text-xs font-bold uppercase tracking-widest text-gold italic">Ưu tiên hến tươi từ sông</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-9 h-9 bg-parchment border-2 border-gold rounded-full flex items-center justify-center font-bold text-cinnabar z-10 group-hover:bg-cinnabar group-hover:text-white transition-colors">2</div>
+                    <div class="bg-white/50 p-6 rounded-xl border border-transparent hover:border-gold/20 transition-all">
+                        <h4 class="font-bold text-xl mb-2 text-charcoal">Chế biến nước dùng chuyên nghiệp</h4>
+                        <p class="justified-text text-gray-700">Đun sôi lại nước luộc hến, thêm một muỗng mắm ruốc Huế đã hòa tan, gừng và hạt nêm. Giữ nước dùng luôn nóng hổi trên bếp để đảm bảo độ tương phản nhiệt độ khi ăn cùng cơm nguội.</p>
+                        <span class="inline-block mt-3 text-xs font-bold uppercase tracking-widest text-gold italic">Nhiệt độ là chìa khóa</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-9 h-9 bg-parchment border-2 border-gold rounded-full flex items-center justify-center font-bold text-cinnabar z-10 group-hover:bg-cinnabar group-hover:text-white transition-colors">3</div>
+                    <div class="bg-white/50 p-6 rounded-xl border border-transparent hover:border-gold/20 transition-all">
+                        <h4 class="font-bold text-xl mb-2 text-charcoal">Xào hến</h4>
+                        <p class="justified-text text-gray-700">Phi thơm hành tím với dầu màu điều, cho thịt hến vào xào nhanh tay trên lửa lớn. Nêm một ít nước mắm và tiêu. Lưu ý không xào quá lâu để thịt hến giữ được độ mọng nước, không bị dai.</p>
+                        <span class="inline-block mt-3 text-xs font-bold uppercase tracking-widest text-gold italic">Lửa lớn - Thao tác nhanh</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-9 h-9 bg-parchment border-2 border-gold rounded-full flex items-center justify-center font-bold text-cinnabar z-10 group-hover:bg-cinnabar group-hover:text-white transition-colors">4</div>
+                    <div class="bg-white/50 p-6 rounded-xl border border-transparent hover:border-gold/20 transition-all">
+                        <h4 class="font-bold text-xl mb-2 text-charcoal">Chuẩn bị rau sống & Tóp mỡ</h4>
+                        <p class="justified-text text-gray-700">Thái nhỏ tất cả các loại rau. Khế chua thái lát thật mỏng. Chiên giòn da heo cho đến khi phồng rộp (tóp mỡ). Đậu phộng rang vàng với chút muối.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute left-0 top-1 w-9 h-9 bg-parchment border-2 border-gold rounded-full flex items-center justify-center font-bold text-cinnabar z-10 group-hover:bg-cinnabar group-hover:text-white transition-colors">5</div>
+                    <div class="bg-white/50 p-6 rounded-xl border border-transparent hover:border-gold/20 transition-all">
+                        <h4 class="font-bold text-xl mb-2 text-charcoal">Pha mắm ruốc</h4>
+                        <p class="justified-text text-gray-700">Hòa mắm ruốc với đường, tỏi băm, và thật nhiều ớt chưng để tạo độ cay nồng đúng điệu Cố đô.</p>
+                        <span class="inline-block mt-3 text-xs font-bold uppercase tracking-widest text-gold italic">Cay nồng vị Huế</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="ornament">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Special Insight Sections -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="pro-tip-box p-8 rounded-lg shadow-sm">
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-2 text-gold">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <ul class="space-y-4 text-gray-800">
+                <li class="justified-text">
+                    <strong class="text-charcoal block mb-1">Bí quyết nước dùng:</strong>
+                    Để nước dùng trong vắt, không được khuấy mạnh khi đang đun lắng cặn. Việc thêm gừng không chỉ khử tanh mà còn trung hòa tính hàn của hến.
+                </li>
+                <li class="justified-text">
+                    <strong class="text-charcoal block mb-1">Kỹ thuật cơm nguội:</strong>
+                    Cơm phải là cơm nguội để nguội hẳn, hạt cơm săn lại. Nếu dùng cơm nóng, rau sống sẽ bị nát và mất đi độ giòn, làm giảm trải nghiệm kết cấu.
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-bold mb-6 text-charcoal">4. Biến tấu & Nâng cao</h3>
+            <div class="flex flex-col gap-4">
+                <div class="p-4 bg-white border border-gray-200 rounded-lg hover:border-cinnabar transition-colors cursor-default">
+                    <span class="text-xs font-bold text-cinnabar uppercase">Bún/Mì Hến</span>
+                    <p class="text-sm justified-text mt-1">Thay cơm nguội bằng bún tươi hoặc mì tôm chần qua cho cảm giác mềm mượt hơn.</p>
+                </div>
+                <div class="p-4 bg-white border border-gray-200 rounded-lg hover:border-cinnabar transition-colors cursor-default">
+                    <span class="text-xs font-bold text-cinnabar uppercase">Phiên bản Thuần Chay</span>
+                    <p class="text-sm justified-text mt-1">Thay hến bằng nấm bào ngư thái nhỏ xào sả ớt, dùng nước dùng rau củ kèm chao thay mắm ruốc.</p>
+                </div>
+                <div class="p-4 bg-white border border-gray-200 rounded-lg hover:border-cinnabar transition-colors cursor-default">
+                    <span class="text-xs font-bold text-cinnabar uppercase">Tiện lợi hiện đại</span>
+                    <p class="text-sm justified-text mt-1">Sử dụng hến đóng lon hoặc đông lạnh kết hợp đậu phộng rang sẵn để tiết kiệm thời gian (vẫn giữ 80% vị).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Info Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t-2 border-gold/20">
+        <div>
+            <h4 class="text-xl font-bold mb-4 text-charcoal border-l-4 border-cinnabar pl-3">5. Giá trị dinh dưỡng</h4>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                    <span class="text-gray-600">Năng lượng</span>
+                    <span class="font-bold">350 - 420 kcal/tô</span>
+                </div>
+                <p class="text-sm justified-text text-gray-700 italic">
+                    Hến là nguồn cung cấp sắt, kẽm và vitamin B12 tuyệt vời, rất tốt cho hệ tim mạch. Rau sống đa dạng cung cấp lượng chất xơ dồi dào.
+                </p>
+                <div class="bg-red-50 p-4 rounded text-xs text-red-800 leading-relaxed border border-red-100">
+                    <strong>LƯU Ý:</strong> Món ăn có hàm lượng Natri khá cao do mắm ruốc, người cao huyết áp nên điều tiết lượng nước dùng và mắm.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-xl font-bold mb-4 text-charcoal border-l-4 border-cinnabar pl-3">6. Gợi ý trình bày</h4>
+            <ul class="text-sm space-y-3 text-gray-700">
+                <li class="flex items-start gap-2">
+                    <span class="text-gold mt-1">✦</span>
+                    <span class="justified-text">Sử dụng bát sứ kiểu cổ hoặc bát sành thấp lòng để tôn vinh vẻ đẹp dân dã.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-gold mt-1">✦</span>
+                    <span class="justified-text">Xếp rau sống xuống dưới cùng, sau đó đến cơm nguội, thịt hến xào đặt ở trung tâm. Rắc đậu phộng, da heo và mè lên trên cùng.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-gold mt-1">✦</span>
+                    <span class="justified-text">Màu sắc phải tương phản: xanh của rau, trắng của cơm, vàng của da heo và đỏ rực của ớt chưng.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-gold mt-1">✦</span>
+                    <span class="justified-text">Nước dùng hến được phục vụ riêng trong bát nhỏ hoặc ấm sứ để thực khách tự rót, tạo sự thanh tao.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="mt-20 mb-10 text-center opacity-30">
+        <span class="text-xs uppercase tracking-[0.5em]">— AI KING OF CHEFS SERIES —</span>
+    </div>
+
+    <script>
+        // Simple entry animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('section, header, .ornament');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `all 0.8s ease ${index * 0.15}s`;
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
