@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Frankfurter Würstchen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'cream': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#B8860B',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #B8860B;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #D4AF37;
+        }
+        .timeline-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+        .pro-tip-box {
+            border: 3px double #B8860B;
+            padding: 2rem;
+            background-color: rgba(184, 134, 11, 0.05);
+        }
+        .ingredient-group {
+            border-left: 2px solid #E23D28;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .active-tab {
+            border-bottom: 3px solid #E23D28;
+            color: #E23D28;
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 animate-fade-in">
+        <p class="uppercase tracking-widest text-gold font-bold mb-4">AI Vua Đầu Bếp — Tinh Hoa Ẩm Thực</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">Frankfurter Würstchen</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">(Xúc xích Frankfurt truyền thống)</h2>
+        
+        <div class="meta-grid flex flex-wrap justify-center gap-4 md:gap-12 border-y border-gold/30 py-6 mt-8">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Nâng cao / Dễ</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">15ph - 3 giờ</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Frankfurt, Đức</span>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-8 italic justified-text text-gray-700">
+            "Frankfurter Würstchen là loại xúc xích có Chỉ dẫn Địa lý được Bảo hộ (PGI) tại Đức từ năm 1860. Theo quy định truyền thống, chỉ những chiếc xúc xích được sản xuất tại vùng Frankfurt am Main mới được mang tên gọi này. Điểm đặc trưng là sử dụng 100% thịt heo thượng hạng, nhồi trong ruột cừu và xông khói bằng gỗ sồi."
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-charcoal inline-block">1. Nguyên liệu</h3>
+                
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-lg text-cinnabar mb-2 uppercase text-xs tracking-widest">Thành phần chính</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between hover:translate-x-1 transition-transform"><span>Thịt heo (nạc vai)</span> <span class="font-bold">700g</span></li>
+                        <li class="flex justify-between hover:translate-x-1 transition-transform"><span>Mỡ lưng heo</span> <span class="font-bold">300g</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-lg text-cinnabar mb-2 uppercase text-xs tracking-widest">Gia vị & Phụ trợ</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between"><span>Muối tinh (nitrite)</span> <span class="font-bold">18-20g</span></li>
+                        <li class="flex justify-between"><span>Đá bào / Nước đá</span> <span class="font-bold">200g</span></li>
+                        <li class="flex justify-between"><span>Tiêu trắng</span> <span class="font-bold">2g</span></li>
+                        <li class="flex justify-between"><span>Nhục đậu khấu</span> <span class="font-bold">1g</span></li>
+                        <li class="flex justify-between"><span>Bột rau mùi</span> <span class="font-bold">1g</span></li>
+                        <li class="flex justify-between"><span>Tỏi bột</span> <span class="font-bold">0.5g</span></li>
+                    </ul>
+                </div>
+
+                <div class="ingredient-group">
+                    <h4 class="font-bold text-lg text-cinnabar mb-2 uppercase text-xs tracking-widest">Hoàn thiện</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between italic"><span>Ruột cừu tự nhiên</span> <span class="font-bold text-sm">Size 18/20</span></li>
+                        <li class="flex justify-between italic"><span>Mù tạt vàng, bánh mì Brötchen, Sauerkraut</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-charcoal inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="mt-4">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <h4 class="text-xl font-bold mb-2">Sơ chế & Xay thịt (Kỹ thuật Chuyên nghiệp)</h4>
+                    <p class="justified-text text-gray-700 italic mb-2">Yêu cầu: Nhiệt độ 0-2°C</p>
+                    <p class="justified-text">Cấp đông nhẹ thịt và mỡ heo đến khi đạt khoảng 0-2°C. Xay thịt và mỡ qua mặt sàng nhỏ nhất của máy xay thịt để đảm bảo độ mịn đồng nhất trước khi nhũ hóa.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <h4 class="text-xl font-bold mb-2">Nhũ hóa (Emulsification)</h4>
+                    <p class="justified-text text-gray-700 italic mb-2">Lưu ý: Không vượt quá 12°C</p>
+                    <p class="justified-text">Cho thịt đã xay vào máy xay sinh tố công suất lớn. Cho gia vị và 1/3 lượng đá bào vào. Xay ở tốc độ cao, tiếp tục cho đá bào vào dần dần. Nhiệt độ khối nhũ thịt tuyệt đối không được vượt quá 12°C để tránh hiện tượng tách mỡ.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <h4 class="text-xl font-bold mb-2">Nhồi xúc xích</h4>
+                    <p class="justified-text">Ngâm ruột cừu trong nước ấm cho mềm và bớt mặn. Sử dụng máy nhồi để đưa thịt vào ruột cừu. Không nhồi quá căng để tránh vỡ khi nấu. Xoắn thành từng đoạn dài khoảng 15-20cm (thường theo cặp).</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <h4 class="text-xl font-bold mb-2">Xông khói (Truyền thống)</h4>
+                    <p class="justified-text text-gray-700 italic mb-2">Thời gian: 30-60 phút</p>
+                    <p class="justified-text">Treo xúc xích trong lò xông khói bằng gỗ sồi ở nhiệt độ 50-60°C. Quá trình này giúp vỏ có màu vàng đồng rạng rỡ và hương thơm đặc trưng của khói sồi.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <h4 class="text-xl font-bold mb-2">Làm chín (Cách của Người nội trợ)</h4>
+                    <p class="justified-text font-bold text-cinnabar mb-2 uppercase text-xs">Nguyên tắc: Không được luộc sôi</p>
+                    <p class="justified-text">Đun nồi nước đến khoảng 75-80°C (nước bắt đầu sủi tăm li ti), tắt bếp hoặc hạ lửa nhỏ nhất, thả xúc xích vào ngâm trong 8-10 phút. Điều này giúp vỏ ruột cừu không bị nứt và giữ trọn nước thịt bên trong.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <span class="text-2xl">★</span>
+    </div>
+
+    <!-- Chef's Corner -->
+    <section class="mb-16">
+        <div class="pro-tip-box">
+            <h3 class="text-2xl font-bold mb-6 text-gold flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0 5.11 5.11 0 0 1 1.05 1.54 4 4 0 0 1 1.41 7.87L12 21Z"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2 border-b border-gold/30 pb-1">Quy tắc nhiệt độ</h5>
+                    <p class="text-sm justified-text">Luôn giữ thịt cận đóng băng trong suốt quá trình xay. Nếu nhũ thịt nóng lên, xúc xích sẽ bị bở và khô, làm hỏng cấu trúc mịn màng.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 border-b border-gold/30 pb-1">Tiếng "Snap" hoàn hảo</h5>
+                    <p class="text-sm justified-text">Để có độ giòn khi cắn, sau khi ngâm nước nóng, hãy vớt xúc xích ra và nhúng ngay vào nước đá lạnh trong 30 giây rồi để ráo.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 border-b border-gold/30 pb-1">Lỗi cần tránh</h5>
+                    <p class="text-sm justified-text text-cinnabar">Không nướng hoặc rán ở nhiệt độ cao. Lớp vỏ ruột cừu mỏng dễ bị dai hoặc rách, làm mất đi sự tinh tế của dòng PGI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="flex justify-center mb-8 gap-4 overflow-x-auto pb-2">
+            <button onclick="switchTab('rind')" id="btn-rind" class="tab-trigger px-6 py-2 font-bold uppercase tracking-widest text-sm transition-all active-tab">Thịt Bò</button>
+            <button onclick="switchTab('quick')" id="btn-quick" class="tab-trigger px-6 py-2 font-bold uppercase tracking-widest text-sm transition-all text-gray-400">Nhanh & Gọn</button>
+            <button onclick="switchTab('modern')" id="btn-modern" class="tab-trigger px-6 py-2 font-bold uppercase tracking-widest text-sm transition-all text-gray-400">Hiện đại</button>
+        </div>
+        
+        <div id="rind" class="tab-content active bg-white p-8 shadow-sm border border-gray-100 rounded-sm">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Frankfurter Rindswurst</h4>
+            <p class="justified-text">Một biến thể đặc sắc sử dụng 100% thịt bò dành cho những thực khách không sử dụng thịt heo. Quy trình nhũ hóa tương tự nhưng đòi hỏi kỹ thuật kiểm soát độ ẩm khắt khe hơn để thịt bò không bị khô.</p>
+        </div>
+        
+        <div id="quick" class="tab-content bg-white p-8 shadow-sm border border-gray-100 rounded-sm">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Phiên bản tại gia</h4>
+            <p class="justified-text">Nếu không tìm được ruột cừu tự nhiên, có thể thay thế bằng màng bọc collagen. Tuy nhiên, hãy lưu ý rằng độ giòn "snap" đặc trưng sẽ giảm đi đáng kể so với phiên bản truyền thống.</p>
+        </div>
+        
+        <div id="modern" class="tab-content bg-white p-8 shadow-sm border border-gray-100 rounded-sm">
+            <h4 class="text-xl font-bold mb-4 text-cinnabar">Gia vị hiện đại</h4>
+            <p class="justified-text">Để phù hợp với khẩu vị đa dạng, bạn có thể thêm một chút bột hành hoặc bột paprika khói. Cách này mang lại hương vị đậm đà, hơi hướng phong cách Hot dog Mỹ nhưng vẫn giữ cốt cách Đức.</p>
+        </div>
+    </section>
+
+    <!-- Bottom Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t-2 border-charcoal pt-12 mb-12">
+        <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-full bg-charcoal text-cream flex items-center justify-center text-sm">5</span>
+                Giá trị dinh dưỡng
+            </h3>
+            <div class="bg-gray-100 p-6 rounded-sm">
+                <p class="mb-4 font-bold text-cinnabar">Hàm lượng: 250-280 calo / 100g</p>
+                <p class="justified-text text-sm">
+                    <strong>Lưu ý sức khỏe:</strong> Chứa nhiều Natri và chất béo bão hòa. 
+                    <br><br>
+                    <strong>Gợi ý Master Chef:</strong> Nên ăn kèm với dưa cải muối (Sauerkraut) để cung cấp probiotics và chất xơ, giúp trung hòa chất béo và hỗ trợ tiêu hóa hiệu quả. Người có tiền sử cao huyết áp nên cân nhắc số lượng tiêu thụ.
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <span class="w-8 h-8 rounded-full bg-charcoal text-cream flex items-center justify-center text-sm">6</span>
+                Gợi ý trình bày
+            </h3>
+            <ul class="space-y-4 text-sm justified-text italic text-gray-700">
+                <li class="flex gap-4">
+                    <span class="text-gold">●</span>
+                    <span><strong>Phong cách cổ điển:</strong> Luôn trình bày theo cặp (2 chiếc) trên đĩa sứ trắng tối giản hoặc khay gỗ mộc bản để tôn vinh sự nguyên bản.</span>
+                </li>
+                <li class="flex gap-4">
+                    <span class="text-gold">●</span>
+                    <span><strong>Sắp xếp:</strong> Đặt xúc xích song song, bên cạnh là một khối mù tạt vàng tươi được quết điệu nghệ bằng thìa tạo đường cong mềm mại.</span>
+                </li>
+                <li class="flex gap-4">
+                    <span class="text-gold">●</span>
+                    <span><strong>Phụ kiện:</strong> Một ổ bánh mì nhỏ giòn rụm đặt phía góc đĩa. Trang trí thêm một nhành lá kinh giới (marjoram) tươi để khơi gợi hương vị thảo mộc ẩn giấu.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Reset all buttons
+            document.querySelectorAll('.tab-trigger').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-gray-400');
+            });
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active-tab');
+            document.getElementById('btn-' + tabId).classList.remove('text-gray-400');
+        }
+
+        // Simple Fade-in animation logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, header').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-4');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
