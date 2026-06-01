@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Ba Tê Cột Đèn Hải Phòng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23E28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EBD0',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 0;
+            bottom: -2.5rem;
+            width: 1px;
+            background: #E23E28;
+            opacity: 0.3;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .pro-box {
+            border: 4px double #C5A059;
+            background-color: rgba(244, 235, 208, 0.3);
+        }
+        .nav-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-tab.active {
+            border-bottom: 2px solid #E23E28;
+            color: #E23E28;
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 text-center border-b border-goldLight overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none flex flex-wrap justify-around items-center">
+             <!-- Simulated watermark patterns -->
+             <span class="text-9xl">PATE</span>
+             <span class="text-9xl">HẢI PHÒNG</span>
+        </div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <p class="uppercase tracking-[0.3em] text-gold font-bold mb-4">AI Vua Đầu Bếp Présente</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase">Ba Tê Cột Đèn Hải Phòng</h1>
+            <h2 class="text-2xl md:text-3xl italic font-serif text-charcoal/70 mb-10">Traditional Hai Phong Pate (Restaurant Quality Craft)</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30 mt-8">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-charcoal/60">Difficulty</span>
+                    <span class="font-bold text-sm">Trung bình - Khó</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,32a96,96,0,1,0,96,96A96,96,0,0,0,128,32Z" opacity="0.2"></path><path d="M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM128,72a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V80A8,8,0,0,0,128,72Zm40,56a8,8,0,0,0,0,16h16a8,8,0,0,0,0-16Zm-80,0a8,8,0,0,0,0,16H72a8,8,0,0,0,0-16Z"></path></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-charcoal/60">Time</span>
+                    <span class="font-bold text-sm">6 - 8 tiếng</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a72,72,0,1,0-63.44,0c-28.84,8.13-53.66,27.3-69.47,54.62a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.34-52s70.5,19.44,89.34,52a8,8,0,1,0,13.85-8Z"></path></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-charcoal/60">Servings</span>
+                    <span class="font-bold text-sm">8 - 10 người</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path><path d="M128,64a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64Zm0,112a48,48,0,1,1,48-48A48.05,48.05,0,0,1,128,176Z" opacity="0.2"></path></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest text-charcoal/60">Origin</span>
+                    <span class="font-bold text-sm">Cột Đèn, Hải Phòng</span>
+                </div>
+            </div>
+            
+            <div class="mt-8 px-4">
+                <p class="justified-text italic text-charcoal/80 leading-relaxed text-lg">
+                    "Xuất thân từ ngã tư Cột Đèn, Hải Phòng. Món ăn này nổi tiếng nhờ phương pháp hấp cách thủy dài lâu, tạo nên kết cấu pate mềm mướt như lụa, vị béo ngậy đặc trưng của mỡ phần và mùi thơm nồng nàn của tiêu, tỏi."
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">1. Nguyên liệu</h3>
+                
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="text-gold font-bold tracking-widest uppercase text-xs mb-4">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Gan lợn (nếp):</span> 500g <br><span class="text-xs italic opacity-70">(Chọn gan sáng màu, không bị thâm)</span></div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Thịt vai sấn:</span> 500g <br><span class="text-xs italic opacity-70">(Nhiều mỡ hoặc tỉ lệ 6 thịt : 4 mỡ)</span></div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Mỡ tảng (mỡ lưng):</span> 200g <br><span class="text-xs italic opacity-70">(Dùng để lót đáy khuôn)</span></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold tracking-widest uppercase text-xs mb-4">Sơ chế & Phụ liệu</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Sữa tươi:</span> 300ml <br><span class="text-xs italic opacity-70">(Không đường, khử độc gan)</span></div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Bánh mì:</span> 2 ổ <br><span class="text-xs italic opacity-70">(Chỉ lấy phần ruột)</span></div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Hành & Tỏi:</span> 50g mỗi loại <br><span class="text-xs italic opacity-70">(Hải Phòng đặc trưng nhiều tỏi)</span></div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 mt-1 group-hover:scale-125 transition-transform">✦</span>
+                                <div><span class="font-bold">Bơ lạt:</span> 50g <br><span class="text-xs italic opacity-70">(Tăng độ thơm ngậy kiểu Pháp)</span></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gold/5 p-6 border-l-4 border-gold">
+                        <h4 class="text-gold font-bold tracking-widest uppercase text-xs mb-4">Gia vị bí truyền</h4>
+                        <ul class="space-y-2 text-sm italic">
+                            <li>• 20ml nước mắm cốt</li>
+                            <li>• 10g hạt nêm, 10g đường</li>
+                            <li>• 15g tiêu đen xay <span class="text-cinnabar font-bold">(Quan trọng)</span></li>
+                            <li>• 5g bột quế <span class="text-cinnabar font-bold">(Bí quyết truyền thống)</span></li>
+                            <li>• 30ml rượu trắng hoặc Brandy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">2. Các bước thực hiện</h3>
+                
+                <div class="mt-8">
+                    <!-- Step 1 -->
+                    <div class="timeline-step">
+                        <div class="step-number font-serif">1</div>
+                        <div class="glass-card p-6 rounded-sm border">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Sơ chế gan & thịt (Kỹ thuật Pro)</h4>
+                                <span class="text-xs font-serif italic text-gold">30-45 phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/90">
+                                Gan thái mỏng, ngâm sữa tươi 30 phút để khử tanh và độc tố. Sau đó rửa sạch, để ráo. Thịt vai thái miếng nhỏ. Ruột bánh mì ngâm với một ít sữa cho mềm nhuyễn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step">
+                        <div class="step-number font-serif">2</div>
+                        <div class="glass-card p-6 rounded-sm border">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Xào thơm (Phương pháp truyền thống)</h4>
+                                <span class="text-xs font-serif italic text-gold">15 phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/90">
+                                Phi thơm hành, tỏi băm với bơ. Cho thịt và gan vào xào săn. Thêm nước mắm, đường, tiêu, bột quế và rượu trắng vào đảo đều cho đến khi chín tái. Hương thơm lúc này sẽ quyết định chất lượng Pate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step">
+                        <div class="step-number font-serif">3</div>
+                        <div class="glass-card p-6 rounded-sm border">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Xay hỗn hợp (Lựa chọn Home Cook)</h4>
+                                <span class="text-xs font-serif italic text-gold">10 phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/90">
+                                Cho toàn bộ hỗn hợp đã xào vào máy xay cùng ruột bánh mì đã ngâm sữa. 
+                                <strong class="text-cinnabar">Lưu ý:</strong> Không xay quá nhuyễn như giò sống, nên để lại một chút kết cấu lợn cợn đặc trưng của Pate Hải Phòng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step">
+                        <div class="step-number font-serif">4</div>
+                        <div class="glass-card p-6 rounded-sm border">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Chuẩn bị khuôn (Stylist tư vấn)</h4>
+                                <span class="text-xs font-serif italic text-gold">10 phút</span>
+                            </div>
+                            <p class="justified-text text-charcoal/90">
+                                Lót những lát mỡ tảng thái mỏng dưới đáy khuôn. Đổ hỗn hợp pate vào, dàn phẳng mặt. Có thể lót thêm một lớp mỡ mỏng lên trên cùng để khi chín mỡ tan chảy bao phủ khối pate, tạo độ óng mượt khi trình bày.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="timeline-step">
+                        <div class="step-number font-serif">5</div>
+                        <div class="glass-card p-6 rounded-sm border border-gold/40 shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-bold uppercase tracking-tight text-cinnabar">Hấp "Tẩy" (Quy trình quyết định)</h4>
+                                <span class="text-xs font-serif italic text-gold">6 - 8 tiếng</span>
+                            </div>
+                            <p class="justified-text text-charcoal/90 mb-4">
+                                <strong>Cách truyền thống:</strong> Hấp cách thủy từ 6 - 12 tiếng. Thời gian hấp càng lâu, mỡ càng tan chảy thấm vào gan thịt, tạo độ mướt và màu đỏ nâu đẹp mắt.
+                            </p>
+                            <p class="justified-text text-charcoal/90 italic border-t border-gold/10 pt-4">
+                                <strong>Cách hiện đại:</strong> Dùng nồi áp suất hấp trong 1.5 - 2 tiếng để đạt độ mềm tương tự nếu bạn không có quá nhiều thời gian.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="timeline-step">
+                        <div class="step-number font-serif">6</div>
+                        <div class="glass-card p-6 rounded-sm border">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-xl font-bold uppercase tracking-tight">Hoàn thiện & Thưởng thức</h4>
+                                <span class="text-xs font-serif italic text-gold">4 tiếng nghỉ</span>
+                            </div>
+                            <p class="justified-text text-charcoal/90">
+                                Sau khi hấp xong, không lấy ra ngay. Để pate nguội tự nhiên và đông lại trong tủ lạnh ít nhất 4 tiếng trước khi úp ngược khuôn ra đĩa. Điều này giúp cấu trúc pate ổn định và các tầng hương vị hòa quyện nhất.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament">
+            <span class="ornament-icon">★ ★ ★</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Chef's Corner -->
+            <div class="pro-box p-8 relative">
+                <div class="absolute -top-4 left-6 bg-charcoal text-parchment px-4 py-1 uppercase text-xs tracking-widest font-bold">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="mt-4 space-y-6">
+                    <div class="flex gap-4">
+                        <div class="text-gold text-2xl font-bold font-serif">01</div>
+                        <div>
+                            <h5 class="font-bold uppercase mb-1">Khử mùi tuyệt đối</h5>
+                            <p class="justified-text text-sm">Luôn dùng rượu mạnh (Brandy/Rum) hoặc rượu trắng ngon để khử mùi nồng của gan, tạo hương vị sang trọng vượt bậc.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-gold text-2xl font-bold font-serif">02</div>
+                        <div>
+                            <h5 class="font-bold uppercase mb-1">Kiểm soát độ ẩm</h5>
+                            <p class="justified-text text-sm">Khi hấp, hãy bọc kín miệng khuôn bằng giấy bạc để nước không rơi vào làm pate bị bở và chua. Độ kín là chìa khóa của sự mềm mịn.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-gold text-2xl font-bold font-serif">03</div>
+                        <div>
+                            <h5 class="font-bold uppercase mb-1">Khắc phục lỗi khô</h5>
+                            <p class="justified-text text-sm">Pate bị khô thường do thiếu mỡ hoặc hấp chưa đủ thời gian. Pate Hải Phòng đúng chuẩn phải có kết cấu "tan ngay trong miệng".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variations -->
+            <div class="flex flex-col">
+                <h3 class="text-2xl font-bold mb-6 border-b border-charcoal pb-2 uppercase tracking-tight">4. Biến tấu & Phiên bản</h3>
+                
+                <div id="variation-container" class="space-y-4 flex-grow">
+                    <div class="group cursor-pointer border border-gold/20 p-4 hover:bg-gold/5 transition-all" onclick="showVariation(0)">
+                        <div class="flex justify-between items-center">
+                            <h5 class="font-bold uppercase">Pate Gà (Light Version)</h5>
+                            <span class="text-gold group-hover:translate-x-2 transition-transform">→</span>
+                        </div>
+                        <p class="text-sm justified-text mt-2 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-500 overflow-hidden">Thay gan lợn bằng gan gà và thịt gà đùi để có vị thanh nhẹ, màu sắc tươi sáng và ít béo hơn.</p>
+                    </div>
+
+                    <div class="group cursor-pointer border border-gold/20 p-4 hover:bg-gold/5 transition-all" onclick="showVariation(1)">
+                        <div class="flex justify-between items-center">
+                            <h5 class="font-bold uppercase">Phiên bản ít béo (Modern)</h5>
+                            <span class="text-gold group-hover:translate-x-2 transition-transform">→</span>
+                        </div>
+                        <p class="text-sm justified-text mt-2 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-500 overflow-hidden">Giảm lượng mỡ tảng, thay bằng kem tươi (heavy cream) để giữ độ mịn nhưng vẫn đảm bảo sức khỏe.</p>
+                    </div>
+
+                    <div class="group cursor-pointer border border-gold/20 p-4 hover:bg-gold/5 transition-all" onclick="showVariation(2)">
+                        <div class="flex justify-between items-center">
+                            <h5 class="font-bold uppercase">Gia vị đột phá (Fusion)</h5>
+                            <span class="text-gold group-hover:translate-x-2 transition-transform">→</span>
+                        </div>
+                        <p class="text-sm justified-text mt-2 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-500 overflow-hidden">Thêm hạt mắc khén hoặc tiêu xanh tươi để tạo sự bùng nổ về mùi hương mang đậm hơi thở núi rừng.</p>
+                    </div>
+                </div>
+                <div class="mt-4 p-4 bg-charcoal text-parchment text-xs italic text-center">
+                    Gợi ý: Nhấp vào từng phiên bản để xem chi tiết kỹ thuật
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical & Nutrition Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t-2 border-gold/30">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-cinnabar text-parchment flex items-center justify-center text-sm mr-3 font-serif italic">5</span>
+                    Giá trị dinh dưỡng
+                </h3>
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="border p-4 text-center bg-white/50">
+                        <span class="block text-2xl font-bold">350 - 400</span>
+                        <span class="text-xs uppercase tracking-widest opacity-60">kcal / 100g</span>
+                    </div>
+                    <div class="border p-4 text-center bg-white/50">
+                        <span class="block text-2xl font-bold">Vitamin A</span>
+                        <span class="text-xs uppercase tracking-widest opacity-60">High Bioavailability</span>
+                    </div>
+                </div>
+                <p class="justified-text text-sm leading-relaxed mb-4">
+                    Thành phần chính từ gan và thịt cung cấp lượng lớn Vitamin A, Sắt, Protein và các axit béo bão hòa cần thiết cho cơ thể.
+                </p>
+                <div class="bg-red-50 p-4 border border-red-100 rounded">
+                    <p class="text-xs text-red-800 italic">
+                        <strong>Lời khuyên dinh dưỡng:</strong> Do hàm lượng Cholesterol và Purin cao, người bị Gout hoặc mỡ máu nên hạn chế dùng quá 2 lần/tuần.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Presentation Tips -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-cinnabar text-parchment flex items-center justify-center text-sm mr-3 font-serif italic">6</span>
+                    Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <div class="flex gap-4 border-b border-gold/10 pb-3">
+                        <strong class="uppercase text-gold min-w-[100px]">Trình bày:</strong>
+                        <p class="justified-text">Úp khối pate ra đĩa phẳng để lộ lớp mỡ trong suốt bao quanh. Rắc thêm một chút tiêu đen và ngò rí lên trên để tạo điểm nhấn thị giác.</p>
+                    </div>
+                    <div class="flex gap-4 border-b border-gold/10 pb-3">
+                        <strong class="uppercase text-gold min-w-[100px]">Đồ kèm:</strong>
+                        <p class="justified-text">Phải ăn cùng bánh mì giòn (loại bánh mì que Hải Phòng là tốt nhất) và Chí Chương (tương ớt đặc trưng của Hải Phòng có vị cay nồng và chua nhẹ).</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <strong class="uppercase text-gold min-w-[100px]">Chụp ảnh:</strong>
+                        <p class="justified-text">Chụp góc 45 độ khi cắt một miếng pate đặt lên lát bánh mì, để mỡ hơi chảy nhẹ tạo hiệu ứng ngon miệng (appetizing). Sử dụng ánh sáng vàng ấm để tôn lên màu nâu đỏ của gan chín kỹ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="py-12 flex justify-center opacity-30">
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10V90M10 50H90" stroke="#C5A059" stroke-width="1"/>
+            <circle cx="50" cy="50" r="40" stroke="#C5A059" stroke-width="1"/>
+            <rect x="35" y="35" width="30" height="30" transform="rotate(45 50 50)" stroke="#C5A059" stroke-width="1"/>
+        </svg>
+    </div>
+
+    <script>
+        function showVariation(index) {
+            // This could be used for more complex tab behavior if needed
+            // Currently using CSS group-hover for the effect as per instructions
+        }
+
+        // Add subtle animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
