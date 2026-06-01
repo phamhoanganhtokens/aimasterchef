@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bánh Hỏi Lòng Heo Quy Nhơn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23E28',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .ornament {
+            color: #D4AF37;
+            font-size: 1.5rem;
+        }
+        .recipe-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            font-size: 2.5rem;
+            color: rgba(226, 62, 40, 0.1);
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #E23E28;
+            color: #E23E28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 border-b-4 border-cinnabar pb-8">
+        <div class="mb-4">
+            <span class="text-xs tracking-[0.3em] uppercase text-gold font-bold">AI VUA ĐẦU BẾP • TẠP CHÍ ẨM THỰC</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight">BÁNH HỎI LÒNG HEO QUY NHƠN</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 font-normal">Quy Nhon Rice Vermicelli with Pork Offal (Binh Dinh)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="mt-8 grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-t border-b border-gray-100 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100 md:pl-12 pl-0">
+                <span class="text-cinnabar text-xl mb-1">⏱</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">90 - 120 phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100 md:pl-12 pl-0">
+                <span class="text-cinnabar text-xl mb-1">👥</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100 md:pl-12 pl-0">
+                <span class="text-cinnabar text-xl mb-1">📍</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Xuất xứ</span>
+                <span class="font-bold">Bình Định</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic text-gray-700 max-w-3xl mx-auto justified">
+            Món ăn là niềm tự hào của vùng đất võ Bình Định, đặc biệt là huyện Tuy Phước. Truyền thống người Bình Định thường dùng món này làm bữa sáng, kết hợp giữa sự thanh tao của bánh hỏi và vị béo ngậy của lòng heo, đi kèm với một bát cháo nóng hổi.
+        </p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 order-2 lg:order-1">
+            <div class="sticky top-8">
+                <h3 class="text-2xl font-bold mb-6 border-l-4 border-gold pl-4 uppercase">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-sm font-bold text-cinnabar uppercase tracking-widest mb-3 italic">Thành phần chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1 hover:text-cinnabar transition-colors">
+                                <span>Bánh hỏi (loại lá mỏng)</span>
+                                <span class="font-bold italic">1kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1 hover:text-cinnabar transition-colors">
+                                <span>Lòng heo thập cẩm</span>
+                                <span class="font-bold italic">800g - 1kg</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1 hover:text-cinnabar transition-colors">
+                                <span>Hẹ sẻ (lá nhỏ)</span>
+                                <span class="font-bold italic">200g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-bold text-cinnabar uppercase tracking-widest mb-3 italic">Gia vị & Sơ chế</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2">
+                                <span class="text-gold">✦</span>
+                                <span class="text-sm">Rượu trắng, gừng, chanh, phèn chua hoặc bột mì, muối hạt.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-bold text-cinnabar uppercase tracking-widest mb-3 italic">Nước chấm & Rau</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 border-b border-gray-100 pb-2">
+                                <span class="text-gold">✦</span>
+                                <span class="text-sm justified">Nước mắm ngon, đường phèn, tỏi, ớt kim, chanh/tắc.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-gold">✦</span>
+                                <span class="text-sm justified">Xà lách, húng quế, húng lủi, diếp cá, giá đỗ và dưa leo.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-bold text-cinnabar uppercase tracking-widest mb-3 italic">Đồ ăn kèm</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dashed border-gray-300 pb-1">
+                                <span>Gạo & Huyết heo</span>
+                                <span class="font-bold italic">1/2 chén</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <main class="lg:col-span-8 order-1 lg:order-2">
+            <h3 class="text-2xl font-bold mb-8 border-l-4 border-gold pl-4 uppercase">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative border-l border-gray-200 ml-4 pl-8">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="recipe-card p-6 border-t-2 border-cinnabar">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold mb-3 italic">Sơ chế lòng heo (Kỹ thuật chuyên nghiệp)</h4>
+                        <p class="justified text-gray-700">
+                            Phèo non và bao tử dùng bột mì và muối chà xát để khử nhớt, sau đó rửa lại bằng nước cốt chanh hoặc rượu trắng để khử mùi. Cật và gan ngâm trong sữa tươi không đường 15 phút để khử độc tố và mùi tanh.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="recipe-card p-6 border-t-2 border-cinnabar">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold mb-3 italic">Luộc lòng (Bí quyết giữ độ giòn trắng)</h4>
+                        <p class="justified text-gray-700 mb-4">
+                            Chuẩn bị nồi nước sôi với gừng đập dập, hành tím và muối. Cho lòng vào luộc (tim/gan ~20-30p, phèo non ~7-10p). Vừa chín tới, vớt ra ngâm ngay vào tô nước đá lạnh có pha chanh ("sốc nhiệt") để lòng trắng và giòn.
+                        </p>
+                        <span class="text-xs font-bold text-cinnabar italic">Ước tính: 40 phút</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="recipe-card p-6 border-t-2 border-cinnabar">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold mb-3 italic">Làm mỡ hẹ (Linh hồn món ăn)</h4>
+                        <p class="justified text-gray-700">
+                            Hẹ rửa sạch, cắt nhỏ (~0.5cm). Đun nóng mỡ heo/dầu ăn, khi dầu thật nóng thì tắt bếp rồi mới đổ hẹ vào đảo nhanh tay để giữ màu xanh và mùi thơm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="recipe-card p-6 border-t-2 border-cinnabar">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold mb-3 italic">Pha nước mắm (Tỷ lệ vàng)</h4>
+                        <p class="justified text-gray-700">
+                            Giã nhuyễn tỏi và ớt kim. Pha theo tỷ lệ 1 mắm : 1 đường : 1 nước : 1/2 chanh. Dùng đường phèn để có vị ngọt thanh.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="recipe-card p-6 border-t-2 border-cinnabar">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-bold mb-3 italic">Nấu cháo ăn kèm (Truyền thống)</h4>
+                        <p class="justified text-gray-700">
+                            Dùng nước luộc lòng đã lọc cặn, cho gạo vào ninh nhừ. Thêm huyết heo và gừng thái sợi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cinnabar rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="recipe-card p-6 border-t-2 border-cinnabar">
+                        <span class="step-number">06</span>
+                        <h4 class="text-xl font-bold mb-3 italic">Hoàn thiện bánh hỏi</h4>
+                        <p class="justified text-gray-700">
+                            Tách từng lá bánh hỏi, dùng cọ phết đều mỡ hẹ lên trên rồi cuộn tròn hoặc xếp chồng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chef's Corner Section -->
+    <section class="mt-16">
+        <div class="section-divider">
+            <span class="ornament">✿</span>
+        </div>
+        <div class="bg-gray-50 border-2 border-double border-gold p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+                <span class="text-8xl">★</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-6 text-charcoal uppercase text-center">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="grid md:grid-cols-3 gap-8 italic">
+                <div class="p-4 bg-white shadow-sm border-l-4 border-cinnabar">
+                    <p class="justified font-medium">"Kỹ thuật Luộc hai lần": Với phèo non, có thể luộc sơ rồi ngâm nước đá, sau đó luộc lại lần hai để đạt độ giòn tối ưu.</p>
+                </div>
+                <div class="p-4 bg-white shadow-sm border-l-4 border-cinnabar">
+                    <p class="justified font-medium">"Lỗi cần tránh": Không nên cho nhiều muối vào nước luộc lòng ngay từ đầu vì làm lòng bị dai và đen. Chỉ cho một chút để giữ vị.</p>
+                </div>
+                <div class="p-4 bg-white shadow-sm border-l-4 border-cinnabar">
+                    <p class="justified font-medium">"Chọn hẹ": Phải là hẹ lá nhỏ (hẹ sẻ) của miền Trung mới tạo ra mùi thơm đúng điệu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mt-16">
+        <h3 class="text-2xl font-bold mb-8 border-l-4 border-gold pl-4 uppercase">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="flex flex-wrap border-b border-gray-200 mb-8">
+            <button onclick="showTab('home')" id="btn-home" class="tab-btn active px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all">Gia đình</button>
+            <button onclick="showTab('chef')" id="btn-chef" class="tab-btn px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all">Nâng cao</button>
+        </div>
+        
+        <div id="tab-home" class="tab-content active animate-in fade-in duration-500">
+            <div class="bg-white p-6 border border-gray-100 shadow-sm rounded-lg flex flex-col md:flex-row gap-6 items-center">
+                <div class="flex-1">
+                    <h4 class="text-lg font-bold mb-2">Thay thế linh hoạt</h4>
+                    <p class="justified text-gray-600 italic">Có thể thay thế lòng tươi bằng thịt quay hoặc thịt nướng nếu không có thời gian sơ chế lòng heo một cách cầu kỳ.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-chef" class="tab-content animate-in fade-in duration-500">
+            <div class="bg-white p-6 border border-gray-100 shadow-sm rounded-lg flex flex-col md:flex-row gap-6 items-center">
+                <div class="flex-1">
+                    <h4 class="text-lg font-bold mb-2">Xử lý Bánh hỏi khô</h4>
+                    <p class="justified text-gray-600 italic">Nếu sử dụng loại bánh hỏi khô đóng gói, hãy ngâm nước lạnh trước khi hấp lại trong 3-5 phút để khôi phục hoàn hảo độ mềm mượt như bánh tươi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition & Presentation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 pb-12 border-t pt-12 border-gray-200">
+        <section>
+            <h3 class="text-xl font-bold mb-6 border-b border-gold pb-2 uppercase tracking-wide">5. Giá trị dinh dưỡng</h3>
+            <div class="bg-cinnabar bg-opacity-5 p-6 rounded-lg">
+                <p class="justified mb-4 text-gray-800">
+                    Hàm lượng Protein cao từ nội tạng và thịt. Tinh bột từ bánh hỏi và cháo cung cấp năng lượng nhanh.
+                </p>
+                <div class="text-sm text-gray-600 italic border-t border-cinnabar border-opacity-20 pt-4">
+                    <strong>Lưu ý:</strong> Nội tạng chứa nhiều cholesterol. Người cao huyết áp hoặc gout nên kiểm soát khẩu phần (50-70g lòng/bữa). Ăn kèm nhiều rau sống để bổ sung chất xơ cần thiết.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-xl font-bold mb-6 border-b border-gold pb-2 uppercase tracking-wide">6. Gợi ý trình bày</h3>
+            <div class="space-y-4 text-sm text-gray-700">
+                <p class="justified border-l-2 border-cinnabar pl-4">
+                    <strong class="text-charcoal">Bánh hỏi:</strong> Xếp lên đĩa lớn theo hình vòng cung, màu trắng bánh hỏi nổi bật dưới lớp mỡ hẹ xanh mướt.
+                </p>
+                <p class="justified border-l-2 border-cinnabar pl-4">
+                    <strong class="text-charcoal">Lòng heo:</strong> Thái miếng vừa ăn, trình bày trên đĩa riêng hoặc đặt giữa vòng tròn bánh hỏi. Gan thái mỏng, phèo cắt khúc đều tăm tắp.
+                </p>
+                <p class="justified border-l-2 border-cinnabar pl-4">
+                    <strong class="text-charcoal">Trang trí:</strong> Điểm xuyết vài lát ớt đỏ và ngò rí lên đĩa lòng. Nước mắm tỏi ớt đặt chính giữa cân đối. Đĩa rau sống tươi sạch, đa dạng màu sắc.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active style from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show specific tab and set button as active
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
