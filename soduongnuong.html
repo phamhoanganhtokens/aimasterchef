@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Sò Dương Nướng Mỡ Hành Đậu Phộng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C2C2C',
+                        bgCream: '#FCFAFA',
+                        accentRed: '#E34234',
+                        accentGold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; color: #2C2C2C; font-family: 'Times New Roman', Times, serif; }
+        .text-justify { text-align: justify; }
+        .ornament::before, .ornament::after { content: " ✽ "; color: #C5A059; }
+        .meta-icon { border: 1px solid #C5A059; padding: 4px; border-radius: 50%; color: #C5A059; }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <div class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Sò Dương Nướng Mỡ Hành Đậu Phộng</h1>
+            <p class="text-xl italic text-gray-600 mb-8">Grilled Butter-Scallop with Scallion Oil & Peanuts</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-gray-300 py-6">
+                <div><p class="text-sm uppercase tracking-widest text-accentGold font-bold">Độ khó</p><p>Trung bình</p></div>
+                <div><p class="text-sm uppercase tracking-widest text-accentGold font-bold">Thời gian</p><p>60 phút</p></div>
+                <div><p class="text-sm uppercase tracking-widest text-accentGold font-bold">Khẩu phần</p><p>2-4 người</p></div>
+                <div><p class="text-sm uppercase tracking-widest text-accentGold font-bold">Nguồn gốc</p><p>Miền Trung Việt Nam</p></div>
+            </div>
+            <p class="text-justify mt-8 max-w-3xl mx-auto text-lg leading-loose">
+                Sò dương là loại hải sản đặc trưng của các vùng biển duyên hải miền Trung và miền Nam Việt Nam. Món nướng mỡ hành đậu phộng phản ánh đậm nét văn hóa ẩm thực biển dân dã nhưng tinh tế, đề cao sự hòa quyện giữa vị ngọt tự nhiên của hải sản với độ béo của mỡ heo và mùi thơm của hành lá.
+            </p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Left: Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold border-b-2 border-accentRed pb-2 mb-6">1. Nguyên liệu</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Sò dương tươi sống:</strong> 1kg (4-6 con lớn)</li>
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Hành lá:</strong> 100g</li>
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Mỡ heo gáy:</strong> 150g</li>
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Đậu phộng:</strong> 50g rang giã dập</li>
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Hành tím phi:</strong> 20g</li>
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Gia vị:</strong> Muối, đường, hạt nêm, tiêu</li>
+                    <li class="flex items-start"><span class="mr-2">✦</span> <strong>Ăn kèm:</strong> Rau răm, dưa leo, mắm chua ngọt</li>
+                </ul>
+            </section>
+
+            <!-- Right: Steps -->
+            <section>
+                <h2 class="text-3xl font-bold border-b-2 border-accentRed pb-2 mb-6">2. Các bước thực hiện</h2>
+                <div class="space-y-6">
+                    <div><h3 class="font-bold text-lg">Sơ chế (45p):</h3><p class="text-justify">Ngâm sò trong nước vo gạo cùng ớt sừng để làm sạch cát. Chà sạch vỏ.</p></div>
+                    <div><h3 class="font-bold text-lg">Trần sò (1p):</h3><p class="text-justify">Trần nhanh để sò hé miệng, giúp tách vỏ dễ dàng và giữ độ mọng nước.</p></div>
+                    <div><h3 class="font-bold text-lg">Mỡ hành:</h3><p class="text-justify">Thắng mỡ heo, dội trực tiếp vào bát hành lá đã nêm muối, đường để giữ màu xanh.</p></div>
+                    <div><h3 class="font-bold text-lg">Nướng:</h3><p class="text-justify">Nướng than hoặc nồi chiên không dầu (180°C - 200°C) cho đến khi dậy mùi thơm.</p></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament text-center my-12 text-2xl"></div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 border-2 border-accentGold rounded-lg my-12">
+            <h2 class="text-2xl font-bold text-accentGold mb-4 uppercase">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="space-y-4">
+                <p class="text-justify"><strong>Độ chín:</strong> Sò dương thớ thịt dày, nướng vừa tới đến khi sủi bọt mỡ là ngon nhất. Tránh nướng quá lâu làm thịt teo dai.</p>
+                <p class="text-justify"><strong>Chất béo:</strong> Mỡ heo thắng thủ công tạo độ ngậy đặc trưng không thể thay thế bằng dầu thực vật.</p>
+                <p class="text-justify"><strong>Ướp gia vị:</strong> Không ướp trực tiếp lên thịt sò để tránh tiết nước. Hãy nêm vào bát mỡ hành.</p>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-12">
+            <h2 class="text-3xl font-bold mb-8">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 border border-gray-300">
+                    <h4 class="font-bold mb-2">Phô Mai</h4>
+                    <p class="text-sm text-justify">Thay mỡ hành bằng sốt phô mai tan chảy, tạo hương vị béo ngậy phong cách Âu.</p>
+                </div>
+                <div class="p-6 border border-gray-300">
+                    <h4 class="font-bold mb-2">Trứng Cút</h4>
+                    <p class="text-sm text-justify">Thêm trứng cút vào lòng sò khi nướng để tăng độ bùi và dinh dưỡng.</p>
+                </div>
+                <div class="p-6 border border-gray-300">
+                    <h4 class="font-bold mb-2">Hải Sản Khác</h4>
+                    <p class="text-sm text-justify">Công thức mỡ hành này áp dụng hoàn hảo cho sò lông, sò điệp hoặc tu hài.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer -->
+        <footer class="grid md:grid-cols-2 gap-12 mt-16 pt-8 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p class="text-justify text-sm">Giàu Protein, Kẽm, Sắt và Vitamin B12. Khoảng 180-220 kcal/khẩu phần. Lưu ý: Người bệnh Gout hạn chế tiêu thụ do lượng Purin cao.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="text-justify text-sm">Xếp sò hình tròn trên mẹt lá chuối. Sự tương phản giữa màu xanh hành lá, màu trắng thịt sò và màu nâu đậu phộng tạo nên bức tranh ẩm thực hài hòa. Rắc đậu phộng ngay trước khi phục vụ.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
