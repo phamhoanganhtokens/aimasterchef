@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cơm Gà Hải Nam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                        'display': ["'Playfair Display'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            color: rgba(197, 160, 89, 0.2);
+            font-size: 4rem;
+            line-height: 1;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .tab-trigger:checked + label {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto border-x border-gray-100 shadow-2xl">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="inline-block mb-4 border-b-2 border-cinnabar pb-2">
+            <span class="uppercase tracking-widest text-sm font-bold text-cinnabar">AI Vua Đầu Bếp — Tạp Chí Ẩm Thực Cao Cấp</span>
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl font-black text-primary-charcoal mb-2">CƠM GÀ HẢI NAM</h1>
+        <h2 class="text-2xl md:text-3xl italic text-burnished-gold font-light mb-8 uppercase tracking-widest">Hainanese Chicken Rice</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-6 md:gap-12 py-6 border-y border-burnished-gold/30 bg-white/50 mb-12">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter mb-1">Mức độ</span>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-burnished-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span class="font-bold">Trung bình</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter mb-1">Thời gian</span>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-burnished-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="font-bold">90 Phút</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter mb-1">Khẩu phần</span>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-burnished-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <span class="font-bold">4 Người</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase font-bold tracking-tighter mb-1">Nguồn gốc</span>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-burnished-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="font-bold">Singapore / Hải Nam</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <div class="bg-white p-8 border-l-4 border-burnished-gold shadow-sm">
+                <h3 class="font-display text-3xl font-bold mb-6 flex items-center">
+                    <span class="text-cinnabar mr-3">1.</span> Nguyên liệu
+                </h3>
+
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-cinnabar border-b border-burnished-gold/20 pb-1 mb-3 italic">Phần gà</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> 1 con gà ta (khoảng 1.5kg - 1.8kg), nên chọn gà có da vàng, thịt chắc.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> 50g gừng (đập dập), 3 củ hành tím, 2 tép tỏi, 1 muỗng cà phê muối.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> Mỡ gà sống (lấy từ phần bụng hoặc mông gà).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar border-b border-burnished-gold/20 pb-1 mb-3 italic">Phần cơm</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> 500g gạo thơm (gạo Jasmine hoặc gạo tám).</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> 3 tép tỏi băm, 2 củ hành tím băm.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> 2 lá dứa (lá nếp) cuộn lại.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> Nước dùng gà (từ nồi luộc gà).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar border-b border-burnished-gold/20 pb-1 mb-3 italic">Nước xốt & Kèm</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> Xốt ớt: 5 quả ớt sừng, 2 tép tỏi, 1 mẩu gừng, nước cốt chanh, đường.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> Xốt gừng: 50g gừng giã nhuyễn, dầu ăn nóng, muối.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> Xốt tương đen: Hắc xì dầu, đường, dầu hào.</li>
+                            <li class="flex items-start"><span class="text-burnished-gold mr-2">✦</span> Dưa leo, ngò rí, hành lá.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8 space-y-12">
+            <h3 class="font-display text-3xl font-bold flex items-center">
+                <span class="text-cinnabar mr-3">2.</span> Các bước thực hiện
+            </h3>
+
+            <div class="space-y-12 relative border-l-2 border-burnished-gold/20 pl-8 ml-4">
+                <!-- Step 1 -->
+                <div class="relative group">
+                    <div class="absolute -left-11 top-0 w-6 h-6 rounded-full bg-burnished-gold border-4 border-parchment"></div>
+                    <span class="step-number">01</span>
+                    <h4 class="text-xl font-bold mb-4 text-primary-charcoal">Sơ chế & Xử lý da gà (Kỹ thuật Chuyên nghiệp)</h4>
+                    <p class="mb-4">Dùng muối hạt và gừng chà xát kỹ lên da gà để khử mùi và làm sạch lỗ chân lông. Rửa sạch, thấm thật khô gà. Việc để da gà khô trước khi luộc giúp da không bị nứt và giữ được độ giòn sau khi sốc nhiệt.</p>
+                    <div class="text-sm font-bold text-cinnabar italic">Ước tính: 15 phút</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-11 top-0 w-6 h-6 rounded-full bg-burnished-gold border-4 border-parchment"></div>
+                    <span class="step-number">02</span>
+                    <h4 class="text-xl font-bold mb-4 text-primary-charcoal">Luộc gà phương pháp truyền thống (Chuẩn vị)</h4>
+                    <p class="mb-4">Đun sôi nồi nước (đủ ngập gà) với gừng, hành tím, muối. <span class="font-bold text-burnished-gold">Kỹ thuật chần:</span> Cầm cổ gà nhúng vào nước sôi 3 lần rồi nhấc ra để nhiệt độ bên trong và bên ngoài cân bằng, giúp gà chín đều. Hạ lửa thật nhỏ (không để nước sôi bùng), đậy nắp và om gà trong khoảng 20-30 phút tùy kích cỡ.</p>
+                    <p class="mb-4"><span class="font-bold text-burnished-gold">Sốc nhiệt:</span> Ngay khi vớt ra, thả gà vào chậu nước đá lạnh khoảng 5-10 phút. Cách này giúp lớp mỡ dưới da đông lại thành lớp thạch (gelatin) và da gà căng bóng, giòn sần sật.</p>
+                    <div class="text-sm font-bold text-cinnabar italic">Ước tính: 40 phút</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative group">
+                    <div class="absolute -left-11 top-0 w-6 h-6 rounded-full bg-burnished-gold border-4 border-parchment"></div>
+                    <span class="step-number">03</span>
+                    <h4 class="text-xl font-bold mb-4 text-primary-charcoal">Nấu cơm (Kết hợp Thiết bị Gia đình)</h4>
+                    <p class="mb-4">Cho mỡ gà sống vào chảo thắng lấy nước cốt mỡ. Phi thơm tỏi băm và hành tím với mỡ này. Cho gạo (đã vo sạch, để ráo) vào xào cùng mỡ gà cho đến khi hạt gạo săn lại và thấm đều mỡ, chuyển sang màu hơi trong. Đổ gạo vào nồi cơm điện. Dùng nước luộc gà để nấu thay nước lọc. Thêm lá dứa lên trên.</p>
+                    <div class="text-sm font-bold text-cinnabar italic">Ước tính: 25 phút</div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative group">
+                    <div class="absolute -left-11 top-0 w-6 h-6 rounded-full bg-burnished-gold border-4 border-parchment"></div>
+                    <span class="step-number">04</span>
+                    <h4 class="text-xl font-bold mb-4 text-primary-charcoal">Chế biến các loại nước chấm</h4>
+                    <p class="mb-4"><span class="italic font-bold underline decoration-cinnabar/30">Xốt ớt:</span> Xay nhuyễn các nguyên liệu, hòa cùng nước dùng gà nóng. <br> <span class="italic font-bold underline decoration-cinnabar/30">Xốt gừng:</span> Cho gừng băm vào bát, dội dầu ăn đang sôi sùng sục vào để khử vị hăng, nêm muối vừa miệng.</p>
+                    <div class="text-sm font-bold text-cinnabar italic">Ước tính: 10 phút</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">❦</span>
+    </div>
+
+    <!-- Special Insight Sections -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Chef's Corner -->
+        <div class="pro-tip-box p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-2 bg-burnished-gold text-white text-[10px] uppercase font-bold tracking-tighter leading-none transform translate-x-4 rotate-45 w-24 text-center">MASTER</div>
+            <h3 class="font-display text-2xl font-bold mb-6 text-primary-charcoal italic border-b border-burnished-gold pb-2 inline-block">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="space-y-4">
+                <li class="flex gap-3">
+                    <span class="text-cinnabar">●</span>
+                    <p><strong>Kiểm tra độ chín:</strong> Xiên tăm vào đùi gà, nếu nước chảy ra màu trong (không hồng) là gà đã chín đạt.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-cinnabar">●</span>
+                    <p><strong>Dưỡng da gà:</strong> Sau khi vớt gà khỏi nước đá, quét một lớp mỏng dầu mè trộn cùng ít mỡ gà lên da để gà không bị khô.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-cinnabar">●</span>
+                    <p><strong>Tránh lỗi:</strong> Tuyệt đối không luộc gà ở lửa lớn sẽ khiến da bị rách và thịt bị bở, làm mất thẩm mỹ của món ăn.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Variations -->
+        <div class="space-y-6">
+            <h3 class="font-display text-2xl font-bold text-primary-charcoal border-b-2 border-cinnabar inline-block mb-4">4. Biến tấu & Nâng cao</h3>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="glass-card p-6 border-l-4 border-cinnabar">
+                    <h5 class="font-bold text-cinnabar mb-2 uppercase text-xs tracking-widest">Tiết kiệm thời gian</h5>
+                    <p class="text-sm italic">Có thể dùng mỡ heo hoặc dầu thực vật nếu không có mỡ gà, tuy nhiên cơm sẽ kém thơm hơn so với công thức truyền thống.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-burnished-gold">
+                    <h5 class="font-bold text-burnished-gold mb-2 uppercase text-xs tracking-widest">Gà Hấp Đặc Biệt</h5>
+                    <p class="text-sm italic">Thay vì luộc, bạn có thể hấp gà với gừng lá dứa để giữ trọn vẹn vị ngọt tự nhiên của thịt và tinh chất gà không bị trôi ra nước luộc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-primary-charcoal text-parchment p-8 md:p-12 mb-12">
+        <div class="space-y-6">
+            <h3 class="font-display text-2xl font-bold text-burnished-gold flex items-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border-b border-parchment/20 py-2">
+                    <span class="text-gray-400 block text-xs uppercase">Năng lượng</span>
+                    <span class="font-bold text-lg">600 - 750 kcal</span>
+                </div>
+                <div class="border-b border-parchment/20 py-2">
+                    <span class="text-gray-400 block text-xs uppercase">Protein</span>
+                    <span class="font-bold text-lg">35g (Cơ bắp)</span>
+                </div>
+                <div class="border-b border-parchment/20 py-2">
+                    <span class="text-gray-400 block text-xs uppercase">Carbs</span>
+                    <span class="font-bold text-lg">60g (Năng lượng)</span>
+                </div>
+                <div class="border-b border-parchment/20 py-2">
+                    <span class="text-gray-400 block text-xs uppercase">Chất béo</span>
+                    <span class="font-bold text-lg">25g (Hòa tan)</span>
+                </div>
+            </div>
+            <p class="text-xs italic text-gray-400 mt-4 leading-relaxed">Ghi chú: Người muốn giảm cân nên bỏ da gà và ăn kèm nhiều dưa leo để tăng chất xơ, giúp hỗ trợ tiêu hóa tốt hơn.</p>
+        </div>
+
+        <div class="space-y-6">
+            <h3 class="font-display text-2xl font-bold text-burnished-gold flex items-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.172-1.172A1 1 0 009.414 3H6.586a1 1 0 00-.707.293L4.707 4.707A1 1 0 014 5zm6 2a3 3 0 100 6 3 3 0 000-6z" clip-rule="evenodd"></path></svg>
+                6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-3 text-sm">
+                <p><strong>Thái thịt:</strong> Dùng dao sắc chặt gà thành miếng vừa ăn hoặc lọc xương thái lát mỏng theo phong cách nhà hàng cao cấp.</p>
+                <p><strong>Trình bày:</strong> Úp bát cơm tròn vào giữa đĩa lớn. Xếp gà bên cạnh. Dưa leo thái chéo mỏng lót phía dưới hoặc xếp xung quanh.</p>
+                <p><strong>Điểm xuyết:</strong> Đặt vài cọng ngò rí lên đỉnh bát cơm và một ít tỏi phi vàng lên thịt gà.</p>
+                <p><strong>Màu sắc:</strong> Sự tương phản giữa cơm vàng nhạt, da gà vàng óng, dưa leo xanh và ớt đỏ tạo nên sự hấp dẫn thị giác tối đa.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
