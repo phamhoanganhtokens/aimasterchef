@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lạp Vịt - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23E28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .gold-border {
+            border: 2px solid #C5A059;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .gold-border::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #C5A059;
+            pointer-events: none;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -2.5rem;
+            width: 1px;
+            background: #C5A059;
+        }
+
+        .timeline-step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #2C2C2C;
+            color: #C5A059;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .tab-button.active {
+            border-bottom: 2px solid #E23E28;
+            color: #E23E28;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <h2 class="text-cinnabar-red uppercase tracking-widest text-sm mb-4 font-bold">AI Vua Đầu Bếp Exclusive</h2>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 uppercase tracking-tighter">Lạp Vịt</h1>
+            <p class="text-xl md:text-2xl italic text-gray-600 mb-10">(Vịt Lạp Truyền Thống - Traditional Cured Duck)</p>
+            
+            <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-y border-burnished-gold py-6 max-w-4xl mx-auto mt-8">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest font-bold">Độ khó</span>
+                    <span class="text-sm italic">Trung bình - Khó</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gray-200 pl-4 md:pl-12">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest font-bold">Thời gian</span>
+                    <span class="text-sm italic">3-5 Ngày</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gray-200 pl-4 md:pl-12">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest font-bold">Khẩu phần</span>
+                    <span class="text-sm italic">4-6 Người</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gray-200 pl-4 md:pl-12">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </span>
+                    <span class="text-xs uppercase tracking-widest font-bold">Nguồn gốc</span>
+                    <span class="text-sm italic">Quảng Đông - Chợ Lớn</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto mt-10">
+                <p class="justified-text italic text-gray-700 leading-relaxed">
+                    Có nguồn gốc từ ẩm thực Quảng Đông (Trung Hoa), món Lạp vịt (Lap Ap) đã trở thành một phần không thể thiếu trong nét văn hóa ẩm thực của người Hoa tại Chợ Lớn và các tỉnh miền Tây Nam Bộ, đặc biệt thường xuất hiện trong dịp Tết Nguyên Đán. Món ăn là sự kết tinh của thời gian và nắng gió, mang đến hương vị đậm đà, béo ngậy khó quên.
+                </p>
+            </div>
+        </header>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 bg-white p-8 border border-gray-100 shadow-sm">
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-burnished-gold pb-2 inline-block uppercase tracking-wide">1. Nguyên liệu</h3>
+                
+                <div class="mb-8">
+                    <h4 class="font-bold text-cinnabar-red mb-4 italic uppercase text-sm tracking-widest">Nguyên liệu chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="mr-2 text-burnished-gold group-hover:scale-125 transition-transform">✦</span>
+                            <span class="justified-text text-sm">1 con vịt xiêm hoặc vịt béo (2kg - 2.5kg). Nên chọn vịt có lớp da dày và ít lông măng.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-cinnabar-red mb-4 italic uppercase text-sm tracking-widest">Gia vị ướp truyền thống</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold group-hover:rotate-45 transition-transform">✦</span>
+                            <span class="text-sm">100ml Rượu Mai Quế Lộ (loại hảo hạng)</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">1 muỗng cà phê Bột ngũ vị hương</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">150g Đường cát trắng (hoặc đường phèn)</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">50g Muối biển hạt mịn</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">2 muỗng canh Hắc xì dầu (nước tương đặc)</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">1 muỗng canh Bột tỏi hoặc nước cốt tỏi</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">1 muỗng canh Nước cốt gừng</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-cinnabar-red mb-4 italic uppercase text-sm tracking-widest">Sơ chế khử mùi</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center group">
+                            <span class="mr-2 text-burnished-gold">✦</span>
+                            <span class="text-sm">Gừng, rượu trắng và muối biển</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-10 border-b-2 border-burnished-gold pb-2 inline-block uppercase tracking-wide">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-2">
+                    <!-- Step 1 -->
+                    <div class="timeline-step group">
+                        <div class="step-number">1</div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h4 class="text-xl font-bold">Sơ chế và khử mùi</h4>
+                            <span class="text-xs italic bg-gray-100 px-2 py-1 rounded text-gray-500">Dự kiến: 20 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700 leading-relaxed group-hover:text-black transition-colors">
+                            Chặt bỏ phao câu, đầu và phẩn đầu cánh. Dùng dao sắc mổ dọc theo xương ức để banh phẳng con vịt (kiểu cánh bướm). Dùng hỗn hợp rượu trắng, gừng giã nát và muối chà xát kỹ lên toàn bộ da và thịt vịt trong 10 phút. Rửa sạch lại bằng nước lạnh và thấm thật khô bằng khăn chuyên dụng. <strong>Bước này quyết định độ thơm ngon và không bị hôi cỏ của vịt.</strong>
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step group">
+                        <div class="step-number">2</div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h4 class="text-xl font-bold">Tẩm ướp hương vị</h4>
+                            <span class="text-xs italic bg-gray-100 px-2 py-1 rounded text-gray-500">Dự kiến: 12-24 giờ</span>
+                        </div>
+                        <p class="justified-text text-gray-700 leading-relaxed group-hover:text-black transition-colors">
+                            Trộn đều tất cả gia vị (rượu Mai Quế Lộ, ngũ vị hương, đường, muối, hắc xì dầu, nước cốt tỏi/gừng). Thoa đều hỗn hợp lên khắp con vịt, chú ý các phần kẽ đùi và cánh. Để vịt ngấm trong ngăn mát tủ lạnh từ 12-24 tiếng, thỉnh thoảng lật trở để gia vị thấm sâu vào từng thớ thịt.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step group">
+                        <div class="step-number">3</div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h4 class="text-xl font-bold">Kỹ thuật làm khô</h4>
+                            <span class="text-xs italic bg-gray-100 px-2 py-1 rounded text-gray-500">Dự kiến: 3-5 ngày</span>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6 mt-4">
+                            <div class="bg-stone-50 p-4 border-l-2 border-burnished-gold">
+                                <span class="block font-bold text-sm mb-2 uppercase text-burnished-gold tracking-tighter">Phơi Nắng Truyền Thống</span>
+                                <p class="text-sm justified-text italic">Treo vịt lên, phơi dưới nắng gắt từ 3-5 nắng. Dùng vải mùng che chắn để tránh côn trùng. Mang vào nhà đêm đến, để nơi thoáng hoặc dùng quạt.</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 border-l-2 border-burnished-gold">
+                                <span class="block font-bold text-sm mb-2 uppercase text-burnished-gold tracking-tighter">Sấy Hiện Đại</span>
+                                <p class="text-sm justified-text italic">Sấy lò nướng ở 50-60°C trong 8-10 tiếng cho đến khi da vịt se lại, chuyển màu đỏ sậm và mỡ bắt đầu tứa ra tự nhiên.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step group">
+                        <div class="step-number">4</div>
+                        <div class="mb-2 flex justify-between items-center">
+                            <h4 class="text-xl font-bold">Chế biến thưởng thức</h4>
+                            <span class="text-xs italic bg-gray-100 px-2 py-1 rounded text-gray-500">Dự kiến: 30 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700 leading-relaxed group-hover:text-black transition-colors">
+                            Lạp vịt sau khi khô không ăn trực tiếp. Cách ngon nhất là rửa sạch lớp bụi bẩn bên ngoài, sau đó mang đi hấp cách thủy 20 phút cho thịt mềm và ra bớt mỡ, rồi đem áp chảo hoặc chiên sơ để lớp da đạt độ giòn hoàn hảo.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="section-divider">
+            <span class="ornament">❦</span>
+        </div>
+
+        <!-- Special Insight Section -->
+        <section class="mb-16">
+            <div class="gold-border bg-stone-50">
+                <div class="flex items-center mb-6">
+                    <span class="text-burnished-gold mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"></path><line x1="6" y1="17" x2="18" y2="17"></line><path d="M12 13v-4"></path></svg>
+                    </span>
+                    <h3 class="text-2xl font-bold uppercase tracking-widest text-primary-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 shadow-sm border border-stone-200 hover-lift">
+                        <h5 class="font-bold text-cinnabar-red mb-3 italic">Kiểm soát nhiệt độ</h5>
+                        <p class="text-sm justified-text text-gray-600 italic">Nếu phơi nắng, nắng phải thật gắt. Nắng yếu sẽ khiến vịt bị ôi và có mùi khó chịu cực kỳ khó xử lý.</p>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border border-stone-200 hover-lift">
+                        <h5 class="font-bold text-cinnabar-red mb-3 italic">Mẹo xử lý mỡ</h5>
+                        <p class="text-sm justified-text text-gray-600 italic">Lạp vịt ngon là khi phần mỡ trong lại, không bị đục. Nếu thấy mỡ bị đục là do quá trình làm khô không đủ nhiệt hoặc vịt không tươi.</p>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border border-stone-200 hover-lift">
+                        <h5 class="font-bold text-cinnabar-red mb-3 italic">Lỗi cần tránh</h5>
+                        <p class="text-sm justified-text text-gray-600 italic">Tuyệt đối không dùng tỏi, hành tươi băm vì dễ gây lên men, mốc. Chỉ sử dụng bột gia vị hoặc nước cốt lọc kỹ tinh khiết.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 border-b-2 border-burnished-gold pb-2 inline-block uppercase tracking-wide">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 p-6 rounded-sm hover:border-cinnabar-red transition-all cursor-default">
+                    <h4 class="font-bold mb-3 flex items-center">
+                        <span class="w-2 h-2 bg-cinnabar-red rounded-full mr-2"></span> Lạp vịt sốt tiêu đen
+                    </h4>
+                    <p class="text-sm justified-text text-gray-600">Thêm tiêu đen giã dập vào hỗn hợp ướp để tăng vị cay nồng, rất hợp cho những ngày tiết trời se lạnh.</p>
+                </div>
+                <div class="border border-gray-200 p-6 rounded-sm hover:border-cinnabar-red transition-all cursor-default">
+                    <h4 class="font-bold mb-3 flex items-center">
+                        <span class="w-2 h-2 bg-cinnabar-red rounded-full mr-2"></span> Lạp vịt xào cải làn
+                    </h4>
+                    <p class="text-sm justified-text text-gray-600">Thái mỏng lạp vịt đã hấp chín và xào cùng cải làn, tỏi và dầu hào. Đây là món ăn kèm cơm cực phẩm.</p>
+                </div>
+                <div class="border border-gray-200 p-6 rounded-sm hover:border-cinnabar-red transition-all cursor-default">
+                    <h4 class="font-bold mb-3 flex items-center">
+                        <span class="w-2 h-2 bg-cinnabar-red rounded-full mr-2"></span> Cơm hấp lạp vịt
+                    </h4>
+                    <p class="text-sm justified-text text-gray-600">Đặt các lát lạp vịt lên trên mặt nồi cơm khi cơm vừa cạn nước để tinh dầu lạp vịt thấm vào từng hạt gạo thơm dẻo.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="ornament">❦</span>
+        </div>
+
+        <!-- Technical / Nutrition Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <!-- Nutrition -->
+            <div class="bg-primary-charcoal text-white p-8">
+                <h3 class="text-xl font-bold mb-6 border-b border-burnished-gold pb-2 uppercase tracking-widest text-burnished-gold">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <p class="text-sm justified-text leading-relaxed">
+                        Lạp vịt là thực phẩm giàu năng lượng, chứa nhiều protein nhưng cũng có hàm lượng chất béo bão hòa và natri (muối) rất cao do quá trình muối và làm khô.
+                    </p>
+                    <div class="p-4 bg-white/10 italic text-sm border-l-2 border-burnished-gold">
+                        <strong>Lưu ý:</strong> Người có tiền sử cao huyết áp, bệnh thận hoặc mỡ máu nên hạn chế dùng.
+                    </div>
+                    <p class="text-sm justified-text leading-relaxed text-gray-300">
+                        <strong>Lời khuyên:</strong> Nên kết hợp ăn kèm với các loại rau xanh, dưa chua, kiệu muối hoặc gỏi để cân bằng vị giác và hỗ trợ tiêu hóa chất béo tốt hơn.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Presentation Tips -->
+            <div class="p-8 border border-gray-200">
+                <h3 class="text-xl font-bold mb-6 border-b border-cinnabar-red pb-2 uppercase tracking-widest text-primary-charcoal">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm text-gray-700 italic">
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-2 font-bold">01.</span>
+                        <p class="justified-text"><strong>Cắt thái:</strong> Dùng dao thật sắc thái lạp vịt thành từng miếng mỏng, đều tay theo chiều ngang.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-2 font-bold">02.</span>
+                        <p class="justified-text"><strong>Sắp xếp:</strong> Xếp các miếng lạp vịt chồng lên nhau theo hình rẻ quạt trên đĩa trắng để làm nổi bật màu đỏ hổ phách của thịt.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-2 font-bold">03.</span>
+                        <p class="justified-text"><strong>Trang trí:</strong> Điểm xuyết vài cọng ngò rí, ớt tỉa hoa ở giữa. Bày kèm đồ chua để tạo sự tương phản màu sắc.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-cinnabar-red mr-2 font-bold">04.</span>
+                        <p class="justified-text"><strong>Chụp ảnh:</strong> Sử dụng ánh sáng vàng ấm để làm tôn lên lớp mỡ bóng bẩy và màu sắc rực rỡ đặc trưng của món ăn.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Final Decorative Element -->
+    <div class="max-w-6xl mx-auto py-8 text-center border-t border-stone-200">
+        <span class="text-burnished-gold text-2xl">✨</span>
+        <p class="uppercase text-[10px] tracking-[0.5em] text-gray-400 mt-2 font-bold italic">Nghệ Thuật Ẩm Thực Truyền Thống</p>
+    </div>
+
+    <script>
+        // Simple interactivity for tabs or extra animations
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#C5A059';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#e5e7eb';
+            });
+        });
+    </script>
+</body>
+</html>
