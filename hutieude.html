@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hủ Tiếu Dê Tiến Phát - AI Vua Đầu Bếp</title>
+    <title>AI Vua Đầu Bếp - Hủ Tiếu Dê Thượng Hạng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
+                        parchment: '#FCFAFA',
                         charcoal: '#2C2C2C',
-                        cream: '#FCFAFA',
                         cinnabar: '#E23D28',
                         gold: '#C5A059',
-                        goldLight: '#F4EBD0',
+                        goldLight: '#F4E9D5',
                     },
                     fontFamily: {
                         serif: ["'Times New Roman'", 'serif'],
@@ -29,320 +29,346 @@
             color: #2C2C2C;
             font-family: 'Times New Roman', serif;
             line-height: 1.6;
-        }
-        .justify-text {
             text-align: justify;
         }
+        
         .section-divider {
             display: flex;
             align-items: center;
             text-align: center;
             margin: 3rem 0;
         }
-        .section-divider::before, .section-divider::after {
+        
+        .section-divider::before,
+        .section-divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid #C5A059;
+            opacity: 0.4;
         }
+        
         .section-divider:not(:empty)::before { margin-right: 1.5rem; }
         .section-divider:not(:empty)::after { margin-left: 1.5rem; }
-        
+
         .ornament {
             color: #C5A059;
-            font-size: 1.5rem;
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .pro-tip-box {
-            border: 4px double #C5A059;
-            background-color: #fdfaf3;
+            font-size: 1.2rem;
         }
 
-        .step-number {
+        .recipe-step-number {
             font-style: italic;
-            color: #E23D28;
+            color: #C5A059;
             font-weight: bold;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            margin-right: 1rem;
         }
 
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
-            border-right: 1px solid rgba(197, 160, 89, 0.3);
-        }
-        .meta-item:last-child { border-right: none; }
-
-        @media (max-width: 768px) {
-            .meta-item { border-right: none; border-bottom: 1px solid rgba(197, 160, 89, 0.3); }
-            .meta-item:nth-child(even) { border-right: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .ingredient-item {
-            border-bottom: 1px dashed #e5e7eb;
-            padding: 0.5rem 0;
-            transition: background 0.2s;
-        }
-        .ingredient-item:hover {
-            background: rgba(197, 160, 89, 0.05);
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .tab-btn.active { 
+        .chef-box {
+            border: 3px double #C5A059;
+            background-color: #fdfaf4;
+            position: relative;
+        }
+
+        .meta-icon {
+            color: #E23D28;
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-pill {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-pill.active {
             border-bottom: 2px solid #E23D28;
             color: #E23D28;
             font-weight: bold;
         }
+
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
-<body class="p-4 md:p-8 lg:p-12">
+<body class="p-4 md:p-12 lg:p-20 max-w-6xl mx-auto border-x border-gold/10">
 
-    <div class="max-w-5xl mx-auto">
-        <!-- Hero Header -->
-        <header class="text-center mb-12">
-            <p class="uppercase tracking-widest text-cinnabar font-bold mb-2">AI Vua Đầu Bếp Exclusive</p>
-            <h1 class="text-4xl md:text-6xl font-bold mb-2 text-charcoal">HỦ TIẾU DÊ TIẾN PHÁT</h1>
-            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Tien Phat Goat Noodle Soup (Cho Lon Style)</h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-gold py-4 bg-white shadow-sm">
-                <div class="meta-item">
-                    <span class="text-xs uppercase text-gray-500 font-bold">Mức độ</span>
-                    <span class="font-bold text-lg">Trung bình - Khó</span>
-                </div>
-                <div class="meta-item">
-                    <span class="text-xs uppercase text-gray-500 font-bold">Thời gian</span>
-                    <span class="font-bold text-lg text-center">3 giờ / 45' (áp suất)</span>
-                </div>
-                <div class="meta-item">
-                    <span class="text-xs uppercase text-gray-500 font-bold">Khẩu phần</span>
-                    <span class="font-bold text-lg">4 - 6 Người</span>
-                </div>
-                <div class="meta-item">
-                    <span class="text-xs uppercase text-gray-500 font-bold">Nguồn gốc</span>
-                    <span class="font-bold text-lg">Quận 5, TP.HCM</span>
-                </div>
+    <!-- HERO HEADER -->
+    <header class="text-center mb-16">
+        <div class="mb-4 text-gold tracking-[0.3em] uppercase text-sm font-bold">Tinh Hoa Ẩm Thực Việt - Hoa</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal">HỦ TIẾU DÊ THƯỢNG HẠNG</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-10">Premium Goat Noodle Soup</p>
+        
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 md:gap-16 py-8 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình - Khó</span>
             </div>
-
-            <div class="mt-8 px-4 md:px-12 italic text-gray-700 justify-text leading-relaxed">
-                Món ăn lấy cảm hứng từ tiệm hủ tiếu dê Tiến Phát trứ danh tại Quận 5, TP.HCM. Đây là bản giao hưởng ẩm thực đặc sắc giữa phong cách chế biến của người Hoa khu Chợ Lớn và khẩu vị người Việt, nổi bật với nước dùng thanh ngọt, thơm nhẹ mùi thuốc bắc, thịt dê mềm mọng không hôi, được phục vụ theo kiểu hủ tiếu khô kèm tô súp riêng.
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">3-4 giờ</span>
             </div>
-        </header>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="meta-icon">◈</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Việt - Hoa</span>
+            </div>
+        </div>
 
-        <div class="section-divider"><span class="ornament">✦</span></div>
+        <div class="mt-8 max-w-3xl mx-auto">
+            <p class="text-lg italic text-gray-700 leading-relaxed">
+                Sự giao thoa tinh tế giữa nền ẩm thực của người Hoa và Việt Nam, nổi bật với nước dùng đậm đà màu hổ phách, thoang thoảng hương thảo mộc truyền thống, tôn lên vị ngọt mềm của thịt dê mà không hề bị nặng mùi.
+            </p>
+        </div>
+    </header>
 
-        <!-- Main Recipe Body -->
-        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="section-divider"><span class="ornament">★ ★ ★</span></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <section class="lg:col-span-5">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-8 h-px bg-cinnabar mr-4"></span>
+                1. Nguyên liệu
+            </h2>
             
-            <!-- Left Column: Ingredients -->
-            <section class="lg:col-span-5">
-                <h3 class="text-3xl font-bold mb-6 border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
-                
-                <div class="space-y-8">
-                    <div>
-                        <h4 class="font-bold text-gold uppercase tracking-wider mb-3">Phần thịt và xương</h4>
-                        <ul class="space-y-1">
-                            <li class="ingredient-item flex justify-between"><span>Thịt dê (sườn, bắp hoặc đùi)</span><span>1 kg</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Xương ống heo (hoặc dê)</span><span>1 kg</span></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-gold uppercase tracking-wider mb-3">Khử mùi</h4>
-                        <ul class="space-y-1">
-                            <li class="ingredient-item flex justify-between"><span>Gừng tươi (giã nát)</span><span>1 củ lớn</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Rượu trắng / Mai Quế Lộ</span><span>100 ml</span></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-gold uppercase tracking-wider mb-3">Gia vị thảo mộc</h4>
-                        <ul class="space-y-1">
-                            <li class="ingredient-item flex justify-between"><span>Hoa hồi (tai vị)</span><span>2 cánh</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Quế mỏng</span><span>1 nhánh nhỏ</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Thảo quả (đập dập)</span><span>1 quả</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Kỷ tử & Táo đỏ</span><span>10g & 7 quả</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Đẳng sâm & Thục địa</span><span>Vừa đủ</span></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-gold uppercase tracking-wider mb-3">Hủ tiếu & Đồ kèm</h4>
-                        <ul class="space-y-1">
-                            <li class="ingredient-item flex justify-between"><span>Hủ tiếu mềm</span><span>1 kg</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Hành tím ngâm chua ngọt</span><span>Bắt buộc</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Tía tô, húng quế, hẹ</span><span>Tươi</span></li>
-                            <li class="ingredient-item flex justify-between"><span>Tương đen, sa tế, dầu hào</span><span>Gia vị</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Nutrition Box in mobile/sidebar -->
-                <div class="mt-12 p-6 bg-charcoal text-cream rounded-sm shadow-xl">
-                    <h3 class="text-xl font-bold mb-4 border-b border-gold pb-2">5. Giá trị dinh dưỡng</h3>
-                    <div class="text-sm space-y-4 justify-text">
-                        <p>Thịt dê là nguồn cung cấp protein, sắt, kẽm dồi dào nhưng lại có lượng calo, chất béo bão hòa và cholesterol thấp hơn bò hay heo.</p>
-                        <div class="flex justify-between border-t border-gray-600 pt-2">
-                            <span>Lượng Calo ước tính</span>
-                            <span class="text-gold font-bold">550 - 600 kcal</span>
-                        </div>
-                        <p class="italic text-xs text-gray-400">Lưu ý: Người có thể trạng nhiệt, cao huyết áp nên dùng vừa phải. Phụ nữ có thai cần tham khảo ý kiến bác sĩ về thuốc bắc.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Right Column: Steps -->
-            <section class="lg:col-span-7">
-                <h3 class="text-3xl font-bold mb-6 border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
-                
-                <div class="space-y-10 relative">
-                    <!-- Step 1 -->
-                    <div class="relative pl-8 border-l-2 border-goldLight pb-2">
-                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gold"></div>
-                        <h4 class="font-bold text-xl mb-2 flex items-center">
-                            <span class="step-number mr-3">01</span> Sơ chế và khử mùi
-                            <span class="ml-auto text-xs font-normal text-gray-500 italic">15 Phút</span>
-                        </h4>
-                        <p class="justify-text text-gray-700">Rửa sạch thịt và xương dê. Dùng hỗn hợp gừng giã nát và rượu trắng chà xát kỹ lên toàn bộ bề mặt thịt trong 10 phút để đánh bay mùi hăng đặc trưng. Chần thịt và xương qua nước sôi hớt bọt khoảng 5 phút, sau đó rửa lại bằng nước lạnh.</p>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="relative pl-8 border-l-2 border-goldLight pb-2">
-                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gold"></div>
-                        <h4 class="font-bold text-xl mb-2 flex items-center">
-                            <span class="step-number mr-3">02</span> Chuẩn bị thảo mộc
-                            <span class="ml-auto text-xs font-normal text-gray-500 italic">5 Phút</span>
-                        </h4>
-                        <p class="justify-text text-gray-700">Rang sơ hoa hồi, quế, thảo quả trên chảo khô cho dậy mùi thơm. Cho tất cả vào một túi vải lọc (trừ kỷ tử và táo đỏ để thả trực tiếp vào nồi cho đẹp mắt).</p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="relative pl-8 border-l-2 border-goldLight pb-2">
-                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gold"></div>
-                        <h4 class="font-bold text-xl mb-2 flex items-center">
-                            <span class="step-number mr-3">03</span> Hầm nước dùng & thịt
-                            <span class="ml-auto text-xs font-normal text-gray-500 italic">2 - 3 Giờ</span>
-                        </h4>
-                        <p class="justify-text text-gray-700">Cho xương heo và thịt dê vào nồi cùng 3-4 lít nước. Đun sôi bùng, vớt bọt kỹ. Hạ lửa riu riu, cho túi thảo mộc cùng kỷ tử, táo đỏ vào hầm. Khi da dê mềm giòn sật, vớt ra ngâm nước đá lạnh 5 phút rồi thái miếng vừa ăn. Nêm nếm với đường phèn, muối hạt và hắc xì dầu.</p>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="relative pl-8 border-l-2 border-goldLight pb-2">
-                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gold"></div>
-                        <h4 class="font-bold text-xl mb-2 flex items-center">
-                            <span class="step-number mr-3">04</span> Giải pháp rút gọn (Home Cook)
-                            <span class="ml-auto text-xs font-normal text-gray-500 italic">45 Phút</span>
-                        </h4>
-                        <p class="justify-text text-gray-700">Dùng nồi áp suất điện, chọn chế độ hầm thịt (Meat/Stew) trong 35-40 phút. Xả áp tự nhiên, vớt thịt và nêm nếm lại trực tiếp trong lồng nồi. Giải pháp hoàn hảo cho bếp gia đình hiện đại.</p>
-                    </div>
-
-                    <!-- Step 5 -->
-                    <div class="relative pl-8 border-l-2 border-goldLight pb-2">
-                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gold"></div>
-                        <h4 class="font-bold text-xl mb-2 flex items-center">
-                            <span class="step-number mr-3">05</span> Trộn hủ tiếu
-                            <span class="ml-auto text-xs font-normal text-gray-500 italic">10 Phút</span>
-                        </h4>
-                        <p class="justify-text text-gray-700">Trụng hủ tiếu qua nước sôi cho tơi mềm. Trộn đều với 1 muỗng hắc xì dầu, 1 muỗng dầu hào, dầu tỏi phi để sợi hủ tiếu bóng bẩy, áo đều màu nâu óng và không bị dính.</p>
-                    </div>
-                </div>
-
-                <!-- Chef's Corner -->
-                <div class="mt-12 pro-tip-box p-8 relative">
-                    <div class="absolute -top-4 left-6 bg-gold text-white px-4 py-1 text-sm font-bold uppercase tracking-widest">
-                        3. Mẹo hay từ Vua Đầu Bếp
-                    </div>
-                    <ul class="space-y-4 mt-2">
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-3 mt-1 text-xl">◈</span>
-                            <span class="justify-text italic"><strong>Canh lửa:</strong> Tuyệt đối không để lửa to sôi sùng sục, nước hầm sẽ bị đục và vỡ kết cấu mỡ dê làm nước dùng bị ngấy.</span>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-lg font-bold text-cinnabar mb-4 italic underline decoration-gold/50 underline-offset-4">Nước dùng & Thịt</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span><strong>1 kg thịt dê</strong> (ưu tiên sườn dê, bắp dê hoặc thịt có da để tạo độ giòn sật)</span>
                         </li>
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-3 mt-1 text-xl">◈</span>
-                            <span class="justify-text italic"><strong>Kiểm soát thảo mộc:</strong> Đừng lạm dụng quế, hồi và thục địa. Quá nhiều sẽ làm nước bị đắng, đen và mất vị ngọt nguyên bản.</span>
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span><strong>500g xương ống heo</strong> hoặc xương sườn dê (để lấy vị ngọt sâu)</span>
                         </li>
-                        <li class="flex items-start">
-                            <span class="text-cinnabar mr-3 mt-1 text-xl">◈</span>
-                            <span class="justify-text italic"><strong>Sốc nhiệt:</strong> Ngâm thịt qua nước đá sau khi luộc giúp da dê săn lại, tạo độ giòn sật tuyệt hảo khi thưởng thức.</span>
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span><strong>500g hủ tiếu dai</strong> (hủ tiếu bột lọc)</span>
                         </li>
                     </ul>
                 </div>
-            </section>
-        </main>
 
-        <div class="section-divider"><span class="ornament">✦</span></div>
-
-        <!-- Variations & Pro Versions -->
-        <section class="mb-12">
-            <h3 class="text-3xl font-bold mb-8 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-8 glass-card rounded-lg hover:shadow-2xl hover:-translate-y-1 transform">
-                    <h4 class="text-cinnabar font-bold text-xl mb-4 flex items-center">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                        Dành cho Gia đình
-                    </h4>
-                    <p class="justify-text text-gray-700 italic">Sử dụng các "Gói gia vị tiềm thuốc bắc" bán sẵn tại siêu thị để tiết kiệm thời gian. Chỉ cần dùng 1/2 gói cho nồi 4-6 người để hương vị thanh tao, vừa vặn nhất.</p>
+                <div>
+                    <h3 class="text-lg font-bold text-cinnabar mb-4 italic underline decoration-gold/50 underline-offset-4">Gia vị khử mùi</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span><strong>100ml rượu trắng</strong> & 50g gừng tươi (đập dập)</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="p-8 glass-card rounded-lg hover:shadow-2xl hover:-translate-y-1 transform border-t-4 border-t-gold">
-                    <h4 class="text-gold font-bold text-xl mb-4 flex items-center">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.281a2 2 0 01-1.1.212l-2.003-.1a2 2 0 01-1.127-.474l-2.227-1.855A2 2 0 016 12.51V11.5a2 2 0 011.127-1.795l2.227-1.114a2 2 0 011.127-.114l2.003.2a2 2 0 011.1.412l.628.381a6 6 0 003.86.617l2.387-.477a2 2 0 001.022-.647l.428-.428"></path></svg>
-                        Lựa chọn thay thế
-                    </h4>
-                    <p class="justify-text text-gray-700 italic">Nếu không quen dùng thịt dê, có thể thay thế bằng sườn bò hoặc bắp bò. Kỹ thuật hầm và gia vị thảo mộc giữ nguyên sẽ tạo ra món "Hủ tiếu bò tiềm" chuẩn vị Chợ Lớn.</p>
+
+                <div>
+                    <h3 class="text-lg font-bold text-cinnabar mb-4 italic underline decoration-gold/50 underline-offset-4">Thảo mộc & Rau củ (Túi lọc)</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span>Quế, hoa hồi, thảo quả (nướng xém), đinh hương, trần bì.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span>10g kỷ tử, 5-7 quả táo đỏ.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span>Hành tây, hành tím (nướng thơm), củ cải trắng.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-cinnabar mb-4 italic underline decoration-gold/50 underline-offset-4">Đồ ăn kèm</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span>Hành lá, ngò gai, hẹ, tía tô, húng quế.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-gold mr-2 group-hover:scale-125 transition-transform">✦</span>
+                            <span>Chanh, ớt tươi, sa tế tôm, tương đen, tương ớt.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Presentation Section -->
-        <section class="mb-16 bg-white p-8 md:p-12 shadow-sm border border-gray-100">
-            <h3 class="text-3xl font-bold mb-8 border-b-2 border-gold pb-2 inline-block">6. Gợi ý trình bày</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-4">
-                    <h4 class="font-bold text-cinnabar uppercase text-sm tracking-widest">Tô Hủ Tiếu</h4>
-                    <p class="justify-text text-sm">Xếp hủ tiếu áo màu nâu óng ả, bên trên là vài nhánh hẹ xanh, rắc thêm hành phi và tóp mỡ giòn tan. Sợi hủ tiếu phải tơi, không bết dính.</p>
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-7">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-8 h-px bg-cinnabar mr-4"></span>
+                2. Các bước thực hiện
+            </h2>
+
+            <div class="relative border-l border-gold/30 ml-4 pl-8 space-y-12">
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-cinnabar border-4 border-parchment"></div>
+                    <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                        Sơ chế & Khử mùi
+                        <span class="text-sm font-normal italic text-gray-500">15 phút</span>
+                    </h4>
+                    <p>Chà xát thịt dê và xương với hỗn hợp rượu trắng và gừng đập dập. Bóp kỹ trong 10 phút để loại bỏ hoàn toàn mùi hôi đặc trưng, sau đó rửa thật sạch dưới vòi nước lạnh.</p>
                 </div>
-                <div class="space-y-4">
-                    <h4 class="font-bold text-cinnabar uppercase text-sm tracking-widest">Tô Súp (Thố Đá)</h4>
-                    <p class="justify-text text-sm">Múc nước dùng màu hổ phách trong vắt vào thố giữ nhiệt. Xếp các lát thịt dê mỏng, điểm xuyết táo đỏ, kỷ tử nở bung và tiêu sọ thơm nồng.</p>
+
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-gold border-4 border-parchment"></div>
+                    <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                        Chần thịt & Xương
+                        <span class="text-sm font-normal italic text-gray-500">10 phút</span>
+                    </h4>
+                    <p>Đun sôi một nồi nước với chút muối. Cho xương và thịt dê vào chần nhanh từ 3-5 phút để đẩy bọt bẩn. Vớt ra, rửa lại bằng nước đá lạnh. Bước này giúp thịt săn chắc và đảm bảo nước dùng trong vắt.</p>
                 </div>
-                <div class="space-y-4">
-                    <h4 class="font-bold text-cinnabar uppercase text-sm tracking-widest">Bàn Ăn Hoàn Hảo</h4>
-                    <p class="justify-text text-sm">Đặt đĩa hành tím ngâm chua ngọt cạnh chén tương đen sa tế. Một miếng thịt dê chấm ngập tương, ăn kèm lát hành chua sẽ bùng nổ hương vị.</p>
+
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-gold border-4 border-parchment"></div>
+                    <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                        Hầm nước dùng
+                        <span class="text-sm font-normal italic text-gray-500">3 giờ</span>
+                    </h4>
+                    <p class="mb-4"><strong>Phương pháp chuẩn:</strong> Cho xương và thịt dê vào nồi với 3.5 lít nước lạnh. Đun sôi nhẹ, vớt bọt liên tục. Hạ lửa nhỏ để nước duy trì ở nhiệt độ 85-90°C (sôi lăn tăn), hầm trong 2.5 - 3 giờ.</p>
+                    <p class="p-4 bg-goldLight/30 border-l-4 border-gold italic"><strong>Mẹo cho gia đình:</strong> Nếu dùng nồi áp suất, hầm ở áp suất cao trong 40 phút, sau đó xả áp tự nhiên.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-gold border-4 border-parchment"></div>
+                    <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                        Xử lý Thảo mộc
+                        <span class="text-sm font-normal italic text-gray-500">1 giờ cuối</span>
+                    </h4>
+                    <p>Rang thơm quế, hồi, thảo quả, đinh hương. Cho vào túi lọc cùng hành tây, hành tím nướng và trần bì. Thả túi gia vị vào nồi nước dùng trong 1 giờ cuối cùng. Thêm củ cải trắng, táo đỏ và kỷ tử vào nấu cùng.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-gold border-4 border-parchment"></div>
+                    <h4 class="font-bold text-xl mb-2 flex justify-between items-center">
+                        Hoàn thiện & Trình bày
+                        <span class="text-sm font-normal italic text-gray-500">5 phút</span>
+                    </h4>
+                    <p>Vớt thịt dê ra ngâm nước mắm pha loãng hoặc nước lạnh để da giòn. Nêm nếm nước dùng với đường phèn, muối, hạt nêm và hắc xì dầu. Trụng hủ tiếu qua nước sôi, xóc ráo rồi cho vào tô.</p>
                 </div>
             </div>
         </section>
+    </main>
 
+    <!-- CHEF'S CORNER -->
+    <section class="my-20">
+        <div class="chef-box p-8 md:p-12">
+            <h3 class="text-2xl font-bold mb-6 text-center tracking-widest text-gold uppercase">
+                <span class="block text-xs text-cinnabar mb-2">Master Insights</span>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8 italic">
+                <div class="text-center md:text-justify">
+                    <span class="text-cinnabar font-bold not-italic">Nhiệt độ hầm:</span> Tuyệt đối không để nước dùng sôi sùng sục, bọt khí mạnh sẽ phá vỡ cấu trúc tủy và mỡ, làm nước bị đục và mất đi độ thanh.
+                </div>
+                <div class="text-center md:text-justify">
+                    <span class="text-cinnabar font-bold not-italic">Xử lý thảo quả:</span> Bắt buộc phải đập dập và bỏ đi phần hạt bên trong thảo quả, hạt này là nguyên nhân chính gây ra vị đắng chát.
+                </div>
+                <div class="text-center md:text-justify">
+                    <span class="text-cinnabar font-bold not-italic">Độ tơi hủ tiếu:</span> Sau khi trụng, trộn nhẹ sợi hủ tiếu với một chút dầu tỏi phi để sợi tơi, bóng và không bị dính chặt vào nhau.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATIONS -->
+    <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 rounded-lg">
+                <h4 class="text-xl font-bold mb-4 text-cinnabar">Hủ Tiếu Dê Khô</h4>
+                <p>Thay vì chan nước dùng, hãy trộn hủ tiếu với nước sốt gồm hắc xì dầu, dầu hào, dầu mè và chút đường. Thịt dê và nước dùng thảo mộc được dọn riêng trong một bát nhỏ bên cạnh để giữ trọn vị đậm đà của sốt trộn.</p>
+            </div>
+            <div class="glass-card p-8 rounded-lg border-gold">
+                <h4 class="text-xl font-bold mb-4 text-gold">Lựa chọn cho Gia Đình</h4>
+                <p>Có thể mua gói gia vị tiềm thuốc bắc tại siêu thị (chỉ sử dụng 1/2 gói). Nếu không có thịt dê, công thức nước dùng này vẫn ứng dụng cực tốt cho bắp bò hoặc sườn heo sụn, mang lại hương vị thượng hạng độc bản.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER TECHNICAL INFO -->
+    <div class="grid lg:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+        <!-- NUTRITION -->
+        <section>
+            <h3 class="text-2xl font-bold mb-6 italic underline decoration-cinnabar underline-offset-8">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2">
+                    <span>Năng lượng</span>
+                    <span class="font-bold">550 - 650 kcal</span>
+                </div>
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2">
+                    <span>Protein (Đạm chất lượng cao)</span>
+                    <span class="font-bold">~45g</span>
+                </div>
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2">
+                    <span>Carbohydrate</span>
+                    <span class="font-bold">~50g</span>
+                </div>
+                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2">
+                    <span>Chất béo</span>
+                    <span class="font-bold">15 - 20g</span>
+                </div>
+                <p class="text-sm italic mt-4 text-gray-600">
+                    * Thịt dê có tính ấm, kết hợp thảo dược giúp ôn trung tán hàn, bổ khí huyết, hỗ trợ tiêu hóa và làm ấm cơ thể hiệu quả.
+                </p>
+            </div>
+        </section>
+
+        <!-- PRESENTATION -->
+        <section>
+            <h3 class="text-2xl font-bold mb-6 italic underline decoration-cinnabar underline-offset-8">6. Gợi ý trình bày</h3>
+            <ul class="space-y-4 text-sm md:text-base">
+                <li><strong class="text-cinnabar">Bố cục:</strong> Sử dụng tô sứ trắng sâu lòng hoặc tô gốm đen nhám để tôn lên màu hổ phách của nước dùng.</li>
+                <li><strong class="text-cinnabar">Sắp xếp:</strong> Thái thịt dê mỏng hoặc xếp sườn theo hình vòng cung. Điểm xuyết màu đỏ của kỷ tử và táo đỏ.</li>
+                <li><strong class="text-cinnabar">Thượng hạng:</strong> Phục vụ kèm đĩa rau tươi xếp tầng và chén nước chấm hai ngăn: tương đen sánh và sa tế đỏ rực.</li>
+            </ul>
+        </section>
     </div>
 
-    <!-- Scripts for subtle interactivity -->
+    <!-- FINAL ORNAMENT -->
+    <div class="mt-20 flex justify-center opacity-30">
+        <svg width="100" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10H40M100 10H60M50 0L55 10L50 20L45 10L50 0Z" stroke="#C5A059" stroke-width="1"/>
+        </svg>
+    </div>
+
     <script>
-        // Subtle scroll reveal effect
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+        // Subtle animation logic if needed for interactivity
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(226, 61, 40, 0.4)';
             });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'all 0.6s ease-out';
-            observer.observe(section);
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.2)';
+            });
         });
     </script>
 </body>
