@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bún Quậy Phú Quốc - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#2C2C2C',
+                            cream: '#FCFAFA',
+                            cinnabar: '#E23E28',
+                            gold: '#C5A059',
+                            goldlight: '#F4EFE3',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -2rem;
+            width: 1px;
+            background: #C5A059;
+            opacity: 0.3;
+        }
+        .timeline-step:last-child::before { display: none; }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23E28;
+            border-bottom-color: #E23E28;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FCFAFA; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+    </style>
+</head>
+<body class="p-4 md:p-8 max-w-6xl mx-auto">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="inline-block border-y-2 border-brand-gold py-4 mb-6">
+            <span class="uppercase tracking-widest text-xs font-bold text-brand-gold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-brand-charcoal">BÚN QUẬY PHÚ QUỐC</h1>
+        <h2 class="text-2xl md:text-3xl italic text-brand-gold opacity-80 mb-8">Phu Quoc Stirred Rice Noodles</h2>
+        
+        <p class="max-w-3xl mx-auto text-lg italic justified mb-10 leading-relaxed border-l-4 border-brand-cinnabar pl-6">
+            “Bắt nguồn từ món bún tôm Bình Định theo chân ngư dân miền Trung đến đảo ngọc Phú Quốc. Tên gọi 'Bún Quậy' xuất phát từ hai đặc trưng: đầu bếp chan nước sôi và 'quậy' để làm chín hải sản tươi sống ngay trong tô, cùng lúc đó thực khách tự tay 'quậy' chén nước chấm muối tắc mạnh tay cho đến khi sánh sệt.”
+        </p>
+
+        <!-- META BAR -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-brand-gold/30 py-6 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-brand-cinnabar text-xl">◈</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-brand-gold/20">
+                <span class="text-brand-cinnabar text-xl">🕒</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold">50 Phút</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-brand-gold/20">
+                <span class="text-brand-cinnabar text-xl">👥</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-brand-gold/20">
+                <span class="text-brand-cinnabar text-xl">📍</span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Vùng miền</span>
+                <span class="font-bold">Đảo Ngọc - Phú Quốc</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- MAIN RECIPE BODY -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <aside class="lg:col-span-4 space-y-8">
+            <div class="sticky top-8">
+                <h3 class="text-3xl font-bold border-b-2 border-brand-charcoal inline-block mb-8">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <!-- Phân nhóm 1 -->
+                    <section>
+                        <h4 class="text-brand-cinnabar font-bold uppercase tracking-widest text-sm mb-4 italic">Phần chả hải sản</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Tôm sú tươi (lột vỏ, rút chỉ)</span> <span>300g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Cá thác lác nạo sẵn</span> <span>200g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Mực ống tươi (thái khoanh)</span> <span>200g</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Gia vị: Tiêu sọ, hành tím, hạt nêm</span> <span>vừa đủ</span></li>
+                        </ul>
+                    </section>
+
+                    <!-- Phân nhóm 2 -->
+                    <section>
+                        <h4 class="text-brand-cinnabar font-bold uppercase tracking-widest text-sm mb-4 italic">Nước dùng & Bún</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Nước dùng (gà/tôm)</span> <span>2 Lít</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Bún tươi (sợi nhỏ)</span> <span>1kg</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Hành lá (thái nhuyễn)</span> <span>200g</span></li>
+                        </ul>
+                    </section>
+
+                    <!-- Phân nhóm 3 -->
+                    <section>
+                        <h4 class="text-brand-cinnabar font-bold uppercase tracking-widest text-sm mb-4 italic">Nước chấm linh hồn</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Muối hạt / Đường trắng</span> <span>2:4 muỗng</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Ớt hiểm đỏ</span> <span>5-7 trái</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Trái tắc (vắt lấy nước cốt)</span> <span>10-15 trái</span></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <article class="lg:col-span-8">
+            <h3 class="text-3xl font-bold border-b-2 border-brand-charcoal inline-block mb-8">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-2">
+                <div class="timeline-step">
+                    <span class="step-number">1</span>
+                    <h5 class="text-xl font-bold mb-2">Xử lý hải sản: Kỹ thuật quết</h5>
+                    <p class="justified text-gray-700 mb-2">
+                        Để hải sản thật lạnh trước khi làm. Tôm đập giập, băm nhuyễn. Trộn tôm và cá thác lác cùng hành tím, tiêu sọ, hạt nêm. Dùng chày quết thật đều tay cho đến khi hỗn hợp dẻo quánh. <span class="italic text-brand-cinnabar">Lưu ý: Tuyệt đối không nêm nước mắm để tránh làm chả bị chảy nước.</span>
+                    </p>
+                    <span class="text-sm font-bold text-brand-gold italic">⏱ 15 Phút</span>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="step-number">2</span>
+                    <h5 class="text-xl font-bold mb-2">Nấu nước dùng chuẩn vị</h5>
+                    <p class="justified text-gray-700 mb-2">
+                        Đun sôi 2 lít nước dùng gà hoặc hải sản. Điểm mấu chốt là nước phải luôn giữ ở nhiệt độ sôi sùng sục (100°C) trên bếp trong suốt quá trình phục vụ để làm chín hải sản trực tiếp trong tô.
+                    </p>
+                    <span class="text-sm font-bold text-brand-gold italic">⏱ 10 Phút</span>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="step-number">3</span>
+                    <h5 class="text-xl font-bold mb-2">Pha nước chấm "Quậy" thần thánh</h5>
+                    <p class="justified text-gray-700 mb-2">
+                        Giã nhuyễn muối, đường, ớt và bột ngọt. Cho nước cốt tắc vào và dùng muỗng "quậy" thật nhanh tay trong 2-3 phút cho đến khi hỗn hợp hòa quyện tạo thành dạng nhũ tương sánh sệt có màu cam sữa đặc trưng.
+                    </p>
+                    <span class="text-sm font-bold text-brand-gold italic">⏱ 5 Phút</span>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="step-number">4</span>
+                    <h5 class="text-xl font-bold mb-2">Kỹ thuật ép chả và hoàn thiện</h5>
+                    <p class="justified text-gray-700 mb-2">
+                        Dùng dao phết lớp mỏng chả tôm cá quanh thành tô sứ. Thêm mực tươi và hành lá. Múc nước dùng đang sôi chan trực tiếp dội lên lớp chả. Dùng đũa quậy nhẹ để hải sản chín tái tiết ra nước ngọt rồi thêm bún tươi đã trụng nóng vào.
+                    </p>
+                    <span class="text-sm font-bold text-brand-gold italic">⏱ 5 Phút</span>
+                </div>
+            </div>
+
+            <!-- CHEF'S CORNER -->
+            <div class="mt-12 p-8 border-2 border-brand-gold bg-brand-goldlight/30 relative">
+                <div class="absolute -top-4 left-6 bg-brand-gold text-white px-4 py-1 text-sm font-bold tracking-widest uppercase">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h6 class="font-bold text-brand-charcoal">Nhiệt độ và kỹ thuật quết:</h6>
+                        <p class="justified italic text-sm">Nguyên liệu tôm, cá phải luôn giữ lạnh (dưới 5°C) trong lúc quết để protein không bị biến tính, giúp chả giữ được độ dai giòn tự nhiên.</p>
+                    </div>
+                    <div>
+                        <h6 class="font-bold text-brand-charcoal">Kỹ thuật tạo nước chấm:</h6>
+                        <p class="justified italic text-sm">Sự chuyển màu cam sữa là do phản ứng nhũ tương hóa giữa tinh dầu vỏ tắc và sự bão hòa của đường/muối khi được cung cấp động năng lớn (quậy mạnh).</p>
+                    </div>
+                    <div class="text-brand-cinnabar font-bold text-sm">
+                        ⚠️ Lỗi cần tránh: Chan nước không đủ sôi sẽ làm hải sản bị tanh.
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider">
+        <span class="ornament">❈</span>
+    </div>
+
+    <!-- VARIATIONS -->
+    <section class="mb-12">
+        <h3 class="text-3xl font-bold border-b-2 border-brand-charcoal inline-block mb-8">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 border border-brand-gold/30 hover:shadow-lg transition-shadow bg-white">
+                <h5 class="text-lg font-bold text-brand-cinnabar mb-2 uppercase tracking-wide">Phiên bản tại nhà</h5>
+                <p class="justified text-sm italic">Nếu không có thời gian quết chả, có thể mua chả cá, chả tôm viên sẵn, thái mỏng. Tuy nhiên sẽ thiếu đi độ ngọt thanh khiết từ hải sản sống chín tái.</p>
+            </div>
+            <div class="p-6 border border-brand-gold/30 hover:shadow-lg transition-shadow bg-white">
+                <h5 class="text-lg font-bold text-brand-cinnabar mb-2 uppercase tracking-wide">Biến tấu nguyên liệu</h5>
+                <p class="justified text-sm italic">Thêm thịt bò phi lê thái thật mỏng phết lên thành tô cùng tôm cá. Nếu không có bún tươi, dùng bún gạo khô luộc mềm và xả kỹ với nước lạnh.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER TECHNICAL INFO -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 py-12 border-t border-brand-gold/50">
+        <!-- NUTRITION -->
+        <div>
+            <h3 class="text-xl font-bold uppercase tracking-widest mb-6">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between items-end border-b border-dotted border-brand-charcoal/30 pb-2">
+                    <span class="font-bold">Năng lượng</span>
+                    <span>~350 - 400 kcal/tô</span>
+                </div>
+                <p class="justified text-sm text-gray-600 italic">
+                    Nguồn protein chất lượng cao dồi dào từ hải sản nhưng chất béo cực thấp do không sử dụng dầu mỡ. Chứa nhiều Vitamin C từ hành lá và tắc.
+                </p>
+                <div class="p-3 bg-red-50 border-l-4 border-brand-cinnabar text-xs text-brand-cinnabar font-bold">
+                    LƯU Ý: Chén nước chấm có lượng Natri cao, người huyết áp cao nên chấm nhẹ tay.
+                </div>
+            </div>
+        </div>
+
+        <!-- PRESENTATION -->
+        <div>
+            <h3 class="text-xl font-bold uppercase tracking-widest mb-6">6. Gợi ý trình bày</h3>
+            <ul class="text-sm space-y-4 justified italic">
+                <li><strong class="text-brand-charcoal not-italic uppercase text-xs">Dụng cụ:</strong> Sử dụng tô sứ trắng sâu lòng hoặc gốm mộc. Bề mặt nhám giúp chả sống bám dính tốt hơn khi phết.</li>
+                <li><strong class="text-brand-charcoal not-italic uppercase text-xs">Thị giác:</strong> Một bức tranh màu sắc với viền chả hồng cam, bún trắng nõn và lớp hành lá xanh mướt phủ kín bề mặt.</li>
+                <li><strong class="text-brand-charcoal not-italic uppercase text-xs">Photography:</strong> Sử dụng backlight (hắt sáng từ phía sau) 45 độ để tôn vinh làn khói nghi ngút và độ bóng của hải sản chín tới.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SCROLL SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, article, aside').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-4');
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
