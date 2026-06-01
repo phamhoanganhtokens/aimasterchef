@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Ớt Sa Tế Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; color: #2C2C2C; font-family: 'Times New Roman', serif; }
+        .justify-text { text-align: justify; }
+        .divider::after { content: "★"; display: block; text-align: center; color: #C5A059; margin: 1rem 0; }
+        .recipe-meta-card { border: 1px solid #E5E5E5; transition: all 0.3s ease; }
+        .recipe-meta-card:hover { border-color: #C5A059; transform: translateY(-2px); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="py-12 px-6 lg:px-20">
+
+    <main class="max-w-5xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold text-charcoal mb-4">Ớt Sa Tế Truyền Thống</h1>
+            <h2 class="text-2xl italic text-gold mb-8">Traditional Chili Satay - Tinh Hoa Gia Vị Việt</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="recipe-meta-card p-4 rounded-sm"><span class="block text-xs uppercase text-gray-500">Độ khó</span><span class="font-bold">Trung bình</span></div>
+                <div class="recipe-meta-card p-4 rounded-sm"><span class="block text-xs uppercase text-gray-500">Thời gian</span><span class="font-bold">65 Phút</span></div>
+                <div class="recipe-meta-card p-4 rounded-sm"><span class="block text-xs uppercase text-gray-500">Khẩu phần</span><span class="font-bold">2-3 Hũ</span></div>
+                <div class="recipe-meta-card p-4 rounded-sm"><span class="block text-xs uppercase text-gray-500">Nguồn gốc</span><span class="font-bold">Việt Nam</span></div>
+            </div>
+        </header>
+
+        <hr class="border-t border-gray-300 divider">
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+            <!-- Ingredients -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h3>
+                <ul class="space-y-4">
+                    <li class="justify-text"><strong>Nhóm Ớt:</strong> 200g ớt sừng, 50g ớt chỉ thiên.</li>
+                    <li class="justify-text"><strong>Hương vị chủ đạo:</strong> 150g sả, 100g tỏi, 100g hành tím (tất cả băm nhuyễn).</li>
+                    <li class="justify-text"><strong>Chất lỏng:</strong> 400ml dầu ăn, 50ml dầu màu điều.</li>
+                    <li class="justify-text"><strong>Gia vị tầng sâu:</strong> 20g muối, 40g đường phèn, 20ml nước mắm, 10g bột tôm.</li>
+                </ul>
+            </section>
+
+            <!-- Steps -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h3>
+                <div class="space-y-6">
+                    <div class="pl-4 border-l-2 border-gold">
+                        <p class="font-bold">Sơ chế <span class="text-sm font-normal italic text-gray-500">(20 phút)</span></p>
+                        <p class="justify-text text-sm">Rửa sạch ớt, để thật ráo nước. Xay lợn cợn sả, hành, tỏi, ớt.</p>
+                    </div>
+                    <div class="pl-4 border-l-2 border-gold">
+                        <p class="font-bold">Trích xuất hương thơm <span class="text-sm font-normal italic text-gray-500">(15 phút)</span></p>
+                        <p class="justify-text text-sm">Đun dầu 120°C, cho sả vào trước đến khi thoát hơi nước.</p>
+                    </div>
+                    <div class="pl-4 border-l-2 border-gold">
+                        <p class="font-bold">Caramel hóa & Hoàn thiện <span class="text-sm font-normal italic text-gray-500">(30 phút)</span></p>
+                        <p class="justify-text text-sm">Thêm hành tỏi, gia vị, dầu điều. Sên lửa nhỏ đến khi dầu trong, đỏ ruby.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 my-12 border-2 border-gold shadow-sm">
+            <h3 class="text-2xl font-bold text-gold mb-4 italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <p class="justify-text italic text-gray-700">"Nhiệt độ là then chốt. Tuyệt đối không để dầu sôi bốc khói để giữ sắc tố đỏ rực rỡ và hương thơm tinh tế của sả. Hãy kiểm soát độ ẩm cho đến khi lớp dầu nổi trong suốt, đó là dấu hiệu của một mẻ sa tế hoàn hảo."</p>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-12">
+            <h3 class="text-3xl font-bold mb-6 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 border border-gray-200 hover:bg-white transition-colors">
+                    <h4 class="font-bold mb-2 text-cinnabar">Sa tế Tôm</h4>
+                    <p class="text-sm justify-text">Thêm 50g tôm khô xay mịn tăng độ ngọt béo tự nhiên.</p>
+                </div>
+                <div class="p-6 border border-gray-200 hover:bg-white transition-colors">
+                    <h4 class="font-bold mb-2 text-cinnabar">Sa tế Chay</h4>
+                    <p class="text-sm justify-text">Dùng nước tương, muối và gốc hành baro thay ngũ vị tân.</p>
+                </div>
+                <div class="p-6 border border-gray-200 hover:bg-white transition-colors">
+                    <h4 class="font-bold mb-2 text-cinnabar">Sa tế Kiểu Hoa</h4>
+                    <p class="text-sm justify-text">Thêm ngũ vị hương và cánh hồi tạo mùi thơm nồng đặc trưng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 pt-8 border-t border-gray-200">
+            <div>
+                <h4 class="text-xl font-bold mb-4 uppercase tracking-widest text-gold">5. Giá trị dinh dưỡng</h4>
+                <p class="text-sm justify-text leading-relaxed">Giàu Capsaicin giúp tăng cường trao đổi chất. Allicin từ tỏi hỗ trợ miễn dịch. Lưu ý: 90-120 calo/muỗng, sử dụng điều độ để bảo vệ dạ dày.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4 uppercase tracking-widest text-gold">6. Gợi ý trình bày</h4>
+                <p class="text-sm justify-text leading-relaxed">Sử dụng hũ thủy tinh Rustic, quấn dây thừng kraft. Đặt cạnh bát phở để lớp dầu đỏ nổi bật, dùng thìa gỗ nhỏ để múc tạo trải nghiệm thủ công sang trọng.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple interactivity for tabs or future expansion could go here
+        console.log("Chef AI Dashboard initialized.");
+    </script>
+</body>
+</html>
