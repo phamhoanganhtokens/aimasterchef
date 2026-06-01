@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chim Cút Chiên Bơ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EBD0'
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .ornament {
+            font-size: 1.5rem;
+            color: #C5A059;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        .ingredient-item:hover {
+            background-color: rgba(197, 160, 89, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            padding: 2rem;
+            position: relative;
+        }
+        .pro-tip-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FCFAFA;
+            padding: 0 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #C5A059;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 hero-gradient p-8 rounded-sm shadow-sm border-t-4 border-cinnabar">
+        <h2 class="text-gold italic text-xl mb-2 tracking-widest uppercase">AI Vua Đầu Bếp</h2>
+        <h1 class="text-4xl md:text-6xl font-bold text-charcoal mb-2">Chim Cút Chiên Bơ</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Butter-Fried Quail</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-y border-gold/30 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Mức độ</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold text-center">90 - 120 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Phục vụ</span>
+                <span class="font-bold">3 - 4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Đường phố Việt</span>
+            </div>
+        </div>
+        <p class="max-w-2xl mx-auto mt-6 italic text-gray-500">
+            "Món ăn đường phố đặc trưng của Việt Nam, thường xuất hiện tại các quán nhậu và tiệm ăn vặt vỉa hè."
+        </p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-sm mb-3">Thành phần chính</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Chim cút (mái)</span>
+                                <span class="font-bold italic">5 - 6 con</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Bơ lạt (hoặc bơ Trường An)</span>
+                                <span class="font-bold italic">50g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-sm mb-3">Gia vị ướp</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Hành tím băm</span>
+                                <span class="font-bold italic">1 tbsp</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Tỏi băm</span>
+                                <span class="font-bold italic">1 tbsp</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Mật ong / Dầu hào</span>
+                                <span class="font-bold italic">1 tbsp ea.</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Ngũ vị hương</span>
+                                <span class="font-bold italic">1 tsp</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Nước tương / Tiêu đen</span>
+                                <span class="font-bold italic">vừa đủ</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-sm mb-3">Khác</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Bột năng / Bột bắp</span>
+                                <span class="font-bold italic">2 tbsp</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Dầu ăn</span>
+                                <span class="font-bold italic">500ml</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Rau răm, dưa leo, bánh mì</span>
+                                <span class="font-bold italic">kèm</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between p-2 border-b border-gray-100">
+                                <span>Muối tiêu chanh / Tương ớt</span>
+                                <span class="font-bold italic">chấm</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <main class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+            
+            <div class="relative space-y-10 before:absolute before:left-4 md:before:left-6 before:top-0 before:h-full before:w-px before:bg-gold/30">
+                <!-- Step 1 -->
+                <div class="relative pl-12 md:pl-16">
+                    <span class="absolute left-0 top-0 w-8 md:w-12 h-8 md:h-12 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-lg border-4 border-parchment">1</span>
+                    <div class="mb-2 flex items-center gap-4">
+                        <h4 class="font-bold text-xl uppercase tracking-tight text-charcoal">Sơ chế nguyên liệu</h4>
+                        <span class="text-gold italic text-sm">~ 15 phút</span>
+                    </div>
+                    <p class="text-gray-700">Chim cút mua về rửa sạch. Dùng rượu trắng và gừng đập dập chà xát lên thân chim để khử hoàn toàn mùi tanh, sau đó rửa lại bằng nước lạnh và để thật ráo. Có thể dùng kéo cắt đôi theo chiều dọc ức chim để gia vị thấm sâu hơn.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-12 md:pl-16">
+                    <span class="absolute left-0 top-0 w-8 md:w-12 h-8 md:h-12 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-lg border-4 border-parchment">2</span>
+                    <div class="mb-2 flex items-center gap-4">
+                        <h4 class="font-bold text-xl uppercase tracking-tight text-charcoal">Ướp gia vị đậm đà</h4>
+                        <span class="text-gold italic text-sm">60-120 phút</span>
+                    </div>
+                    <p class="text-gray-700">Trộn đều hành, tỏi băm, ngũ vị hương, mật ong, dầu hào, nước tương và tiêu. Thoa đều hỗn hợp lên chim cút, kể cả phần bên trong bụng. Để thấm ít nhất 1 tiếng (tốt nhất là 2-3 tiếng trong ngăn mát tủ lạnh).</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-12 md:pl-16">
+                    <span class="absolute left-0 top-0 w-8 md:w-12 h-8 md:h-12 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-lg border-4 border-parchment">3</span>
+                    <div class="mb-2 flex items-center gap-4">
+                        <h4 class="font-bold text-xl uppercase tracking-tight text-charcoal">Hấp cách thủy</h4>
+                        <span class="text-gold italic text-sm">10 phút</span>
+                    </div>
+                    <p class="text-gray-700">Trước khi chiên, đem chim cút đi hấp cách thủy khoảng 10 phút. Việc này giúp thịt chim giữ được độ ngọt, không bị khô khi chiên lâu và đảm bảo bên trong chín đều.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-12 md:pl-16">
+                    <span class="absolute left-0 top-0 w-8 md:w-12 h-8 md:h-12 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-lg border-4 border-parchment">4</span>
+                    <div class="mb-2 flex items-center gap-4">
+                        <h4 class="font-bold text-xl uppercase tracking-tight text-charcoal">Lớp áo giòn tan</h4>
+                        <span class="text-gold italic text-sm">5 phút</span>
+                    </div>
+                    <p class="text-gray-700">Sau khi hấp, để chim hơi nguội và ráo nước. Rây một lớp bột năng thật mỏng lên bề mặt da chim. Lớp bột này sẽ giúp da chim cực kỳ giòn và giữ được màu đẹp.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-12 md:pl-16">
+                    <span class="absolute left-0 top-0 w-8 md:w-12 h-8 md:h-12 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-lg border-4 border-parchment">5</span>
+                    <div class="mb-2 flex items-center gap-4">
+                        <h4 class="font-bold text-xl uppercase tracking-tight text-charcoal">Chiên lần 1</h4>
+                        <span class="text-gold italic text-sm">~ 10 phút</span>
+                    </div>
+                    <p class="text-gray-700">Đun dầu nóng già (khoảng 170°C), cho chim vào chiên ngập dầu ở lửa vừa cho đến khi da chuyển màu vàng nhạt. Vớt ra để ráo dầu và nghỉ 5 phút.</p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative pl-12 md:pl-16">
+                    <span class="absolute left-0 top-0 w-8 md:w-12 h-8 md:h-12 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-lg border-4 border-parchment">6</span>
+                    <div class="mb-2 flex items-center gap-4">
+                        <h4 class="font-bold text-xl uppercase tracking-tight text-charcoal">Chiên lần 2 & Xóc bơ</h4>
+                        <span class="text-gold italic text-sm">5 phút</span>
+                    </div>
+                    <p class="text-gray-700">Tăng lửa để dầu nóng hơn, cho chim vào chiên nhanh lần 2 trong 1-2 phút để da đạt độ giòn tan và có màu cánh gián. Vớt ra. Ở một chảo khác, đun chảy bơ, cho một ít tỏi băm vào phi thơm, sau đó cho chim cút đã chiên vào xóc nhanh tay trong 30 giây để hương bơ bao phủ toàn bộ lớp da.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chef's Corner -->
+    <div class="section-divider">
+        <span class="ornament">★ ★ ★</span>
+    </div>
+    
+    <section class="max-w-4xl mx-auto my-12">
+        <div class="pro-tip-box bg-gold/5">
+            <span class="pro-tip-label font-serif italic text-lg">3. Mẹo hay từ Vua Đầu Bếp</span>
+            <div class="grid md:grid-cols-3 gap-8 mt-4">
+                <div class="text-center md:text-left">
+                    <h5 class="font-bold text-cinnabar uppercase text-xs mb-2">Nhiệt độ dầu</h5>
+                    <p class="text-sm">Luôn đảm bảo dầu đủ nóng trước khi thả chim vào để tránh hiện tượng ngấm dầu vào thịt.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h5 class="font-bold text-cinnabar uppercase text-xs mb-2">Mật ong</h5>
+                    <p class="text-sm">Không nên cho quá nhiều mật ong vào hỗn hợp ướp vì dễ gây cháy khét trước khi thịt kịp chín.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h5 class="font-bold text-cinnabar uppercase text-xs mb-2">Lỗi cần tránh</h5>
+                    <p class="text-sm">Đừng cho bơ vào ngay từ đầu khi chiên ngập dầu vì bơ có điểm khói thấp, sẽ bị cháy đen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="my-16">
+        <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">4. Biến tấu & Phiên bản</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 border-l-4 border-gold">
+                <h4 class="font-bold mb-3 flex items-center text-charcoal">
+                    <span class="mr-2">🍗</span> Thay thế nguyên liệu
+                </h4>
+                <p class="text-sm italic text-gray-600">Nếu không có chim cút, có thể thay thế bằng gà con (poussin) hoặc cánh gà, đùi gà với cùng công thức ướp.</p>
+            </div>
+            <div class="glass-card p-6 border-l-4 border-gold">
+                <h4 class="font-bold mb-3 flex items-center text-charcoal">
+                    <span class="mr-2">🧈</span> Tùy chọn Bơ
+                </h4>
+                <p class="text-sm italic text-gray-600">Dùng bơ thực vật cho mùi thơm nồng kiểu vỉa hè, hoặc bơ cao cấp (Anchor/President) cho vị béo thanh tao kiểu nhà hàng.</p>
+            </div>
+            <div class="glass-card p-6 border-l-4 border-gold">
+                <h4 class="font-bold mb-3 flex items-center text-charcoal">
+                    <span class="mr-2">🌬️</span> Healthy Version
+                </h4>
+                <p class="text-sm italic text-gray-600">Sử dụng nồi chiên không dầu ở 180°C trong 15-20 phút, sau đó mới phết bơ lên và nướng thêm 2 phút.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info Grid -->
+    <div class="section-divider">
+        <span class="ornament">❦</span>
+    </div>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-charcoal text-white p-10 rounded-sm">
+        <!-- Nutrition -->
+        <div>
+            <h3 class="text-gold text-xl font-bold mb-6 border-b border-gold/30 pb-2 uppercase tracking-widest flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="space-y-4">
+                <p class="text-gray-300">Chim cút là nguồn cung cấp đạm dồi dào, chứa nhiều sắt, phốt pho và vitamin nhóm B (B1, B2, B6).</p>
+                <div class="bg-white/5 p-4 rounded-sm border border-white/10">
+                    <h5 class="text-cinnabar font-bold text-xs uppercase mb-2">Lời khuyên sức khỏe</h5>
+                    <p class="text-xs italic text-gray-400">Vì món ăn có hàm lượng béo cao, nên ăn kèm với nhiều rau răm, dưa leo để cân bằng. Người có cholesterol cao nên hạn chế ăn phần da.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div>
+            <h3 class="text-gold text-xl font-bold mb-6 border-b border-gold/30 pb-2 uppercase tracking-widest flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                6. Gợi ý trình bày
+            </h3>
+            <ul class="text-sm space-y-3 text-gray-300 list-disc pl-5">
+                <li>Sắp xếp: Lót một lớp rau răm bên dưới đĩa sứ trắng hoặc mẹt tre có lót lá chuối. Hướng phần đùi ra ngoài theo hình tròn.</li>
+                <li>Điểm nhấn: Trang trí thêm vài lát ớt sừng đỏ và lát dưa leo tỉa hoa để tạo sự tương phản màu sắc.</li>
+                <li>Mẹo chụp ảnh: Sử dụng ánh sáng tự nhiên, góc chụp 45 độ để thấy rõ độ bóng của bơ và làn khói bốc lên.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Subtle Signature -->
+    <div class="mt-20 text-center pb-12 opacity-30 hover:opacity-100 transition-opacity">
+        <p class="text-xs uppercase tracking-[0.5em] text-charcoal">AI VUA ĐẦU BẾP • GOURMET SERIES</p>
+    </div>
+
+</body>
+</html>
