@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanh Muối - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23D28;
+            --burnished-gold: #D4AF37;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .justified-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--burnished-gold), transparent);
+        }
+
+        .ornament-icon {
+            padding: 0 15px;
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: -17px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--burnished-gold);
+        }
+
+        .step-number {
+            position: absolute;
+            left: -28px;
+            top: 0;
+            background: var(--bg-cream);
+            color: var(--cinnabar-red);
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--cinnabar-red);
+            border-radius: 50%;
+            font-size: 0.75rem;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--burnished-gold); border-radius: 10px; }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto px-6 pt-16 pb-8 text-center">
+        <div class="mb-4 text-xs tracking-[0.3em] text-cinnabar-red uppercase font-bold">AI Vua Đầu Bếp Exclusive</div>
+        <h1 class="header-title text-5xl md:text-7xl font-bold mb-2">CHANH MUỐI</h1>
+        <h2 class="text-xl md:text-2xl italic opacity-70 mb-10">Salted Preserved Lemons</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-y border-stone-200 py-6 mb-12">
+            <div class="flex flex-col items-center">
+                <span class="text-[10px] uppercase tracking-widest text-stone-500 mb-1">Độ khó</span>
+                <span class="font-bold flex items-center gap-1">
+                    <svg class="w-4 h-4 text-burnished-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    Trung bình
+                </span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[10px] uppercase tracking-widest text-stone-500 mb-1">Thời gian</span>
+                <span class="font-bold">1 - 3 tháng</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[10px] uppercase tracking-widest text-stone-500 mb-1">Khẩu phần</span>
+                <span class="font-bold">1 hũ 2 lít</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-[10px] uppercase tracking-widest text-stone-500 mb-1">Nguồn gốc</span>
+                <span class="font-bold">Việt Nam</span>
+            </div>
+        </div>
+
+        <p class="max-w-2xl mx-auto justified-text italic text-stone-600">
+            Chanh muối là một phương pháp bảo quản thực phẩm cổ xưa của người Việt, không chỉ là thức uống giải khát mà còn là một vị thuốc dân gian trong Đông y giúp hỗ trợ tiêu hóa, trị ho và thanh nhiệt.
+        </p>
+    </header>
+
+    <div class="ornament max-w-2xl mx-auto">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="header-title text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-cinnabar-red">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-[0.2em] text-burnished-gold font-bold mb-4 border-b border-stone-100 pb-1">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar-red">◈</span>
+                                <span>1kg chanh tươi (giấy, vỏ mỏng)</span>
+                            </li>
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar-red">◈</span>
+                                <span>300g - 400g muối hột biển</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs uppercase tracking-[0.2em] text-burnished-gold font-bold mb-4 border-b border-stone-100 pb-1">Phụ gia & Nước</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar-red">◈</span>
+                                <span>1 muỗng cà phê phèn chua</span>
+                            </li>
+                            <li class="flex items-start gap-2 hover:translate-x-1 transition-transform cursor-default">
+                                <span class="text-cinnabar-red">◈</span>
+                                <span>1.5 lít nước lọc</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 bg-stone-100/50 rounded border border-stone-200">
+                        <h4 class="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-2">Dụng cụ cần thiết</h4>
+                        <p class="text-sm italic">Hũ thủy tinh sạch, nan tre hoặc vỉ nén, rổ tre.</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="header-title text-2xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-cinnabar-red">2.</span> Các bước thực hiện
+            </h3>
+
+            <div class="space-y-12 ml-6">
+                <!-- Step 1 -->
+                <div class="relative timeline-step pl-8">
+                    <span class="step-number">1</span>
+                    <h4 class="font-bold text-lg mb-2">Sơ chế vỏ</h4>
+                    <p class="justified-text text-stone-700">
+                        Cho chanh vào rổ tre cùng một nắm muối hột. Dùng tay chà xát mạnh để tinh dầu chanh tiết ra, vỏ chanh hơi xước nhẹ. Rửa sạch lại với nước lạnh để loại bỏ vị đắng hoàn toàn.
+                    </p>
+                    <span class="inline-block mt-2 text-xs italic text-stone-400 font-serif">— 15 phút</span>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative timeline-step pl-8">
+                    <span class="step-number">2</span>
+                    <h4 class="font-bold text-lg mb-2">Ngâm phèn chua</h4>
+                    <p class="justified-text text-stone-700">
+                        Hòa tan phèn chua với nước, ngâm chanh khoảng 2 giờ dưới ánh nắng mặt trời. Bước này cực kỳ quan trọng giúp vỏ chanh giữ được độ trắng trong và giòn sau khi muối.
+                    </p>
+                    <span class="inline-block mt-2 text-xs italic text-stone-400 font-serif">— 120 phút</span>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative timeline-step pl-8">
+                    <span class="step-number">3</span>
+                    <h4 class="font-bold text-lg mb-2">Trụng và Phơi</h4>
+                    <p class="justified-text text-stone-700">
+                        Đun sôi nước, trụng nhanh chanh trong 30 giây rồi vớt ra thả ngay vào nước lạnh. Sau đó, phơi chanh dưới nắng gắt cho đến khi vỏ hơi héo và khô ráo hoàn toàn.
+                    </p>
+                    <span class="inline-block mt-2 text-xs italic text-stone-400 font-serif">— 1 ngày nắng</span>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative timeline-step pl-8">
+                    <span class="step-number">4</span>
+                    <h4 class="font-bold text-lg mb-2">Nấu nước muối</h4>
+                    <p class="justified-text text-stone-700">
+                        Đun sôi 1.5 lít nước với lượng muối còn lại. Kiểm tra độ mặn theo phương pháp truyền thống: thả hạt cơm nguội vào, nếu hạt cơm nổi lên là đạt độ mặn chuẩn. Lọc sạch nước và để thật nguội.
+                    </p>
+                    <span class="inline-block mt-2 text-xs italic text-stone-400 font-serif">— 30 phút</span>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative timeline-step pl-8">
+                    <span class="step-number">5</span>
+                    <h4 class="font-bold text-lg mb-2">Kỹ thuật ngâm</h4>
+                    <p class="justified-text text-stone-700">
+                        Xếp chanh vào hũ thủy tinh đã tiệt trùng. Đổ nước muối ngập mặt chanh. Dùng vỉ nén để chanh luôn chìm dưới nước. Đậy kín, phơi nắng 7-10 ngày đầu rồi chuyển vào nơi thoáng mát để ủ.
+                    </p>
+                    <span class="inline-block mt-2 text-xs italic text-stone-400 font-serif">— 1-3 tháng</span>
+                </div>
+            </div>
+
+            <!-- Chef's Corner Box -->
+            <div class="mt-16 p-8 border-double border-4 border-burnished-gold/30 bg-[#F9F6F0] relative">
+                <div class="absolute -top-4 left-6 bg-burnished-gold text-white px-4 py-1 text-xs uppercase tracking-widest font-bold">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="space-y-4 pt-2">
+                    <div class="flex gap-4">
+                        <span class="text-2xl text-burnished-gold">❝</span>
+                        <div class="justified-text italic text-stone-800">
+                            <p class="mb-2">Luôn đảm bảo nồng độ muối từ 15-20% để tránh chanh bị ủng hoặc nổi màng. Nếu xuất hiện màng trắng, hãy vớt chanh ra rửa sạch bằng nước muối ấm, đun sôi lại nước muối (hoặc thay mới) và thêm một chút rượu trắng để khử trùng.</p>
+                            <p>Tuyệt đối không chọn chanh quá non (gây đắng) hoặc quá chín (vỏ bị bở).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="ornament max-w-5xl mx-auto opacity-50">
+        <span class="ornament-icon">❦</span>
+    </div>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-20">
+        <h3 class="header-title text-2xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-lg border-t-2 border-t-burnished-gold">
+                <h4 class="font-bold text-lg mb-3">Chanh muối đường</h4>
+                <p class="text-sm justified-text text-stone-600 italic">Thêm đường phèn vào nước muối để tạo vị ngọt thanh cân bằng, làm dịu bớt vị mặn gắt của muối biển.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg border-t-2 border-t-cinnabar-red">
+                <h4 class="font-bold text-lg mb-3">Chanh muối cam thảo</h4>
+                <p class="text-sm justified-text text-stone-600 italic">Thêm vài lát cam thảo để tăng mùi thơm thảo mộc đặc trưng và hỗ trợ trị viêm họng hiệu quả hơn.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg border-t-2 border-t-stone-800">
+                <h4 class="font-bold text-lg mb-3">Chanh muối khô</h4>
+                <p class="text-sm justified-text text-stone-600 italic">Vớt chanh đã ngấm muối ra phơi khô và áo lớp đường bột trộn cam thảo. Một món ăn vặt tinh tế và bổ dưỡng.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Technical Info -->
+    <section class="bg-stone-900 text-stone-300 py-16">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-burnished-gold font-bold text-xl mb-6 border-b border-stone-700 pb-2 flex items-center gap-2">
+                    5. Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 justified-text">
+                    <p>Cung cấp điện giải tự nhiên (Natri, Kali), hỗ trợ cân bằng pH cơ thể và chứa các enzyme lên men tốt cho hệ tiêu hóa.</p>
+                    <div class="p-4 bg-stone-800 rounded text-sm border-l-4 border-cinnabar-red">
+                        <p class="font-bold text-stone-100 mb-1">Lưu ý sức khỏe:</p>
+                        Hàm lượng muối cao, người bị cao huyết áp hoặc bệnh thận nên hạn chế dùng và cần pha loãng khi uống.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-burnished-gold font-bold text-xl mb-6 border-b border-stone-700 pb-2 flex items-center gap-2">
+                    6. Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 justified-text">
+                    <p>Trình bày trong hũ thủy tinh dáng trụ cao, xếp chanh đều khít nhìn rất đẹp mắt. Có thể thêm hoa hồi bên trên để tăng tính thẩm mỹ và hương thơm nhẹ nhàng.</p>
+                    <p class="italic">Phục vụ: Dầm 1/4 quả chanh muối trong ly, thêm nước ấm, mật ong, và trang trí bằng một lát chanh tươi kèm lá bạc hà để tạo sự tương phản màu sắc hấp dẫn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth entrance animation for sections
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, aside').forEach(el => {
+                el.style.opacity = "0";
+                el.style.transform = "translateY(20px)";
+                el.style.transition = "all 0.8s ease-out";
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
