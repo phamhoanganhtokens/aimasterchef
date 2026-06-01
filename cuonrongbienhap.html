@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cuốn Rong Biển Hấp Hồng Kông</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #C5A059;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .ornament:not(:empty)::before { margin-right: 1rem; }
+        .ornament:not(:empty)::after { margin-left: 1rem; }
+
+        .chef-card {
+            border: 2px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+            transition: all 0.3s ease;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .active-tab {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: padding-left 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <div class="max-w-5xl mx-auto">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="inline-block border-y-2 border-gold py-2 mb-4">
+                <span class="uppercase tracking-widest text-xs font-bold text-gold">AI VUA ĐẦU BẾP • GOURMET SERIES</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-2">Cuốn Rong Biển Hấp Hồng Kông</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Hong Kong Style Steamed Seaweed Rolls</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 py-6 border-y border-gray-200">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xl mb-1">◈</span>
+                    <span class="text-xs uppercase tracking-wider font-bold">Độ khó</span>
+                    <span class="text-sm">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xl mb-1">◴</span>
+                    <span class="text-xs uppercase tracking-wider font-bold">Thời gian</span>
+                    <span class="text-sm">45 - 60 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xl mb-1">☖</span>
+                    <span class="text-xs uppercase tracking-wider font-bold">Khẩu phần</span>
+                    <span class="text-sm">3 - 4 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar text-xl mb-1">⚲</span>
+                    <span class="text-xs uppercase tracking-wider font-bold">Nguồn gốc</span>
+                    <span class="text-sm">Quảng Đông</span>
+                </div>
+            </div>
+            <div class="mt-6 px-4 md:px-20 italic text-gray-700 justified-text">
+                "Xuất thân từ tinh hoa Dim sum vùng Quảng Đông, món ăn này là sự kết hợp giữa kỹ thuật chế biến hải sản tươi sống và nghệ thuật sử dụng gia vị đặc trưng của ẩm thực Hồng Kông, chú trọng vào độ tươi ngọt tự nhiên và kết cấu giòn dai."
+            </div>
+        </header>
+
+        <div class="ornament">✦</div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-[1px] bg-cinnabar mr-3"></span>
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="mb-8">
+                    <h4 class="font-bold text-gold uppercase tracking-tighter text-sm mb-3">Phần nhân (Filling)</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item text-sm justified-text">300g Tôm tươi (bóc vỏ, lấy chỉ đen, lau thật khô).</li>
+                        <li class="ingredient-item text-sm justified-text">150g Giò sống hoặc thịt heo xay nhuyễn (nạc vai).</li>
+                        <li class="ingredient-item text-sm justified-text">50g Mỡ gáy heo (thái hạt lựu li ti - tạo độ mọng nước).</li>
+                        <li class="ingredient-item text-sm justified-text">30g Củ năng hoặc măng tây (thái hạt lựu).</li>
+                        <li class="ingredient-item text-sm italic justified-text">Gia vị: 1 thìa cà phê dầu mè, 1 thìa cà phê hạt nêm, 1/2 thìa cà phê tiêu trắng, 1 thìa cà phê đường, 1 thìa canh bột năng.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-gold uppercase tracking-tighter text-sm mb-3">Phần vỏ</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item text-sm justified-text">4-5 lá rong biển cuộn cơm (Nori) loại dày.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="font-bold text-gold uppercase tracking-tighter text-sm mb-3">Phần sốt Hồng Kông</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item text-sm justified-text">100ml Nước dùng gà.</li>
+                        <li class="ingredient-item text-sm justified-text">1 thìa canh dầu hào (Lee Kum Kee).</li>
+                        <li class="ingredient-item text-sm justified-text">1 thìa cà phê nước tương đậm đặc.</li>
+                        <li class="ingredient-item text-sm justified-text">1/2 thìa cà phê đường.</li>
+                        <li class="ingredient-item text-sm justified-text">1 thìa cà phê rượu mai quế lộ / Thiệu Hưng.</li>
+                        <li class="ingredient-item text-sm justified-text">Nước bột năng hòa tan.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gold uppercase tracking-tighter text-sm mb-3">Trang trí</h4>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item text-sm justified-text">Kỷ tử ngâm mềm, hành lá tước sợi, gừng thái chỉ.</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="w-8 h-[1px] bg-cinnabar mr-3"></span>
+                    2. Các bước thực hiện
+                </h3>
+                
+                <div class="space-y-8 relative">
+                    <!-- Step 1 -->
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <span class="step-number">01</span>
+                            <div class="w-[1px] h-full bg-gray-200 mt-2"></div>
+                        </div>
+                        <div class="pb-6">
+                            <h4 class="font-bold text-lg mb-2">Chế biến nhân <span class="text-xs font-normal italic text-gray-500 ml-2">25 phút</span></h4>
+                            <p class="justified-text text-charcoal">
+                                Tôm sau khi lau khô, dùng dao bản lớn đập dập rồi băm sơ. Trộn tôm với thịt xay, mỡ gáy, củ năng và gia vị. Thực hiện kỹ thuật <strong>"quết"</strong>: dùng tay hoặc muỗng quết mạnh hỗn hợp theo một chiều trong 5-10 phút cho đến khi nhân dẻo dính. Để nhân nghỉ trong ngăn mát tủ lạnh 20 phút.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <span class="step-number">02</span>
+                            <div class="w-[1px] h-full bg-gray-200 mt-2"></div>
+                        </div>
+                        <div class="pb-6">
+                            <h4 class="font-bold text-lg mb-2">Cuộn rong biển <span class="text-xs font-normal italic text-gray-500 ml-2">10 phút</span></h4>
+                            <p class="justified-text text-charcoal">
+                                Cắt lá rong biển thành các miếng hình chữ nhật (10x15cm). Trải lá rong biển ra, phết một lớp nhân mỏng vừa phải lên mặt trong, chừa lại mép khoảng 1cm. Cuộn tròn chặt tay. Dùng một ít nước hoặc lòng trắng trứng để dán mép.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <span class="step-number">03</span>
+                            <div class="w-[1px] h-full bg-gray-200 mt-2"></div>
+                        </div>
+                        <div class="pb-6">
+                            <h4 class="font-bold text-lg mb-2">Hấp cách thủy <span class="text-xs font-normal italic text-gray-500 ml-2">8 phút</span></h4>
+                            <p class="justified-text text-charcoal">
+                                Xếp các cuộn vào xửng đã lót sẵn giấy nến có đục lỗ. Khi nước sôi mạnh, hấp trong khoảng 6-8 phút. Không hấp quá lâu để tránh rong biển bị bở và nhân bị khô.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <span class="step-number">04</span>
+                            <div class="w-[1px] h-full bg-gray-200 mt-2"></div>
+                        </div>
+                        <div class="pb-6">
+                            <h4 class="font-bold text-lg mb-2">Chế biến sốt <span class="text-xs font-normal italic text-gray-500 ml-2">5 phút</span></h4>
+                            <p class="justified-text text-charcoal">
+                                Đun sôi nước dùng gà, thêm dầu hào, nước tương, rượu và đường. Xuống nước bột năng từ từ, vừa đổ vừa khuấy đến khi sốt có độ sánh gương hoàn hảo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <span class="step-number">05</span>
+                        </div>
+                        <div class="pb-2">
+                            <h4 class="font-bold text-lg mb-2">Hoàn thiện <span class="text-xs font-normal italic text-gray-500 ml-2">2 phút</span></h4>
+                            <p class="justified-text text-charcoal">
+                                Rưới nước sốt nóng hổi lên các cuộn rong biển đã hấp chín và trang trí theo phong cách nhà hàng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="ornament">✦</div>
+
+        <!-- Special Insight Sections -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+            <!-- Chef's Corner -->
+            <div class="chef-card p-6 rounded-sm shadow-sm">
+                <h3 class="text-xl font-bold mb-4 text-gold flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="justified-text">
+                        <strong class="text-cinnabar">Độ giòn (Texture):</strong> Bí quyết là tôm phải thật khô trước khi băm. Nếu tôm ướt, nhân sẽ bị bở. Thêm mỡ gáy giúp nhân mọng nước.
+                    </li>
+                    <li class="justified-text">
+                        <strong class="text-cinnabar">Kiểm soát nhiệt:</strong> Hấp ở lửa lớn ngay từ đầu để khóa chặt nước ngọt bên trong nhân ngay lập tức.
+                    </li>
+                    <li class="justified-text">
+                        <strong class="text-cinnabar">Xử lý rong biển:</strong> Chọn loại Nori Sushi chất lượng cao và không để cuộn rong biển ngoài không khí quá lâu trước khi hấp để tránh bị dai.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div class="bg-white border border-gray-100 p-6 rounded-sm shadow-sm">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="w-2 h-2 bg-cinnabar rounded-full mr-2"></span>
+                    4. Biến tấu & Nâng cao
+                </h3>
+                
+                <div class="flex border-b border-gray-100 mb-4">
+                    <button onclick="showTab('eatclean')" id="tab-eatclean" class="px-4 py-2 text-xs font-bold uppercase active-tab transition-all">Eat-clean</button>
+                    <button onclick="showTab('home')" id="tab-home" class="px-4 py-2 text-xs font-bold uppercase transition-all">Gia đình</button>
+                    <button onclick="showTab('vegetarian')" id="tab-vegetarian" class="px-4 py-2 text-xs font-bold uppercase transition-all">Chay</button>
+                </div>
+
+                <div id="content-eatclean" class="tab-content active text-sm justified-text italic">
+                    Thay thịt heo bằng ức gà xay, bỏ mỡ gáy, dùng mật ong thay đường và sử dụng nước tương tách muối để tối ưu hóa lượng calo và natri.
+                </div>
+                <div id="content-home" class="tab-content text-sm justified-text italic">
+                    Có thể dùng tôm đông lạnh (rã đông kỹ, thấm thật khô) và thay củ năng bằng củ đậu (vắt kiệt nước) để tiết kiệm chi phí mà vẫn giữ được độ giòn.
+                </div>
+                <div id="content-vegetarian" class="tab-content text-sm justified-text italic">
+                    Thay nhân tôm thịt bằng đậu phụ trắng bóp nhuyễn trộn cùng nấm mèo, nấm hương băm nhỏ và bún tàu cắt vụn. Sử dụng dầu hào chay.
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer Sections -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t-2 border-gold mb-20">
+            <div>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-cinnabar">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-3 text-sm justified-text">
+                    <p>• Mỗi khẩu phần (khoảng 3 cuộn) chứa khoảng <strong>180-220 calo</strong>.</p>
+                    <p>• <strong>Ưu điểm:</strong> Giàu protein từ hải sản, chứa nhiều khoáng chất thiết yếu (i-ốt, canxi) từ rong biển. Lượng chất béo bão hòa thấp.</p>
+                    <p>• <strong>Lưu ý:</strong> Người nhạy cảm với Natri nên điều chỉnh lượng dầu hào và nước tương trong phần sốt để phù hợp với chế độ ăn.</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-cinnabar">6. Gợi ý trình bày</h3>
+                <div class="space-y-3 text-sm justified-text">
+                    <p>Sử dụng đĩa dài màu trắng hoặc đĩa gốm tối màu để tạo độ tương phản. Cắt xéo cuộn rong biển để lộ phần nhân tôm hồng hào bên trong.</p>
+                    <p>Sắp xếp các cuộn gối đầu lên nhau, rưới sốt bóng bẩy. Đặt <strong>kỷ tử đỏ</strong> và <strong>hành lá xanh</strong> lên trên để tạo sự tương phản màu sắc đỉnh cao (Red-Green-Black).</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all tab buttons
+            document.querySelectorAll('button[id^="tab-"]').forEach(button => {
+                button.classList.remove('active-tab');
+            });
+            
+            // Show selected tab content and activate button
+            document.getElementById('content-' + tabId).classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
+        }
+    </script>
+</body>
+</html>
