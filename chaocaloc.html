@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cháo Cá Lóc | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .recipe-meta-icon {
+            color: #C5A059;
+        }
+
+        .pro-tip-box {
+            border: 1px solid #C5A059;
+            background-color: #fdfaf6;
+        }
+
+        .hr-ornament::after {
+            content: "✦";
+            display: block;
+            text-align: center;
+            color: #C5A059;
+            margin: 1.5rem 0;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C2C2C',
+                        accent: '#C5A059',
+                        bg: '#FCFAFA',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="leading-relaxed">
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">Cháo Cá Lóc</h1>
+            <p class="text-2xl italic text-gray-600 mb-8">Snakehead Fish Congee</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-300">
+                <div class="text-center">
+                    <span class="block text-sm uppercase tracking-widest text-gray-500">Độ khó</span>
+                    <p class="font-bold">Trung bình</p>
+                </div>
+                <div class="text-center">
+                    <span class="block text-sm uppercase tracking-widest text-gray-500">Thời gian</span>
+                    <p class="font-bold">60 - 75 phút</p>
+                </div>
+                <div class="text-center">
+                    <span class="block text-sm uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                    <p class="font-bold">4 người</p>
+                </div>
+                <div class="text-center">
+                    <span class="block text-sm uppercase tracking-widest text-gray-500">Xuất xứ</span>
+                    <p class="font-bold">Miền Tây</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Intro -->
+        <section class="mb-12">
+            <p class="justify-text text-lg leading-loose">
+                Cháo cá lóc là món ăn đặc trưng của ẩm thực miền Tây Nam Bộ, mang đậm nét văn hóa sông nước. Món ăn này không chỉ là thực phẩm bồi bổ sức khỏe mà còn thể hiện sự tinh tế trong việc kết hợp các loại thảo mộc địa phương như rau đắng đất để cân bằng vị giác.
+            </p>
+        </section>
+
+        <!-- Main Body -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <!-- Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-accent uppercase tracking-wide">1. Nguyên liệu</h2>
+                <ul class="space-y-4">
+                    <li class="pb-2 border-b border-gray-200"><strong class="block">Cá:</strong> 1 con cá lóc đồng (800g - 1kg).</li>
+                    <li class="pb-2 border-b border-gray-200"><strong class="block">Gạo:</strong> 150g gạo tẻ, 50g gạo nếp (tỷ lệ 3:1).</li>
+                    <li class="pb-2 border-b border-gray-200"><strong class="block">Gia vị sơ chế:</strong> Gừng, muối, chanh, rượu trắng.</li>
+                    <li class="pb-2 border-b border-gray-200"><strong class="block">Gia vị nấu:</strong> Hành tím, tỏi băm, nước mắm ngon, hạt nêm, đường, tiêu.</li>
+                    <li class="pb-2 border-b border-gray-200"><strong class="block">Đồ kèm:</strong> 200g nấm rơm, 100g rau đắng đất, 100g giá đỗ.</li>
+                </ul>
+            </section>
+
+            <!-- Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-accent uppercase tracking-wide">2. Thực hiện</h2>
+                <div class="space-y-6">
+                    <div class="relative pl-6 border-l-2 border-accent">
+                        <span class="absolute -left-[9px] top-0 bg-accent w-4 h-4 rounded-full"></span>
+                        <h3 class="font-bold">Sơ chế cá</h3>
+                        <p class="justify-text text-sm">Làm sạch bằng muối, chanh và rượu. Lọc phi lê, giữ lại xương ninh nước dùng.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-accent">
+                        <h3 class="font-bold">Rang gạo</h3>
+                        <p class="justify-text text-sm">Rang vàng gạo tẻ và nếp để cháo có độ sánh, hạt nở bung thơm.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-accent">
+                        <h3 class="font-bold">Nấu nước dùng</h3>
+                        <p class="justify-text text-sm">Ninh xương cá với gừng và hành tím nướng trong 20 phút.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-accent">
+                        <h3 class="font-bold">Hoàn thiện</h3>
+                        <p class="justify-text text-sm">Xào săn cá, nấu cháo với gạo rang và nấm, nêm nếm gia vị vừa ăn.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="hr-ornament"></div>
+
+        <!-- Pro Tips -->
+        <section class="pro-tip-box p-8 mb-12 shadow-inner">
+            <h2 class="text-2xl font-bold mb-4 text-primary">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <ul class="list-disc pl-5 space-y-2 justify-text">
+                <li><strong>Khử mùi tanh:</strong> Luôn loại bỏ sợi chỉ máu dọc sống lưng cá lóc.</li>
+                <li><strong>Độ sánh:</strong> Để đạt chuẩn Master Chef, việc rang gạo là bắt buộc.</li>
+                <li><strong>Gia vị:</strong> Chỉ nên nêm nước mắm vào công đoạn cuối cùng để tránh làm cháo bị chua.</li>
+            </ul>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-widest">4. Biến tấu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-gray-200 hover:border-accent transition duration-300">
+                    <h3 class="font-bold mb-2">Nước cốt dừa</h3>
+                    <p class="text-sm justify-text italic">Thêm cốt dừa tạo độ béo ngậy kiểu miền Tây xưa.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 hover:border-accent transition duration-300">
+                    <h3 class="font-bold mb-2">Rau má</h3>
+                    <p class="text-sm justify-text italic">Thay rau đắng bằng rau má để vị thanh mát, dễ ăn.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 hover:border-accent transition duration-300">
+                    <h3 class="font-bold mb-2">Nồi áp suất</h3>
+                    <p class="text-sm justify-text italic">Rút ngắn thời gian nấu còn 15 phút bằng phương pháp hiện đại.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-300 pt-12">
+            <div>
+                <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p class="justify-text text-sm">Protein từ cá lóc giúp phục hồi cơ bắp. Omega-3 hỗ trợ tim mạch. Gừng giúp ấm bụng, hỗ trợ tiêu hóa tốt, đặc biệt phù hợp cho người đang hồi phục sức khỏe.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="justify-text text-sm">Xếp rau tươi xuống đáy bát, múc cháo nóng trực tiếp để làm tái rau. Đặt cá lên trên, trang trí bằng hành ngò, gừng sợi và hành phi để tăng phần thị giác.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
