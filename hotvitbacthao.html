@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Hột Vịt Bắc Thảo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        deepGold: '#94763F',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        p, .description {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.4;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -13px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background: #FCFAFA;
+            border: 2px solid #C5A059;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #C5A059;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { 
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 text-center bg-white border-b border-gold/20 shadow-sm">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-cinnabar font-bold uppercase tracking-widest text-sm mb-4 block">AI VUA ĐẦU BẾP • ĐẶC SẢN TRUYỀN THỐNG</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal">HỘT VỊT BẮC THẢO</h1>
+            <h2 class="text-2xl md:text-3xl italic font-light text-deepGold mb-10">Century Egg (Trứng Bách Thảo)</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto border-t border-b border-gold/30 py-6">
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase text-gray-500 tracking-wider mb-1">Độ khó</span>
+                    <span class="font-bold flex items-center gap-1"><span class="text-cinnabar">●●</span><span class="text-gray-300">●</span> Trung bình - Khó</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-xs uppercase text-gray-500 tracking-wider mb-1">Thời gian</span>
+                    <span class="font-bold">45m + 40 ngày</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-xs uppercase text-gray-500 tracking-wider mb-1">Khẩu phần</span>
+                    <span class="font-bold">20 Quả</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-gold/20">
+                    <span class="text-xs uppercase text-gray-500 tracking-wider mb-1">Nguồn gốc</span>
+                    <span class="font-bold italic">Hoa - Việt</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-8 h-px bg-cinnabar"></span>
+                        1. NGUYÊN LIỆU
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gold">
+                            <h4 class="text-lg font-bold text-deepGold mb-4 underline decoration-gold/30 underline-offset-4">Thành phần chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2 hover:bg-parchment transition-colors">
+                                    <span>20 quả trứng vịt tươi</span>
+                                    <span class="text-sm italic text-gray-500">Vỏ dày, sạch</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2 hover:bg-parchment transition-colors">
+                                    <span>300g Tro bếp</span>
+                                    <span class="text-sm italic text-gray-500">Tro gỗ sạch</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2 hover:bg-parchment transition-colors">
+                                    <span>100g Vôi bột</span>
+                                    <span class="text-sm italic text-gray-500">Vôi tôi</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2 hover:bg-parchment transition-colors">
+                                    <span>100g Muối hạt</span>
+                                    <span class="text-sm italic text-gray-500">Muối biển</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-cinnabar">
+                            <h4 class="text-lg font-bold text-cinnabar mb-4 underline decoration-cinnabar/30 underline-offset-4">Chất xúc tác & Bao phủ</h4>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2">
+                                    <span>50g Trà đen/Trà xanh</span>
+                                    <span class="text-sm italic">Loại đậm</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2">
+                                    <span>2 lít Nước lọc</span>
+                                    <span class="text-sm italic">Nước tinh khiết</span>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-dashed border-gray-200 pb-2">
+                                    <span>200g Vỏ trấu nếp</span>
+                                    <span class="text-sm italic">Bọc vỏ</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 border border-gold/30 rounded-lg text-sm italic text-gray-600 bg-parchment">
+                            <p><strong>Dụng cụ cần thiết:</strong> Hũ sành/thủy tinh nắp kín, găng tay cao su bảo hộ, cân tiểu ly.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span class="w-8 h-px bg-cinnabar"></span>
+                    2. CÁC BƯỚC THỰC HIỆN
+                </h3>
+                
+                <div class="relative ml-4 border-l-2 border-gold/30 pl-8 space-y-12 pb-8">
+                    <!-- Step 1 -->
+                    <div class="timeline-item relative group">
+                        <div class="absolute -left-12 top-0 text-gold font-bold text-xl opacity-20 group-hover:opacity-100 transition-opacity">01</div>
+                        <h4 class="text-xl font-bold text-charcoal mb-2">Sơ chế trứng (Giải pháp tại nhà)</h4>
+                        <p class="text-gray-700">Dùng khăn ẩm lau sạch các vết bẩn trên vỏ trứng vịt, tuyệt đối không chà xát mạnh làm xước lớp màng bảo vệ tự nhiên. Phơi trứng ở nơi thoáng mát cho khô ráo hoàn toàn. Soi trứng dưới ánh đèn để loại bỏ những quả bị nứt vỏ vi rụng.</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-parchment text-deepGold border border-gold/30 text-xs italic rounded">Kỹ thuật kiểm tra vỏ</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-item relative group">
+                        <div class="absolute -left-12 top-0 text-gold font-bold text-xl opacity-20 group-hover:opacity-100 transition-opacity">02</div>
+                        <h4 class="text-xl font-bold text-charcoal mb-2">Nấu nước trà (Phương pháp truyền thống)</h4>
+                        <p class="text-gray-700">Đun sôi 2 lít nước, cho trà đen và muối hạt vào nấu khoảng 10 phút để trà ra màu đậm và muối tan hết. Để nước trà nguội hoàn toàn. Lọc bỏ bã trà.</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-parchment text-deepGold border border-gold/30 text-xs italic rounded">Thời gian: 15 phút đun</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-item relative group">
+                        <div class="absolute -left-12 top-0 text-gold font-bold text-xl opacity-20 group-hover:opacity-100 transition-opacity">03</div>
+                        <h4 class="text-xl font-bold text-charcoal mb-2">Trộn hỗn hợp bùn kiềm (Kỹ thuật chuyên nghiệp)</h4>
+                        <p class="text-gray-700">Đeo găng tay cao su. Trong một thau lớn, trộn đều tro bếp và vôi bột. Từ từ đổ nước trà đã nguội vào, nhào trộn đều tay cho đến khi tạo thành một hỗn hợp bùn nhão, đặc quánh và có độ bám dính tốt. Quá trình này tạo ra môi trường kiềm (pH cao) giúp protein trong trứng biến tính và đông đặc lại.</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-cinnabar/10 text-cinnabar border border-cinnabar/20 text-xs italic rounded uppercase tracking-tighter">Lưu ý: Độ pH quyết định thành bại</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-item relative group">
+                        <div class="absolute -left-12 top-0 text-gold font-bold text-xl opacity-20 group-hover:opacity-100 transition-opacity">04</div>
+                        <h4 class="text-xl font-bold text-charcoal mb-2">Bọc trứng</h4>
+                        <p class="text-gray-700">Lấy từng quả trứng lăn đều qua lớp bùn kiềm sao cho bùn phủ kín toàn bộ vỏ trứng với độ dày khoảng 0.5 - 1cm. Ngay sau đó, lăn quả trứng qua rổ vỏ trấu để trấu bám chặt vào lớp bùn. Trấu giúp các quả trứng không bị dính vào nhau và giữ nguyên vẹn lớp vỏ ủ.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="timeline-item relative group">
+                        <div class="absolute -left-12 top-0 text-gold font-bold text-xl opacity-20 group-hover:opacity-100 transition-opacity">05</div>
+                        <h4 class="text-xl font-bold text-charcoal mb-2">Quá trình ủ</h4>
+                        <p class="text-gray-700">Xếp nhẹ nhàng từng quả trứng vào hũ sành hoặc hũ thủy tinh. Dùng nilon bọc kín miệng hũ trước khi đậy nắp để cách tuyệt đối với không khí. Đặt hũ ở nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp. Ủ trong vòng 30 đến 40 ngày.</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-parchment text-deepGold border border-gold/30 text-xs italic rounded">Nhiệt độ lý tưởng: 20°C - 25°C</span>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="timeline-item relative group">
+                        <div class="absolute -left-12 top-0 text-gold font-bold text-xl opacity-20 group-hover:opacity-100 transition-opacity">06</div>
+                        <h4 class="text-xl font-bold text-charcoal mb-2">Kiểm tra và thu hoạch</h4>
+                        <p class="text-gray-700">Sau 30 ngày, lấy 1 quả ra rửa sạch bùn, bóc vỏ kiểm tra. Nếu lòng trắng đã chuyển sang màu nâu đen trong suốt như thạch, lòng đỏ chuyển màu xanh xám và dẻo là đạt. Nếu chưa đạt, tiếp tục ủ thêm 7-10 ngày.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">◈</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="bg-[#F3EFE0] border-2 border-double border-gold p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 opacity-10 pointer-events-none">
+                   <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><path d="M11 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h5.5c.9 0 1.6.5 2 1.2.4-.7 1.1-1.2 2-1.2H19c1.1 0 2 .9 2 2v13a2 2 0 0 1-2 2h-7l-1 1-1-1z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-6 text-deepGold flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                    3. MẸO HAY TỪ VUA ĐẦU BẾP
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar">Khử mùi & Định hình</h5>
+                        <p class="text-sm text-gray-700">Luộc sơ trứng 3-5 phút sau khi bóc vỏ bùn giúp lòng đỏ dẻo quánh, đạt trạng thái "lòng đào dẻo" và giảm bớt mùi amoniac gắt.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar">Kiểm soát môi trường</h5>
+                        <p class="text-sm text-gray-700">Nhiệt độ lý tưởng 20-25°C. Nếu thời tiết quá lạnh, thời gian ủ có thể kéo dài lên đến 50 ngày để đảm bảo độ đông đặc.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h5 class="font-bold text-cinnabar">Lỗi thường gặp</h5>
+                        <p class="text-sm text-gray-700">Trứng chảy nước do vỏ nứt hoặc hũ không kín. Vị đắng chát là hệ quả của việc sử dụng quá nhiều vôi trong hỗn hợp bùn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations & Pro Versions -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-8 h-px bg-cinnabar"></span>
+                4. BIẾN TẤU & PHIÊN BẢN NÂNG CAO
+            </h3>
+            
+            <div class="flex border-b border-gold/30 mb-6 space-x-8 overflow-x-auto custom-scrollbar">
+                <button onclick="switchTab('classic')" id="btn-classic" class="tab-btn active pb-4 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Món Cháo Cổ Điển</button>
+                <button onclick="switchTab('fusion')" id="btn-fusion" class="tab-btn pb-4 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Đồ Nguội Fusion</button>
+                <button onclick="switchTab('expert')" id="btn-expert" class="tab-btn pb-4 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Kỹ Thuật Chiên Giòn</button>
+            </div>
+
+            <div id="classic" class="tab-content active transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-4 text-charcoal">Cháo thịt bằm hột vịt bắc thảo</h4>
+                        <p class="text-gray-600 mb-4">Món ăn bổ dưỡng quen thuộc, dùng trứng thái hạt lựu nấu cùng cháo trắng, thịt heo băm, thêm gừng sợi và hành lá để làm ấm cơ thể.</p>
+                        <ul class="text-sm text-deepGold italic list-disc list-inside">
+                            <li>Gợi ý: Thêm quẩy giòn và tiêu đen xay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fusion" class="tab-content transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-4 text-charcoal">Đậu hũ non sốt hột vịt bắc thảo</h4>
+                        <p class="text-gray-600 mb-4">Sự kết hợp tinh tế giữa độ mát lạnh của đậu hũ và béo bùi của trứng. Trứng cắt nhỏ, trộn tỏi, ớt, nước tương, dầu mè, giấm đen rồi rưới lên đậu hũ non.</p>
+                        <ul class="text-sm text-deepGold italic list-disc list-inside">
+                            <li>Gợi ý: Dùng kèm một chút rau mầm để tăng độ tươi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="expert" class="tab-content transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-4 text-charcoal">Trứng bắc thảo bọc chả cá chiên giòn</h4>
+                        <p class="text-gray-600 mb-4">Kỹ thuật nâng cao: Trứng luộc sơ bọc lớp chả cá thát lát hoặc thịt xay, tẩm bột xù chiên giòn. Khi cắt đôi tạo ra sự tương phản màu sắc và kết cấu ấn tượng.</p>
+                        <ul class="text-sm text-deepGold italic list-disc list-inside">
+                            <li>Gợi ý: Ăn kèm sốt mayonnaise tương ớt.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition and Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 border-t border-gold/30 pt-12">
+            <section>
+                <h3 class="text-xl font-bold mb-6 text-charcoal border-b border-cinnabar/20 pb-2">5. GIÁ TRỊ DINH DƯỠNG</h3>
+                <div class="space-y-4">
+                    <p class="text-sm text-gray-700"><strong>Thành phần:</strong> Chứa hàm lượng protein cao đã được phân giải thành các axit amin dễ tiêu hóa, giàu vitamin A, D, sắt và selen có lợi cho sức khỏe.</p>
+                    <div class="p-4 bg-cinnabar/5 border border-cinnabar/20 rounded-md">
+                        <p class="text-xs text-cinnabar font-bold uppercase mb-2">Lưu ý sức khỏe</p>
+                        <p class="text-sm italic">Món ăn có hàm lượng natri và cholesterol khá cao, người cao huyết áp hoặc mắc bệnh tim mạch nên tiêu thụ điều độ (1-2 quả/tuần).</p>
+                    </div>
+                    <p class="text-sm text-gray-600 italic border-l-2 border-gold pl-4">Phương pháp thủ công này loại bỏ rủi ro nhiễm độc chì thường gặp trong sản xuất công nghiệp.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xl font-bold mb-6 text-charcoal border-b border-cinnabar/20 pb-2">6. GỢI Ý TRÌNH BÀY</h3>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gold text-white rounded-full font-serif italic text-xl">C</div>
+                        <div>
+                            <h5 class="font-bold text-sm uppercase">Kỹ thuật cắt trứng</h5>
+                            <p class="text-sm text-gray-600">Dùng chỉ nha khoa hoặc dây cước mảnh để cắt trứng thành múi cau sắc nét. Tránh dùng dao thông thường để không làm nát lòng đỏ.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gold text-white rounded-full font-serif italic text-xl">B</div>
+                        <div>
+                            <h5 class="font-bold text-sm uppercase">Bố cục & Màu sắc</h5>
+                            <p class="text-sm text-gray-600">Xếp trứng xòe hình cánh hoa trên đĩa sứ trắng để tôn vinh màu nâu đen vân hoa tuyết của lòng trắng.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gold text-white rounded-full font-serif italic text-xl">T</div>
+                        <div>
+                            <h5 class="font-bold text-sm uppercase">Trang trí cuối cùng</h5>
+                            <p class="text-sm text-gray-600">Gừng hồng (cân bằng tính hàn), ngò rí và mè rang vàng sẽ tạo chiều sâu thị giác và hương vị cho món ăn.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected content and activate button
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Animation for timeline items on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.classList.add('opacity-0', 'transition-all', 'duration-700');
+            item.style.transform = 'translateY(20px)';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
