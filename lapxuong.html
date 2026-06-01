@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lạp Xưởng - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: .5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: .5rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .tab-button.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+
+    <!-- Hero Header -->
+    <header class="relative pt-16 pb-12 px-6 text-center max-w-5xl mx-auto">
+        <div class="mb-4">
+            <span class="text-cinnabar-red font-bold tracking-[0.2em] uppercase text-sm italic">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight">LẠP XƯỞNG</h1>
+        <h2 class="text-2xl md:text-3xl italic text-burnished-gold mb-8 opacity-80">Vietnamese Traditional Sausage</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 py-6 border-y border-burnished-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-xs font-bold tracking-widest text-primary-charcoal/60">Độ khó</span>
+                <span class="font-bold uppercase tracking-wider">Khó</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-burnished-gold/20 md:pl-12">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-xs font-bold tracking-widest text-primary-charcoal/60">Thời gian</span>
+                <span class="font-bold tracking-wider">Chuẩn bị: 1.5 giờ | Phơi: 6h-4d</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-burnished-gold/20 md:pl-12">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-xs font-bold tracking-widest text-primary-charcoal/60">Khẩu phần</span>
+                <span class="font-bold tracking-wider">10-12 người</span>
+            </div>
+            <div class="flex flex-col items-center border-l-0 md:border-l border-burnished-gold/20 md:pl-12">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <span class="uppercase text-xs font-bold tracking-widest text-primary-charcoal/60">Nguồn gốc</span>
+                <span class="font-bold tracking-wider">Việt - Hoa</span>
+            </div>
+        </div>
+
+        <div class="mt-12 max-w-3xl mx-auto">
+            <p class="justified-text italic text-primary-charcoal/80 leading-relaxed first-letter:text-5xl first-letter:float-left first-letter:mr-3 first-letter:font-bold first-letter:text-cinnabar-red">
+                Lạp xưởng có nguồn gốc từ văn hóa ẩm thực Trung Hoa nhưng đã được người Việt biến tấu và tinh chỉnh hương vị qua nhiều thế hệ. Đây là món ăn mang tính biểu tượng trong dịp Tết Nguyên Đán tại Việt Nam, màu đỏ của lạp xưởng tượng trưng cho sự may mắn, phước lành và sự sung túc trong năm mới.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider max-w-5xl mx-auto px-6">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <div class="sticky top-8">
+                <h3 class="text-3xl font-bold border-b-2 border-cinnabar-red pb-2 mb-6">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div class="p-6 glass-card rounded-sm hover-lift">
+                        <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-sm mb-4">Phần Thịt & Mỡ</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Thịt heo nạc (vai/đùi): <b>800g</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Mỡ heo (mỡ gáy): <b>200g</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Ruột heo khô: <b>3-4 mét</b></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 glass-card rounded-sm hover-lift">
+                        <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-sm mb-4">Gia Vị & Rượu</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Rượu Mai Quế Lộ: <b>3 tbsp</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Rượu trắng: <b>100ml</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Đường cát trắng: <b>100g</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Muối tinh: <b>15g</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Nước tương: <b>2 tbsp</b></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 glass-card rounded-sm hover-lift">
+                        <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-sm mb-4">Hương Liệu Đặc Trưng</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Bột ngũ vị hương: <b>1 tsp</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Tiêu hạt (đập dập): <b>1 tbsp</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span>Tiêu xay: <b>1/2 tsp</b></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                <span class="italic text-primary-charcoal/70 text-sm italic">Muối đỏ (Curing salt): 2g (tùy chọn)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-3xl font-bold border-b-2 border-cinnabar-red pb-2 mb-10">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12 pl-4">
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">1</span>
+                        <h5 class="text-xl font-bold">Sơ chế mỡ heo (Phương pháp truyền thống)</h5>
+                    </div>
+                    <p class="justified-text pl-12">Rửa sạch mỡ gáy, thái hạt lựu thật nhỏ. Trộn mỡ với 1 muỗng canh đường và 1 muỗng canh rượu trắng. Đem phơi nắng khoảng 2-3 giờ cho đến khi mỡ trong lại. Bước này giúp mỡ giòn và không bị ngấy khi ăn.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">2</span>
+                        <h5 class="text-xl font-bold">Sơ chế thịt nạc (Kỹ thuật chuyên nghiệp)</h5>
+                    </div>
+                    <p class="justified-text pl-12 italic text-burnished-gold font-bold text-sm mb-2">Lời khuyên: Tuyệt đối không dùng máy xay.</p>
+                    <p class="justified-text pl-12">Thay vì xay thịt bằng máy, hãy thái thịt nạc bằng tay thành hạt lựu nhỏ. Thịt thái tay sẽ giữ được kết cấu chắc chắn và tạo ra độ "cắn" (bite) hoàn hảo cho lạp xưởng. Trong quá trình thái, phải giữ thịt luôn lạnh.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">3</span>
+                        <h5 class="text-xl font-bold">Ướp nhân</h5>
+                    </div>
+                    <p class="justified-text pl-12">Trộn đều thịt nạc và mỡ gáy đã phơi trong. Thêm rượu Mai Quế Lộ, muối, phần đường còn lại, nước tương, ngũ vị hương, tiêu hạt, tiêu xay và muối đỏ. Trộn đều theo một chiều cho đến khi hỗn hợp dẻo lại. Bọc kín và để trong ngăn mát tủ lạnh <b>khoảng 2 tiếng</b> cho ngấm gia vị.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">4</span>
+                        <h5 class="text-xl font-bold">Xử lý ruột heo</h5>
+                    </div>
+                    <p class="justified-text pl-12">Rửa ruột heo bằng rượu trắng và muối để khử mùi hôi. Vuốt sạch từ trong ra ngoài và rửa lại bằng nước ấm. Để ráo hoàn toàn.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">5</span>
+                        <h5 class="text-xl font-bold">Nhồi lạp xưởng</h5>
+                    </div>
+                    <p class="justified-text pl-12">Dùng phễu hoặc máy nhồi xúc xích để nhồi hỗn hợp thịt vào ruột heo. Không nhồi quá căng để tránh bị bục khi sấy. Dùng chỉ nilon hoặc dây lạt buộc chia lạp xưởng thành từng đoạn dài <b>10-15cm</b>.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">6</span>
+                        <h5 class="text-xl font-bold">Xăm lỗ (Kỹ thuật chuyên nghiệp)</h5>
+                    </div>
+                    <p class="justified-text pl-12">Dùng một cây kim châm các lỗ nhỏ xung quanh mỗi khúc lạp xưởng. Điều này giúp thoát không khí bị kẹt bên trong, làm thịt kết dính chặt hơn và tạo độ giòn (snap) cho lớp vỏ khi chế biến.</p>
+                </div>
+
+                <div class="relative timeline-step">
+                    <div class="flex items-baseline gap-4 mb-3">
+                        <span class="flex-none w-8 h-8 rounded-full bg-cinnabar-red text-white flex items-center justify-center font-bold">7</span>
+                        <h5 class="text-xl font-bold">Rửa và làm khô (Lựa chọn Đa phương pháp)</h5>
+                    </div>
+                    <div class="pl-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-white border border-burnished-gold/20 shadow-sm">
+                            <h6 class="font-bold text-cinnabar-red mb-2 uppercase text-xs tracking-widest">Truyền thống (Nắng trời)</h6>
+                            <p class="text-sm justified-text">Treo ngoài nắng gắt từ 3-4 ngày. Tối mang vào nhà treo nơi thoáng mát. Rửa qua nước ấm pha rượu trước khi phơi.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-burnished-gold/20 shadow-sm">
+                            <h6 class="font-bold text-cinnabar-red mb-2 uppercase text-xs tracking-widest">Hiện đại (Sấy lò)</h6>
+                            <p class="text-sm justified-text">Sấy ở nhiệt độ 50°C - 60°C trong 5-6 giờ. Hé mở cửa lò một chút để thoát hơi ẩm hiệu quả.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef's Corner -->
+            <section class="mt-16 pro-tip-box p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="text-burnished-gold">✦</span>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h4>
+                <ul class="space-y-6">
+                    <li class="justified-text border-l-4 border-burnished-gold pl-6">
+                        <b class="block mb-1 text-burnished-gold">Kiểm soát nhiệt độ:</b>
+                        Luôn giữ thịt và mỡ ở trạng thái lạnh trong suốt quá trình sơ chế và nhồi. Nếu thịt bị nóng lên, mỡ sẽ tươm ra và làm lạp xưởng bị bở, mất đi độ kết dính.
+                    </li>
+                    <li class="justified-text border-l-4 border-burnished-gold pl-6">
+                        <b class="block mb-1 text-burnished-gold">Kỹ thuật "Chiên nước":</b>
+                        Khi chế biến lạp xưởng để ăn, không nên chiên bằng dầu. Hãy cho lạp xưởng vào chảo cùng một ít nước lọc, đun sôi lăn tăn cho lạp xưởng chín đều từ bên trong. Khi nước cạn, mỡ từ lạp xưởng sẽ tự tiết ra ngoài và làm lớp vỏ ngoài xém vàng, giòn rụm mà không bị khô cứng.
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <!-- Variations Section -->
+    <section class="bg-primary-charcoal py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-white text-3xl font-bold mb-12 text-center italic">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Variation 1 -->
+                <div class="bg-white/5 p-8 border border-white/10 hover:border-burnished-gold transition-colors duration-500 rounded-lg group">
+                    <span class="text-burnished-gold text-4xl mb-4 block">🦐</span>
+                    <h5 class="text-burnished-gold text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-cinnabar-red transition-colors">Lạp xưởng tôm</h5>
+                    <p class="text-white/70 justified-text text-sm leading-relaxed">Thay 50% lượng thịt heo bằng tôm đất tươi băm nhuyễn để có hương vị ngọt thanh và màu sắc cam đỏ tự nhiên.</p>
+                </div>
+                <!-- Variation 2 -->
+                <div class="bg-white/5 p-8 border border-white/10 hover:border-burnished-gold transition-colors duration-500 rounded-lg group">
+                    <span class="text-burnished-gold text-4xl mb-4 block">🥚</span>
+                    <h5 class="text-burnished-gold text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-cinnabar-red transition-colors">Lạp xưởng trứng muối</h5>
+                    <p class="text-white/70 justified-text text-sm leading-relaxed">Thêm lòng đỏ trứng muối xắt hạt lựu vào hỗn hợp nhân để tăng độ béo ngậy đặc trưng cho món ăn.</p>
+                </div>
+                <!-- Variation 3 -->
+                <div class="bg-white/5 p-8 border border-white/10 hover:border-burnished-gold transition-colors duration-500 rounded-lg group">
+                    <span class="text-burnished-gold text-4xl mb-4 block">🥗</span>
+                    <h5 class="text-burnished-gold text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-cinnabar-red transition-colors">Lạp xưởng ức gà</h5>
+                    <p class="text-white/70 justified-text text-sm leading-relaxed">Phiên bản giảm béo dành cho người ăn kiêng, sử dụng ức gà xay thô thay thế thịt heo và dùng dầu oliu thay cho mỡ gáy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Technical Sections -->
+    <footer class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-burnished-gold/30 pt-12">
+            <!-- Nutrition -->
+            <section>
+                <h4 class="text-2xl font-bold mb-8 flex items-center gap-4">
+                    <span class="w-10 h-1px bg-cinnabar-red"></span>
+                    5. Giá trị dinh dưỡng
+                </h4>
+                <div class="p-8 bg-white shadow-xl border border-burnished-gold/10">
+                    <div class="flex justify-between items-end border-b border-primary-charcoal/10 pb-4 mb-4">
+                        <span class="text-3xl font-bold">350-400</span>
+                        <span class="uppercase font-bold text-xs tracking-widest pb-1">Kcal / 100g</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <span class="block text-xs uppercase font-bold text-primary-charcoal/50">Protein</span>
+                            <span class="text-xl font-bold text-cinnabar-red">15-20g</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase font-bold text-primary-charcoal/50">Chất béo</span>
+                            <span class="text-xl font-bold text-cinnabar-red">30g</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="justified-text text-sm italic">
+                            <b>Lưu ý vi lượng:</b> Lượng natri (muối) cao do quá trình ướp để bảo quản. Chứa nhiều chất béo bão hòa từ mỡ gáy.
+                        </p>
+                        <div class="bg-bg-cream p-4 border-l-4 border-cinnabar-red">
+                            <p class="text-xs font-bold uppercase mb-1">Khuyên dùng từ chuyên gia:</p>
+                            <p class="text-sm italic justified-text">Nên tiêu thụ ở mức độ vừa phải. Ăn kèm với nhiều loại rau xanh tươi, dưa leo, củ kiệu hoặc dưa chua để cân bằng lượng chất béo và hỗ trợ tiêu hóa.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h4 class="text-2xl font-bold mb-8 flex items-center gap-4">
+                    <span class="w-10 h-1px bg-cinnabar-red"></span>
+                    6. Gợi ý trình bày
+                </h4>
+                <div class="space-y-8">
+                    <div class="group">
+                        <h6 class="text-burnished-gold font-bold uppercase text-xs tracking-widest mb-2 flex items-center gap-2">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            Kỹ thuật thái (Styling)
+                        </h6>
+                        <p class="justified-text text-sm leading-relaxed">
+                            Thay vì thái khoanh tròn, hãy thái lạp xưởng theo những lát vát chéo (cắt xéo) mỏng vừa. Cách cắt này làm tăng diện tích bề mặt, phô diễn được kết cấu hạt lựu đan xen tuyệt đẹp giữa thịt nạc đỏ au và mỡ trắng trong.
+                        </p>
+                    </div>
+                    <div class="group">
+                        <h6 class="text-burnished-gold font-bold uppercase text-xs tracking-widest mb-2 flex items-center gap-2">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            Bố cục đĩa (Plating)
+                        </h6>
+                        <p class="justified-text text-sm leading-relaxed">
+                            Xếp các lát lạp xưởng vát chéo chồng lên nhau hình dẻ quạt trên nền xôi trắng hoặc xôi gấc. Màu đỏ rực rỡ của lạp xưởng nổi bật trên nền nếp trắng tạo ra sự tương phản màu sắc cực kỳ bắt mắt.
+                        </p>
+                    </div>
+                    <div class="group">
+                        <h6 class="text-burnished-gold font-bold uppercase text-xs tracking-widest mb-2 flex items-center gap-2">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            Mẹo chụp ảnh (Food Photography)
+                        </h6>
+                        <p class="justified-text text-sm leading-relaxed italic">
+                            Để lạp xưởng lên hình trông thật hấp dẫn và mọng nước, hãy dùng cọ phết nhẹ một lớp mỏng dầu ăn lên bề mặt ngay trước khi chụp. Trang trí thêm vài nhánh ngò rí và vài lát ớt đỏ để tạo điểm nhấn thị giác.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation logic for hover effects can be added here if needed, 
+        // but Tailwind handle most transitions.
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.5)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
