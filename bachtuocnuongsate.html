@@ -5,141 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Vua Đầu Bếp | Bạch Tuộc Nướng Sa Tế</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#C84C3C',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap');
-        
-        body {
-            font-family: 'Times New Roman', serif;
-            background-color: #FCFAFA;
-            color: #2C2C2C;
-            line-height: 1.8;
-        }
-
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-        .recipe-text {
-            text-align: justify;
-        }
-
-        .border-cinnabar {
-            border-color: #E34234;
-        }
-
-        .text-cinnabar {
-            color: #E34234;
-        }
-
-        .gold-frame {
-            border: 2px solid #D4AF37;
-            padding: 2rem;
-            background: #fffdf5;
-        }
-
-        .hr-ornament::after {
-            content: "★";
-            display: block;
-            text-align: center;
-            color: #E34234;
-            margin: 1rem 0;
-        }
+        body { background-color: #FCFAFA; color: #2C2C2C; font-family: 'Times New Roman', serif; }
+        .text-justify { text-align: justify; }
+        .gold-border { border: 1px solid #D4AF37; }
+        .divider { height: 1px; background: linear-gradient(to right, transparent, #C84C3C, transparent); margin: 2rem 0; position: relative; }
+        .divider::after { content: "★"; position: absolute; left: 50%; top: -12px; transform: translateX(-50%); background: #FCFAFA; padding: 0 10px; color: #C84C3C; }
     </style>
 </head>
-<body class="py-12 px-4 md:px-20 lg:px-40">
+<body class="leading-relaxed">
 
-    <article class="max-w-4xl mx-auto">
+    <main class="max-w-5xl mx-auto px-6 py-12">
         <!-- Hero Header -->
         <header class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">Bạch Tuộc Nướng Sa Tế</h1>
-            <i class="text-2xl text-gray-600 block mb-8">Grilled Octopus with Satay</i>
+            <h1 class="text-5xl md:text-6xl font-bold text-charcoal mb-4">Bạch Tuộc Nướng Sa Tế</h1>
+            <p class="text-xl italic text-gray-600 mb-8">Grilled Octopus with Satay</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-300">
-                <div class="text-center"><span class="block text-sm uppercase tracking-widest text-gray-500">Độ khó</span><span class="font-bold">Medium</span></div>
-                <div class="text-center"><span class="block text-sm uppercase tracking-widest text-gray-500">Thời gian</span><span class="font-bold">45 phút</span></div>
-                <div class="text-center"><span class="block text-sm uppercase tracking-widest text-gray-500">Khẩu phần</span><span class="font-bold">4 người</span></div>
-                <div class="text-center"><span class="block text-sm uppercase tracking-widest text-gray-500">Xuất xứ</span><span class="font-bold">Việt Nam</span></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white p-6 rounded-lg gold-border shadow-sm">
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-cinnabar font-bold">Độ khó</p><p class="font-semibold">Trung bình</p></div>
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-cinnabar font-bold">Thời gian</p><p class="font-semibold">45 - 60 phút</p></div>
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-cinnabar font-bold">Khẩu phần</p><p class="font-semibold">3 - 4 người</p></div>
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-cinnabar font-bold">Nguồn gốc</p><p class="font-semibold">Việt Nam</p></div>
             </div>
+            <p class="mt-8 text-justify max-w-3xl mx-auto">Món ăn phổ biến trong ẩm thực ven biển và văn hóa nhậu đường phố tại Việt Nam, nổi bật với sự kết hợp giữa hải sản tươi sống và gia vị cay nồng đặc trưng của vùng nhiệt đới.</p>
         </header>
 
-        <!-- Main Content -->
-        <div class="grid md:grid-cols-2 gap-12">
-            <!-- Left: Ingredients -->
-            <section>
-                <h2 class="text-3xl mb-6 text-cinnabar border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="font-bold uppercase text-sm mb-2">Chính</h4>
-                        <ul class="list-disc list-inside">
-                            <li>1 kg bạch tuộc tươi</li>
-                            <li>2 thìa muối hạt, 1 củ gừng</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold uppercase text-sm mb-2">Gia vị & Sốt</h4>
-                        <ul class="list-disc list-inside">
-                            <li>3 thìa sa tế (dầu điều, sả, ớt, tỏi)</li>
-                            <li>1 thìa dầu hào, 1 thìa nước mắm</li>
-                            <li>1 thìa mật ong/đường</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <div class="divider"></div>
 
-            <!-- Right: Steps -->
-            <section>
-                <h2 class="text-3xl mb-6 text-cinnabar border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h2>
-                <div class="space-y-8">
-                    <div class="relative pl-6 border-l-2 border-gray-200">
-                        <span class="absolute -left-[9px] top-0 text-cinnabar">●</span>
-                        <h3 class="font-bold text-xl">Sơ chế</h3>
-                        <p class="recipe-text">Massage bạch tuộc với muối và gừng trong 5 phút. Rửa sạch, để ráo.</p>
-                    </div>
-                    <div class="relative pl-6 border-l-2 border-gray-200">
-                        <span class="absolute -left-[9px] top-0 text-cinnabar">●</span>
-                        <h3 class="font-bold text-xl">Ướp gia vị</h3>
-                        <p class="recipe-text">Trộn đều sa tế, dầu hào, mắm, mật ong. Ướp trong 30 phút.</p>
-                    </div>
-                    <div class="relative pl-6 border-l-2 border-gray-200">
-                        <span class="absolute -left-[9px] top-0 text-cinnabar">●</span>
-                        <h3 class="font-bold text-xl">Nướng</h3>
-                        <p class="recipe-text">Nướng trên lửa than hoặc nồi chiên không dầu 200°C trong 10-12 phút.</p>
-                    </div>
+        <!-- Main Recipe Body -->
+        <section class="grid md:grid-cols-2 gap-12 mb-16">
+            <!-- Left Column: Ingredients -->
+            <article>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar border-b border-cinnabar pb-2 inline-block">1. Nguyên liệu</h2>
+                <ul class="space-y-4">
+                    <li><strong class="text-charcoal">Bạch tuộc:</strong> 1kg (bạch tuộc đá/2 da).</li>
+                    <li><strong class="text-charcoal">Sốt ướp:</strong> 3 muỗng canh sa tế tôm, 1 muỗng canh dầu màu điều, 1 muỗng canh mật ong, 1 muỗng canh tương ớt.</li>
+                    <li><strong class="text-charcoal">Gia vị thơm:</strong> 3 nhánh sả băm, 2 củ hành tím, 2 củ tỏi, 1 nhánh gừng đập dập.</li>
+                    <li><strong class="text-charcoal">Khử mùi:</strong> Rượu trắng, muối hạt.</li>
+                    <li><strong class="text-charcoal">Đồ kèm:</strong> Dưa leo, rau răm, chuối chát, khế chua, muối ớt xanh.</li>
+                </ul>
+            </article>
+
+            <!-- Right Column: Steps -->
+            <article>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar border-b border-cinnabar pb-2 inline-block">2. Các bước thực hiện</h2>
+                <div class="space-y-6">
+                    <div><h4 class="font-bold">Sơ chế (5 phút):</h4> <p class="text-justify italic">Loại bỏ nội tạng, bóp sạch với muối, gừng, rượu trắng.</p></div>
+                    <div><h4 class="font-bold">Chế biến sốt:</h4> <p class="text-justify italic">Trộn đều sa tế, sả, hành tỏi, mật ong, gia vị trong tô lớn.</p></div>
+                    <div><h4 class="font-bold">Ướp (30 phút):</h4> <p class="text-justify italic">Xoa bóp sốt đều vào bạch tuộc, ướp ngăn mát tủ lạnh.</p></div>
+                    <div><h4 class="font-bold">Nướng:</h4> <p class="text-justify italic">Than hoa (lửa lớn, phết sốt) hoặc nồi chiên (180°C - 200°C).</p></div>
                 </div>
-            </section>
-        </div>
+            </article>
+        </section>
 
         <!-- Chef's Corner -->
-        <section class="my-16 gold-frame">
-            <h2 class="text-3xl mb-4 text-cinnabar italic">3. Mẹo hay từ Vua Đầu Bếp</h2>
-            <p class="recipe-text italic">"Chần sơ bạch tuộc trong nước sôi 30 giây trước khi ướp để định hình xúc tu và giúp lớp da giòn hơn khi nướng."</p>
+        <section class="bg-gray-100 p-8 gold-border shadow-inner mb-16">
+            <h2 class="text-3xl font-bold mb-6 text-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div><h4 class="font-bold text-cinnabar uppercase text-sm">Kỹ thuật nâng cao</h4><p class="text-justify">Trần sơ 10s và ngâm đá để bạch tuộc không ra nước khi nướng.</p></div>
+                <div><h4 class="font-bold text-cinnabar uppercase text-sm">Kiểm soát nhiệt</h4><p class="text-justify">Tránh để mỡ rơi xuống than gây khói làm đen thịt.</p></div>
+                <div><h4 class="font-bold text-cinnabar uppercase text-sm">Tránh lỗi</h4><p class="text-justify">Dùng mật ong thay đường để tránh cháy khét nhanh.</p></div>
+            </div>
         </section>
 
         <!-- Variations -->
-        <section class="my-16">
-            <h2 class="text-3xl mb-8">4. Biến tấu & Nâng cao</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="p-6 bg-white shadow-sm border border-gray-200">
-                    <h4 class="font-bold">Phiên bản nhanh</h4>
-                    <p class="text-sm">Sử dụng bạch tuộc baby và sa tế đóng chai cho bữa tối 15 phút.</p>
-                </div>
-                <div class="p-6 bg-white shadow-sm border border-gray-200">
-                    <h4 class="font-bold">Phiên bản thanh đạm</h4>
-                    <p class="text-sm">Giảm mặn bằng nước mắm ít natri và tách bớt lớp dầu từ sa tế.</p>
-                </div>
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-charcoal">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-gray-200"><strong>Muối ớt:</strong> Tập trung vào muối hạt và ớt tươi cay nồng.</div>
+                <div class="p-6 bg-white border border-gray-200"><strong>Nướng chao:</strong> Thay sa tế bằng chao để tạo vị béo ngậy.</div>
+                <div class="p-6 bg-white border border-gray-200"><strong>Nguyên liệu khác:</strong> Áp dụng sốt này cho tôm sú hoặc mực ống.</div>
             </div>
         </section>
 
         <!-- Footer Info -->
-        <footer class="grid md:grid-cols-2 gap-12 mt-16 pt-8 border-t border-gray-300">
-            <section>
-                <h3 class="text-xl font-bold mb-2">5. Giá trị dinh dưỡng</h3>
-                <p class="recipe-text text-sm text-gray-700">Giàu protein, sắt, B12 và selen. Phù hợp cho chế độ ăn tập luyện, hỗ trợ bởi rau củ tươi giúp cân bằng khoáng chất.</p>
-            </section>
-            <section>
-                <h3 class="text-xl font-bold mb-2">6. Gợi ý trình bày</h3>
-                <p class="recipe-text text-sm text-gray-700">Thái miếng xéo, bày trên đĩa gốm tối màu. Trang trí cùng rau răm và chén muối ớt xanh để tạo độ tương phản màu sắc rực rỡ.</p>
-            </section>
-        </footer>
-    </article>
+        <section class="grid md:grid-cols-2 gap-12 pt-12 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p class="text-justify">Bạch tuộc là nguồn protein cao, ít béo, giàu Omega-3, B12 và Selen. Khoảng 150-180 calo/100g. Người bị gout hoặc dị ứng hải sản nên thận trọng.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="text-justify">Sử dụng thớt gỗ hoặc đĩa tối màu. Sắp xếp xúc tu uốn lượn tự nhiên, trang trí rau răm và hành phi để tạo điểm nhấn thị giác.</p>
+            </div>
+        </section>
+    </main>
 
 </body>
 </html>
