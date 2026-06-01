@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Cháo Mực Thập Cẩm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepCharcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        burnishedGold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; font-family: 'Times New Roman', Times, serif; color: #2C2C2C; }
+        .justify { text-align: justify; }
+        .divider { border-top: 1px solid #C5A059; margin: 2rem 0; position: relative; }
+        .divider::after { content: '★'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #FCFAFA; padding: 0 10px; color: #C5A059; }
+        .pro-tip-border { border: 2px double #C5A059; padding: 1.5rem; }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4 uppercase tracking-wider">CHÁO MỰC THẬP CẨM</h1>
+            <h2 class="text-2xl italic text-gray-600 mb-8">Mixed Squid Porridge – The Essence of Simple Cuisine</h2>
+            
+            <!-- Meta Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-300">
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Độ khó</span><span class="font-bold">Trung bình</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Thời gian</span><span class="font-bold">90 phút</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Khẩu phần</span><span class="font-bold">4-5 người</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Nguồn gốc</span><span class="font-bold">Miền Nam, VN</span></div>
+            </div>
+        </header>
+
+        <!-- Intro -->
+        <section class="mb-12">
+            <p class="text-lg justify leading-loose">
+                Cháo mực là món ăn dân dã đặc trưng của miền Nam Việt Nam, xuất phát từ các xe hàng rong trên đường phố Sài Gòn xưa. Sự kết hợp giữa vị ngọt thanh của mực khô, độ đậm đà của xương heo và hương thơm của gạo rang tạo nên một món ăn ấm nồng, giàu dinh dưỡng.
+            </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Recipe Body -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Ingredients -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 text-cinnabar">1. Nguyên liệu</h3>
+                <ul class="space-y-4">
+                    <li><strong class="block text-xl">Phần gạo:</strong> 150g gạo tẻ, 50g gạo nếp.</li>
+                    <li><strong class="block text-xl">Phần mực:</strong> 2 con mực khô lớn, 300g mực tươi.</li>
+                    <li><strong class="block text-xl">Nước dùng:</strong> 500g xương ống, 50g tôm khô.</li>
+                    <li><strong class="block text-xl">Gia vị & Kèm theo:</strong> Huyết heo, giá đỗ, gừng, hành tím, nước mắm, đường phèn, quẩy.</li>
+                </ul>
+            </section>
+
+            <!-- Steps -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 text-cinnabar">2. Các bước thực hiện</h3>
+                <div class="space-y-6">
+                    <div><h4 class="font-bold text-xl">1. Nấu nước dùng <span class="text-sm font-normal italic text-gray-500">(60 phút)</span></h4><p class="justify">Ninh xương cùng tôm khô, thường xuyên hớt bọt để nước dùng trong.</p></div>
+                    <div><h4 class="font-bold text-xl">2. Xử lý mực <span class="text-sm font-normal italic text-gray-500">(15 phút)</span></h4><p class="justify">Nướng mực khô cho thơm rồi ngâm mềm cắt sợi; mực tươi chần nhanh giữ độ giòn.</p></div>
+                    <div><h4 class="font-bold text-xl">3. Rang gạo & Nấu cháo <span class="text-sm font-normal italic text-gray-500">(15 phút)</span></h4><p class="justify">Rang gạo cho đến khi tỏa mùi thơm, sau đó ninh cùng nước dùng xương đến khi nở hoa.</p></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Insights -->
+        <section class="grid md:grid-cols-2 gap-8 my-12">
+            <!-- Chef's Corner -->
+            <div class="pro-tip-border bg-amber-50">
+                <h3 class="text-2xl font-bold mb-4 text-burnishedGold">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="list-disc ml-5 space-y-2">
+                    <li>Dùng gừng thái sợi vào cuối để làm ấm bụng.</li>
+                    <li>Không khuấy cháo quá nhiều để tránh vữa.</li>
+                    <li>Cho mực tươi vào sau cùng để giữ độ ngọt giòn.</li>
+                </ul>
+            </div>
+
+            <!-- Variations -->
+            <div>
+                <h3 class="text-2xl font-bold mb-4">4. Biến tấu</h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-4 border-l-4 border-cinnabar bg-white shadow-sm">Miền Tây: Thêm nấm rơm và rau đắng.</div>
+                    <div class="p-4 border-l-4 border-cinnabar bg-white shadow-sm">Nhanh: Sử dụng nồi áp suất.</div>
+                    <div class="p-4 border-l-4 border-cinnabar bg-white shadow-sm">Hải sản: Thêm tôm tươi, sò điệp.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer -->
+        <footer class="grid md:grid-cols-2 gap-12 pt-8 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-2 uppercase">5. Giá trị dinh dưỡng</h3>
+                <p class="justify">Giàu Protein, Vitamin B12 và các khoáng chất như Selen. Tốt cho tiêu hóa, ấm bụng nhờ gừng và tiêu.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-2 uppercase">6. Gợi ý trình bày</h3>
+                <p class="justify">Lót giá, gừng sợi dưới đáy. Xếp mực tươi lên bề mặt, rắc hành ngò, hành phi và nhiều tiêu xay để đạt độ thẩm mỹ cao nhất.</p>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
