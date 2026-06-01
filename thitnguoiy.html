@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Prosciutto di Parma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EFE6',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.4;
+        }
+        .ornament-icon {
+            padding: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #E23D28;
+            border: 2px solid #FCFAFA;
+            box-shadow: 0 0 0 1px #E23D28;
+        }
+        .step-container {
+            border-left: 1px solid #C5A059;
+            margin-left: 12px;
+            padding-left: 32px;
+        }
+        .premium-border {
+            border: 1px solid #C5A059;
+            position: relative;
+            padding: 2rem;
+        }
+        .premium-border::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #C5A059;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            color: #E23D28;
+            border-bottom: 2px solid #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="mb-4 text-gold tracking-[0.3em] uppercase text-sm font-bold animate-pulse">Tinh Hoa Ẩm Thực Ý</div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight">Prosciutto di Parma</h1>
+            <p class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-serif">The King of Hams</p>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-gold py-6 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                        </svg>
+                    </span>
+                    <span class="uppercase text-[10px] tracking-widest text-gray-500">Độ khó</span>
+                    <span class="font-bold text-lg">DỄ</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                        </svg>
+                    </span>
+                    <span class="uppercase text-[10px] tracking-widest text-gray-500">Thời gian</span>
+                    <span class="font-bold text-lg">15 PHÚT</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                        </svg>
+                    </span>
+                    <span class="uppercase text-[10px] tracking-widest text-gray-500">Khẩu phần</span>
+                    <span class="font-bold text-lg">2-4 NGƯỜI</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-cinnabar mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM4.5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </span>
+                    <span class="uppercase text-[10px] tracking-widest text-gray-500">Nguồn gốc</span>
+                    <span class="font-bold text-lg">PARMA, Ý</span>
+                </div>
+            </div>
+
+            <!-- Origin Text -->
+            <div class="mt-10 max-w-3xl mx-auto italic justified-text text-gray-700 leading-relaxed">
+                Prosciutto di Parma là tinh hoa ẩm thực Ý, mang chứng nhận bảo hộ xuất xứ DOP (Denominazione di Origine Protetta). Món ăn này chỉ được sản xuất tại vùng Parma, Ý, tuân thủ quy trình ủ truyền thống nghiêm ngặt qua nhiều thế kỷ. Sự kỳ diệu của món đùi heo muối này nằm ở chỗ người thợ chỉ sử dụng hai nguyên liệu duy nhất: đùi heo chất lượng cao và muối biển, tuyệt đối không có phụ gia. Chính luồng gió đặc trưng của vùng đồi núi Parma và thời gian ủ kéo dài (ít nhất 14 tháng) đã tự nhiên tạo nên hương vị ngọt ngào và kết cấu tan chảy độc bản.
+            </div>
+        </header>
+
+        <div class="ornament">
+            <div class="ornament-icon">✦</div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block uppercase tracking-wider">1. Nguyên liệu</h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-gold font-bold uppercase text-xs tracking-widest mb-3">Thành phần chính</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-3 mt-1 group-hover:rotate-12 transition-transform italic">❧</span>
+                                    <span class="justified-text"><strong>200g Prosciutto di Parma</strong> <br><span class="text-sm italic text-gray-500">(Yêu cầu nhân viên quầy Deli cắt lát thật mỏng)</span></span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-3 mt-1 group-hover:rotate-12 transition-transform italic">❧</span>
+                                    <span class="justified-text"><strong>1 quả dưa lưới (Cantaloupe)</strong> chín ngọt, hoặc 6-8 quả vả tươi (figs)</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-3 mt-1 group-hover:rotate-12 transition-transform italic">❧</span>
+                                    <span class="justified-text"><strong>1 ổ bánh mì Ciabatta</strong> hoặc Focaccia tươi</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gold font-bold uppercase text-xs tracking-widest mb-3">Gia vị & Sốt</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-3 mt-1 group-hover:rotate-12 transition-transform italic">❧</span>
+                                    <span class="justified-text"><strong>1 muỗng canh Dầu ô liu</strong> loại ngon (Extra Virgin Olive Oil)</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-3 mt-1 group-hover:rotate-12 transition-transform italic">❧</span>
+                                    <span class="justified-text"><strong>1 muỗng canh Sốt Balsamic</strong> cô đặc (Balsamic glaze)</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <span class="text-cinnabar mr-3 mt-1 group-hover:rotate-12 transition-transform italic">❧</span>
+                                    <span class="justified-text">Một ít rau mầm (microgreens) hoặc lá húng quế tây tươi</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h2 class="text-3xl font-bold mb-10 border-b-2 border-cinnabar inline-block uppercase tracking-wider">2. Các bước thực hiện</h2>
+                
+                <div class="step-container space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step group">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold uppercase">Chuẩn bị thịt</h4>
+                            <span class="text-gold italic font-serif text-sm">~ 20 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            <strong>Kỹ thuật chuyên nghiệp:</strong> Lấy Prosciutto di Parma ra khỏi tủ lạnh khoảng 15-20 phút trước khi phục vụ. Việc để thịt nghỉ ở nhiệt độ phòng là yếu tố sống còn giúp phần mỡ từ từ mềm ra, giải phóng trọn vẹn hương vị mặn ngọt và kết cấu mềm mại của thịt.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step group">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold uppercase">Chuẩn bị đồ ăn kèm</h4>
+                            <span class="text-gold italic font-serif text-sm">~ 5 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            <strong>Góc độ gia đình:</strong> Gọt vỏ và bỏ hạt dưa lưới, cắt thành từng múi cau vừa ăn. Nếu dùng quả vả tươi, rửa sạch và bổ làm tư. Bánh mì xắt lát mỏng, có thể nướng xém nhẹ và rưới một chút dầu ô liu.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step group">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold uppercase">Kết hợp hương vị</h4>
+                            <span class="text-gold italic font-serif text-sm">~ 5 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Lấy từng lát thịt Prosciutto di Parma mỏng tang, nhẹ nhàng quấn quanh từng miếng dưa lưới hoặc xếp lơi lỏng bên cạnh quả vả ngọt. Sự tương phản giữa vị mặn mòi, béo ngậy của thịt ủ và vị ngọt thanh, mọng nước của trái cây sẽ tạo nên sự bùng nổ vị giác.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step group">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold uppercase">Bảo quản</h4>
+                            <span class="text-gold italic font-serif text-sm">Hậu kỳ</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            <strong>Mẹo cho người nội trợ:</strong> Nếu không dùng hết, hãy bọc phần thịt còn lại thật kín bằng màng bọc thực phẩm, đảm bảo không có không khí lọt vào để tránh thịt bị khô và oxy hóa. Bảo quản trong ngăn mát tủ lạnh và sử dụng tối đa trong 2-3 ngày.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner -->
+                <div class="mt-16 premium-border bg-goldLight/30">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center">
+                        <span class="bg-cinnabar text-white p-1 mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M5.5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zm-5 4a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5zM2 10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2zm2-1h8v1H4V9z"/>
+                            </svg>
+                        </span>
+                        3. Mẹo hay từ Vua Đầu Bếp
+                    </h3>
+                    <ul class="space-y-4 justified-text">
+                        <li><strong>Độ mỏng tiêu chuẩn:</strong> Prosciutto di Parma phải được cắt mỏng như tờ giấy (trong suốt đến mức có thể nhìn xuyên qua). Nếu cắt dày, thịt sẽ dai và làm mất đi trải nghiệm "tan chảy trong miệng".</li>
+                        <li><strong>Tuyệt đối không đun nấu:</strong> Để giữ gìn hương vị nguyên bản, không bao giờ đem nấu chín Prosciutto di Parma. Nếu kết hợp với pizza hay pasta, chỉ đặt những lát thịt lên trên cùng sau khi món ăn đã được lấy ra khỏi lò/bếp nhiệt.</li>
+                        <li><strong>Tránh lỗi nhiệt độ:</strong> Lỗi lớn nhất của người thưởng thức là phục vụ thịt ngay khi vừa lấy ra khỏi tủ lạnh. Độ lạnh làm đông cứng mỡ và khóa chặt hương thơm tự nhiên của đùi heo muối.</li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+
+        <div class="ornament">
+            <div class="ornament-icon">✦</div>
+        </div>
+
+        <!-- Variations Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="showTab('tagliere')" class="tab-btn active px-6 py-2 font-bold uppercase tracking-widest text-sm transition-all border-b-2 border-transparent">Khai vị Ý</button>
+                <button onclick="showTab('grissini')" class="tab-btn px-6 py-2 font-bold uppercase tracking-widest text-sm transition-all border-b-2 border-transparent">Đồ cuộn giòn</button>
+                <button onclick="showTab('salad')" class="tab-btn px-6 py-2 font-bold uppercase tracking-widest text-sm transition-all border-b-2 border-transparent">Salad thanh mát</button>
+            </div>
+
+            <div id="tagliere" class="tab-content active">
+                <div class="glass-card p-8 rounded-sm">
+                    <h3 class="text-2xl font-bold mb-4 text-cinnabar italic">Tagliere di Salumi</h3>
+                    <p class="justified-text text-lg">Thay vì dùng trái cây, hãy xếp thịt lên thớt gỗ cùng các loại phô mai hảo hạng như Parmigiano Reggiano, Mozzarella tươi, kết hợp với quả ô liu và hạnh nhân nướng. Đây là cách thưởng thức truyền thống đậm chất địa phương.</p>
+                </div>
+            </div>
+            
+            <div id="grissini" class="tab-content">
+                <div class="glass-card p-8 rounded-sm">
+                    <h3 class="text-2xl font-bold mb-4 text-cinnabar italic">Grissini & Prosciutto</h3>
+                    <p class="justified-text text-lg">Quấn lơi lỏng những lát Prosciutto quanh những que bánh mì giòn (Grissini), đây là món ăn kèm hoàn hảo khi nhâm nhi cùng rượu vang sủi Prosecco. Một lựa chọn tuyệt vời cho các buổi tiệc đứng sang trọng.</p>
+                </div>
+            </div>
+
+            <div id="salad" class="tab-content">
+                <div class="glass-card p-8 rounded-sm">
+                    <h3 class="text-2xl font-bold mb-4 text-cinnabar italic">Arugula Prosciutto Salad</h3>
+                    <p class="justified-text text-lg">Kết hợp Prosciutto với rau Arugula (cải bó xôi), cà chua bi, rưới sốt dầu dấm chanh tươi để có một bữa ăn nhẹ thanh mát và cân bằng. Vị đắng nhẹ của Arugula cực kỳ tôn vinh vị béo ngậy của thịt heo muối.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical / Footer Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold mb-12">
+            <div>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest flex items-center">
+                    <span class="w-8 h-[1px] bg-gold mr-3"></span>5. Giá trị dinh dưỡng
+                </h3>
+                <div class="justified-text text-sm text-gray-700 mb-6 italic">
+                    Prosciutto di Parma là nguồn cung cấp protein chất lượng cao, cực kỳ dồi dào các vitamin nhóm B, đặc biệt là B1 và B12, cùng các khoáng chất thiết yếu. Điểm sáng tuyệt vời nhất về mặt dinh dưỡng là món ăn này hoàn toàn tự nhiên, không chứa bất kỳ muối nitrat hay nitrit nào.
+                </div>
+                <div class="grid grid-cols-2 gap-4 bg-charcoal text-parchment p-6">
+                    <div class="text-center border-r border-gray-600">
+                        <div class="text-gold text-xs uppercase tracking-widest mb-1">Calo</div>
+                        <div class="text-xl font-bold">~130 kcal</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-gold text-xs uppercase tracking-widest mb-1">Protein</div>
+                        <div class="text-xl font-bold">14g</div>
+                    </div>
+                    <div class="text-center border-r border-gray-600 pt-4 border-t">
+                        <div class="text-gold text-xs uppercase tracking-widest mb-1">Chất béo</div>
+                        <div class="text-xl font-bold">8g</div>
+                    </div>
+                    <div class="text-center pt-4 border-t">
+                        <div class="text-gold text-xs uppercase tracking-widest mb-1">Natri</div>
+                        <div class="text-xl font-bold">~900mg</div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-2 uppercase text-center italic">* Ước tính dựa trên 50g thành phẩm</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest flex items-center">
+                    <span class="w-8 h-[1px] bg-gold mr-3"></span>6. Gợi ý trình bày
+                </h3>
+                <ul class="space-y-4 text-sm text-gray-800 justified-text">
+                    <li><strong class="text-cinnabar">Tạo hiệu ứng "Ruy băng" (Ribbon effect):</strong> Tuyệt đối không xếp thịt phẳng lỳ dính chặt vào đĩa. Hãy dùng tay nhẹ nhàng nhấc từng lát thịt và thả xuống một cách lơi lỏng, tạo thành những nếp gấp uốn lượn tự nhiên như những dải ruy băng.</li>
+                    <li><strong class="text-cinnabar">Cân bằng màu sắc:</strong> Sự tương phản màu sắc là chìa khóa. Sắc hồng đỏ mờ ảo và lớp mỡ trắng ngà của thịt cần được tôn vinh bởi màu cam rực rỡ của dưa lưới hoặc sắc tím đỏ của quả vả.</li>
+                    <li><strong class="text-cinnabar">Hoàn thiện chi tiết:</strong> Điểm xuyết một vài mầm rau xanh non (microgreens) để mang lại cảm giác tươi mới. Cuối cùng, rưới vài giọt sốt Balsamic cô đặc ngẫu hứng quanh viền đĩa hoặc lên bề mặt trái cây để tạo điểm nhấn màu tối sang trọng.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab and activate button
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
