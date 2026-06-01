@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Cơm Rượu Nếp Truyền Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-red: #B22222; /* Cinnabar Red */
+            --accent-gold: #C5A059; /* Burnished Gold */
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--accent-gold);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            opacity: 0.6;
+            line-height: 1;
+        }
+
+        .meta-icon {
+            color: var(--accent-red);
+        }
+
+        .pro-tip-box {
+            border: 3px double var(--accent-gold);
+            position: relative;
+        }
+
+        .pro-tip-label {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 1rem;
+            color: var(--accent-red);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+        }
+
+        .nav-tabs button.active {
+            border-bottom: 2px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#B22222',
+                        gold: '#C5A059',
+                    },
+                }
+            }
+        }
+
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.variation-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.add('hidden'));
+            buttons.forEach(btn => btn.classList.remove('active', 'border-cinnabar', 'text-cinnabar'));
+            
+            document.getElementById(tabId).classList.remove('hidden');
+            event.currentTarget.classList.add('active', 'border-b-2', 'border-cinnabar', 'text-cinnabar');
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">Tinh Hoa Ẩm Thực Việt</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-charcoal" style="font-family: 'Playfair Display', serif;">Cơm Rượu Nếp Truyền Thống</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gold mb-10" style="font-family: 'Playfair Display', serif;">Traditional Fermented Sticky Rice (Sweet & Bold)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-gold/30 bg-white/30 backdrop-blur-sm rounded-lg">
+            <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Độ Khó</span>
+                <span class="font-bold text-charcoal uppercase">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center md:border-r border-gold/20 last:border-0">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Thời Gian</span>
+                <span class="font-bold text-charcoal uppercase text-center text-sm md:text-base px-2">60p + 3-4 ngày ủ</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gold/20 last:border-0">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Khẩu Phần</span>
+                <span class="font-bold text-charcoal uppercase">4-6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gray-500 mb-1">Xuất Xứ</span>
+                <span class="font-bold text-charcoal uppercase">Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-600 justify-text px-4">
+            "Món ăn truyền thống đặc trưng trong dịp Tết Đoan Ngọ (mùng 5 tháng 5 Âm lịch) với ý nghĩa 'diệt sâu bọ', bồi bổ sức khỏe và kích thích tiêu hóa."
+        </div>
+    </header>
+
+    <div class="section-divider max-w-5xl mx-auto px-6">
+        <span class="ornament">◈</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <div class="sticky top-8">
+                <h3 class="text-3xl font-bold mb-8 text-charcoal border-b-2 border-gold/20 pb-2" style="font-family: 'Playfair Display', serif;">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-4">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 group-hover:rotate-12 transition-transform">✦</span>
+                                <span class="border-b border-dashed border-gray-300 flex-1 flex justify-between">
+                                    <span>Gạo nếp (Cái hoa vàng)</span>
+                                    <span class="font-bold italic">500g</span>
+                                </span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 group-hover:rotate-12 transition-transform">✦</span>
+                                <span class="border-b border-dashed border-gray-300 flex-1 flex justify-between">
+                                    <span>Men rượu truyền thống</span>
+                                    <span class="font-bold italic">5g - 7g</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-4">Gia vị & Khác</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 group-hover:rotate-12 transition-transform">✦</span>
+                                <span class="border-b border-dashed border-gray-300 flex-1 flex justify-between">
+                                    <span>Nước lọc sạch</span>
+                                    <span class="font-bold italic">500ml</span>
+                                </span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-cinnabar mr-3 group-hover:rotate-12 transition-transform">✦</span>
+                                <span class="border-b border-dashed border-gray-300 flex-1 flex justify-between">
+                                    <span>Muối tinh</span>
+                                    <span class="font-bold italic">1 tsp</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/50 p-6 rounded shadow-sm border border-gold/10">
+                        <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-3">Dụng cụ cần thiết</h4>
+                        <p class="text-sm italic text-gray-600 leading-relaxed">
+                            Nồi hấp hoặc nồi cơm điện, mâm phẳng sạch, hũ thủy tinh hoặc hũ sành đã tiệt trùng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-10 text-charcoal border-b-2 border-gold/20 pb-2" style="font-family: 'Playfair Display', serif;">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="step-number">01</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide text-charcoal">Sơ chế gạo</h4>
+                        <p class="justify-text text-gray-700">
+                            Vo sạch gạo nếp một cách nhẹ nhàng (không vo quá kỹ để giữ lớp cám bổ dưỡng), ngâm nước khoảng <strong>6-8 tiếng</strong> hoặc qua đêm để hạt gạo ngậm đủ nước, giúp quá trình chín đều và dẻo hơn.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="step-number">02</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide text-charcoal">Nấu cơm nếp</h4>
+                        <div class="space-y-4">
+                            <div class="p-4 border-l-2 border-gold bg-gold/5">
+                                <p class="font-bold text-sm text-gold uppercase mb-1">Phương pháp Khuyên dùng: Hấp</p>
+                                <p class="justify-text text-gray-700 text-sm">Cho nếp vào chõ hấp. Hấp lần 1 khoảng 20 phút, rưới thêm chút nước ấm có pha xíu muối, xới đều rồi hấp tiếp lần 2 cho đến khi hạt nếp chín trong, dẻo nhưng không nát.</p>
+                            </div>
+                            <div class="p-4 border-l-2 border-gray-300 bg-gray-50">
+                                <p class="font-bold text-sm text-gray-500 uppercase mb-1">Phương pháp Nhanh: Nồi cơm điện</p>
+                                <p class="justify-text text-gray-700 text-sm">Nấu nếp với lượng nước cực ít (xấp xỉ mặt gạo) để hạt cơm chín khô, tơi, không bị bết dính.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="step-number">03</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide text-charcoal">Làm nguội & Chuẩn bị nhiệt độ</h4>
+                        <p class="justify-text text-gray-700">
+                            Trải đều cơm nếp ra mâm phẳng. Để cơm nguội đến khi còn hơi ấm (khoảng <strong>30-35°C</strong>). Đây là "nhiệt độ vàng" để men hoạt động tối ưu mà không bị chết do nhiệt cao.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="step-number">04</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide text-charcoal">Xử lý men rượu</h4>
+                        <p class="justify-text text-gray-700">
+                            Cạo bỏ lớp vỏ trấu bên ngoài viên men. Giã nát mịn thành bột, sau đó lọc qua rây để thu được bột men tinh khiết nhất, loại bỏ tạp chất.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="step-number">05</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide text-charcoal">Kỹ thuật vào men</h4>
+                        <p class="justify-text text-gray-700">
+                            Chia bột men làm 2 phần. Rắc đều phần thứ nhất lên mặt trên của mâm cơm nếp. Lật mặt cơm lại, rắc nốt phần men còn lại. Dùng tay trộn nhẹ nhàng để men bám đều, bao phủ từng hạt nếp tinh khôi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="flex gap-6 items-start group">
+                    <div class="step-number">06</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2 uppercase tracking-wide text-charcoal">Quá trình ủ nhiệt</h4>
+                        <p class="justify-text text-gray-700">
+                            Nén nhẹ cơm nếp vào hũ thủy tinh đã tiệt trùng (không nén quá chặt). Đậy kín nắp, bọc thêm vải dày bên ngoài để giữ nhiệt ổn định. Đặt hũ nơi kín gió, bóng tối (30-32°C). Sau <strong>2,5 - 3 ngày</strong>, cơm sẽ tiết ra nước rượu thơm nồng, dẻo ngọt quyến rướn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider max-w-5xl mx-auto px-6">
+        <span class="ornament">✧</span>
+    </div>
+
+    <!-- Special Sections -->
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Chef's Corner -->
+        <div class="pro-tip-box p-8 bg-white/60">
+            <span class="pro-tip-label">Mẹo Hay Từ Vua Đầu Bếp</span>
+            <ul class="space-y-4 pt-4">
+                <li class="flex items-baseline">
+                    <span class="text-gold font-bold mr-2">●</span>
+                    <p class="text-sm italic justify-text"><strong>Kiểm tra men:</strong> Men phải có mùi thơm đặc trưng, không mốc đen hay mùi lạ để tránh cơm bị đắng.</p>
+                </li>
+                <li class="flex items-baseline">
+                    <span class="text-gold font-bold mr-2">●</span>
+                    <p class="text-sm italic justify-text"><strong>Vệ sinh tuyệt đối:</strong> Dụng cụ phải sạch dầu mỡ và khô ráo hoàn toàn để tránh mốc xanh/đỏ phá hỏng thành phẩm.</p>
+                </li>
+                <li class="flex items-baseline">
+                    <span class="text-gold font-bold mr-2">●</span>
+                    <p class="text-sm italic justify-text"><strong>Kiểm soát nhiệt:</strong> Tuyệt đối không vào men khi cơm còn nóng, nhiệt độ cao sẽ tiêu diệt vi sinh vật trong men.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Variations -->
+        <div class="bg-charcoal text-cream p-8 rounded-sm shadow-xl">
+            <h3 class="text-xl font-bold mb-6 border-b border-gold/30 pb-2 flex justify-between items-center">
+                <span>4. Biến tấu</span>
+                <span class="text-[10px] uppercase tracking-widest text-gold opacity-80">Variations</span>
+            </h3>
+            <div class="nav-tabs flex gap-4 mb-6 text-xs uppercase tracking-widest font-bold">
+                <button onclick="switchTab('var-cam')" class="tab-btn active border-b-2 border-cinnabar text-cinnabar pb-1">Nếp Cẩm</button>
+                <button onclick="switchTab('var-nam')" class="tab-btn pb-1">Miền Nam</button>
+            </div>
+            <div id="var-cam" class="variation-content animate-fadeIn">
+                <p class="text-sm italic leading-relaxed justify-text">Sử dụng gạo nếp cẩm cho màu tím thẫm sang trọng. Phiên bản này chứa hàm lượng chất chống oxy hóa cực cao và mang lại hương vị đậm đà hơn.</p>
+            </div>
+            <div id="var-nam" class="variation-content hidden animate-fadeIn">
+                <p class="text-sm italic leading-relaxed justify-text">Thường được viên thành những viên tròn đều đặn. Người miền Nam đôi khi thêm nước đường pha loãng sau khi ủ để tăng độ ngọt thanh đặc trưng.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nutrition & Presentation -->
+    <section class="bg-gold/5 border-t border-gold/20 py-16">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Nutrition -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-charcoal" style="font-family: 'Playfair Display', serif;">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-4">
+                    <p class="justify-text text-gray-700">Giàu vitamin nhóm B, sắt và các lợi khuẩn (probiotics) tự nhiên hỗ trợ hệ tiêu hóa mạnh khỏe. Giúp bổ huyết, kiện tỳ và kích thích vị giác ngon miệng.</p>
+                    <div class="p-4 bg-cinnabar/5 border border-cinnabar/20 rounded-sm">
+                        <p class="text-xs font-bold text-cinnabar uppercase mb-1">Lưu ý sức khỏe</p>
+                        <p class="text-xs italic text-gray-600">Do có chứa lượng đường và cồn tự nhiên, người bị bệnh gout hoặc tiểu đường nên cân nhắc liều lượng sử dụng.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-charcoal" style="font-family: 'Playfair Display', serif;">6. Nghệ thuật trình bày</h3>
+                <ul class="space-y-4 text-sm text-gray-700 italic">
+                    <li class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>
+                        <span>Trình bày trong bát gốm mộc, lót lá chuối hoặc lá sen để tôn vinh nét truyền thống.</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>
+                        <span>Dùng kèm với sữa chua hoặc xôi vò để tạo nên bản giao hưởng hương vị.</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>
+                        <span><strong>Photography:</strong> Ánh sáng tự nhiên, góc 45 độ làm nổi bật hạt nếp óng ánh.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Scroll Indicator / Bottom Accent -->
+    <div class="py-12 flex justify-center opacity-30">
+        <div class="w-px h-24 bg-gradient-to-b from-gold to-transparent"></div>
+    </div>
+
+</body>
+</html>
