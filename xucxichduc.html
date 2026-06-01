@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Nürnberger Rostbratwurst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1rem; }
+        .section-divider:not(:empty)::after { margin-left: 1rem; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -13px;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            background-color: #FCFAFA;
+            border: 2px solid #C5A059;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -1px;
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #C5A059 0%, transparent 100%);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-bottom: 2px solid #E23D28; color: #E23D28; }
+    </style>
+</head>
+<body class="p-4 md:p-12 max-w-6xl mx-auto border-x border-gray-100 shadow-2xl">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 animate-fade">
+        <div class="inline-block border-y-2 border-gold py-2 px-8 mb-6">
+            <span class="tracking-[0.3em] text-sm uppercase text-gold font-bold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-charcoal">Nürnberger Rostbratwurst</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Xúc xích nướng vùng Nuremberg</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-b border-gray-200 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl">✦</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl">⏱</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">90 - 120 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl">🍽</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Phục vụ</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl">📍</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Nuremberg, Đức</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic text-gray-600 max-w-2xl mx-auto justified">
+            Thành phố Nuremberg, Đức. Đây là loại xúc xích đầu tiên tại EU được bảo hộ Chỉ dẫn địa lý (PGI). Theo truyền thống, mỗi cây xúc xích chỉ nặng khoảng 20-25g, dài 7-9cm.
+        </p>
+    </header>
+
+    <div class="section-divider">
+        <span class="text-2xl">🜚</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-10">
+            <div>
+                <h3 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8 mt-6">
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest font-bold text-sm mb-3">Phần thịt chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Thịt nạc vai / mông lợn</span>
+                                <span class="font-bold">700g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 hover:bg-gray-50 transition-colors">
+                                <span>Mỡ lưng lợn (Tỷ lệ 70/30)</span>
+                                <span class="font-bold">300g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest font-bold text-sm mb-3">Gia vị & Thảo mộc</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Muối biển</span>
+                                <span class="font-bold">18g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Tiêu trắng xay</span>
+                                <span class="font-bold">2g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Bột hoa nhục đậu khấu (mace)</span>
+                                <span class="font-bold">1g</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Bột gừng & Thảo quả</span>
+                                <span class="font-bold">1g mỗi loại</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1 text-cinnabar font-bold">
+                                <span>Lá kinh giới cay (Marjoram)</span>
+                                <span>4-5g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold uppercase tracking-widest font-bold text-sm mb-3">Khác</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Ruột cừu tự nhiên (18-22mm)</span>
+                                <span class="font-bold">Vỏ bọc</span>
+                            </li>
+                            <li class="flex justify-between border-b border-dotted border-gray-300 pb-1">
+                                <span>Nước đá lạnh / Đá bào</span>
+                                <span class="font-bold">50ml</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro Tip Box -->
+            <div class="p-6 border-4 border-double border-gold bg-white shadow-lg animate-fade">
+                <h4 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="mr-2 text-gold">★</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h4>
+                <div class="space-y-4 text-sm justified">
+                    <div class="p-3 bg-parchment border-l-4 border-cinnabar">
+                        <p><strong>Kiểm soát nhiệt độ:</strong> Đây là yếu tố sống còn. Nếu thịt bị nóng trong khi xay, xúc xích sau khi chín sẽ bị khô và rời rạc.</p>
+                    </div>
+                    <p><strong>Độ giòn:</strong> Đừng nhồi quá căng, ruột cừu rất mỏng và dễ vỡ khi nướng nếu không có không gian cho thịt giãn nở.</p>
+                    <p><strong>Thử vị:</strong> Trước khi nhồi, hãy lấy một ít thịt áp chảo để kiểm tra gia vị và điều chỉnh kịp thời.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="relative pl-8 space-y-12">
+                <div class="timeline-line"></div>
+                
+                <!-- Step 1 -->
+                <div class="timeline-item relative group">
+                    <div class="flex items-center mb-2">
+                        <span class="text-gold font-bold italic mr-4">00 - 45'</span>
+                        <h4 class="text-xl font-bold uppercase tracking-wide">Sơ chế và làm lạnh</h4>
+                    </div>
+                    <p class="justified text-gray-700 leading-relaxed bg-white p-4 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        <span class="font-bold text-cinnabar italic">(Kỹ thuật Pro Chef):</span> Thái thịt và mỡ thành khối nhỏ 2cm. Đặt thịt vào ngăn đá tủ lạnh khoảng 30-45 phút cho đến khi bề mặt hơi cứng lại (khoảng 0°C đến 2°C). Việc giữ lạnh là bắt buộc để ngăn mỡ bị tan chảy.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item relative group">
+                    <div class="flex items-center mb-2">
+                        <span class="text-gold font-bold italic mr-4">45 - 55'</span>
+                        <h4 class="text-xl font-bold uppercase tracking-wide">Xay thịt</h4>
+                    </div>
+                    <p class="justified text-gray-700 leading-relaxed bg-white p-4 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        Xay thịt và mỡ qua mặt sàng 4.5mm hoặc 6mm. Xúc xích Nuremberg truyền thống có độ thô vừa phải, không mịn hoàn toàn như giò chả Việt Nam.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item relative group">
+                    <div class="flex items-center mb-2">
+                        <span class="text-gold font-bold italic mr-4">55 - 70'</span>
+                        <h4 class="text-xl font-bold uppercase tracking-wide">Phối trộn</h4>
+                    </div>
+                    <p class="justified text-gray-700 leading-relaxed bg-white p-4 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        <span class="font-bold text-cinnabar italic">(Kỹ thuật Home Cook):</span> Trộn nhanh thịt xay với muối, gia vị và lá Marjoram. Từ từ thêm nước đá lạnh. Nhào mạnh cho đến khi hỗn hợp có độ kết dính. <span class="italic underline">Lưu ý: Không để nhiệt độ hỗn hợp vượt quá 12°C.</span>
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item relative group">
+                    <div class="flex items-center mb-2">
+                        <span class="text-gold font-bold italic mr-4">70 - 90'</span>
+                        <h4 class="text-xl font-bold uppercase tracking-wide">Nhồi xúc xích</h4>
+                    </div>
+                    <p class="justified text-gray-700 leading-relaxed bg-white p-4 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        Ngâm ruột cừu trong nước ấm. Sử dụng máy nhồi hoặc phễu thủ công để nhồi thịt vào vỏ. Chia đoạn ngắn từ 7-9cm bằng cách xoắn vỏ.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-item relative group">
+                    <div class="flex items-center mb-2">
+                        <span class="text-gold font-bold italic mr-4">Kết thúc</span>
+                        <h4 class="text-xl font-bold uppercase tracking-wide">Chế biến</h4>
+                    </div>
+                    <p class="justified text-gray-700 leading-relaxed bg-white p-4 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        <span class="font-bold text-cinnabar italic">(Phản ứng Maillard):</span> Nướng xúc xích trên lửa than gỗ (tốt nhất là gỗ dẻ gai) hoặc chảo gang. Để lửa vừa, lật đều tay để đạt màu nâu cánh gián đồng nhất. Phản ứng Maillard sẽ tạo ra mùi thơm đặc trưng và lớp vỏ giòn rụm.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Variations Tab Section -->
+            <div class="mt-16 bg-white p-8 border border-gray-200 rounded-xl shadow-inner">
+                <h3 class="text-2xl font-bold mb-6 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="flex border-b border-gray-200 mb-6 justify-center">
+                    <button onclick="openTab(event, 'classic')" class="tab-btn active px-6 py-2 font-bold transition-all">Truyền thống</button>
+                    <button onclick="openTab(event, 'home')" class="tab-btn px-6 py-2 font-bold transition-all">Tại nhà</button>
+                    <button onclick="openTab(event, 'chef')" class="tab-btn px-6 py-2 font-bold transition-all">Sáng tạo Chef</button>
+                </div>
+                
+                <div id="classic" class="tab-content active animate-fade">
+                    <p class="justified italic"><strong>Saure Zipfel:</strong> Thay vì nướng, hãy luộc xúc xích trong nước dùng giấm, rượu trắng, hành tây và lá nguyệt quế để có phiên bản xúc xích chua thanh nhẹ, một đặc sản khác của vùng Franconia.</p>
+                </div>
+                <div id="home" class="tab-content animate-fade">
+                    <p class="justified italic">Nếu không có ruột cừu, có thể dùng vỏ Collagen thực phẩm loại nhỏ hoặc nặn thành viên dài nướng trực tiếp (dù sẽ mất đi độ giòn đặc trưng của lớp vỏ tự nhiên).</p>
+                </div>
+                <div id="chef" class="tab-content animate-fade">
+                    <p class="justified italic">Thử hun khói nhẹ với gỗ sồi trước khi nướng để tăng tầng hương vị. Phục vụ kèm với bọt bia (beer foam) hoặc mù tạt truffle để nâng tầm món ăn lên đẳng cấp fine-dining.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="text-2xl">🜚</span>
+    </div>
+
+    <!-- Nutrition and Presentation -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-cinnabar mb-4 flex items-center">
+                <span class="mr-2">🍏</span> 5. Giá trị dinh dưỡng
+            </h3>
+            <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm justified">
+                <p class="mb-4">Xúc xích Nuremberg giàu protein và năng lượng nhưng có hàm lượng chất béo và natri khá cao.</p>
+                <div class="p-4 bg-green-50 border-l-4 border-green-500 text-sm">
+                    <strong>Lời khuyên:</strong> Luôn ăn kèm với <strong>Sauerkraut</strong> (bắp cải muối chua). Vitamin C và lợi khuẩn giúp hỗ trợ tiêu hóa chất béo và cân bằng vị mặn, giảm tác động của natri.
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-cinnabar mb-4 flex items-center">
+                <span class="mr-2">✨</span> 6. Gợi ý trình bày
+            </h3>
+            <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm justified">
+                <p class="mb-4"><strong>Phong cách cổ điển:</strong> Xếp 6 hoặc 12 cây trên đĩa thiếc (pewter plate) hình trái tim hoặc tròn. Xếp chồng tự nhiên để lộ độ bóng và vết sém lửa.</p>
+                <p class="text-sm text-gray-600 italic">Ăn kèm Sauerkraut, Salad khoai tây Đức (Kartoffelsalat), mù tạt cay và một chiếc bánh mì cuộn (Brötchen).</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
