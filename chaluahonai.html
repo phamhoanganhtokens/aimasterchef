@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chả lụa Hố Nai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-red: #B22222; /* Cinnabar Red */
+            --accent-gold: #D4AF37; /* Burnished Gold */
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--accent-gold);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .chef-box {
+            border: 3px double var(--accent-gold);
+            background-color: #fcf8eb;
+            position: relative;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-gold);
+            opacity: 0.3;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-16 pt-8">
+        <div class="inline-block border-y-2 border-double border-[var(--accent-gold)] py-4 px-8 mb-6">
+            <p class="uppercase tracking-[0.3em] text-xs font-bold text-[var(--accent-red)] mb-2">AI Vua Đầu Bếp Présente</p>
+            <h1 class="heading-font hero-title text-5xl md:text-7xl font-black mb-2">Chả lụa Hố Nai</h1>
+            <h2 class="italic text-2xl text-gray-600">Ho Nai Vietnamese Pork Sausage</h2>
+        </div>
+
+        <div class="justify-text max-w-3xl mx-auto mb-10 text-lg leading-relaxed italic text-gray-700 px-4">
+            "Chả lụa Hố Nai là di sản ẩm thực của cộng đồng người Công giáo gốc Bắc di cư vào vùng đất Hố Nai từ năm 1954. Sự kết tinh của kỹ thuật làng Ước Lễ truyền thống, cam kết không hàn thê, chỉ dựa vào độ tươi của 'thịt nóng' và kỹ thuật kiểm soát nhiệt độ nghiêm ngặt."
+        </div>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-gray-200 py-6 max-w-4xl mx-auto uppercase text-sm tracking-widest font-bold">
+            <div class="flex flex-col items-center">
+                <span class="text-[var(--accent-gold)] mb-1">Độ khó</span>
+                <span class="text-[var(--primary-charcoal)]">Nâng cao</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100">
+                <span class="text-[var(--accent-gold)] mb-1">Thời gian</span>
+                <span class="text-[var(--primary-charcoal)]">4 Tiếng</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100">
+                <span class="text-[var(--accent-gold)] mb-1">Khẩu phần</span>
+                <span class="text-[var(--primary-charcoal)]">6 - 8 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100">
+                <span class="text-[var(--accent-gold)] mb-1">Nguồn gốc</span>
+                <span class="text-[var(--primary-charcoal)]">Đồng Nai</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">◈ ✦ ◈</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="lg:col-span-4">
+            <h3 class="heading-font text-3xl mb-8 flex items-center">
+                <span class="w-10 h-10 rounded-full bg-[var(--accent-red)] text-white flex items-center justify-center mr-4 text-xl">1</span>
+                Nguyên liệu
+            </h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="uppercase tracking-widest text-xs font-bold text-[var(--accent-gold)] mb-4 border-b border-gray-100 pb-1">Phần chính (Proteins)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">800g thịt nạc heo "nóng" (phần mông hoặc thăn dẻo, dính tay).</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">200g mỡ gáy heo (giúp chả mịn, giòn và không khô).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="uppercase tracking-widest text-xs font-bold text-[var(--accent-gold)] mb-4 border-b border-gray-100 pb-1">Gia vị & Phụ trợ (Seasonings)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">3 thìa canh nước mắm cốt cá cơm (>40N).</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">1 thìa cà phê đường trắng & 1 thìa cà phê tiêu trắng xay.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">1 thìa canh bột năng & 1.5 thìa cà phê bột nở (không nhôm).</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">5 - 6 thìa canh nước đá dăm lạnh sâu.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="uppercase tracking-widest text-xs font-bold text-[var(--accent-gold)] mb-4 border-b border-gray-100 pb-1">Dụng cụ (Essentials)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-[var(--accent-red)] mr-3 transition-transform group-hover:scale-125">✦</span>
+                            <span class="justify-text">Lá chuối tươi, dây lạt tre hoặc dây buộc.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="heading-font text-3xl mb-8 flex items-center">
+                <span class="w-10 h-10 rounded-full bg-[var(--accent-red)] text-white flex items-center justify-center mr-4 text-xl">2</span>
+                Các bước thực hiện
+            </h3>
+
+            <div class="space-y-10">
+                <!-- Step 1 -->
+                <div class="relative pl-8 timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h5 class="font-bold text-xl">01. Sơ chế và Làm lạnh</h5>
+                        <span class="italic text-sm text-gray-500 font-serif">120 phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700 leading-relaxed">
+                        Thịt và mỡ rửa sạch, thấm thật khô. Thái nhỏ cỡ quân cờ. Cho vào túi zip, dàn mỏng và để ngăn đông khoảng 2 tiếng cho đến khi thịt xốp như dăm đá nhưng chưa đông cứng thành khối.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-8 timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h5 class="font-bold text-xl">02. Pha hỗn hợp gia vị</h5>
+                        <span class="italic text-sm text-gray-500 font-serif">5 phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700 leading-relaxed">
+                        Trộn nước mắm, đường, tiêu, bột năng, bột nở và nước đá dăm thành hỗn hợp sệt. Luôn giữ thật lạnh trong tủ mát cho đến khi dùng.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-8 timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h5 class="font-bold text-xl text-[var(--accent-red)]">03. Kỹ thuật Nhũ hóa (Xay thịt)</h5>
+                        <span class="italic text-sm text-gray-500 font-serif">15-20 phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700 leading-relaxed mb-2">
+                        Chia thịt thành mẻ nhỏ. Xay mỗi mẻ 10-15 giây thì nghỉ. Rưới từ từ hỗn hợp gia vị lạnh vào. 
+                    </p>
+                    <div class="bg-red-50 p-3 border-l-2 border-[var(--accent-red)] text-sm italic">
+                        Lưu ý: Luôn đảm bảo khối mọc dưới 10°C. Nếu máy nóng, phải cho mọc vào ngăn đá nghỉ 15-20 phút.
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-8 timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h5 class="font-bold text-xl">04. Quết thủ công & Gói chả</h5>
+                        <span class="italic text-sm text-gray-500 font-serif">20 phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700 leading-relaxed">
+                        Dùng thìa gỗ quết mạnh tay khối mọc vào thành âu để tăng liên kết protein. Trải lá chuối, phết nhẹ dầu ăn, đặt mọc vào giữa và cuộn tròn thật chặt tay. Buộc dây cố định đòn chả chắc chắn.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-8 timeline-step">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h5 class="font-bold text-xl">05. Hấp chín & Làm nguội</h5>
+                        <span class="italic text-sm text-gray-500 font-serif">50-60 phút</span>
+                    </div>
+                    <p class="justify-text text-gray-700 leading-relaxed">
+                        Hấp ở lửa vừa trong khoảng 45-50 phút khi nước đã sôi sũng. Vớt ra treo cho ráo nước và để nguội hoàn toàn trước khi thưởng thức để kết cấu ổn định nhất.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-4xl mx-auto my-20 px-4">
+        <div class="chef-box p-8 md:p-12 shadow-xl">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[var(--bg-cream)] px-6">
+                <h3 class="heading-font text-2xl text-[var(--accent-gold)]">Mẹo hay từ Vua Đầu Bếp</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mt-4">
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🌡️</div>
+                    <h6 class="font-bold mb-2 uppercase text-xs tracking-widest">Nhiệt độ là then chốt</h6>
+                    <p class="text-sm justify-text">Nếu mọc bị nóng trên 15°C, protein bị biến tính dẫn đến "chết giò", chả sẽ bị bở và ra mỡ.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🥩</div>
+                    <h6 class="font-bold mb-2 uppercase text-xs tracking-widest">Linh hồn Thịt Nóng</h6>
+                    <p class="text-sm justify-text">Thịt vừa mổ, còn ấm dẻo là bắt buộc. Thịt cũ sẽ không bao giờ tạo được độ dai giòn tự nhiên.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">⚖️</div>
+                    <h6 class="font-bold mb-2 uppercase text-xs tracking-widest">Thử mọc trước</h6>
+                    <p class="text-sm justify-text">Luôn luộc thử một viên nhỏ trước khi gói để điều chỉnh gia vị vừa vặn nhất với khẩu vị.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-5xl mx-auto mb-20 px-4">
+        <h3 class="heading-font text-3xl mb-8 text-center">Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 border-t-4 border-[var(--accent-gold)]">
+                <h5 class="font-bold mb-2 uppercase tracking-wide">Chả lụa bì</h5>
+                <p class="text-sm justify-text text-gray-600">Trộn thêm bì heo thái sợi mỏng vào mọc trước khi gói để tăng cảm giác sần sật và độ kết dính tự nhiên.</p>
+            </div>
+            <div class="glass-card p-6 border-t-4 border-[var(--accent-red)]">
+                <h5 class="font-bold mb-2 uppercase tracking-wide">Chả lụa gà</h5>
+                <p class="text-sm justify-text text-gray-600">Thay 50% thịt heo bằng ức gà xay cùng mỡ gáy cho phiên bản thanh tao, nhẹ nhàng hơn nhưng vẫn mướt mịn.</p>
+            </div>
+            <div class="glass-card p-6 border-t-4 border-gray-800">
+                <h5 class="font-bold mb-2 uppercase tracking-wide">Chả nướng/chiên</h5>
+                <p class="text-sm justify-text text-gray-600">Mọc sau khi quết nặn miếng dẹt và chiên vàng thay vì hấp lá chuối để đánh thức mùi thơm nồng nàn của thịt.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">❧ ❁ ☙</span>
+    </div>
+
+    <!-- Technical Info Footer -->
+    <footer class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-20 px-4">
+        <div class="space-y-6">
+            <h4 class="heading-font text-2xl border-b-2 border-[var(--accent-gold)] pb-2 inline-block">Giá trị dinh dưỡng</h4>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white p-4 shadow-sm border-l-4 border-gray-200">
+                    <p class="text-xs uppercase text-gray-500 font-bold">Protein</p>
+                    <p class="text-xl">18-20g <span class="text-sm text-gray-400">/ 100g</span></p>
+                </div>
+                <div class="bg-white p-4 shadow-sm border-l-4 border-gray-200">
+                    <p class="text-xs uppercase text-gray-500 font-bold">Calories</p>
+                    <p class="text-xl">180-210 <span class="text-sm text-gray-400">kcal</span></p>
+                </div>
+            </div>
+            <p class="text-sm italic justify-text text-gray-600">
+                Ưu điểm: Hoàn toàn không chứa hàn thê và chất bảo quản công nghiệp. Giàu sắt và vitamin nhóm B từ nguồn thịt tươi thượng hạng.
+            </p>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="heading-font text-2xl border-b-2 border-[var(--accent-gold)] pb-2 inline-block">Gợi ý trình bày</h4>
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <div class="min-w-[50px] font-black text-[var(--accent-gold)] text-lg">01.</div>
+                    <p class="text-sm justify-text"><strong class="uppercase text-[10px] block mb-1">Nhận diện mắt tre</strong> Mặt cắt phải mịn nhưng có lỗ khí nhỏ ti li (mắt tre) – minh chứng cho độ tươi của thịt và kỹ thuật quết điệu nghệ.</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="min-w-[50px] font-black text-[var(--accent-gold)] text-lg">02.</div>
+                    <p class="text-sm justify-text"><strong class="uppercase text-[10px] block mb-1">Tạo hình nghệ thuật</strong> Cắt chả thành các miếng tam giác đều, xếp thành bông hoa 6 cánh, để lộ viền xanh nhạt thanh tao của lá chuối.</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="min-w-[50px] font-black text-[var(--accent-gold)] text-lg">03.</div>
+                    <p class="text-sm justify-text"><strong class="uppercase text-[10px] block mb-1">Thưởng thức</strong> Ăn kèm muối tiêu chanh hoặc nước mắm cốt dầm ớt hiểm xắt lát để tôn vinh vị ngọt nguyên bản nhất của thịt heo Hố Nai.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactivity for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'var(--accent-gold)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
