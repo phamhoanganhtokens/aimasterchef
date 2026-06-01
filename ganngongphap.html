@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Gan Ngỗng Torchon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#B8860B',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: "Times New Roman", serif;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #B8860B, transparent);
+        }
+        .ornament-icon {
+            padding: 0 1rem;
+            color: #B8860B;
+            font-size: 1.2rem;
+        }
+        .meta-card {
+            border-right: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        .meta-card:last-child {
+            border-right: none;
+        }
+        .step-number {
+            font-family: "Times New Roman", serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 2rem;
+            color: #E23D28;
+            opacity: 0.3;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+        @media (max-width: 768px) {
+            .meta-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            }
+            .meta-card:nth-child(even) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 pb-8 text-center">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">AI Vua Đầu Bếp | Heritage Series</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">Gan Ngỗng Nguyên Buồng Nấu Khăn</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-12">Foie Gras de Canard Entier cuit au Torchon</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold/30 py-6 mb-12 bg-white/30">
+            <div class="meta-card p-4">
+                <div class="text-gold mb-1">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                </div>
+                <div class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</div>
+                <div class="font-bold text-sm">Rất khó</div>
+            </div>
+            <div class="meta-card p-4">
+                <div class="text-gold mb-1">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</div>
+                <div class="font-bold text-sm">48 - 72 giờ</div>
+            </div>
+            <div class="meta-card p-4">
+                <div class="text-gold mb-1">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <div class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</div>
+                <div class="font-bold text-sm">6 - 8 người</div>
+            </div>
+            <div class="meta-card p-4">
+                <div class="text-gold mb-1">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div class="text-xs uppercase tracking-tighter text-gray-500">Nguồn gốc</div>
+                <div class="font-bold text-sm">Sud-Ouest, Pháp</div>
+            </div>
+        </div>
+        <div class="max-w-3xl mx-auto text-gray-600 italic justified italic">
+            "Biểu tượng của ẩm thực cung đình Pháp thế kỷ 18, Gan ngỗng Torchon là minh chứng cho sự tinh tế tuyệt đối, nơi kỹ thuật xử lý nhiệt độ và thời gian hòa quyện để tạo nên một kết cấu mịn màng như lụa."
+        </div>
+    </header>
+
+    <div class="ornament max-w-4xl mx-auto">
+        <span class="ornament-icon">✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <section>
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-4 italic">Nguyên liệu chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-cinnabar mr-3 mt-1 transition-transform group-hover:scale-125">◈</span>
+                            <span class="justified"><strong>Gan ngỗng:</strong> 1 buồng gan ngỗng vịt tươi (loại Extra) khoảng 500g - 600g.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-4 italic">Gia vị & Rượu</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-cinnabar mr-3 mt-1 transition-transform group-hover:scale-125">◈</span>
+                            <span class="justified"><strong>Gia vị hỗn hợp:</strong> 8g muối biển mịn, 2g tiêu trắng xay, 1g đường cát, nhục đậu khấu.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-cinnabar mr-3 mt-1 transition-transform group-hover:scale-125">◈</span>
+                            <span class="justified"><strong>Rượu:</strong> 30ml rượu vang ngọt Sauternes (hoặc Cognac/Armagnac).</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-4 italic">Dụng cụ chuyên dụng</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group">
+                            <span class="text-cinnabar mr-3 mt-1 transition-transform group-hover:scale-125">◈</span>
+                            <span class="justified">Khăn xô (cheesecloth) sạch, chỉ thực phẩm.</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-cinnabar mr-3 mt-1 transition-transform group-hover:scale-125">◈</span>
+                            <span class="justified">Màng bọc thực phẩm chịu nhiệt, nhiệt độ kế nấu ăn.</span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Nutrition Section Embedded for Mobile flow, visible on Desktop sidebar top -->
+            <div class="mt-12 p-6 border border-gold/20 bg-white/50">
+                <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <div class="text-sm justified space-y-3">
+                    <p><strong>Phân tích:</strong> Foie Gras chứa hàm lượng axit béo không bão hòa đơn cao (tốt cho tim mạch), giàu Vitamin A và Sắt.</p>
+                    <p class="text-cinnabar italic"><strong>Lưu ý:</strong> Món ăn cực kỳ giàu năng lượng (450-500 kcal/100g). Khuyến nghị dùng 40-50g mỗi lần.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <div class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pb-1">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative">
+                <!-- Step 1 -->
+                <div class="flex gap-6 relative">
+                    <div class="step-number">01</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Sơ chế và Lọc gân <span class="text-xs font-normal italic text-gray-500 ml-2">(Kỹ thuật Chuyên gia)</span></h4>
+                        <p class="justified text-gray-700">Để gan nghỉ ở nhiệt độ phòng khoảng 30-45 phút cho đến khi mềm dẻo. Tách nhẹ hai thùy gan, dùng kẹp hoặc mũi dao nhỏ khéo léo loại bỏ hệ thống tĩnh mạch bên trong mà không làm nát kết cấu gan. Đây là bước quan trọng nhất để đạt được độ mịn màng.</p>
+                        <div class="mt-2 text-xs font-bold text-gold italic uppercase tracking-widest">Thời gian: 45 phút</div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 relative">
+                    <div class="step-number">02</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Tẩm ướp <span class="text-xs font-normal italic text-gray-500 ml-2">(Di sản Truyền thống)</span></h4>
+                        <p class="justified text-gray-700">Trộn đều muối, tiêu, đường và nhục đậu khấu. Rắc đều hỗn hợp lên mặt trong và mặt ngoài của gan. Rưới rượu Sauternes lên trên. Đậy kín bằng màng bọc và để trong ngăn mát tủ lạnh từ 12-24 giờ để gia vị thẩm thấu sâu.</p>
+                        <div class="mt-2 text-xs font-bold text-gold italic uppercase tracking-widest">Thời gian: 12-24 giờ</div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 relative">
+                    <div class="step-number">03</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Tạo hình Torchon</h4>
+                        <p class="justified text-gray-700">Trải màng bọc thực phẩm ra mặt phẳng. Đặt gan vào giữa, cuộn lại thành hình trụ chặt tay (đường kính khoảng 5-6cm). Cuộn tiếp bằng khăn xô (torchon) bên ngoài và buộc chặt hai đầu bằng chỉ thực phẩm để tạo áp lực, giúp gan săn chắc và thoát bớt mỡ thừa.</p>
+                        <div class="mt-2 text-xs font-bold text-gold italic uppercase tracking-widest">Thời gian: 15 phút</div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6 relative">
+                    <div class="step-number">04</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Chế biến <span class="text-xs font-normal italic text-gray-500 ml-2">(Kỹ thuật Nhà hàng)</span></h4>
+                        <p class="justified text-gray-700">Đun sôi một nồi nước lớn, sau đó hạ nhiệt xuống chính xác 80°C. Thả cuộn gan vào chần (poaching) trong khoảng 15-20 phút (cho đến khi nhiệt độ lõi đạt 48-52°C đối với độ chín mi-cuit).</p>
+                        <div class="mt-2 text-xs font-bold text-gold italic uppercase tracking-widest">Thời gian: 20 phút (Nhiệt độ: 80°C)</div>
+                    </div>
+                </div>
+
+                <!-- Step 5 & 6 Combined for layout flow -->
+                <div class="flex gap-6 relative">
+                    <div class="step-number">05</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Làm lạnh và Ủ hương vị</h4>
+                        <p class="justified text-gray-700">Lấy gan ra, ngâm ngay vào âu nước đá để ngưng quá trình nấu. Để gan trong tủ lạnh ít nhất 48 giờ trước khi thưởng thức. Thời gian này giúp kết cấu mỡ ổn định và hương vị đạt độ chín muồi nhất.</p>
+                        <div class="mt-2 text-xs font-bold text-gold italic uppercase tracking-widest">Thời gian: 48 giờ nghỉ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef's Corner -->
+            <div class="mt-12 p-8 border-double border-4 border-gold bg-amber-50/30 relative">
+                <div class="absolute -top-4 left-6 bg-parchment px-4 py-1 text-gold font-bold italic border border-gold">3. Mẹo hay từ Vua Đầu Bếp</div>
+                <div class="space-y-4 pt-4">
+                    <p class="justified text-gray-800"><strong>Kiểm soát nhiệt:</strong> Tuyệt đối không để nước sôi sùng sục khi cho gan vào, gan sẽ bị tan chảy thành mỡ (rendered fat).</p>
+                    <p class="justified text-gray-800"><strong>Mẹo cho gia đình:</strong> Nếu không có khăn xô, có thể dùng nhiều lớp màng bọc thực phẩm và châm lỗ nhỏ thoát khí.</p>
+                    <p class="justified text-red-800"><strong>Lỗi cần tránh:</strong> Không lọc sạch gân làm gan bị dai; thiếu thời gian ướp khiến vị gan nồng và nhạt.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="ornament max-w-4xl mx-auto">
+        <span class="ornament-icon">✧</span>
+    </div>
+
+    <!-- Bottom Sections -->
+    <section class="max-w-6xl mx-auto px-6 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Variations -->
+            <div class="glass-card p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-6 border-b border-gold/30 pb-2">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="space-y-6">
+                    <div class="group">
+                        <div class="flex items-center mb-2">
+                            <span class="w-2 h-2 bg-cinnabar rotate-45 mr-3"></span>
+                            <h5 class="font-bold uppercase text-sm tracking-widest">Foie Gras au Sel</h5>
+                        </div>
+                        <p class="text-sm justified text-gray-600">Thay vì luộc, gan được vùi hoàn toàn trong muối biển thô trong 24 giờ để làm chín bằng áp suất thẩm thấu.</p>
+                    </div>
+                    <div class="group">
+                        <div class="flex items-center mb-2">
+                            <span class="w-2 h-2 bg-cinnabar rotate-45 mr-3"></span>
+                            <h5 class="font-bold uppercase text-sm tracking-widest">Nhân trái cây & Truffle</h5>
+                        </div>
+                        <p class="text-sm justified text-gray-600">Thêm lớp mỏng quả sung khô hoặc nấm truffle vào giữa cuộn gan khi tạo hình để tăng sự sang trọng và hương vị đặc trưng.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presentation -->
+            <div class="bg-charcoal text-parchment p-8 rounded-lg shadow-2xl">
+                <h3 class="text-2xl font-bold mb-6 border-b border-white/20 pb-2">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <p class="justified text-gray-300">
+                        <strong class="text-gold-light">Cách cắt:</strong> Dùng dao lưỡi mỏng nhúng qua nước nóng hoặc dây cắt phô mai chuyên dụng để cắt gan thành các lát dày khoảng 1.5cm.
+                    </p>
+                    <p class="justified text-gray-300">
+                        <strong class="text-gold-light">Trang trí:</strong> Đặt lát gan lên đĩa trắng lớn. Rắc vài hạt muối biển Maldon lên trên để tạo độ giòn (texture) tương phản.
+                    </p>
+                    <p class="justified text-gray-300 italic">
+                        <strong class="text-gold-light">Đồ đi kèm:</strong> Phục vụ cùng bánh mì Brioche nướng nóng, mứt sung (fig jam) hoặc mứt hành tây. Thêm vài lá cỏ xạ hương tươi hoặc hoa ăn được để tạo điểm nhấn đẳng cấp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Navigation Decor -->
+    <div class="fixed bottom-8 right-8 hidden lg:block">
+        <div class="w-16 h-16 border-2 border-gold rounded-full flex items-center justify-center bg-white/80 hover:bg-gold transition-colors duration-500 group cursor-pointer shadow-lg" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <span class="text-gold group-hover:text-white transition-colors">▲</span>
+        </div>
+    </div>
+
+</body>
+</html>
+
