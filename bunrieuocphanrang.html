@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Bún Riêu Ốc Phan Rang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23E28',
+                        gold: '#B8860B',
+                        goldLight: '#F4E7D3',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #B8860B;
+            opacity: 0.4;
+        }
+        .ornament-icon {
+            padding: 0 15px;
+            color: #B8860B;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+        .pro-tip-box {
+            border: 3px double #B8860B;
+            background-color: #FFFDF5;
+            position: relative;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            color: rgba(184, 134, 11, 0.15);
+            position: absolute;
+            left: -1rem;
+            top: -0.5rem;
+            font-weight: bold;
+            z-index: 0;
+        }
+        .recipe-meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        .recipe-meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .recipe-meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            }
+            .recipe-meta-item:nth-child(2n) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto pt-12 px-6 text-center">
+        <div class="mb-2 tracking-widest text-cinnabar font-bold uppercase text-sm">Tinh Hoa Ẩm Thực Việt</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">Bún Riêu Ốc Phan Rang</h1>
+        <h2 class="text-2xl md:text-3xl italic font-normal text-gray-600 mb-8">Phan Rang Snail Rice Noodle Soup</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold border-opacity-30 my-8">
+            <div class="recipe-meta-item">
+                <span class="text-gold text-xs uppercase tracking-tighter mb-1">Mức độ</span>
+                <span class="font-bold text-lg">Trung bình khá</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="text-gold text-xs uppercase tracking-tighter mb-1">Thời gian</span>
+                <span class="font-bold text-lg">120 phút</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="text-gold text-xs uppercase tracking-tighter mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">4 - 6 người</span>
+            </div>
+            <div class="recipe-meta-item">
+                <span class="text-gold text-xs uppercase tracking-tighter mb-1">Vùng miền</span>
+                <span class="font-bold text-lg">Nam Trung Bộ</span>
+            </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto italic justified-text text-gray-700 leading-relaxed px-4">
+            Bún riêu ốc Phan Rang là sự giao thoa tinh tế giữa món bún riêu cua đồng truyền thống của miền Bắc và khẩu vị đậm đà, phóng khoáng của vùng duyên hải Nam Trung Bộ. Đặc trưng của phiên bản Phan Rang nằm ở sự góp mặt của chả cá biển tươi rói, nước dùng có vị thanh ngọt từ xương ống phối hợp cùng vị chua dịu của cà chua chín mọng dưới nắng gió Ninh Thuận.
+        </p>
+    </header>
+
+    <div class="ornament max-w-4xl mx-auto">
+        <span class="ornament-icon">✦ ✦ ✦</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-3 underline decoration-gold/30 underline-offset-4">Phần nhân chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Cua đồng xay: 500g</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Ốc bươu hoặc ốc lác: 500g</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Chả cá Phan Rang (chiên/hấp): 400g</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Thịt vai heo băm: 100g</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Trứng gà: 2 quả</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Tôm khô: 20g (ngâm mềm, băm nhỏ)</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-3 underline decoration-gold/30 underline-offset-4">Nước dùng & Đồ kèm</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Xương ống heo: 500g</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Đậu phụ chiên: 3 bìa</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Cà chua: 4 quả (múi cau)</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Huyết heo luộc: 200g</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Gia vị: Mắm tôm, mắm ruốc Phan Rang, đường phèn, dầu màu điều.</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Bún tươi sợi nhỏ: 1kg</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-3 underline decoration-gold/30 underline-offset-4">Rau sống & Gia vị</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Rau muống chẻ, bắp chuối bào, kinh giới, húng quế, giá đỗ.</span></li>
+                            <li class="flex items-start"><span class="text-gold mr-2">◈</span> <span>Chanh, ớt hiểm ngâm mắm, mắm tôm sống.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nutrition Box -->
+            <section class="glass-card p-6 rounded-sm border-l-4 border-cinnabar shadow-sm">
+                <h3 class="text-lg font-bold mb-3 uppercase tracking-tight">5. Giá trị dinh dưỡng</h3>
+                <div class="text-sm justified-text space-y-2">
+                    <p>Món ăn cung cấp đầy đủ các nhóm chất: Protein (cua, ốc, thịt, chả cá), Canxi dồi dào từ cua đồng, Vitamin và chất xơ từ rau sống.</p>
+                    <p class="font-bold text-cinnabar">Ước tính: 450 - 550 kcal/tô.</p>
+                    <p class="italic text-xs opacity-80 border-t border-gold border-opacity-20 pt-2">Lưu ý: Người có axit uric cao nên hạn chế phần ốc và riêu cua.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps & Professional Tips -->
+        <div class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative">
+                <!-- Vertical Line for steps -->
+                <div class="absolute left-4 top-0 bottom-0 w-px bg-gold opacity-20 hidden md:block"></div>
+
+                <!-- Step 1 -->
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="step-number">01</div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-gray-100 group-hover:border-gold/30 transition-colors">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg text-primary uppercase">Sơ chế ốc và xương</h4>
+                            <span class="text-xs font-bold text-gold bg-goldLight px-2 py-1 rounded">45 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Xương ống chần qua nước sôi, rửa sạch rồi hầm với 2.5 lít nước trong 45 phút để lấy nước dùng trong. Ốc ngâm nước vo gạo và ớt cho sạch nhớt, luộc chín tới với sả gừng, lấy thịt ốc, xào sơ với hành tím và chút gia vị cho thấm.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="step-number">02</div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-gray-100 group-hover:border-gold/30 transition-colors">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg text-primary uppercase">Lấy riêu cua</h4>
+                            <span class="text-xs font-bold text-gold bg-goldLight px-2 py-1 rounded">15 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Hòa cua xay với nước, lọc qua rây nhiều lần để lấy nước cốt. Bắc nồi nước cua lên bếp, thêm một chút muối, đun lửa vừa. Khi gạch cua đóng thành mảng (riêu), vớt ra để riêng.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="step-number">03</div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-gray-100 group-hover:border-gold/30 transition-colors">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg text-primary uppercase">Làm chả riêu (Kỹ thuật)</h4>
+                            <span class="text-xs font-bold text-gold bg-goldLight px-2 py-1 rounded">20 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Trộn mảng riêu cua vừa vớt với thịt băm, tôm khô, trứng gà, một ít hành tím băm và gia vị. Mang hấp cách thủy 15 phút. Sau khi chín, phết một lớp lòng đỏ trứng pha dầu điều lên mặt rồi hấp thêm 2 phút để tạo màu vàng óng.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="step-number">04</div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-gray-100 group-hover:border-gold/30 transition-colors">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg text-primary uppercase">Chế biến nước dùng</h4>
+                            <span class="text-xs font-bold text-gold bg-goldLight px-2 py-1 rounded">25 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-gray-700">Phi thơm hành tím với dầu màu điều, cho cà chua vào xào chín tới. Đổ phần nước cua và nước hầm xương lại chung một nồi. Nêm mắm ruốc Phan Rang (hòa loãng), mắm tôm, đường phèn và hạt nêm sao cho vị ngọt thanh, đậm đà và chua nhẹ. Cho đậu phụ chiên và huyết vào.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 & 6 -->
+                <div class="relative pl-0 md:pl-12 group">
+                    <div class="step-number">05</div>
+                    <div class="bg-white p-6 rounded-sm shadow-sm border border-gray-100 group-hover:border-gold/30 transition-colors">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-lg text-primary uppercase">Hoàn thiện & Trình bày</h4>
+                            <span class="text-xs font-bold text-gold bg-goldLight px-2 py-1 rounded">15 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-gray-700 mb-4">Chả cá Phan Rang cắt miếng vừa ăn. Bún chần qua nước nóng, cho vào bát. Xếp ốc, chả cá, chả riêu cắt miếng lên trên.</p>
+                        <p class="justified-text text-gray-700">Chan nước dùng nóng hổi kèm đậu phụ và huyết vào bát. Đảm bảo nước dùng phải đủ độ nóng để kích thích hương vị mắm tôm và các loại rau ăn kèm.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef's Corner -->
+            <section class="mt-16 pro-tip-box p-8">
+                <div class="absolute -top-4 left-6 bg-gold text-white px-4 py-1 text-sm font-bold uppercase">3. Mẹo hay từ Vua Đầu Bếp</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                    <div>
+                        <h5 class="font-bold text-gold uppercase text-xs mb-2 italic">Bí quyết Riêu chắc</h5>
+                        <p class="text-sm justified-text italic">Khi đun nước cua, tuyệt đối không khuấy mạnh tay để tránh làm vỡ mảng riêu. Thêm một chút muối vào nước cua ngay từ đầu giúp riêu kết tủa chắc hơn.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-gold uppercase text-xs mb-2 italic">Xử lý ốc</h5>
+                        <p class="text-sm justified-text italic">Không nên xào ốc quá lâu sẽ bị dai. Chỉ cần xào nhanh tay với lửa lớn để ốc thấm gia vị mà vẫn giữ độ giòn sần sật.</p>
+                    </div>
+                    <div class="md:col-span-2 border-t border-gold border-opacity-20 pt-4">
+                        <h5 class="font-bold text-cinnabar uppercase text-xs mb-2 italic">Lỗi cần tránh</h5>
+                        <p class="text-sm justified-text italic">Đừng nêm nước mắm quá sớm vào nồi nước dùng đang sôi vì sẽ làm nước bị chua và át mùi thơm đặc trưng của mắm ruốc.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Variations & Pro Versions -->
+            <section class="mt-12">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">4. Biến tấu</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-100 p-5 border-t-2 border-gold">
+                        <h4 class="font-bold text-sm mb-2 uppercase">Phiên bản Hải Sản</h4>
+                        <p class="text-sm justified-text italic">Có thể thay thế ốc bươu bằng ốc mít hoặc ốc móng tay nếu muốn đổi mới kết cấu giòn lạ hơn.</p>
+                    </div>
+                    <div class="bg-gray-100 p-5 border-t-2 border-gold">
+                        <h4 class="font-bold text-sm mb-2 uppercase">Mẹo thay thế</h4>
+                        <p class="text-sm justified-text italic">Nếu không tìm được chả cá Phan Rang, có thể dùng chả cá thác lác quết kỹ để giữ độ dai tương đương.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Presentation Section -->
+    <div class="bg-primary text-parchment py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-gold text-center mb-8 uppercase tracking-widest">6. Gợi ý trình bày</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center space-y-4">
+                    <div class="text-gold text-3xl">皿</div>
+                    <h5 class="font-bold uppercase text-xs tracking-widest">Dụng cụ</h5>
+                    <p class="text-sm opacity-80 justified-text">Sử dụng bát tô sứ trắng hoặc bát sành mộc mạc để làm nổi bật màu sắc rực rỡ của món ăn.</p>
+                </div>
+                <div class="text-center space-y-4">
+                    <div class="text-gold text-3xl">🎨</div>
+                    <h5 class="font-bold uppercase text-xs tracking-widest">Màu sắc</h5>
+                    <p class="text-sm opacity-80 justified-text">Sắp xếp theo nguyên tắc tương phản: Đỏ của cà chua, vàng của đậu phụ, trắng của bún và xanh của rau.</p>
+                </div>
+                <div class="text-center space-y-4">
+                    <div class="text-gold text-3xl">✨</div>
+                    <h5 class="font-bold uppercase text-xs tracking-widest">Điểm nhấn</h5>
+                    <p class="text-sm opacity-80 justified-text">Đặt một muỗng mắm tôm và ớt chưng bên cạnh. Một vài cọng ngò gai thái nhỏ rắc lên trên tạo điểm nhấn tinh tế.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Scroll To Top (Simple JS) -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-gold text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center hover:bg-cinnabar transition-colors duration-300 z-50">
+        ↑
+    </button>
+
+</body>
+</html>
