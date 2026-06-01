@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chả Lụa Huế</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-charcoal': '#2C2C2C',
+                        'bg-parchment': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                        'accent-gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            text-align: justify;
+            -webkit-font-smoothing: antialiased;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament-icon {
+            margin: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .recipe-step:hover .step-number {
+            transform: scale(1.1);
+            background-color: #E23D28;
+            color: white;
+        }
+        .meta-item {
+            transition: all 0.3s ease;
+        }
+        .meta-item:hover {
+            transform: translateY(-2px);
+            color: #E23D28;
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #C5A059 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Container -->
+    <div class="max-w-5xl mx-auto border-[1px] border-[#C5A059]/20 shadow-2xl bg-white p-6 md:p-16 relative">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="inline-block border-y-2 border-burnished-gold py-2 mb-6">
+                <span class="tracking-[0.3em] uppercase text-xs text-burnished-gold font-bold">AI Vua Đầu Bếp Exclusive</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-primary-charcoal mb-2 leading-tight">
+                Chả Lụa Huế Truyền Thống
+            </h1>
+            <p class="text-xl md:text-2xl italic text-gray-500 mb-8 font-serif">
+                Authentic Hue Vietnamese Steamed Pork Sausage (Giò Huế)
+            </p>
+
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-gray-100 py-6 my-8 bg-[#FDFBF7]">
+                <div class="meta-item flex flex-col items-center border-r border-gray-100 last:border-0">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Độ khó</span>
+                    <span class="font-bold text-sm">Trung bình - Khó</span>
+                </div>
+                <div class="meta-item flex flex-col items-center border-r border-gray-100 last:border-0">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Thời gian</span>
+                    <span class="font-bold text-sm">90 - 120 phút</span>
+                </div>
+                <div class="meta-item flex flex-col items-center border-r border-gray-100 last:border-0">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Khẩu phần</span>
+                    <span class="font-bold text-sm">4 - 6 người</span>
+                </div>
+                <div class="meta-item flex flex-col items-center">
+                    <span class="text-cinnabar-red mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Nguồn gốc</span>
+                    <span class="font-bold text-sm">Cố đô Huế</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <h2 class="text-2xl font-bold border-b-2 border-burnished-gold pb-2 mb-6 inline-block">1. Nguyên liệu</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-sm uppercase tracking-widest font-bold text-cinnabar-red mb-4">Phần Chính</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>500g</strong> Thịt heo mông hoặc thăn (thịt nóng mới mổ)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>100g</strong> Mỡ gáy heo (giúp chả mướt)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm uppercase tracking-widest font-bold text-cinnabar-red mb-4">Gia Vị & Phụ Liệu</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>2 tbsp</strong> Nước mắm cốt độ đạm cao</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>1 tsp</strong> Tiêu sọ trắng (giã dập)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>1 củ</strong> Tỏi Lý Sơn (băm nhuyễn)</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>1/2 tsp</strong> Đường cát trắng</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span><strong>3-4 tbsp</strong> Nước đá thật lạnh</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm uppercase tracking-widest font-bold text-cinnabar-red mb-4">Dụng Cụ Gói</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-burnished-gold mr-3 group-hover:scale-125 transition-transform">✧</span>
+                                <span>Lá chuối tươi, dây lạt hoặc dây nilon</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nutrition Box in Sidebar for Mobile, part of footer design for desktop -->
+                <div class="mt-12 bg-stone-50 p-6 border-l-4 border-burnished-gold lg:hidden">
+                    <h2 class="text-lg font-bold mb-4">5. Giá trị dinh dưỡng</h2>
+                    <p class="text-sm italic leading-relaxed text-gray-700">
+                        Chả cung cấp hàm lượng đạm cao từ thịt nguyên chất. Tự làm tại nhà giúp loại bỏ hoàn toàn hàn thi và phụ gia. Ăn kèm nhiều rau xanh để cân bằng.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h2 class="text-2xl font-bold border-b-2 border-burnished-gold pb-2 mb-8 inline-block">2. Các bước thực hiện</h2>
+                
+                <div class="relative pl-8 space-y-10">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-[11px] top-4 bottom-4 timeline-line"></div>
+
+                    <!-- Step 1 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">1</div>
+                        <h4 class="font-bold text-lg mb-2">Sơ chế thịt <span class="text-cinnabar-red text-xs ml-2 italic font-normal">(~45 phút)</span></h4>
+                        <p class="text-gray-700 leading-relaxed">Thịt và mỡ rửa sạch, thấm thật khô, thái miếng nhỏ. Để thịt vào ngăn đông đá khoảng 30 - 45 phút cho đến khi thịt đạt độ dẻo, lạnh sâu nhưng không đông cứng.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">2</div>
+                        <h4 class="font-bold text-lg mb-2">Xay thịt (Giai đoạn 1) <span class="text-cinnabar-red text-xs ml-2 italic font-normal">(Kỹ thuật pulse)</span></h4>
+                        <p class="text-gray-700 leading-relaxed">Cho thịt vào máy xay thực phẩm. Xay theo chế độ nhấp nhả (pulse) mỗi lần 10-15 giây. Chia thành nhiều đợt xay nhỏ để tránh làm nóng lưỡi dao và nóng thịt.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">3</div>
+                        <h4 class="font-bold text-lg mb-2">Phối trộn gia vị</h4>
+                        <p class="text-gray-700 leading-relaxed">Khi thịt đã tơi, cho nước mắm, tỏi, tiêu, đường và nước đá lạnh vào.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">4</div>
+                        <h4 class="font-bold text-lg mb-2">Xay kỹ và Quết <span class="text-cinnabar-red text-xs ml-2 italic font-normal">(Quan trọng)</span></h4>
+                        <p class="text-gray-700 leading-relaxed">Tiếp tục xay cho đến khi hỗn hợp nhuyễn mịn, chuyển màu hồng nhạt và có độ kết dính như giò sống. Dùng muỗng lớn quết mạnh tay liên tục trong 5 - 10 phút để tạo cấu trúc dai giòn tự nhiên.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">5</div>
+                        <h4 class="font-bold text-lg mb-2">Chuẩn bị lá chuối</h4>
+                        <p class="text-gray-700 leading-relaxed">Lá chuối rửa sạch, trụng qua nước sôi hoặc hơ lửa cho mềm dai. Lau khô, cắt thành từng miếng nhỏ khổ khoảng 10x15cm.</p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">6</div>
+                        <h4 class="font-bold text-lg mb-2">Gói chả <span class="text-cinnabar-red text-xs ml-2 italic font-normal">(Tạo hình lọn Huế)</span></h4>
+                        <p class="text-gray-700 leading-relaxed">Chia giò sống thành các phần nhỏ (30-40g). Đặt vào giữa lá chuối, cuộn tròn chặt tay, gập hai đầu lá để tạo thành hình lọn nhỏ đặc trưng của Huế.</p>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="recipe-step relative">
+                        <div class="step-number absolute -left-[31px] top-0 w-6 h-6 bg-burnished-gold text-white text-[10px] flex items-center justify-center rounded-full transition-all duration-300 z-10 font-bold">7</div>
+                        <h4 class="font-bold text-lg mb-2">Hấp chả <span class="text-cinnabar-red text-xs ml-2 italic font-normal">(20 phút)</span></h4>
+                        <p class="text-gray-700 leading-relaxed">Xếp chả vào xửng khi nước đã sôi. Hấp ở lửa vừa trong khoảng 15 - 20 phút. Sau khi chín, để chả nguội tự nhiên trong nồi để giữ độ ngọt.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="ornament">
+            <span class="ornament-icon">◈ ✦ ◈</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-12">
+            <div class="bg-[#F8F5F0] border-2 border-double border-burnished-gold p-8 rounded-sm relative overflow-hidden">
+                <div class="absolute -top-4 -right-4 opacity-10">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-primary-charcoal mb-4 flex items-center">
+                    <span class="bg-burnished-gold text-white p-1 mr-3 rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </span>
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 italic text-gray-800">
+                    <div class="bg-white/50 p-4 rounded border-l-2 border-cinnabar-red">
+                        <p><strong>Kỹ thuật nhiệt độ:</strong> Đây là yếu tố sống còn. Nhiệt độ thịt suốt quá trình xay phải luôn dưới 5°C. Nếu thịt ấm lên, protein bị biến tính dẫn đến hiện tượng "chết giò".</p>
+                    </div>
+                    <div class="bg-white/50 p-4 rounded border-l-2 border-cinnabar-red">
+                        <p><strong>Kiểm tra độ đàn hồi:</strong> Dùng đầu ngón tay nhấn vào giò sống, nếu thịt có độ đàn hồi và không dính tay quá nhiều là đạt.</p>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500"><strong>Mẹo thay thế:</strong> Nếu không có lá chuối, có thể dùng màng bọc thực phẩm chịu nhiệt hoặc giấy nến, sau đó bọc thêm một lớp giấy bạc.</p>
+            </div>
+        </section>
+
+        <!-- Variations & Pro Versions -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-burnished-gold pb-2 mb-6 inline-block">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="group border border-gray-100 p-6 hover:shadow-lg transition-all duration-500 bg-white cursor-pointer">
+                    <h3 class="font-bold text-lg text-cinnabar-red mb-2">Chả Bò Huế</h3>
+                    <p class="text-gray-600 text-sm italic">Thay thịt heo bằng thịt thăn bò đùi, tăng cường tỏi và tiêu sọ để tạo hương vị nồng nàn đặc trưng của bò.</p>
+                </div>
+                <div class="group border border-gray-100 p-6 hover:shadow-lg transition-all duration-500 bg-white cursor-pointer">
+                    <h3 class="font-bold text-lg text-cinnabar-red mb-2">Chả Huế sần sật</h3>
+                    <p class="text-gray-600 text-sm italic">Trộn thêm tai heo thái hạt lựu hoặc nấm mèo băm nhỏ vào giò sống sau khi xay để tạo kết cấu giòn lạ miệng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Info & Presentation -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-primary-charcoal text-white p-8 md:p-12 -mx-6 md:-mx-16">
+            <div>
+                <h2 class="text-xl font-bold text-burnished-gold mb-6 border-b border-burnished-gold/30 pb-2">5. Giá trị dinh dưỡng</h2>
+                <ul class="space-y-4 text-sm text-stone-300 leading-relaxed">
+                    <li class="flex items-start">
+                        <span class="text-accent-gold mr-3">●</span>
+                        Chả cung cấp hàm lượng đạm (protein) cao từ thịt nguyên chất, không độn bột.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-gold mr-3">●</span>
+                        Hoàn toàn không hàn thi và các phụ gia công nghiệp gây hại sức khỏe.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-gold mr-3">●</span>
+                        Sử dụng nước mắm truyền thống để kiểm soát lượng natri tự nhiên.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-burnished-gold mb-6 border-b border-burnished-gold/30 pb-2">6. Gợi ý trình bày</h2>
+                <ul class="space-y-4 text-sm text-stone-300 leading-relaxed">
+                    <li class="flex items-start">
+                        <span class="text-accent-gold mr-3">●</span>
+                        Xếp lọn chả lên đĩa theo hình hoa thị, trang trí giữa bằng dưa món và húng quế.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent-gold mr-3">●</span>
+                        Phục vụ kèm nước mắm trong, vài lát ớt cao sản và tỏi tươi nguyên tép.
+                    </li>
+                    <li class="flex items-start italic text-accent-gold">
+                        "Chả Huế đạt chuẩn khi cắt ra có màu hồng nhạt, bề mặt có các lỗ khí nhỏ (mắt cua), thơm mùi tiêu tỏi và lá chuối."
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Background Watermark -->
+        <div class="fixed top-0 right-0 p-12 opacity-5 pointer-events-none hidden lg:block">
+            <span class="text-[20rem] font-serif select-none">H</span>
+        </div>
+    </div>
+
+    <!-- Interaction Script -->
+    <script>
+        // Smooth entry animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.recipe-step');
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(20px)';
+                step.style.transition = `all 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateX(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
