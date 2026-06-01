@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Giò lụa Ước Lễ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: #fdfaf3;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: #C5A059;
+            border-radius: 50%;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 4rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.3;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            font-size: 1.5rem;
+        }
+
+        /* Tabs styling */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-bottom: 2px solid #E23D28; color: #E23D28; }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center mb-12 animate-fade-in">
+        <p class="uppercase tracking-widest text-cinnabar font-bold mb-2">DI SẢN ẨM THỰC VIỆT</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">Giò lụa Ước Lễ</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-8">Uoc Le Vietnamese Pork Sausage</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-gold/30 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5.45 5.45l13.1 13.1M18.55 5.45l-13.1 13.1"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold">Cao (Kỹ thuật nhiệt)</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold">150 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold">2 cây (1kg)</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gold mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-tighter text-gray-500">Xuất xứ</span>
+                <span class="font-bold text-center px-2 leading-tight">Làng Ước Lễ, Hà Nội</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto">
+            <p class="justified-text text-lg italic text-gray-700 leading-relaxed">
+                Đặc sản có lịch sử hơn 500 năm, nổi tiếng bởi kỹ thuật chọn thịt tinh tế và bí quyết sử dụng nước mắm cốt thượng hạng, tạo nên hương vị thuần khiết của ẩm thực Bắc Bộ.
+            </p>
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <span class="ornament">✦</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Ingredients Column -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div>
+                    <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Thành phần chính</h4>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Thịt lợn nạc mông ("nóng")</span>
+                                    <span class="font-bold italic">1kg</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Mỡ gáy lợn</span>
+                                    <span class="font-bold italic">200g</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Gia vị & Phụ gia</h4>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Nước mắm cốt (>40 độ đạm)</span>
+                                    <span class="font-bold italic">45ml</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Đường kính trắng</span>
+                                    <span class="font-bold italic">10g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Tiêu trắng xay mịn</span>
+                                    <span class="font-bold italic">5g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Bột năng/khoai tây</span>
+                                    <span class="font-bold italic">20g</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 group transition-all hover:pl-2">
+                                    <span>Đá dăm thật lạnh</span>
+                                    <span class="font-bold italic">40ml</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gold uppercase text-sm mb-3 tracking-widest">Dụng cụ bao gói</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 italic text-gray-600">
+                                    <span class="text-cinnabar">•</span> Lá chuối tây tươi (đã chần)
+                                </li>
+                                <li class="flex items-start gap-2 italic text-gray-600">
+                                    <span class="text-cinnabar">•</span> Lạt tre dẻo
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Steps Column -->
+            <section class="lg:col-span-8">
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6 uppercase tracking-wider">2. Các bước thực hiện</h3>
+                <div class="space-y-10 relative border-l-2 border-gold/10 ml-4 pl-8">
+                    
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Sơ chế và làm lạnh</h4>
+                            <span class="text-sm italic font-serif text-gold">45 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Thịt nạc lọc bỏ hoàn toàn gân và màng dính. Thái miếng nhỏ, mỡ gáy thái hạt lựu. Cho cả thịt và mỡ vào ngăn đá tủ lạnh cho đến khi thịt đạt độ lạnh sâu nhưng chưa đóng đá (khoảng 0-2 độ C). Đây là bước sống còn để giò không bị bở.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Xay thịt và tạo nhũ</h4>
+                            <span class="text-sm italic font-serif text-gold">15 phút</span>
+                        </div>
+                        <div class="space-y-3 justified-text text-gray-700">
+                            <p>Chia thịt thành từng mẻ nhỏ. <span class="font-bold">Xay lần 1:</span> Xay sơ 15 giây, sau đó cho gia vị và nước đá vào.</p>
+                            <p><span class="font-bold">Xay lần 2:</span> Xay thêm 30-45 giây cho đến khi thịt chuyển sang màu hồng nhạt, nhuyễn mịn, dẻo quánh như kem (gọi là "giò sống").</p>
+                            <p class="bg-red-50 p-3 text-sm italic border-l-2 border-cinnabar">Lưu ý: Nếu thấy thịt bắt đầu ấm lên phải dừng lại và thêm đá dăm ngay lập tức.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Gói giò</h4>
+                            <span class="text-sm italic font-serif text-gold">20 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Trải 3-4 lớp lá chuối xen kẽ dọc ngang. Đổ giò sống vào giữa. Cuộn tròn thật chặt tay sao cho không còn bọt khí bên trong. Hai đầu lá chuối gấp gọn, dùng lạt tre buộc chặt, đều tay tạo hình trụ tròn truyền thống.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Hấp giò</h4>
+                            <span class="text-sm italic font-serif text-gold">50 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Đun nước thật sôi mới cho giò vào xửng hấp. Hấp ở lửa vừa để nhiệt độ ổn định, giúp giò chín từ từ vào tận lõi mà không bị nứt bề mặt.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Om giò</h4>
+                            <span class="text-sm italic font-serif text-gold">20 phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Sau khi tắt bếp, để om trong nồi khoảng 10-15 phút. Việc này giúp giò thẩm thấu hương thơm đặc trưng từ lá chuối và giữ được độ mọng nước bên trong. Lấy giò ra để nguội tự nhiên.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">★</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-12">
+            <div class="pro-tip-box p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L4 9v11a2 2 0 002 2h12a2 2 0 002-2V9l-8-6zm0 2.18L18 10.18V19H6v-8.82l6-5z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gold mb-6 uppercase tracking-widest text-center">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="font-bold text-cinnabar mb-2 uppercase text-xs tracking-widest">Kỹ thuật chọn thịt</div>
+                        <p class="text-sm justified-text italic">Chỉ sử dụng thịt lợn mới mổ còn nóng. Tuyệt đối không dùng thịt đã qua tủ lạnh hoặc thịt ôi vì giò sẽ không có độ giòn dai tự nhiên.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-cinnabar mb-2 uppercase text-xs tracking-widest">Độ giòn dai</div>
+                        <p class="text-sm justified-text italic">Bí quyết nằm ở sự kết hợp giữa mỡ gáy muối lạnh và kỹ thuật xay giữ nhiệt độ thấp. Khi hấp, mỡ tan chảy quyện vào thớ thịt tạo độ dẻo và bóng.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-cinnabar mb-2 uppercase text-xs tracking-widest">Lỗi cần tránh</div>
+                        <p class="text-sm justified-text italic">Giò bị rỗ là do gói lỏng; bở là do thịt không tươi hoặc nhiệt cao khi xay; thâm là do dùng nước mắm màu hoặc tiêu đen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 uppercase tracking-wider">4. Biến tấu & Nâng cao</h3>
+            <div class="flex border-b border-gray-200 mb-6">
+                <button onclick="openTab(event, 'taiheo')" class="tab-btn px-6 py-2 font-bold uppercase text-sm tracking-widest active">Tai heo</button>
+                <button onclick="openTab(event, 'nam')" class="tab-btn px-6 py-2 font-bold uppercase text-sm tracking-widest">Nấm Hương</button>
+                <button onclick="openTab(event, 'trung')" class="tab-btn px-6 py-2 font-bold uppercase text-sm tracking-widest">Cuộn Trứng</button>
+            </div>
+            
+            <div id="taiheo" class="tab-content active animate-fade-in">
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6 items-center">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2">Giò lụa tai heo</h4>
+                        <p class="justified-text text-gray-700">Thêm tai heo đã luộc sơ, thái mỏng và ướp tiêu vào hỗn hợp giò sống trước khi gói. Kỹ thuật này tạo nên kết cấu giòn sần sật thú vị, đối lập với sự mềm mượt của giò lụa truyền thống.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nam" class="tab-content animate-fade-in">
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6 items-center">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2">Giò nấm thanh đạm</h4>
+                        <p class="justified-text text-gray-700">Băm nhỏ nấm hương rừng, vắt kiệt nước và trộn đều vào giò sống. Vị ngọt tự nhiên và hương thơm nồng nàn của nấm làm tăng thêm sự sang trọng cho món ăn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="trung" class="tab-content animate-fade-in">
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6 items-center">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold mb-2">Giò lụa cuộn trứng</h4>
+                        <p class="justified-text text-gray-700">Tráng một lớp trứng gà mỏng, đặt lên lá chuối rồi mới cho giò sống vào giữa để cuộn. Khi cắt ra, khoanh giò sẽ có một viền vàng rực rỡ bao quanh lõi hồng nhạt, rất bắt mắt cho các mâm cỗ trang trọng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Info -->
+        <section class="grid md:grid-cols-2 gap-12 mt-16 bg-white/50 p-8 rounded-lg shadow-sm border border-gold/10">
+            <div>
+                <h3 class="text-xl font-bold text-cinnabar mb-4 uppercase tracking-widest">5. Giá trị dinh dưỡng</h3>
+                <div class="space-y-3 text-sm">
+                    <p class="flex justify-between border-b border-gray-100 pb-1">
+                        <span>Năng lượng</span>
+                        <span class="font-bold">250-280 kcal / 100g</span>
+                    </p>
+                    <p class="justified-text text-gray-600 italic mt-4">
+                        Thành phần giàu protein, chất béo, Vitamin B12 và khoáng chất thiết yếu. <br>
+                        <span class="text-cinnabar font-bold">Lưu ý:</span> Người cao huyết áp nên tiêu thụ vừa phải (2-3 miếng/bữa) do hàm lượng natri từ mắm cốt.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-cinnabar mb-4 uppercase tracking-widest">6. Gợi ý trình bày</h3>
+                <div class="space-y-4">
+                    <p class="justified-text text-sm">
+                        <span class="font-bold text-charcoal">Cắt thái:</span> Cắt khoanh dày 2cm, chia làm 6 hoặc 8 miếng hình cánh hoa. Giò chuẩn khi cắt ra phải có màu trắng hồng hửng, mặt giò mịn nhưng điểm xuyết lỗ khí li ti.
+                    </p>
+                    <p class="justified-text text-sm">
+                        <span class="font-bold text-charcoal">Phục vụ:</span> Bày trên đĩa sứ trắng hoặc đĩa tre lót lá chuối. Ăn kèm xôi trắng, bánh chưng hoặc bánh giầy, chấm cùng nước mắm tiêu dầm ớt.
+                    </p>
+                    <div class="bg-gold/5 p-3 rounded italic text-xs border border-gold/20">
+                        <span class="font-bold">Mẹo Marketing:</span> Chụp ảnh góc nghiêng 45° dưới ánh sáng tự nhiên để bắt trọn độ bóng của mỡ và các lỗ khí đặc trưng.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="text-center mt-20 mb-10 opacity-30">
+        <span class="text-2xl">𑁍</span>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
+
