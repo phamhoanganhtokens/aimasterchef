@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Jamón Ibérico de Bellota</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .glass-card {
+            background: rgba(252, 250, 250, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+        }
+        .ornament-icon {
+            padding: 0 1rem;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: #C5A059;
+            border-radius: 50%;
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .meta-icon {
+            color: #C5A059;
+            margin-right: 8px;
+        }
+        @media (max-width: 768px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 animate-fade-in">
+        <div class="inline-block border-y-2 border-burnished-gold py-2 mb-6 tracking-[0.2em] uppercase text-sm font-bold text-burnished-gold">
+            AI Vua Đầu Bếp • Premium Selection
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 uppercase">Jamón Ibérico de Bellota</h1>
+        <p class="text-xl md:text-2xl italic text-gray-600 mb-10">The Crown Jewel of Spanish Gastronomy</p>
+        
+        <div class="meta-grid flex flex-wrap justify-center items-center gap-8 border-t border-b border-gray-200 py-6">
+            <div class="flex items-center">
+                <span class="meta-icon">◈</span>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Độ khó</p>
+                    <p class="font-bold">Trung bình - Khó</p>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="meta-icon">◈</span>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Thời gian</p>
+                    <p class="font-bold">30 Phút chuẩn bị</p>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="meta-icon">◈</span>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Khẩu phần</p>
+                    <p class="font-bold">4 - 6 Người</p>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="meta-icon">◈</span>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Nguồn gốc</p>
+                    <p class="font-bold">Dehesa, Tây Ban Nha</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold border-b border-cinnabar-red pb-2 mb-6 flex items-center">
+                    <span class="text-cinnabar-red mr-2">I.</span> NGUYÊN LIỆU
+                </h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xs uppercase tracking-widest font-bold text-burnished-gold mb-3">Thành phần chính</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-burnished-gold mr-3">✦</span>
+                                <span class="justified-text">Đùi heo Jamón Ibérico de Bellota nguyên chiếc hoặc túi cắt sẵn chất lượng cao.</span>
+                            </li>
+                            <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-burnished-gold mr-3">✦</span>
+                                <span class="justified-text">Bánh mì mộc hoặc baguette.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs uppercase tracking-widest font-bold text-burnished-gold mb-3">Gia vị & Kèm theo</h3>
+                        <ul class="space-y-3 border-l border-gray-100 pl-4">
+                            <li class="flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-cinnabar-red rounded-full mr-3"></span>
+                                <span>Cà chua chín mọng nước</span>
+                            </li>
+                            <li class="flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-cinnabar-red rounded-full mr-3"></span>
+                                <span>Tỏi tươi</span>
+                            </li>
+                            <li class="flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-cinnabar-red rounded-full mr-3"></span>
+                                <span>Dầu oliu nguyên chất (Extra Virgin)</span>
+                            </li>
+                            <li class="flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-cinnabar-red rounded-full mr-3"></span>
+                                <span>Muối biển</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef's Corner -->
+            <section class="pro-tip-box p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-2 opacity-10">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/><path d="M12.5 7h-1v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-burnished-gold mb-4 italic uppercase tracking-tighter">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="space-y-4 text-sm italic justified-text leading-relaxed">
+                    <p>• Tuyệt đối không bao giờ thưởng thức Jamón Ibérico khi vừa lấy ra khỏi tủ lạnh, nhiệt độ thấp sẽ làm hỏng kết cấu mỡ và khóa chặt hương vị.</p>
+                    <p>• Nếu dùng đùi nguyên chiếc, hãy giữ lại lớp mỡ dày bên ngoài vừa lạng ra để đắp lên phần thịt đang cắt dở, giúp thịt không bị oxy hóa.</p>
+                    <p>• Với người nội trợ không có dụng cụ chuyên nghiệp, mua các gói thịt đã được thợ thái tay sẵn là lựa chọn tối ưu.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <main class="lg:col-span-8">
+            <section>
+                <h2 class="text-2xl font-bold border-b border-cinnabar-red pb-2 mb-8 flex items-center">
+                    <span class="text-cinnabar-red mr-2">II.</span> CÁC BƯỚC THỰC HIỆN
+                </h2>
+
+                <div class="relative pl-8 space-y-12 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-gray-200">
+                    <!-- Step 1 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold uppercase tracking-wide">1. Lựa chọn nguyên liệu</h3>
+                            <span class="text-xs font-serif italic text-gray-400">Giai đoạn chuẩn bị</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Đảm bảo sử dụng Jamón Ibérico de Bellota chuẩn với nguồn gốc từ giống lợn Iberico thuần chủng, được chăn thả tự do tại các cánh đồng Dehesa, ăn hạt sồi (bellota) và ủ muối thủ công ít nhất 36 tháng.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold uppercase tracking-wide">2. Cân bằng nhiệt độ</h3>
+                            <span class="text-xs font-serif italic text-gray-400">10 - 30 Phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Thịt phải được đưa về nhiệt độ phòng hoàn hảo từ 20 - 25 độ C. Nếu dùng túi bảo quản cắt sẵn, hãy để túi ở nhiệt độ phòng khoảng 30 phút hoặc ngâm nguyên túi nilon chưa mở vào nước ấm trước khi phục vụ.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold uppercase tracking-wide">3. Cắt thịt (Corte a Cuchillo)</h3>
+                            <span class="text-xs font-serif italic text-gray-400">Kỹ thuật tinh xảo</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Nếu dùng nguyên đùi, sử dụng dao dài và thật sắc. Cắt thịt thành những lát mờ, cực mỏng và độ dài vừa phải (khoảng 4-5cm) để lớp mỡ có thể tan chảy ngay khi vừa chạm vào vòm miệng.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step relative">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold uppercase tracking-wide">4. Chuẩn bị bánh mì cà chua</h3>
+                            <span class="text-xs font-serif italic text-gray-400">5 Phút</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Cắt lát bánh mì và nướng giòn. Chà xát nhẹ một tép tỏi xẻ đôi lên mặt bánh, sau đó chà xát nửa quả cà chua chín lên bề mặt để lấy phần bột và nước ép. Rưới một chút dầu oliu và rắc vài hạt muối biển lên trên (Pan con tomate).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="ornament">
+                <span class="ornament-icon">★</span>
+            </div>
+
+            <!-- Variations & Pro Versions -->
+            <section class="mt-12">
+                <h2 class="text-2xl font-bold border-b border-cinnabar-red pb-2 mb-6 flex items-center">
+                    <span class="text-cinnabar-red mr-2">III.</span> BIẾN TẤU & NÂNG CAO
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-burnished-gold mb-3 uppercase text-sm tracking-widest">Nguyên Bản</h4>
+                        <p class="text-sm justified-text">Thưởng thức nguyên bản (không ăn kèm) để cảm nhận trọn vẹn hậu vị hạt sồi đặc trưng của đùi heo Iberico cao cấp.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-burnished-gold mb-3 uppercase text-sm tracking-widest">Kèm Topping</h4>
+                        <p class="text-sm justified-text">Kết hợp hoàn hảo với phô mai Manchego, quả olive, hạt hạnh nhân rang hoặc vị ngọt thanh của dưa lưới.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-burnished-gold mb-3 uppercase text-sm tracking-widest">Đồ Uống</h4>
+                        <p class="text-sm justified-text">Dùng kèm các loại rượu vang như Rioja (vang đỏ), Cava (vang sủi) hoặc Fino Sherry để tôn lên hương vị tuyệt mỹ.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Technical Info -->
+    <footer class="mt-20 pt-12 border-t-2 border-burnished-gold grid grid-cols-1 lg:grid-cols-2 gap-12 pb-12">
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-[1px] bg-cinnabar-red mr-3"></span>
+                GIÁ TRỊ DINH DƯỠNG
+            </h2>
+            <div class="bg-stone-100 p-6 rounded-sm">
+                <ul class="space-y-4 text-sm">
+                    <li class="flex justify-between items-start border-b border-white pb-2">
+                        <span class="font-bold">Axit Oleic</span>
+                        <span class="justified-text w-2/3">Giàu chất béo tốt (tương tự dầu oliu), tăng HDL và giảm LDL, tốt cho tim mạch.</span>
+                    </li>
+                    <li class="flex justify-between items-start border-b border-white pb-2">
+                        <span class="font-bold">Vitamin Nhóm B</span>
+                        <span class="justified-text w-2/3">Dồi dào B1, B6, B12 duy trì năng lượng và chức năng thần kinh.</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <span class="font-bold">Khoáng chất</span>
+                        <span class="justified-text w-2/3">Nguồn protein chất lượng cao, sắt, kẽm và khoáng chất thiết yếu.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-[1px] bg-cinnabar-red mr-3"></span>
+                GỢI Ý TRÌNH BÀY
+            </h2>
+            <div class="space-y-4 text-sm italic justified-text leading-relaxed text-gray-600">
+                <p>Sử dụng một chiếc đĩa sứ trắng hoặc thớt gỗ sẫm màu đã được làm ấm nhẹ để giữ nhiệt độ của thịt. Sử dụng nhíp chuyên dụng gắp và xếp các lát thịt siêu mỏng thành hình những vòng tròn đồng tâm.</p>
+                <p>Đảm bảo ánh sáng phản chiếu lấp lánh trên bề mặt lớp mỡ, làm nổi bật lên vân cẩm thạch tuyệt đẹp và sự tương phản màu sắc giữa sắc đỏ ruby sẫm của thịt với sắc trắng ngà của mỡ hạt sồi.</p>
+            </div>
+        </section>
+    </footer>
+
+    <script>
+        // Simple entry animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('section, header, aside > div');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
