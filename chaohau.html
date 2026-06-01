@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Cháo Hàu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#A52A2A',
+                        burnishedGold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; font-family: 'Times New Roman', Times, serif; color: #2C2C2C; }
+        .justify-text { text-align: justify; }
+        .separator::after { content: "★"; display: block; text-align: center; color: #D4AF37; margin: 2rem 0; }
+        .gold-border { border: 2px solid #D4AF37; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-8">
+
+    <main class="max-w-5xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 text-charcoal">CHÁO HÀU</h1>
+            <i class="text-2xl text-gray-600 block mb-8 italic">Oyster Porridge</i>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <div class="text-center"><p class="text-xs uppercase text-cinnabar font-bold">Độ khó</p><p class="text-lg">Trung bình</p></div>
+                <div class="text-center"><p class="text-xs uppercase text-cinnabar font-bold">Thời gian</p><p class="text-lg">60 phút</p></div>
+                <div class="text-center"><p class="text-xs uppercase text-cinnabar font-bold">Khẩu phần</p><p class="text-lg">4 người</p></div>
+                <div class="text-center"><p class="text-xs uppercase text-cinnabar font-bold">Nguồn gốc</p><p class="text-lg">Duyên hải Việt Nam</p></div>
+            </div>
+            
+            <p class="mt-8 text-lg leading-relaxed justify-text text-gray-700 max-w-3xl mx-auto">
+                Cháo hàu là món ăn đặc trưng của các vùng duyên hải Việt Nam, từ Quảng Bình, Thừa Thiên Huế đến Vũng Tàu. Đây là sự kết hợp tinh tế giữa hạt gạo nông nghiệp và sản vật quý giá từ biển cả, thường được dùng như một món ăn bồi bổ sức khỏe hoặc món điểm tâm thanh tao.
+            </p>
+        </header>
+
+        <div class="separator"></div>
+
+        <!-- Recipe Body -->
+        <section class="grid md:grid-cols-2 gap-12">
+            <!-- Ingredients -->
+            <div>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar border-b-2 border-cinnabar pb-2">1. Nguyên liệu</h2>
+                <ul class="space-y-4 text-lg justify-text">
+                    <li class="pl-4 border-l-2 border-burnishedGold">500g thịt hàu sữa tươi (loại hàu cửa sông).</li>
+                    <li class="pl-4 border-l-2 border-burnishedGold">150g gạo tẻ và 50g gạo nếp.</li>
+                    <li class="pl-4 border-l-2 border-burnishedGold">500g xương ống lợn ninh nước dùng.</li>
+                    <li class="pl-4 border-l-2 border-burnishedGold">Hành tím, gừng, hành lá, rau răm, ngò rí.</li>
+                    <li class="pl-4 border-l-2 border-burnishedGold">Gia vị: Nước mắm ngon, muối, tiêu, mỡ lợn.</li>
+                    <li class="pl-4 border-l-2 border-burnishedGold">Ăn kèm: Quẩy giòn, giá đỗ tươi.</li>
+                </ul>
+            </div>
+
+            <!-- Steps -->
+            <div>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar border-b-2 border-cinnabar pb-2">2. Các bước thực hiện</h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <span class="font-bold text-burnishedGold text-xl">01</span>
+                        <p class="justify-text text-lg"><span class="font-bold">Ninh nước dùng:</span> Xương ống ninh cùng gừng nướng trong 45 phút. Lọc lấy nước trong.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-burnishedGold text-xl">02</span>
+                        <p class="justify-text text-lg"><span class="font-bold">Chuẩn bị gạo:</span> Rang gạo trên chảo nóng cho đến khi tỏa mùi thơm trước khi nấu.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-burnishedGold text-xl">03</span>
+                        <p class="justify-text text-lg"><span class="font-bold">Sơ chế & Xào hàu:</span> Xào nhanh hàu với lửa lớn trong 2 phút để giữ độ mọng nước.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-burnishedGold text-xl">04</span>
+                        <p class="justify-text text-lg"><span class="font-bold">Hoàn thiện:</span> Nấu cháo nhuyễn mịn, trút hàu vào, khuấy nhẹ và tắt bếp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 gold-border rounded-sm my-12">
+            <h2 class="text-2xl font-bold text-charcoal mb-4 italic">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <ul class="list-disc ml-6 space-y-2 text-lg">
+                <li><span class="font-bold">Kỹ thuật làm sạch:</span> Dùng bột năng bóp nhẹ hàu để hút chất bẩn li ti.</li>
+                <li><span class="font-bold">Bí quyết nước dùng:</span> Vớt bọt liên tục để nước dùng trong trẻo.</li>
+                <li><span class="font-bold">Lỗi cần tránh:</span> Không nấu hàu quá lâu khiến thịt bị dai như cao su.</li>
+            </ul>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-12">
+            <h2 class="text-3xl font-bold mb-8 text-center text-charcoal">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="font-bold text-xl mb-2 text-cinnabar">Cháo hàu hạt sen</h3>
+                    <p class="text-sm justify-text">Thêm hạt sen tươi để tăng tính an thần và bồi bổ sức khỏe cho gia đình.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="font-bold text-xl mb-2 text-cinnabar">Phiên bản nhanh</h3>
+                    <p class="text-sm justify-text">Sử dụng cơm nguội và nước dùng gà để hoàn thành món ăn chỉ trong 15 phút.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="font-bold text-xl mb-2 text-cinnabar">Gia vị miền Nam</h3>
+                    <p class="text-sm justify-text">Ăn kèm cải xanh thái nhỏ để tạo vị hăng nhẹ, thanh mát đặc trưng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <section class="grid md:grid-cols-2 gap-12 mt-12 bg-gray-100 p-8 rounded-sm">
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-charcoal">5. Giá trị dinh dưỡng</h2>
+                <p class="justify-text text-gray-700">Hàu là nguồn kẽm tự nhiên dồi dào, tăng cường miễn dịch. Kết hợp với tinh bột gạo, đây là món ăn có chỉ số dinh dưỡng cao, hỗ trợ phục hồi sức khỏe tuyệt vời.</p>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-charcoal">6. Gợi ý trình bày</h2>
+                <p class="justify-text text-gray-700">Đổ cháo ra tô sứ sâu lòng, sắp xếp hàu mọng nước lên bề mặt theo hình tròn. Điểm xuyết hành phi vàng ruộm và tiêu đen để tạo sự tương phản đầy nghệ thuật.</p>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
