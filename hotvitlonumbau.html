@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hột Vịt Lộn Um Bầu Huế - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", "serif"],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1rem; }
+        .section-divider:not(:empty)::after { margin-left: 1rem; }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background-color: #E23D28;
+            border-radius: 50%;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+        .chef-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .tab-active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="inline-block border-y-2 border-gold py-2 px-6 mb-6">
+            <span class="tracking-[0.3em] uppercase text-xs font-bold text-gold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase tracking-tight text-charcoal">Hột Vịt Lộn Um Bầu Huế</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8 font-normal">Hue Style Braised Balut with Wax Gourd</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-t border-b border-gray-200 py-6 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">🕒</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold text-lg">40 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">👥</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold text-lg">2 - 3 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">⚖</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-lg text-center leading-tight">Ẩm thực Huế</span>
+            </div>
+        </div>
+        
+        <p class="max-w-3xl mx-auto mt-8 italic text-gray-700 leading-relaxed description">
+            Món ăn này là sự kết hợp tinh tế giữa triết lý âm dương trong ẩm thực cung đình và dân gian Huế. Tính "hàn" (mát) của bầu được dùng để cân bằng tính "nhiệt" (nóng) và bổ dưỡng của hột vịt lộn, tạo nên một món ăn hài hòa, giúp bồi bổ sức khỏe và giải nhiệt.
+        </p>
+    </header>
+
+    <!-- MAIN CONTENT GRID -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="bg-cinnabar text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+                Nguyên liệu
+            </h3>
+            
+            <div class="space-y-8">
+                <!-- Group: Main -->
+                <div>
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-3 border-b border-gold/30 pb-1 italic">Thành phần chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-start group">
+                            <span class="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-cinnabar">✦</span> Hột vịt lộn
+                            </span>
+                            <span class="text-gray-500 italic">5 quả</span>
+                        </li>
+                        <li class="flex justify-between items-start group">
+                            <span class="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-cinnabar">✦</span> Bầu non
+                            </span>
+                            <span class="text-gray-500 italic">400g - 500g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Group: Seasoning -->
+                <div>
+                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-3 border-b border-gold/30 pb-1 italic">Gia vị & Hương liệu</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-start group">
+                            <span class="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-cinnabar">✦</span> Mắm ruốc Huế
+                            </span>
+                            <span class="text-gray-500 italic">1 mcp</span>
+                        </li>
+                        <li class="flex justify-between items-start group">
+                            <span class="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-cinnabar">✦</span> Gừng, Hành tím, Hành lá
+                            </span>
+                            <span class="text-gray-500 italic">Vừa đủ</span>
+                        </li>
+                        <li class="flex justify-between items-start group">
+                            <span class="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-cinnabar">✦</span> Rau răm, Ớt sừng
+                            </span>
+                            <span class="text-gray-500 italic">Vừa đủ</span>
+                        </li>
+                        <li class="flex justify-between items-start group">
+                            <span class="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                                <span class="text-cinnabar">✦</span> Dầu màu điều, mắm, đường
+                            </span>
+                            <span class="text-gray-500 italic">Tùy vị</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CHEF'S CORNER INLINE (Mobile) or Sidebar (Desktop) -->
+            <div class="mt-12 chef-box p-6 relative">
+                <div class="absolute -top-4 left-6 bg-parchment px-4 text-gold font-bold uppercase tracking-widest text-sm">
+                    Mẹo Hay Từ Vua Đầu Bếp
+                </div>
+                <ul class="space-y-4 pt-2">
+                    <li class="description">
+                        <strong class="text-charcoal block mb-1">Bí quyết chọn trứng:</strong>
+                        Soi trứng lên vùng sáng, trứng ngon có phần khí nhỏ, phôi không quá lớn. Lắc nhẹ không nghe tiếng là trứng "vừa lứa".
+                    </li>
+                    <li class="description">
+                        <strong class="text-charcoal block mb-1">Xử lý mắm ruốc:</strong>
+                        Luôn xào mắm ruốc với dầu nóng trước để loại bỏ mùi nồng gắt, chỉ giữ lại hậu vị thơm đậm.
+                    </li>
+                    <li class="description">
+                        <strong class="text-charcoal block mb-1">Giữ độ ngọt:</strong>
+                        Không nấu bầu quá lâu. Bầu chín tới (vừa trong) giữ được nước ngọt và vitamin tối ưu.
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-8 border-l border-gray-100 lg:pl-12">
+            <h3 class="text-2xl font-bold mb-10 flex items-center gap-3">
+                <span class="bg-cinnabar text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+                Các bước thực hiện
+            </h3>
+
+            <div class="space-y-12 ml-6">
+                <!-- STEP 1 -->
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Sơ chế nguyên liệu</h4>
+                        <span class="italic text-gold border-b border-gold/30">Khoảng 10 phút</span>
+                    </div>
+                    <div class="space-y-3 description text-gray-700">
+                        <p><strong>Bầu:</strong> Để nguyên vỏ nếu non, rửa sạch, cắt miếng vừa ăn (kiểu con chì hoặc tam giác dày 1.5cm).</p>
+                        <p><strong>Hột vịt lộn:</strong> Rửa sạch vỏ. Luộc sơ khoảng 5 phút để lòng trắng và đỏ định hình, dễ bóc mà không làm vỡ phần nước ngọt. Giữ lại phần nước trong trứng.</p>
+                        <p><strong>Mắm ruốc:</strong> Hòa tan với nước lọc, gạn bỏ phần cặn bẩn.</p>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Chế biến (Kỹ thuật "Um")</h4>
+                        <span class="italic text-gold border-b border-gold/30">Khoảng 20 phút</span>
+                    </div>
+                    <div class="space-y-3 description text-gray-700">
+                        <p>Phi thơm hành tím và một nửa gừng thái chỉ với dầu màu điều. Cho mắm ruốc đã lọc vào xào nhanh tay cho dậy mùi đặc trưng.</p>
+                        <p>Cho hột vịt lộn và nước trứng vào, đảo nhẹ tay. Thêm 300ml nước lọc hoặc nước dùng xương.</p>
+                        <p>Khi sôi lại, hạ lửa nhỏ, cho bầu vào. Nêm đường, hạt nêm, nước mắm cho vị ngọt thanh từ bầu và mặn mòi từ ruốc cân bằng.</p>
+                        <p><strong>Um (om)</strong> lửa nhỏ 7-10 phút đến khi bầu chuyển màu trong nhưng vẫn giữ độ giòn nhẹ.</p>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="relative timeline-step">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Hoàn thiện</h4>
+                        <span class="italic text-gold border-b border-gold/30">Khoảng 5 phút</span>
+                    </div>
+                    <div class="space-y-3 description text-gray-700">
+                        <p>Tắt bếp, rắc phần gừng còn lại, rau răm thái nhỏ, hành lá và ớt lát lên trên. Một chút tiêu xay cuối cùng sẽ giúp món ăn dậy mùi thơm nồng nàn đặc trưng của vùng đất Cố đô.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VARIATIONS SECTION -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="bg-cinnabar text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span>
+                    Biến tấu & Nâng cao
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-sm">
+                        <h5 class="font-bold text-cinnabar uppercase text-xs tracking-widest mb-2 italic">Phiên bản miền Nam</h5>
+                        <p class="description text-sm">Thay mắm ruốc bằng nước cốt dừa để tạo độ béo ngậy đặc trưng và thêm hành tây để tăng vị ngọt tự nhiên cho nước dùng.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-sm">
+                        <h5 class="font-bold text-cinnabar uppercase text-xs tracking-widest mb-2 italic">Phiên bản chay</h5>
+                        <p class="description text-sm">Sử dụng nấm đùi gà cắt khoanh dày để thay thế hột vịt lộn. Mắm ruốc được thay bằng mắm đậu nành lên men đặc biệt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <span class="text-2xl">❃</span>
+    </div>
+
+    <!-- TECHNICAL & NUTRITION FOOTER-STYLE SECTION -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <!-- Nutrition -->
+        <div class="p-8 border border-gold/20 bg-white shadow-sm">
+            <h4 class="text-xl font-bold mb-4 uppercase tracking-widest border-b border-charcoal/10 pb-2">Giá trị dinh dưỡng</h4>
+            <div class="space-y-4">
+                <p class="description text-sm text-gray-600">Hột vịt lộn giàu protein, lipid, vitamin A, B1, C và sắt. Bầu chứa nhiều nước, chất xơ, có tác dụng lợi tiểu, giải nhiệt.</p>
+                <div class="bg-red-50 p-4 border-l-4 border-cinnabar">
+                    <p class="text-xs font-bold text-cinnabar uppercase mb-1">Khuyến nghị Y tế:</p>
+                    <p class="text-xs italic description">Món ăn chứa hàm lượng Cholesterol cao. Người có tiền sử bệnh gout, cao huyết áp nên hạn chế ăn quá 2 trứng/tuần. Gừng và rau răm giúp hỗ trợ tiêu hóa.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="p-8 border border-gold/20 bg-white shadow-sm">
+            <h4 class="text-xl font-bold mb-4 uppercase tracking-widest border-b border-charcoal/10 pb-2">Gợi ý trình bày</h4>
+            <div class="space-y-4">
+                <ul class="text-sm space-y-2 italic text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">●</span> 
+                        <span>Trình bày trong thố đất hoặc bát sành kiểu xưa để giữ nhiệt và đúng chất Huế.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gold">●</span> 
+                        <span>Xếp bầu xung quanh, trứng ở giữa. Sắc xanh của rau tương phản đỏ của dầu điều.</span>
+                    </li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-dotted border-gold/30">
+                    <p class="font-bold text-center text-charcoal italic">
+                        "Hột vịt lộn um bầu - Sự giao thoa giữa béo ngậy và thanh mát, bài thuốc quý từ gian bếp cố đô."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FINAL TOUCH -->
+    <div class="text-center pb-8">
+        <p class="text-gray-400 text-[10px] uppercase tracking-[0.5em]">TINH HOA ẨM THỰC VIỆT</p>
+    </div>
+
+</body>
+</html>
+
