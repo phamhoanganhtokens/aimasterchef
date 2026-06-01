@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Bún Gạo Xào Singapore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.8;
+        }
+        
+        .recipe-text {
+            text-align: justify;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .divider {
+            position: relative;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .divider::before {
+            content: "✦";
+            display: inline-block;
+            background: #FCFAFA;
+            padding: 0 15px;
+            color: #D4AF37;
+            position: relative;
+            top: 10px;
+        }
+        .divider::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #2C2C2C;
+            z-index: -1;
+        }
+
+        .pro-box {
+            border: 2px double #D4AF37;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .cinnabar-red { color: #E34234; }
+        .gold-acc { color: #D4AF37; }
+    </style>
+</head>
+<body class="py-10">
+
+    <main class="max-w-5xl mx-auto px-4 md:px-8">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Bún Gạo Xào Singapore</h1>
+            <h2 class="text-2xl italic text-gray-600 mb-8">Singapore Rice Noodles</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-t border-b border-[#2C2C2C]">
+                <div class="text-center">
+                    <p class="text-xs uppercase tracking-widest font-bold cinnabar-red">Độ khó</p>
+                    <p class="text-sm font-semibold">Trung bình</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs uppercase tracking-widest font-bold cinnabar-red">Thời gian</p>
+                    <p class="text-sm font-semibold">45 phút</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs uppercase tracking-widest font-bold cinnabar-red">Khẩu phần</p>
+                    <p class="text-sm font-semibold">2-3 người</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs uppercase tracking-widest font-bold cinnabar-red">Nguồn gốc</p>
+                    <p class="text-sm font-semibold italic">Hồng Kông (1950s)</p>
+                </div>
+            </div>
+            <p class="mt-8 recipe-text text-lg max-w-3xl mx-auto">Mặc dù mang tên "Singapore", món ăn này thực chất có nguồn gốc từ các đầu bếp Hồng Kông vào khoảng thập niên 1950-1960. Đây là sự kết hợp độc đáo giữa kỹ thuật xào áp chảo (wok hei) của người Quảng Đông và hương vị bột cà ri đặc trưng của Ấn Độ.</p>
+        </header>
+
+        <!-- Main Recipe Body -->
+        <section class="grid md:grid-cols-2 gap-12">
+            <!-- Ingredients -->
+            <div>
+                <h3 class="text-3xl mb-6">1. Nguyên liệu</h3>
+                <ul class="space-y-4">
+                    <li class="border-b border-gray-200 pb-2"><strong class="gold-acc">•</strong> Bún gạo khô (sợi nhỏ): 200g</li>
+                    <li class="border-b border-gray-200 pb-2"><strong class="gold-acc">•</strong> Tôm tươi (bóc vỏ): 100g</li>
+                    <li class="border-b border-gray-200 pb-2"><strong class="gold-acc">•</strong> Thịt xá xíu (thái sợi): 100g</li>
+                    <li class="border-b border-gray-200 pb-2"><strong class="gold-acc">•</strong> Trứng gà: 2 quả</li>
+                    <li class="border-b border-gray-200 pb-2"><strong class="gold-acc">•</strong> Rau củ: Ớt chuông, hành tây, giá đỗ, hẹ</li>
+                    <li class="border-b border-gray-200 pb-2"><strong class="gold-acc">•</strong> Gia vị: Bột cà ri Madras, sốt xào (nước tương, dầu hào, tiêu trắng)</li>
+                </ul>
+            </div>
+
+            <!-- Steps -->
+            <div>
+                <h3 class="text-3xl mb-6">2. Các bước thực hiện</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-lg cinnabar-red">Bước 1: Chuẩn bị bún</h4>
+                        <p class="recipe-text italic text-sm">(15-20 phút): Ngâm bún với nước ấm 50-60°C. Trộn dầu và cà ri để sợi bún không dính.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg cinnabar-red">Bước 2: Sơ chế</h4>
+                        <p class="recipe-text italic text-sm">(10 phút): Chần tôm, rán trứng thái sợi, sơ chế rau củ.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg cinnabar-red">Bước 3: Xào nhanh</h4>
+                        <p class="recipe-text italic text-sm">(5 phút): Xào tôm, thịt, rau củ ở lửa lớn rồi để riêng.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg cinnabar-red">Bước 4: Áp chảo bún</h4>
+                        <p class="recipe-text italic text-sm">(5 phút): Phi cà ri, xào bún với sốt cho săn lại.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg cinnabar-red">Bước 5: Hoàn thiện</h4>
+                        <p class="recipe-text italic text-sm">(2 phút): Trộn tất cả nguyên liệu, thêm giá đỗ, hẹ. Thêm dầu mè.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Special Sections -->
+        <section class="pro-box p-8 mb-12">
+            <h3 class="text-3xl mb-4 gold-acc">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Tránh luộc bún:</strong> Ngâm nước ấm là cách tốt nhất để giữ độ dai (al dente).</li>
+                <li><strong>Kỹ thuật "Wok Hei":</strong> Để chảo thật nóng và chia nhỏ lượt xào nếu bếp gia đình yếu nhiệt.</li>
+                <li><strong>Xử lý cà ri:</strong> Luôn phi bột cà ri với dầu trước để kích hoạt hương thơm.</li>
+            </ul>
+        </section>
+
+        <section class="mb-12">
+            <h3 class="text-3xl mb-6">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-gray-200">
+                    <h4 class="font-bold mb-2">Phiên bản Chay</h4>
+                    <p class="text-sm recipe-text">Thay đạm bằng đậu phụ chiên, nấm đùi gà và gia vị chay.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200">
+                    <h4 class="font-bold mb-2">Thay thế Đạm</h4>
+                    <p class="text-sm recipe-text">Sử dụng ức gà xé hoặc mực ống tùy theo sở thích.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200">
+                    <h4 class="font-bold mb-2">Gia vị</h4>
+                    <p class="text-sm recipe-text">Hắc xì dầu là yếu tố then chốt cho màu sắc món ăn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <footer class="grid md:grid-cols-2 gap-12 border-t pt-8 border-[#2C2C2C]">
+            <div>
+                <h3 class="text-2xl mb-4 cinnabar-red">5. Giá trị dinh dưỡng</h3>
+                <p class="recipe-text">Khoảng 450-550 calo/phần. Cân bằng tinh bột, protein và chất xơ. Có thể tăng lượng giá đỗ để giảm tải tinh bột.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl mb-4 cinnabar-red">6. Gợi ý trình bày</h3>
+                <p class="recipe-text">Sử dụng đĩa sứ trắng, xoắn bún tạo chiều cao. Điểm xuyết ớt sừng cắt chéo, mè trắng rang và ngò rí để món ăn nổi bật.</p>
+            </div>
+        </footer>
+    </main>
+
+</body>
+</html>
