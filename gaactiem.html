@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gà Ác Tiềm Bát Trân Thang | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --cinnabar-red: #E23636;
+            --burnished-gold: #C5A059;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+        }
+
+        .serif-display {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+        }
+
+        p, .description {
+            text-align: justify;
+        }
+
+        .meta-border {
+            border-top: 1px solid var(--burnished-gold);
+            border-bottom: 1px solid var(--burnished-gold);
+        }
+
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: var(--burnished-gold);
+            margin: 3rem 0;
+            opacity: 0.3;
+        }
+
+        .section-divider::after {
+            content: '★';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-cream);
+            padding: 0 1rem;
+            color: var(--burnished-gold);
+            font-size: 1.2rem;
+        }
+
+        .chef-card {
+            border: 2px double var(--burnished-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .pro-variation-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--cinnabar-red);
+        }
+
+        .pro-variation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: var(--burnished-gold);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .ingredient-item:hover {
+            background: rgba(226, 54, 54, 0.03);
+        }
+
+        .ornament {
+            color: var(--cinnabar-red);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto px-6 pt-16 pb-8 text-center">
+        <span class="text-sm uppercase tracking-[0.3em] text-stone-500 mb-4 block">AI Vua Đầu Bếp — Tinh Hoa Ẩm Thực</span>
+        <h1 class="text-4xl md:text-6xl font-bold serif-display mb-2 uppercase tracking-tight">Gà Ác Tiềm Bát Trân Thang</h1>
+        <h2 class="text-xl md:text-2xl italic text-stone-600 mb-8 font-light">Eight-Treasure Herbal Black Bone Chicken Soup</h2>
+        
+        <div class="meta-border py-6 my-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+                <div class="flex flex-col items-center">
+                    <span class="text-[0.7rem] uppercase tracking-widest text-stone-400 mb-1">Độ khó</span>
+                    <span class="text-lg font-bold">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-stone-200">
+                    <span class="text-[0.7rem] uppercase tracking-widest text-stone-400 mb-1">Thời gian</span>
+                    <span class="text-lg font-bold">90 - 120 phút</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-stone-200">
+                    <span class="text-[0.7rem] uppercase tracking-widest text-stone-400 mb-1">Khẩu phần</span>
+                    <span class="text-lg font-bold">1 - 2 người</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-stone-200">
+                    <span class="text-[0.7rem] uppercase tracking-widest text-stone-400 mb-1">Nguồn gốc</span>
+                    <span class="text-lg font-bold italic">Hoa - Việt</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto text-lg text-stone-700 leading-relaxed italic border-l-2 border-cinnabar-red pl-6 py-2">
+            "Tiềm" là phương pháp chế biến giúp bảo toàn trọn vẹn tinh chất của nguyên liệu và dược tính của các vị thuốc, thường được dùng như một bài thuốc bồi bổ chính khí, phục hồi sức khỏe cho người mới ốm dậy, phụ nữ sau sinh và người già.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-5">
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar-red inline-block pb-1">1. Nguyên liệu</h3>
+                
+                <div class="mb-8">
+                    <h4 class="text-sm uppercase tracking-widest text-stone-400 mb-4 font-bold ornament flex items-center">
+                        <span class="mr-2">◈</span> Nguyên liệu chính
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between items-center">
+                            <span>1 con Gà ác (300g - 400g)</span>
+                            <span class="text-stone-400 italic text-sm">Chọn gà đen hoàn toàn</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-sm uppercase tracking-widest text-stone-400 mb-4 font-bold ornament flex items-center">
+                        <span class="mr-2">◈</span> Bộ thảo mộc "Bát trân"
+                    </h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between">
+                            <span>Thục địa</span>
+                            <span class="font-bold">5g</span>
+                        </li>
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between">
+                            <span>Hoài sơn</span>
+                            <span class="font-bold">10g</span>
+                        </li>
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between">
+                            <span>Đẳng sâm</span>
+                            <span class="font-bold">10g</span>
+                        </li>
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between">
+                            <span>Đương quy</span>
+                            <span class="font-bold">5g</span>
+                        </li>
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between">
+                            <span>Kỷ tử (5g) & Đại táo (3 quả)</span>
+                            <span class="font-bold">Vị ngọt thanh</span>
+                        </li>
+                        <li class="ingredient-item p-2 border-b border-stone-100 flex justify-between">
+                            <span>Liên nhục & Ý dĩ</span>
+                            <span class="font-bold">Mỗi loại 10g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-sm uppercase tracking-widest text-stone-400 mb-4 font-bold ornament flex items-center">
+                        <span class="mr-2">◈</span> Gia vị & Xử lý
+                    </h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item p-2 border-b border-stone-100">Gừng tươi, rượu trắng (hoặc Mai Quế Lộ)</li>
+                        <li class="ingredient-item p-2 border-b border-stone-100">Muối tinh, đường phèn</li>
+                        <li class="ingredient-item p-2 border-b border-stone-100">Nước dùng gà trong (tùy chọn)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-7">
+                <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar-red inline-block pb-1">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="flex gap-6">
+                        <div class="step-number">01</div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2 uppercase tracking-tight italic">Xử lý gà (Kỹ thuật chuyên nghiệp)</h4>
+                            <p class="text-stone-700 leading-relaxed">
+                                Gà ác sau khi làm sạch, tuyệt đối không chặt nhỏ để tránh làm mất nước ngọt và đen xương. Dùng hỗn hợp gừng giã nát và rượu chà xát toàn bộ da gà trong 5 phút để khử mùi tanh đặc trưng. Chần sơ gà qua nước sôi có vài lát gừng để làm săn da và loại bỏ tạp chất, giúp nước tiềm trong hơn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">02</div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2 uppercase tracking-tight italic">Chuẩn bị thảo mộc</h4>
+                            <p class="text-stone-700 leading-relaxed">
+                                Rửa sạch các vị thuốc bắc qua nước lạnh để loại bỏ bụi bẩn. Với thục địa, nên thái lát mỏng. Nếu dùng hạt sen khô, cần ngâm trước 30 phút để khi hầm hạt chín đều và mềm.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">03</div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2 uppercase tracking-tight italic">Kỹ thuật "Tiềm"</h4>
+                            <div class="bg-stone-50 p-6 border-l-4 border-burnished-gold mb-4">
+                                <span class="block font-bold text-xs uppercase mb-2">Cách 1: Truyền thống</span>
+                                <p class="text-sm italic">Cho gà và các vị thuốc vào thố sứ. Đổ nước dùng ngập 2/3 con gà. Đậy kín nắp thố. Hấp cách thủy, giữ lửa nhỏ để nước trong thố sôi lăn tăn.</p>
+                            </div>
+                            <div class="bg-stone-50 p-6 border-l-4 border-stone-400">
+                                <span class="block font-bold text-xs uppercase mb-2">Cách 2: Tiện lợi</span>
+                                <p class="text-sm italic">Sử dụng nồi nấu chậm (Slow cooker) trong 3 giờ (High) hoặc nồi áp suất trong 20-25 phút để thịt mềm nhưng không bị rã.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="step-number">04</div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2 uppercase tracking-tight italic">Nêm nếm hoàn tất</h4>
+                            <p class="text-stone-700 leading-relaxed">
+                                Sau khi tiềm được khoảng 90 phút, nêm một chút muối tinh và đường phèn. Lưu ý: Thảo mộc đã có độ ngọt tự nhiên, không nên dùng nhiều nước mắm vì sẽ làm chua nước dùng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Chef's Corner Section -->
+        <section class="chef-card p-8 md:p-12 mb-16 rounded-sm shadow-sm">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="text-center md:text-left">
+                    <h3 class="serif-display text-3xl font-bold text-burnished-gold mb-4">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <span class="text-cinnabar-red font-bold">●</span>
+                            <p class="italic"><strong class="not-italic">Độ trong của nước:</strong> Tuyệt đối không để nước trong thố sôi bùng. Nhiệt độ lý tưởng là 85-90°C để tránh làm đục protein gà.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-cinnabar-red font-bold">●</span>
+                            <p class="italic"><strong class="not-italic">Kiểm soát mùi:</strong> Đương quy có mùi mạnh, tránh dùng quá lượng sẽ làm át mùi gà và gây vị đắng.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-cinnabar-red font-bold">●</span>
+                            <p class="italic"><strong class="not-italic">Lỗi cần tránh:</strong> Không nêm muối quá sớm vì muối làm thắt cơ gà, khiến gà lâu mềm và dược tính khó tiết ra.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-10 text-center uppercase tracking-[0.2em]">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="pro-variation-card bg-white p-8 shadow-sm">
+                    <h4 class="serif-display text-xl font-bold mb-4">Gà ác tiềm sâm</h4>
+                    <p class="text-stone-600 text-sm italic">Thay thế bộ thuốc bắc bằng nhân sâm tươi, táo đỏ và hạt sen để tập trung vào việc tăng cường sinh lực và bồi bổ thể chất mạnh mẽ.</p>
+                </div>
+                <div class="pro-variation-card bg-white p-8 shadow-sm" style="border-left-color: var(--burnished-gold);">
+                    <h4 class="serif-display text-xl font-bold mb-4">Gà ác tiềm dừa xiêm</h4>
+                    <p class="text-stone-600 text-sm italic">Sử dụng hoàn toàn nước dừa tươi thay cho nước lọc để tăng độ béo ngậy và ngọt thanh tự nhiên theo phong cách ẩm thực Nam Bộ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-stone-100 p-8 md:p-12 border-t-4 border-cinnabar-red">
+            <div>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-widest flex items-center">
+                    <span class="mr-2">❈</span> 5. Giá trị dinh dưỡng
+                </h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Gà ác chứa hàm lượng sắt và protein cao nhưng ít lipid hơn gà thường. Sự kết hợp này tạo ra tác dụng "Bổ huyết, an thần, kiện tỳ". Đặc biệt tốt cho người bị suy nhược, thiếu máu hoặc mất ngủ kinh niên. <br><br>
+                    <span class="font-bold text-cinnabar-red">Lưu ý:</span> Cẩn trọng với người đang bị cảm sốt cao hoặc tiêu chảy do tính chất "bổ trệ" của thuốc bắc.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4 uppercase tracking-widest flex items-center">
+                    <span class="mr-2">❈</span> 6. Gợi ý trình bày
+                </h3>
+                <ul class="text-sm text-stone-700 space-y-3">
+                    <li><strong class="text-primary-charcoal">Vật dụng:</strong> Phục vụ trong thố sứ có nắp đậy để giữ nhiệt lâu nhất.</li>
+                    <li><strong class="text-primary-charcoal">Sắp xếp:</strong> Gà nằm giữa thố, thục địa và táo đỏ lên trên tạo tương phản Đen - Đỏ, điểm xuyết kỷ tử cam rực rỡ.</li>
+                    <li><strong class="text-primary-charcoal">Phục vụ:</strong> Thưởng thức kèm chén muối tiêu chanh ớt đơn giản để cân bằng vị khi mở nắp thố nghi ngút khói thơm.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
