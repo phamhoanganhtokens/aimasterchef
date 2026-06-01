@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hột Vịt Muối - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'culinary-charcoal': '#2C2C2C',
+                        'culinary-cream': '#FCFAFA',
+                        'cinnabar-red': '#E23D28',
+                        'burnished-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+            opacity: 0.5;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .step-number {
+            font-size: 2.5rem;
+            line-height: 1;
+            opacity: 0.15;
+            position: absolute;
+            left: -1rem;
+            top: -0.5rem;
+            color: #2C2C2C;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .premium-border {
+            border: 4px double #C5A059;
+            padding: 2rem;
+            position: relative;
+        }
+        .ornament {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-16">
+        <div class="mb-4 text-sm tracking-widest text-burnished-gold uppercase font-bold">AI Vua Đầu Bếp • Premium Collection</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-culinary-charcoal">Hột Vịt Muối</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-500 mb-10">Salted Duck Eggs</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-burnished-gold py-6 max-w-4xl mx-auto gap-4">
+            <div class="flex flex-col items-center border-r border-gray-200 last:border-0">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M7 10h10"/><path d="M12 10v10"/><path d="M12 4a2 2 0 0 1 2 2c0 2-2 3-2 3s-2-1-2-3a2 2 0 0 1 2-2z"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-200 md:border-r last:border-0">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Thời gian</span>
+                <span class="font-bold">30' CB + 30 Ngày</span>
+            </div>
+            <div class="flex flex-col items-center border-r border-gray-200 last:border-0">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Khẩu phần</span>
+                <span class="font-bold">20 Quả</span>
+            </div>
+            <div class="flex flex-col items-center last:border-0">
+                <span class="text-cinnabar-red mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Nguồn gốc</span>
+                <span class="font-bold">Trung Hoa / Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="mt-12 max-w-2xl mx-auto justified-text italic text-lg text-gray-600 px-4">
+            "Có nguồn gốc từ ẩm thực Trung Hoa, hột vịt muối đã trở thành một thành phần di sản trong ẩm thực Việt Nam, xuất hiện từ các món bình dân như cháo trắng đến các loại bánh thượng hạng như bánh Trung thu."
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <div class="lg:col-span-4">
+                <div class="bg-white p-8 border border-gray-100 shadow-sm sticky top-8">
+                    <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar-red pb-2 inline-block">1. Nguyên liệu</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-xs mb-4">Chính</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>Trứng vịt tươi: 20 quả</span>
+                                </li>
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>Muối biển (muối hạt): 250g - 300g</span>
+                                </li>
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>Nước lọc: 1.5 lít</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-xs mb-4">Gia vị & Hương liệu</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>Rượu trắng (> 40 độ): 50ml</span>
+                                </li>
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>3 bông đại hồi, 1 thanh quế, gừng lát</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-burnished-gold font-bold uppercase tracking-widest text-xs mb-4">Dụng cụ</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>Hũ thủy tinh sạch</span>
+                                </li>
+                                <li class="flex items-center gap-3 hover:translate-x-2 transition-transform duration-300">
+                                    <span class="w-2 h-2 rounded-full bg-cinnabar-red"></span>
+                                    <span>Nan tre hoặc túi nilon chèn trứng</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Steps -->
+            <div class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-10 border-b-2 border-cinnabar-red pb-2 inline-block">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-12">
+                    <div class="relative pl-8 group">
+                        <span class="step-number group-hover:opacity-30 transition-opacity">01</span>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-4">
+                            Sơ chế trứng 
+                            <span class="text-xs italic font-normal px-2 py-1 bg-gray-100 rounded text-gray-500 uppercase tracking-tighter">Người nội trợ</span>
+                        </h4>
+                        <p class="justified-text text-gray-700 leading-relaxed">
+                            Rửa sạch trứng vịt bằng nước lạnh, sau đó dùng khăn sạch lau thật khô từng quả. <strong>Lưu ý:</strong> Trứng phải hoàn toàn khô ráo trước khi ngâm để tránh vi khuẩn xâm nhập làm thối trứng.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 group">
+                        <span class="step-number group-hover:opacity-30 transition-opacity">02</span>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-4">
+                            Nấu nước muối
+                            <span class="text-xs italic font-normal px-2 py-1 bg-gray-100 rounded text-gray-500 uppercase tracking-tighter">Truyền thống</span>
+                        </h4>
+                        <p class="justified-text text-gray-700 leading-relaxed">
+                            Đun sôi 1.5 lít nước với muối hạt, đại hồi, quế và gừng. Khuấy đều cho muối tan hoàn toàn. Sau khi sôi, để dung dịch nước muối thật nguội.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 group">
+                        <span class="step-number group-hover:opacity-30 transition-opacity">03</span>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-4">
+                            Kỹ thuật pha rượu
+                            <span class="text-xs italic font-normal px-2 py-1 bg-gray-100 rounded text-gray-500 uppercase tracking-tighter">Chuyên nghiệp</span>
+                        </h4>
+                        <p class="justified-text text-gray-700 leading-relaxed">
+                            Khi nước muối đã nguội hẳn, hòa 50ml rượu trắng vào. Rượu đóng vai trò là chất xúc tác giúp lòng đỏ đông đặc, tiết dầu và có màu đỏ cam rực rỡ.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 group">
+                        <span class="step-number group-hover:opacity-30 transition-opacity">04</span>
+                        <h4 class="text-xl font-bold mb-2">Ngâm trứng</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed">
+                            Xếp nhẹ nhàng trứng vịt vào hũ thủy tinh. Đổ hỗn hợp nước muối vào sao cho ngập hết mặt trứng. 
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 group">
+                        <span class="step-number group-hover:opacity-30 transition-opacity">05</span>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-4">
+                            Cố định trứng
+                            <span class="text-xs italic font-normal px-2 py-1 bg-gray-100 rounded text-gray-500 uppercase tracking-tighter">Mẹo chuyên gia</span>
+                        </h4>
+                        <p class="justified-text text-gray-700 leading-relaxed">
+                            Dùng nan tre hoặc một túi nilon đựng đầy nước đặt lên trên để ép trứng luôn chìm trong nước muối. Nếu trứng nổi lên, phần vỏ tiếp xúc với không khí sẽ bị đen và trứng dễ hỏng.
+                        </p>
+                    </div>
+
+                    <div class="relative pl-8 group">
+                        <span class="step-number group-hover:opacity-30 transition-opacity">06</span>
+                        <h4 class="text-xl font-bold mb-2">Ủ trứng</h4>
+                        <p class="justified-text text-gray-700 leading-relaxed">
+                            Đậy kín nắp hũ, đặt ở nơi thoáng mát, tránh ánh sáng mặt trời. Ghi chú ngày bắt đầu ủ. Sau khoảng 25-30 ngày, trứng sẽ đạt độ chín chuẩn nhất.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">✦ ✦ ✦</span>
+        </div>
+
+        <!-- Chef's Corner Section -->
+        <section class="mb-16">
+            <div class="premium-border max-w-4xl mx-auto">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-culinary-cream px-6">
+                    <h3 class="text-2xl font-bold text-burnished-gold uppercase tracking-widest italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 mt-4">
+                    <div class="justified-text">
+                        <h5 class="font-bold text-cinnabar-red mb-2 uppercase text-sm tracking-tighter">Kiểm tra muối</h5>
+                        <p class="text-sm">Thả một quả trứng tươi vào bát nước muối, nếu trứng nổi lập lờ trên mặt nước với diện tích bằng đồng xu là độ mặn đã đạt yêu cầu.</p>
+                    </div>
+                    <div class="justified-text">
+                        <h5 class="font-bold text-cinnabar-red mb-2 uppercase text-sm tracking-tighter">Lòng đỏ ra dầu</h5>
+                        <p class="text-sm">Để lòng đỏ có độ dẻo và tiết dầu, không nên nóng vội lấy trứng ra quá sớm. Thời gian ủ lý tưởng nhất là 30 ngày.</p>
+                    </div>
+                    <div class="justified-text">
+                        <h5 class="font-bold text-cinnabar-red mb-2 uppercase text-sm tracking-tighter">Lỗi cần tránh</h5>
+                        <p class="text-sm italic">Tuyệt đối không để nước lã dính vào hũ ngâm. Chỉ một giọt nước lã cũng có thể làm hỏng toàn bộ mẻ trứng (gây mùi hôi, lòng trắng bị đục).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-20">
+            <h3 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 border-l-4 border-burnished-gold">
+                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-burnished-gold"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                        Cách làm khô
+                    </h4>
+                    <p class="justified-text text-gray-600 italic">
+                        Dành cho người bận rộn: Lăn trứng qua rượu cao độ, sau đó lăn qua một lớp muối mịn dày sao cho muối bám đều vỏ. Bọc kín bằng màng bọc thực phẩm từng quả một, để vào hũ kín khoảng 4-5 tuần.
+                    </p>
+                </div>
+                <div class="glass-card p-8 border-l-4 border-cinnabar-red">
+                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cinnabar-red"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+                        Trứng gà muối
+                    </h4>
+                    <p class="justified-text text-gray-600 italic">
+                        Có thể dùng trứng gà thay thế, thời gian ủ ngắn hơn (khoảng 15-20 ngày) nhưng lòng đỏ sẽ nhỏ và ít dầu hơn trứng vịt truyền thống.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Details: Nutrition and Presentation -->
+        <div class="grid md:grid-cols-2 gap-0 border-t border-burnished-gold pt-12 mb-16">
+            <div class="p-8 md:border-r border-gray-200">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center bg-cinnabar-red text-white rounded-full text-sm">5</span>
+                    Giá trị dinh dưỡng
+                </h3>
+                <div class="space-y-4 justified-text">
+                    <p><strong class="text-burnished-gold">Thành phần:</strong> Chứa nhiều Protein, Vitamin A, B12, Sắt, Canxi và Selen.</p>
+                    <p class="text-sm bg-red-50 p-4 border-l-2 border-cinnabar-red italic">
+                        <strong>Lưu ý sức khỏe:</strong> Do hàm lượng Natri và Cholesterol rất cao, người có tiền sử cao huyết áp, bệnh thận hoặc mỡ máu nên hạn chế tiêu thụ. Chỉ nên dùng 1-2 quả mỗi tuần.
+                    </p>
+                </div>
+            </div>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center bg-cinnabar-red text-white rounded-full text-sm">6</span>
+                    Gợi ý trình bày
+                </h3>
+                <div class="space-y-4 justified-text text-gray-700">
+                    <p>Sau khi ủ đủ ngày, lấy trứng ra rửa sạch, luộc chín và bổ đôi theo chiều dọc. Sắc cam đỏ của lòng đỏ tương phản với sắc trắng của lòng trắng tạo hiệu ứng thị giác mạnh mẽ.</p>
+                    <p>Khi làm nhân bánh, hãy tách riêng lòng đỏ, hấp chín với một chút dầu ăn để tạo độ bóng. Kết hợp với tôm chiên để tạo lớp <strong>"cát vàng"</strong> sang trọng cho món ăn.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Visual Flourish -->
+    <div class="flex justify-center items-center gap-4 text-burnished-gold mb-12 opacity-50">
+        <div class="h-px w-24 bg-burnished-gold"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 15 20 2c5-3 5-11 0-14l-20 2z"/><path d="M10 21c-4-3-4-8-2-12"/><path d="M14 21c4-3 4-8 2-12"/></svg>
+        <div class="h-px w-24 bg-burnished-gold"></div>
+    </div>
+
+</body>
+</html>
