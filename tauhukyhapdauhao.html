@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tàu Hủ Ky Hấp Dầu Hào - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4EBD0'
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                        body: ["'Lora'", 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C5A059, transparent);
+            margin: 3rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-divider::after {
+            content: '✦';
+            color: #C5A059;
+            background: #FCFAFA;
+            padding: 0 1rem;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: #C5A059;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        .meta-item {
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .meta-item:last-child {
+            border-right: none;
+        }
+        @media (max-width: 768px) {
+            .meta-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            }
+            .meta-item:nth-child(2n) {
+                border-right: none;
+            }
+        }
+        .chef-box {
+            border: 2px double #C5A059;
+            background-color: #fffdf7;
+        }
+        .ornament {
+            font-size: 2rem;
+            color: #C5A059;
+            display: block;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <span class="text-gold tracking-[0.3em] uppercase text-sm mb-4 block font-bold">AI Vua Đầu Bếp Exclusive</span>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase text-charcoal tracking-tight">Tàu Hủ Ky Hấp Dầu Hào</h1>
+        <h2 class="text-xl md:text-2xl italic font-serif text-gray-600 mb-8">Steamed Bean Curd Skin Rolls with Oyster Sauce</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold py-6 max-w-4xl mx-auto gap-4">
+            <div class="meta-item flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Độ Khó</span>
+                <span class="text-lg font-serif">Trung bình</span>
+            </div>
+            <div class="meta-item flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Thời Gian</span>
+                <span class="text-lg font-serif">45 - 60 phút</span>
+            </div>
+            <div class="meta-item flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Khẩu Phần</span>
+                <span class="text-lg font-serif">3 - 4 người</span>
+            </div>
+            <div class="meta-item flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest font-bold mb-1">Nguồn Gốc</span>
+                <span class="text-lg font-serif">Quảng Đông</span>
+            </div>
+        </div>
+        
+        <p class="mt-8 italic max-w-2xl mx-auto justified-text text-gray-700 leading-relaxed px-4">
+            Đây là món ăn tinh túy trong thực đơn Dim Sum của ẩm thực Quảng Đông. Món ăn đề cao sự kết hợp giữa kỹ thuật xử lý đậu nành thủ công và nghệ thuật sốt dầu hào đặc trưng, tượng trưng cho sự thanh tao nhưng đậm đà.
+        </p>
+    </header>
+
+    <div class="section-divider"></div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-5">
+            <h3 class="text-2xl font-bold mb-6 border-b-2 border-cinnabar inline-block pr-8 uppercase tracking-tighter">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-gold font-bold italic mb-3 flex items-center">
+                        <span class="mr-2">◈</span> Phần vỏ & Nhân chính
+                    </h4>
+                    <ul class="space-y-2 justified-text">
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Lá tàu hủ ky khô loại lớn</span>
+                            <span class="text-gold italic ml-2">3-4 lá</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Thịt nạc vai xay</span>
+                            <span class="text-gold italic ml-2">200g</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Tôm tươi băm nhỏ</span>
+                            <span class="text-gold italic ml-2">100g</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Mộc nhĩ & Nấm hương khô</span>
+                            <span class="text-gold italic ml-2">40g</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Cà rốt & Miến</span>
+                            <span class="text-gold italic ml-2">80g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gold font-bold italic mb-3 flex items-center">
+                        <span class="mr-2">◈</span> Gia vị & Nước sốt
+                    </h4>
+                    <ul class="space-y-2 justified-text">
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Dầu hào cao cấp</span>
+                            <span class="text-gold italic ml-2">3 muỗng</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Nước dùng gà</span>
+                            <span class="text-gold italic ml-2">150ml</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Dầu mè, Nước tương, Đường</span>
+                            <span class="text-gold italic ml-2">Vừa đủ</span>
+                        </li>
+                        <li class="glass-card p-3 rounded-sm flex justify-between items-start">
+                            <span>Bột năng, Tiêu trắng, Hành tím</span>
+                            <span class="text-gold italic ml-2">Vừa đủ</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-7">
+            <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pr-8 uppercase tracking-tighter">2. Các bước thực hiện</h3>
+            
+            <div class="relative ml-6 border-l border-goldLight space-y-12 pb-4">
+                <!-- Step 1 -->
+                <div class="relative pl-8">
+                    <div class="timeline-step"></div>
+                    <div class="flex items-center mb-2">
+                        <span class="text-cinnabar font-bold uppercase tracking-widest text-xs">Bước 1</span>
+                        <span class="mx-3 h-[1px] w-8 bg-goldLight"></span>
+                        <span class="italic font-serif text-gray-500">Chuẩn bị & Sơ chế</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Sơ chế nguyên liệu</h4>
+                    <p class="justified-text text-gray-700">
+                        Mộc nhĩ, nấm hương, miến ngâm nở, rửa sạch và băm nhỏ. Cà rốt gọt vỏ, cắt sợi nhuyễn hoặc băm nhỏ. 
+                        <strong>Lưu ý:</strong> Tàu hủ ky khô dùng khăn ẩm sạch lau nhẹ để làm mềm, tránh ngâm trực tiếp vào nước quá lâu làm rách lá. Cắt thành miếng 15x20cm.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-8">
+                    <div class="timeline-step"></div>
+                    <div class="flex items-center mb-2">
+                        <span class="text-cinnabar font-bold uppercase tracking-widest text-xs">Bước 2</span>
+                        <span class="mx-3 h-[1px] w-8 bg-goldLight"></span>
+                        <span class="italic font-serif text-gray-500">Kỹ thuật đỉnh cao</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Chế biến nhân chuyên nghiệp</h4>
+                    <p class="justified-text text-gray-700">
+                        Trộn thịt xay, tôm băm và các loại nấm, miến, cà rốt. Thêm gia vị nhân. 
+                        <span class="italic text-cinnabar">Quết nhân thật kỹ theo một chiều để tạo độ dai tự nhiên.</span> Thêm lòng trắng trứng để tăng độ kết dính hoàn hảo.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-8">
+                    <div class="timeline-step"></div>
+                    <div class="flex items-center mb-2">
+                        <span class="text-cinnabar font-bold uppercase tracking-widest text-xs">Bước 3</span>
+                        <span class="mx-3 h-[1px] w-8 bg-goldLight"></span>
+                        <span class="italic font-serif text-gray-500">Tạo hình</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Cuốn tàu hủ ky</h4>
+                    <p class="justified-text text-gray-700">
+                        Trải lá tàu hủ ky, cho lượng nhân vừa đủ vào giữa. Gấp hai đầu và cuộn tròn như cuốn chả giò. 
+                        Dùng hỗn hợp bột năng pha nước làm "keo" dán mép nếu cần thiết để đảm bảo cuốn không bị bung khi hấp.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-8">
+                    <div class="timeline-step"></div>
+                    <div class="flex items-center mb-2">
+                        <span class="text-cinnabar font-bold uppercase tracking-widest text-xs">Bước 4</span>
+                        <span class="mx-3 h-[1px] w-8 bg-goldLight"></span>
+                        <span class="italic font-serif text-gray-500">Hấp sơ & Áp chảo</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Nâng cao hương vị</h4>
+                    <p class="justified-text text-gray-700">
+                        Hấp cuốn trong 10 phút để định hình. Để đạt đẳng cấp nhà hàng, hãy áp chảo nhanh các cuốn sau khi hấp để vỏ có màu vàng óng và dậy mùi thơm đặc trưng trước khi rưới sốt.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-8">
+                    <div class="timeline-step"></div>
+                    <div class="flex items-center mb-2">
+                        <span class="text-cinnabar font-bold uppercase tracking-widest text-xs">Bước 5</span>
+                        <span class="mx-3 h-[1px] w-8 bg-goldLight"></span>
+                        <span class="italic font-serif text-gray-500">Hoàn thiện</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Nấu sốt & Hấp thành phẩm</h4>
+                    <p class="justified-text text-gray-700">
+                        Hòa tan hỗn hợp sốt gồm dầu hào, nước tương, đường, nước dùng gà và bột năng. Đun sôi cho đến khi sánh lại. Xếp cuốn vào đĩa sâu lòng, rưới sốt và hấp thêm 5-7 phút cho thấm vị.
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div class="section-divider"></div>
+
+    <!-- Chef's Corner Section -->
+    <section class="chef-box p-8 md:p-12 mb-12 shadow-inner">
+        <div class="text-center mb-8">
+            <span class="text-cinnabar text-3xl">👨‍🍳</span>
+            <h3 class="text-2xl font-bold uppercase tracking-widest mt-2">3. Mẹo hay từ Vua Đầu Bếp</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="justified-text border-r border-goldLight pr-6 last:border-0 last:pr-0">
+                <h5 class="font-bold text-gold mb-2 uppercase text-xs">Xử lý nguyên liệu</h5>
+                <p class="text-sm">Không chọn lá quá mỏng hoặc thâm kim. Nếu dùng lá tươi, hãy chần nhanh qua nước muối loãng để khử hoàn toàn mùi dầu thừa.</p>
+            </div>
+            <div class="justified-text border-r border-goldLight pr-6 last:border-0 last:pr-0">
+                <h5 class="font-bold text-gold mb-2 uppercase text-xs">Kiểm soát nhiệt</h5>
+                <p class="text-sm">Khi hấp thành phẩm, tuyệt đối không để lửa quá lớn. Hơi nước mạnh có thể làm rách lớp vỏ mỏng manh đã thấm mềm nước sốt.</p>
+            </div>
+            <div class="justified-text border-r border-goldLight pr-6 last:border-0 last:pr-0">
+                <h5 class="font-bold text-gold mb-2 uppercase text-xs">Cân bằng cấu trúc</h5>
+                <p class="text-sm">Tránh dùng quá nhiều miến trong nhân. Miến hút nước mạnh sẽ làm cuốn bị khô và bở sau khi hấp, làm mất đi độ mọng nước cần thiết.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-12">
+        <h3 class="text-2xl font-bold mb-8 border-b-2 border-cinnabar inline-block pr-8 uppercase tracking-tighter">4. Biến tấu & Phiên bản</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 border-l-4 border-cinnabar">
+                <h4 class="text-xl font-bold mb-2 italic">Phiên bản Chay (Zen Edition)</h4>
+                <p class="justified-text text-sm text-gray-600">
+                    Thay thế đạm động vật bằng đậu hũ trắng nghiền nhuyễn kết hợp nấm đùi gà và tàu hủ ky vụn. Điểm nhấn nằm ở sốt dầu hào chay tinh khiết chiết xuất từ nấm hương.
+                </p>
+            </div>
+            <div class="glass-card p-6 border-l-4 border-gold">
+                <h4 class="text-xl font-bold mb-2 italic">Phiên bản Nội trợ Tiện lợi</h4>
+                <p class="justified-text text-sm text-gray-600">
+                    Sử dụng loại tàu hủ ky miếng vuông đã chiên sơ có sẵn tại siêu thị. Chỉ cần ngâm mềm và cuốn nhân, giúp rút ngắn thời gian chế biến mà vẫn giữ được hương vị đặc trưng.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Nutrition & Presentation Footer -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-12">
+        <div class="bg-charcoal text-parchment p-8 rounded-sm">
+            <h3 class="text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-gray-700 pb-2">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4 text-sm">
+                <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+                    <span>Năng lượng</span>
+                    <span class="text-gold">280 - 320 kcal / phần</span>
+                </div>
+                <p class="justified-text opacity-80 italic">
+                    Tàu hủ ky là nguồn đạm thực vật dồi dào, chứa nhiều lecithin tốt cho não bộ và tim mạch. Nấm và cà rốt cung cấp chất xơ và vitamin thiết yếu.
+                </p>
+                <div class="p-4 bg-gray-800 rounded-sm mt-4">
+                    <p class="text-xs text-cinnabar font-bold mb-1 uppercase">Lưu ý sức khỏe:</p>
+                    <p class="text-xs opacity-70">Lượng natri trong dầu hào khá cao, người cao huyết áp nên điều tiết lượng sốt hoặc dùng nước tương giảm muối.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold mb-6 text-cinnabar uppercase tracking-widest border-b border-goldLight pb-2">6. Gợi ý trình bày</h3>
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <span class="text-gold mr-3">✦</span>
+                    <div>
+                        <h5 class="font-bold text-sm uppercase">Bố cục nghệ thuật</h5>
+                        <p class="text-sm justified-text text-gray-600">Xếp các cuốn theo hình cánh quạt hoặc chồng tháp lên đĩa sứ trắng tối giản hoặc đĩa gốm đen để làm nổi bật lớp sốt nâu óng ả.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-gold mr-3">✦</span>
+                    <div>
+                        <h5 class="font-bold text-sm uppercase">Màu sắc & Điểm xuyết</h5>
+                        <p class="text-sm justified-text text-gray-600">Rưới sốt tạo độ bóng (glaze). Điểm xuyết hành lá tước sợi ngâm xoăn, ớt sừng cắt chéo đỏ tươi và một nhánh ngò rí xanh mát để tạo sự tương phản màu sắc hoàn hảo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth reveal animations for cards
+        document.querySelectorAll('.glass-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+    </script>
+</body>
+</html>
