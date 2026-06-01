@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chả cá Nha Trang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -2.5rem;
+            width: 1px;
+            background: #C5A059;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #2C2C2C;
+            color: #FCFAFA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FCFAFA; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 10px; }
+
+        .ornament {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-12">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">Tạp chí Kỹ nghệ Ẩm thực</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 uppercase tracking-tight">Chả cá Nha Trang</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">Nha Trang Fish Cake - Authentic Coastal Essence</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 border-y border-gold/30 py-6 my-8">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◈</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">◔</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold text-lg">90 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">♨</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold text-lg">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xl mb-1">⚲</span>
+                <span class="uppercase text-xs tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-lg">Nha Trang, Khánh Hòa</span>
+            </div>
+        </div>
+        
+        <p class="max-w-3xl mx-auto italic justified-text text-lg text-gray-700 px-4">
+            "Món ăn này là sự tinh túy từ nguồn hải sản dồi dào, mang hương vị đậm đà và độ dai đặc trưng của vùng duyên hải miền Trung."
+        </p>
+    </header>
+
+    <div class="section-divider"><span class="ornament">🜚</span></div>
+
+    <!-- MAIN CONTENT GRID -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <!-- LEFT COLUMN: INGREDIENTS -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block uppercase tracking-wider">1. Nguyên liệu</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-gold font-bold uppercase text-sm tracking-widest mb-4">Thành phần chính</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">1kg cá tươi (Cá mối, cá thu, cá nhồng)</span>
+                        </li>
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">2 lòng đỏ trứng gà</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gold font-bold uppercase text-sm tracking-widest mb-4">Gia vị & Hương liệu</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">50g hành tím và tỏi băm nhuyễn</span>
+                        </li>
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">2 muỗng cà phê tiêu sọ trắng</span>
+                        </li>
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">1 muỗng canh nước mắm cao đạm</span>
+                        </li>
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">1 muỗng cà phê đường cát</span>
+                        </li>
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">1 muỗng cà phê hạt nêm</span>
+                        </li>
+                        <li class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <span class="text-cinnabar mr-3">✦</span>
+                            <span class="border-b border-dotted border-gray-300 flex-grow pb-1">Hành lá thái nhỏ, dầu ăn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CHEF'S CORNER IN LEFT COLUMN ON DESKTOP -->
+            <section class="mt-16 glass-card p-6 border-2 border-double border-gold relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-parchment px-4 text-gold font-bold uppercase tracking-widest text-xs">Expert Insights</div>
+                <h3 class="text-xl font-bold mb-4 text-center">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="space-y-4 text-sm justified-text italic">
+                    <p><strong>Không dùng hàn xẻo:</strong> Độ dai hoàn toàn đến từ kỹ thuật quết và việc giữ lạnh thịt cá một cách khoa học.</p>
+                    <p><strong>Kiểm tra vị:</strong> Lấy một chút cá đã quết, quay trong lò vi sóng 10 giây để nếm thử và điều chỉnh gia vị trước khi chế biến hàng loạt.</p>
+                    <p><strong>Cấu trúc chuẩn:</strong> Tránh xay quá nhuyễn như giò sống, chả cá Nha Trang cần có độ nhám nhẹ từ thớ thịt cá để tạo cảm giác chân thực khi nhai.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- RIGHT COLUMN: STEPS -->
+        <section class="lg:col-span-8">
+            <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar inline-block uppercase tracking-wider">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-2">
+                <!-- STEP 1 -->
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Sơ chế cá</h4>
+                        <span class="text-gold italic text-sm">Góc nhìn Chuyên gia Truyền thống</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Chọn cá thật tươi, mắt trong, mang đỏ. Rửa cá với nước muối loãng, thấm thật khô thịt cá trước khi lóc. Dùng muỗng nạo lấy phần thịt cá, bỏ xương và da. 
+                        <span class="block mt-2 font-bold text-cinnabar">Lưu ý: Độ khô của thịt cá quyết định hoàn toàn độ dai của chả.</span>
+                    </p>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Làm lạnh sâu</h4>
+                        <span class="text-gold italic text-sm">Góc nhìn Đầu bếp Chuyên nghiệp</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Đặt phần thịt cá đã nạo vào ngăn đá tủ lạnh khoảng 30-45 phút cho đến khi thịt cá bắt đầu đông đá nhẹ ở rìa. Nhiệt độ lạnh giúp cấu trúc protein của cá ổn định, tạo độ giòn dai khi quết.
+                    </p>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Xay và Quết Kỹ thuật</h4>
+                        <span class="text-gold italic text-sm">Kỹ thuật kết dính</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Sử dụng máy xay thực phẩm, cho cá lạnh vào cùng gia vị. Xay từng nhịp ngắn (pulse) để máy không bị nóng làm chín cá. Sau đó, dùng muỗng gỗ hoặc máy đánh trứng (que xoắn) quết thật mạnh và đều tay trong 10-15 phút cho đến khi hỗn hợp kết dính, dẻo quánh và không còn dính vào thành bát.
+                    </p>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Chế biến Nhiệt</h4>
+                        <span class="text-gold italic text-sm">Nghệ thuật Chiên & Hấp</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                        <div class="bg-white/50 p-4 border-l-2 border-cinnabar">
+                            <span class="font-bold uppercase text-xs block mb-1">Chả chiên</span>
+                            <p class="text-sm justified-text">Ép thịt cá thành miếng tròn dẹt. Đun dầu nóng già rồi hạ lửa vừa, chiên vàng đều hai mặt. Chả sẽ phồng nhẹ và có màu vàng óng.</p>
+                        </div>
+                        <div class="bg-white/50 p-4 border-l-2 border-gold">
+                            <span class="font-bold uppercase text-xs block mb-1">Chả hấp</span>
+                            <p class="text-sm justified-text">Ép cá vào khuôn, hấp cách thủy khoảng 20 phút. Quét một lớp lòng đỏ trứng gà lên bề mặt và hấp thêm 2-3 phút không đậy nắp để tạo màu vàng đẹp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5 -->
+                <div class="timeline-step">
+                    <div class="step-number">5</div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Bảo quản</h4>
+                        <span class="text-gold italic text-sm">Góc nhìn Người nội trợ</span>
+                    </div>
+                    <p class="justified-text text-gray-700">
+                        Chả cá sau khi làm xong, để nguội hoàn toàn, hút chân không và bảo quản ngăn đông. Khi dùng chỉ cần rã đông và chiên sơ lại để giữ hương vị tươi ngon nhất.
+                    </p>
+                </div>
+            </div>
+
+            <!-- VARIATIONS SECTION -->
+            <section class="mt-12">
+                <h3 class="text-2xl font-bold mb-6 italic">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-6 border border-gold/40 hover:bg-gold/5 transition-colors cursor-default">
+                        <h5 class="font-bold text-cinnabar uppercase text-sm mb-2">Bún chả cá Nha Trang</h5>
+                        <p class="text-sm justified-text italic">Dùng xương cá ninh lấy nước dùng thanh ngọt, ăn kèm chả cá và sứa cho bữa sáng đậm đà miền biển.</p>
+                    </div>
+                    <div class="p-6 border border-gold/40 hover:bg-gold/5 transition-colors cursor-default">
+                        <h5 class="font-bold text-cinnabar uppercase text-sm mb-2">Chả cá bọc trứng cút</h5>
+                        <p class="text-sm justified-text italic">Viên thịt cá quanh trứng cút rồi chiên vàng, món khai vị hấp dẫn dành riêng cho thực đơn trẻ nhỏ.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <div class="section-divider"><span class="ornament">🜚</span></div>
+
+    <!-- NUTRITION & PRESENTATION FOOTER INFO -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 pb-12">
+        <div class="bg-gray-100/50 p-8 rounded-sm">
+            <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">5. Giá trị dinh dưỡng</h3>
+            <div class="justified-text space-y-4">
+                <p>Chả cá cung cấp nguồn Protein chất lượng cao và dồi dào Omega-3, cực kỳ tốt cho hệ tim mạch và phát triển trí não.</p>
+                <div class="pl-4 border-l-2 border-cinnabar/30 italic text-gray-600">
+                    <span class="font-bold block not-italic text-charcoal mb-1">Góc nhìn Chuyên gia Dinh dưỡng:</span>
+                    Chả cá hấp có hàm lượng calo thấp hơn và giữ được nhiều vi chất hơn chả cá chiên. Người đang trong chế độ giảm cân nên ưu tiên chả hấp và hạn chế dùng nước mắm quá mặn.
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-sm border border-gray-200 shadow-sm">
+            <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">6. Gợi ý trình bày</h3>
+            <div class="justified-text space-y-4">
+                <p><span class="font-bold text-gold uppercase text-xs block mb-1">Nghệ thuật sắp đặt</span> 
+                Cắt chả cá chiên thành từng lát dài theo chiều dọc hoặc miếng kim cương. Xếp xen kẽ chả chiên và chả hấp trên mẹt tre có lót lá chuối xanh để tạo cảm giác dân dã mà sang trọng.</p>
+                <p><span class="font-bold text-gold uppercase text-xs block mb-1">Trang trí & Điểm nhấn</span> 
+                Điểm xuyết xà lách, vài lát ớt sừng đỏ và hành ngò. Phục vụ kèm một bát nước mắm tỏi ớt pha kẹo (sệt) để tăng sức hút tuyệt đối về cả thị giác lẫn vị giác.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BACK TO TOP / DECORATIVE FINISHER -->
+    <div class="flex flex-col items-center justify-center my-12 opacity-50">
+        <div class="w-24 h-px bg-gold mb-4"></div>
+        <span class="text-xs uppercase tracking-[0.5em] font-bold">AI VUA ĐẦU BẾP • PREMIER EDITION</span>
+        <div class="w-24 h-px bg-gold mt-4"></div>
+    </div>
+
+    <script>
+        // Add subtle interaction for a premium feel
+        document.querySelectorAll('.timeline-step').forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                step.querySelector('.step-number').style.backgroundColor = '#E23D28';
+                step.querySelector('.step-number').style.transform = 'scale(1.1)';
+            });
+            step.addEventListener('mouseleave', () => {
+                step.querySelector('.step-number').style.backgroundColor = '#2C2C2C';
+                step.querySelector('.step-number').style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
