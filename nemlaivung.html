@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nem Lai Vung - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Outfit'", 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .title-gradient {
+            background: linear-gradient(to bottom, #2C2C2C, #555555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+
+        .section-ornament::before,
+        .section-ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.4;
+        }
+
+        .ornament-icon {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: #E23D28;
+            opacity: 0.15;
+            font-size: 3rem;
+            line-height: 1;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .meta-pill {
+            background: white;
+            border: 1px solid #eee;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 lg:p-24 max-w-7xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16">
+        <span class="font-display uppercase tracking-[0.3em] text-cinnabar text-sm font-semibold mb-4 block">AI King of Chefs Present</span>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 title-gradient italic">Nem Lai Vung</h1>
+        <h2 class="text-2xl md:text-3xl text-gray-500 font-light italic mb-12">Traditional Fermented Pork - Dong Thap Specialty</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
+            <div class="meta-pill">
+                <span class="text-cinnabar text-xs font-display uppercase tracking-wider mb-1">Mức độ</span>
+                <span class="font-bold">Khó</span>
+            </div>
+            <div class="meta-pill">
+                <span class="text-cinnabar text-xs font-display uppercase tracking-wider mb-1">Thời gian</span>
+                <span class="font-bold text-sm">60' Chuẩn bị / 3-4 ngày</span>
+            </div>
+            <div class="meta-pill">
+                <span class="text-cinnabar text-xs font-display uppercase tracking-wider mb-1">Khẩu phần</span>
+                <span class="font-bold">20-25 chiếc</span>
+            </div>
+            <div class="meta-pill">
+                <span class="text-cinnabar text-xs font-display uppercase tracking-wider mb-1">Nguồn gốc</span>
+                <span class="font-bold">Lai Vung, Đồng Tháp</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-ornament">
+        <div class="ornament-icon">✧ ◈ ✧</div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-12">
+            <section>
+                <h3 class="text-2xl font-bold text-cinnabar mb-8 border-b border-gold/30 pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-display font-semibold text-xs uppercase tracking-widest text-gold mb-3">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Thịt nạc đùi sau heo:</strong> 500g (Thịt nóng vừa mổ)</span>
+                            </li>
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Da heo (bì):</strong> 200g (Trắng sạch, không lông)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-display font-semibold text-xs uppercase tracking-widest text-gold mb-3">Lá & Gói</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Lá lót:</strong> Chùm ruột tươi hoặc lá ổi</span>
+                            </li>
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Lá gói:</strong> Lá chuối tươi (xé khổ 10-12cm)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-display font-semibold text-xs uppercase tracking-widest text-gold mb-3">Gia vị & Phụ trợ</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Đường cát trắng:</strong> 100g</span>
+                            </li>
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Muối:</strong> 1/2 muỗng cà phê</span>
+                            </li>
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Tiêu sọ hạt:</strong> 1 muỗng cà phê</span>
+                            </li>
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Tỏi & Ớt hiểm:</strong> Thái lát mỏng</span>
+                            </li>
+                            <li class="flex items-baseline border-b border-gray-100 pb-1">
+                                <span class="text-cinnabar mr-2">◈</span>
+                                <span><strong>Rượu trắng:</strong> Xử lý bì</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef's Corner -->
+            <section class="pro-tip-box p-6 relative overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 opacity-10">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                </div>
+                <h3 class="font-display font-bold text-lg mb-4 text-charcoal flex items-center">
+                    <span class="mr-2">★</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <div class="space-y-4 text-sm italic">
+                    <p><strong>Nhiệt độ:</strong> Luôn giữ thịt ở trạng thái lạnh khi quết để bảo toàn cấu trúc protein, giúp nem giòn dai mà không cần hàn thê.</p>
+                    <p><strong>Vệ sinh:</strong> Tiệt trùng các dụng cụ bằng nước sôi. Vi khuẩn có hại xâm nhập sẽ làm nem bị hỏng, chảy nước.</p>
+                    <p><strong>Mẹo nội trợ:</strong> Nếu không tìm được lá chùm ruột, có thể dùng lá khế non hoặc lá ổi non để thay thế. Nếu không có thời gian giã tay, hãy cho thịt vào ngăn đá 30 phút trước khi xay.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-2xl font-bold text-cinnabar mb-12 border-b border-gold/30 pb-2 inline-block">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-12 relative">
+                <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-gold/20 hidden md:block"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">01</span>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Sơ chế bì heo</h4>
+                        <p>Luộc chín da heo với chút gừng và rượu trắng để khử mùi. Vớt ra ngâm nước đá, lạng sạch mỡ, sau đó thái chỉ thật mỏng và đều tay. Thấm thật khô nước hoàn toàn để nem không bị rỉ nước.</p>
+                        <span class="inline-block mt-3 font-display italic text-xs text-gray-400">Thời gian: 15 phút</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">02</span>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Xử lý thịt (Kỹ thuật chuyên nghiệp)</h4>
+                        <p>Dùng khăn sạch lau khô khối thịt nạc, lọc bỏ hoàn toàn gân và mỡ dư thừa. Thái nhỏ thịt rồi cho vào máy xay hoặc cối giã. Lưu ý: Tuyệt đối không rửa thịt bằng nước để đảm bảo vệ sinh lên men.</p>
+                        <span class="inline-block mt-3 font-display italic text-xs text-gray-400">Thời gian: 15 phút</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">03</span>
+                    <div class="glass-card p-6 rounded-lg border-l-4 border-cinnabar">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Quết thịt (Giai đoạn sống còn)</h4>
+                        <p>Nếu dùng máy, xay thịt ở tốc độ cao trong thời gian ngắn để tránh sinh nhiệt làm chín thịt. Quết cho đến khi thịt chuyển sang màu hồng sáng, có độ kết dính cao và đàn hồi dẻo quánh.</p>
+                        <span class="inline-block mt-3 font-display italic text-xs text-gray-400">Thời gian: 10 phút</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">04</span>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Phối trộn nguyên liệu</h4>
+                        <p>Cho thịt đã quết vào tô lớn, thêm đường, muối, tiêu hạt và bì heo vào. Trộn đều tay để các nguyên liệu hòa quyện. Đường đóng vai trò then chốt giúp thúc đẩy quá trình lên men tự nhiên.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">05</span>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Định hình và Lót lá</h4>
+                        <p>Chia hỗn hợp thịt thành các viên vuông nhỏ (khoảng 25-30g). Đặt một lát tỏi và một lát ớt lên trên. Quấn quanh viên thịt bằng 1-2 lớp lá chùm ruột để tạo vị chua thanh.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">06</span>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Gói nem (Kỹ thuật Food Stylist)</h4>
+                        <p>Đặt viên thịt vào giữa lá chuối, gấp các cạnh tạo hình khối vuông vức, sắc cạnh. Quấn nhiều lớp lá chuối để đảm bảo môi trường yếm khí. Buộc chặt bằng dây nilon theo hình chữ thập tinh tế.</p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="relative pl-0 md:pl-16">
+                    <span class="step-number hidden md:block">07</span>
+                    <div class="glass-card p-6 rounded-lg">
+                        <h4 class="font-display font-semibold text-lg text-gold mb-2">Ủ nem</h4>
+                        <p>Treo nem ở nơi thoáng mát, tránh ánh nắng trực tiếp. Mùa hè cần khoảng 2-3 ngày, mùa lạnh từ 3-4 ngày để nem đạt độ chua vừa ý và đạt được độ săn chắc lý tưởng.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div class="section-ornament">
+        <div class="ornament-icon">✧ ◈ ✧</div>
+    </div>
+
+    <!-- Variations Section -->
+    <section class="mb-20">
+        <h3 class="text-2xl font-bold text-cinnabar mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 rounded-xl border-t-4 border-gold">
+                <h4 class="font-display font-bold text-xl mb-4 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"></path></svg>
+                    Phiên bản Chay
+                </h4>
+                <p class="italic">Thay thế toàn bộ protein động vật bằng vỏ bưởi và đu đủ xanh bào sợi. Sử dụng thính gạo và nước khế chua để kích hoạt quá trình lên men tự nhiên, giữ trọn hương vị truyền thống mà vẫn thuần chay.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl border-t-4 border-cinnabar">
+                <h4 class="font-display font-bold text-xl mb-4 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-cinnabar" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+                    Nem Tỏi (Gourmet)
+                </h4>
+                <p class="italic">Dành cho những người yêu thích hương vị mạnh mẽ. Tăng gấp đôi lượng tỏi băm trong nhân thịt. Tỏi không chỉ làm tăng mùi thơm đặc trưng mà còn hỗ trợ kháng khuẩn, giúp nem lên men sạch và bền hơn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Technical Info -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/20">
+        <!-- Nutrition -->
+        <div class="p-8 bg-charcoal text-cream rounded-2xl">
+            <h3 class="font-display text-xl font-bold mb-6 text-gold flex items-center">
+                <span class="mr-2">◈</span> 5. Giá trị dinh dưỡng
+            </h3>
+            <ul class="space-y-4 opacity-90">
+                <li class="flex justify-between border-b border-white/10 pb-2">
+                    <span>Lợi khuẩn (Probiotics)</span>
+                    <span class="font-display text-gold">Rất cao</span>
+                </li>
+                <li class="flex justify-between border-b border-white/10 pb-2">
+                    <span>Protein (Thịt nạc)</span>
+                    <span class="font-display text-gold">22g / 100g</span>
+                </li>
+                <p class="text-sm mt-4 italic text-gray-400">
+                    * Lưu ý: Do nem có lượng muối và đường nhất định, người cao huyết áp và tiểu đường nên giới hạn sử dụng dưới 3 chiếc mỗi ngày.
+                </p>
+            </ul>
+        </div>
+
+        <!-- Presentation -->
+        <div>
+            <h3 class="font-display text-xl font-bold mb-6 text-cinnabar flex items-center">
+                <span class="mr-2">◈</span> 6. Gợi ý trình bày
+            </h3>
+            <div class="space-y-4 text-sm">
+                <p><strong>Tạo hình:</strong> Nem gói phải vuông đều, các nút buộc thẳng hàng. Khi bóc, lá chuối phải còn xanh, lá lót bám sát mặt nem hồng hào.</p>
+                <p><strong>Màu sắc:</strong> Sự phối hợp giữa màu hồng đỏ của thịt, trắng của tỏi, đỏ của ớt và xanh của tiêu tạo nên một tác phẩm nghệ thuật thị giác.</p>
+                <p><strong>Bày trí:</strong> Xếp nem vòng tròn trên mẹt tre lót lá chuối. Đặt bát nước mắm chua ngọt hoặc tương ớt ở giữa. Trang trí thêm húng quế để tạo chiều sâu hương vị.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Micro-animations for the glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.5)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197, 160, 89, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
