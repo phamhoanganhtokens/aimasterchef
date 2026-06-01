@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mì Vịt Tiềm (Phong cách Chợ Lớn) - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23E28',
+                        gold: '#C5A059',
+                        slate: '#4A4A4A',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                        display: ["'Playfair Display'", 'serif'],
+                        body: ["'Lora'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #C5A059;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-right: 1rem;
+        }
+
+        .pro-tip-box {
+            border: 3px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .ingredient-item:hover {
+            transform: translateX(5px);
+            transition: transform 0.2s ease;
+        }
+
+        .tab-button.active {
+            border-bottom: 2px solid #E23E28;
+            color: #E23E28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-16 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12 animate-fade-in">
+        <div class="mb-4">
+            <span class="uppercase tracking-[0.3em] text-cinnabar font-bold text-sm">AI Vua Đầu Bếp — Di Sản Ẩm Thực</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 font-display uppercase tracking-tight">Mì Vịt Tiềm</h1>
+        <h2 class="text-2xl md:text-3xl font-serif italic text-slate mb-8">(Chợ Lớn Style Braised Duck Noodles)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center md:items-center gap-4 md:gap-12 border-y border-gold/30 py-6">
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Mức Độ</span>
+                <span class="font-serif">Khó (Tỉ mỉ)</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Thời Gian</span>
+                <span class="font-serif">150 Phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Khẩu Phần</span>
+                <span class="font-serif">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-gold font-bold mb-1">Xuất Xứ</span>
+                <span class="font-serif italic text-sm">Quảng Đông - Chợ Lớn</span>
+            </div>
+        </div>
+        
+        <div class="mt-8 max-w-2xl mx-auto">
+            <p class="justified-text italic text-slate leading-relaxed">
+                Món ăn có nguồn gốc từ vùng Quảng Đông (Trung Hoa), được cộng đồng người Hoa tại khu vực Chợ Lớn (Sài Gòn) biến tấu và lưu giữ, trở thành một nét di sản ẩm thực đặc trưng với sự kết hợp tinh tế giữa kỹ thuật tiềm (om) và các vị thuốc Bắc.
+            </p>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-display border-b-2 border-cinnabar inline-block mb-6 pb-1">1. Nguyên Liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3">Phần Vịt & Sơ Chế</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex items-start text-sm md:text-base">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="justified-text">4 đùi vịt lớn (vịt cỏ hoặc vịt bầu), 2 muỗng canh nước tương, 1 muỗng cà phê hắc xì dầu, 1 muỗng cà phê mật ong, rượu trắng và gừng.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3">Thảo Mộc (Gói Tiềm)</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex items-start text-sm">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="justified-text">10g thục địa, 20g hoài sơn, 3 tai đại hồi, 1 miếng quế chi, 5g đinh hương, 10g trần bì, 20g táo tàu, 10g kỷ tử.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3">Nước Dùng & Gia Vị</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex items-start text-sm">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="justified-text">1.5kg xương heo, 3 lít nước, 50g nấm đông cô khô, 1 củ gừng, 3 củ hành tím nướng.</span>
+                            </li>
+                            <li class="ingredient-item flex items-start text-sm">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="justified-text">Hắc xì dầu, nước tương, đường phèn, muối, hạt nêm, dầu hào, tiêu sọ.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold uppercase text-xs tracking-widest mb-3">Mì & Rau Kèm</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item flex items-start text-sm">
+                                <span class="text-cinnabar mr-2">✦</span>
+                                <span class="justified-text">4 - 8 vắt mì trứng tươi sợi nhỏ, 500g cải thìa, hành lá, ngò rí, đồ chua (đu đủ/dưa leo).</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-2xl font-display border-b-2 border-cinnabar inline-block mb-8 pb-1">2. Các Bước Thực Hiện</h3>
+            
+            <div class="space-y-10">
+                <!-- Step 1 -->
+                <div class="flex gap-4">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Sơ Chế Vịt (Kỹ thuật Đầu bếp)</h4>
+                        <p class="justified-text text-slate">Chà xát đùi vịt với hỗn hợp gừng giã nát và rượu trắng trong <span class="italic font-serif text-cinnabar">10 phút</span> để loại bỏ hoàn toàn mùi hôi đặc trưng. Rửa sạch, để ráo. Ướp vịt với nước tương, hắc xì dầu và mật ong trong <span class="italic font-serif text-cinnabar">30 phút</span>.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-4">
+                    <span class="step-number">02</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Chiên và Tạo Màu</h4>
+                        <p class="justified-text text-slate">Chiên đùi vịt trong chảo ngập dầu nóng cho đến khi lớp da săn lại và có màu vàng nâu sậm đẹp mắt. <strong>Mẹo nội trợ:</strong> Nếu ngại chiên ngập dầu, có thể phết một lớp hắc xì dầu mỏng rồi cho vào nồi chiên không dầu ở 180°C trong <span class="italic font-serif text-cinnabar">15 phút</span>.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-4">
+                    <span class="step-number">03</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Nấu Nước Dùng</h4>
+                        <p class="justified-text text-slate">Hầm xương heo với nước, thường xuyên hớt bọt để nước trong. Sau <span class="italic font-serif text-cinnabar">1 giờ</span>, cho gừng và hành tím nướng vào để dậy mùi thơm tự nhiên.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-4">
+                    <span class="step-number">04</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Tiềm Vịt (Kỹ thuật Truyền thống)</h4>
+                        <p class="justified-text text-slate">Rang thơm thảo mộc rồi cho vào túi lọc. Cho túi thảo mộc, thục địa và đùi vịt vào nồi nước dùng. Nêm đường phèn, nước tương và nấm đông cô. Hầm lửa nhỏ (liu riu) trong khoảng <span class="italic font-serif text-cinnabar">45 - 60 phút</span> cho đến khi thịt vịt mềm nhưng không bị bở nát.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-4">
+                    <span class="step-number">05</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Chuẩn Bị Mì và Rau</h4>
+                        <p class="justified-text text-slate">Trần cải thìa với nước sôi có pha chút muối và dầu ăn để giữ màu xanh bóng. Mì trứng trần qua nước sôi rồi xả nhanh qua nước lạnh, trộn chút dầu tỏi để sợi mì dai, không dính.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="flex gap-4">
+                    <span class="step-number">06</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Hoàn Thiện</h4>
+                        <p class="justified-text text-slate">Nêm nếm lại nước dùng cho vừa miệng với đường phèn và muối. Cho kỷ tử và táo tàu vào cuối cùng để tránh bị chua nước. Sẵn sàng cho khâu trình bày.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div class="section-divider">
+        <span class="ornament">◈ Chef's Masterclass ◈</span>
+    </div>
+
+    <!-- Chef's Corner -->
+    <section class="mb-12">
+        <div class="pro-tip-box p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm1-11h-2v3H8v2h3v3h2v-3h3v-2h-3V8z"/></svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-gold uppercase tracking-widest mb-4 flex items-center">
+                3. Mẹo Hay Từ Vua Đầu Bếp
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="font-bold mb-2 border-b border-gold/20 pb-1">Độ Trong Của Nước</h5>
+                    <p class="text-sm justified-text text-slate italic">Tuyệt đối không để nước sôi bùng khi đã cho thảo mộc vào vì sẽ làm nước bị đục và đắng.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 border-b border-gold/20 pb-1">Kỹ Thuật Da Giòn</h5>
+                    <p class="text-sm justified-text text-slate italic">Sau khi chiên vịt, có thể ngâm ngay vào nước đá lạnh rồi mới đem tiềm để giữ độ giòn dai đặc trưng.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-2 border-b border-gold/20 pb-1">Xử Lý Thảo Mộc</h5>
+                    <p class="text-sm justified-text text-slate italic">Không nên dùng quá nhiều thục địa vì sẽ khiến nước dùng quá đen và có vị đắng thuốc Bắc đậm đặc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-12">
+        <h3 class="text-2xl font-display border-b-2 border-cinnabar inline-block mb-6 pb-1">4. Biến Tấu & Phiên Bản Nâng Cao</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 shadow-sm border border-gold/10">
+                <h4 class="font-bold text-cinnabar mb-2 flex items-center">
+                    <span class="mr-2">⏱</span> Dành cho gia đình bận rộn
+                </h4>
+                <p class="text-sm justified-text">Sử dụng gói gia vị "Vịt tiềm" có sẵn tại các hiệu thuốc Bắc để thay thế việc tự phối thảo mộc. Thay xương heo bằng nước dùng gà đóng hộp để tiết kiệm thời gian hầm.</p>
+            </div>
+            <div class="bg-white p-6 shadow-sm border border-gold/10">
+                <h4 class="font-bold text-cinnabar mb-2 flex items-center">
+                    <span class="mr-2">✨</span> Biến tấu hương vị
+                </h4>
+                <p class="text-sm justified-text">Có thể thay đùi vịt bằng ức vịt (cho người ăn kiêng) hoặc dùng gà ta (Mì gà tiềm) nếu bạn muốn một hương vị nhẹ nhàng, ít béo hơn.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <span class="ornament">◈ Final Touches ◈</span>
+    </div>
+
+    <!-- Nutrition & Presentation -->
+    <section class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+            <h3 class="text-2xl font-display border-b-2 border-cinnabar inline-block mb-6 pb-1">5. Giá Trị Dinh Dưỡng</h3>
+            <div class="bg-charcoal text-parchment p-8 rounded-sm">
+                <p class="mb-4 text-xl font-serif">Ước tính <span class="text-gold font-bold">650 - 800 kcal</span> / tô</p>
+                <div class="space-y-4 text-sm opacity-90">
+                    <p class="justified-text"><strong class="text-gold">Lưu ý:</strong> Thịt vịt có tính hàn và chứa lượng chất béo bão hòa cao.</p>
+                    <p class="justified-text italic border-l-2 border-gold pl-4">Lời khuyên: Nên hớt bỏ bớt lớp mỡ vịt nổi trên bề mặt nước dùng trước khi ăn. Tăng lượng cải thìa để bổ sung chất xơ. Người bị cao huyết áp nên hạn chế húp quá nhiều nước dùng do hàm lượng muối cao.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-display border-b-2 border-cinnabar inline-block mb-6 pb-1">6. Gợi Ý Trình Bày</h3>
+            <div class="space-y-4">
+                <p class="justified-text text-slate">
+                    Sử dụng <span class="font-bold text-charcoal">tô sứ sâu lòng, tối màu</span> hoặc hoa văn cổ điển để làm nổi bật màu nâu óng của nước dùng. 
+                </p>
+                <ul class="text-sm space-y-2">
+                    <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-3"></span> Xếp mì dưới cùng, đặt đùi vịt lên trên, bên cạnh là cải thìa và nấm.</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-3"></span> Rắc một chút tiêu sọ trắng và ngò rí lên đỉnh.</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-3"></span> Phục vụ kèm đĩa đồ chua và chén hắc xì dầu ớt hiểm.</li>
+                </ul>
+                <p class="text-xs italic text-gold mt-4 font-bold tracking-widest uppercase">Cân bằng sắc thái: Vàng - Xanh - Đen - Đỏ</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll or simple interactions if needed
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
