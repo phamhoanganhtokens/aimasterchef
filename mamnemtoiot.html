@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Mắm Nêm Tỏi Ớt Chua Ngọt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .premium-border { border: 2px solid #D4AF37; }
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(227, 66, 52, 0), rgba(227, 66, 52, 0.75), rgba(227, 66, 52, 0));
+            margin: 3rem 0;
+        }
+        .ornament::after {
+            content: "✦";
+            display: block;
+            text-align: center;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            margin: -2rem 0 1rem 0;
+        }
+
+        .recipe-meta-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .recipe-meta-card:hover { border-color: #E34234; transform: translateY(-5px); }
+        
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        p, li { text-align: justify; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center py-12">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-[#2C2C2C]">Mắm Nêm Tỏi Ớt Chua Ngọt</h1>
+        <p class="text-xl italic text-gray-600 mb-8 font-serif">Fermented Anchovy Sauce with Garlic, Chili, and Pineapple</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <div class="recipe-meta-card p-4">
+                <span class="block text-sm uppercase tracking-widest text-[#E34234]">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="recipe-meta-card p-4">
+                <span class="block text-sm uppercase tracking-widest text-[#E34234]">Thời gian</span>
+                <span class="font-bold">20 phút</span>
+            </div>
+            <div class="recipe-meta-card p-4">
+                <span class="block text-sm uppercase tracking-widest text-[#E34234]">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="recipe-meta-card p-4">
+                <span class="block text-sm uppercase tracking-widest text-[#E34234]">Xuất xứ</span>
+                <span class="font-bold">Miền Trung</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto">
+        <div class="prose max-w-none text-center mb-12 italic text-lg px-4 md:px-24">
+            "Một loại nước chấm đặc trưng của ẩm thực miền Trung Việt Nam, thường được dùng kèm với bánh tráng cuốn thịt luộc, bún mắm nêm hoặc cá tai tượng chiên xù."
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Left Column: Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-[#E34234] pb-2 inline-block">1. Nguyên liệu</h2>
+                <ul class="space-y-4">
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">150ml mắm nêm nguyên chất</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">1/2 quả dứa (thơm) chín vừa</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">2 củ sả, băm thật nhuyễn</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">3 tép tỏi lớn, băm nhỏ</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">2-3 quả ớt sừng & 1 quả ớt chỉ thiên</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">80g đường cát</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">2 muỗng canh nước cốt chanh/tắc</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">50ml nước sôi để nguội</li>
+                    <li class="pl-4 border-l-2 border-[#D4AF37]">1 nhánh gừng nhỏ</li>
+                </ul>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-[#E34234] pb-2 inline-block">2. Các bước thực hiện</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-[#E34234]">Bước 1: Xử lý nguyên liệu</h4>
+                        <p>Dứa gọt vỏ, băm nhỏ. Tỏi ớt băm nhuyễn sau khi loại bỏ hạt.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E34234]">Bước 2: Khử mùi và làm chín mắm</h4>
+                        <p>Phi thơm sả, gừng. Đun mắm nhẹ với nước sôi để giảm độ mặn.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E34234]">Bước 3: Pha chế</h4>
+                        <p>Khuấy đường khi mắm còn ấm, cho dứa vào tạo độ sệt.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E34234]">Bước 4: Cân bằng vị</h4>
+                        <p>Cho nước cốt chanh vào khi hỗn hợp đã nguội.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#E34234]">Bước 5: Hoàn thiện</h4>
+                        <p>Thêm tỏi ớt băm sau cùng để tạo hiệu ứng thị giác.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament mt-12"></div>
+
+        <!-- Chef's Corner -->
+        <section class="my-12 p-8 bg-amber-50 premium-border rounded-lg shadow-sm">
+            <h2 class="text-2xl font-bold mb-4 text-[#2C2C2C]">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="grid md:grid-cols-3 gap-6 italic">
+                <p><strong>Kỹ thuật nổi tỏi ớt:</strong> Chỉ cho tỏi ớt vào cuối cùng để gia vị nổi đẹp mắt.</p>
+                <p><strong>Kiểm soát mùi:</strong> Đun sơ mắm với sả, gừng giúp loại bỏ mùi tanh hiệu quả.</p>
+                <p><strong>Tránh lỗi:</strong> Không xay dứa quá nát để giữ kết cấu lợn cợn đặc trưng.</p>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white shadow-md border-t-4 border-[#D4AF37]">
+                    <h3 class="text-xl font-bold mb-2">Phiên bản chay</h3>
+                    <p>Thay mắm nêm bằng mắm đậu nành hoặc mắm nêm làm từ nấm và dứa lên men.</p>
+                </div>
+                <div class="p-6 bg-white shadow-md border-t-4 border-[#D4AF37]">
+                    <h3 class="text-xl font-bold mb-2">Phiên bản nhanh</h3>
+                    <p>Sử dụng mắm nêm đóng chai sẵn, bổ sung thêm dứa tươi, tỏi ớt để tăng hương vị.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <footer class="grid md:grid-cols-2 gap-12 py-12 border-t border-gray-200">
+            <div>
+                <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <ul class="list-disc list-inside text-sm space-y-2">
+                    <li>Hàm lượng muối cao: Hạn chế với người bệnh thận.</li>
+                    <li>Men vi sinh hỗ trợ tiêu hóa tốt.</li>
+                    <li>Vitamin C từ chanh và bromelain từ dứa.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="text-sm">Đựng trong bát gốm trầm hoặc thủy tinh. Trang trí thêm lát chanh mỏng hoặc nhánh ngò rí. Đặt chính giữa mẹt cuốn để làm tâm điểm.</p>
+            </div>
+        </footer>
+    </main>
+
+</body>
+</html>
