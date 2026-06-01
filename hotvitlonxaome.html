@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Hột Vịt Lộn Xào Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            line-height: 1.6;
+        }
+
+        .premium-justify {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .meta-box {
+            border-right: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .meta-box {
+                border-right: none;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            }
+            .meta-box:last-child { border-bottom: none; }
+        }
+
+        .chef-corner {
+            border: 2px double var(--accent-gold);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--accent-cinnabar);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px dashed rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+        }
+
+        .ingredient-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 4px; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 pb-12 px-6 text-center">
+        <span class="text-gold tracking-[0.3em] uppercase text-sm mb-4 block font-bold">AI Vua Đầu Bếp • Premium Collection</span>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 tracking-tight text-charcoal">Hột Vịt Lộn Xào Me</h1>
+        <p class="text-xl md:text-2xl italic text-gold mb-12">Balut with Tamarind Sauce</p>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 border-y border-gold py-6 gap-4">
+            <div class="meta-box flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="meta-box flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Thời gian</span>
+                <span class="font-bold text-lg">35 Phút</span>
+            </div>
+            <div class="meta-box flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">2 - 4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Xuất xứ</span>
+                <span class="font-bold text-lg">Miền Nam, VN</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto premium-justify italic text-charcoal/80">
+            Là món ăn đường phố đặc trưng và trứ danh của miền Nam Việt Nam. Món ăn này là sự giao thoa hoàn hảo giữa vị béo ngậy nguyên bản của hột vịt lộn và nghệ thuật pha chế nước xốt me chua ngọt đậm đà, mang đậm dấu ấn văn hóa ẩm thực bình dân nhưng cấu trúc hương vị lại vô cùng lôi cuốn.
+        </div>
+    </header>
+
+    <div class="section-divider max-w-4xl mx-auto px-6">
+        <span class="ornament">◈</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                <span class="text-cinnabar">1.</span> Nguyên liệu
+            </h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-gold uppercase tracking-widest text-sm font-bold mb-4 border-l-2 border-gold pl-3">Thành phần chính</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Trứng vịt lộn (16-18 ngày)</span> <span>4-6 quả</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Me vắt</span> <span>50g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Đậu phộng rang</span> <span>50g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Rau răm</span> <span>1 mớ</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-gold uppercase tracking-widest text-sm font-bold mb-4 border-l-2 border-gold pl-3">Gia vị & Tạo hương</h3>
+                    <ul class="space-y-1">
+                        <li class="ingredient-item flex justify-between"><span>Bơ nhạt</span> <span>15g</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Tỏi & Hành tím băm</span> <span>2 muỗng</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Ớt sừng</span> <span>1-2 trái</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Nước mắm ngon</span> <span>2 muỗng</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Đường trắng</span> <span>3 muỗng</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Tương ớt</span> <span>1 muỗng</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Nước dừa tươi</span> <span>100ml</span></li>
+                        <li class="ingredient-item flex justify-between"><span>Gừng tươi</span> <span>1 nhánh</span></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                <span class="text-cinnabar">2.</span> Các bước thực hiện
+            </h2>
+
+            <div class="space-y-12">
+                <div class="relative pl-12">
+                    <span class="step-number absolute left-0 top-0 text-4xl">01</span>
+                    <h4 class="font-bold text-xl mb-2 italic">Sơ chế trứng (Gia đình & Truyền thống)</h4>
+                    <p class="premium-justify text-charcoal/90">
+                        Rửa sạch vỏ trứng. Luộc trứng với một ít muối và gừng đập dập trong <strong>15 phút</strong> để khử mùi tanh. Vớt ra ngâm ngay vào tô nước lạnh để dễ bóc vỏ. Khi bóc, thao tác nhẹ tay để giữ nguyên quả trứng, đồng thời hứng lấy phần nước ngọt bên trong trứng ra một bát riêng.
+                    </p>
+                </div>
+
+                <div class="relative pl-12">
+                    <span class="step-number absolute left-0 top-0 text-4xl">02</span>
+                    <h4 class="font-bold text-xl mb-2 italic">Chuẩn bị nền xốt me (Chuyên nghiệp)</h4>
+                    <p class="premium-justify text-charcoal/90">
+                        Cho me vắt vào chén, đổ 100ml nước dừa tươi đun sôi vào ngâm 5-10 phút. Dầm nát me và lọc qua rây lấy nước cốt. Pha vào nước cốt me: 3 muỗng đường, 2 muỗng nước mắm, phần nước ngọt của trứng và 1 muỗng tương ớt. <span class="text-gold italic">Tương ớt giúp xốt lên màu nâu đỏ đẹp mắt và tăng độ sánh mượt.</span>
+                    </p>
+                </div>
+
+                <div class="relative pl-12">
+                    <span class="step-number absolute left-0 top-0 text-4xl">03</span>
+                    <h4 class="font-bold text-xl mb-2 italic">Áp chảo trứng (Kỹ thuật Chef)</h4>
+                    <p class="premium-justify text-charcoal/90">
+                        Làm nóng chảo với 1 muỗng dầu ăn. Cho trứng đã bóc vào áp chảo ở lửa vừa trong <strong>1-2 phút</strong>. Kỹ thuật này giúp lớp màng ngoài của trứng săn lại, không bị nát khi xào và tăng khả năng bám xốt vượt trội.
+                    </p>
+                </div>
+
+                <div class="relative pl-12 border-l-2 border-cinnabar/20 ml-4 pl-8">
+                    <span class="step-number absolute -left-4 top-0 text-4xl bg-cream px-2">04</span>
+                    <h4 class="font-bold text-xl mb-2 italic">Xào xốt và hoàn thiện</h4>
+                    <p class="premium-justify text-charcoal/90">
+                        Sử dụng lại chảo, thêm dầu ăn và bơ nhạt vào đun chảy. Phi thơm hành tím, tỏi và ớt. Đổ hỗn hợp nước xốt me vào, đun lửa nhỏ đến khi xốt kẹo lại. Cho trứng vào, dùng thìa rưới xốt liên tục lên bề mặt trong <strong>3-5 phút</strong> để thấm sâu.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider max-w-4xl mx-auto px-6">
+        <span class="ornament">◈</span>
+    </div>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <div class="chef-corner p-8 md:p-12 relative overflow-hidden">
+            <div class="relative z-10">
+                <h3 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-2">Mẹo đi chợ</h4>
+                        <p class="premium-justify text-sm">Soi trứng dưới ánh sáng: khoảng trống ở đầu nhỏ là trứng non úp mề vừa ăn; khoảng trống lớn là trứng già, nhiều lông.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">Cân bằng vị</h4>
+                        <p class="premium-justify text-sm">Nếu me quá chua, hãy dùng bơ nhạt hoặc nước cốt dừa để làm dịu vị, tránh lạm dụng đường gây khé cổ.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">Lỗi cần tránh</h4>
+                        <p class="premium-justify text-sm">Không luộc quá 20 phút hoặc xào lửa lớn quá lâu làm trứng khô cứng và xốt bị đắng do cháy đường.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative Icon -->
+            <div class="absolute -right-8 -bottom-8 opacity-10 text-9xl">♨</div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+            <span class="text-cinnabar">4.</span> Biến tấu nâng cao
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-6">
+                <h4 class="font-bold text-cinnabar mb-3">Trứng cút lộn xào me</h4>
+                <p class="premium-justify text-sm">Phiên bản thay thế hoàn hảo cho người ngại trứng to. Ngấm xốt nhanh hơn và ăn không bị ngán.</p>
+            </div>
+            <div class="glass-card p-6">
+                <h4 class="font-bold text-cinnabar mb-3">Xốt me cốt dừa</h4>
+                <p class="premium-justify text-sm">Biến tấu miền Tây: thêm 3-4 muỗng nước cốt dừa vào xốt ở bước cuối, ăn kèm dừa nạo sợi béo ngậy.</p>
+            </div>
+            <div class="glass-card p-6">
+                <h4 class="font-bold text-cinnabar mb-3">Trứng chiên giòn</h4>
+                <p class="premium-justify text-sm">Trứng luộc tẩm bột chiên giòn, chiên ngập dầu trước khi rưới xốt me, tạo kết cấu ngoài giòn trong mềm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Info -->
+    <footer class="bg-charcoal text-cream py-16">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            
+            <!-- Nutrition -->
+            <section>
+                <h2 class="text-gold text-2xl font-bold mb-6 border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h2>
+                <div class="space-y-4">
+                    <p class="premium-justify text-sm text-gray-300">
+                        Mỗi quả trứng cung cấp 182 kcal, 13.6g protein, cùng canxi, phốt pho, sắt và vitamin A, C, B1. Xốt me giàu vitamin C hỗ trợ tiêu hóa đạm.
+                    </p>
+                    <div class="p-4 bg-white/5 border border-white/10 rounded">
+                        <h4 class="text-cinnabar font-bold text-sm uppercase mb-2">Khuyến cáo sức khỏe</h4>
+                        <p class="text-xs italic leading-relaxed text-gray-400">
+                            Chứa hàm lượng cholesterol cao (600mg/quả). Hạn chế với người cao huyết áp, tim mạch. Chỉ nên dùng 2-3 quả/tuần. Rau răm và gừng giúp cân bằng tính "hàn", ấm bụng.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h2 class="text-gold text-2xl font-bold mb-6 border-b border-gold/30 pb-2">6. Gợi ý trình bày</h2>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p class="premium-justify">
+                        Sử dụng <strong>đĩa gốm sâu lòng</strong> hoặc thố đất nung. Đặt trứng giữa đĩa, mặt bầu quay lên trên. Rưới xốt me đặc sánh để tạo độ bóng (glaze) bắt mắt.
+                    </p>
+                    <p class="premium-justify">
+                        Rắc đậu phộng giã rối để tạo sự tương phản giòn-mềm. Điểm xuyết lát ớt đỏ và rau răm xanh ngắt. Sự phối hợp Nâu đỏ - Xanh - Vàng - Đỏ sẽ kích thích tối đa vị giác.
+                    </p>
+                    <div class="flex gap-2 mt-4">
+                        <span class="w-8 h-8 rounded-full bg-cinnabar" title="Cinnabar Red"></span>
+                        <span class="w-8 h-8 rounded-full bg-gold" title="Burnished Gold"></span>
+                        <span class="w-8 h-8 rounded-full bg-green-800" title="Herbal Green"></span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </footer>
+
+    <script>
+        // Interactive element for step highlighting
+        document.querySelectorAll('.step-number').forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                step.style.transform = 'scale(1.2) rotate(-5deg)';
+                step.style.transition = 'all 0.3s ease';
+            });
+            step.addEventListener('mouseleave', () => {
+                step.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
+
