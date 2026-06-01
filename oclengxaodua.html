@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Ốc Leng Xào Dừa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['Times New Roman', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .justify-text { text-align: justify; }
+        .accent-border { border-left: 4px solid #E34234; }
+        .divider::after { content: "★"; display: block; text-align: center; color: #D4AF37; margin: 1rem 0; }
+        .recipe-meta-icon { width: 20px; height: 20px; fill: #D4AF37; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Hero Section -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">Ốc Leng Xào Dừa</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">Mud Creeper in Coconut Milk</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-cinnabar">ĐỘ KHÓ</span>
+                <span class="text-sm">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-cinnabar">THỜI GIAN</span>
+                <span class="text-sm">45 - 60 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-cinnabar">KHẨU PHẦN</span>
+                <span class="text-sm">2 - 3 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-cinnabar">XUẤT XỨ</span>
+                <span class="text-sm">Miền Tây, Việt Nam</span>
+            </div>
+        </div>
+        <p class="mt-8 text-lg justify-text italic leading-relaxed max-w-3xl mx-auto">
+            Đây là món ăn đặc sản dân dã vùng sông nước miền Tây Việt Nam. Ốc leng sống tự nhiên trong các bãi bùn, bãi bồi, gắn liền với văn hóa ẩm thực địa phương, thường được thưởng thức trong các buổi họp mặt gia đình.
+        </p>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+        
+        <!-- Ingredients -->
+        <section>
+            <h3 class="text-3xl font-bold mb-6 pb-2 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h3>
+            <ul class="space-y-4">
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> 500g ốc leng tươi (chọn con mập, vỏ bóng)</li>
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> 300g dừa nạo (150ml cốt đặc, 300ml cốt dão)</li>
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> 4-5 nhánh sả (phân nửa băm, phân nửa đập dập)</li>
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> 2-3 trái ớt hiểm</li>
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> 1 nắm rau răm tươi</li>
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> Gia vị: Muối, đường, hạt nêm, dầu ăn</li>
+                <li class="flex items-start"><span class="mr-2 text-gold">◆</span> Nước vo gạo và ớt để ngâm ốc</li>
+            </ul>
+        </section>
+
+        <!-- Steps -->
+        <section>
+            <h3 class="text-3xl font-bold mb-6 pb-2 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h3>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="font-bold text-xl text-cinnabar">Bước 1: Sơ chế</h4>
+                    <p class="justify-text">Ngâm ốc trong nước vo gạo cùng vài lát ớt hiểm trong khoảng 1-2 tiếng để ốc nhả sạch nhớt. Rửa lại nhiều lần dưới vòi nước mạnh.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl text-cinnabar">Bước 2: Xử lý vỏ (Mẹo chuyên nghiệp)</h4>
+                    <p class="justify-text">Dùng dao sắc chặt bỏ phần đuôi nhọn (khoảng 1/3 thân). Việc chặt đúng "khớp" giúp tạo áp suất khi hút, khiến thịt ốc dễ chui ra ngoài.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl text-cinnabar">Bước 3: Xào & Nấu</h4>
+                    <p class="justify-text">Phi thơm sả ớt, đun sôi 300ml nước dão dừa, nêm nếm gia vị. Cho ốc vào đảo nhanh ở lửa lớn 3-5 phút.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-5xl mx-auto mt-16 p-8 bg-white border-2 border-gold shadow-lg rounded-sm">
+        <h3 class="text-2xl font-bold mb-4 text-gold italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+        <ul class="list-disc ml-6 space-y-2 justify-text">
+            <li><strong>Kỹ thuật nhiệt:</strong> Tuyệt đối không đun nước cốt đặc quá lâu sau khi cho vào vì sẽ làm cốt dừa bị tách dầu.</li>
+            <li><strong>Cân bằng vị:</strong> Sử dụng một chút muối để "đằm" lại vị ngọt của đường và dừa, giúp món ăn không bị ngấy.</li>
+            <li><strong>Kiểm tra độ "hút":</strong> Sau khi chặt đuôi, hãy thử hút một con để đảm bảo thông thoáng trước khi chế biến hàng loạt.</li>
+        </ul>
+    </section>
+
+    <!-- Variations -->
+    <section class="max-w-5xl mx-auto mt-16">
+        <h3 class="text-3xl font-bold mb-6 divider">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 border-b border-cinnabar bg-gray-50">
+                <h4 class="font-bold text-lg mb-2">Ốc leng xào bơ tỏi</h4>
+                <p class="text-sm justify-text italic">Dùng bơ tỏi thay thế cốt dừa cho những ai thích vị thơm ngậy kiểu phương Tây.</p>
+            </div>
+            <div class="p-6 border-b border-cinnabar bg-gray-50">
+                <h4 class="font-bold text-lg mb-2">Phiên bản đậm đà</h4>
+                <p class="text-sm justify-text italic">Thêm một thìa sữa đặc vào giai đoạn cuối để tăng độ sánh mịn và mùi thơm cho nước sốt.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info -->
+    <section class="max-w-5xl mx-auto mt-16 grid md:grid-cols-2 gap-8 pt-8 border-t border-gray-300">
+        <div>
+            <h4 class="font-bold text-xl mb-2 underline decoration-gold">5. Giá trị dinh dưỡng</h4>
+            <p class="text-sm justify-text">Ốc leng cung cấp Protein, Canxi và Vitamin B12. Tuy nhiên, nước cốt dừa chứa nhiều calo; người cần kiểm soát Cholesterol nên dùng lượng sốt vừa phải. Ước tính 250-300 kcal/khẩu phần.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-2 underline decoration-gold">6. Gợi ý trình bày</h4>
+            <p class="text-sm justify-text">Sử dụng đĩa sâu lòng màu trắng sứ. Rưới sốt ngập nửa thân ốc, điểm xuyết rau răm và ớt chỉ thiên để tạo màu sắc rực rỡ. Phục vụ kèm bánh mì nóng để tận hưởng trọn vẹn sốt béo.</p>
+        </div>
+    </section>
+
+</body>
+</html>
