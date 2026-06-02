@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp: Bánh Mì Bì Xíu Mại Sài Gòn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .text-justify { text-align: justify; }
+        
+        .divider {
+            position: relative;
+            height: 1px;
+            background: #B87333;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .divider::after {
+            content: '✦';
+            background: #FCFAFA;
+            padding: 0 1rem;
+            color: #B87333;
+            font-size: 1.5rem;
+        }
+
+        .gold-border {
+            border: 2px double #B87333;
+        }
+        
+        .cinnabar-text { color: #E34234; }
+        
+        h1, h2, h3 { font-family: 'Times New Roman', serif; }
+    </style>
+</head>
+<body class="p-4 md:p-12 max-w-5xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 uppercase tracking-tighter">Bánh Mì Bì Xíu Mại Sài Gòn</h1>
+        <p class="text-xl italic text-gray-600 mb-8">Saigon Meatball & Shredded Pork Skin Banh Mi</p>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-gray-300 py-6 my-6">
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest cinnabar-text font-bold">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest cinnabar-text font-bold">Thời gian</span>
+                <span class="text-lg">90 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest cinnabar-text font-bold">Khẩu phần</span>
+                <span class="text-lg">4 - 5 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest cinnabar-text font-bold">Nguồn gốc</span>
+                <span class="text-lg">Sài Gòn</span>
+            </div>
+        </div>
+        <p class="text-justify px-2 italic text-gray-700">Món ăn là sự giao thoa tinh tế giữa kỹ thuật làm xíu mại của người Hoa và cách chế biến bì truyền thống của người Việt, tạo nên một nét đặc trưng riêng biệt trong văn hóa bánh mì Sài Gòn.</p>
+    </header>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Left Column: Ingredients -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 cinnabar-text border-b-2 border-gray-200 pb-2">1. Nguyên liệu</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-xl font-bold underline mb-2">Phần Xíu Mại</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>400g thịt nạc dăm xay (tỷ lệ 7 nạc : 3 mỡ).</li>
+                        <li>100g mỡ gáy heo, xắt hạt lựu nhỏ.</li>
+                        <li>1/2 củ sắn (củ đậu), băm nhỏ, vắt ráo nước.</li>
+                        <li>3 quả cà chua chín mọng.</li>
+                        <li>Gia vị: Hành tím, tỏi, tiêu sọ, đường phèn, hạt nêm, nước mắm, dầu màu điều.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold underline mb-2">Phần Bì</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>200g da heo (chọn da trắng sạch).</li>
+                        <li>200g thịt nạc lưng hoặc nạc đùi.</li>
+                        <li>50g thính gạo rang thơm.</li>
+                        <li>Gia vị: Tỏi phi, muối, đường, nước tương.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold underline mb-2">Ăn kèm</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>5 ổ bánh mì giòn, dưa chua, hành ngò, dưa leo, ớt sừng.</li>
+                        <li>Nước mắm chua ngọt đặc kẹo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 cinnabar-text border-b-2 border-gray-200 pb-2">2. Các bước thực hiện</h2>
+            <div class="space-y-8">
+                <div class="relative pl-6 border-l-2 border-amber-600">
+                    <h4 class="font-bold text-lg">Chế biến Xíu Mại</h4>
+                    <p class="text-sm italic text-gray-500">Thời gian: 40 phút</p>
+                    <p class="text-justify text-sm mt-2">Trộn thịt, mỡ, củ sắn, gia vị. Quết kỹ trong 10 phút. Viên tròn, hấp 15 phút. Sốt cà chua xào với dầu màu điều và đường phèn, sau đó rim xíu mại 10 phút.</p>
+                </div>
+                <div class="relative pl-6 border-l-2 border-amber-600">
+                    <h4 class="font-bold text-lg">Chế biến Bì</h4>
+                    <p class="text-sm italic text-gray-500">Thời gian: 30 phút</p>
+                    <p class="text-justify text-sm mt-2">Luộc da heo, thái sợi mỏng. Thịt nạc áp chảo vàng, thái sợi. Trộn da, thịt cùng thính gạo và tỏi phi.</p>
+                </div>
+                <div class="relative pl-6 border-l-2 border-amber-600">
+                    <h4 class="font-bold text-lg">Hoàn thiện</h4>
+                    <p class="text-sm italic text-gray-500">Thời gian: 20 phút</p>
+                    <p class="text-justify text-sm mt-2">Pha nước mắm tỏi ớt (tỷ lệ 1:1:1:0.5) và chuẩn bị dưa chua, rau ăn kèm.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="divider"></div>
+
+    <!-- Special Sections -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Chef's Corner -->
+        <div class="p-6 bg-amber-50 gold-border shadow-inner">
+            <h2 class="text-2xl font-bold mb-4 cinnabar-text">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <ul class="list-none space-y-3">
+                <li class="flex items-start"><span class="mr-2 font-bold text-amber-700">✓</span> Tỷ lệ vàng: Mỡ gáy giúp thịt tan chảy, không bị bở.</li>
+                <li class="flex items-start"><span class="mr-2 font-bold text-amber-700">✓</span> Kỹ thuật vắt củ sắn: Ráo nước để thịt không vỡ khi rim.</li>
+                <li class="flex items-start"><span class="mr-2 font-bold text-amber-700">✓</span> Lưu ý: Không trộn thính khi bì nóng, tránh thính bết dính.</li>
+            </ul>
+        </div>
+
+        <!-- Variations -->
+        <div>
+            <h2 class="text-2xl font-bold mb-4 cinnabar-text">4. Biến tấu</h2>
+            <div class="flex gap-4">
+                <div class="p-4 border border-gray-300 flex-1">
+                    <h4 class="font-bold">Healthy</h4>
+                    <p class="text-sm text-justify">Ức gà xay, bánh mì nguyên cám, tăng lượng rau xanh.</p>
+                </div>
+                <div class="p-4 border border-gray-300 flex-1">
+                    <h4 class="font-bold">Tiện lợi</h4>
+                    <p class="text-sm text-justify">Dùng sốt cà chua đóng hộp, gia giảm gia vị để cân bằng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Info -->
+    <footer class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
+        <div>
+            <h3 class="text-xl font-bold mb-2">5. Giá trị dinh dưỡng</h3>
+            <p class="text-sm text-justify text-gray-700">Khoảng 450-550 calo/phần. Giàu Protein và Collagen. Nên ăn kèm dưa chua để cân bằng chuyển hóa chất béo.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold mb-2">6. Gợi ý trình bày</h3>
+            <p class="text-sm text-justify text-gray-700">Phết mayonnaise, xếp bì, đặt xíu mại và dùng muỗng ấn nhẹ. Trang trí ngò rí và ớt đỏ để tạo sự tương phản thị giác.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
