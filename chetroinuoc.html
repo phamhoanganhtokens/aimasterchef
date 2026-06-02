@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Chè Trôi Nước</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .section-divider::before, .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #D4AF37;
+            margin: 0 1rem;
+        }
+
+        .ornament {
+            color: #C94C4C;
+            font-size: 1.5rem;
+        }
+
+        .recipe-card {
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="px-4 py-10 md:px-20 lg:px-40">
+
+    <!-- Hero Section -->
+    <header class="text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">Chè Trôi Nước</h1>
+        <h2 class="text-2xl italic text-gray-600 mb-8">Sticky Rice Balls in Ginger Syrup</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white p-6 border-y border-[#D4AF37]">
+            <div class="text-center">
+                <span class="block text-xs uppercase tracking-widest text-[#C94C4C] font-bold">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-xs uppercase tracking-widest text-[#C94C4C] font-bold">Thời gian</span>
+                <span class="text-lg">60 phút</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-xs uppercase tracking-widest text-[#C94C4C] font-bold">Khẩu phần</span>
+                <span class="text-lg">4-5 người</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-xs uppercase tracking-widest text-[#C94C4C] font-bold">Nguồn gốc</span>
+                <span class="text-lg">Việt Nam</span>
+            </div>
+        </div>
+        
+        <p class="mt-10 max-w-3xl mx-auto justify-text text-lg">
+            Món ăn mang đậm đà bản sắc văn hóa Việt Nam, tượng trưng cho sự viên mãn, tròn đầy và sự gắn kết gia đình. Linh hồn của món ăn nằm ở sự kết hợp mộc mạc nhưng tinh tế giữa bột nếp, đậu xanh, gừng tươi và vị ngọt thanh của đường thốt nốt.
+        </p>
+    </header>
+
+    <!-- Divider -->
+    <div class="section-divider"><span class="ornament">✦</span></div>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <!-- Ingredients -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-l-4 border-[#C94C4C] pl-4">1. Nguyên liệu</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-bold text-xl text-[#C94C4C]">Vỏ bánh</h3>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>250g bột nếp ngon</li>
+                        <li>150ml nước ấm (60°C)</li>
+                        <li>1 thìa canh dầu ăn</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl text-[#C94C4C]">Nhân bánh</h3>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>100g đậu xanh xát vỏ</li>
+                        <li>40g đường cát, 30ml nước cốt dừa</li>
+                        <li>1 củ hành khô, dầu ăn, xíu muối</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl text-[#C94C4C]">Nước đường & Ăn kèm</h3>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>150g đường thốt nốt, 500ml nước</li>
+                        <li>1 củ gừng già thái sợi</li>
+                        <li>Nước cốt dừa & mè trắng rang</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-l-4 border-[#C94C4C] pl-4">2. Các bước thực hiện</h2>
+            <div class="space-y-8">
+                <div class="flex gap-4">
+                    <span class="text-2xl font-bold text-[#D4AF37]">01</span>
+                    <p class="justify-text"><b>Làm nhân:</b> Hấp chín đậu xanh, tán nhuyễn. Phi thơm hành, sên đậu với đường, cốt dừa, muối cho khô ráo. Vo viên 15g.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-2xl font-bold text-[#D4AF37]">02</span>
+                    <p class="justify-text"><b>Nhào bột:</b> Trộn nước ấm và dầu ăn vào bột nếp, nhào dẻo mịn. Để nghỉ 15 phút.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-2xl font-bold text-[#D4AF37]">03</span>
+                    <p class="justify-text"><b>Tạo hình:</b> Bao nhân vào bột, vo tròn. Làm thêm các viên chè ỉ không nhân.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-2xl font-bold text-[#D4AF37]">04</span>
+                    <p class="justify-text"><b>Luộc & Hoàn thiện:</b> Luộc chín, vớt vào nước đá. Nấu nước đường thốt nốt với gừng rồi thả bánh vào đun liu riu.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="my-16 p-8 bg-amber-50 border-2 border-[#D4AF37] rounded-sm">
+        <h2 class="text-2xl font-bold text-[#C94C4C] mb-4 flex items-center">
+            <span class="mr-2">Chef’s Corner</span> 👨‍🍳
+        </h2>
+        <p class="justify-text italic mb-4">"Kỹ thuật vỏ bánh: Luôn dùng nước ấm để nhào bột, giúp bột nếp 'chín' một nửa, tăng độ dẻo. Thêm chút dầu ăn giúp vỏ bánh bóng bẩy và không nứt."</p>
+        <ul class="text-sm space-y-2">
+            <li>• <b>Nước đường:</b> Không khuấy mạnh, hớt bọt để có màu hổ phách trong vắt.</li>
+            <li>• <b>Tiện ích:</b> Đậu xanh có thể làm bằng lò vi sóng 10-12 phút. Bánh có thể cấp đông để dùng dần.</li>
+        </ul>
+    </section>
+
+    <!-- Variations & Nutrition -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="recipe-card p-6">
+            <h3 class="text-xl font-bold mb-4">4. Biến tấu</h3>
+            <p class="justify-text text-sm">Tạo màu sắc tự nhiên từ lá dứa (xanh), gấc (đỏ cam), hoặc hoa đậu biếc (tím). Có thể dùng nhân mặn (thịt băm, mộc nhĩ) thay cho đậu xanh truyền thống.</p>
+        </div>
+        <div class="recipe-card p-6">
+            <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+            <p class="justify-text text-sm">Khoảng 300-350 kcal/bát. Gừng tươi hỗ trợ tiêu hóa. Nên giảm đường thốt nốt 30% hoặc thay bằng stevia cho chế độ ăn kiêng.</p>
+        </div>
+    </section>
+
+    <!-- Presentation -->
+    <section class="bg-gray-100 p-8">
+        <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-[#C94C4C]">6. Gợi ý trình bày</h3>
+        <p class="justify-text">Sử dụng bát gốm sứ mộc mạc hoặc men ngọc. Rưới cốt dừa thành đường chéo, điểm xuyết vài sợi gừng vàng và mè rang để đạt độ thẩm mỹ tinh tế nhất.</p>
+    </section>
+
+</body>
+</html>
