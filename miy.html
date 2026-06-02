@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Mì Spaghetti alla Chitarra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .divider {
+            border-top: 1px solid #D4AF37;
+            margin: 2rem 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .divider::after {
+            content: "✦";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FCFAFA;
+            padding: 0 10px;
+            color: #E34234;
+        }
+
+        .cinnabar-border {
+            border-left: 4px solid #E34234;
+        }
+
+        .gold-frame {
+            border: 1px solid #D4AF37;
+            background: #fffdf5;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto text-center py-10">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-[#2C2C2C]">Mì Spaghetti alla Chitarra</h1>
+        <h2 class="text-2xl italic text-[#E34234] mb-8">Spaghetti alla Chitarra with Tiny Meatballs (Pallottine)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[#2C2C2C] text-[#FCFAFA] p-6 rounded-sm">
+            <div class="text-center">
+                <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Độ khó</p>
+                <p class="font-bold">Trung bình - Khó</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Thời gian</p>
+                <p class="font-bold">2 giờ 30 phút</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Khẩu phần</p>
+                <p class="font-bold">4 - 6 người</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Xuất xứ</p>
+                <p class="font-bold">Abruzzo, Ý</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto">
+        <section class="mb-12 justify-text">
+            <p class="text-lg italic leading-relaxed">Đây là món ăn mang đậm tính biểu tượng của vùng Abruzzo, miền trung nước Ý. Sợi mì vuông đặc trưng được cắt bằng một khung gỗ căng dây kim loại gọi là 'chitarra' (đàn guitar). Sự kết hợp giữa sợi mì nhám, sốt cà chua hầm kỹ và hàng chục viên thịt cực nhỏ (pallottine) vo hoàn toàn thủ công thể hiện sự tỉ mỉ, tôn kính nguyên liệu và nét văn hóa ẩm thực lâu đời của người dân chăn cừu bản địa.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Main Content -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Left: Ingredients -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 text-[#E34234]">1. Nguyên liệu</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold uppercase tracking-wider mb-2 border-b border-[#2C2C2C] inline-block">Phần mì Chitarra</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>400g bột mì Semolina</li>
+                            <li>4 quả trứng gà lớn</li>
+                            <li>1 nhúm muối</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-wider mb-2 border-b border-[#2C2C2C] inline-block">Phần thịt viên (Pallottine)</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>300g thịt bò và lợn xay (7:3)</li>
+                            <li>50g phô mai Pecorino Romano</li>
+                            <li>1 quả trứng gà</li>
+                            <li>1 tép tỏi, băm nhuyễn</li>
+                            <li>Nhục đậu khấu, muối, tiêu</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-wider mb-2 border-b border-[#2C2C2C] inline-block">Phần sốt cà chua (Sugo)</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>800g cà chua San Marzano</li>
+                            <li>Hành, cà rốt, cần tây (Sofrito)</li>
+                            <li>60ml dầu ô liu nguyên chất</li>
+                            <li>Lá húng quế tươi</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Steps -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 text-[#E34234]">2. Các bước thực hiện</h3>
+                <div class="space-y-8">
+                    <div class="cinnabar-border pl-4">
+                        <h4 class="font-bold text-lg">Chuẩn bị & Tạo hình</h4>
+                        <p class="text-sm">Nhào bột (15p) & Tạo hình sợi mì (20p). Nếu không có chitarra, cán mỏng và thái tay rộng 2-3mm.</p>
+                    </div>
+                    <div class="cinnabar-border pl-4">
+                        <h4 class="font-bold text-lg">Làm Pallottine</h4>
+                        <p class="text-sm">Trộn thịt, gia vị. Vo viên nhỏ bằng hạt phỉ. Chiên vàng đều các mặt trong 3 phút.</p>
+                    </div>
+                    <div class="cinnabar-border pl-4">
+                        <h4 class="font-bold text-lg">Nấu sốt & Hoàn thiện</h4>
+                        <p class="text-sm">Hầm sốt 45p, thêm thịt viên nấu 20p. Luộc mì al dente, đảo trực tiếp trong chảo sốt.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Chef's Corner -->
+        <section class="gold-frame p-8 my-10">
+            <h3 class="text-2xl font-bold mb-4 text-[#2C2C2C]">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="justify-text">
+                    <p class="font-bold italic">Kỹ thuật kết cấu:</p>
+                    <p class="text-sm">Sợi mì chitarra có bề mặt nhám, là kết cấu hoàn hảo để khóa chặt nước sốt. Tuyệt đối không rửa mì.</p>
+                </div>
+                <div class="justify-text">
+                    <p class="font-bold italic">Phản ứng Maillard:</p>
+                    <p class="text-sm">Chiên viên thịt ở lửa vừa-cao tạo lớp vỏ caramel bảo vệ thịt không bị nát khi hầm.</p>
+                </div>
+                <div class="justify-text">
+                    <p class="font-bold italic">Nhũ hóa (Mantecatura):</p>
+                    <p class="text-sm">Đảo mì cùng nước luộc giúp sốt sệt lại, bóng bẩy ôm lấy từng sợi mì.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-10">
+            <h3 class="text-3xl font-bold mb-6 text-[#E34234]">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-[#F3F0F0] p-6">
+                    <h4 class="font-bold text-xl mb-2">Dành cho người bận rộn</h4>
+                    <p class="justify-text text-sm">Sử dụng mì khô nguyên cám, nấu thịt viên kích thước lớn hơn để tiết kiệm thời gian đáng kể.</p>
+                </div>
+                <div class="bg-[#F3F0F0] p-6">
+                    <h4 class="font-bold text-xl mb-2">Phiên bản truyền thống</h4>
+                    <p class="justify-text text-sm">Sử dụng 100% thịt cừu xay cho phần thịt viên để tái tạo hương vị hoang dã, mộc mạc vùng Abruzzo.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Tech Info -->
+        <section class="grid md:grid-cols-2 gap-12 pb-20">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <ul class="text-sm space-y-2">
+                    <li><strong>Năng lượng:</strong> ~680 kcal/phần</li>
+                    <li><strong>Protein:</strong> 32g (Chất lượng cao)</li>
+                    <li><strong>Carbohydrate:</strong> 75g (Năng lượng bền bỉ)</li>
+                    <li><strong>Chất béo:</strong> 26g (Ô liu tốt cho tim mạch)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="justify-text text-sm">Sử dụng đĩa sâu lòng, tạo hình tổ chim gọn gàng. Rải đều các viên thịt pallottine nhỏ xíu lên trên. Hoàn thiện bằng phô mai bào như tuyết và vài giọt dầu ô liu thượng hạng quanh viền đĩa.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
