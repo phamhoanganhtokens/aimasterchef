@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Chè Đậu Đỏ Bánh Lọt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        body { font-family: 'Times New Roman', Times, serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .justified { text-align: justify; }
+        .separator::after { content: "✦"; display: block; text-align: center; color: #D4AF37; margin: 1rem 0; }
+        .recipe-meta-card { transition: transform 0.2s; }
+        .recipe-meta-card:hover { transform: translateY(-5px); }
+        .pro-box { border: 2px solid #D4AF37; background: #fffdf5; }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Chè Đậu Đỏ Bánh Lọt Nước Cốt Dừa</h1>
+            <p class="italic text-xl text-gray-600 mb-8">Red Bean & Pandan Jelly Dessert – A Symphony of Tradition and Modernity</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-300">
+                <div class="recipe-meta-card">
+                    <span class="block text-sm uppercase tracking-widest text-cinnabar font-bold">Độ khó</span>
+                    <span class="block text-lg">Trung bình</span>
+                </div>
+                <div class="recipe-meta-card">
+                    <span class="block text-sm uppercase tracking-widest text-cinnabar font-bold">Thời gian</span>
+                    <span class="block text-lg">90 - 120 phút</span>
+                </div>
+                <div class="recipe-meta-card">
+                    <span class="block text-sm uppercase tracking-widest text-cinnabar font-bold">Khẩu phần</span>
+                    <span class="block text-lg">4 - 6 người</span>
+                </div>
+                <div class="recipe-meta-card">
+                    <span class="block text-sm uppercase tracking-widest text-cinnabar font-bold">Xuất xứ</span>
+                    <span class="block text-lg">Ẩm thực Nam Bộ</span>
+                </div>
+            </div>
+            <p class="mt-8 text-lg italic justified max-w-3xl mx-auto">
+                Món chè là sự giao thoa tinh tế giữa ẩm thực Nam Bộ với sợi bánh lọt dẻo dai đặc trưng và nét thanh tao của hạt đậu đỏ truyền thống, thường được dùng trong các dịp lễ chùa hoặc giải nhiệt ngày hè.
+            </p>
+        </header>
+
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-lg text-cinnabar mb-2">Phần Đậu Đỏ</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>200g Đậu đỏ hạt nhỏ</li>
+                            <li>150g Đường phèn</li>
+                            <li>1/4 muỗng cà phê muối</li>
+                            <li>1.5 lít nước lọc</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-cinnabar mb-2">Phần Bánh Lọt</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>100g Bột gạo & 50g Bột năng</li>
+                            <li>10g Bột lá dứa</li>
+                            <li>400ml Nước lọc</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-cinnabar mb-2">Phần Nước Cốt Dừa</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>300ml Nước cốt dừa đậm đặc</li>
+                            <li>50g Đường cát & Một chút muối</li>
+                            <li>1 muỗng cà phê bột năng</li>
+                            <li>2 lá dứa cuộn</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-xl mb-1">Bước 1: Chế biến Đậu Đỏ</h4>
+                        <p class="text-sm italic mb-2">(25-35 phút)</p>
+                        <p class="justified">Ngâm đậu đỏ ít nhất 4-6 tiếng. Ninh trong nồi áp suất với muối 20-25 phút. Sau khi đậu mềm, thêm đường phèn và đun nhỏ lửa 10 phút để thấm vị.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-1">Bước 2: Làm Bánh Lọt</h4>
+                        <p class="text-sm italic mb-2">(20 phút)</p>
+                        <p class="justified">Hòa tan bột và nước lá dứa, lọc qua rây. Khuấy đều trên lửa nhỏ cho đến khi bột chín, đặc lại. Ép qua rổ vào chậu nước đá để tạo sợi dẻo dai.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl mb-1">Bước 3: Nấu Nước Cốt Dừa</h4>
+                        <p class="text-sm italic mb-2">(10 phút)</p>
+                        <p class="justified">Đun sôi hỗn hợp cốt dừa, lá dứa, đường và muối. Thêm bột năng hòa tan để tạo độ sánh mịn hoàn hảo.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <hr class="my-12 border-gray-300 separator">
+
+        <!-- Chef's Corner -->
+        <section class="pro-box p-8 rounded-lg mb-12">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <span class="text-gold">✦</span> 3. Mẹo hay từ Vua Đầu Bếp
+            </h2>
+            <ul class="list-none space-y-3 italic">
+                <li class="justified">• <span class="font-bold">Xử lý đậu:</span> Luôn luộc sơ đậu và bỏ nước đầu để loại bỏ vị chát của vỏ đậu.</li>
+                <li class="justified">• <span class="font-bold">Kiểm soát nhiệt:</span> Khi khuấy bánh lọt, lửa quá lớn gây vón cục, lửa quá nhỏ khiến bánh bở, mất độ dai.</li>
+                <li class="justified">• <span class="font-bold">Bảo quản:</span> Dùng tốt nhất trong ngày để tránh tinh bột bị thoái hóa làm cứng sợi bánh.</li>
+            </ul>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">Giải pháp tiện lợi</h3>
+                    <p class="justified">Thay thế bánh lọt thủ công bằng trân châu trắng hoặc thạch lá dứa cắt nhỏ nếu thời gian hạn hẹp.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">Biến tấu hương vị</h3>
+                    <p class="justified">Sử dụng đường thốt nốt thay cho đường phèn để tạo màu nâu óng và hương thơm nồng nàn đặc trưng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 py-8 border-t-2 border-charcoal">
+            <section>
+                <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p class="justified text-sm italic">
+                    Đậu đỏ cung cấp protein thực vật và chất xơ tuyệt vời. Trung bình 300-350 calo/bát. Người tiểu đường nên cân nhắc thay thế đường phèn bằng Stevia.
+                </p>
+            </section>
+            <section>
+                <h3 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="justified text-sm italic">
+                    Sử dụng ly thủy tinh cao cổ, xếp tầng đá bào, đậu đỏ, bánh lọt và rưới nước cốt dừa lên trên. Điểm xuyết thêm mè rang vàng hoặc đậu phộng để tăng kết cấu.
+                </p>
+            </section>
+        </div>
+
+    </main>
+
+</body>
+</html>
