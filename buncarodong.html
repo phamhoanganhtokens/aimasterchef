@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bún Cá Rô Đồng - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#B22222',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #D4AF37;
+            margin: 0 1rem;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto px-6 py-12 text-center border-b border-gold/30">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold text-charcoal mb-4">Bún Cá Rô Đồng</h1>
+        <i class="text-2xl text-cinnabar italic">Northern Field Fish Noodles</i>
+        
+        <!-- Meta Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 bg-white/50 p-6 rounded-lg border border-gold/20 shadow-sm">
+            <div><p class="text-xs uppercase tracking-widest text-gray-500">Độ khó</p><p class="font-bold">Trung bình</p></div>
+            <div><p class="text-xs uppercase tracking-widest text-gray-500">Thời gian</p><p class="font-bold">60 - 75 phút</p></div>
+            <div><p class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</p><p class="font-bold">4 người</p></div>
+            <div><p class="text-xs uppercase tracking-widest text-gray-500">Xuất xứ</p><p class="font-bold">Bắc Bộ</p></div>
+        </div>
+        
+        <p class="mt-8 text-lg max-w-2xl mx-auto text-justify">
+            Món ăn mang đậm bản sắc vùng đồng bằng Bắc Bộ, Việt Nam, nổi bật với hương vị đồng quê dân dã, nước dùng ngọt thanh từ xương cá và vị chua nhẹ của giấm bỗng.
+        </p>
+    </header>
+
+    <!-- Main Body -->
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Left: Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar pb-2">1. Nguyên liệu</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-gold underline">Thành phần chính</h3>
+                        <ul class="mt-2 space-y-1 list-disc list-inside">
+                            <li>Cá rô đồng: 1 kg</li>
+                            <li>Xương ống heo/sườn non: 300g</li>
+                            <li>Bún tươi: 1 kg</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gold underline">Gia vị & Rau</h3>
+                        <ul class="mt-2 space-y-1 list-disc list-inside">
+                            <li>Cà chua: 4 quả</li>
+                            <li>Rau cần nước, hành lá, thì là</li>
+                            <li>Gừng, hành khô, nghệ tươi, ớt</li>
+                            <li>Nước mắm, giấm bỗng, gia vị thông dụng</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar pb-2">2. Các bước thực hiện</h2>
+                <div class="space-y-8">
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Sơ chế cá <span class="text-sm font-normal italic text-gray-500">(15 phút)</span></h4>
+                        <p class="text-justify text-sm mt-1">Làm sạch cá với muối chanh, luộc cùng gừng hành. Gỡ thịt và lọc xương riêng biệt.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Nấu nước dùng <span class="text-sm font-normal italic text-gray-500">(30 phút)</span></h4>
+                        <p class="text-justify text-sm mt-1">Giã nát xương cá, lọc lấy nước cốt. Ninh xương heo hòa chung, vớt bọt liên tục để nước trong vắt.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Chế biến thịt cá <span class="text-sm font-normal italic text-gray-500">(15 phút)</span></h4>
+                        <p class="text-justify text-sm mt-1">Ướp cá với nghệ, lăn bột bắp và chiên giòn hai lửa để vỏ vàng ruộm.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament text-gold text-2xl">✦</div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 rounded-lg border-2 border-gold shadow-inner my-12">
+            <h2 class="text-2xl font-bold text-cinnabar mb-4 text-center">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center p-4">
+                    <p class="font-bold">Lọc xương</p>
+                    <p class="text-sm text-justify">Phải lọc thật kỹ để tránh xương dăm gây nguy hiểm.</p>
+                </div>
+                <div class="text-center p-4 border-l border-r border-gold">
+                    <p class="font-bold">Chiên hai lửa</p>
+                    <p class="text-sm text-justify">Giúp miếng cá không bị mềm nhũn khi chan nước dùng.</p>
+                </div>
+                <div class="text-center p-4">
+                    <p class="font-bold">Độ trong</p>
+                    <p class="text-sm text-justify">Không đậy nắp khi nấu nước dùng để tránh nước bị đục.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-12">
+            <h2 class="text-3xl font-bold mb-6">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 border border-gray-300 rounded hover:border-gold transition-colors">
+                    <h4 class="font-bold mb-2 text-cinnabar">Dùng cá rô phi</h4>
+                    <p class="text-sm text-justify">Dùng phi lê sẵn để tiết kiệm thời gian gỡ xương mà vẫn giữ được vị ngọt.</p>
+                </div>
+                <div class="p-6 border border-gray-300 rounded hover:border-gold transition-colors">
+                    <h4 class="font-bold mb-2 text-cinnabar">Rau kèm khác</h4>
+                    <p class="text-sm text-justify">Sử dụng dọc mùng hoặc cải đắng thay thế để đổi vị theo mùa.</p>
+                </div>
+                <div class="p-6 border border-gray-300 rounded hover:border-gold transition-colors">
+                    <h4 class="font-bold mb-2 text-cinnabar">Thêm đậu phụ</h4>
+                    <p class="text-sm text-justify">Thêm đậu phụ chiên vàng giúp bát bún đầy đặn và đa dạng kết cấu hơn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <footer class="grid md:grid-cols-2 gap-12 mt-16 pt-8 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-3 text-gold">5. Giá trị dinh dưỡng</h3>
+                <p class="text-sm text-justify">Khoảng 350 - 450 kcal mỗi bát. Giàu protein và omega-3 từ cá đồng. Cung cấp canxi từ nước cốt xương cá, vitamin C từ rau củ, tốt cho tiêu hóa.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-3 text-gold">6. Gợi ý trình bày</h3>
+                <p class="text-sm text-justify">Sử dụng tô sứ trắng. Xếp bún dưới, cá vàng, cà chua đỏ và hành thì là xanh. Chan nước dùng sôi, thưởng thức kèm mắm tôm và chanh tươi.</p>
+            </div>
+        </footer>
+    </main>
+
+</body>
+</html>
