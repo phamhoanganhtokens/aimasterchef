@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Sâm Bổ Lượng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; font-family: 'Times New Roman', serif; }
+        .justify-text { text-align: justify; }
+        .divider { border-top: 1px solid #D4AF37; margin: 2rem 0; position: relative; }
+        .divider::after { content: "❊"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #FCFAFA; padding: 0 10px; color: #D4AF37; }
+        .hover-card:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+        .meta-icon { color: #E34234; }
+    </style>
+</head>
+<body class="text-charcoal p-4 md:p-12">
+
+    <!-- Hero Section -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">Sâm Bổ Lượng</h1>
+        <p class="text-xl italic text-gray-600 mb-8">Nourishing Ginseng Dessert Soup</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+            <div><p class="text-xs uppercase tracking-widest text-cinnabar">Độ khó</p><p class="font-bold">Trung bình</p></div>
+            <div><p class="text-xs uppercase tracking-widest text-cinnabar">Thời gian</p><p class="font-bold">~120 Phút</p></div>
+            <div><p class="text-xs uppercase tracking-widest text-cinnabar">Khẩu phần</p><p class="font-bold">4 - 6 Người</p></div>
+            <div><p class="text-xs uppercase tracking-widest text-cinnabar">Nguồn gốc</p><p class="font-bold">Quảng Đông</p></div>
+        </div>
+        <p class="mt-8 text-lg justify-text italic leading-relaxed max-w-3xl mx-auto">
+            Món tráng miệng dưỡng sinh truyền thống có nguồn gốc từ Quảng Đông (Trung Quốc), sau đó du nhập và được biến tấu trở thành món chè thanh nhiệt đặc trưng vô cùng phổ biến tại miền Nam Việt Nam.
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto">
+        <!-- Main Body Grid -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h2>
+                <ul class="space-y-4">
+                    <li class="pb-2 border-b border-gray-200"><strong>Nguyên liệu chính:</strong> Củ sen (200g), Hạt sen (100g), Nhãn nhục (100g), Táo đỏ (100g)</li>
+                    <li class="pb-2 border-b border-gray-200"><strong>Nguyên liệu khô:</strong> Bo bo (50g), Phổ tai (50g), Nấm tuyết (1 búp)</li>
+                    <li class="pb-2 border-b border-gray-200"><strong>Gia vị & Khác:</strong> Đường phèn (250g), Muối, Gừng tươi, Nước lọc (2.5L)</li>
+                </ul>
+            </section>
+
+            <!-- Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h2>
+                <ol class="space-y-6 list-none">
+                    <li class="flex gap-4"><span class="font-bold text-cinnabar text-2xl">01</span><p class="justify-text">Sơ chế: Ngâm nấm, táo, nhãn 30-45 phút. Củ sen thái lát mỏng ngâm nước muối.</p></li>
+                    <li class="flex gap-4"><span class="font-bold text-cinnabar text-2xl">02</span><p class="justify-text">Bo bo: Ngâm qua đêm hoặc luộc áp suất 10 phút, xả nước lạnh để sạch độ nhớt.</p></li>
+                    <li class="flex gap-4"><span class="font-bold text-cinnabar text-2xl">03</span><p class="justify-text">Phổ tai: Rửa sạch bằng nước muối & gừng để khử tanh, giúp rong biển giữ vị thanh tao.</p></li>
+                    <li class="flex gap-4"><span class="font-bold text-cinnabar text-2xl">04</span><p class="justify-text">Hầm: Nấu củ sen và hạt sen với lửa nhỏ 20-30 phút. Liên tục vớt bọt.</p></li>
+                    <li class="flex gap-4"><span class="font-bold text-cinnabar text-2xl">05</span><p class="justify-text">Hoàn thiện: Thêm đường phèn, táo đỏ, bo bo, nấm tuyết. Cuối cùng mới thêm nhãn nhục và phổ tai.</p></li>
+                </ol>
+            </section>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-amber-50 p-8 border-2 border-gold rounded-sm shadow-inner mb-12">
+            <h3 class="text-2xl font-bold mb-4 text-gold">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="list-disc ml-5 space-y-2 justify-text">
+                <li>Luôn sử dụng đường phèn để tạo độ ngọt thanh mát tự nhiên thay vì đường cát.</li>
+                <li>Không nấu nhãn nhục quá lâu để tránh vị chua và làm đục nước chè.</li>
+                <li>Luộc riêng bo bo để giữ nước chè trong vắt, không bị lợn cợn.</li>
+            </ul>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">4. Biến tấu & Nâng cao</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 border border-gray-300 hover-card">
+                    <h4 class="font-bold text-lg mb-2">Phiên bản tại gia</h4>
+                    <p class="justify-text text-sm italic">Sử dụng hạt sen/củ sen đóng hộp sơ chế sẵn để tiết kiệm thời gian mà vẫn đảm bảo độ bùi.</p>
+                </div>
+                <div class="p-6 border border-gray-300 hover-card">
+                    <h4 class="font-bold text-lg mb-2">Phiên bản thượng hạng</h4>
+                    <p class="justify-text text-sm italic">Thêm bạch quả (đã bỏ tim), hạt é, mủ trôm hoặc trứng cút để gia tăng kết cấu và giá trị dinh dưỡng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <div class="grid md:grid-cols-2 gap-12 bg-gray-100 p-8">
+            <section>
+                <h3 class="text-xl font-bold mb-4 text-cinnabar">5. Giá trị dinh dưỡng</h3>
+                <p class="justify-text text-sm">Khoảng 180 - 220 kcal/phần. Món ăn thanh nhiệt, an thần, hỗ trợ bổ máu. Lưu ý hạn chế nếu có tỳ vị hư hàn hoặc trong 3 tháng đầu thai kỳ.</p>
+            </section>
+            <section>
+                <h3 class="text-xl font-bold mb-4 text-cinnabar">6. Gợi ý trình bày</h3>
+                <p class="justify-text text-sm">Sử dụng ly thủy tinh trong suốt, xếp nguyên liệu theo lớp (đáy là củ/hạt sen, đỉnh là nhãn nhục/phổ tai). Điểm xuyết đá bào và một nhánh bạc hà để tạo sự tươi mát.</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
