@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Chè Khoai Môn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#A52A2A',
+                        gold: '#D4AF37'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; color: #2C2C2C; font-family: 'Times New Roman', Times, serif; }
+        .text-justify { text-align: justify; }
+        .divider { border-bottom: 1px solid #D4AF37; }
+        .ornament::after { content: '◈'; display: block; text-align: center; color: #A52A2A; margin: 1rem 0; font-size: 1.5rem; }
+        .step-num { color: #A52A2A; font-weight: bold; }
+        .pro-box { border: 2px double #D4AF37; background-color: #fffaf0; }
+        .hover-card:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-16 lg:px-32">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-charcoal mb-4">Chè Khoai Môn</h1>
+        <h2 class="text-2xl italic text-gray-500 mb-8">Taro Coconut Sticky Rice Pudding</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-gray-300">
+            <div class="text-center">
+                <span class="block text-cinnabar font-bold uppercase text-xs tracking-widest">Độ khó</span>
+                <span class="text-lg">Trung bình</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-cinnabar font-bold uppercase text-xs tracking-widest">Thời gian</span>
+                <span class="text-lg">60 - 90 phút</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-cinnabar font-bold uppercase text-xs tracking-widest">Khẩu phần</span>
+                <span class="text-lg">4 - 6 người</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-cinnabar font-bold uppercase text-xs tracking-widest">Xuất xứ</span>
+                <span class="text-lg">Việt Nam</span>
+            </div>
+        </div>
+        <p class="mt-8 text-justify leading-relaxed max-w-3xl mx-auto italic">
+            Chè Khoai Môn là một món tráng miệng đặc trưng của ẩm thực Việt Nam, đặc biệt phổ biến tại miền Nam. Món ăn này gắn liền với các dịp lễ cúng, giỗ chạp hoặc những buổi họp mặt gia đình, tượng trưng cho sự gắn kết nhờ độ dẻo của nếp và sự bùi bẫm của khoai môn.
+        </p>
+    </header>
+
+    <div class="ornament"></div>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Ingredients -->
+        <section>
+            <h3 class="text-3xl font-bold mb-8 text-cinnabar underline decoration-gold underline-offset-8">1. Nguyên liệu</h3>
+            <ul class="space-y-4 text-lg">
+                <li class="flex items-center gap-3"><span>•</span> Khoai môn (sáp): 500g</li>
+                <li class="flex items-center gap-3"><span>•</span> Gạo nếp (cái hoa vàng): 200g</li>
+                <li class="flex items-center gap-3"><span>•</span> Nước cốt dừa đậm đặc: 400ml</li>
+                <li class="flex items-center gap-3"><span>•</span> Đường cát: 200g - 250g</li>
+                <li class="flex items-center gap-3"><span>•</span> Lá dứa (Lá nếp): 5-7 lá</li>
+                <li class="flex items-center gap-3"><span>•</span> Gia vị: Muối, Bột năng, Vani/Nước hoa bưởi</li>
+            </ul>
+        </section>
+
+        <!-- Steps -->
+        <section>
+            <h3 class="text-3xl font-bold mb-8 text-cinnabar underline decoration-gold underline-offset-8">2. Các bước thực hiện</h3>
+            <div class="space-y-8">
+                <div><h4 class="font-bold text-xl"><span class="step-num">01.</span> Sơ chế</h4><p class="text-justify">Khoai môn gọt vỏ, cắt khối 2cm, ngâm muối loãng.</p></div>
+                <div><h4 class="font-bold text-xl"><span class="step-num">02.</span> Hấp khoai</h4><p class="text-justify italic">Kỹ thuật Chef:</p><p class="text-justify">Hấp cách thủy đến khi chín tới (80%), trộn cùng 2 muỗng đường.</p></div>
+                <div><h4 class="font-bold text-xl"><span class="step-num">03.</span> Nấu Nếp</h4><p class="text-justify italic">Kỹ thuật Home Cook:</p><p class="text-justify">Ngâm nếp 2 tiếng, nấu cùng 1 lít nước và lá dứa cho đến khi nở bung.</p></div>
+                <div><h4 class="font-bold text-xl"><span class="step-num">04.</span> Hoàn thiện</h4><p class="text-justify">Cho khoai vào nồi nếp, thêm đường muối, nấu nhỏ lửa 5-10 phút.</p></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner & Variations -->
+    <section class="my-16">
+        <div class="pro-box p-8 rounded-sm mb-12">
+            <h3 class="text-2xl font-bold mb-4 text-cinnabar uppercase">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="list-disc pl-5 space-y-2 italic">
+                <li>Chọn khoai: Ưu tiên khoai có nhiều vân tím, cầm nặng tay, không mọng nước.</li>
+                <li>Cân bằng vị: Một nhúm muối là bí mật để làm nổi bật vị ngọt thanh và độ béo.</li>
+                <li>Kết cấu: Nếp phải "tới", trong, không được đặc cứng. Dùng nước sôi nếu cần loãng.</li>
+            </ul>
+        </div>
+
+        <h3 class="text-3xl font-bold mb-8">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 shadow-sm hover-card border border-gray-200">
+                <h4 class="font-bold text-lg mb-2 text-gold">Chè Khoai Môn Lá Dứa</h4>
+                <p class="text-sm text-justify">Xay lá dứa lấy nước cốt để nấu cùng nếp, tạo màu xanh mướt tự nhiên.</p>
+            </div>
+            <div class="bg-white p-6 shadow-sm hover-card border border-gray-200">
+                <h4 class="font-bold text-lg mb-2 text-gold">Phiên bản Keto/Healthy</h4>
+                <p class="text-sm text-justify">Thay đường bằng Erythritol và gạo nếp bằng hạt chia cho người ăn kiêng.</p>
+            </div>
+            <div class="bg-white p-6 shadow-sm hover-card border border-gray-200">
+                <h4 class="font-bold text-lg mb-2 text-gold">Khoai môn lệ phố</h4>
+                <p class="text-sm text-justify">Sử dụng khoai môn tím đậm để có màu sắc bắt mắt mà không cần dùng phẩm màu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Info -->
+    <footer class="grid md:grid-cols-2 gap-12 py-12 border-t border-gray-300">
+        <section>
+            <h4 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h4>
+            <p class="text-justify text-sm">Năng lượng: 350-450 kcal. Khoai môn giàu chất xơ hỗ trợ tiêu hóa. Gạo nếp cung cấp carb phức hợp. Lưu ý: Chỉ số GI cao, người tiểu đường cần sử dụng đường ăn kiêng.</p>
+        </section>
+        <section>
+            <h4 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h4>
+            <p class="text-justify text-sm">Múc chè ra bát sứ trắng, rưới cốt dừa xoắn ốc. Điểm thêm mè rang hoặc đậu phộng giã dập. Cắm một ngọn lá dứa tạo sự tươi mới. Chụp ở góc 45 độ để thấy rõ lớp cốt dừa sánh mịn.</p>
+        </section>
+    </footer>
+
+</body>
+</html>
