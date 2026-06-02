@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Chè Bà Ba Nam Bộ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#C5A059'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .text-justify { text-align: justify; }
+        .divider { border-top: 1px solid #C5A059; margin: 2rem 0; position: relative; }
+        .divider::after { content: '★'; position: absolute; left: 50%; top: -12px; transform: translateX(-50%); background: #FCFAFA; padding: 0 10px; color: #C5A059; font-size: 1.2rem; }
+        .section-header { color: #E34234; border-bottom: 2px solid #C5A059; display: inline-block; padding-bottom: 0.25rem; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-8 lg:px-20">
+
+    <main class="max-w-6xl mx-auto bg-white p-8 md:p-16 shadow-xl border border-gray-200">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 uppercase tracking-widest">Chè Bà Ba</h1>
+            <p class="text-xl italic text-gray-600 mb-8">Chè Thưng Nam Bộ - The Essence of Southern Soul</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-parchment p-6 border-y border-gold text-sm uppercase tracking-wider font-semibold">
+                <div class="flex flex-col items-center"><span class="text-cinnabar">Độ khó</span><span>Trung bình</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar">Thời gian</span><span>1g 25p</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar">Khẩu phần</span><span>6 - 8 người</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar">Nguồn gốc</span><span>Nam Bộ</span></div>
+            </div>
+        </header>
+
+        <section class="mb-12 text-justify text-lg leading-relaxed">
+            <p>Món chè đặc trưng của vùng Nam Bộ, mang tên "Bà Ba" gợi nhớ hình ảnh người phụ nữ miền Tây hiền hòa, mộc mạc trong chiếc áo bà ba. Món ăn là sự giao thoa tinh tế giữa sự trù phú của miệt vườn sông nước và vị béo ngậy, ngọt thanh đặc trưng của ẩm thực phương Nam.</p>
+        </section>
+
+        <!-- Main Recipe Body -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Ingredients -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6 section-header">1. Nguyên liệu</h2>
+                <ul class="space-y-4 text-lg">
+                    <li><strong class="text-cinnabar">•</strong> Khoai lang (vàng & tím): 200g</li>
+                    <li><strong class="text-cinnabar">•</strong> Khoai môn: 150g | Khoai mì: 150g</li>
+                    <li><strong class="text-cinnabar">•</strong> Đậu xanh cà: 100g | Đậu phộng: 50g</li>
+                    <li><strong class="text-cinnabar">•</strong> Hạt sen: 50g | Bột báng: 30g | Bột khoai: 30g</li>
+                    <li><strong class="text-cinnabar">•</strong> Phổ tai: 10g | Lá dứa: 5-6 lá</li>
+                    <li><strong class="text-cinnabar">•</strong> Nước cốt dừa: 300ml | Nước dão: 1.5 lít</li>
+                    <li><strong class="text-cinnabar">•</strong> Đường phèn: 300g | Muối: 1/2 muỗng</li>
+                </ul>
+            </div>
+
+            <!-- Steps -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6 section-header">2. Các bước thực hiện</h2>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Sơ chế (30-45p):</h4>
+                        <p class="text-justify italic">Ngâm đậu, hạt sen, bột báng; phổ tai ngâm nở, cắt khúc.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Xử lý củ (15p):</h4>
+                        <p class="text-justify italic">Thái hạt lựu, ngâm muối để không bị thâm.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Nấu nền (20p):</h4>
+                        <p class="text-justify italic">Luộc chín đậu, nấu nước dão dừa với khoai và lá dứa.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="font-bold">Hoàn thiện (10p):</h4>
+                        <p class="text-justify italic">Kết hợp nguyên liệu, thêm cốt dừa nhất, nêm đường phèn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Chef's Corner -->
+        <section class="bg-parchment p-8 border-2 border-double border-gold my-12">
+            <h2 class="text-2xl font-bold mb-4 text-cinnabar text-center">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <div class="text-justify space-y-4">
+                <p><strong>Kỹ thuật cắt thái (Macedoine):</strong> Việc thái các loại khoai cùng một kích thước không chỉ giúp món ăn đẹp mắt mà còn đảm bảo thời gian chín đồng đều.</p>
+                <p><strong>Kiểm soát nhiệt độ:</strong> Tuyệt đối không đun sôi bùng sau khi cho nước cốt dừa nhất vào để tránh tách lớp dầu.</p>
+                <p><strong>Giữ phom khoai:</strong> Ngâm khoai qua nước vôi trong 1-2 giờ để khoai dẻo mà không bị nát.</p>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-12">
+            <h2 class="text-2xl font-bold mb-8 section-header">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 border border-gray-300 hover:border-gold transition-all">
+                    <h3 class="font-bold text-cinnabar mb-2">Nội trợ hiện đại</h3>
+                    <p class="text-sm italic">Sử dụng nước cốt dừa đóng lon thay cho nước cốt tươi để tiết kiệm thời gian.</p>
+                </div>
+                <div class="p-6 border border-gray-300 hover:border-gold transition-all">
+                    <h3 class="font-bold text-cinnabar mb-2">Thêm gia vị</h3>
+                    <p class="text-sm italic">Thêm củ năng tạo độ giòn hoặc bí đỏ, nấm tuyết tạo sự đa dạng.</p>
+                </div>
+                <div class="p-6 border border-gray-300 hover:border-gold transition-all">
+                    <h3 class="font-bold text-cinnabar mb-2">Đường thốt nốt</h3>
+                    <p class="text-sm italic">Thay đường phèn bằng đường thốt nốt để có màu cánh gián và hương caramel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid md:grid-cols-2 gap-12 mt-12 border-t pt-8">
+            <section>
+                <h2 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h2>
+                <p class="text-justify text-sm italic">~350-400 kcal/chén. Giàu tinh bột phức hợp và protein thực vật. Khuyến nghị người tiểu đường nên giảm 30% lượng đường.</p>
+            </section>
+            <section>
+                <h2 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h2>
+                <p class="text-justify text-sm italic">Dùng chén gốm hoặc gáo dừa. Trang trí bằng mè rang hoặc đậu phộng giã dập, rưới thêm chút nước cốt dừa tạo điểm nhấn.</p>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
