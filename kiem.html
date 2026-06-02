@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Kiểm (Chè Kiểm)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'cream': '#FCFAFA',
+                        'cinnabar': '#E34234',
+                        'gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'serif-custom': ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .text-justify { text-align: justify; }
+        .section-divider { border-bottom: 1px solid #C5A059; position: relative; }
+        .section-divider::after { content: "★"; display: block; text-align: center; color: #E34234; background: #FCFAFA; width: 30px; margin: -10px auto 0; font-size: 1.2rem; }
+        .pro-tip-box { border: 2px double #C5A059; background-color: #FFFDF5; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto mb-16 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-charcoal mb-4">Kiểm (Chè Kiểm)</h1>
+        <p class="italic text-xl text-gold mb-8">Traditional Southern Buddhist Dessert</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 border-y border-gold/30 text-sm uppercase tracking-widest font-semibold">
+            <div class="flex flex-col items-center"><span>Độ khó</span><span class="text-cinnabar">Trung bình</span></div>
+            <div class="flex flex-col items-center"><span>Thời gian</span><span class="text-cinnabar">1h 30p</span></div>
+            <div class="flex flex-col items-center"><span>Khẩu phần</span><span class="text-cinnabar">6-8 người</span></div>
+            <div class="flex flex-col items-center"><span>Vùng miền</span><span class="text-cinnabar">Nam Bộ</span></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto">
+        <section class="mb-12">
+            <p class="text-lg leading-relaxed text-justify">
+                Món Kiểm bắt nguồn từ văn hóa ẩm thực Phật giáo Nam Bộ, thường được nấu vào ngày rằm, mùng một hoặc dịp Vu Lan. Theo truyền thống, đây là sự giao thoa độc đáo giữa vị mặn nhẹ và ngọt thanh, sử dụng các nguyên liệu "cây nhà lá vườn" mộc mạc do Phật tử mang đến chùa cúng dường. Món ăn thể hiện tinh thần trân quý vạn vật, không lãng phí và sự hòa hợp của ngũ hành thông qua hương vị.
+            </p>
+        </section>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <!-- Ingredients -->
+            <div>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar underline decoration-gold decoration-2 underline-offset-8">1. Nguyên liệu</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 300g Bí đỏ, 200g Khoai lang mật, 200g Khoai môn</li>
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 50g Đậu phộng, 50g Đậu bi/ngự</li>
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 150g Mít chín (thái sợi), 20g Mộc nhĩ</li>
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 50g Bột khoai, 30g Bột báng</li>
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 50g Tàu hũ ky</li>
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 300ml Nước cốt dừa đặc, 1.5 lít nước dừa dão</li>
+                    <li class="flex items-start"><span class="text-gold mr-2">✦</span> 150g đường phèn, 1 muỗng cafe muối hạt</li>
+                </ul>
+            </div>
+
+            <!-- Steps -->
+            <div>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar underline decoration-gold decoration-2 underline-offset-8">2. Các bước thực hiện</h2>
+                <div class="space-y-6">
+                    <div><span class="font-bold text-lg text-gold">Bước 1: Sơ chế</span><p class="text-justify">Ngâm đậu, bột khoai, bột báng qua đêm hoặc nước ấm. Cắt củ quả vuông 2.5cm.</p></div>
+                    <div><span class="font-bold text-lg text-gold">Bước 2: Luộc đậu</span><p class="text-justify">Luộc chín đậu với chút muối để đạt độ mềm hoàn hảo.</p></div>
+                    <div><span class="font-bold text-lg text-gold">Bước 3: Nấu nước cốt</span><p class="text-justify">Đun nước dừa dão, cho khoai và bí theo độ cứng giảm dần.</p></div>
+                    <div><span class="font-bold text-lg text-gold">Bước 4: Hoàn thiện</span><p class="text-justify">Thêm các nguyên liệu còn lại, nêm gia vị cân bằng ngọt - mặn, thêm cốt dừa đặc rồi tắt bếp.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chef's Corner -->
+        <div class="pro-tip-box p-8 mb-16">
+            <h3 class="text-2xl font-bold text-charcoal mb-4">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="list-disc list-inside space-y-2 text-justify italic">
+                <li>Kỹ thuật cắt thái: Cắt củ quả thật đều tay để thời gian chín được đồng bộ.</li>
+                <li>Xử lý khoai môn: Chiên sơ khoai môn ngập dầu giúp khoai không bị nát làm đục nước cốt dừa.</li>
+                <li>Kiểm soát nhiệt: Tuyệt đối không để sôi bùng sau khi cho nước cốt dừa đặc vào.</li>
+            </ul>
+        </div>
+
+        <!-- Variations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center section-divider">4. Biến tấu & Phiên bản nâng cao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 shadow-sm border border-gold/20">
+                    <h4 class="font-bold mb-2">Thay thế đường</h4>
+                    <p class="text-sm text-justify">Dùng đường thốt nốt thay đường phèn để có màu vàng ươm và vị ngọt sâu.</p>
+                </div>
+                <div class="bg-white p-6 shadow-sm border border-gold/20">
+                    <h4 class="font-bold mb-2">Biến tấu củ quả</h4>
+                    <p class="text-sm text-justify">Có thể thêm khoai mỡ, sắn, hạt sen hoặc chuối sứ để tăng độ đa dạng.</p>
+                </div>
+                <div class="bg-white p-6 shadow-sm border border-gold/20">
+                    <h4 class="font-bold mb-2">Hương vị chuyên sâu</h4>
+                    <p class="text-sm text-justify">Thay thế mít bằng sầu riêng để tạo mùi thơm béo ngậy, phá cách.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <footer class="grid md:grid-cols-2 gap-12 border-t border-charcoal pt-12">
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-cinnabar">5. Giá trị dinh dưỡng</h4>
+                <p class="text-justify leading-relaxed">
+                    Món ăn là bữa tiệc thực vật giàu năng lượng (350-400 kcal/phần). Bí đỏ và khoai lang dồi dào Vitamin A và chất xơ. Các loại đậu cung cấp protein thực vật và sắt. Nên thưởng thức vừa phải để đảm bảo sức khỏe tim mạch do chất béo từ dừa.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-cinnabar">6. Gợi ý trình bày</h4>
+                <p class="text-justify leading-relaxed">
+                    Sử dụng bát sứ sâu lòng màu trắng hoặc men ngọc. Đặt các khối củ làm bệ đỡ, xếp mít và tàu hũ ky ở trên. Rắc đậu phộng rang và trang trí một nhánh lá dứa xanh tươi để tạo độ tương phản.
+                </p>
+            </div>
+        </footer>
+    </main>
+
+</body>
+</html>
