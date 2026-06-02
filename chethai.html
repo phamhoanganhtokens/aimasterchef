@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Chè Thái</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#C04000',
+                        gold: '#D4AF37'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; color: #2C2C2C; font-family: 'Times New Roman', serif; }
+        .text-justify { text-align: justify; }
+        .divider { border-bottom: 1px solid #D4AF37; }
+        .pro-box { border: 2px double #D4AF37; background: #fffdf5; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold text-charcoal uppercase tracking-widest mb-4">Chè Thái</h1>
+        <h2 class="text-2xl italic text-cinnabar mb-8">Chè Trái Cây Thập Cẩm Kiểu Thái</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-tighter text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-tighter text-gray-500">Thời gian</span>
+                <span class="font-bold">60 - 90 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-tighter text-gray-500">Nguồn gốc</span>
+                <span class="font-bold">Thái Lan / Việt Nam</span>
+            </div>
+        </div>
+        <p class="mt-8 text-lg text-justify max-w-3xl mx-auto leading-relaxed">
+            <i>Món ăn có nguồn gốc từ món "Tub Tim Krob" (Chè củ năng) và "Ruam Mit" của Thái Lan. Khi du nhập vào Việt Nam, món chè đã được biến tấu mạnh mẽ bằng việc thêm vào các loại trái cây nhiệt đới đặc trưng như mít, sầu riêng, nhãn và vải để phù hợp với khẩu vị địa phương.</i>
+        </p>
+    </header>
+
+    <!-- Main Body Grid -->
+    <main class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        
+        <!-- Left: Ingredients -->
+        <section>
+            <h3 class="text-3xl font-bold mb-6 text-cinnabar border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h3>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="font-bold text-xl mb-2">Phần hạt lựu</h4>
+                    <ul class="list-disc pl-5 space-y-1 text-justify">
+                        <li>200g củ năng tươi (hoặc củ mã thầy)</li>
+                        <li>100g bột năng</li>
+                        <li>50ml nước cốt lá dứa (tạo màu xanh)</li>
+                        <li>50ml nước cốt củ dền (tạo màu đỏ)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl mb-2">Phần thạch & Trái cây</h4>
+                    <ul class="list-disc pl-5 space-y-1 text-justify">
+                        <li>Thạch: 10g bột rau câu dẻo, 100g đường, 600ml nước lọc, tinh dầu bưởi.</li>
+                        <li>Trái cây: 200g mít thái sợi, 200g nhãn tươi, 200g vải thiều, 100g cơm sầu riêng.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl mb-2">Nước cốt sữa & Phụ liệu</h4>
+                    <ul class="list-disc pl-5 space-y-1 text-justify">
+                        <li>400ml nước cốt dừa, 200ml sữa tươi, 100ml sữa đặc, muối, 2 lá dứa.</li>
+                        <li>Đá bào, dừa nạo, đậu phộng rang.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right: Steps -->
+        <section>
+            <h3 class="text-3xl font-bold mb-6 text-cinnabar border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h3>
+            <div class="space-y-6">
+                <div class="group cursor-pointer">
+                    <h4 class="font-bold text-lg text-charcoal">1. Chế biến thạch rau câu <span class="text-gold italic font-normal text-sm block">15 phút</span></h4>
+                    <p class="text-justify text-sm">Hòa bột rau câu với đường, từ từ cho vào nước sôi, khuấy đều. Chia ra các khuôn, thêm màu lá dứa hoặc để trắng tự nhiên. Cắt khối vuông nhỏ.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <h4 class="font-bold text-lg text-charcoal">2. Làm hạt lựu <span class="text-gold italic font-normal text-sm block">20 phút</span></h4>
+                    <p class="text-justify text-sm">Củ năng cắt hạt lựu, ngâm nước cốt lá dứa/củ dền 15 phút. Áo một lớp bột năng thật dày.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <h4 class="font-bold text-lg text-charcoal">3. Luộc hạt lựu <span class="text-gold italic font-normal text-sm block">10 phút</span></h4>
+                    <p class="text-justify text-sm">Đun nước thật sôi, cho hạt lựu vào. Khi nổi lên bề mặt và trong suốt, vớt ngay thả vào nước đá lạnh để giữ độ giòn.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <h4 class="font-bold text-lg text-charcoal">4. Nấu nước cốt & Hoàn thiện <span class="text-gold italic font-normal text-sm block">20 phút</span></h4>
+                    <p class="text-justify text-sm">Đun nước cốt dừa, sữa, đường, muối và lá dứa lửa nhỏ. Để nguội. Trộn tất cả nguyên liệu vào bát, thêm đá bào và sầu riêng lên trên.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Sections -->
+    <section class="max-w-6xl mx-auto mt-16">
+        <div class="pro-box p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <p class="text-justify text-sm leading-relaxed"><strong>Kỹ thuật bột:</strong> Khi áo bột năng, dùng rây loại bỏ bột thừa để nước chè không bị đục.</p>
+                <p class="text-justify text-sm leading-relaxed"><strong>Nguyên liệu:</strong> Chọn sầu riêng Ri6 hoặc Moongthong chín cây để đạt độ béo hoàn hảo.</p>
+                <p class="text-justify text-sm leading-relaxed"><strong>Tránh lỗi:</strong> Không nấu hạt lựu quá lâu. Nước cốt phải thật nguội để trái cây không bị chín tái.</p>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold mb-6">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-100 p-6 border-b-4 border-cinnabar">
+                    <h4 class="font-bold text-lg mb-2">Phiên bản Healthy</h4>
+                    <p class="text-justify text-sm">Thay sữa đặc bằng mật ong, sử dụng sữa hạt thay cho nước cốt dừa để giảm chất béo bão hòa.</p>
+                </div>
+                <div class="bg-gray-100 p-6 border-b-4 border-gold">
+                    <h4 class="font-bold text-lg mb-2">Phiên bản Tiện lợi</h4>
+                    <p class="text-justify text-sm">Sử dụng củ đậu thay củ năng, kết hợp thạch pha sẵn và trái cây đóng hộp để tiết kiệm thời gian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Info -->
+    <footer class="max-w-6xl mx-auto mt-16 py-8 border-t border-gray-300 grid md:grid-cols-2 gap-12">
+        <div>
+            <h4 class="font-bold text-xl mb-3 text-cinnabar">5. Giá trị dinh dưỡng</h4>
+            <p class="text-justify text-sm leading-relaxed">Một phần chè cung cấp ~400 calo. Giàu Vitamin C từ trái cây và khoáng chất. Lưu ý cho người có vấn đề đường huyết nên hạn chế sữa đặc và sầu riêng.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-3 text-cinnabar">6. Gợi ý trình bày</h4>
+            <p class="text-justify text-sm leading-relaxed">Sử dụng ly thủy tinh cao, sắp xếp theo tầng màu sắc. Đặt miếng sầu riêng lên đỉnh làm điểm nhấn, trang trí cùng lá dứa và dừa nạo.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
