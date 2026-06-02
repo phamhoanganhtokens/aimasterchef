@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Rau Luộc Kho Quẹt Nam Bộ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; color: #2C2C2C; }
+        .font-serif { font-family: 'Times New Roman', Times, serif; }
+        .text-justify { text-align: justify; }
+        .divider::after {
+            content: '❦';
+            display: block;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: #D4AF37;
+        }
+    </style>
+</head>
+<body class="font-serif">
+
+    <div class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 uppercase tracking-widest text-charcoal">Rau Luộc Kho Quẹt Nam Bộ</h1>
+            <h2 class="text-xl italic text-gray-600 mb-8">Southern Vietnamese Boiled Vegetables with Savory Dip</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-cinnabar">Độ khó</span>
+                    <span class="font-bold">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-cinnabar">Thời gian</span>
+                    <span class="font-bold">45 phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-cinnabar">Khẩu phần</span>
+                    <span class="font-bold">3 - 4 người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs uppercase tracking-widest text-cinnabar">Nguồn gốc</span>
+                    <span class="font-bold">Nam Bộ</span>
+                </div>
+            </div>
+            <p class="mt-8 text-justify leading-relaxed max-w-3xl mx-auto">
+                Món ăn dân dã có nguồn gốc từ vùng sông nước Nam Bộ, khởi nguồn từ những bữa cơm nghèo nay đã trở thành đặc sản tinh túy trong các nhà hàng cao cấp nhờ sự kết hợp giữa vị mặn, ngọt, cay nồng và độ tươi giòn của rau củ.
+            </p>
+        </header>
+
+        <!-- Main Recipe Body -->
+        <main class="grid md:grid-cols-2 gap-12">
+            <!-- Left Column: Ingredients -->
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar pb-2 mb-6">1. Nguyên liệu</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold underline mb-2">Phần Kho Quẹt:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm leading-relaxed">
+                            <li>150g mỡ heo (chọn mỡ gáy)</li>
+                            <li>50g tôm khô loại nhỏ</li>
+                            <li>100ml nước mắm truyền thống</li>
+                            <li>70g đường thốt nốt</li>
+                            <li>50ml nước lọc</li>
+                            <li>Hành tím, tỏi, ớt hiểm, tiêu xanh, tiêu sọ</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold underline mb-2">Phần Rau Củ:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm leading-relaxed">
+                            <li>Bầu, khổ qua, đậu bắp, cà rốt</li>
+                            <li>Rau lang, rau muống, cải thìa</li>
+                            <li>Muối, dầu ăn</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar pb-2 mb-6">2. Các bước thực hiện</h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-sm">Sơ chế</h5>
+                        <p class="text-justify text-sm">Thái mỡ hạt lựu, ngâm tôm khô cho mềm.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-sm">Thắng tóp mỡ</h5>
+                        <p class="text-justify text-sm">Đun lửa nhỏ để tóp mỡ vàng giòn, không bị cháy.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-sm">Pha sốt</h5>
+                        <p class="text-justify text-sm">Tỉ lệ 2 mắm : 1.5 đường : 1 nước.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-sm">Kho sốt</h5>
+                        <p class="text-justify text-sm">Đun riu riu đến khi kẹo lại, sánh mượt như mật ong.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h5 class="font-bold text-sm">Luộc rau</h5>
+                        <p class="text-justify text-sm">Sốc nhiệt nước đá để rau giữ màu xanh lục bảo.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="divider"></div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-12">
+            <div class="bg-cream border-2 border-double border-gold p-8 shadow-inner">
+                <h3 class="text-2xl font-bold text-cinnabar mb-4 italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-3 text-sm text-justify">
+                    <li><strong>Kiểm soát kết cấu:</strong> Sốt kho quẹt đạt chuẩn phải có độ "mướt", khi nhấc thìa lên sốt chảy xuống thành dòng chậm.</li>
+                    <li><strong>Lỗi cần tránh:</strong> Không nên cho tóp mỡ vào quá sớm làm tóp mỡ bị ngấm nước mắm, trở nên dai.</li>
+                    <li><strong>Mẹo gia đình:</strong> Nếu không có thời gian thắng mỡ, dùng thịt ba chỉ áp chảo cháy cạnh là giải pháp thay thế hoàn hảo.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar pb-2 mb-6">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border p-4">
+                    <h4 class="font-bold">Kho quẹt chay</h4>
+                    <p class="text-sm text-justify">Thay nước mắm bằng nước tương, tôm khô bằng nấm đông cô băm nhỏ, tóp mỡ bằng đậu hũ chiên giòn.</p>
+                </div>
+                <div class="border p-4">
+                    <h4 class="font-bold">Phiên bản hiện đại</h4>
+                    <p class="text-sm text-justify">Thêm tôm tươi băm nhỏ hoặc thịt bằm để tăng hàm lượng đạm và vị ngọt thanh tự nhiên.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Info -->
+        <section class="grid md:grid-cols-2 gap-12 pt-8 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-3">5. Giá trị dinh dưỡng</h3>
+                <p class="text-sm text-justify leading-relaxed">
+                    Giàu chất xơ từ rau củ giúp hỗ trợ tiêu hóa. Kho quẹt cung cấp protein nhưng cần kiểm soát lượng muối. 
+                    <em>Lời khuyên: Nên ăn kèm nhiều rau để cân bằng vị mặn.</em>
+                </p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-3">6. Gợi ý trình bày</h3>
+                <p class="text-sm text-justify leading-relaxed">
+                    Sử dụng mẹt tre lót lá chuối tạo cảm giác dân dã. Đặt niêu đất kho quẹt nóng hổi ở trung tâm đĩa rau để tạo điểm nhấn thị giác ấm cúng.
+                </p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
