@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Classic Smash Burger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .border-cinnabar {
+            border-color: #E34234;
+        }
+
+        .text-cinnabar {
+            color: #E34234;
+        }
+
+        .gold-border {
+            border: 1px solid #D4AF37;
+        }
+
+        .separator::after {
+            content: "✦";
+            display: block;
+            text-align: center;
+            margin: 2rem 0;
+            color: #D4AF37;
+        }
+    </style>
+</head>
+<body class="py-10 px-4 md:px-12 lg:px-24">
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">Classic Smash Burger</h1>
+        <h2 class="text-2xl italic text-gray-600 mb-8">(Burger Bò Ép Cổ Điển)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-gray-300">
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-cinnabar">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-cinnabar">Thời gian</span>
+                <span class="font-bold text-lg">20 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-cinnabar">Khẩu phần</span>
+                <span class="font-bold text-lg">2 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs uppercase tracking-widest text-cinnabar">Nguồn gốc</span>
+                <span class="font-bold text-lg">Hoa Kỳ</span>
+            </div>
+        </div>
+        <p class="mt-8 text-justify max-w-3xl mx-auto italic text-gray-700">
+            Bắt nguồn từ các quán diner truyền thống của Mỹ vào đầu thế kỷ 20, Classic Smash Burger nổi tiếng với triết lý tối giản: không nhồi nặn thịt nêm nếm sẵn, mà ép thẳng viên thịt bò lên vỉ nướng nóng rực. Kỹ thuật này tối đa hóa phản ứng Maillard, tạo ra lớp vỏ xém giòn đặc trưng mang lại hương vị nguyên bản và đậm đà nhất.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <!-- Ingredients -->
+            <section class="lg:col-span-1">
+                <h3 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar pb-2">1. Nguyên liệu</h3>
+                <ul class="space-y-4 text-gray-800">
+                    <li>• 300g thịt bò xay (80% nạc/20% mỡ)</li>
+                    <li>• 2 vỏ bánh burger (Brioche)</li>
+                    <li>• 4 lát phô mai Cheddar</li>
+                    <li>• 1/2 củ hành tây thái mỏng</li>
+                    <li>• Dưa chuột muối (pickles)</li>
+                    <li>• <b>Sốt Smash:</b> 3 thìa mayo, 1 thìa ketchup, 1/2 thìa mù tạt vàng, 1 thìa nước dưa muối.</li>
+                    <li>• Bơ lạt phết bánh</li>
+                    <li>• Gia vị: Muối tinh, tiêu đen.</li>
+                </ul>
+            </section>
+
+            <!-- Steps -->
+            <section class="lg:col-span-2">
+                <h3 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar pb-2">2. Các bước thực hiện</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar text-xl">01</span>
+                        <p class="text-justify"><b>Chuẩn bị sốt & bánh:</b> Trộn đều các nguyên liệu làm sốt. Phết bơ lên mặt trong vỏ bánh và áp chảo cho xém vàng.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar text-xl">02</span>
+                        <p class="text-justify"><b>Chuẩn bị thịt:</b> Chia 300g thịt bò thành 4 viên (75g/viên). Không nhồi, không nắn chặt. Giữ lạnh.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar text-xl">03</span>
+                        <p class="text-justify"><b>Làm nóng:</b> Đun chảo gang thật nóng đến khi bốc khói nhẹ. Không dùng thêm dầu.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar text-xl">04</span>
+                        <p class="text-justify"><b>Kỹ thuật ép:</b> Đặt thịt vào chảo, phủ hành tây, ép mạnh trong 10 giây. Nêm muối và tiêu.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar text-xl">05</span>
+                        <p class="text-justify"><b>Lật & Phô mai:</b> Nấu 60-90 giây, cạo sát đáy chảo khi lật. Đặt phô mai lên ngay sau đó.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="font-bold text-cinnabar text-xl">06</span>
+                        <p class="text-justify"><b>Hấp bánh & Lắp ráp:</b> Úp nửa trên vỏ bánh lên miếng thịt để làm mềm và chảy phô mai. Xếp chồng theo cấu trúc đế bánh - sốt - dưa muối - thịt.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Special Sections -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <section class="p-8 bg-amber-50 gold-border">
+                <h3 class="text-2xl font-bold mb-4 text-cinnabar">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-3 italic text-sm">
+                    <li>• Tuyệt đối tuân thủ tỷ lệ mỡ 80/20. Mỡ giữ thịt không bị khô khi ép.</li>
+                    <li>• Thịt phải thật lạnh trước khi cho vào chảo.</li>
+                    <li>• Chỉ ép thịt một lần duy nhất khi vừa cho vào chảo.</li>
+                    <li>• Sử dụng xẻng có cạnh vát sắc để giữ lớp vỏ xém giòn nguyên vẹn.</li>
+                </ul>
+            </section>
+
+            <section class="bg-gray-100 p-8">
+                <h3 class="text-2xl font-bold mb-4">4. Biến tấu & Nâng cao</h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-white p-4 border-l-4 border-cinnabar">
+                        <h4 class="font-bold">Giải pháp tại nhà</h4>
+                        <p class="text-sm">Dùng thịt ba chỉ bò nướng lẩu thái mỏng băm nhỏ trộn với nạc xay.</p>
+                    </div>
+                    <div class="bg-white p-4 border-l-4 border-cinnabar">
+                        <h4 class="font-bold">Sốt kiểu Việt</h4>
+                        <p class="text-sm">Thêm tương ớt Sriracha vào sốt để tạo vị cay nhẹ, hợp khẩu vị.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Nutrition & Presentation -->
+        <section class="grid md:grid-cols-2 gap-12 border-t border-gray-300 pt-10">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p class="text-justify text-sm text-gray-700">
+                    Năng lượng: 650 - 750 kcal/phần. Protein: 35g - 40g. Chất béo: 45g. <br><br>
+                    Lời khuyên: Kết hợp với salad giấm táo thay vì khoai tây chiên để trung hòa chất béo.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="text-justify text-sm text-gray-700">
+                    Xếp lớp theo trình tự: Đế bánh -> Sốt -> Dưa muối -> Hai miếng bò chồng lên nhau -> Nắp bánh. Đảm bảo phần viền thịt xém giòn vươn ra ngoài vỏ bánh. Góc chụp 45 độ hất lên là lý tưởng nhất để khoe độ dày.
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
