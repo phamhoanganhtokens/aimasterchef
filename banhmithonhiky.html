@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Döner Kebab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .premium-border {
+            border: 1px solid #D4AF37;
+        }
+
+        .divider {
+            border-bottom: 2px solid #C04000;
+            width: 50px;
+            margin: 20px auto;
+        }
+
+        p, li, .justify-text {
+            text-align: justify;
+        }
+
+        .gold-text { color: #B8860B; }
+        .red-text { color: #C04000; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Header Section -->
+    <header class="max-w-4xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">Döner Kebab</h1>
+        <h2 class="text-2xl italic text-gray-600 mb-8">Thổ Nhĩ Kỳ Cổ Điển</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-300">
+            <div><p class="text-xs uppercase font-bold text-gray-500">Độ khó</p><p class="font-bold">Trung bình</p></div>
+            <div><p class="text-xs uppercase font-bold text-gray-500">Thời gian</p><p class="font-bold">24 giờ + 90p</p></div>
+            <div><p class="text-xs uppercase font-bold text-gray-500">Khẩu phần</p><p class="font-bold">4-6 người</p></div>
+            <div><p class="text-xs uppercase font-bold text-gray-500">Nguồn gốc</p><p class="font-bold">Thổ Nhĩ Kỳ</p></div>
+        </div>
+        <p class="mt-8 text-lg italic text-gray-700">Döner Kebab có nguồn gốc từ Thổ Nhĩ Kỳ, xuất hiện lần đầu tại Bursa vào thế kỷ 19. Từ "Döner" có nghĩa là "quay", phản ánh kỹ thuật nướng thịt trên một trục quay thẳng đứng.</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Ingredients Section -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3"><span class="red-text">01.</span> Nguyên liệu</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold underline mb-2">Phần thịt</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>500g thịt bò thăn hoặc thịt đùi cừu thái mỏng</li>
+                            <li>300g thịt bò xay</li>
+                            <li>100g mỡ bò hoặc mỡ cừu thái mỏng</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold underline mb-2">Gia vị ướp</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>1/2 cốc sữa chua Hy Lạp</li>
+                            <li>Nước cốt 1 củ hành tây</li>
+                            <li>3 tép tỏi, 1 muỗng canh tương cà</li>
+                            <li>Bột cumin, paprika, bột quế, muối, tiêu</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Steps Section -->
+            <section>
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3"><span class="red-text">02.</span> Các bước thực hiện</h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-red-800 pl-4">
+                        <h4 class="font-bold text-lg">Ướp thịt <span class="text-sm font-normal italic">(24 giờ)</span></h4>
+                        <p>Trộn nước cốt hành tây, sữa chua và gia vị. Ướp thịt ít nhất 12-24 giờ để enzyme trong sữa chua làm mềm sợi cơ.</p>
+                    </div>
+                    <div class="border-l-2 border-red-800 pl-4">
+                        <h4 class="font-bold text-lg">Tạo hình khối <span class="text-sm font-normal italic">(2 giờ)</span></h4>
+                        <p>Xếp xen kẽ thịt lát, thịt xay và mỡ. Cuộn chặt tay trong màng bọc thành hình trụ, cấp đông để định hình.</p>
+                    </div>
+                    <div class="border-l-2 border-red-800 pl-4">
+                        <h4 class="font-bold text-lg">Nướng và Cắt</h4>
+                        <p>Nướng 180°C trong 60-80 phút. Dùng dao sắc tỉa từng lớp thịt giòn giòn, đậm đà.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Pro Tips & Variations -->
+        <div class="my-16 p-8 bg-amber-50 border-double border-4 border-amber-600 rounded-lg">
+            <h3 class="text-2xl font-bold mb-4">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="list-none space-y-3">
+                <li class="flex items-start gap-2"><span>★</span> Tỷ lệ mỡ: Duy trì 15-20% mỡ để đảm bảo thịt không bị khô.</li>
+                <li class="flex items-start gap-2"><span>★</span> Nước cốt hành tây: Bí quyết khử mùi và làm mềm thịt hiệu quả nhất.</li>
+                <li class="flex items-start gap-2"><span>★</span> Nhiệt độ: Luôn dùng khay hứng mỡ bên dưới để tránh khói và tận dụng hương vị mỡ nướng.</li>
+            </ul>
+        </div>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-8">4. Biến tấu & Phiên bản</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-gray-200 rounded shadow-sm">
+                    <h4 class="font-bold text-xl mb-2">Tavuk Döner</h4>
+                    <p class="text-sm italic">Phiên bản Gà: Thay bò bằng đùi gà lọc xương, giữ nguyên da để tăng độ béo.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 rounded shadow-sm">
+                    <h4 class="font-bold text-xl mb-2">Healthy Bowl</h4>
+                    <p class="text-sm italic">Thay bánh mì bằng bát salad lớn, kèm quinoa để giảm chỉ số đường huyết.</p>
+                </div>
+                <div class="p-6 bg-white border border-gray-200 rounded shadow-sm">
+                    <h4 class="font-bold text-xl mb-2">Chiên không dầu</h4>
+                    <p class="text-sm italic">160°C trong 40 phút, sau đó nướng nhanh 200°C để tạo lớp vỏ hoàn hảo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <footer class="grid md:grid-cols-2 gap-12 border-t border-gray-300 pt-12">
+            <section>
+                <h3 class="text-2xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p>Mỗi phần cung cấp khoảng 500-600 kcal và 35g protein. Sử dụng sữa chua tách béo cho sốt để đảm bảo sự cân bằng.</p>
+            </section>
+            <section>
+                <h3 class="text-2xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p>Sử dụng bắp cải tím và cà chua để tạo sự đối lập màu sắc. Rắc bột Paprika lên đường sốt zigzag để tạo điểm nhấn chuyên nghiệp.</p>
+            </section>
+        </footer>
+    </main>
+</body>
+</html>
