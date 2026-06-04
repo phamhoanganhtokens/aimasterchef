@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Pad Thai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        cream: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .text-justify { text-align: justify; }
+        .separator::after { content: "★"; display: block; text-align: center; color: #D4AF37; margin: 1rem 0; }
+        .recipe-meta-item { border-right: 1px solid #D4AF37; }
+        .recipe-meta-item:last-child { border-right: none; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-16 lg:px-32">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold mb-4">Pad Thai</h1>
+        <h2 class="text-2xl italic text-gray-600 mb-8">Phở Xào Kiểu Thái</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+            <div class="recipe-meta-item">
+                <p class="text-xs uppercase tracking-widest text-cinnabar">Độ khó</p>
+                <p class="font-bold">Trung bình</p>
+            </div>
+            <div class="recipe-meta-item">
+                <p class="text-xs uppercase tracking-widest text-cinnabar">Thời gian</p>
+                <p class="font-bold">45 phút</p>
+            </div>
+            <div class="recipe-meta-item">
+                <p class="text-xs uppercase tracking-widest text-cinnabar">Khẩu phần</p>
+                <p class="font-bold">2 người</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-widest text-cinnabar">Nguồn gốc</p>
+                <p class="font-bold text-sm">Thái Lan (1930s)</p>
+            </div>
+        </div>
+        <p class="mt-6 text-justify max-w-3xl mx-auto italic">
+            Pad Thai ra đời vào những năm 1930 tại Thái Lan dưới thời Thủ tướng Plaek Phibunsongkhram. Đây là món ăn mang tính biểu tượng quốc gia, kết hợp kỹ thuật xào của Trung Hoa với các hương vị đặc trưng của Thái Lan như me, đường thốt nốt và nước mắm.
+        </p>
+    </header>
+
+    <div class="separator"></div>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <!-- Ingredients -->
+        <section>
+            <h3 class="text-3xl font-bold mb-6 text-cinnabar">1. Nguyên liệu</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-bold border-b border-gray-300 pb-1 mb-2">Thành phần chính</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Bánh phở khô (150g)</li>
+                        <li>Tôm tươi (6-8 con)</li>
+                        <li>Đậu phụ cứng (50g)</li>
+                        <li>Trứng gà (2 quả)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold border-b border-gray-300 pb-1 mb-2">Hương vị & Gia vị</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Tôm khô, Củ cải muối (mỗi loại 1 muỗng canh)</li>
+                        <li>Hẹ tươi (50g), Giá đỗ (100g)</li>
+                        <li>Nước xốt: nước cốt me, đường thốt nốt, nước mắm, ớt bột</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps -->
+        <section>
+            <h3 class="text-3xl font-bold mb-6 text-cinnabar">2. Các bước thực hiện</h3>
+            <div class="space-y-6">
+                <div class="border-l-2 border-gold pl-4">
+                    <p class="font-bold text-lg">Sơ chế phở <span class="text-sm font-normal text-gray-500 italic">(30-40 phút)</span></p>
+                    <p class="text-justify text-sm">Ngâm bánh phở khô trong nước ở nhiệt độ phòng cho đến khi sợi phở dẻo và trắng đục. Không luộc phở.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-4">
+                    <p class="font-bold text-lg">Chế biến xốt <span class="text-sm font-normal text-gray-500 italic">(5 phút)</span></p>
+                    <p class="text-justify text-sm">Đun chảy đường thốt nốt, thêm nước cốt me và nước mắm cho đến khi sệt lại.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-4">
+                    <p class="font-bold text-lg">Xào & Hoàn thiện <span class="text-sm font-normal text-gray-500 italic">(10 phút)</span></p>
+                    <p class="text-justify text-sm">Áp chảo protein, xào nền với tôm khô, kết hợp phở, trứng và rau. Đảo nhanh tay trên lửa lớn.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="my-12 p-8 border-2 border-double border-gold bg-amber-50/30">
+        <h3 class="text-2xl font-bold mb-4 text-cinnabar">3. Mẹo hay từ Vua Đầu Bếp</h3>
+        <ul class="list-none space-y-3 text-justify">
+            <li><strong>Tránh bết dính:</strong> Chỉ xào một lượng nhỏ (tối đa 2 phần) để nhiệt độ chảo ổn định.</li>
+            <li><strong>Kiểm soát độ ẩm:</strong> Sợi phở phải có độ dai (al dente), không được quá mềm.</li>
+            <li><strong>Lỗi cần tránh:</strong> Tuyệt đối không dùng nước xốt cà chua (ketchup) thay nước me.</li>
+        </ul>
+    </section>
+
+    <!-- Variations -->
+    <section class="mb-12">
+        <h3 class="text-3xl font-bold mb-6 text-cinnabar text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="flex flex-wrap gap-4 justify-center">
+            <div class="p-4 border border-gray-300 w-full md:w-64 text-center">
+                <p class="font-bold">Pad Thai Gà/Bò</p>
+                <p class="text-sm italic">Thay tôm bằng ức gà hoặc thăn bò.</p>
+            </div>
+            <div class="p-4 border border-gray-300 w-full md:w-64 text-center">
+                <p class="font-bold">Phiên bản Chay</p>
+                <p class="text-sm italic">Dùng nấm đùi gà thay tôm, nước tương thay mắm.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <!-- Nutrition & Presentation -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+        <div class="bg-gray-100 p-6">
+            <h4 class="font-bold text-cinnabar mb-2 uppercase">5. Giá trị dinh dưỡng</h4>
+            <p>Khoảng 550 - 620 kcal/khẩu phần. Cung cấp đầy đủ tinh bột, protein. Cần lưu ý hàm lượng Natri cao.</p>
+        </div>
+        <div class="bg-gray-100 p-6">
+            <h4 class="font-bold text-cinnabar mb-2 uppercase">6. Gợi ý trình bày</h4>
+            <p>Dùng đĩa gốm hoặc lót lá chuối. Dùng kẹp tạo độ phồng cho phở. Bày giá sống, ớt bột và chanh thành các cụm riêng biệt.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
