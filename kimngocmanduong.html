@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Tĩnh Hà Nhân - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E34234',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FCFAFA; color: #2C2C2C; }
+        .recipe-text { text-align: justify; }
+        .gold-border { border: 1px solid #C5A059; }
+        .divider-ornament::after {
+            content: "✦";
+            display: block;
+            text-align: center;
+            color: #C5A059;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="font-serif antialiased p-4 md:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto mb-16 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-charcoal mb-4">Long Tĩnh Hà Nhân</h1>
+        <p class="text-xl md:text-2xl italic text-gold mb-8">Tôm xào lá trà Long Tĩnh - Longjing Shrimp</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar font-bold uppercase text-xs tracking-widest">Độ khó</span>
+                <span class="text-sm">Trung bình - Cao</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar font-bold uppercase text-xs tracking-widest">Thời gian</span>
+                <span class="text-sm">45 Phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar font-bold uppercase text-xs tracking-widest">Khẩu phần</span>
+                <span class="text-sm">2-4 Người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar font-bold uppercase text-xs tracking-widest">Nguồn gốc</span>
+                <span class="text-sm">Hàng Châu, Trung Quốc</span>
+            </div>
+        </div>
+        <p class="mt-8 recipe-text text-lg leading-relaxed max-w-3xl mx-auto">
+            Đây là món ăn biểu tượng của ẩm thực Hàng Châu (Chiết Giang), gắn liền với điển tích Vua Càn Long du ngoạn Tây Hồ. 
+            Trong bộ phim "Kim Ngọc Mãn Đường", Long Tĩnh Hà Nhân đại diện cho sự thanh tao, tinh khiết và đỉnh cao của kỹ thuật chế biến món xào (Stir-fry).
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+        <!-- Left: Ingredients -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">1. Nguyên liệu</h2>
+            <ul class="space-y-4">
+                <li><span class="font-bold">300g</span> tôm sông tươi (tôm nhỏ, thịt chắc)</li>
+                <li><span class="font-bold">3-5g</span> trà Long Tĩnh hảo hạng</li>
+                <li><span class="font-bold">1</span> lòng trắng trứng gà</li>
+                <li><span class="font-bold">10g</span> tinh bột năng</li>
+                <li><span class="font-bold">15ml</span> rượu Thiệu Hưng</li>
+                <li><span class="font-bold">Gia vị:</span> Muối tinh, đường, dầu thực vật thanh nhẹ</li>
+                <li><span class="font-bold">Nước:</span> Nước ấm 80°C hãm trà</li>
+            </ul>
+        </section>
+
+        <!-- Right: Steps -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">2. Các bước thực hiện</h2>
+            <div class="space-y-6">
+                <div class="recipe-text">
+                    <h3 class="font-bold text-lg text-cinnabar italic">Sơ chế (30 phút)</h3>
+                    <p>Lột vỏ, bỏ chỉ, thấm thật khô tôm bằng giấy thấm dầu để đạt độ giòn tối đa.</p>
+                </div>
+                <div class="recipe-text">
+                    <h3 class="font-bold text-lg text-cinnabar italic">Ướp (20 phút)</h3>
+                    <p>Trộn tôm với muối, rượu, lòng trắng trứng và bột năng. Nghỉ trong ngăn mát tủ lạnh.</p>
+                </div>
+                <div class="recipe-text">
+                    <h3 class="font-bold text-lg text-cinnabar italic">Chế biến (15 phút)</h3>
+                    <p>Hãm trà 80°C. Xào tôm nhiệt thấp cho trắng sứ, sau đó xào nhanh với nước trà để hương thơm thấm sâu.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Sections -->
+    <div class="max-w-5xl mx-auto mt-16 space-y-12">
+        <div class="divider-ornament"></div>
+        
+        <section class="gold-border p-8 bg-gold/5">
+            <h2 class="text-2xl font-bold mb-4 text-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h2>
+            <ul class="list-disc pl-5 space-y-2 recipe-text">
+                <li><span class="font-bold">Độ tươi:</span> Chỉ dùng tôm sông còn sống để đạt độ ngọt tự nhiên.</li>
+                <li><span class="font-bold">Kiểm soát nhiệt:</span> Tuyệt đối không để tôm cháy cạnh. Màu sắc phải là trắng sứ và xanh ngọc.</li>
+                <li><span class="font-bold">Lá trà:</span> Không nên dùng quá nhiều lá trà, tránh vị đắng lấn át vị ngọt của tôm.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-cinnabar inline-block">4. Biến tấu & Phiên bản</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white border border-charcoal/10 shadow-sm">
+                    <h4 class="font-bold text-cinnabar">Dành cho người nội trợ</h4>
+                    <p class="recipe-text text-sm">Có thể dùng tôm nõn biển thay tôm sông. Nếu không có trà Long Tĩnh, sử dụng trà xanh hảo hạng lá nguyên vẹn và rút ngắn thời gian hãm.</p>
+                </div>
+                <div class="p-6 bg-white border border-charcoal/10 shadow-sm">
+                    <h4 class="font-bold text-cinnabar">Thay thế rượu</h4>
+                    <p class="recipe-text text-sm">Sử dụng rượu trắng khô (Dry White Wine) để khử mùi tanh nếu không tìm được rượu Thiệu Hưng.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider-ornament"></div>
+
+        <!-- Footer Info -->
+        <footer class="grid md:grid-cols-2 gap-12 pb-12">
+            <section>
+                <h3 class="text-xl font-bold mb-3 text-cinnabar">5. Giá trị dinh dưỡng</h3>
+                <p class="recipe-text text-sm italic">Giàu protein từ tôm, ít béo nhờ phương pháp xào nhanh và giàu chất chống oxy hóa (EGCG) từ trà Long Tĩnh hỗ trợ tim mạch.</p>
+            </section>
+            <section>
+                <h3 class="text-xl font-bold mb-3 text-cinnabar">6. Gợi ý trình bày</h3>
+                <p class="recipe-text text-sm italic">Sử dụng đĩa sứ men ngọc (Celadon). Bố trí tôm tập trung giữa đĩa, lá trà rắc ngẫu hứng tinh tế. Nước xốt cần trong suốt, bóng loáng.</p>
+            </section>
+        </footer>
+    </div>
+
+</body>
+</html>
