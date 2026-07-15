@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Nem Công Chả Phượng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --bg-color: #FCFAFA;
+            --text-color: #2C2C2C;
+            --accent-red: #C0392B;
+            --accent-gold: #B8860B;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', serif;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #1A1A1A;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #D1D5DB;
+        }
+        .divider::after {
+            content: "⚜";
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            background: none;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Nem Công Chả Phượng</h1>
+            <p class="text-xl italic text-gray-600 mb-8">The Phoenix & Peacock Culinary Masterpiece</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-t border-b border-gray-300">
+                <div class="text-center"><span class="block text-xs uppercase tracking-widest font-bold text-red-800">Độ khó</span><span class="text-sm font-semibold">Rất khó</span></div>
+                <div class="text-center"><span class="block text-xs uppercase tracking-widest font-bold text-red-800">Thời gian</span><span class="text-sm font-semibold">135 Phút</span></div>
+                <div class="text-center"><span class="block text-xs uppercase tracking-widest font-bold text-red-800">Khẩu phần</span><span class="text-sm font-semibold">6-8 người</span></div>
+                <div class="text-center"><span class="block text-xs uppercase tracking-widest font-bold text-red-800">Nguồn gốc</span><span class="text-sm font-semibold">Cung đình Huế</span></div>
+            </div>
+
+            <div class="mt-8 text-lg text-gray-700 justify-text italic leading-relaxed">
+                Món ăn xuất phát từ Ẩm thực Cung đình Huế, từng là món đứng đầu trong "bát trân" thời Nguyễn. Món ăn biểu trưng cho sự tao nhã, vương giả, mang ý nghĩa âm dương hòa hợp, thái bình thịnh trị.
+            </div>
+        </header>
+
+        <!-- Recipe Body Grid -->
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <!-- Left: Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-red-900 border-b-2 border-red-800 pb-2">1. Nguyên liệu</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 underline decoration-amber-600">Phần nhân mọc</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>500g giò sống (thịt lợn xay nhuyễn)</li>
+                            <li>300g tôm sú (băm nhuyễn)</li>
+                            <li>50g mỡ lưng lợn (thái hạt lựu)</li>
+                            <li>Hành tím, tỏi, nước mắm, tiêu sọ</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 underline decoration-amber-600">Phần Nem Công</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Bánh tráng rế hoặc cốm dẹp xanh</li>
+                            <li>Củ cải trắng, cà rốt (khắc tỉa đầu)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 underline decoration-amber-600">Phần Chả Phượng</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>4 quả trứng, bột năng</li>
+                            <li>Mộc nhĩ, cà rốt thái sợi</li>
+                            <li>Đậu cô ve hoặc măng tây</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-red-900 border-b-2 border-red-800 pb-2">2. Các bước thực hiện</h2>
+                <div class="space-y-8">
+                    <div class="relative pl-6 border-l-2 border-amber-600">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 bg-amber-600 rounded-full"></span>
+                        <h4 class="font-bold text-lg">Chuẩn bị nhân mọc</h4>
+                        <p class="text-sm justify-text">Trộn giò sống, tôm, mỡ, gia vị trên đá lạnh để tạo độ dai.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-amber-600">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 bg-amber-600 rounded-full"></span>
+                        <h4 class="font-bold text-lg">Tạo hình Nem Công</h4>
+                        <p class="text-sm justify-text">Cuộn nhân bằng bánh tráng rế để tạo hiệu ứng "lông công".</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-amber-600">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 bg-amber-600 rounded-full"></span>
+                        <h4 class="font-bold text-lg">Tráng & Cuộn Chả Phượng</h4>
+                        <p class="text-sm justify-text">Tráng trứng mỏng, trải mọc, đặt rau củ rồi cuộn chặt. Hấp 20 phút.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="divider"></div>
+
+        <!-- Special Sections -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+            <!-- Chef's Corner -->
+            <div class="bg-amber-50 p-8 border-2 border-amber-600 rounded-sm shadow-inner">
+                <h3 class="text-2xl font-bold text-amber-900 mb-4">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="space-y-4 italic">
+                    <li><span class="font-bold not-italic text-red-800">Kỹ thuật nhiệt:</span> Hấp ở lửa vừa, hé nắp để chả không bị bục.</li>
+                    <li><span class="font-bold not-italic text-red-800">Xử lý mọc:</span> Giữ nguyên liệu lạnh để đảm bảo độ giòn dai.</li>
+                </ul>
+            </div>
+            <!-- Variations -->
+            <div class="bg-gray-100 p-8 rounded-sm">
+                <h3 class="text-2xl font-bold mb-4">4. Biến tấu & Phiên bản nâng cao</h3>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white border-l-4 border-red-700">
+                        <p class="font-bold">Phiên bản thanh đạm:</p>
+                        <p class="text-sm">Sử dụng tôm và ức gà xay, thay mỡ bằng dầu mè.</p>
+                    </div>
+                    <div class="p-4 bg-white border-l-4 border-red-700">
+                        <p class="font-bold">Cách làm gia đình:</p>
+                        <p class="text-sm">Xếp lát chả hình giọt nước thành hình hoa cúc lớn, đơn giản nhưng vẫn tinh tế.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Technical -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 pt-8 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-3 text-red-800">5. Giá trị dinh dưỡng</h3>
+                <p class="text-sm justify-text italic">Khoảng 350-400 kcal/khẩu phần. Giàu Protein, Vitamin A và D từ trứng và cà rốt. Nên dùng kèm rau thơm và nước mắm chua ngọt để cân bằng vị.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-3 text-red-800">6. Gợi ý trình bày</h3>
+                <p class="text-sm justify-text italic">Sử dụng đĩa gốm bầu dục. Xếp đầu chim công và phượng ở hai đầu đĩa. Chả Phượng uốn lượn hình đôi cánh, Nem Công xòe ra như đuôi công.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
