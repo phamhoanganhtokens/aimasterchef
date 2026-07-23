@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Özel Kuzu Tandır</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Lora', 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .text-justify {
+            text-align: justify;
+        }
+        .accent-color {
+            color: #C5A059; /* Burnished Gold */
+        }
+        .border-accent {
+            border-color: #E34234; /* Cinnabar Red */
+        }
+        .bg-cream {
+            background-color: #F8F5F2;
+        }
+        .ornament::before, .ornament::after {
+            content: "✦";
+            margin: 0 10px;
+            color: #E34234;
+        }
+    </style>
+</head>
+<body class="py-10 px-4 md:px-20">
 
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">Özel Kuzu Tandır</h1>
+        <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8">(Cừu Nướng Thổ Nhĩ Kỳ Đặc Biệt)</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-[#C5A059] max-w-3xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-[#E34234]">Độ khó</span>
+                <span class="text-sm">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-[#E34234]">Thời gian</span>
+                <span class="text-sm">~9-17 giờ</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-[#E34234]">Khẩu phần</span>
+                <span class="text-sm">4 - 6 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-[#E34234]">Nguồn gốc</span>
+                <span class="text-sm">Anatolia, Thổ Nhĩ Kỳ</span>
+            </div>
+        </div>
+        <p class="mt-8 text-justify max-w-2xl mx-auto text-lg leading-relaxed">
+            Bắt nguồn từ thời kỳ Seljuk và Ottoman tại vùng Anatolia, Thổ Nhĩ Kỳ. Theo truyền thống, món ăn này được nấu trong "Tandır" - một loại lò bằng đất sét được đào sâu dưới lòng đất, sử dụng than củi để ủ và nướng thịt cừu từ từ trong nhiều giờ cho đến khi thịt mềm tan, giữ nguyên được hương vị nguyên bản nhất của nguyên liệu.
+        </p>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        
+        <!-- Ingredients -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-accent pb-2">1. Nguyên liệu</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg text-[#E34234]">Phần thịt</h3>
+                    <ul class="list-disc ml-5"><li>1.5 - 2 kg đùi cừu (có xương) hoặc vai cừu nguyên tảng.</li></ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-[#E34234]">Gia vị ướp</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>4 thìa canh dầu ô liu (Extra Virgin).</li>
+                        <li>5-6 tép tỏi lớn, băm nhuyễn.</li>
+                        <li>1 thìa canh cỏ xạ hương & hương thảo tươi.</li>
+                        <li>1.5 thìa canh muối biển & 1 thìa cà phê tiêu đen.</li>
+                        <li>1 thìa cà phê ớt bột Thổ Nhĩ Kỳ (Pul Biber).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-[#E34234]">Đế nướng (Mirepoix)</h3>
+                    <ul class="list-disc ml-5">
+                        <li>2 củ hành tây cắt làm tư, 2 củ cà rốt khúc lớn.</li>
+                        <li>1 củ tỏi nguyên, 2-3 lá nguyệt quế, 240ml nước dùng.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-accent pb-2">2. Các bước thực hiện</h2>
+            <div class="space-y-6">
+                <div class="relative pl-8 border-l-2 border-[#C5A059]">
+                    <span class="absolute -left-[9px] top-0 bg-[#E34234] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">1</span>
+                    <h4 class="font-bold italic">Ướp thịt (4-12 giờ)</h4>
+                    <p class="text-justify text-sm">Xoa bóp gia vị vào các khe thịt đã khía. Bọc kín để ngăn mát tủ lạnh.</p>
+                </div>
+                <div class="relative pl-8 border-l-2 border-[#C5A059]">
+                    <span class="absolute -left-[9px] top-0 bg-[#E34234] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">2</span>
+                    <h4 class="font-bold italic">Áp chảo (10 phút)</h4>
+                    <p class="text-justify text-sm">Áp chảo các mặt thịt trên chảo gang nóng để tạo lớp vỏ sém vàng.</p>
+                </div>
+                <div class="relative pl-8 border-l-2 border-[#C5A059]">
+                    <span class="absolute -left-[9px] top-0 bg-[#E34234] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">3</span>
+                    <h4 class="font-bold italic">Nấu chậm (3.5 - 4.5 giờ)</h4>
+                    <p class="text-justify text-sm">Xếp rau củ làm đế, đặt thịt lên, đậy kín bằng giấy bạc và nấu ở 160°C.</p>
+                </div>
+                <div class="relative pl-8 border-l-2 border-[#C5A059]">
+                    <span class="absolute -left-[9px] top-0 bg-[#E34234] text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">4</span>
+                    <h4 class="font-bold italic">Hoàn thiện & Nghỉ</h4>
+                    <p class="text-justify text-sm">Nướng 220°C để giòn da, để thịt nghỉ 20-30 phút trước khi thưởng thức.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chef's Corner -->
+    <section class="max-w-4xl mx-auto mt-16 p-8 bg-cream border-2 border-[#C5A059] rounded-sm">
+        <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+            <span class="text-[#E34234]">✦</span> 3. Mẹo hay từ Vua Đầu Bếp
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <p class="text-sm italic border-r border-[#C5A059] pr-4">"Kỹ thuật Maillard: Bước áp chảo ban đầu tạo ra phản ứng tầng hương vị sâu sắc."</p>
+            <p class="text-sm italic border-r border-[#C5A059] pr-4">"Nước xốt Jus: Cô đặc phần nước cốt còn dư từ khay nướng để làm nước xốt đậm đà tuyệt hảo."</p>
+            <p class="text-sm italic">"Nhiệt thấp: Tuyệt đối không nướng nhanh, nhiệt độ thấp giúp phân giải collagen khiến thịt mềm tan."</p>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="max-w-4xl mx-auto mt-16">
+        <h2 class="text-3xl font-bold mb-6 text-center">4. Biến tấu & Phiên bản nâng cao</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 border border-gray-300 hover:border-[#E34234] transition-all">
+                <h4 class="font-bold text-[#E34234]">Sữa chua Hy Lạp</h4>
+                <p class="text-sm mt-2 text-justify">Thêm 2 thìa canh sữa chua Hy Lạp vào hỗn hợp ướp để thịt đạt độ ẩm mượt và mềm mại vượt trội.</p>
+            </div>
+            <div class="p-6 border border-gray-300 hover:border-[#E34234] transition-all">
+                <h4 class="font-bold text-[#E34234]">Công nghệ hiện đại</h4>
+                <p class="text-sm mt-2 text-justify">Sử dụng nồi áp suất (Instant Pot) áp suất cao trong 80 phút, sau đó áp chảo nóng 15 phút để làm giòn da.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Info -->
+    <footer class="max-w-5xl mx-auto mt-20 border-t border-[#C5A059] pt-12 grid md:grid-cols-2 gap-12">
+        <section>
+            <h3 class="text-xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+            <p class="text-sm text-justify">Mỗi khẩu phần cung cấp 450-550 kcal, giàu Protein, Sắt, Kẽm và Vitamin B12. Nên kết hợp cùng salad thanh mát như Çoban salatası để cân bằng tiêu hóa.</p>
+        </section>
+        <section>
+            <h3 class="text-xl font-bold mb-4">6. Gợi ý trình bày</h3>
+            <p class="text-sm text-justify">Sử dụng nĩa xé thịt dọc thớ trên nền cơm Pilaf bơ vàng. Rưới nước xốt jus bóng bẩy, điểm xuyết ớt nướng và ngò tây tươi để tạo sự tương phản đầy mời gọi.</p>
+        </section>
+    </footer>
+
+</body>
+</html>
