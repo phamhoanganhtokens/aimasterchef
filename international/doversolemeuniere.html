@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Dover Sole Meunière</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --primary-charcoal: #2C2C2C;
+            --bg-cream: #FCFAFA;
+            --accent-cinnabar: #E23D28;
+            --accent-gold: #C5A059;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--primary-charcoal);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+
+        .justify-text {
+            text-align: justify;
+        }
+
+        .heading-font {
+            font-family: 'Times New Roman', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--accent-gold);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--accent-gold);
+            opacity: 0.4;
+        }
+
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .ornament {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+        }
+
+        .meta-card {
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .meta-card:hover {
+            border-color: var(--accent-gold);
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding: 0.5rem 0;
+            transition: padding-left 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: var(--accent-cinnabar);
+        }
+
+        .step-number {
+            font-style: italic;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+
+        .chefs-corner {
+            border: 2px double var(--accent-gold);
+            background-color: rgba(197, 160, 89, 0.03);
+            position: relative;
+        }
+
+        .pro-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-cream);
+            padding: 0 10px;
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        .glass-tab {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .active-tab {
+            border-bottom: 2px solid var(--accent-cinnabar);
+            color: var(--accent-cinnabar);
+        }
+
+        @media (max-width: 640px) {
+            .meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <div class="mb-4 text-xs tracking-widest uppercase text-gray-500 italic">Tạp Chí Điện Tử • Số Mùa Xuân</div>
+            <h1 class="text-4xl md:text-6xl font-bold heading-font mb-2 leading-tight">Dover Sole Meunière, Potato Pavé</h1>
+            <h2 class="text-xl md:text-2xl italic text-gray-600 mb-8 font-serif">Cá Bơn Dover Áp Chảo, Khoai Tây Pavé – Rêu Hành – Đậu Hà Lan – Dầu Ngò Tây</h2>
+            
+            <div class="meta-grid flex flex-wrap justify-center gap-4 md:gap-8 border-y border-gray-200 py-6 mb-8">
+                <div class="flex flex-col items-center min-w-[100px]">
+                    <span class="text-xs uppercase tracking-tighter text-gray-400 mb-1">Độ khó / Difficulty</span>
+                    <span class="font-bold text-sm text-cinnabar" style="color: var(--accent-cinnabar)">Nâng Cao / Advanced</span>
+                </div>
+                <div class="flex flex-col items-center min-w-[100px]">
+                    <span class="text-xs uppercase tracking-tighter text-gray-400 mb-1">Thời gian / Time</span>
+                    <span class="font-bold text-sm">26 Giờ / Hours</span>
+                </div>
+                <div class="flex flex-col items-center min-w-[100px]">
+                    <span class="text-xs uppercase tracking-tighter text-gray-400 mb-1">Khẩu phần / Servings</span>
+                    <span class="font-bold text-sm">2 Người / People</span>
+                </div>
+                <div class="flex flex-col items-center min-w-[100px]">
+                    <span class="text-xs uppercase tracking-tighter text-gray-400 mb-1">Nguồn gốc / Origin</span>
+                    <span class="font-bold text-sm">Cổ điển Pháp / French</span>
+                </div>
+            </div>
+
+            <p class="max-w-3xl mx-auto italic justify-text text-gray-700 leading-relaxed">
+                "Meunière" (vợ người thợ xay) là một trụ cột của ẩm thực Pháp cổ điển, truyền thống ám chỉ cá được lăn qua bột và áp chảo với bơ. Từng được hoàng gia Pháp ưa chuộng, cá bơn Dover là tiêu chuẩn vàng cho kỹ thuật này nhờ kết cấu săn chắc và hương vị tinh tế. Phiên bản này hiện đại hóa món ăn bằng cách kết hợp kỹ thuật thế kỷ 19 với khoai tây Pavé đương đại và các loại thảo mộc mùa xuân.
+            </p>
+        </header>
+
+        <div class="section-divider">
+            <span class="ornament">✦ ✧ ✦</span>
+        </div>
+
+        <!-- Main Recipe Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4">
+                <h3 class="text-2xl font-bold heading-font mb-6 border-b-2 border-black pb-2 flex items-center">
+                    <span class="mr-2">1.</span> NGUYÊN LIỆU
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-4" style="color: var(--accent-gold)">Cá & Khoai Tây</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Cá bơn Dover (nguyên con, đã lột da)</span> <span>2 con</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Khoai tây Russet lớn</span> <span>3 củ</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Bơ làm trong (Clarified butter)</span> <span>1/2 chén</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Cỏ xạ hương (Thyme)</span> <span>2 nhánh</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-4" style="color: var(--accent-gold)">Sốt & Gia Vị</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Bơ lạt cao cấp (Kiểu Âu)</span> <span>4 tbsp</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Nước cốt chanh</span> <span>1/2 quả</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Bột Wondra (hoặc đa dụng)</span> <span>1/2 chén</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Nụ bạch đài (Capers)</span> <span>1 tbsp</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Muối biển & tiêu trắng</span> <span>tùy ý</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-4" style="color: var(--accent-gold)">Rau Củ & Tinh Dầu</h4>
+                        <ul class="space-y-1">
+                            <li class="ingredient-item flex justify-between"><span>Ngò tây (Parsley)</span> <span>1 bó lớn</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Dầu trung tính (Hạt nho)</span> <span>1/2 chén</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Rêu hành (Spring ramps)</span> <span>6-8 củ</span></li>
+                            <li class="ingredient-item flex justify-between"><span>Đậu Hà Lan (Snow peas)</span> <span>1 chén</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold heading-font mb-6 border-b-2 border-black pb-2 flex items-center">
+                    <span class="mr-2">2.</span> CÁC BƯỚC THỰC HIỆN
+                </h3>
+                
+                <div class="space-y-10">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="step-number">01</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-sm mb-2">Chuẩn bị Khoai Tây Pavé <span class="text-gray-400 font-normal ml-2">| 24 Giờ Trước</span></h4>
+                            <p class="justify-text text-gray-700">
+                                Gọt vỏ và thái khoai tây mỏng như tờ giấy bằng bàn bào (mandoline). Trộn với bơ làm trong, muối và lá cỏ xạ hương. Lót giấy nến vào khuôn hình chữ nhật nhỏ. Xếp các lát khoai tây thật phẳng, từng lớp một, cho đến khi dày khoảng 5cm. Đậy bằng giấy nến và nướng ở 150°C trong 1 giờ. Đặt vật nặng lên trên và để tủ lạnh ít nhất 12-24 giờ.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="step-number">02</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-sm mb-2">Chế biến Dầu Ngò Tây</h4>
+                            <p class="justify-text text-gray-700">
+                                Chần lá ngò tây trong nước sôi 15 giây, sau đó ngâm ngay vào nước đá. Vắt ráo nước. Xay với dầu trung tính ở tốc độ cao trong 2 phút. Lọc qua màng lọc cà phê hoặc vải thưa để có được loại dầu xanh trong suốt, rực rỡ.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="step-number">03</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-sm mb-2">Sơ chế Rau Củ</h4>
+                            <p class="justify-text text-gray-700">
+                                Chần đậu Hà Lan trong 30 giây và ngâm nước đá để giữ màu. Cắt tỉa rễ của rêu hành.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="step-number">04</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-sm mb-2">Áp chảo Pavé</h4>
+                            <p class="justify-text text-gray-700">
+                                Lấy khối khoai tây lạnh ra khỏi khuôn và cắt tỉa các cạnh để tạo thành những hình chữ nhật hoàn hảo. Áp chảo trên chảo nóng với một chút dầu cho đến khi tất cả các mặt vàng nâu và giòn. Giữ ấm trong lò nướng nhiệt độ thấp.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="step-number">05</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-sm mb-2">Cá Bơn Meunière</h4>
+                            <p class="justify-text text-gray-700">
+                                Nêm phi lê cá với muối và tiêu trắng. Lăn nhẹ qua bột, rũ sạch bột thừa. Đun chảy 2 muỗng canh bơ trên lửa vừa-cao. Khi bơ sủi bọt và bắt đầu chuyển sang màu vàng, cho cá vào. Nấu trong 2-3 phút mỗi mặt cho đến khi cá vừa chín tới. Gắp cá ra đĩa ấm.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="step-number">06</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-sm mb-2">Sốt Beurre Noisette</h4>
+                            <p class="justify-text text-gray-700">
+                                Lau sạch chảo. Thêm 4 muỗng canh bơ còn lại. Nấu cho đến khi bơ có mùi thơm của hạt dẻ và màu nâu cánh gián. Ngay lập tức thêm nước cốt chanh và ngò tây băm để dừng quá trình nấu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="section-divider">
+            <span class="ornament">✦ ✧ ✦</span>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <section class="mb-12">
+            <div class="chefs-corner p-8 mb-12">
+                <span class="pro-label">Mẹo hay từ Vua Đầu Bếp</span>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold italic mb-2 text-gold" style="color: var(--accent-gold)">Kỹ thuật Nén (The Press)</h5>
+                        <p class="text-sm justify-text italic">Đối với Pavé, hãy sử dụng các vật nặng như đồ hộp để ép khoai tây. Điều này tạo ra các lớp "mille-feuille" dày đặc và đồng nhất.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold italic mb-2 text-gold" style="color: var(--accent-gold)">Lựa chọn Bột</h5>
+                        <p class="text-sm justify-text italic">Các đầu bếp chuyên nghiệp sử dụng bột Wondra vì kết cấu siêu mịn của nó, giúp ngăn chặn lớp vỏ bị bết dính trên cá.</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h5 class="font-bold italic mb-2 text-gold" style="color: var(--accent-gold)">Nhiệt độ Dầu</h5>
+                        <p class="text-sm justify-text italic">Khi làm dầu ngò tây, hãy đảm bảo dầu không quá nóng trong quá trình xay; nhiệt độ dư thừa sẽ làm diệp lục màu xanh tươi chuyển sang màu nâu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-tab p-1 bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+                    <div class="p-6 border-r border-gray-100">
+                        <h5 class="font-bold uppercase text-xs mb-3 tracking-widest text-gray-500">4. Biến Tấu Tại Gia</h5>
+                        <p class="text-sm justify-text">Thay thế cá bơn Dover bằng cá bơn Lemon Sole, cá thờn bơn (Flounder) nếu cần. Nếu Pavé quá tốn thời gian, hãy thay bằng khoai tây Fondant béo ngậy.</p>
+                    </div>
+                    <div class="p-6 border-r border-gray-100 bg-stone-50">
+                        <h5 class="font-bold uppercase text-xs mb-3 tracking-widest text-gray-500 italic">Phiên bản Nghệ Nhân</h5>
+                        <p class="text-sm justify-text">Thêm nụ bạch đài (capers) và hạt dẻ nướng vào sốt Beurre Noisette để tăng cường kết cấu và hương vị chua thanh, bùi béo.</p>
+                    </div>
+                    <div class="p-6">
+                        <h5 class="font-bold uppercase text-xs mb-3 tracking-widest text-gray-500">Thay thế Theo Mùa</h5>
+                        <p class="text-sm justify-text">Nếu không có rêu hành (ramps), hãy sử dụng hành lá hoặc tỏi tây áp chảo với một chút tỏi băm để thay thế.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Technical Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-gray-200">
+            <div>
+                <h3 class="text-xl font-bold heading-font mb-4 italic">5. Giá Trị Dinh Dưỡng</h3>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="flex justify-between border-b border-gray-100 pb-1">
+                        <span class="text-gray-500">Năng lượng / Calories</span>
+                        <span class="font-bold">680 kcal</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-100 pb-1">
+                        <span class="text-gray-500">Đạm / Protein</span>
+                        <span class="font-bold">42g</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-100 pb-1">
+                        <span class="text-gray-500">Chất béo / Fats</span>
+                        <span class="font-bold">48g</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-100 pb-1">
+                        <span class="text-gray-500">Tinh bột / Carbs</span>
+                        <span class="font-bold">22g</span>
+                    </div>
+                </div>
+                <p class="text-xs italic mt-4 text-gray-500">Nguồn cung cấp Protein nạc tuyệt vời. Giàu Vitamin C, Vitamin K và axit béo Omega-3. Có thể giảm chất béo bằng cách dùng ít sốt bơ.</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold heading-font mb-4 italic">6. Gợi Ý Trình Bày</h3>
+                <p class="text-sm justify-text italic leading-relaxed text-gray-700">
+                    Đặt khối khoai tây Pavé vàng ruộm hơi lệch tâm trên một đĩa trắng lớn và ấm. Tựa các phi lê cá bơn Dover vào Pavé để tạo độ cao. Sắp xếp rêu hành và đậu Hà Lan tự nhiên lên trên, đảm bảo phần củ của rêu hành được nhìn thấy rõ. Rưới nước sốt Beurre Noisette thơm mùi hạt dẻ lên cá và kết thúc bằng việc chấm các giọt dầu ngò tây xanh ngọc rực rỡ xung quanh chu vi đĩa để tạo độ tương phản cao, mang lại vẻ ngoài chuyên nghiệp và đẳng cấp.
+                </p>
+            </div>
+        </section>
+
+        <!-- Final Signature -->
+        <div class="mt-16 mb-8 text-center">
+            <div class="inline-block border-t border-b border-black py-4 px-12">
+                <span class="text-xs tracking-[0.5em] uppercase font-bold">AI VUA ĐẦU BẾP • MASTER CLASS</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
