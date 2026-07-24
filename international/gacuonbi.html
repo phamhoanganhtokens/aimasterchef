@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Ballotine de Poulet Fermier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                        goldLight: '#F4E6D1',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        p, .description {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            color: #C5A059;
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 4px;
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            padding: 2rem;
+            position: relative;
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .tab-button.active {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+        .recipe-meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .recipe-meta-item:last-child { border-right: none; }
+        @media (max-width: 768px) {
+            .recipe-meta-item { border-right: none; border-bottom: 1px solid rgba(197, 160, 89, 0.3); }
+            .recipe-meta-item:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-16">
+            <div class="inline-block border-b-2 border-gold pb-2 mb-6">
+                <span class="tracking-[0.3em] text-sm uppercase text-gold font-bold">AI VUA ĐẦU BẾP • GASTRONOMIE</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-tight">Gà Cuộn Lớp Vỏ Bí Ngòi</h1>
+            <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-10">Ballotine de Poulet Fermier en Robe de Courgettes</h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 border border-gold rounded-sm overflow-hidden bg-white shadow-sm">
+                <div class="recipe-meta-item">
+                    <span class="text-xs uppercase text-gold font-bold tracking-widest mb-1">Độ khó</span>
+                    <span class="text-lg">Advanced / Nâng cao</span>
+                </div>
+                <div class="recipe-meta-item">
+                    <span class="text-xs uppercase text-gold font-bold tracking-widest mb-1">Thời gian</span>
+                    <span class="text-lg">90 Phút</span>
+                </div>
+                <div class="recipe-meta-item">
+                    <span class="text-xs uppercase text-gold font-bold tracking-widest mb-1">Khẩu phần</span>
+                    <span class="text-lg">4 Người</span>
+                </div>
+                <div class="recipe-meta-item">
+                    <span class="text-xs uppercase text-gold font-bold tracking-widest mb-1">Nguồn gốc</span>
+                    <span class="text-lg uppercase">Pháp</span>
+                </div>
+            </div>
+            <p class="mt-8 text-lg italic max-w-3xl mx-auto">
+                "Ballotine là một món ăn kinh điển của ẩm thực Pháp. Phiên bản tinh tế này sử dụng 'Poulet Fermier' — gà chăn thả truyền thống được đánh giá cao nhờ kết cấu săn chắc và hương vị phong phú — được bọc trong lớp 'áo' dải bí ngòi mỏng, đại diện cho cách tiếp cận nhẹ nhàng, hiện đại đối với các kỹ thuật cổ điển."
+            </p>
+        </header>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Main Recipe Body -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="w-8 h-px bg-cinnabar mr-4"></span>
+                    1. Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 border-b border-goldLight pb-1 italic">Chính</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between hover:translate-x-1 transition-transform cursor-default">
+                                <span>Ức gà ta lớn (Farmhouse chicken)</span>
+                                <span class="text-gold italic font-bold">2 Miếng</span>
+                            </li>
+                            <li class="flex justify-between hover:translate-x-1 transition-transform cursor-default border-t border-gray-100 pt-2">
+                                <span>Bí ngòi trung bình (thẳng & chắc)</span>
+                                <span class="text-gold italic font-bold">3 Trái</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 border-b border-goldLight pb-1 italic">Nhân Mousse (Forcemeat)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>Thịt đùi gà (làm lạnh)</span> <span class="font-bold">150g</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>Lòng trắng trứng (lạnh)</span> <span class="font-bold">1 Cái</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>Kem béo (Heavy cream 35% béo, lạnh)</span> <span class="font-bold">150ml</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>Hành tím băm (xào bơ)</span> <span class="font-bold">1 Củ</span></li>
+                            <li class="flex justify-between border-b border-gray-50 pb-2"><span>Lá ngải giấm (Tarragon) tươi băm</span> <span class="font-bold">1 Tbsp</span></li>
+                            <li class="flex justify-between"><span>Muối biển & tiêu trắng</span> <span class="font-bold italic">Vừa đủ</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4 border-b border-goldLight pb-1 italic">Gia vị & Khác</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-cinnabar mr-2">◈</span> 1 Nhánh cỏ xạ hương (thyme)</li>
+                            <li class="flex items-center"><span class="text-cinnabar mr-2">◈</span> 1 Tép tỏi</li>
+                            <li class="flex items-center"><span class="text-cinnabar mr-2">◈</span> Bơ lạt</li>
+                            <li class="flex items-center"><span class="text-cinnabar mr-2">◈</span> Đá lạnh (để ngâm bí)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="w-8 h-px bg-cinnabar mr-4"></span>
+                    2. Các bước thực hiện
+                </h3>
+
+                <div class="space-y-12 relative before:absolute before:left-[17px] before:top-4 before:bottom-4 before:w-px before:bg-goldLight">
+                    
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-parchment border-2 border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                            <span class="font-bold">1</span>
+                        </div>
+                        <h5 class="text-xl font-bold mb-2">Sơ chế bí ngòi <span class="text-sm font-normal italic text-gray-500 ml-2">(10 phút)</span></h5>
+                        <p class="description italic">Sử dụng bàn bào (mandoline) hoặc dao bào rau củ để cắt bí ngòi thành những dải mỏng, dài. Chần chúng trong nước muối sôi khoảng 30 giây, sau đó vớt ra ngâm ngay vào nước đá. Thấm thật khô bằng khăn giấy.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-parchment border-2 border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                            <span class="font-bold">2</span>
+                        </div>
+                        <h5 class="text-xl font-bold mb-2">Tạo lớp "Áo choàng" <span class="text-sm font-normal italic text-gray-500 ml-2">(5 phút)</span></h5>
+                        <p class="description italic">Trải một tấm màng bọc thực phẩm chất lượng cao lên mặt bàn. Xếp các dải bí ngòi theo chiều dọc, chồng lên nhau khoảng 5mm để tạo thành một tấm "vải" xanh đủ lớn để bao quanh miếng gà.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-parchment border-2 border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                            <span class="font-bold">3</span>
+                        </div>
+                        <h5 class="text-xl font-bold mb-2">Chế biến Mousse chuyên nghiệp <span class="text-sm font-normal italic text-gray-500 ml-2">(15 phút)</span></h5>
+                        <p class="description italic">Trong máy xay thực phẩm, xay thịt đùi gà lạnh với muối cho đến khi mịn. Thêm lòng trắng trứng và nhấn xung (pulse). Khi máy đang chạy, từ từ đổ kem lạnh vào cho đến khi tạo thành hỗn hợp mousse mượt và cứng. Trộn lá tarragon và hành tím đã để nguội vào.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-parchment border-2 border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                            <span class="font-bold">4</span>
+                        </div>
+                        <h5 class="text-xl font-bold mb-2">Chuẩn bị Gà <span class="text-sm font-normal italic text-gray-500 ml-2">(10 phút)</span></h5>
+                        <p class="description italic">Cắt cánh bướm ức gà và dùng búa đập nhẹ giữa hai tờ giấy nến để đạt độ dày đều khoảng 1cm. Nêm gia vị nhẹ nhàng.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-parchment border-2 border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                            <span class="font-bold">5</span>
+                        </div>
+                        <h5 class="text-xl font-bold mb-2">Cuộn Ballotine <span class="text-sm font-normal italic text-gray-500 ml-2">(10 phút)</span></h5>
+                        <p class="description italic">Đặt gà lên tấm bí ngòi. Phết một lớp mousse (dày khoảng 1.5cm) lên trên gà. Dùng màng bọc thực phẩm cuộn gà lại thành một khối trụ chặt. Xoắn hai đầu màng bọc theo hướng ngược nhau để nén chặt và buộc lại bằng dây dù thực phẩm.</p>
+                    </div>
+
+                    <div class="relative pl-12 group">
+                        <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-parchment border-2 border-gold flex items-center justify-center z-10 group-hover:bg-gold group-hover:text-white transition-colors">
+                            <span class="font-bold">6</span>
+                        </div>
+                        <h5 class="text-xl font-bold mb-2">Kỹ thuật Nấu <span class="text-sm font-normal italic text-gray-500 ml-2">(30 phút)</span></h5>
+                        <p class="description italic">
+                            <strong class="text-cinnabar">Chuyên nghiệp:</strong> Sous-vide ở 65°C trong 45-50 phút.<br>
+                            <strong class="text-cinnabar">Tại gia:</strong> Đun sôi lăn tăn một nồi nước (khoảng 75°C). Thả các cuộn ballotine vào và luộc (poach) trong 25-30 phút cho đến khi nhiệt độ tâm đạt 63°C.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Chef's Corner -->
+        <section class="mt-20">
+            <div class="pro-tip-box bg-white/50">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-parchment px-4 text-gold font-bold tracking-[0.2em] uppercase text-sm">
+                    3. Mẹo hay từ Vua Đầu Bếp
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 mt-4">
+                    <div class="text-center p-4">
+                        <div class="text-cinnabar mb-2 text-2xl">⚖</div>
+                        <h6 class="font-bold mb-2">Độ chính xác</h6>
+                        <p class="text-sm italic">Hãy đảm bảo cuộn thật chặt; bất kỳ khoảng trống không khí nào cũng sẽ khiến lớp bí ngòi bị bong ra khi thái lát.</p>
+                    </div>
+                    <div class="text-center p-4 border-x border-goldLight">
+                        <div class="text-cinnabar mb-2 text-2xl">❄</div>
+                        <h6 class="font-bold mb-2">Kiểm soát nhiệt</h6>
+                        <p class="text-sm italic">Mousse là một nhũ tương tinh tế. Nếu bạn cảm thấy nó ấm lên bất kỳ lúc nào, hãy đặt bát lên trên đá lạnh ngay lập tức.</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="text-cinnabar mb-2 text-2xl">🔪</div>
+                        <h6 class="font-bold mb-2">Thao tác cắt</h6>
+                        <p class="text-sm italic">Sử dụng dao mỏng, thật sắc và lau sạch dao sau mỗi lần cắt để có mặt cắt ngang sạch sẽ và chuyên nghiệp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations -->
+        <section class="mt-20">
+            <h3 class="text-3xl font-bold mb-8 flex items-center justify-center">
+                <span class="w-12 h-px bg-gold mr-4"></span>
+                4. Biến tấu & Phiên bản nâng cao
+                <span class="w-12 h-px bg-gold ml-4"></span>
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 flex items-start space-x-4 border-l-4 border-l-gold">
+                    <div class="bg-goldLight p-3 rounded-full text-gold">🌿</div>
+                    <div>
+                        <h5 class="font-bold text-lg mb-1">Nhân Cao Cấp (Inner Core)</h5>
+                        <p class="text-sm italic">Để tăng thêm sự phức tạp, hãy đặt một hàng nấm rừng xào hoặc một ngọn măng tây chần vào giữa lớp mousse trước khi cuộn.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-6 flex items-start space-x-4 border-l-4 border-l-cinnabar">
+                    <div class="bg-red-50 p-3 rounded-full text-cinnabar">🐟</div>
+                    <div>
+                        <h5 class="font-bold text-lg mb-1">Phiên bản Hải Sản (Seafood Swap)</h5>
+                        <p class="text-sm italic">Thay thế gà bằng Cá Hồi hoặc Cá Thờ Bơn cho lớp vỏ ngoài, kết hợp với mousse sò điệp và hẹ tây.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span class="ornament">✦</span></div>
+
+        <!-- Technical / Nutrition Section -->
+        <footer class="grid md:grid-cols-2 gap-12 mb-20 bg-charcoal text-white p-10 rounded-sm">
+            <div>
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-6 border-b border-gray-700 pb-2">5. Giá trị dinh dưỡng</h4>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-3xl font-light">315 <span class="text-xs uppercase opacity-60">Calories</span></span>
+                    <div class="text-right space-y-1">
+                        <div class="text-sm"><span class="text-gold">43g</span> Protein</div>
+                        <div class="text-sm"><span class="text-gold">14g</span> Fat</div>
+                        <div class="text-sm"><span class="text-gold">4g</span> Carbs</div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-400 italic">
+                    Nguồn cung cấp protein nạc và Vitamin B12 tuyệt vời. Lớp vỏ bí ngòi làm giảm đáng kể tải lượng đường (glycemic load) so với các phiên bản bọc bột bánh truyền thống.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-6 border-b border-gray-700 pb-2">6. Gợi ý trình bày</h4>
+                <ul class="text-sm space-y-3 italic">
+                    <li class="flex items-start">
+                        <span class="text-gold mr-2">●</span>
+                        Thái lát thành các khoanh dày (3cm) để phô diễn đường xoắn xanh rực rỡ và phần nhân trắng mịn.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-gold mr-2">●</span>
+                        Sắp xếp ba khoanh theo một đường cong nhẹ. Phục vụ với nước dùng gà (poultry jus) thanh nhẹ hoặc sốt rau củ nhạt màu (như súp lơ trắng) để duy trì độ tương phản.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-gold mr-2">●</span>
+                        Hoàn thiện với vài giọt dầu thảo mộc và một nhánh tarragon tươi để làm nổi bật sự tươi mát của món ăn.
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Interactive Elements
+        document.querySelectorAll('.recipe-meta-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.backgroundColor = '#FDFBF7';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.backgroundColor = 'transparent';
+            });
+        });
+
+        // Simple animation on scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, header').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
