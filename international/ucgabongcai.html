@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Suprême de Poulette de Bresse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#FCFAFA',
+                        charcoal: '#2C2C2C',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1.5rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1.5rem;
+        }
+        .ornament {
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            padding: 2rem;
+            position: relative;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background-color: #E23D28;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <div class="max-w-6xl mx-auto border border-[#E5E1DA] bg-white shadow-2xl p-6 md:p-16 relative">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <p class="uppercase tracking-[0.3em] text-gold mb-4 text-sm font-bold">Gourmet Series • AI Vua Đầu Bếp</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight italic">
+                Suprême de poulette de Bresse aux pousses d’épinards
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-normal text-charcoal opacity-80 mb-8">
+                Ức Gà Bresse Với Rau Bông Cải, Kẹo Xà Lách & Nấm Morilles Sốt Rượu Vàng Jura
+            </h2>
+            
+            <!-- Recipe Meta-Bar -->
+            <div class="grid grid-cols-2 md:flex md:justify-center md:gap-12 border-y border-gold/30 py-6 my-8 italic">
+                <div class="flex flex-col items-center p-2">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Độ Khó</span>
+                    <span class="text-lg">Nâng Cao (Advanced)</span>
+                </div>
+                <div class="flex flex-col items-center p-2 border-l border-gold/20 md:border-l-0 md:border-x md:px-12">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Thời Gian</span>
+                    <span class="text-lg">2 Giờ 30 Phút</span>
+                </div>
+                <div class="flex flex-col items-center p-2 border-t border-gold/20 md:border-t-0 md:border-r md:pr-12">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Khẩu Phần</span>
+                    <span class="text-lg">4 Người Ăn</span>
+                </div>
+                <div class="flex flex-col items-center p-2 border-t border-l border-gold/20 md:border-t-0 md:border-l-0">
+                    <span class="text-cinnabar text-xs uppercase tracking-widest font-bold">Xuất Xứ</span>
+                    <span class="text-lg">Bresse & Jura, Pháp</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto justified-text italic text-charcoal/70 px-4">
+                "Món ăn này đại diện cho đỉnh cao của ẩm thực Pháp, bắt nguồn từ vùng Bresse và dãy núi Jura. Poulet de Bresse là loại gia cầm duy nhất trên thế giới đạt chứng nhận AOP, nổi tiếng với thịt mọng nước và 'đôi chân xanh'. Nó được kết hợp truyền thống với Vin Jaune, loại 'rượu vàng' từ Jura được ủ hơn sáu năm dưới một lớp men, mang lại những nốt hương sâu lắng của quả óc chó và gia vị."
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Left Column: Ingredients -->
+            <aside class="lg:col-span-4 bg-parchment p-8 border-l-4 border-gold">
+                <h3 class="text-2xl font-bold mb-8 uppercase tracking-tighter flex items-center">
+                    <span class="mr-3 text-cinnabar">1.</span> Nguyên Liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold border-b border-gold/30 pb-2 mb-4 italic text-gold">Thành Phần Chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 4 ức gà Bresse (còn da và xương cánh)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 300g nấm morilles tươi (hoặc 50g khô)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 500g lá rau chân vịt (baby spinach)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 2 búp xà lách Butterhead lớn
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold border-b border-gold/30 pb-2 mb-4 italic text-gold">Sốt & Mousse</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 200ml Vin Jaune du Jura
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 300ml kem đôi (Crème de Bresse AOP)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 200g thịt ức gà (làm mousse)
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 1 lòng trắng trứng
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 100g bơ lạt lạnh
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold border-b border-gold/30 pb-2 mb-4 italic text-gold">Gia Vị & Phụ Liệu</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 2 củ hành tím băm nhỏ
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> 12 ngọn măng tây & 100g đậu hà lan
+                            </li>
+                            <li class="flex items-start hover:translate-x-1 transition-transform duration-300">
+                                <span class="text-cinnabar mr-2">◈</span> Muối biển, tiêu trắng, nhục đậu khấu
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Preparation Steps -->
+            <main class="lg:col-span-8">
+                <h3 class="text-2xl font-bold mb-8 uppercase tracking-tighter flex items-center">
+                    <span class="mr-3 text-cinnabar">2.</span> Các Bước Thực Hiện
+                </h3>
+                
+                <div class="space-y-10 pl-6 border-l border-gold/20 relative">
+                    <!-- Step 1 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold italic">Chuẩn bị Kẹo Xà Lách (Bonbons)</h4>
+                            <span class="text-gold font-bold text-sm">20 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-charcoal/90">
+                            Chần những lá xà lách lớn nhất trong nước sôi có muối khoảng 30 giây, sau đó ngâm ngay vào nước đá. Thấm khô. Để làm nhân, xay mịn 200g thịt gà với 1 lòng trắng trứng và một chút kem cho đến khi tạo thành hỗn hợp mousse mịn. Nêm muối và nhục đậu khấu. Đặt một thìa mousse vào giữa mỗi lá xà lách, cuộn thành hình cầu chặt (bonbon), bọc kín bằng màng bọc thực phẩm chịu nhiệt. Hấp ở 85°C trong 12 phút.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold italic">Chế biến Gà Bresse</h4>
+                            <span class="text-gold font-bold text-sm">35 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-charcoal/90">
+                            Nêm gia vị cho ức gà. Trong chảo đế dày, áp chảo gà mặt da xuống với một ít bơ cho đến khi vàng giòn. Để đảm bảo độ chuẩn xác chuyên nghiệp, hoàn tất việc nấu gà bằng cách chần trong "beurre monté" (bơ nhũ tương với nước) ở nhiệt độ không đổi 65°C cho đến khi nhiệt độ bên trong đạt 63°C. Phương pháp này bảo tồn các sợi thịt tinh tế của giống gà Bresse.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold italic">Rau Củ Mùa Xuân (Printanière)</h4>
+                            <span class="text-gold font-bold text-sm">15 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-charcoal/90">
+                            Chần măng tây và đậu hà lan cho đến khi vừa chín tới nhưng vẫn giữ được độ giòn. Xào nấm morilles với bơ và một ít hành tím băm cho đến khi hết nước và nấm hơi cháy cạnh. Kết hợp các loại rau củ một cách nhẹ nhàng.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold italic">Sốt Rượu Vàng (Vin Jaune)</h4>
+                            <span class="text-gold font-bold text-sm">25 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-charcoal/90">
+                            Trong chảo sạch, xào phần hành tím còn lại. Giải chảo (deglaze) với 150ml Vin Jaune, đun cạn còn 1/3 để cô đặc hương thơm của hạt óc chó. Thêm kem và đun cho đến khi sốt có độ sánh bao phủ được mặt sau của thìa. Ngay trước khi phục vụ, đánh tan 30g bơ lạnh thái khối vào sốt và thêm 50ml Vin Jaune cuối cùng để giữ được hương thơm bay bổng của rượu.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative timeline-step">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h4 class="text-xl font-bold italic">Rau Chân Vịt</h4>
+                            <span class="text-gold font-bold text-sm">5 PHÚT</span>
+                        </div>
+                        <p class="justified-text text-charcoal/90">
+                            Làm héo nhanh rau chân vịt trong chảo với một chút bơ và muối. Chắt bỏ hết nước thừa để tránh làm loãng nước sốt khi bày biện.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <span class="ornament">✦ ✦ ✦</span>
+        </div>
+
+        <!-- Chef's Corner -->
+        <section class="mb-16">
+            <div class="pro-tip-box bg-[#F9F6F0]">
+                <h3 class="text-2xl font-bold mb-6 text-center uppercase tracking-widest text-cinnabar">
+                    3. Mẹo Hay Từ Vua Đầu Bếp
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="space-y-2">
+                        <h4 class="font-bold italic text-gold">Bảo Toàn Hương Vị</h4>
+                        <p class="text-sm justified-text">Tránh để sốt sôi sau khi đã thêm phần Vin Jaune cuối cùng; nhiệt độ cao sẽ phá hủy các ghi chú oxy hóa tinh tế của rượu.</p>
+                    </div>
+                    <div class="space-y-2 border-x border-gold/20 px-4">
+                        <h4 class="font-bold italic text-gold">Kỹ Thuật Tạo Hình</h4>
+                        <p class="text-sm justified-text">Đối với các hạt bonbon, hãy sử dụng khuôn hình cầu nếu có để đảm bảo tính nhất quán về mặt hình học hoàn hảo.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold italic text-gold">Tận Dụng Nguyên Liệu</h4>
+                        <p class="text-sm justified-text">Nếu sử dụng nấm morilles khô, hãy dùng nước ngâm nấm đã lọc để giải chảo, tạo ra hương vị umami sâu hơn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 uppercase tracking-tighter flex items-center">
+                <span class="mr-3 text-cinnabar">4.</span> Biến Tấu & Phiên Bản Nâng Cao
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white border border-gold/30 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-cinnabar mb-4 flex items-center italic">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                        Dành Cho Bếp Gia Đình
+                    </h4>
+                    <p class="justified-text text-sm">
+                        Nếu không tìm được gà Bresse, hãy dùng gà ta thả vườn chất lượng cao. Nếu rượu Vin Jaune quá hiếm, rượu Sherry Amontillado khô hoặc rượu vang trắng vùng Savagnin kết hợp với một giọt dầu óc chó có thể mô phỏng lại hương vị tương tự.
+                    </p>
+                </div>
+                <div class="p-6 bg-white border border-gold/30 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-cinnabar mb-4 flex items-center italic">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
+                        Thay Thế Rau Củ
+                    </h4>
+                    <p class="justified-text text-sm">
+                        Đối với bonbon, một lát mỏng bắp cải Savoy đã chần có thể thay thế xà lách để tạo kết cấu dai và cứng cáp hơn cho món ăn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Sections Grid -->
+        <div class="grid md:grid-cols-2 gap-12 pt-8 border-t border-gold/30">
+            <!-- Nutrition -->
+            <section>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-charcoal border-b-2 border-cinnabar inline-block">
+                    5. Giá Trị Dinh Dưỡng
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <p class="justified-text font-bold text-gold">Mỗi khẩu phần: Khoảng 650 Calo</p>
+                    <p class="justified-text">
+                        <span class="font-bold italic">Lợi ích:</span> Gà Bresse cung cấp protein nạc chất lượng cao và các axit amin thiết yếu. Rau chân vịt và xà lách cung cấp Vitamin K, Vitamin A và sắt đáng kể. Nấm Morilles là nguồn cung cấp Vitamin D và chất chống oxy hóa hiếm có.
+                    </p>
+                    <p class="justified-text italic text-charcoal/60">
+                        *Lưu ý: Món ăn này có hàm lượng chất béo bão hòa cao do thành phần kem và bơ truyền thống; nên kiểm soát khẩu phần nước sốt đối với thực khách chú trọng calo.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section>
+                <h3 class="text-xl font-bold mb-6 uppercase tracking-widest text-charcoal border-b-2 border-cinnabar inline-block">
+                    6. Gợi Ý Trình Bày
+                </h3>
+                <div class="space-y-3 text-sm">
+                    <p class="justified-text">
+                        <span class="font-bold italic">Bố cục hình học:</span> Đặt một lớp rau chân vịt ở trung tâm của một chiếc đĩa trắng, vành rộng đã được làm ấm. 
+                    </p>
+                    <p class="justified-text">
+                        <span class="font-bold italic">Kết cấu thị giác:</span> Thái ức gà theo đường chéo để lộ phần thịt ẩm bên trong và đặt lên trên lớp rau chân vịt. Đặt một hạt bonbon xà lách ở vị trí 2 giờ.
+                    </p>
+                    <p class="justified-text">
+                        <span class="font-bold italic">Sức hút thẩm mỹ:</span> Rắc nấm morilles và rau củ mùa xuân xung quanh đế. Rưới nước sốt màu ngà bóng loáng xung quanh gà, đảm bảo không che lấp phần da giòn. Trang trí bằng một nhánh ngò tây tươi để thêm sắc xanh rực rỡ.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none opacity-[0.03] z-[-1]" 
+         style="background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');">
+    </div>
+
+</body>
+</html>
