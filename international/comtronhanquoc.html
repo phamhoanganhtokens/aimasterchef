@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp – Bibimbap Cơm Trộn Hàn Quốc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'cream': '#FCFAFA',
+                        'gold': '#D4AF37',
+                        'cinnabar': '#E34234',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .justify-text { text-align: justify; }
+        .divider { border-bottom: 1px solid #D4AF37; margin: 2rem 0; position: relative; }
+        .divider::after { content: "★"; position: absolute; left: 50%; top: -10px; transform: translateX(-50%); background: #FCFAFA; padding: 0 10px; color: #E34234; }
+        .pro-tip-border { border: 2px double #D4AF37; padding: 1.5rem; }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Hero Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-charcoal mb-4">비빔밥</h1>
+            <p class="text-xl italic text-gray-600 mb-8">(Bibimbap - Cơm Trộn Hàn Quốc)</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white p-6 rounded-lg border-t-2 border-b-2 border-gold/30">
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Độ khó</span><span class="font-bold">Trung bình</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Thời gian</span><span class="font-bold">60 phút</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Khẩu phần</span><span class="font-bold">2 người</span></div>
+                <div class="flex flex-col items-center"><span class="text-cinnabar font-bold uppercase text-sm">Nguồn gốc</span><span class="font-bold">Hàn Quốc</span></div>
+            </div>
+        </header>
+
+        <section class="mb-12 text-lg leading-relaxed justify-text">
+            <p>Bibimbap là một trong những món ăn tiêu biểu nhất của ẩm thực Hàn Quốc, xuất hiện từ thời Joseon. Theo truyền thống, đây là món ăn được chuẩn bị vào đêm giao thừa để tận dụng hết các thực phẩm còn sót lại trong năm cũ, thể hiện triết lý hòa hợp về màu sắc (Osaek) và âm dương trong văn hóa Á Đông.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Recipe Body -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Left Column: Ingredients -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar border-l-4 border-cinnabar pl-4">1. Nguyên liệu</h2>
+                <div class="space-y-6">
+                    <div><h3 class="font-bold text-xl mb-2">Phần cơm</h3><ul class="list-disc ml-5 space-y-1"><li>2 bát cơm trắng (gạo dẻo hạt ngắn).</li></ul></div>
+                    <div><h3 class="font-bold text-xl mb-2">Phần đạm</h3><ul class="list-disc ml-5 space-y-1"><li>150g thịt bò (thăn nội), 2 quả trứng gà.</li></ul></div>
+                    <div><h3 class="font-bold text-xl mb-2">Phần rau (Namul)</h3><ul class="list-disc ml-5 space-y-1"><li>100g giá đỗ, 150g cải bó xôi, 1 củ cà rốt, 1 quả dưa chuột, 100g nấm hương tươi.</li></ul></div>
+                    <div><h3 class="font-bold text-xl mb-2">Gia vị ướp thịt & sốt</h3><ul class="list-disc ml-5 space-y-1"><li>Gia vị thịt: Nước tương, đường, tỏi băm, dầu mè.</li><li>Sốt: 3 muỗng Gochujang, mật ong, giấm táo, hạt mè rang.</li></ul></div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-cinnabar border-l-4 border-cinnabar pl-4">2. Các bước thực hiện</h2>
+                <div class="space-y-8">
+                    <div class="relative pl-8 border-l border-gold">
+                        <span class="absolute -left-3 top-0 bg-gold text-white w-6 h-6 flex items-center justify-center rounded-full text-xs">1</span>
+                        <h4 class="font-bold text-lg">Chuẩn bị thịt bò <span class="text-sm text-gray-500 font-normal italic">(20 phút)</span></h4>
+                        <p class="justify-text text-sm">Thái thịt bò thành sợi mỏng. Ướp với gia vị. Thấm khô thịt trước khi ướp để không bị ra nước.</p>
+                    </div>
+                    <div class="relative pl-8 border-l border-gold">
+                        <span class="absolute -left-3 top-0 bg-gold text-white w-6 h-6 flex items-center justify-center rounded-full text-xs">2</span>
+                        <h4 class="font-bold text-lg">Chế biến Namul <span class="text-sm text-gray-500 font-normal italic">(15 phút)</span></h4>
+                        <p class="justify-text text-sm">Chần rau củ, xào riêng từng loại với gia vị để giữ màu sắc và hương vị đặc trưng.</p>
+                    </div>
+                    <div class="relative pl-8 border-l border-gold">
+                        <span class="absolute -left-3 top-0 bg-gold text-white w-6 h-6 flex items-center justify-center rounded-full text-xs">3</span>
+                        <h4 class="font-bold text-lg">Xào thịt & Pha sốt <span class="text-sm text-gray-500 font-normal italic">(10 phút)</span></h4>
+                        <p class="justify-text text-sm">Xào nhanh thịt bò lửa lớn. Trộn các nguyên liệu làm sốt Gochujang trong bát nhỏ.</p>
+                    </div>
+                    <div class="relative pl-8 border-l border-gold">
+                        <span class="absolute -left-3 top-0 bg-gold text-white w-6 h-6 flex items-center justify-center rounded-full text-xs">4</span>
+                        <h4 class="font-bold text-lg">Hoàn thiện <span class="text-sm text-gray-500 font-normal italic">(5 phút)</span></h4>
+                        <p class="justify-text text-sm">Sắp xếp cơm vào nồi đá hoặc bát, trang trí và thêm sốt theo sở thích.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Pro Tips & Variations -->
+        <section class="grid md:grid-cols-2 gap-8 my-12">
+            <div class="pro-tip-border bg-white shadow-inner">
+                <h3 class="text-2xl font-bold mb-4 text-gold italic">3. Mẹo hay từ Vua Đầu Bếp</h3>
+                <ul class="list-disc ml-5 space-y-3 justify-text text-sm">
+                    <li><strong>Thứ tự xào:</strong> Xào rau từ màu nhạt đến màu đậm để tránh lẫn màu.</li>
+                    <li><strong>Độ ẩm:</strong> Vắt ráo nước hoàn toàn để cơm không bị bết dính.</li>
+                    <li><strong>Trứng:</strong> Ốp la lòng đào giúp tăng độ béo ngậy khi trộn.</li>
+                </ul>
+            </div>
+            
+            <div class="bg-gray-100 p-6 rounded-lg border-l-4 border-gray-400">
+                <h3 class="text-2xl font-bold mb-4">4. Biến tấu nâng cao</h3>
+                <div class="flex flex-col gap-3">
+                    <div class="bg-white p-3 rounded border"><strong>Vegetarian:</strong> Đậu phụ chiên giòn & Nấm.</div>
+                    <div class="bg-white p-3 rounded border"><strong>Seafood:</strong> Thay bò bằng tôm, mực xào cay.</div>
+                    <div class="bg-white p-3 rounded border"><strong>Healthy:</strong> Thay cơm trắng bằng hạt Quinoa.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <section class="grid md:grid-cols-2 gap-12 pt-8 border-t border-gray-300">
+            <div>
+                <h3 class="text-xl font-bold mb-3 text-cinnabar">5. Giá trị dinh dưỡng</h3>
+                <p class="justify-text text-sm italic">550 - 600 kcal/phần. Cân bằng hoàn hảo giữa Carbohydrate phức hợp, Protein và chất xơ. Dầu mè cung cấp chất béo không bão hòa tốt cho tim mạch.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-3 text-cinnabar">6. Gợi ý trình bày</h3>
+                <p class="justify-text text-sm italic">Tuân thủ quy tắc Osaek (5 màu). Đặt trứng vào trung tâm. Điểm xuyết hạt mè và rong biển khô. Một bát Bibimbap chuẩn Stylist phải như một bông hoa rực rỡ.</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
