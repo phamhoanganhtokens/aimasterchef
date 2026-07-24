@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Venison Medallions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', Times, serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        p, .description-text {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #C5A059;
+            transform: translateY(-2px);
+        }
+        
+        .step-number {
+            font-style: italic;
+            font-weight: bold;
+            color: #E23D28;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .pro-tip-box {
+            border: 4px double #C5A059;
+            background-color: rgba(197, 160, 89, 0.05);
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .ingredient-item {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+            padding: 0.75rem 0;
+            transition: padding-left 0.3s ease;
+        }
+        .ingredient-item:hover {
+            padding-left: 0.5rem;
+            color: #E23D28;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FCFAFA; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16 animate-fade-in">
+        <div class="mb-4">
+            <span class="uppercase tracking-[0.3em] text-gold text-sm font-bold">AI Vua Đầu Bếp — Digital Edition</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 text-charcoal leading-tight">
+            Медальоны из оленя с лесными грибами
+        </h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 font-light mb-8">
+            Venison Medallions with Forest Mushrooms <br class="md:hidden"> 
+           
+        </h2>
+
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 border-y border-gold py-6 mt-8 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M20 20v-5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v5"/><path d="M4 13V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 7V3"/><path d="M8 3h8"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Mức độ</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gold/30 md:border-l-0 pl-4 md:pl-0">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">45 Phút</span>
+            </div>
+            <div class="flex flex-col items-center border-t border-gold/30 md:border-t-0 pt-4 md:pt-0">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-t border-gold/30 md:border-l-0 md:border-t-0 pl-4 md:pl-0 pt-4 md:pt-0">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-center text-xs px-2 leading-tight">Bắc & Trung Âu</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-700 description-text px-4">
+            A hallmark of Northern and Central European hunting traditions, this dish celebrates the "Forest to Table" philosophy. It honors the historical transition of wild game from a necessity of the hearth to a centerpiece of fine dining, utilizing the symbiotic relationship between venison and the fungi that grow in its natural habitat.
+        </div>
+    </header>
+
+    <div class="section-divider">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        
+        <!-- Ingredients Column -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3 border-b-2 border-charcoal pb-2">
+                1. Nguyên liệu <span class="text-gold italic font-normal text-lg">Ingredients</span>
+            </h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Protein chính</h4>
+                    <ul class="list-none">
+                        <li class="ingredient-item"><strong>Thịt hươu:</strong> 8 miếng áp chảo (khoảng 150g/miếng), cắt từ thăn hoặc lưng.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Các loại nấm</h4>
+                    <ul class="list-none">
+                        <li class="ingredient-item"><strong>Nấm rừng:</strong> 500g nấm hỗn hợp (Porcini, Chanterelles, hoặc Morels).</li>
+                        <li class="ingredient-item italic text-gray-500 text-sm">Thay thế: Nấm mỡ nâu hoặc nấm bào ngư.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Gia vị & Hương liệu</h4>
+                    <ul class="list-none">
+                        <li class="ingredient-item"><strong>Tỏi:</strong> 3 tép (đập dập).</li>
+                        <li class="ingredient-item"><strong>Thảo mộc:</strong> 4 nhánh cỏ xạ hương tươi, 1 nhánh hương thảo.</li>
+                        <li class="ingredient-item"><strong>Hạt bách xù (Juniper):</strong> 3-4 hạt, nghiền nát.</li>
+                        <li class="ingredient-item"><strong>Gia vị:</strong> Muối biển hạt to, tiêu đen xay mới.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-cinnabar font-bold uppercase text-xs tracking-widest mb-4">Sốt & Chất béo</h4>
+                    <ul class="list-none">
+                        <li class="ingredient-item"><strong>Nước dùng:</strong> 150ml Demi-glace bò hoặc bê thượng hạng.</li>
+                        <li class="ingredient-item"><strong>Rượu:</strong> 100ml vang đỏ khô (Pinot Noir hoặc Syrah).</li>
+                        <li class="ingredient-item"><strong>Khác:</strong> 1 muỗng cà phê giấm balsamic, 30ml dầu hạt nho, 50g bơ lạt lạnh.</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Steps Column -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3 border-b-2 border-charcoal pb-2">
+                2. Các bước thực hiện <span class="text-gold italic font-normal text-lg">Culinary Process</span>
+            </h3>
+
+            <div class="space-y-10 relative">
+                <!-- Vertical Line Decor -->
+                <div class="hidden md:block absolute left-[19px] top-8 bottom-8 w-px bg-gold/30"></div>
+
+                <!-- Step 1 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">01</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Sơ chế & Cân bằng nhiệt độ</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Lấy thịt hươu ra khỏi tủ lạnh 30 phút trước khi nấu để thịt đạt nhiệt độ phòng. Điều này đảm bảo sự phân bổ nhiệt đồng đều. Lau thật khô miếng thịt bằng khăn giấy để tạo điều kiện cho phản ứng Maillard (tạo lớp vỏ nâu) hoàn hảo nhất.
+                    </p>
+                    <span class="text-gold italic text-sm font-bold">— Chuẩn bị: 30 phút</span>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">02</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Áp chảo nấm</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Làm sạch nấm bằng bàn chải thay vì rửa nước để giữ kết cấu. Áp chảo trong chảo nóng với một ít dầu cho đến khi hơi nước bay hết và các cạnh chuyển màu vàng. Thêm một viên bơ nhỏ và một nửa lượng cỏ xạ hương vào cuối. Nêm gia vị và để riêng.
+                    </p>
+                    <span class="text-gold italic text-sm font-bold">— Thực hiện: 8 phút</span>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">03</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Kỹ thuật áp chảo (The Sear)</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Nêm muối và hạt bách xù nghiền lên các miếng thịt ngay trước khi nấu. Đun nóng chảo gang cho đến khi thấy làn khói mỏng. Thêm dầu, sau đó đặt thịt vào. Áp chảo 2-3 phút mỗi mặt cho mức độ tái vừa (medium-rare, nhiệt độ tâm đạt 52°C/125°F).
+                    </p>
+                    <span class="text-gold italic text-sm font-bold">— Thực hiện: 6 phút</span>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">04</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Rưới bơ (Arrosé)</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Trong phút cuối cùng khi áp chảo, thêm bơ còn lại, tỏi và hương thảo vào chảo. Nghiêng chảo và liên tục dùng thìa múc lớp bơ đang sủi bọt thơm phức rưới lên miếng thịt.
+                    </p>
+                    <span class="text-gold italic text-sm font-bold">— Thực hiện: 1 phút</span>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">05</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Nghỉ thịt (Resting)</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Chuyển thịt ra đĩa ấm và đậy hờ bằng giấy bạc. Để thịt nghỉ ít nhất 5-8 phút. Bước này cho phép các sợi cơ thư giãn và nước thịt phân bổ lại bên trong.
+                    </p>
+                    <span class="text-gold italic text-sm font-bold">— Thời gian chờ: 8 phút</span>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">06</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Nấu sốt Reduction</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Dùng rượu vang đỏ để khử chảo nóng (deglaze), cạo sạch các mẩu thịt cháy cạnh (fond) ở đáy chảo. Nấu cho rượu cạn đi một nửa. Thêm demi-glace và đun nhỏ lửa cho đến khi nước sốt phủ đều mặt sau của thìa (độ sánh nappe). Khuấy thêm một viên bơ lạnh cuối cùng để tạo độ bóng.
+                    </p>
+                    <span class="text-gold italic text-sm font-bold">— Thực hiện: 10 phút</span>
+                </div>
+                
+                <!-- Step 7 -->
+                <div class="relative pl-0 md:pl-12">
+                    <div class="flex items-baseline mb-2">
+                        <span class="step-number">07</span>
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Hoàn thiện</h4>
+                    </div>
+                    <p class="text-gray-700 mb-2">
+                        Cho nấm trở lại nước sốt một lát để làm nóng. Nêm tiêu và một giọt giấm balsamic để làm bừng sáng hương vị của đất rừng.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+    </div>
+
+    <!-- Special Insights -->
+    <section class="mb-16">
+        <div class="pro-tip-box mb-12 animate-slide-up">
+            <h3 class="text-xl font-bold text-gold uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+                3. Mẹo hay từ Vua Đầu Bếp
+            </h3>
+            <ul class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <li>
+                    <strong class="block text-cinnabar mb-2 italic">Độ chính xác:</strong>
+                    Thịt hươu rất ít mỡ; nếu nấu quá chín (trên 57°C), thịt sẽ trở nên dai và có vị kim loại. Hãy sử dụng nhiệt kế kỹ thuật số.
+                </li>
+                <li>
+                    <strong class="block text-cinnabar mb-2 italic">Linh hồn của Sốt:</strong>
+                    Đừng bao giờ rửa chảo giữa lúc áp chảo thịt và làm sốt. Những protein caramel hóa (fond) đó chính là linh hồn của hương vị.
+                </li>
+                <li>
+                    <strong class="block text-cinnabar mb-2 italic">Kết cấu Nấm:</strong>
+                    Nếu dùng nấm khô tại nhà, hãy giữ lại nước ngâm, lọc sạch và dùng nó để deglaze chảo để tăng thêm vị umami đậm đà.
+                </li>
+            </ul>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-8 border-b-2 border-charcoal pb-2">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6">
+                <h4 class="text-gold font-bold mb-3 uppercase text-sm tracking-widest">Thay thế tại nhà</h4>
+                <p class="text-sm italic">
+                    Nếu không có thịt hươu, hãy dùng thăn bò chất lượng cao. Nếu không đúng mùa nấm rừng, hãy dùng hỗn hợp nấm Shiitake và Portobello với một chút dầu nấm truffle.
+                </p>
+            </div>
+            <div class="glass-card p-6 border-l-4 border-cinnabar">
+                <h4 class="text-cinnabar font-bold mb-3 uppercase text-sm tracking-widest">Biến tấu hương vị trái cây</h4>
+                <p class="text-sm italic">
+                    Theo truyền thống, một muỗng canh mứt quả lingonberry hoặc quả lý chua đỏ (redcurrant) có thể được khuấy vào sốt để cân bằng vị đậm đà của thịt rừng với độ chua và ngọt.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Footer Info -->
+    <footer class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t-2 border-gold/50">
+        <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                5. Giá trị dinh dưỡng
+            </h3>
+            <div class="grid grid-cols-2 gap-4 text-sm bg-charcoal text-parchment p-6">
+                <div class="border-b border-white/20 pb-2">
+                    <span class="block opacity-70">Năng lượng</span>
+                    <span class="font-bold text-lg">380 kcal</span>
+                </div>
+                <div class="border-b border-white/20 pb-2">
+                    <span class="block opacity-70">Protein</span>
+                    <span class="font-bold text-lg">45g</span>
+                </div>
+                <div class="border-b border-white/20 pb-2">
+                    <span class="block opacity-70">Chất béo</span>
+                    <span class="font-bold text-lg">14g</span>
+                </div>
+                <div class="border-b border-white/20 pb-2">
+                    <span class="block opacity-70">Sắt</span>
+                    <span class="font-bold text-lg">35% DV</span>
+                </div>
+                <div class="col-span-2 pt-2 italic text-xs">
+                    * Giàu Vitamin B12 (60% DV), Selen và Kẽm.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                6. Gợi ý trình bày
+            </h3>
+            <ul class="space-y-4 text-sm italic description-text">
+                <li>
+                    <strong class="text-gold font-bold uppercase not-italic">Thẩm mỹ sàn rừng:</strong> 
+                    Sử dụng đĩa gốm mờ, tối màu để làm nổi bật màu sắc. Sắp xếp nấm và nước sốt hơi lệch tâm.
+                </li>
+                <li>
+                    <strong class="text-gold font-bold uppercase not-italic">Kỹ thuật cắt:</strong> 
+                    Cắt lát một miếng thịt để lộ phần bên trong màu hồng hoàn hảo, trong khi để miếng thứ hai nguyên vẹn để tạo độ cao.
+                </li>
+                <li>
+                    <strong class="text-gold font-bold uppercase not-italic">Trang trí:</strong> 
+                    Sử dụng rau mầm hoặc nhánh cỏ xạ hương tươi để mô phỏng thảm thực vật dưới rừng. Một lớp "bụi" bột nấm porcini trên vành đĩa sẽ tăng thêm tầng hương vị khứu giác.
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0');
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, aside, .pro-tip-box').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0');
+            el.style.transform = 'translateY(20px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
