@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp | Pizza Napoletana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#C04000',
+                        gold: '#C5A059'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .justified { text-align: justify; }
+        .ornament::before, .ornament::after {
+            content: "✦";
+            margin: 0 10px;
+            color: #C5A059;
+        }
+        .recipe-meta-icon { fill: #C04000; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-8 lg:px-24">
+
+    <!-- Hero Header -->
+    <header class="max-w-4xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold text-charcoal mb-4">Pizza Neapolitan</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gold mb-8">(Pizza Napoletana)</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-t border-b border-gold/30">
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest text-cinnabar font-bold">Độ khó</span>
+                <span class="text-lg">Trung bình - Khó</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest text-cinnabar font-bold">Thời gian</span>
+                <span class="text-lg text-center">30p + ủ 24-48h</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest text-cinnabar font-bold">Khẩu phần</span>
+                <span class="text-lg">4 phần</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-sm uppercase tracking-widest text-cinnabar font-bold">Nguồn gốc</span>
+                <span class="text-lg">Naples, Ý</span>
+            </div>
+        </div>
+        <p class="mt-8 text-lg italic justified">Bắt nguồn từ Naples (Napoli), Ý. Chiếc bánh mang tính biểu tượng này là chuẩn mực của ẩm thực Ý, được Hiệp hội Pizza Napoletana thực thụ (AVPN) bảo vệ nghiêm ngặt. Màu sắc của bánh (đỏ, trắng, xanh lá) tượng trưng cho quốc kỳ Ý, đặc biệt là phiên bản Margherita ra đời năm 1889 để vinh danh Nữ hoàng Margherita xứ Savoy.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto">
+        <!-- Two Column Grid -->
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Ingredients (Left) -->
+            <section>
+                <h3 class="text-3xl font-bold border-b-2 border-cinnabar pb-2 mb-6 text-cinnabar">1. Nguyên liệu</h3>
+                
+                <div class="mb-6">
+                    <h4 class="font-bold text-xl mb-3 underline underline-offset-4">Phần bột (Độ ẩm 65%)</h4>
+                    <ul class="space-y-2 list-none">
+                        <li class="pl-4 border-l-2 border-gold">Bột mì: 500g (Tipo 00, 12-13% protein)</li>
+                        <li class="pl-4 border-l-2 border-gold">Nước: 325ml (lạnh)</li>
+                        <li class="pl-4 border-l-2 border-gold">Men: 1.5g khô / 3g tươi</li>
+                        <li class="pl-4 border-l-2 border-gold">Muối: 15g (muối biển mịn)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-xl mb-3 underline underline-offset-4">Phần nhân (Toppings)</h4>
+                    <ul class="space-y-2 list-none">
+                        <li class="pl-4 border-l-2 border-gold">Cà chua: 400g San Marzano</li>
+                        <li class="pl-4 border-l-2 border-gold">Phô mai: 400g Mozzarella di Bufala</li>
+                        <li class="pl-4 border-l-2 border-gold">Lá húng quế tươi</li>
+                        <li class="pl-4 border-l-2 border-gold">Dầu oliu Extra Virgin</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Steps (Right) -->
+            <section>
+                <h3 class="text-3xl font-bold border-b-2 border-cinnabar pb-2 mb-6 text-cinnabar">2. Các bước thực hiện</h3>
+                <div class="space-y-6">
+                    <div class="justified">
+                        <span class="block font-bold text-cinnabar">Bước 1: Trộn và nhồi bột (15p)</span>
+                        Hòa tan men vào nước lạnh. Cho dần bột Tipo 00 vào trộn đều. Thêm muối, nhồi kỹ thuật "slap and fold" 10-15 phút.
+                    </div>
+                    <div class="justified">
+                        <span class="block font-bold text-cinnabar">Bước 2: Lên men chậm (24-48h)</span>
+                        Để 2 giờ nhiệt độ phòng, sau đó ủ ngăn mát tủ lạnh 24-48 giờ để phát triển hương vị.
+                    </div>
+                    <div class="justified">
+                        <span class="block font-bold text-cinnabar">Bước 3: Chia viên (Balling)</span>
+                        Chia 4 phần (210g/phần), vo tròn. Để bột nở gấp đôi ở nhiệt độ phòng trước khi nướng.
+                    </div>
+                    <div class="justified">
+                        <span class="block font-bold text-cinnabar">Bước 4: Cán và dàn bột</span>
+                        Dùng tay ấn từ giữa ra mép để đẩy bọt khí. Kéo dãn thành hình tròn 25-30cm.
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Special Insight Sections -->
+        <div class="my-16 p-8 bg-amber-50 border-double border-4 border-gold rounded-sm">
+            <h3 class="text-3xl font-bold mb-6 text-center text-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="justified">
+                    <p class="font-bold">Quản lý nhiệt độ:</p>
+                    <p>Nước lạnh là chìa khóa để bột không bị quá nhiệt. Nhiệt độ lý tưởng sau nhồi là 23-24°C.</p>
+                </div>
+                <div class="justified">
+                    <p class="font-bold">Xử lý phô mai:</p>
+                    <p>Hãy để ráo nước phô mai trước khi nướng vài giờ để tránh đế bánh bị sũng nước.</p>
+                </div>
+                <div class="justified">
+                    <p class="font-bold">Sốt cà chua:</p>
+                    <p>Không nấu sốt trước. Cà chua sống sẽ chín hoàn hảo dưới nhiệt độ cực cao của lò.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variations -->
+        <section class="my-16">
+            <h3 class="text-3xl font-bold mb-8 text-center ornament">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 border border-gold hover:bg-white transition-all">
+                    <h4 class="text-xl font-bold mb-2">Marinara</h4>
+                    <p class="justified">Bỏ phô mai, chỉ dùng sốt cà chua, tỏi thái lát, oregano khô và dầu oliu.</p>
+                </div>
+                <div class="p-6 border border-gold hover:bg-white transition-all">
+                    <h4 class="text-xl font-bold mb-2">Diavola</h4>
+                    <p class="justified">Thêm xúc xích Salami cay và ớt sừng để tăng vị kích thích cho thực khách.</p>
+                </div>
+                <div class="p-6 border border-gold hover:bg-white transition-all">
+                    <h4 class="text-xl font-bold mb-2">Vegan</h4>
+                    <p class="justified">Thay thế bằng phô mai Mozzarella thuần chay làm từ hạt điều.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Footer -->
+        <section class="grid md:grid-cols-2 gap-12 mt-16 pt-12 border-t border-gold">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-cinnabar">5. Giá trị dinh dưỡng</h3>
+                <p class="justified">Năng lượng: ~700 kcal. Quá trình ủ chậm giúp bẻ gãy gluten và carbohydrate, làm giảm chỉ số GI, giúp bánh dễ tiêu hóa hơn hẳn các loại pizza thông thường.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-cinnabar">6. Gợi ý trình bày</h3>
+                <p class="justified">Đặt trên thớt gỗ mộc mạc. Viền bánh (cornicione) phải có những đốm cháy xém "da báo". Thêm lá húng quế tươi ngay khi vừa ra lò để hương vị tinh dầu bung tỏa mạnh mẽ nhất.</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
