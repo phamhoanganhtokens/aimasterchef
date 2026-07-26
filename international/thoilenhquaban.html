@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Thời lệnh quả bàn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2C2C2C',
+                        'cream': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justify-text {
+            text-align: justify;
+        }
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+        .divider-ornament:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .divider-ornament:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .pro-tip-box {
+            border: 4px double #D4AF37;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .meta-icon {
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto text-center mb-12">
+        <div class="mb-4">
+            <span class="text-cinnabar tracking-widest uppercase text-sm font-bold">AI VUA ĐẦU BẾP • ĐẶC SAN ẨM THỰC</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">THỜI LỆNH QUẢ BÀN (时令水果盘)</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">Seasonal Fruit Platter</h2>
+        
+        <div class="max-w-4xl mx-auto border-y border-gold py-6 mt-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">◈</span>
+                    <span class="text-xs uppercase tracking-tighter text-gray-500">Độ khó</span>
+                    <span class="font-bold uppercase">Trung bình</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">⏱</span>
+                    <span class="text-xs uppercase tracking-tighter text-gray-500">Thời gian</span>
+                    <span class="font-bold uppercase">30 Phút</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">🍽</span>
+                    <span class="text-xs uppercase tracking-tighter text-gray-500">Khẩu phần</span>
+                    <span class="font-bold uppercase">4-6 Người</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="meta-icon mb-1">🌏</span>
+                    <span class="text-xs uppercase tracking-tighter text-gray-500">Nguồn gốc</span>
+                    <span class="font-bold uppercase">Đông Á</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic justify-text text-gray-700 leading-relaxed px-4">
+            "Shiling" (thời lệnh) không chỉ là món ăn, mà là triết lý về sự giao thoa giữa thiên nhiên và cơ thể con người. Được phục vụ cuối bữa tiệc để hỗ trợ tiêu hóa và làm mới vị giác, đĩa trái cây phản ánh tinh thần "Thiên Thời" - thưởng thức sản vật tại thời điểm chín muồi nhất để hấp thụ trọn vẹn sinh khí (Qi) của đất trời.
+        </div>
+    </header>
+
+    <div class="divider-ornament max-w-6xl mx-auto">
+        <span class="text-gold text-2xl">★</span>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-6">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-2">Trái cây theo mùa (Chọn 3-5 loại):</h4>
+                        <ul class="space-y-2 border-l-2 border-gold pl-4">
+                            <li><span class="text-gold">✦</span> <strong>Xuân:</strong> Dâu tây, Tì bà, hoặc Xoài xanh.</li>
+                            <li><span class="text-gold">✦</span> <strong>Hạ:</strong> Dưa hấu, Vải thiều, hoặc Thanh long.</li>
+                            <li><span class="text-gold">✦</span> <strong>Thu:</strong> Hồng giòn, Lê Hàn Quốc, hoặc Nho.</li>
+                            <li><span class="text-gold">✦</span> <strong>Đông:</strong> Bưởi da xanh, Quýt, hoặc Táo.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-cinnabar italic mb-2">Trang trí & Phụ trợ:</h4>
+                        <ul class="space-y-2 border-l-2 border-gold pl-4">
+                            <li><span class="text-gold">✦</span> Lá bạc hà tươi, hoa păng-xê, lá tía tô.</li>
+                            <li><span class="text-gold">✦</span> Dung dịch bảo quản: 500ml nước lọc + 1 tsp muối/chanh.</li>
+                            <li><span class="text-gold">✦</span> Tùy chọn: Mật ong hoặc bột xí muội.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef's Corner Box -->
+            <section class="pro-tip-box p-6 shadow-lg">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="mr-2 text-gold">✍</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <div class="space-y-4 text-sm justify-text italic">
+                    <p><strong>Độ sắc của dao:</strong> Đừng bao giờ sử dụng dao cùn; nó làm dập nát tế bào trái cây, dẫn đến tình trạng chảy nước và nhanh héo.</p>
+                    <p><strong>Tính nguyên vẹn:</strong> Đặt các loại trái cây "ướt" (cam, dưa hấu) ở dưới cùng hoặc trong bát nhỏ riêng biệt để ngăn nước ép làm ảnh hưởng đến các loại trái cây "khô" như táo.</p>
+                    <p><strong>Lỗi cần tránh:</strong> Tránh dùng quả quá chín. Dù ngọt, chúng thiếu độ cứng cần thiết để tạo hình thẩm mỹ và sẽ trông "nhũn" trên đĩa.</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <article class="lg:col-span-8">
+            <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8">2. Các bước thực hiện</h3>
+            
+            <div class="space-y-10 relative">
+                <!-- Step 1 -->
+                <div class="flex gap-4">
+                    <div class="flex-none"><span class="step-number text-2xl">01.</span></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Chuẩn bị & Kiểm soát Nhiệt độ</h4>
+                        <p class="justify-text text-gray-700">Đảm bảo tất cả trái cây được làm lạnh ở mức 4-7°C trước khi cắt. Các đầu bếp chuyên nghiệp hiểu rằng trái cây lạnh giữ cấu trúc tốt hơn khi chạm khắc. Rửa sạch trái cây trong nước muối loãng để loại bỏ tạp chất và cân bằng tính "hàn".</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-4">
+                    <div class="flex-none"><span class="step-number text-2xl">02.</span></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Kỹ thuật Dao (Phương pháp Chuyên nghiệp)</h4>
+                        <p class="justify-text text-gray-700">Đối với dưa hoặc thanh long, sử dụng dao tỉa (bird’s beak) để tạo đường viền zigzag hình chữ V. Với táo và lê, thực hiện kỹ thuật cắt "Tai thỏ" bằng cách khía một miếng chêm và gọt một phần vỏ thành hai điểm nhọn. Người nội trợ có thể dùng khuôn cắt bánh quy để tạo hình sao hoặc tim đồng nhất.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-4">
+                    <div class="flex-none"><span class="step-number text-2xl">03.</span></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Chống Oxy hóa</h4>
+                        <p class="justify-text text-gray-700">Ngay sau khi cắt các loại quả thịt trắng (táo, lê), hãy ngâm chúng vào dung dịch nước chanh/muối đã chuẩn bị trong 30 giây. Bước này ngăn chặn quá trình thâm nâu do enzyme, giữ cho vẻ ngoài luôn tươi mới như các stylist thực phẩm thường làm.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-4">
+                    <div class="flex-none"><span class="step-number text-2xl">04.</span></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Xử lý Kết cấu & Lõi</h4>
+                        <p class="justify-text text-gray-700">Loại bỏ hoàn toàn hạt, xơ và các màng cứng. Đối với các loại quả có múi, kỹ thuật "supreming" (loại bỏ toàn bộ lớp vỏ và màng để chỉ lấy tép quả nguyên vẹn) sẽ mang lại cảm giác cao cấp khi thưởng thức.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-4">
+                    <div class="flex-none"><span class="step-number text-2xl">05.</span></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Bố cục Thị giác (Phương pháp Stylist)</h4>
+                        <p class="justify-text text-gray-700">Bắt đầu bằng cách đặt các phần lớn, có tính cấu trúc (như vỏ dưa hấu khắc hoặc thuyền dứa) ở trung tâm hoặc phía sau. Sắp xếp các trái cây nhỏ theo hình "thác đổ" hoặc hình quạt xung quanh. Sử dụng nguyên tắc tương phản màu sắc: đặt dâu đỏ cạnh kiwi xanh để làm nổi bật tông màu.</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="flex gap-4">
+                    <div class="flex-none"><span class="step-number text-2xl">06.</span></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">Hoàn thiện</h4>
+                        <p class="justify-text text-gray-700">Tận dụng "khoảng trắng" trên đĩa để tránh cảm giác quá chật chội. Cài thêm lá bạc hà vào các khe hở để thêm hương thơm tươi mát và điểm xuyết sắc xanh sinh động. Phục vụ ngay trên đĩa gốm hoặc gỗ đã được làm lạnh.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div class="divider-ornament max-w-6xl mx-auto">
+        <span class="text-gold text-2xl">❖</span>
+    </div>
+
+    <!-- Variations Section -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <h3 class="text-2xl font-bold border-b-2 border-cinnabar inline-block mb-8 text-center block mx-auto">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-lg shadow-sm border">
+                <h4 class="font-bold text-cinnabar mb-3 uppercase tracking-wider text-sm">Tropical Variation</h4>
+                <p class="text-sm justify-text text-gray-600">Tập trung vào Xoài, Dứa và Mít. Sử dụng một quả dứa rỗng ruột để làm vật chứa trình bày, tạo cảm giác phóng khoáng của vùng nhiệt đới.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg shadow-sm border">
+                <h4 class="font-bold text-cinnabar mb-3 uppercase tracking-wider text-sm">Temperate Variation</h4>
+                <p class="text-sm justify-text text-gray-600">Sử dụng các loại quả mọng (berries), trái cây hạch (đào, mận) và nho. Tập trung vào sự tinh tế và màu sắc pastel dịu nhẹ.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg shadow-sm border">
+                <h4 class="font-bold text-cinnabar mb-3 uppercase tracking-wider text-sm">Dipping Style</h4>
+                <p class="text-sm justify-text text-gray-600">Phục vụ kèm một đĩa nhỏ "Muối ớt" cho phong cách Việt Nam đậm đà, hoặc mật ong chanh để tăng độ bóng và vị ngọt thanh.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Footer Info -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 bg-charcoal text-cream p-8 md:p-12 rounded-t-3xl shadow-2xl">
+        <div>
+            <h3 class="text-xl font-bold mb-6 text-gold border-b border-gray-600 pb-2">5. Giá trị dinh dưỡng (Mỗi phần)</h3>
+            <ul class="space-y-4">
+                <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+                    <span>Năng lượng</span>
+                    <span class="font-bold">80-120 kcal</span>
+                </li>
+                <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+                    <span>Vitamin C</span>
+                    <span class="font-bold text-gold">60-80% DV</span>
+                </li>
+                <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+                    <span>Chất xơ</span>
+                    <span class="font-bold">3-5g</span>
+                </li>
+                <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+                    <span>Đường tự nhiên</span>
+                    <span class="text-xs italic">(Glycemic trung bình)</span>
+                </li>
+            </ul>
+            <p class="mt-4 text-xs italic text-gray-400 justify-text">Lời khuyên: Hãy đặt mục tiêu tiêu thụ 1.5 đến 2 bát trái cây mỗi ngày để duy trì sức khỏe tối ưu.</p>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-6 text-gold border-b border-gray-600 pb-2">6. Gợi ý trình bày</h3>
+            <div class="space-y-4 text-sm">
+                <div>
+                    <span class="text-gold font-bold">Lý thuyết màu sắc:</span>
+                    <p class="text-gray-300 justify-text mt-1">Áp dụng "Quy tắc số 3" - Luôn có một màu chủ đạo (đỏ/cam), một màu phụ trợ (xanh lá) và một màu trung tính (trắng/vàng nhạt).</p>
+                </div>
+                <div>
+                    <span class="text-gold font-bold">Tạo độ cao:</span>
+                    <p class="text-gray-300 justify-text mt-1">Sử dụng các bát nhỏ (ramekins) giấu dưới lớp trái cây để tạo các tầng cao thấp khác nhau, giúp đĩa ăn trông sống động và đa chiều hơn.</p>
+                </div>
+                <div class="pt-4 italic border-t border-gray-700 text-gray-400">
+                    Mẹo Marketing: Nếu phục vụ chuyên nghiệp, hãy đặt tên đĩa theo "vi mùa" (ví dụ: "Thu hoạch đêm Rằm tháng Tám") để tăng giá trị cảm nhận.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple interactivity for smooth entrance
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
