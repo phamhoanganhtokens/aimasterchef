@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Hải Triết Đầu Hoàng Qua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#C5A059',
+                        'gold-light': '#F4E6C3',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+        }
+        .gold-border {
+            border: 1px solid #C5A059;
+        }
+        .double-border {
+            border: 4px double #C5A059;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+            color: #C5A059;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #C5A059;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+        
+        .ornament {
+            font-size: 1.5rem;
+        }
+
+        .step-number {
+            background-color: #2C2C2C;
+            color: #FCFAFA;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .ingredient-item {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .ingredient-item:hover {
+            background-color: rgba(197, 160, 89, 0.05);
+            padding-left: 8px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            background-color: #2C2C2C;
+            color: #FCFAFA;
+        }
+        
+        @media (max-width: 768px) {
+            .justified-text {
+                text-align: left; /* Better for very small screens */
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-16 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-12">
+        <div class="inline-block border-y-2 border-gold py-4 px-8 mb-6">
+            <span class="uppercase tracking-[0.3em] text-xs font-bold text-gold">AI Vua Đầu Bếp Exclusive</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2 uppercase text-primary italic">Hải triết đầu hoàng qua</h1>
+        <h2 class="text-xl md:text-2xl text-gold mb-8 italic">海蜇头拌黄瓜 — Jellyfish Head Mixed with Cucumber</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-4 md:gap-12 bg-white p-6 shadow-sm border border-gold-light rounded-sm">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M7 18v-6"/><path d="M12 18V9"/><path d="M17 18V6"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-wider text-gray-500">Độ khó</span>
+                <span class="font-bold text-sm uppercase">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100 md:border-l-0 md:pl-0 pl-4">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-wider text-gray-500">Thời gian</span>
+                <span class="font-bold text-sm uppercase">40 Phút + Ngâm</span>
+            </div>
+            <div class="flex flex-col items-center md:border-l border-gray-100 md:pl-12">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-wider text-gray-500">Khẩu phần</span>
+                <span class="font-bold text-sm uppercase">4 Người</span>
+            </div>
+            <div class="flex flex-col items-center border-l border-gray-100 md:pl-12 pl-4">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 21.8c2.3-2.5 3.5-5.5 3.5-9.8 0-4.3-1.2-7.3-3.5-9.8"/><path d="M12 21.8c-2.3-2.5-3.5-5.5-3.5-9.8 0-4.3 1.2-7.3 3.5-9.8"/></svg>
+                </span>
+                <span class="text-[10px] uppercase tracking-wider text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-sm uppercase">Quảng Đông</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto italic text-gray-600 justified-text text-sm">
+            Món ăn này là nền tảng của văn hóa khai vị "Liangcai" trong truyền thống ẩm thực Trung Hoa, đặc biệt được ưa chuộng tại Quảng Đông và Thượng Hải. Tại Việt Nam, món sứa trộn được yêu thích như một thức quà giải nhiệt mùa hè thanh tao. Theo truyền thống, phần đầu sứa được ưu tiên hơn phần thân nhờ kết cấu giòn sần sật đặc trưng, đại diện cho sự cân bằng giữa Âm (sứa, dưa leo có tính hàn) và Dương (tỏi, giấm có tính ấm).
+        </div>
+    </header>
+
+    <div class="section-divider"><span class="ornament">◈</span></div>
+
+    <!-- Main Recipe Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4">
+            <h3 class="text-2xl font-bold mb-6 text-cinnabar flex items-center">
+                1. Nguyên liệu 
+                <span class="ml-4 flex-grow border-b border-gold-light"></span>
+            </h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-3">Thành phần chính</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>300g đầu sứa muối</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>400g dưa leo Anh (2 quả)</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-3">Gia vị & Sốt</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>45ml giấm đen Chinkiang</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>15ml nước tương nhạt</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>15g đường trắng</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>10ml dầu mè thơm</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>5ml dầu ớt (tùy chọn)</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>2g muối (sơ chế dưa)</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gold font-bold mb-3">Thảo mộc & Trang trí</h4>
+                    <ul class="space-y-2">
+                        <li class="ingredient-item py-1 flex justify-between"><span>30g tỏi (4-6 tép)</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>15g ngò rí tươi</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>5g mè trắng rang</span></li>
+                        <li class="ingredient-item py-1 flex justify-between"><span>1 quả ớt đỏ (thái sợi)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <section class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-6 text-cinnabar flex items-center">
+                2. Các bước thực hiện
+                <span class="ml-4 flex-grow border-b border-gold-light"></span>
+            </h3>
+
+            <div class="space-y-8">
+                <div class="flex">
+                    <div class="step-number">1</div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">Khử muối (Phương pháp truyền thống)</h4>
+                            <span class="italic text-xs text-gold font-bold">4-24 Giờ</span>
+                        </div>
+                        <p class="justified-text text-sm text-gray-700">Rửa sạch đầu sứa muối dưới vòi nước lạnh nhiều lần. Ngâm trong nước lạnh ít nhất 4 giờ (tốt nhất là 24 giờ), thay nước 3-4 lần cho đến khi vị mặn gần như biến mất hoàn toàn.</p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="step-number">2</div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">Kiểm soát kết cấu (Kỹ thuật chuyên nghiệp)</h4>
+                            <span class="italic text-xs text-gold font-bold">5-8 Giây</span>
+                        </div>
+                        <p class="justified-text text-sm text-gray-700">Đun sôi nước đến khoảng 80°C (không để sôi sùng sục; chỉ bắt đầu xuất hiện các bọt khí nhỏ). Nhúng sứa vào chính xác 5-8 giây. Sứa sẽ hơi co lại và xoăn nhẹ. Ngay lập tức vớt ra và thả vào tô nước đá. Kỹ thuật "thermal shock" này giúp khóa lại độ giòn. Để ráo và thấm khô bằng khăn giấy bếp.</p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="step-number">3</div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">Sơ chế dưa leo (Mẹo bếp gia đình)</h4>
+                            <span class="italic text-xs text-gold font-bold">10 Phút</span>
+                        </div>
+                        <p class="justified-text text-sm text-gray-700">Sử dụng kỹ thuật "Pai Huang Gua". Đặt dưa leo lên thớt và đập nhẹ bằng mặt phẳng của dao phay hoặc cán lăn bột cho đến khi dưa nứt ra. Cắt thành miếng vừa ăn, trộn với 2g muối, để yên trong 10 phút, sau đó chắt bỏ phần nước tiết ra.</p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="step-number">4</div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">Khơi dậy hương thơm</h4>
+                            <span class="italic text-xs text-gold font-bold">2 Phút</span>
+                        </div>
+                        <p class="justified-text text-sm text-gray-700">Băm tỏi thật nhuyễn. Để tạo điểm nhấn chuyên nghiệp, cho tỏi vào một bát nhỏ chịu nhiệt và đổ 1 thìa dầu thật nóng lên trên để "đánh thức" mùi thơm của tỏi trước khi thêm các nguyên liệu làm sốt khác.</p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="step-number">5</div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">Pha chế nước sốt Emulsifying</h4>
+                            <span class="italic text-xs text-gold font-bold">3 Phút</span>
+                        </div>
+                        <p class="justified-text text-sm text-gray-700">Trong một chiếc bát lớn, đánh đều giấm đen, nước tương, đường và dầu mè cho đến khi đường tan hoàn toàn và các loại gia vị hòa quyện đồng nhất.</p>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="step-number">6</div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">Trình bày & Hoàn thiện</h4>
+                            <span class="italic text-xs text-gold font-bold">Phục vụ ngay</span>
+                        </div>
+                        <p class="justified-text text-sm text-gray-700">Ngay trước khi ăn, kết hợp sứa, dưa leo và ngò rí trong một chiếc tô lớn đã được làm lạnh. Rưới nước sốt lên trên và trộn nhẹ nhàng để giữ được độ tươi và giòn của dưa leo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="section-divider"><span class="ornament">◈</span></div>
+
+    <!-- Chef's Corner -->
+    <section class="double-border bg-white p-8 mb-12">
+        <h3 class="text-xl font-bold uppercase tracking-widest text-center mb-6 text-gold flex items-center justify-center">
+            <span class="mr-4">✦</span> 3. Mẹo hay từ Vua Đầu Bếp <span class="ml-4">✦</span>
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center italic text-sm border-r border-gold-light px-4">
+                "Đừng bao giờ dùng nước sôi (100°C) để chần sứa; nó sẽ biến collagen thành cao su. 80°C là ngưỡng nhiệt độ lý tưởng nhất."
+            </div>
+            <div class="text-center italic text-sm border-r border-gold-light px-4">
+                "Hãy đảm bảo sứa và dưa leo khô ráo nhất có thể trước khi trộn nước sốt để tránh làm loãng hương vị đậm đà của món ăn."
+            </div>
+            <div class="text-center italic text-sm px-4">
+                "Chỉ trộn nước sốt ngay trước khi phục vụ để duy trì độ giòn mọng nước đặc trưng của dưa leo."
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations -->
+    <section class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 text-cinnabar flex items-center">
+            4. Biến tấu & Phiên bản nâng cao
+            <span class="ml-4 flex-grow border-b border-gold-light"></span>
+        </h3>
+        
+        <div class="flex flex-wrap gap-2 mb-4">
+            <button onclick="openVariation(event, 'quick')" class="tab-btn px-6 py-2 border border-primary text-xs uppercase tracking-widest font-bold transition-all active">Gia đình (Nhanh)</button>
+            <button onclick="openVariation(event, 'chef')" class="tab-btn px-6 py-2 border border-primary text-xs uppercase tracking-widest font-bold transition-all">Chef Level</button>
+            <button onclick="openVariation(event, 'viet')" class="tab-btn px-6 py-2 border border-primary text-xs uppercase tracking-widest font-bold transition-all">Phong cách Việt</button>
+        </div>
+
+        <div id="quick" class="tab-content active p-6 bg-white gold-border">
+            <p class="justified-text text-sm">Nếu không tìm được đầu sứa, bạn có thể sử dụng các gói sứa thái sợi sẵn trong bao bì chân không (thường không cần ngâm nước lâu). Điều này giúp tiết kiệm thời gian mà vẫn đảm bảo được hương vị cốt lõi của món ăn.</p>
+        </div>
+        <div id="chef" class="tab-content p-6 bg-white gold-border">
+            <p class="justified-text text-sm">Thêm mộc nhĩ thái sợi đã chần sơ để tăng thêm một lớp cấu trúc giòn khác biệt. Sử dụng thêm một chút dầu ớt chiết xuất từ hạt xuyên tiêu (Sichuan peppercorn) để tạo hiệu ứng tê nhẹ đầu lưỡi đầy tinh tế.</p>
+        </div>
+        <div id="viet" class="tab-content p-6 bg-white gold-border">
+            <p class="justified-text text-sm">Biến tấu theo kiểu "Nộm" của Việt Nam bằng cách thay giấm đen bằng nước cốt chanh tươi và thêm một ít nước mắm thượng hạng. Rắc thêm lạc rang giã dập và rau kinh giới để tạo nên bản giao hưởng hương vị bản địa.</p>
+        </div>
+    </section>
+
+    <!-- Footer Content -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-primary text-parchment p-8 rounded-sm">
+        <div>
+            <h3 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">5. Giá trị dinh dưỡng</h3>
+            <div class="text-sm space-y-2">
+                <p class="flex justify-between border-b border-gray-700 pb-1"><span>Năng lượng</span> <span>~110 kcal / khẩu phần</span></p>
+                <p class="justified-text mt-4 italic opacity-80">Sứa là thực phẩm cực kỳ ít calo và chất béo, đồng thời là nguồn cung cấp collagen tự nhiên và i-ốt dồi dào. Món ăn này có tính cấp nước cao và rất tốt cho hệ tiêu hóa.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">6. Gợi ý trình bày</h3>
+            <ul class="text-sm space-y-2 italic">
+                <li class="flex items-start"><span class="text-gold mr-2">◈</span> Sử dụng đĩa sứ rộng, nông để tạo sự tương phản giữa sứa trong suốt và dưa xanh.</li>
+                <li class="flex items-start"><span class="text-gold mr-2">◈</span> Vun dưa leo thành khối cao ở giữa, phủ đầu sứa lên trên để tạo chiều sâu không gian.</li>
+                <li class="flex items-start"><span class="text-gold mr-2">◈</span> Rắc mè rang từ trên cao để đạt được sự phân tán đồng đều, tinh tế.</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function openVariation(evt, name) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(name).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
