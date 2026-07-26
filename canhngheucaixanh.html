@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Canh Cải Xanh Nghêu Gừng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E34234',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #FCFAFA; color: #2C2C2C; }
+        .text-justify { text-align: justify; }
+        .recipe-meta-icon { fill: #C5A059; }
+        .divider-ornament::after { content: "⚜"; display: block; text-align: center; color: #C5A059; margin: 1rem 0; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-16 lg:px-32">
+
+    <main class="max-w-5xl mx-auto">
+        <!-- Hero Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-charcoal mb-4">Canh Cải Xanh Nghêu Gừng</h1>
+            <h2 class="text-2xl italic text-gold mb-8">Clam & Mustard Green Ginger Soup: The Yin-Yang Balance</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gold/30">
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-gray-500">Độ khó</p><p class="font-bold">Trung bình thấp</p></div>
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-gray-500">Thời gian</p><p class="font-bold">35 - 45 phút</p></div>
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</p><p class="font-bold">3 - 4 người</p></div>
+                <div class="text-center"><p class="text-xs uppercase tracking-widest text-gray-500">Xuất xứ</p><p class="font-bold">Việt Nam</p></div>
+            </div>
+            <p class="mt-8 text-lg text-justify leading-relaxed text-charcoal/80 italic">
+                Đây là món canh dân dã đặc trưng trong mâm cơm gia đình Việt Nam. Theo quan điểm của Chuyên gia Ẩm thực Truyền thống, món ăn này là minh chứng rõ nét cho nguyên lý "Cân bằng Âm - Dương": Nghêu mang tính hàn (lạnh) kết hợp cùng Gừng tính nhiệt (nóng) và Cải xanh tính ôn, không chỉ tạo ra hương vị hài hòa mà còn giúp ấm bụng, kích thích tiêu hóa và giải cảm hiệu quả.
+            </p>
+        </header>
+
+        <div class="divider-ornament"></div>
+
+        <!-- Main Recipe Body -->
+        <section class="grid md:grid-cols-2 gap-12">
+            <!-- Left: Ingredients -->
+            <article>
+                <h3 class="text-3xl font-bold mb-6 text-cinnabar">1. Nguyên liệu</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-xl border-b border-gold pb-2 mb-3">Chính</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Nghêu tươi: 1kg (Chọn con mập, cầm nặng tay).</li>
+                            <li>Cải bẹ xanh: 300g - 400g (Chọn cải non).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl border-b border-gold pb-2 mb-3">Gia vị & Khác</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Gừng tươi: 1 nhánh vừa (20g).</li>
+                            <li>Hành tím: 2 củ.</li>
+                            <li>Gia vị: Nước mắm, muối, hạt nêm, tiêu xay.</li>
+                            <li>Nước vo gạo/Ớt tươi (làm sạch nghêu).</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Right: Steps -->
+            <article>
+                <h3 class="text-3xl font-bold mb-6 text-cinnabar">2. Các bước thực hiện</h3>
+                <div class="space-y-8">
+                    <div class="relative pl-8 border-l-2 border-gold">
+                        <span class="absolute -left-[9px] top-0 bg-gold w-4 h-4 rounded-full"></span>
+                        <h4 class="font-bold text-lg">Sơ chế nghêu <span class="text-sm text-gray-500">(1-2 giờ)</span></h4>
+                        <p class="text-justify italic">Ngâm nghêu trong nước vo gạo có ớt để nhả cát, rửa sạch vỏ.</p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-gold">
+                        <span class="absolute -left-[9px] top-0 bg-gold w-4 h-4 rounded-full"></span>
+                        <h4 class="font-bold text-lg">Chế biến nước dùng <span class="text-sm text-gray-500">(10 phút)</span></h4>
+                        <p class="text-justify italic">Luộc nghêu lấy nước, lọc cặn, tách thịt để riêng.</p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-gold">
+                        <span class="absolute -left-[9px] top-0 bg-gold w-4 h-4 rounded-full"></span>
+                        <h4 class="font-bold text-lg">Nấu canh <span class="text-sm text-gray-500">(15 phút)</span></h4>
+                        <p class="text-justify italic">Phi thơm hành gừng, xào nghêu, đun nước dùng và cho rau cải vào cuối cùng.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Chef's Corner -->
+        <section class="my-12 p-8 border-2 border-double border-gold bg-gold/5 rounded-sm">
+            <h3 class="text-2xl font-bold mb-4 text-charcoal">3. Mẹo hay từ Vua Đầu Bếp</h3>
+            <ul class="space-y-3 text-justify">
+                <li>• <strong>Bí quyết nước dùng:</strong> Luôn lọc nước luộc nghêu sau khi để lắng. Nấu sôi bùng mới cho rau để giữ màu xanh lục bảo.</li>
+                <li>• <strong>Tránh sai lầm:</strong> Không nấu quá lâu làm rau nát; không lạm dụng muối vì nghêu đã có vị mặn tự nhiên.</li>
+                <li>• <strong>Xử lý gừng:</strong> Gừng thái chỉ cho vào sau cùng giữ trọn vẹn tinh dầu thơm nồng.</li>
+            </ul>
+        </section>
+
+        <!-- Variations -->
+        <section class="my-12">
+            <h3 class="text-3xl font-bold mb-6 text-cinnabar">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex gap-4 mb-6">
+                <button onclick="showTab('home')" class="px-4 py-2 bg-charcoal text-white rounded">Tại gia</button>
+                <button onclick="showTab('veg')" class="px-4 py-2 bg-gold text-white rounded">Chay thanh đạm</button>
+                <button onclick="showTab('pro')" class="px-4 py-2 bg-cinnabar text-white rounded">Phiên bản Chef</button>
+            </div>
+            <div id="home" class="tab-content active bg-white p-6 border border-gray-200">
+                <p>Cách truyền thống cơ bản với đầy đủ hương vị, phù hợp cho bữa cơm gia đình thường ngày.</p>
+            </div>
+            <div id="veg" class="tab-content bg-white p-6 border border-gray-200">
+                <p>Thay nghêu bằng nấm rơm và đậu hũ trắng để có vị thanh nhẹ, ngọt tự nhiên từ rau củ.</p>
+            </div>
+            <div id="pro" class="tab-content bg-white p-6 border border-gray-200">
+                <p>Thêm tôm tươi và sò điệp để tạo tầng hương vị hải sản phức hợp, dùng nước dùng hầm xương gà trong.</p>
+            </div>
+        </section>
+
+        <!-- Nutrition & Presentation -->
+        <section class="grid md:grid-cols-2 gap-8 my-12 pt-12 border-t border-charcoal/20">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">5. Giá trị dinh dưỡng</h3>
+                <p class="text-justify leading-relaxed">
+                    Nghêu cung cấp Protein dồi dào, kẽm, sắt và Vitamin B12. Kết hợp với cải xanh giàu xơ và chất chống oxy hóa, món ăn cung cấp khoảng 150-200 kcal/phần, cực kỳ nhẹ bụng và hỗ trợ hệ miễn dịch.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4">6. Gợi ý trình bày</h3>
+                <p class="text-justify leading-relaxed">
+                    Múc canh ra bát tô lớn, xếp thịt nghêu lên trên. Rắc gừng thái chỉ và tiêu đen xay mịn tạo điểm nhấn. Nước canh phải trong vắt nhìn thấy rõ độ tươi xanh của cải.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
