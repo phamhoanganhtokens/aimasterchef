@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh chưng Đông tinh ban | AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23D28',
+                        gold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #C5A059;
+            opacity: 0.5;
+        }
+        .ornament span {
+            padding: 0 15px;
+            color: #C5A059;
+            font-size: 1.2rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: #E23D28;
+            border-radius: 50%;
+        }
+        .timeline-line {
+            border-left: 1px solid #C5A059;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .active-tab {
+            border-bottom: 2px solid #E23D28;
+            color: #E23D28;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header -->
+    <header class="max-w-6xl mx-auto pt-16 px-6 text-center">
+        <div class="mb-4">
+            <span class="uppercase tracking-[0.3em] text-gold font-bold text-sm">AI Vua Đầu Bếp Présente</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2 text-charcoal italic">Thanh chưng Đông tinh ban</h1>
+        <h2 class="text-2xl md:text-3xl text-gold mb-10 italic">清蒸东星斑 — Steamed Leopard Coral Grouper</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-gold/30 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M20 20v-5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v5"/><path d="M4 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3H4v-3Z"/><path d="M12 4v4"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Độ khó</span>
+                <span class="font-bold">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Thời gian</span>
+                <span class="font-bold">30 phút</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Khẩu phần</span>
+                <span class="font-bold">2–4 người</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-cinnabar mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Nguồn gốc</span>
+                <span class="font-bold text-sm">Quảng Đông, Trung Hoa</span>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto mt-10 justified-text text-gray-700 italic px-4">
+            A cornerstone of Cantonese "Yue" cuisine, this dish embodies the philosophy of <span class="text-cinnabar">qing</span> (pure, light, and fresh). The Leopard Coral Grouper (Dongxing Ban) is prized for its vibrant red skin and delicate white flesh, making it a symbol of luck and luxury at celebratory banquets.
+        </div>
+    </header>
+
+    <div class="ornament max-w-6xl mx-auto px-6"><span>✧</span></div>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                    <span class="text-cinnabar">1.</span> Nguyên liệu
+                </h3>
+                
+                <div class="space-y-8">
+                    <div class="glass-card p-6 rounded-lg hover-lift">
+                        <h4 class="text-gold uppercase tracking-widest text-xs font-bold mb-4 border-b border-gold/20 pb-2">Thành phần chính</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> 1 Cá bống mú đỏ (Dongxing Ban)</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">600–800g</span>
+                            </li>
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> Gừng tươi</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">50g</span>
+                            </li>
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> Hành lá</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">60g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-lg hover-lift">
+                        <h4 class="text-gold uppercase tracking-widest text-xs font-bold mb-4 border-b border-gold/20 pb-2">Gia vị & Khác</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> Nước tương hấp cá chuyên dụng</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">4 tbsp</span>
+                            </li>
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> Dầu lạc (hoặc dầu thực vật)</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">3 tbsp</span>
+                            </li>
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> Ngò rí (chỉ lấy lá)</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">10g</span>
+                            </li>
+                            <li class="flex justify-between items-start gap-4">
+                                <span class="flex items-center gap-2"><span class="text-cinnabar text-xs">◆</span> Ớt sừng đỏ</span>
+                                <span class="text-sm font-bold text-gray-500 whitespace-nowrap">1 trái</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-6 border-l-2 border-gold italic text-sm text-gray-600 bg-gold/5">
+                        <p class="justified-text">Tip: Nếu không có nước tương hấp cá, bạn có thể pha 3 tbsp nước tương nhạt, 1 tsp đường và 1 tbsp nước nóng.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Preparation Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                    <span class="text-cinnabar">2.</span> Các bước thực hiện
+                </h3>
+
+                <div class="timeline-line ml-6 space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative pl-10 timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Sơ chế & Chuẩn bị</h4>
+                            <span class="text-xs font-serif italic text-gold">Prep: 10 mins</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Rửa sạch cá, đặc biệt là phần máu ở xương sống để khử mùi tanh. Thấm khô hoàn toàn bằng khăn giấy. Khía hai đường chéo nông trên phần lưng dày nhất của cá để nhiệt tỏa đều, giúp cá chín tới mà không bị nát.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-10 timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Kỹ thuật "Lót nền"</h4>
+                            <span class="text-xs font-serif italic text-gold">Setup</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Xếp đầu hành trắng (đã đập dập) và gừng thái lát lên đĩa chịu nhiệt. Đặt cá lên trên lớp hương liệu này. Điều này tạo ra một "giá đỡ" giúp hơi nước lưu thông dưới bụng cá, ngăn da cá bị dính vào đĩa và chín đều hơn.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-10 timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Hấp nhiệt cao</h4>
+                            <span class="text-xs font-serif italic text-gold">Cook: 8-10 mins</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Đun nước trong xửng thật sôi. Đậy nắp thật kín và hấp cá ở mức nhiệt tối đa. Với cá 600g, hấp trong 7–8 phút; cá 800g cần 9–10 phút. Nhiệt độ cao ổn định là chìa khóa để giữ thịt cá mọng nước.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-10 timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Bí mật truyền thống: "Thoát dịch"</h4>
+                            <span class="text-xs font-serif italic text-gold">Critical Step</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Sau khi cá chín, cẩn thận lấy đĩa ra. Chắt bỏ toàn bộ phần nước đọng lại trên đĩa. Nước này chứa protein bị đông tụ và mùi tanh, nếu giữ lại sẽ làm hỏng hương vị thanh khiết (qing) đặc trưng. Loại bỏ lớp gừng và hành cũ.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 & 6 -->
+                    <div class="relative pl-10 timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Kỹ thuật Dội dầu (Flash Oil)</h4>
+                            <span class="text-xs font-serif italic text-gold">Pro Technique</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Rải gừng, hành lá và ớt sừng (đã thái chỉ sợi mỏng) dọc theo sống lưng cá. Đun nóng dầu lạc trong chảo nhỏ đến khi bắt đầu bốc khói nhẹ. Dội trực tiếp dầu nóng lên lớp hành gừng. Tiếng "xèo xèo" đặc trưng sẽ đánh thức tinh dầu từ hương liệu, thấm sâu vào da cá.
+                        </p>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="relative pl-10 timeline-step">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-charcoal">Hoàn thiện</h4>
+                            <span class="text-xs font-serif italic text-gold">Finalize</span>
+                        </div>
+                        <p class="justified-text text-gray-700">
+                            Rưới nước tương hấp cá xung quanh phần đế (tránh rưới trực tiếp lên da để giữ kết cấu). Trang trí thêm ngò rí và thưởng thức ngay khi còn nóng hổi.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="ornament max-w-6xl mx-auto px-6"><span>✧</span></div>
+
+        <!-- Special Insight Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Chef's Corner -->
+            <div class="border-2 border-double border-gold p-8 bg-gold/5 rounded-xl">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2 text-charcoal">
+                    <span class="text-gold text-3xl">“</span> 3. Mẹo hay từ Vua Đầu Bếp
+                </h3>
+                <ul class="space-y-4 text-gray-700 italic">
+                    <li class="justified-text">
+                        <strong class="text-charcoal not-italic underline decoration-gold/40">Kiểm tra độ chín:</strong> Xiên một que tre nhỏ vào phần dày nhất của thịt cá. Nếu que đi xuyên qua dễ dàng và chạm vào xương mà không có sức cản, cá đã chín hoàn hảo.
+                    </li>
+                    <li class="justified-text">
+                        <strong class="text-charcoal not-italic underline decoration-gold/40">Kiểm soát nhiệt độ:</strong> Tuyệt đối không cho cá vào khi nước chưa sôi sùng sục. Hơi nước áp suất cao liên tục là cần thiết để "khóa" protein và giữ thịt cá mịn như lụa.
+                    </li>
+                    <li class="justified-text">
+                        <strong class="text-charcoal not-italic underline decoration-gold/40">Mẹo tại gia:</strong> Nếu xửng hấp không đủ lớn, hãy dùng một khay nướng đặt trên hai bếp. Kê đĩa cá lên ba cái chén sứ úp ngược hoặc vòng giấy bạc cuộn tròn.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Variations & Pro Versions -->
+            <div class="glass-card rounded-xl overflow-hidden flex flex-col">
+                <div class="flex border-b border-gold/20">
+                    <button onclick="switchTab('teochew')" id="tab-teochew" class="flex-1 py-4 text-sm font-bold uppercase tracking-widest active-tab transition-all">Teochew Style</button>
+                    <button onclick="switchTab('swap')" id="tab-swap" class="flex-1 py-4 text-sm font-bold uppercase tracking-widest text-gray-400 transition-all">Sự thay thế</button>
+                </div>
+                <div class="p-8 flex-grow">
+                    <div id="content-teochew" class="tab-content active">
+                        <h4 class="text-xl font-bold mb-4">Biến tấu kiểu Triều Châu</h4>
+                        <p class="justified-text text-gray-700">
+                            Để tạo hương vị chua thanh, bạn có thể thêm mận muối (xí muội), cà chua và cải muối thái sợi (Xue Cai) vào đĩa hấp cùng với cá. Cách này mang lại chiều sâu hương vị đặc trưng của vùng biển Triều Châu.
+                        </p>
+                    </div>
+                    <div id="content-swap" class="tab-content">
+                        <h4 class="text-xl font-bold mb-4">Linh hoạt nguyên liệu</h4>
+                        <p class="justified-text text-gray-700">
+                            Nếu không tìm được Cá bống mú đỏ (Leopard Coral Grouper), bạn hoàn toàn có thể thay thế bằng Cá bống mú trân châu hoặc Cá chẽm (Sea Bass). Tuy nhiên, hãy lưu ý điều chỉnh thời gian hấp tùy thuộc vào độ dày của mình cá.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-charcoal text-white p-4 text-center text-xs uppercase tracking-[0.2em]">
+                    4. Biến tấu & Phiên bản nâng cao
+                </div>
+            </div>
+        </div>
+
+        <div class="ornament max-w-6xl mx-auto px-6"><span>✧</span></div>
+
+        <!-- Nutrition & Presentation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gold/10">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-cinnabar border-b-2 border-cinnabar/10 pb-2">5. Giá trị dinh dưỡng</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-parchment rounded-lg border-l-4 border-gold">
+                        <span class="block text-xs uppercase text-gray-500 mb-1">Protein</span>
+                        <span class="text-xl font-bold">~18g <span class="text-sm font-normal text-gray-400">/100g</span></span>
+                    </div>
+                    <div class="p-4 bg-parchment rounded-lg border-l-4 border-gold">
+                        <span class="block text-xs uppercase text-gray-500 mb-1">Omega-3</span>
+                        <span class="text-xl font-bold">Giàu EPA/DHA</span>
+                    </div>
+                    <div class="p-4 bg-parchment rounded-lg border-l-4 border-gold">
+                        <span class="block text-xs uppercase text-gray-500 mb-1">Calorie</span>
+                        <span class="text-xl font-bold italic">Thấp</span>
+                    </div>
+                    <div class="p-4 bg-parchment rounded-lg border-l-4 border-gold">
+                        <span class="block text-xs uppercase text-gray-500 mb-1">Vi chất</span>
+                        <span class="text-xl font-bold italic">B12, Se, K</span>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 italic justified-text">Phương pháp hấp giúp bảo toàn tối đa dưỡng chất mà không cần thêm chất béo dư thừa.</p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-cinnabar border-b-2 border-cinnabar/10 pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-gray-700 text-sm">
+                    <li class="flex gap-3">
+                        <span class="text-gold">●</span>
+                        <p class="justified-text"><strong class="text-charcoal">Tương phản thị giác:</strong> Mục tiêu là làm nổi bật sắc đỏ tự nhiên của cá Đông Tinh. Đảm bảo hành gừng thái chỉ phải mỏng như sợi chỉ để không che lấp dáng cá.</p>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-gold">●</span>
+                        <p class="justified-text"><strong class="text-charcoal">Dụng cụ:</strong> Sử dụng đĩa sứ trắng dài hình oval. Nếu có thể, hãy đặt cá ở tư thế "đứng" hoặc hơi cong nhẹ để mô phỏng sự chuyển động sống động.</p>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-gold">●</span>
+                        <p class="justified-text"><strong class="text-charcoal">Phục vụ:</strong> Thưởng thức ngay lập tức. Sự đối lập giữa rau củ thái chỉ giòn lạnh và thịt cá nóng hổi vừa dội dầu là dấu ấn của đẳng cấp đầu bếp Quảng Đông.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('button[id^="tab-"]').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-gray-400');
+            });
+
+            // Show selected
+            document.getElementById('content-' + tabId).classList.add('active');
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('text-gray-400');
+        }
+    </script>
+</body>
+</html>
