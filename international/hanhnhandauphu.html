@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hạnh Nhân Đậu Phụ - AI Vua Đầu Bếp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        parchment: '#FCFAFA',
+                        cinnabar: '#E23E28',
+                        gold: '#D4AF37',
+                        goldMuted: '#B8860B',
+                    },
+                    fontFamily: {
+                        serif: ["'Times New Roman'", 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            font-family: 'Times New Roman', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(252, 250, 250, 0) 0%, rgba(252, 250, 250, 1) 100%);
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #D4AF37;
+        }
+        .section-divider:not(:empty)::before { margin-right: 1.5rem; }
+        .section-divider:not(:empty)::after { margin-left: 1.5rem; }
+
+        .step-number {
+            font-style: italic;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+        .pro-tip-box {
+            border: 4px double #D4AF37;
+            padding: 2rem;
+            background-color: #fffdf9;
+            position: relative;
+        }
+        .ingredient-item:hover {
+            background-color: #fcf4e8;
+            padding-left: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .active-tab-btn {
+            border-bottom: 2px solid #E23E28;
+            color: #E23E28;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+
+    <!-- Hero Header -->
+    <header class="max-w-5xl mx-auto mb-16 text-center">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">AI Vua Đầu Bếp — Tinh Hoa Ẩm Thực</div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-2">HẠNH NHÂN ĐẬU PHỤ</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8 font-normal">杏仁豆腐 — Almond Tofu</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center items-center gap-6 border-y border-gold/30 py-6 px-4">
+            <div class="flex flex-col items-center px-4 border-r border-gold/20 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Độ khó</span>
+                <span class="font-bold text-lg">Trung bình</span>
+            </div>
+            <div class="flex flex-col items-center px-4 border-r border-gold/20 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Thời gian</span>
+                <span class="font-bold text-lg">40p (+4-6h lạnh)</span>
+            </div>
+            <div class="flex flex-col items-center px-4 border-r border-gold/20 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Khẩu phần</span>
+                <span class="font-bold text-lg">4–6 người</span>
+            </div>
+            <div class="flex flex-col items-center px-4 last:border-0">
+                <span class="text-cinnabar text-xs uppercase tracking-widest mb-1">Nguồn gốc</span>
+                <span class="font-bold text-lg text-center md:text-left">Cung đình Thanh triều</span>
+            </div>
+        </div>
+
+        <p class="mt-8 italic text-lg max-w-3xl mx-auto justify-text px-4">
+            Một món tráng miệng cổ điển từ cung đình nhà Thanh, ban đầu được coi là một loại thuốc bổ "giải nhiệt" quý giá, giúp làm sạch vòm miệng sau những bữa yến tiệc cầu kỳ.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Left Column: Ingredients -->
+            <section class="lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold uppercase text-cinnabar text-sm tracking-wider mb-4">Cơ bản (Phương pháp truyền thống)</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Hạnh nhân Nam (Ngọt)</span>
+                                <span class="font-bold">100g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Hạnh nhân Bắc (Đắng)</span>
+                                <span class="font-bold">15g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Nước lọc</span>
+                                <span class="font-bold">800ml</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Bột Agar-agar</span>
+                                <span class="font-bold">4g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Đường phèn</span>
+                                <span class="font-bold">60g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold uppercase text-cinnabar text-sm tracking-wider mb-4">Siro Hoa Mộc (Osmanthus)</h4>
+                        <ul class="space-y-3">
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Nước</span>
+                                <span class="font-bold">200ml</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Đường phèn</span>
+                                <span class="font-bold">40g</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Hoa mộc khô</span>
+                                <span class="font-bold">1 tbsp</span>
+                            </li>
+                            <li class="ingredient-item flex justify-between pb-2 border-b border-gray-100">
+                                <span>Kỷ tử (đã ngâm)</span>
+                                <span class="font-bold">1 tbsp</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chef's Corner Integrated -->
+                <div class="mt-12 pro-tip-box shadow-sm">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="mr-2">✦</span> 3. Mẹo hay từ Vua Đầu Bếp
+                    </h3>
+                    <div class="space-y-4 text-sm italic justify-text leading-relaxed">
+                        <p><strong>Cấu trúc hoàn hảo:</strong> Để đạt được độ mịn chuẩn "Michelin", hãy kết hợp 70% agar-agar cho độ giòn thanh thoát và 30% gelatin để tạo cảm giác tan chảy ngay đầu lưỡi.</p>
+                        <p><strong>Kiểm soát nhiệt:</strong> Luôn duy trì nhiệt độ ở 85°C. Điều này giúp agar-agar tan hoàn toàn mà không làm bay mất tinh dầu thơm tinh tế của hạt hạnh nhân.</p>
+                        <p><strong>Sự cân bằng đắng:</strong> Đừng bao giờ bỏ qua hạnh nhân Bắc. Chúng mang lại chiều sâu y học và hương thơm đặc trưng mà hạnh nhân ngọt không bao giờ có được.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Steps -->
+            <section class="lg:col-span-8">
+                <h3 class="text-3xl font-bold mb-8 border-b-2 border-cinnabar pb-2 inline-block">2. Các bước thực hiện</h3>
+                
+                <div class="space-y-10">
+                    <div class="flex gap-6 group">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-xl text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Chuẩn bị hạnh nhân</h4>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Ngâm hạnh nhân Nam và Bắc qua đêm. Bóc sạch lớp vỏ lụa bằng tay. Xay nhuyễn hạnh nhân với 800ml nước bằng máy xay công suất cao hoặc cối đá. Lọc hỗn hợp qua túi vải mịn hoặc khăn lụa để thu được dòng sữa hạnh nhân không còn gợn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-xl text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Xử lý chất kết dính</h4>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Nếu sử dụng gelatin, hãy ngâm nở trong 3 muỗng canh nước lạnh khoảng 5 phút. Nếu dùng agar-agar, hãy trộn trực tiếp vào sữa hạnh nhân nguội trước khi đun.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-xl text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Đun và khuấy</h4>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Cho hỗn hợp vào nồi trên lửa vừa, thêm đường phèn. Đun đến đúng <span class="font-bold italic text-cinnabar">85°C (185°F)</span>, khuấy liên tục. Không để sôi bùng để tránh làm khét protein. Sau khi đạt nhiệt độ, cho gelatin đã ngâm nở vào khuấy tan hoàn toàn.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-xl text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">4</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Đổ khuôn & Làm lạnh</h4>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Lọc hỗn hợp qua rây mịn vào khuôn hình chữ nhật phẳng. Hớt bỏ bọt khí trên bề mặt để có lớp thành phẩm mịn mượt. Để nguội ở nhiệt độ phòng, sau đó cho vào ngăn mát tủ lạnh ít nhất 4 giờ cho đến khi đông đặc.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-xl text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">5</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Nấu Siro Hoa Mộc</h4>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Đun sôi nước và đường phèn cho đến khi tan hết. Thêm hoa mộc khô và kỷ tử. Tắt bếp và để siro trong tủ lạnh cho đến khi gần đóng băng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-xl text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">6</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Cắt và Thưởng thức</h4>
+                            <p class="justify-text text-gray-700 leading-relaxed">
+                                Sau khi đậu phụ đã đông, dùng dao sắc cắt thành các đường song song, sau đó cắt chéo để tạo hình "kim cương" (diamond cuts). Nhẹ nhàng lấy các khối ra bát ướp lạnh, rưới siro lạnh lên trên.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <svg class="w-8 h-8 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L14.85 8.65L22 9.24L16.5 13.97L18.18 21L12 17.27L5.82 21L7.5 13.97L2 9.24L9.15 8.65L12 2Z" />
+            </svg>
+        </div>
+
+        <!-- Variations Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-8 text-center">4. Biến tấu & Phiên bản nâng cao</h3>
+            <div class="flex justify-center mb-8 space-x-4 border-b border-gray-200">
+                <button onclick="showTab('vegan')" class="tab-btn pb-2 px-4 font-bold active-tab-btn" id="btn-vegan">Thuần chay</button>
+                <button onclick="showTab('home')" class="tab-btn pb-2 px-4 font-bold text-gray-400 hover:text-charcoal" id="btn-home">Nhanh (5 phút)</button>
+                <button onclick="showTab('diet')" class="tab-btn pb-2 px-4 font-bold text-gray-400 hover:text-charcoal" id="btn-diet">Ăn kiêng</button>
+            </div>
+            
+            <div id="vegan" class="tab-content active bg-white p-8 rounded shadow-sm border-t-4 border-cinnabar">
+                <h4 class="text-xl font-bold mb-4">Lựa chọn Thuần chay (Vegan)</h4>
+                <p class="justify-text italic">
+                    Sử dụng hoàn toàn agar-agar hoặc carrageenan thay cho gelatin. Sử dụng sữa hạt nguyên chất để duy trì đặc tính "giải nhiệt" truyền thống mà không dùng sản phẩm từ động vật.
+                </p>
+            </div>
+            
+            <div id="home" class="tab-content bg-white p-8 rounded shadow-sm border-t-4 border-cinnabar">
+                <h4 class="text-xl font-bold mb-4">Phiên bản tại nhà (5 phút)</h4>
+                <p class="justify-text italic">
+                    Sử dụng sữa hạnh nhân mua sẵn và gelatin. Đối với phần siro, đơn giản là sử dụng nước từ lon vải ướp lạnh để có được vị ngọt thanh hoa cỏ tức thì.
+                </p>
+            </div>
+
+            <div id="diet" class="tab-content bg-white p-8 rounded shadow-sm border-t-4 border-cinnabar">
+                <h4 class="text-xl font-bold mb-4">Thân thiện cho người tiểu đường</h4>
+                <p class="justify-text italic">
+                    Thay thế đường phèn bằng cỏ ngọt (stevia) hoặc đường La Hán Quả (monk fruit) trong cả phần đậu phụ và siro để giảm tối đa chỉ số glycemic.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical/Footer Info -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-charcoal text-parchment p-8 md:p-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-gold border-b border-gold/30 pb-2">5. Giá trị dinh dưỡng</h3>
+                <ul class="space-y-4">
+                    <li class="flex justify-between items-start gap-4">
+                        <span class="font-bold text-gold">Sức khỏe:</span>
+                        <span class="justify-text text-sm">Giàu chất béo không bão hòa đơn và Vitamin E, hỗ trợ tim mạch và độ đàn hồi của da. Theo Đông y, đây là thực phẩm giúp nhuận phế, trị ho khan và nhiệt nội.</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="font-bold text-gold">Năng lượng:</span>
+                        <span>120–150 kcal / khẩu phần</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-gold border-b border-gold/30 pb-2">6. Gợi ý trình bày</h3>
+                <ul class="space-y-4 text-sm italic">
+                    <li class="justify-text"><span class="text-gold font-bold mr-1">Cắt Kim Cương:</span> Sự chính xác là chìa khóa. Các khối hình thoi đồng nhất tạo cảm giác chuyển động và hình khối chuyên nghiệp cho món ăn.</li>
+                    <li class="justify-text"><span class="text-gold font-bold mr-1">Tương phản:</span> Sử dụng bát gốm tối màu hoặc ly pha lê trong suốt để làm nổi bật sắc trắng sứ của đậu phụ.</li>
+                    <li class="justify-text"><span class="text-gold font-bold mr-1">Trang trí:</span> Rưới siro ngập nửa khối đậu. Đặt 3 quả kỷ tử ở trung tâm và rắc hoa mộc vàng rải rác. Thêm một nhánh bạc hà nhỏ để tạo điểm nhấn xanh tươi.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active style from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab-btn');
+                btn.classList.add('text-gray-400');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Style active button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('active-tab-btn');
+            activeBtn.classList.remove('text-gray-400');
+        }
+    </script>
+</body>
+</html>
