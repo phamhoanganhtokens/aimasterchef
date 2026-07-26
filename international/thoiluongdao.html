@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vua Đầu Bếp - Thời Lưỡng Đạo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#2C2C2C',
+                        'parchment': '#FCFAFA',
+                        'cinnabar': '#E23D28',
+                        'gold': '#B8860B',
+                        'gold-light': '#D4AF37',
+                    },
+                    fontFamily: {
+                        'serif': ["'Times New Roman'", 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #FCFAFA;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #B8860B;
+        }
+        .section-divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+        .section-divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+        .ornament {
+            color: #B8860B;
+            font-size: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #B8860B;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .step-number {
+            font-style: italic;
+            color: #E23D28;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .meta-icon {
+            color: #B8860B;
+            font-size: 1.2rem;
+        }
+        /* Custom Checkboxes for Ingredients */
+        .ingredient-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+        }
+        .ingredient-bullet {
+            color: #E23D28;
+            margin-right: 0.75rem;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        .pro-tip-box {
+            border: 4px double #B8860B;
+            background-color: rgba(184, 134, 11, 0.03);
+            padding: 2rem;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-16 max-w-6xl mx-auto">
+
+    <!-- Hero Header -->
+    <header class="text-center mb-16">
+        <div class="mb-4 text-cinnabar font-bold tracking-widest uppercase text-sm">AI Vua Đầu Bếp • Premium Selection</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">Thời lưỡng đạo (时蔬两道)</h1>
+        <h2 class="text-2xl md:text-3xl italic text-gray-600 mb-8">Hai món rau củ theo mùa xào (Garlic Water Spinach & Silk Luffa)</h2>
+        
+        <!-- Recipe Meta-Bar -->
+        <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-12 py-6 border-y border-gold text-sm uppercase tracking-wider">
+            <div class="flex items-center justify-center space-x-2">
+                <span class="meta-icon">◈</span>
+                <span class="font-bold text-gray-500">Độ khó:</span>
+                <span>Trung bình</span>
+            </div>
+            <div class="flex items-center justify-center space-x-2">
+                <span class="meta-icon">⏱</span>
+                <span class="font-bold text-gray-500">Thời gian:</span>
+                <span>25 Phút</span>
+            </div>
+            <div class="flex items-center justify-center space-x-2">
+                <span class="meta-icon">⚖</span>
+                <span class="font-bold text-gray-500">Khẩu phần:</span>
+                <span>4 Người</span>
+            </div>
+            <div class="flex items-center justify-center space-x-2">
+                <span class="meta-icon">⛩</span>
+                <span class="font-bold text-gray-500">Nguồn gốc:</span>
+                <span>Á Đông</span>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl mx-auto text-lg justified italic text-gray-700 leading-relaxed">
+            Sự kết hợp này bắt nguồn từ triết lý ẩm thực 'Thị Linh' (时令) của Đông Á và Việt Nam — ăn uống hài hòa với các mùa. Cuối tháng 5 đánh dấu sự chuyển mình từ xuân sang hạ. Để cân bằng âm dương của cơ thể trong giai đoạn nóng dần này, truyền thống quy định việc tiêu thụ các loại rau củ rực rỡ, mọng nước và "giải nhiệt". Món ăn này tôn vinh hai loại rau đặc trưng của cuối xuân/đầu hạ ở độ tươi ngon nhất: Rau Muống và Mướp Hương.
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Ingredients -->
+        <aside class="lg:col-span-4 space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b-2 border-cinnabar pb-2 inline-block">1. Nguyên liệu</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gold mb-3 italic underline decoration-1 underline-offset-4">Món 1: Rau muống xào tỏi</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> 500g Rau muống tươi</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> 5 Tép tỏi (đập dập, để nguyên tép)</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> 1 Muỗng canh mỡ lợn (hoặc dầu thực vật)</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> 1 Muỗng cà phê nước mắm thượng hạng</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> Muối, đường, nước sôi</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gold mb-3 italic underline decoration-1 underline-offset-4">Món 2: Mướp hương xào tôm khô</h4>
+                        <ul class="space-y-2">
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> 2 Quả mướp hương vừa</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> 15g Tôm khô (ngâm nước ấm)</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> Dầu ăn, dầu mè rang</li>
+                            <li class="ingredient-item"><span class="ingredient-bullet">✦</span> Muối, tiêu trắng, hành lá</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Column: Steps -->
+        <main class="lg:col-span-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-6 border-b-2 border-cinnabar pb-2 inline-block">2. Các bước thực hiện</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-gold text-xl">01</div>
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-lg mb-2">Chuẩn bị & Kỹ năng dao kéo <span class="text-gray-400 font-normal italic ml-2 text-sm">(15 Phút)</span></h4>
+                            <p class="justified text-gray-700">Rửa sạch rau muống, tách riêng phần thân giòn và phần lá non. Gọt vỏ mướp đủ sâu để loại bỏ các đường gân cứng, sau đó cắt theo phương pháp 'roll-cut' (cắt vát) — cắt một góc, xoay rau một phần tư vòng và cắt tiếp. Điều này giúp tối đa hóa diện tích bề mặt để chín đều và tạo ra kết cấu chuyên nghiệp.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-gold text-xl">02</div>
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-lg mb-2">Chiến lược chần rau <span class="text-gray-400 font-normal italic ml-2 text-sm">(5 Phút)</span></h4>
+                            <p class="justified text-gray-700">Đun sôi nồi nước lớn với một chút muối và vài giọt dầu ăn. Chần nhanh phần thân rau muống trong 15 giây, sau đó là phần lá trong 5 giây. Chuyển ngay sang bát nước đá, sau đó để ráo. Kỹ thuật này giữ lại chất diệp lục rực rỡ và các vitamin tan trong nước.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-gold text-xl">03</div>
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-lg mb-2">Wok Hei - Rau muống xào tỏi <span class="text-gray-400 font-normal italic ml-2 text-sm">(2 Phút)</span></h4>
+                            <p class="justified text-gray-700">Làm nóng chảo đến khi bốc khói nhẹ. Cho mỡ lợn vào, phi thơm tỏi đập dập đến khi vàng cạnh. Cho rau muống đã ráo nước vào. Đảo mạnh tay trên lửa cực lớn chỉ trong 30 đến 45 giây. Nêm muối, đường, nước mắm và một chút nước sôi để tạo hơi nước mạnh tức thì. Trình bày ngay lập tức.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-none w-12 h-12 rounded-full border border-gold flex items-center justify-center font-bold text-gold text-xl">04</div>
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-lg mb-2">Áp chảo & Om nhẹ - Mướp hương <span class="text-gray-400 font-normal italic ml-2 text-sm">(3 Phút)</span></h4>
+                            <p class="justified text-gray-700">Lau sạch chảo, đun nóng vừa. Cho dầu vào xào tôm khô đã ráo nước đến khi thơm. Cho mướp vào áp chảo trong 1 phút. Thêm 2 muỗng canh nước ngâm tôm khô, đậy nắp và om trong 2 phút đến khi mướp chuyển màu xanh ngọc và hơi trong nhưng vẫn giữ được độ giòn. Nêm muối, tiêu trắng, rưới dầu mè và hành lá.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="section-divider">
+        <span class="ornament">✦ ⚖ ✦</span>
+    </div>
+
+    <!-- Chef's Corner -->
+    <section class="mb-16">
+        <div class="pro-tip-box rounded-sm shadow-sm">
+            <div class="absolute -top-4 left-6 bg-parchment px-4 text-gold font-bold uppercase tracking-widest text-sm">3. Mẹo hay từ Vua Đầu Bếp</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+                <div>
+                    <h5 class="font-bold italic text-cinnabar mb-2">Mise en Place</h5>
+                    <p class="text-sm justified">Hãy chuẩn bị sẵn tất cả các loại sốt, gia vị thơm và rau củ trong tầm tay trước khi bật bếp. Việc xào diễn ra trong vài giây; việc tìm kiếm một thành phần sẽ làm hỏng món ăn.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold italic text-cinnabar mb-2">Kiểm soát nhiệt độ</h5>
+                    <p class="text-sm justified">Luyện tập kỹ thuật "chảo nóng, dầu lạnh" để chống dính. Đun nóng thép khô đến khi xuất hiện khói trắng, thêm dầu, láng đều và cho ngay gia vị thơm vào.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold italic text-cinnabar mb-2">Quản lý độ ẩm</h5>
+                    <p class="text-sm justified">Đối với bếp gia đình có công suất nhiệt thấp, hãy đảm bảo rau muống chần phải thật khô trước khi xào để tránh rau bị luộc trong chính nước của nó, dẫn đến xỉn màu và nhũn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variations Section -->
+    <section class="mb-16">
+        <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-widest">4. Biến tấu & Phiên bản nâng cao</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 rounded-lg">
+                <h4 class="text-gold font-bold mb-4 flex items-center">
+                    <span class="mr-2">🔄</span> Thay thế nguyên liệu
+                </h4>
+                <p class="justified text-sm italic text-gray-700 leading-relaxed">
+                    Nếu không có rau muống, cải cầu vồng hoặc rau bina già sẽ hoạt động tốt với cùng một phương pháp tỏi. Bí ngòi hoặc quả su su có thể thay thế hoàn hảo cho mướp hương.
+                </p>
+            </div>
+            <div class="glass-card p-6 rounded-lg border-cinnabar/20">
+                <h4 class="text-cinnabar font-bold mb-4 flex items-center">
+                    <span class="mr-2">🌿</span> Phiên bản thuần chay
+                </h4>
+                <p class="justified text-sm italic text-gray-700 leading-relaxed">
+                    Thay thế tôm khô trong món mướp bằng nấm hương khô đã ngâm nở. Thay nước mắm trong rau muống bằng nước xốt nấm hoặc nước tương nhạt chất lượng cao.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Technical Info -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gold/30">
+        <section>
+            <h3 class="text-xl font-bold mb-4 italic text-gold">5. Giá trị dinh dưỡng</h3>
+            <div class="space-y-4">
+                <p class="justified text-gray-700">
+                    <span class="font-bold text-cinnabar">Calo:</span> Khoảng 110 kcal mỗi khẩu phần.
+                </p>
+                <p class="justified text-gray-700">
+                    Bộ đôi này là một "nhà máy" dinh dưỡng được thiết kế để hấp thụ nhanh. Rau muống cung cấp Sắt, Vitamin A và Vitamin C sinh khả dụng cao. Mướp hương cực kỳ giàu chất xơ và hàm lượng nước, hỗ trợ tiêu hóa và hydrat hóa tế bào. Việc nấu với lượng chất béo tối thiểu, chất lượng cao giúp cơ thể hấp thụ tốt các vitamin tan trong dầu mà không gây dư thừa calo.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-xl font-bold mb-4 italic text-gold">6. Gợi ý trình bày</h3>
+            <div class="space-y-4 justified text-gray-700">
+                <p><span class="font-bold italic">Hình học đĩa ăn:</span> Phục vụ hai món trong các loại bát đĩa khác nhau. Đặt rau muống xanh mướt trong bát gốm đen mờ để làm nổi bật màu sắc, đảm bảo các tép tỏi vàng nằm phía trên.</p>
+                <p><span class="font-bold italic">Kết cấu thị giác:</span> Xếp mướp xanh ngọc thanh tao vào chính giữa đĩa trắng vành rộng. Đảm bảo tôm khô hồng nhạt (hoặc nấm) được phân bổ đều bên trên để tạo sự lôi cuốn.</p>
+                <p><span class="font-bold italic">Hoàn thiện:</span> Trước khi phục vụ, xịt một lớp mỏng dầu hoàn thiện hoặc nước sốt còn lại trong chảo để tạo độ bóng cao cấp cho rau củ dưới ánh đèn.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Final Decorative Element -->
+    <div class="text-center mt-20 opacity-30">
+        <div class="inline-block border-t border-b border-primary py-1 px-4 text-xs tracking-tighter">
+            AI VUA ĐẦU BẾP • CULINARY EXCELLENCE
+        </div>
+    </div>
+
+</body>
+</html>
